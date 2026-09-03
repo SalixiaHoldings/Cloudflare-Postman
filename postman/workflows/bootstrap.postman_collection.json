@@ -1,0 +1,310 @@
+{
+  "auth": {
+    "bearer": [
+      {
+        "key": "token",
+        "type": "string",
+        "value": "{{api_token}}"
+      }
+    ],
+    "type": "bearer"
+  },
+  "info": {
+    "_postman_id": "5ae45603-67b8-5c38-9d87-39a94f9ccf58",
+    "description": "GENERATED FILE — DO NOT EDIT.\n\nPublic-safe read-only bootstrap workflow generated from Cloudflare api-schemas ff63b6a722de89a1c19074b1f9749d98ef6633bd (7303d70da7b0e72bd4c64dba8195e38051c69f401ce6504b394d924d73c52ad5).",
+    "name": "Cloudflare API — Generic Account & Zone Bootstrap",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "pm.variables.unset('_cf_bootstrap_account_state');",
+              "pm.variables.unset('_cf_bootstrap_zone_state');",
+              "pm.variables.set('_cf_bootstrap_account_page', 1);",
+              "pm.variables.set('_cf_bootstrap_zone_page', 1);"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "try {",
+              "  const tokenEnvelope = pm.response.json();",
+              "  if (pm.response.code !== 200 || tokenEnvelope.success !== true || tokenEnvelope.result?.status !== 'active') throw new Error('Token verification failed.');",
+              "  pm.execution.setNextRequest('2. List and resolve account');",
+              "} catch (error) {",
+              "  pm.execution.setNextRequest(null);",
+              "  throw error;",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "3c9d5046-611f-5207-81f4-5858f835ed00",
+      "name": "1. Verify API token",
+      "request": {
+        "auth": {
+          "bearer": [
+            {
+              "key": "token",
+              "type": "string",
+              "value": "{{api_token}}"
+            }
+          ],
+          "type": "bearer"
+        },
+        "description": "\n\nAuthentication support: bearer-only\nAuth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
+        "header": [],
+        "method": "GET",
+        "url": {
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "user",
+            "tokens",
+            "verify"
+          ],
+          "raw": "{{base_url}}/user/tokens/verify"
+        }
+      },
+      "response": []
+    },
+    {
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "function initialPageState(selectors) {\n  return { page: 1, totalPages: null, totalCount: null, items: [], selectors };\n}",
+              "if (!pm.variables.get('_cf_bootstrap_account_state')) {",
+              "  const state = initialPageState({ id: pm.variables.get('account_id'), name: pm.variables.get('account_name') });",
+              "  pm.variables.set('_cf_bootstrap_account_state', JSON.stringify(state));",
+              "  pm.variables.set('_cf_bootstrap_account_page', 1);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "function acceptResourcePage(state, envelope) {\n  if (envelope?.success !== true || !Array.isArray(envelope.result)) throw new Error('Invalid listing response envelope.');\n  const info = envelope.result_info;\n  if (!info || !Number.isInteger(info.page) || info.page !== state.page ||\n      !Number.isInteger(info.total_pages) || info.total_pages < 0 || info.total_pages > 1000 ||\n      (info.total_pages < state.page && !(state.page === 1 && info.total_pages === 0 && envelope.result.length === 0)) ||\n      info.per_page !== 50 || envelope.result.length > 50 ||\n      (info.count !== undefined && info.count !== envelope.result.length)) {\n    throw new Error('Invalid pagination metadata or exceeded 1000-page bound.');\n  }\n  const totalCount = info.total_count ?? null;\n  if (totalCount !== null && (!Number.isInteger(totalCount) || totalCount < 0)) throw new Error('Invalid pagination total count.');\n  if (state.totalPages !== null && (state.totalPages !== info.total_pages || state.totalCount !== totalCount)) {\n    throw new Error('Pagination totals changed during listing; retry the bootstrap.');\n  }\n  state.totalPages = info.total_pages;\n  state.totalCount = totalCount;\n  const seen = new Set(state.items.map((item) => item.id));\n  for (const item of envelope.result) {\n    if (!item || typeof item.id !== 'string' || !item.id || seen.has(item.id)) throw new Error('Invalid or repeated resource ID across pages.');\n    seen.add(item.id);\n    state.items.push({ id: item.id, name: item.name });\n  }\n  const done = state.page >= state.totalPages;\n  if (!done && envelope.result.length === 0) throw new Error('Empty intermediate resource page.');\n  if (done && state.totalCount !== null && state.totalCount !== state.items.length) throw new Error('Incomplete paginated result set.');\n  if (!done) state.page += 1;\n  return done;\n}",
+              "function resolveUniqueResource(items, { id, name, label }) {\n  let matches = items;\n  if (id) matches = matches.filter((item) => item.id === id);\n  if (!id && name) matches = matches.filter((item) => item.name === name);\n  if (matches.length === 0) {\n    throw new Error(`${label} resolution returned no matches. Set a valid ${label.toLowerCase()} ID or name.`);\n  }\n  if (matches.length > 1) {\n    throw new Error(\n      `${label} resolution is ambiguous (${matches.length} matches). Set an explicit ${label.toLowerCase()} ID or unique name.`\n    );\n  }\n  return matches[0];\n}",
+              "try {",
+              "  if (pm.response.code !== 200) throw new Error('Resource listing returned non-200 HTTP status.');",
+              "  const state = JSON.parse(pm.variables.get('_cf_bootstrap_account_state'));",
+              "  const done = acceptResourcePage(state, pm.response.json());",
+              "  if (!done) {",
+              "    pm.variables.set('_cf_bootstrap_account_state', JSON.stringify(state));",
+              "    pm.variables.set('_cf_bootstrap_account_page', state.page);",
+              "    pm.execution.setNextRequest(pm.info.requestId);",
+              "  } else {",
+              "    const resolved = resolveUniqueResource(state.items, { ...state.selectors, label: 'Account' });",
+              "    pm.collectionVariables.set('account_id', resolved.id);",
+              "    pm.environment.set('account_id', resolved.id);",
+              "    pm.variables.set('account_id', resolved.id);",
+              "    pm.variables.unset('_cf_bootstrap_account_state');",
+              "    pm.variables.set('_cf_bootstrap_account_page', 1);",
+              "    pm.execution.setNextRequest(\"3. List and resolve zone\");",
+              "  }",
+              "} catch (error) {",
+              "  pm.execution.setNextRequest(null);",
+              "  pm.variables.unset('_cf_bootstrap_account_state');",
+              "  pm.variables.set('_cf_bootstrap_account_page', 1);",
+              "  throw error;",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "3c9d5046-611f-5207-81f4-5858f835ed01",
+      "name": "2. List and resolve account",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "\n\nAuthentication support: legacy-only\nAuth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_email\":[],\"api_key\":[]}\nUpstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.",
+        "header": [
+          {
+            "key": "X-Auth-Email",
+            "value": "{{api_email}}"
+          },
+          {
+            "key": "X-Auth-Key",
+            "value": "{{api_key}}"
+          }
+        ],
+        "method": "GET",
+        "url": {
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "accounts"
+          ],
+          "query": [
+            {
+              "key": "per_page",
+              "value": "50"
+            },
+            {
+              "key": "page",
+              "value": "{{_cf_bootstrap_account_page}}"
+            }
+          ],
+          "raw": "{{base_url}}/accounts?per_page=50&page={{_cf_bootstrap_account_page}}"
+        }
+      },
+      "response": []
+    },
+    {
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "function initialPageState(selectors) {\n  return { page: 1, totalPages: null, totalCount: null, items: [], selectors };\n}",
+              "if (!pm.variables.get('_cf_bootstrap_zone_state')) {",
+              "  const state = initialPageState({ id: pm.variables.get('zone_id'), name: pm.variables.get('zone_name') });",
+              "  pm.variables.set('_cf_bootstrap_zone_state', JSON.stringify(state));",
+              "  pm.variables.set('_cf_bootstrap_zone_page', 1);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "function acceptResourcePage(state, envelope) {\n  if (envelope?.success !== true || !Array.isArray(envelope.result)) throw new Error('Invalid listing response envelope.');\n  const info = envelope.result_info;\n  if (!info || !Number.isInteger(info.page) || info.page !== state.page ||\n      !Number.isInteger(info.total_pages) || info.total_pages < 0 || info.total_pages > 1000 ||\n      (info.total_pages < state.page && !(state.page === 1 && info.total_pages === 0 && envelope.result.length === 0)) ||\n      info.per_page !== 50 || envelope.result.length > 50 ||\n      (info.count !== undefined && info.count !== envelope.result.length)) {\n    throw new Error('Invalid pagination metadata or exceeded 1000-page bound.');\n  }\n  const totalCount = info.total_count ?? null;\n  if (totalCount !== null && (!Number.isInteger(totalCount) || totalCount < 0)) throw new Error('Invalid pagination total count.');\n  if (state.totalPages !== null && (state.totalPages !== info.total_pages || state.totalCount !== totalCount)) {\n    throw new Error('Pagination totals changed during listing; retry the bootstrap.');\n  }\n  state.totalPages = info.total_pages;\n  state.totalCount = totalCount;\n  const seen = new Set(state.items.map((item) => item.id));\n  for (const item of envelope.result) {\n    if (!item || typeof item.id !== 'string' || !item.id || seen.has(item.id)) throw new Error('Invalid or repeated resource ID across pages.');\n    seen.add(item.id);\n    state.items.push({ id: item.id, name: item.name });\n  }\n  const done = state.page >= state.totalPages;\n  if (!done && envelope.result.length === 0) throw new Error('Empty intermediate resource page.');\n  if (done && state.totalCount !== null && state.totalCount !== state.items.length) throw new Error('Incomplete paginated result set.');\n  if (!done) state.page += 1;\n  return done;\n}",
+              "function resolveUniqueResource(items, { id, name, label }) {\n  let matches = items;\n  if (id) matches = matches.filter((item) => item.id === id);\n  if (!id && name) matches = matches.filter((item) => item.name === name);\n  if (matches.length === 0) {\n    throw new Error(`${label} resolution returned no matches. Set a valid ${label.toLowerCase()} ID or name.`);\n  }\n  if (matches.length > 1) {\n    throw new Error(\n      `${label} resolution is ambiguous (${matches.length} matches). Set an explicit ${label.toLowerCase()} ID or unique name.`\n    );\n  }\n  return matches[0];\n}",
+              "try {",
+              "  if (pm.response.code !== 200) throw new Error('Resource listing returned non-200 HTTP status.');",
+              "  const state = JSON.parse(pm.variables.get('_cf_bootstrap_zone_state'));",
+              "  const done = acceptResourcePage(state, pm.response.json());",
+              "  if (!done) {",
+              "    pm.variables.set('_cf_bootstrap_zone_state', JSON.stringify(state));",
+              "    pm.variables.set('_cf_bootstrap_zone_page', state.page);",
+              "    pm.execution.setNextRequest(pm.info.requestId);",
+              "  } else {",
+              "    const resolved = resolveUniqueResource(state.items, { ...state.selectors, label: 'Zone' });",
+              "    pm.collectionVariables.set('zone_id', resolved.id);",
+              "    pm.environment.set('zone_id', resolved.id);",
+              "    pm.variables.set('zone_id', resolved.id);",
+              "    pm.variables.unset('_cf_bootstrap_zone_state');",
+              "    pm.variables.set('_cf_bootstrap_zone_page', 1);",
+              "    pm.execution.setNextRequest(null);",
+              "  }",
+              "} catch (error) {",
+              "  pm.execution.setNextRequest(null);",
+              "  pm.variables.unset('_cf_bootstrap_zone_state');",
+              "  pm.variables.set('_cf_bootstrap_zone_page', 1);",
+              "  throw error;",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "3c9d5046-611f-5207-81f4-5858f835ed02",
+      "name": "3. List and resolve zone",
+      "request": {
+        "auth": {
+          "bearer": [
+            {
+              "key": "token",
+              "type": "string",
+              "value": "{{api_token}}"
+            }
+          ],
+          "type": "bearer"
+        },
+        "description": "\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
+        "header": [],
+        "method": "GET",
+        "url": {
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "zones"
+          ],
+          "query": [
+            {
+              "key": "account.id",
+              "value": "{{account_id}}"
+            },
+            {
+              "key": "per_page",
+              "value": "50"
+            },
+            {
+              "key": "page",
+              "value": "{{_cf_bootstrap_zone_page}}"
+            }
+          ],
+          "raw": "{{base_url}}/zones?account.id={{account_id}}&per_page=50&page={{_cf_bootstrap_zone_page}}"
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "type": "string",
+      "value": "https://api.cloudflare.com/client/v4"
+    },
+    {
+      "key": "api_token",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "key": "api_email",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "key": "api_key",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "key": "user_service_key",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "key": "account_id",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "key": "account_name",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "key": "zone_id",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "key": "zone_name",
+      "type": "string",
+      "value": ""
+    }
+  ]
+}

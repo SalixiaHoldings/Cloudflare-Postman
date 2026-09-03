@@ -1,0 +1,144 @@
+{
+  "auth": {
+    "bearer": [
+      {
+        "key": "token",
+        "type": "string",
+        "value": "{{api_token}}"
+      }
+    ],
+    "type": "bearer"
+  },
+  "event": [],
+  "info": {
+    "_postman_id": "9c7cea07-5819-5b7c-b936-6a3408c8c340",
+    "description": "GENERATED FILE — DO NOT EDIT.\n\nExplicit residual for upstream services not yet mapped to a narrower product collection.\n\nUpstream: cloudflare/api-schemas@ff63b6a722de89a1c19074b1f9749d98ef6633bd\nSchema SHA-256: 7303d70da7b0e72bd4c64dba8195e38051c69f401ce6504b394d924d73c52ad5\nOperations: 1\nFormat: Postman Collection v2.1",
+    "name": "Cloudflare API — Other Cloudflare Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "event": [],
+      "id": "3e7f8a6f-cef4-555b-97eb-f9c541d807b0",
+      "name": "Internal route for testing signed URLs",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "bearer": [
+            {
+              "key": "token",
+              "type": "string",
+              "value": "{{api_token}}"
+            }
+          ],
+          "type": "bearer"
+        },
+        "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: getSignedUrl\nGET /signed-url\n\nInternal route for testing signed URLs.\n\nAuthentication support: bearer-only\nAuth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "name": "Internal route for testing signed URLs",
+        "url": {
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "signed-url"
+          ],
+          "query": [],
+          "raw": "{{base_url}}/signed-url"
+        }
+      },
+      "response": [
+        {
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"code\": 3283,\n  \"errors\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"message\": \"string\",\n  \"status\": \"string\"\n}",
+          "code": 500,
+          "cookie": [],
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "id": "b8276516-5dcf-515f-92c7-dbbb703c1b0b",
+          "name": "Default error response",
+          "originalRequest": {
+            "auth": {
+              "bearer": [
+                {
+                  "key": "token",
+                  "type": "string",
+                  "value": "{{api_token}}"
+                }
+              ],
+              "type": "bearer"
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "name": "Internal route for testing signed URLs",
+            "url": {
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "signed-url"
+              ],
+              "query": [],
+              "raw": "{{base_url}}/signed-url"
+            }
+          },
+          "status": "Internal Server Error"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "type": "string",
+      "value": "https://api.cloudflare.com/client/v4"
+    },
+    {
+      "key": "api_token",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "key": "api_email",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "key": "api_key",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "key": "user_service_key",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "key": "account_id",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "key": "zone_id",
+      "type": "string",
+      "value": ""
+    }
+  ]
+}

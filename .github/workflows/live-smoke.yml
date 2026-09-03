@@ -1,0 +1,53 @@
+name: Read-only Cloudflare smoke test
+
+on:
+  schedule:
+    - cron: "41 11 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-read-only-smoke
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    if: github.repository == 'SalixiaHoldings/Cloudflare-Postman'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check protected configuration
+        id: configuration
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_READ_TOKEN }}
+        shell: bash
+        run: |
+          if [[ -n "$CLOUDFLARE_API_TOKEN" ]]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "Read-only smoke test skipped because CLOUDFLARE_READ_TOKEN is not configured."
+          fi
+      - name: Check out repository
+        if: steps.configuration.outputs.enabled == 'true'
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - name: Use Node.js 24
+        if: steps.configuration.outputs.enabled == 'true'
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - name: Install pinned dependencies
+        if: steps.configuration.outputs.enabled == 'true'
+        run: npm ci
+      - name: Run read-only token, envelope, pagination, account, and zone checks
+        if: steps.configuration.outputs.enabled == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_READ_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_TEST_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_NAME: ${{ secrets.CLOUDFLARE_TEST_ACCOUNT_NAME }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_TEST_ZONE_ID }}
+          CLOUDFLARE_ZONE_NAME: ${{ secrets.CLOUDFLARE_TEST_ZONE_NAME }}
+        run: npm run smoke:live

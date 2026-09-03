@@ -1,0 +1,117 @@
+{
+  "openapi": "3.0.3",
+  "security": [{ "api_token": [] }],
+  "info": {
+    "title": "Fixture API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.cloudflare.com/client/v4"
+    }
+  ],
+  "paths": {
+    "/accounts": {
+      "get": {
+        "operationId": "accounts-list",
+        "summary": "List accounts",
+        "tags": ["Accounts"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/accounts/{account_id}/access/apps": {
+      "get": {
+        "operationId": "access-applications-list",
+        "summary": "List Access applications",
+        "tags": ["Access applications"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/zones/{zone_id}/dns_records": {
+      "get": {
+        "operationId": "dns-records-list",
+        "summary": "List DNS records",
+        "tags": ["DNS Records for a Zone"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "zone_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/widgets": {
+      "get": {
+        "operationId": "widgets-list",
+        "summary": "List widgets",
+        "tags": ["Widgets"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "operationId": "widgets-create",
+        "summary": "Create widget",
+        "tags": ["Widgets"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "build_token_uuid": {
+                    "type": "string",
+                    "example": "fixture-build-token"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "api_token": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
