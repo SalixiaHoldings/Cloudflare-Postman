@@ -1,0 +1,83 @@
+name: Cloudflare upstream drift
+
+on:
+  schedule:
+    - cron: "23 10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: cloudflare-upstream-drift
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.repository == 'SalixiaHoldings/Cloudflare-Postman'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Use Node.js 24
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - name: Install pinned dependencies
+        run: npm ci
+      - name: Prepare deterministic upstream update
+        id: update
+        continue-on-error: true
+        run: npm run upstream:update
+      - name: Detect reviewable changes
+        id: changes
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Commit and push update branch
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          UPDATE_BRANCH: automation/cloudflare-schema-update
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin "refs/heads/$UPDATE_BRANCH:refs/remotes/origin/$UPDATE_BRANCH" || true
+          git switch -C "$UPDATE_BRANCH"
+          git add schema-lock.json config/upstream-validation-exceptions.json postman upstream-change-summary.md
+          git commit -m "chore: update Cloudflare API schema"
+          git push --force-with-lease origin "HEAD:$UPDATE_BRANCH"
+      - name: Create or update review PR
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UPDATE_BRANCH: automation/cloudflare-schema-update
+        shell: bash
+        run: |
+          pr_number=$(gh pr list --head "$UPDATE_BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [[ -z "$pr_number" ]]; then
+            gh pr create \
+              --base main \
+              --head "$UPDATE_BRANCH" \
+              --title "Update pinned Cloudflare API schema" \
+              --body-file upstream-change-summary.md
+          else
+            gh pr edit "$pr_number" \
+              --title "Update pinned Cloudflare API schema" \
+              --body-file upstream-change-summary.md
+          fi
+      - name: Surface generation or validation failure
+        if: steps.update.outcome == 'failure'
+        run: |
+          echo "The update PR was prepared, but generation or validation requires review."
+          exit 1

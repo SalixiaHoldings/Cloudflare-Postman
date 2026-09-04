@@ -1,0 +1,135 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Authentication fixture",
+    "version": "1.0.0"
+  },
+  "security": [
+    {
+      "api_token": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "api_token": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "api_email": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Auth-Email"
+      },
+      "api_key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Auth-Key"
+      }
+    }
+  },
+  "paths": {
+    "/user/tokens/verify": {
+      "get": {
+        "operationId": "user-tokens-verify",
+        "security": [
+          {
+            "api_token": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/accounts": {
+      "get": {
+        "operationId": "accounts",
+        "security": [
+          {
+            "api_email": [],
+            "api_key": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/zones": {
+      "get": {
+        "operationId": "zones",
+        "security": [
+          {
+            "api_email": [],
+            "api_key": []
+          },
+          {
+            "api_token": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/combined": {
+      "get": {
+        "operationId": "combined",
+        "security": [
+          {
+            "api_email": [],
+            "api_key": [],
+            "api_token": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/anonymous": {
+      "get": {
+        "operationId": "anonymous",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/unknown": {
+      "get": {
+        "operationId": "unknown",
+        "security": [
+          {
+            "special_jwt": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/inherited": {
+      "get": {
+        "operationId": "inherited",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
