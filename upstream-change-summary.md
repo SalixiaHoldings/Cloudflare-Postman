@@ -9,8 +9,8 @@
 - Removed: 3
 - Changed: 792
 - Newly deprecated: 10
-- Generation: failed: Undeclared partition overlap: DELETE /accounts/{account_id}/addressing/address_maps/{address_map_id}/accounts/{member_account_id} (accounts-identity-billing, network-services)
-- Validation: not run
+- Generation: passed; complete distribution regenerated from the fixed revision
+- Validation: passed; full local checks and byte-identical regeneration (Node 24)
 - Read-only live smoke test: not run; protected credentials are not exposed to this update job
 
 ## Added operations
@@ -190,3 +190,76 @@
 - `PATCH /accounts/{account_id}/cloudforce-one/events/tags/categories/{category_uuid}`
 - `POST /accounts/{account_id}/cloudforce-one/events/categories/{category_id}`
 
+
+## Completed revision review
+
+Every surviving operation retains its previous partition owner and match set. The classifier and partition rules are unchanged. Explicitly added 25 reviewed operation entries to existing groups and removed three stale entries: 2,474 − 3 + 25 = 2,496 overlap operations across 54 declarations. No wildcard approvals or implicit precedence were added.
+
+### Reviewed new overlaps
+
+| Operation | Selected owner | Review rationale |
+| --- | --- | --- |
+| `DELETE /accounts/{account_id}/addressing/address_maps/{address_map_id}/accounts/{member_account_id}` | `network-services` | Same address-map membership operation ID and description as the removed path; only the member parameter is renamed. |
+| `DELETE /accounts/{account_id}/cloudforce-one/v2/credential-monitor/domains/{id}` | `zones-dns-domains` | Domain credential-monitor removal; retain the existing domain-oriented overlap policy. |
+| `GET /accounts/{account_id}/cloudforce-one/v2/credential-monitor/domains` | `zones-dns-domains` | Domain credential-monitor listing; retain the existing domain-oriented overlap policy. |
+| `GET /accounts/{account_id}/cloudforce-one/v2/requests/legal-response/access-check` | `zero-trust` | Allowlist access check; use the existing access-oriented navigation policy. This placement does not assert that Cloudforce One is a Zero Trust product. |
+| `GET /accounts/{account_id}/email-security/analytics/monthly_report` | `analytics-observability` | Aggregated email analytics; consistent with the existing email investigation trace overlap. |
+| `GET /accounts/{account_id}/email/sending/reputation` | `media-communications` | Email Sending reputation belongs with email operations. |
+| `GET /accounts/{account_id}/r2-catalog/{bucket_name}/namespaces/{namespace}/tables/{table_name}/maintenance-runs` | `storage-data` | R2 catalog table maintenance history belongs with existing catalog storage operations. |
+| `GET /accounts/{account_id}/r2/buckets/{bucket_name}/storage-class-migration-jobs` | `storage-data` | R2 bucket migration listing belongs with bucket storage operations. |
+| `GET /accounts/{account_id}/r2/buckets/{bucket_name}/storage-class-migration-jobs/{job_id}` | `storage-data` | R2 bucket migration status belongs with bucket storage operations. |
+| `GET /accounts/{account_id}/security-center/insights/count` | `application-security-rulesets` | Security Center risk insight count belongs with application security. |
+| `GET /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/rules` | `workers-developer-platform` | Keep Workers observability trace-rule retrieval beside existing Workers observability operations. |
+| `GET /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/settings` | `workers-developer-platform` | Keep Workers observability trace settings beside existing Workers observability operations. |
+| `GET /radar/traffic_anomalies/{uuid}` | `analytics-observability` | Radar anomaly lookup belongs with the existing Radar traffic-anomaly analytics endpoints. |
+| `PATCH /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/settings` | `workers-developer-platform` | Keep Workers observability trace settings updates beside existing Workers observability operations. |
+| `POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/domain/matches/bulk-dismiss` | `application-security-rulesets` | Brand-protection domain match dismissal follows existing brand-protection ownership. |
+| `POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/domain/trial` | `application-security-rulesets` | Brand impersonation analysis follows existing brand-protection ownership. |
+| `POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/queries/{query_id}/matches/{domain_id}/dismiss` | `application-security-rulesets` | Brand-protection domain match dismissal follows existing brand-protection ownership. |
+| `POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/queries/{query_id}/matches/{domain_id}/undismiss` | `application-security-rulesets` | Brand-protection domain match undismissal follows existing brand-protection ownership. |
+| `POST /accounts/{account_id}/cloudforce-one/v2/credential-monitor/domains` | `zones-dns-domains` | Domain credential-monitor registration; retain the existing domain-oriented overlap policy. |
+| `POST /accounts/{account_id}/cloudforce-one/v2/threat-signals/articles/{article_id}/skills/{skill_id}/diagnostic` | `application-security-rulesets` | Threat Signals diagnostic remains with application security despite the diagnostic keyword. |
+| `POST /accounts/{account_id}/infrastructure/targets/batch_tags` | `zero-trust` | Infrastructure access target tagging belongs with existing access targets in Zero Trust. |
+| `POST /accounts/{account_id}/r2-catalog/{bucket_name}/namespaces/{namespace}/tables/{table_name}/maintenance-configs/{configuration_type}/queue` | `workers-developer-platform` | R2 maintenance enqueueing matches storage and queue rules. Explicitly retain the existing storage/Workers overlap owner for navigation; this is R2 maintenance, not a claim that it uses the Queues API. |
+| `POST /accounts/{account_id}/r2/buckets/{bucket_name}/storage-class-migration-jobs` | `storage-data` | R2 bucket migration creation belongs with bucket storage operations. |
+| `PUT /accounts/{account_id}/addressing/address_maps/{address_map_id}/accounts/{member_account_id}` | `network-services` | Same address-map membership operation ID and description as the removed path; only the member parameter is renamed. |
+| `PUT /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/rules` | `workers-developer-platform` | Keep Workers observability trace-rule replacement beside existing Workers observability operations. |
+
+### Removed overlap entries
+
+- `DELETE /accounts/{account_id}/workers/observability/metricsexport`
+- `DELETE /accounts/{account_id}/addressing/address_maps/{address_map_id}/accounts/{account_id}`
+- `PUT /accounts/{account_id}/addressing/address_maps/{address_map_id}/accounts/{account_id}`
+
+The two address-map entries are replaced by the corresponding `{member_account_id}` paths. The removed Workers metric-export DELETE has no generated request or accounting row. All three removed operations are absent from reference output and overlap configuration.
+
+### Final accounting and authentication
+
+- 3,522 / 3,522 operations represented exactly once; zero missing, duplicate, or unexpected operations.
+- 33 surviving addressing operations change from legacy-only to Bearer-alternative. Root security and every security scheme definition are unchanged; the full effective authentication contracts were recomputed. Root-inheriting operations increase from 20 to 23: four new Workers zone-tracing operations inherit root security, while the removed metric-export DELETE also inherited it.
+- Final categories: 568 Bearer-only, 1,576 Bearer-alternative, 253 legacy-only, 1,114 multi-scheme/other, 7 anonymous, 4 manual-unresolved. The multi-scheme operations retain literal token AND email AND key requirements; unresolved upload schemes remain guarded.
+- Bootstrap auth remains unchanged; regenerated provenance references the new pin.
+- All 10 newly deprecated operations retain `deprecated: true` in accounting and upstream replacement instructions, including the November 28, 2026 availability date, in request descriptions.
+- 47 recoverable converter warnings; three exact revision-bound lowercase `4xx` validation exceptions, unchanged in content.
+- Residual: only `GET /signed-url`.
+
+| Partition | Operations |
+| --- | ---: |
+| zero-trust | 594 |
+| workers-developer-platform | 474 |
+| storage-data | 127 |
+| application-security-rulesets | 369 |
+| analytics-observability | 434 |
+| zones-dns-domains | 436 |
+| network-services | 286 |
+| media-communications | 183 |
+| accounts-identity-billing | 618 |
+| other-cloudflare-services | 1 |
+
+### Dependency audit
+
+`npm audit --json` reports four high-severity affected packages from two distinct advisories. The additional finding is [GHSA-2883-xcg3-v3hh](https://github.com/advisories/GHSA-2883-xcg3-v3hh), affecting the already pinned `openapi-to-postmanv2 → js-yaml@4.3.1` dependency; GitHub indexed/reviewed it on September 8. No dependency resolution changed. Its YAML merge-source CPU-exhaustion condition does not apply to this converter input path: verified official JSON is parsed to an object before conversion. The existing Faker limitation also remains. See [architecture audit rationale](docs/architecture.md#converter-limitation). No forced fixes, dependency overrides, or runtime dependencies were added.
+
+### Validation and public safety
+
+Node 24: `npm ci`, `npm run lint`, `npm test` (18 passing), `npm run generate`, `npm run generate:check`, `npm run validate`, `npm run check`, and `git diff --check` pass. A second generation is byte-identical. Schema/collection checks, artifact hashes, complete auth recomputation, exact-once accounting, unchanged surviving ownership, removals, and deprecation descriptions were verified. Public-safety validation checks empty credential/resource templates and rejects new local filesystem paths; supplied official upstream examples remain attributable to the verified schema. Gitleaks 8.30.1 scanned the full PR diff: all 915 findings were traced to 837 computed auth-fingerprint matches and 78 verified public upstream example matches (including five base64-decoded key examples); zero unexplained findings. No populated environments, private operational material, or maintainer credentials were added. Hosted Validate results are recorded on PR #2 for the pushed commit. Live smoke tests remain unrun because they require protected non-production credentials.
