@@ -1,0 +1,66 @@
+{
+  "configVersion": 2,
+  "classification": "all-matches-with-explicit-overlaps",
+  "partitions": [
+    {
+      "id": "zero-trust",
+      "title": "Zero Trust",
+      "description": "Access, Gateway, devices, tunnels, DLP, CASB, posture, WARP, and Zero Trust services.",
+      "match": ["\\bzero trust\\b", "\\baccess\\b", "\\bgateway\\b", "\\btunnel", "\\bdlp\\b", "\\bcasb\\b", "\\bwarp\\b", "device[_ -]?posture", "/devices(?:/|$)", "/dex(?:/|$)"]
+    },
+    {
+      "id": "workers-developer-platform",
+      "title": "Workers & Developer Platform",
+      "description": "Workers, Pages, Queues, Workflows, AI, Browser Rendering, Builds, and developer services.",
+      "match": ["\\bworkers?\\b", "workers_", "workers-", "\\bpages?\\b", "\\bqueues?\\b", "\\bworkflows?\\b", "ai[-_ ]gateway", "ai[-_ ]search", "workers ai", "browser[-_ ]render", "/builds(?:/|$)", "\\bsnippets?\\b", "realtime", "hyperdrive"]
+    },
+    {
+      "id": "storage-data",
+      "title": "Storage & Data",
+      "description": "R2, D1, KV, Vectorize, Pipelines, Durable Objects, and data storage services.",
+      "match": ["\\br2\\b", "r2_", "\\bd1\\b", "\\bkv\\b", "vectorize", "\\bpipelines?\\b", "durable[-_ ]?objects?", "secrets[-_ ]?store", "\\bimages sourcing kit\\b"]
+    },
+    {
+      "id": "application-security-rulesets",
+      "title": "Application Security & Rulesets",
+      "description": "Rulesets, WAF, firewall, API Shield, bot controls, security posture, and application protection.",
+      "match": ["ruleset", "\\bwaf\\b", "firewall", "api[-_ ]?shield", "api_gateway", "api gateway", "bot[-_ ]?management", "rate[-_ ]?limit", "security[-_ ]?center", "client[-_ ]?side[-_ ]?security", "page[-_ ]?shield", "waiting[-_ ]?rooms?", "turnstile", "leaked[-_ ]credential", "zone[-_ ]?lockdown", "threat", "brand[-_ ]?protection", "vuln", "abuse"]
+    },
+    {
+      "id": "analytics-observability",
+      "title": "Analytics & Observability",
+      "description": "Analytics, Radar, logs, Logpush, alerting, tracing, health, and observability APIs.",
+      "match": ["analytics", "\\bradar\\b", "logpush", "log[-_ ]?explorer", "\\blogs?\\b", "observ", "\\btraces?\\b", "alerting", "notification", "health[-_ ]?checks?", "diagnostic", "spectrum analytics"]
+    },
+    {
+      "id": "zones-dns-domains",
+      "title": "Zones, DNS & Domains",
+      "description": "Zones, DNS, domain registration, certificates, cache, and zone delivery configuration.",
+      "match": ["^/zones(?:/|$)", "\\bdns\\b", "dnssec", "registrar", "domain", "custom[-_ ]?nameserver", "custom_ns", "ssl", "certificate", "origin[-_ ]?ca", "cache", "pagerules", "page rules"]
+    },
+    {
+      "id": "network-services",
+      "title": "Network Services",
+      "description": "Magic networking, load balancing, IP addressing, Spectrum, network interconnects, and traffic services.",
+      "match": ["\\bmagic\\b", "load[-_ ]?balanc", "addressing", "\\bipam\\b", "\\bspectrum\\b", "network[-_ ]?interconnect", "\\bargo\\b", "\\btraffic\\b", "\\bconnectors?\\b", "\\bon[-_ ]?ramps?\\b", "\\bpcap\\b", "\\bbgp\\b", "\\bprefixes\\b", "^/ips$"]
+    },
+    {
+      "id": "media-communications",
+      "title": "Media & Communications",
+      "description": "Images, Stream, email, Calls, Zaraz, Web3, and communication-oriented products.",
+      "match": ["\\bimages?\\b", "\\bstream\\b", "\\bemail\\b", "\\bzaraz\\b", "\\bweb3\\b", "\\bcalls?\\b", "meeting", "media", "live[-_ ]?inputs?"]
+    },
+    {
+      "id": "accounts-identity-billing",
+      "title": "Accounts, Identity & Billing",
+      "description": "Account management, memberships, users, tokens, subscriptions, billing, and shared resources.",
+      "match": ["^/accounts(?:$|/\\{account_id\\}$)", "^/user(?:/|$)", "^/memberships(?:/|$)", "^/oauth(?:/|$)", "^/tenants(?:/|$)", "\\baccounts?\\b", "membership", "\\busers?\\b", "\\btokens?\\b", "\\btenants?\\b", "billing", "subscription", "organization", "resource[-_ ]?sharing", "resource[-_ ]?tagging"]
+    },
+    {
+      "id": "other-cloudflare-services",
+      "title": "Other Cloudflare Services",
+      "description": "Explicit residual for upstream services not yet mapped to a narrower product collection.",
+      "residual": true
+    }
+  ]
+}

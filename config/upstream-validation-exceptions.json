@@ -1,0 +1,24 @@
+{
+  "configVersion": 1,
+  "exceptions": [
+    {
+      "additionalProperty": "4xx",
+      "instancePath": "/paths/~1zones~1{zone_id}~1spectrum~1analytics~1aggregate~1current/get/responses",
+      "keyword": "additionalProperties"
+    },
+    {
+      "additionalProperty": "4xx",
+      "instancePath": "/paths/~1zones~1{zone_id}~1spectrum~1analytics~1events~1bytime/get/responses",
+      "keyword": "additionalProperties"
+    },
+    {
+      "additionalProperty": "4xx",
+      "instancePath": "/paths/~1zones~1{zone_id}~1spectrum~1analytics~1events~1summary/get/responses",
+      "keyword": "additionalProperties"
+    }
+  ],
+  "reason": "Cloudflare's pinned OpenAPI 3.0.3 schema uses lowercase response range key 4xx at three Spectrum analytics operations. OpenAPI 3.0 permits uppercase 4XX, so strict schema validation rejects these entries. The source schema is not modified; only these exact diagnostics are accepted.",
+  "upstreamCommit": "ff63b6a722de89a1c19074b1f9749d98ef6633bd",
+  "upstreamIssue": null,
+  "validator": "@apidevtools/swagger-parser@13.0.0"
+}
