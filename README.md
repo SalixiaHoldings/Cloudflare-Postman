@@ -22,9 +22,9 @@ Keep populated environments local/private. Do not commit them or export them pub
 1. Clone this repository and open its root in Postman desktop.
 2. Switch to **Local View**.
 3. Use the generated collections and template environment under `postman/`.
-4. Set credential and resource values only in your private local environment.
+4. Enter credentials and resource selectors only as **local Values** in Postman. Do not **Share** sensitive values or populate Shared values; local values stay in your Postman app rather than the Git-tracked YAML.
 
-Local Mode does **not** require connecting or pushing to Postman Cloud. A cloud workspace binding is optional; its `.postman/resources.yaml` stays local and ignored. See [Native Git usage and generation](docs/native-git.md).
+Local Mode does **not** require connecting or pushing to Postman Cloud. A cloud workspace binding is optional; its `.postman/resources.yaml` stays local and ignored. After adding a local test value, `git status` should remain clean; stop before committing if Postman wrote a sensitive value into a tracked file. See [Native Git usage and generation](docs/native-git.md).
 
 ## Which collection should I import?
 
