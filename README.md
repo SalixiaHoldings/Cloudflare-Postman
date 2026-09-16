@@ -1,6 +1,6 @@
 # Cloudflare Postman API Library
 
-An independent, Salixia-maintained distribution of modular Postman collections generated from Cloudflare's official [API schema](https://github.com/cloudflare/api-schemas). This is not an official Cloudflare product and is not endorsed by Cloudflare.
+An independent distribution of modular Postman collections generated from Cloudflare's official [API schema](https://github.com/cloudflare/api-schemas) and maintained by [**Salixia Web & Cloud**](https://www.salixia.io/), an operating company of Salixia Holdings. This is not an official Cloudflare product and is not endorsed by Cloudflare.
 
 ## Quick start — Import into Postman
 
