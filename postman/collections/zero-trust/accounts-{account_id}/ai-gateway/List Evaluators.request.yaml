@@ -1,0 +1,30 @@
+$kind: http-request
+id: d7e0ace7-2607-537f-8175-16035e30905a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-config-list-evaluators
+  GET /accounts/{account_id}/ai-gateway/evaluation-types
+
+  Lists all available evaluator types for scoring AI gateway responses.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/evaluation-types?page=1&per_page=20&order_by=mandatory&order_by_direction=desc"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  page: "1"
+  per_page: "20"
+  order_by: mandatory
+  order_by_direction: desc
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Evaluators.resources/examples
+order: 3000

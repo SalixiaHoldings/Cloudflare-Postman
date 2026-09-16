@@ -1,0 +1,44 @@
+$kind: http-example
+id: 648c5c81-a4dc-5875-bbdc-dd0aa08ac2a4
+name: List tag values response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/tags/values/{{tag_key}}?type=zone&cursor=eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: type
+      value: zone
+      description: Filter by resource type.
+    - key: cursor
+      value: eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ
+      description: Cursor for pagination.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          "production",
+          "staging"
+        ],
+        "result_info": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

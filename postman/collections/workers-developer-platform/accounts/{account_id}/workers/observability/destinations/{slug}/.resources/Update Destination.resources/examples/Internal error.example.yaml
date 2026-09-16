@@ -1,0 +1,68 @@
+$kind: http-example
+id: 55c4f93c-2e8f-5987-812b-50238c813ea9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/destinations/{{slug}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true,
+        "configuration": {
+          "type": "logpush",
+          "url": "string",
+          "headers": {
+            "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "key_1": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 5000

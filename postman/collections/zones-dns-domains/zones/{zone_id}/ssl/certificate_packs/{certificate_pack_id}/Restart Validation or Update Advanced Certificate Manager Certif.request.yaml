@@ -1,0 +1,33 @@
+$kind: http-request
+id: 480041c9-52e9-559f-80fe-a0338b020783
+name: Restart Validation or Update Advanced Certificate Manager Certificate Pack
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: certificate-packs-restart-validation-for-advanced-certificate-manager-certificate-pack
+  PATCH /zones/{zone_id}/ssl/certificate_packs/{certificate_pack_id}
+
+  For a given zone, restart validation or add cloudflare branding for an advanced certificate pack.  The former is only a validation operation for a Certificate Pack in a validation_timed_out status.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/ssl/certificate_packs/{{certificate_pack_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "cloudflare_branding": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Restart Validation or Update Advanced Certificate Manager Certif.resources/examples
+order: 3000

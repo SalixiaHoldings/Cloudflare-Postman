@@ -1,0 +1,100 @@
+$kind: http-request
+id: 39c4bab0-efc9-5701-a1b0-b30bda8d2702
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: mcp-portals-api-create-servers
+  POST /accounts/{account_id}/access/ai-controls/mcp/servers
+
+  Creates a new MCP server for connecting to an upstream MCP endpoint.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/servers"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "id": "my-mcp-server",
+      "name": "My MCP Server",
+      "hostname": "https://example.com/mcp",
+      "auth_type": "unauthenticated",
+      "auth_credentials": "sk-my-bearer-token",
+      "client_secret": "{{client_secret}}",
+      "description": "This is one remote MCP server",
+      "is_shared_oauth_callback_enabled": false,
+      "secure_web_gateway": false,
+      "updated_prompts": [
+        {
+          "name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "alias": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "alias": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ],
+      "updated_tools": [
+        {
+          "name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "alias": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "alias": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new MCP Server.resources/examples
+order: 2000

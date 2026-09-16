@@ -1,0 +1,33 @@
+$kind: http-request
+id: 24f08c69-2a77-5a53-b266-42dc694c6036
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_post_message_move
+  POST /accounts/{account_id}/email-security/investigate/{investigate_id}/move
+
+  Moves a single message to a specified mailbox folder (Inbox, JunkEmail, DeletedItems, RecoverableItemsDeletions, or RecoverableItemsPurges). Requires active integration.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}/move"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "destination": "JunkEmail",
+      "expected_disposition": "UNKNOWN"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Move a message.resources/examples
+order: 4000

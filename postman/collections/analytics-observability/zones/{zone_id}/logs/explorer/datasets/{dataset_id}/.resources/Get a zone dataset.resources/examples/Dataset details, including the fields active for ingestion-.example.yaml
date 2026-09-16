@@ -1,0 +1,35 @@
+$kind: http-example
+id: f64cd0f7-b501-5156-9034-08c089d006d6
+name: Dataset details, including the fields active for ingestion.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/logs/explorer/datasets/{{dataset_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          "string",
+          "string"
+        ],
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

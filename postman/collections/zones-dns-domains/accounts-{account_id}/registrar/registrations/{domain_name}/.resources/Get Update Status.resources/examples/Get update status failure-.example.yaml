@@ -1,0 +1,28 @@
+$kind: http-example
+id: b27e3ee6-6b75-5d09-aef6-8f245fcc1df2
+name: Get update status failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations/{{domain_name}}/update-status"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 10000,
+            "message": "No workflow found for example.com"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

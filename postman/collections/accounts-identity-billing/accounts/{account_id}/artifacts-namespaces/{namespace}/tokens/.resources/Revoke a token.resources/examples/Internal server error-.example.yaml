@@ -1,0 +1,67 @@
+$kind: http-example
+id: 04f38d05-a66e-588d-b9be-dfb98f4ff514
+name: Internal server error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/tokens/{{id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "documentation_url": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "documentation_url": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "documentation_url": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 5000

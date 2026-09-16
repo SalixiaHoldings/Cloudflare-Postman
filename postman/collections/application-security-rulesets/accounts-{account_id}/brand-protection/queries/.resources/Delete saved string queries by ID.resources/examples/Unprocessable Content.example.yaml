@@ -1,0 +1,29 @@
+$kind: http-example
+id: bcfbe826-3f38-54f6-8f35-f55345799dbf
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/queries?id=string&tag=string&scan=true"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    id: string
+    tag: string
+    scan: "true"
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "code": 7665,
+        "errors": {
+          "key_0": {},
+          "key_1": {}
+        },
+        "message": "string",
+        "status": "string"
+      }
+order: 2000

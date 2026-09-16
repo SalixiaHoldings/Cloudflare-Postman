@@ -1,0 +1,30 @@
+$kind: http-example
+id: a269b51e-5923-5433-9267-06db7e19389d
+name: Total TLS Settings Details response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/acm/total_tls"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "certificate_authority": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "validity_period": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,29 @@
+$kind: http-example
+id: d1a77b28-c1a0-5121-a4cb-48175503a0e6
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/available_plans/{{plan_identifier}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

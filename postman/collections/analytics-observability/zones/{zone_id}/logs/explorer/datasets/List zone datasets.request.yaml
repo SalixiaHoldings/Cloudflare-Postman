@@ -1,0 +1,29 @@
+$kind: http-request
+id: 1cd23db7-dfb2-5bc1-8d28-0bddca2f2b12
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zones-logs-explorer-datasets-list
+  GET /zones/{zone_id}/logs/explorer/datasets
+
+  Returns all Log Explorer datasets configured for the zone.
+
+  List responses omit the `fields` property; use the single-dataset
+  endpoint to retrieve field configuration.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/logs/explorer/datasets"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List zone datasets.resources/examples
+order: 1000

@@ -1,0 +1,34 @@
+$kind: http-example
+id: afd0a505-2996-54dc-89d7-ad554657320e
+name: Create Web3 Hostname response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/web3/hostnames"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "gateway.example.com",
+        "target": "ipfs",
+        "description": "This is my IPFS gateway.",
+        "dnslink": "/ipns/onboarding.ipfs.cloudflare.com"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

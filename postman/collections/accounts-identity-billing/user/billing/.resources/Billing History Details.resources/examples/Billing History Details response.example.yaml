@@ -1,0 +1,35 @@
+$kind: http-example
+id: b8be6d37-5d52-5b14-ad83-6bb6695ca459
+request:
+  url: "{{base_url}}/user/billing/history?page=1&per_page=20&order=occurred_at&occurred_at=2014-03-01T12:21:59.3456Z&type=charge&action=subscription"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    page: "1"
+    per_page: "20"
+    order: occurred_at
+    occurred_at: 2014-03-01T12:21:59.3456Z
+    type: charge
+    action: subscription
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

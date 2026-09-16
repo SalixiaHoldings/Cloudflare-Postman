@@ -1,0 +1,33 @@
+$kind: http-example
+id: cfca4dad-d048-525b-b56e-6933ecd7c3c0
+name: Create response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zt_risk_scoring/integrations"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "integration_type": "Okta",
+        "tenant_url": "http://zzKp.jvwppqW64KVao96A,X8qTi2xi,-zPNXpNkbQ8wFDspaLyrbpGyDzCM7GWghvPXT",
+        "reference_id": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

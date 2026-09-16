@@ -1,0 +1,24 @@
+$kind: http-example
+id: 52504d03-7344-5a08-be86-470a18b286c1
+name: Datasets read successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/datasets"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,20 @@
+$kind: http-example
+id: 7922241b-2e73-57a8-82c4-af34e410b4a2
+request:
+  url: "{{base_url}}/accounts/{{accountId}}/v1/images/{{imageId}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "error": {}
+      }
+order: 2000

@@ -1,0 +1,28 @@
+$kind: http-example
+id: 33a6f812-c92f-5bd2-8cb7-1465043c0178
+name: Client Certificate Details Response Failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/client_certificates/{{client_certificate_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

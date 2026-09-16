@@ -1,0 +1,32 @@
+$kind: http-example
+id: e7d7dd0c-73e5-5bf7-8b5b-db82c162e738
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/connectors?device_type=MANAGED"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: device_type
+      value: MANAGED
+      description: Filter connectors by device type.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

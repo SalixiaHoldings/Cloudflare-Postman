@@ -1,0 +1,83 @@
+$kind: http-request
+id: 6b8ad8a0-6a15-539b-855b-5db82ff641ba
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ai-search-create-namespace
+  POST /accounts/{account_id}/ai-search/namespaces
+
+  Create a namespace for organizing AI Search instances.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "ruu6g2hoo3mdwc4r7pmw5u8jfcmz",
+      "description": "Production environment",
+      "public_endpoint_params": {
+        "authorized_hosts": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "chat_completions_endpoint": {
+          "disabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "custom_domains": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "default_domain_enabled": true,
+        "enabled": false,
+        "instances_allowed": [
+          "docs",
+          "blog"
+        ],
+        "mcp": {
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "disabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "rate_limit": {
+          "period_ms": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "requests": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "technique": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "search_endpoint": {
+          "disabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a namespace.resources/examples
+order: 2000

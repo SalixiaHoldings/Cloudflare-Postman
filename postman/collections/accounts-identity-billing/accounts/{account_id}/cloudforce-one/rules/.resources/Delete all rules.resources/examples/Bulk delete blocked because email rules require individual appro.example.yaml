@@ -1,0 +1,20 @@
+$kind: http-example
+id: 4cd47bb2-0c9c-50f6-ab17-58596d52001d
+name: Bulk delete blocked because email rules require individual approval.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 3000

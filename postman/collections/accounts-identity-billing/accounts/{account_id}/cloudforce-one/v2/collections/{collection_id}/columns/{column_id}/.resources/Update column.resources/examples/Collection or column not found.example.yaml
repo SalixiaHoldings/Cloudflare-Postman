@@ -1,0 +1,26 @@
+$kind: http-example
+id: b4507d71-94d0-5682-840e-7c032a508f05
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/columns/{{column_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "position": 5625.7606646977365,
+        "required": false,
+        "type": "number"
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

@@ -1,0 +1,28 @@
+$kind: http-example
+id: 6e8dee40-ee76-5ee7-a9e8-0154870d34b7
+name: |
+  Unprocessable Entity. The SQL query failed validation. Common causes include syntax errors, references to unknown columns, unsupported SQL features (JOINs, non-SELECT statements), type mismatches in expressions, and GROUP BY violations.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics_engine/sql"
+  method: POST
+  headers:
+    Content-Type: text/plain
+    Accept: application/json
+  body:
+    type: text
+    content: |
+      SELECT blob1, sum(double1) as total
+      FROM my_dataset
+      WHERE timestamp > NOW() - INTERVAL '7' DAY
+      GROUP BY blob1
+      ORDER BY total DESC
+      LIMIT 100
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: "Input was invalid: syntax error at position 15"
+order: 4000

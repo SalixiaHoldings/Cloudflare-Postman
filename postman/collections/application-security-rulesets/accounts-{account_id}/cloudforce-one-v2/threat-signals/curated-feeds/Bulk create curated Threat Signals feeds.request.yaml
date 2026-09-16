@@ -1,0 +1,52 @@
+$kind: http-request
+id: 9e516676-b3c0-52cd-b256-81af2cd61911
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: rssCuratedFeedBulkCreate
+  POST /accounts/{account_id}/cloudforce-one/v2/threat-signals/curated-feeds/bulk
+
+  Bulk create curated Threat Signals feeds.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/curated-feeds/bulk"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "feeds": [
+        {
+          "url": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "category": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "display_order": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "is_active": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "why_valuable": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Bulk create curated Threat Signals feeds.resources/examples
+order: 3000

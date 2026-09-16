@@ -1,0 +1,41 @@
+$kind: http-example
+id: ce878ca8-8677-5f15-be8e-eeda337ea6a1
+name: "Forbidden: Insufficient permissions"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/evaluate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "destination_url": "https://example.com/webhook",
+        "authentication_type": "Bearer Auth",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer token123"
+          },
+          {
+            "key": "X-Custom-Header",
+            "value": "value"
+          }
+        ],
+        "signing_secret": "{{signing_secret}}"
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 4000

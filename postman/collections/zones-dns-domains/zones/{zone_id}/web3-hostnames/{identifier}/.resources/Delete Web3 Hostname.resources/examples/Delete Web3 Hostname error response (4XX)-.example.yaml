@@ -1,0 +1,37 @@
+$kind: http-example
+id: 4ac2d422-1e25-5ba2-95a6-84a3bc37d6ed
+name: Delete Web3 Hostname error response (4XX).
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/web3/hostnames/{{identifier}}"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: ""
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

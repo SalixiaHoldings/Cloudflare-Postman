@@ -1,0 +1,45 @@
+$kind: http-example
+id: faabc950-0ab1-53b2-88d4-f2eaacf154dc
+name: Create list items response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/rules/lists/{{list_id}}/items"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

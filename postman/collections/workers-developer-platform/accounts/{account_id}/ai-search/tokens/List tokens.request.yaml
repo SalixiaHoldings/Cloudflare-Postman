@@ -1,0 +1,35 @@
+$kind: http-request
+id: 4b2467a1-d149-53db-9e8c-f4963bb4c105
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ai-search-list-tokens
+  GET /accounts/{account_id}/ai-search/tokens
+
+  List stored AI Search credentials in the account without exposing their secrets.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-search/tokens?page=1&per_page=20&search=my-token"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    description: Page number (1-indexed).
+  - key: per_page
+    value: "20"
+    description: Number of results per page.
+  - key: search
+    value: my-token
+    description: Filter tokens whose name contains this string (case-insensitive).
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List tokens.resources/examples
+order: 1000

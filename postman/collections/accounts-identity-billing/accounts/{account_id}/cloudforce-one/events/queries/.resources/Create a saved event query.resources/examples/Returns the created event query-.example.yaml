@@ -1,0 +1,44 @@
+$kind: http-example
+id: b0f96354-9662-5ad7-9af8-2365b4c29531
+name: Returns the created event query.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/queries/create"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "query_json": "string",
+        "alert_enabled": true,
+        "alert_rollup_enabled": false,
+        "rule_enabled": true,
+        "rule_scope": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 8609,
+        "account_id": "{{account_id}}",
+        "name": "string",
+        "user_email": "string",
+        "query_json": "string",
+        "alert_enabled": true,
+        "alert_rollup_enabled": false,
+        "rule_enabled": false,
+        "created_at": "string",
+        "updated_at": "string",
+        "custom_threat_feed_id": 2212,
+        "rule_list_id": "string",
+        "rule_scope": "string"
+      }
+order: 1000

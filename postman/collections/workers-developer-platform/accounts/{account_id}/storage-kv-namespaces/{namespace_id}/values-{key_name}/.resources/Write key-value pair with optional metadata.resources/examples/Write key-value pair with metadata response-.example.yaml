@@ -1,0 +1,44 @@
+$kind: http-example
+id: 7b91aa14-3fa7-5472-90da-92ae67b0b258
+name: Write key-value pair with metadata response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}/values/{{key_name}}?expiration=1578435000&expiration_ttl=300"
+  method: PUT
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  queryParams:
+    expiration: "1578435000"
+    expiration_ttl: "300"
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: value
+        value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+        description: "(Required) "
+      - type: text
+        key: metadata
+        value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+        contentType: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {}
+      }
+order: 1000

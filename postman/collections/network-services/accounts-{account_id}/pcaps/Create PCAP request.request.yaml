@@ -1,0 +1,49 @@
+$kind: http-request
+id: ce38b7df-906f-5319-9958-93984f4a5211
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-pcap-collection-create-pcap-request
+  POST /accounts/{account_id}/pcaps
+
+  Create new PCAP request for account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/pcaps"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "time_limit": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "packet_limit": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "type": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "system": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "filter_v1": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "offset_time": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create PCAP request.resources/examples
+order: 2000

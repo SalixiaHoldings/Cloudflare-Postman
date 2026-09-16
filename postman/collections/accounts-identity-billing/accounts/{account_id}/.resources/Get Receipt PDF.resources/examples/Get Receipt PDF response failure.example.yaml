@@ -1,0 +1,31 @@
+$kind: http-example
+id: e4588125-7bfb-5fb8-b110-57e0f9931d12
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/receipts/{{receipt_id}}/pdf?doctype=string"
+  method: GET
+  headers:
+    Accept: application/pdf
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    doctype: string
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

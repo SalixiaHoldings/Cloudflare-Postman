@@ -1,0 +1,42 @@
+$kind: http-example
+id: f1151013-3829-5220-8220-0c064ddb8266
+name: Share recipient created.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/recipients"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "account_id": "{{account_id}}",
+        "organization_id": "023e105f4ecef8ad9ca31a8372d0c353",
+        "recipient_account_id": {
+          "description": "The account that will receive the share.",
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

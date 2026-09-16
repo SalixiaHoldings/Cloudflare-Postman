@@ -1,68 +1,57 @@
 # Postman Native Git and Local Mode
 
-The planned Local Mode feature will support Postman in two complementary ways. Implementation is currently blocked by the official migration tool’s nondeterministic output (see below):
+## Two generated formats
 
-- Collection v2.1 JSON remains the portable, importable representation and the compatibility target for tooling that still requires v2.1, including Newman.
-- Collection v3 YAML is generated as an optional compatibility layer for Postman v12 Native Git / Local Mode.
+The pinned official Cloudflare OpenAPI schema is the sole API-definition authority. The generator produces portable Collection v2.1 JSON, then uses official Postman CLI migration to derive Collection v3 YAML. Neither representation is hand-maintained. v2.1 remains supported for ordinary import and Newman.
 
-The v3 representation is derived from the same generated Cloudflare API library; it is not an independently maintained source of truth. Changes must continue to originate from the pinned Cloudflare schema and deterministic generator rather than by hand-editing one representation independently of the other.
-
-Postman workspace bindings in `.postman/` are local/workspace-specific and are intentionally ignored. This public repository must not contain a workspace ID, Postman Cloud resource IDs, API keys, local secrets, or other user-specific Native Git state.
-
-The final repository layout, generation commands, pinned Postman CLI version, validation rules, and user instructions are established by the Local Mode implementation and must keep both representations reproducible and public-safe.
-
-## Migration determinism blocker
-
-The compatibility implementation is paused at its required determinism gate. The existing v2.1 distribution and generation pipeline remain in place; the proposed dual-format layout is not yet shipped.
-
-The probe uses **Postman CLI 1.56.3**, installed with an exact npm pin in an ignored local directory:
-
-```sh
-npm install --prefix .cache/postman-cli-probe --save-exact postman-cli@1.56.3
-.cache/postman-cli-probe/node_modules/.bin/postman --version
+```text
+dist/v2.1/
+  reference/                 ten v2.1 collections
+  workflows/                 three-request bootstrap
+  environments/              empty JSON template
+  manifest.json              both formats and toolchain provenance
+  operation-accounting.json  exact-once upstream ownership
+postman/
+  collections/               eleven v3 collection directories
+  environments/              empty YAML template
 ```
 
-This is the [official npm installation mechanism](https://learning.postman.com/docs/postman-cli/postman-cli-installation). The package pins its platform-specific binary dependencies to the same version. Version 1.56.3 exposes collection migration, collection lint, and environment lint; no login or API key was used. This is a tested candidate, not an integrated repository toolchain pin.
+Each v3 collection uses the official migration layout: a collection-level `.resources/definition.yaml`, folder definitions, request YAML, and response-example resources. No v2.1 JSON or generator metadata is placed in the Native Git tree. Cloudflare notices in the root license/third-party notices and generated collection descriptions apply to both representations.
 
-### Reproduction
+## Local Mode usage
 
-Run the following from the repository root. Both output directories must be new and empty; use a fresh temporary parent on each attempt.
+Clone the repository, open the repository root in Postman v12+ desktop, switch to **Local View**, and select the generated template environment. Configure credentials and resource selectors only in a private local copy. Import users can instead select the JSON files in `dist/v2.1/`; see the [README](../README.md).
 
-```sh
-probe_dir=$(mktemp -d)
-.cache/postman-cli-probe/node_modules/.bin/postman collection migrate \
-  postman/workflows/bootstrap.postman_collection.json -o "$probe_dir/a"
-.cache/postman-cli-probe/node_modules/.bin/postman collection migrate \
-  postman/workflows/bootstrap.postman_collection.json -o "$probe_dir/b"
-diff -ru "$probe_dir/a" "$probe_dir/b"
-```
+Local Mode requires no Postman Cloud connection or push. Cloud workspace binding is optional. Postman may create `.postman/resources.yaml` when a workspace is bound; the entire `.postman/` directory is ignored and must never be committed. Do not commit populated environments, workspace IDs, cloud resource IDs, API keys, or local application state. Local deterministic entity UUIDs in generated YAML are not cloud workspace bindings.
 
-The same source collection produces different values at **`.resources/definition.yaml` → `auth[0].id`**. Both values have UUID-v4 form. Migration creates a fresh collection-level auth identifier on each invocation rather than retaining stable output for the existing collection auth. This describes the observed behavior; the closed-source binary’s internal implementation has not been inspected.
+## Toolchain and generation
 
-The [official migration command](https://learning.postman.com/docs/postman-cli/postman-cli-collections) exposes only an output-directory option, with no documented deterministic-ID or seed option. No generated UUID has been stripped, replaced, or normalized. Request semantics have not been rewritten.
+Use Node.js 24 and `npm ci`. The exact official `postman-cli@1.56.3` npm dependency supplies `node_modules/.bin/postman` and exact-version platform binary packages through `package-lock.json`. The binary version is verified before generation/validation and recorded in `toolchain-lock.json` and the manifest. No login, API key, workspace ID, or cloud resource is needed. See [official installation](https://learning.postman.com/docs/postman-cli/postman-cli-installation) and [collection commands](https://learning.postman.com/docs/postman-cli/postman-cli-collections).
 
-### Full collection probe results
+Run `npm run generate` to generate both formats. Output is built in temporary directories; generation failure does not publish a partially migrated distribution. The updater calls this same generator and stages both `dist/` and `postman/` in its review branch. It never auto-merges.
 
-All ten reference collections and the three-request bootstrap were migrated twice into separate clean temporary directories on macOS arm64 with Node.js 24.20.0 and Postman CLI 1.56.3. Across each run’s **13,206 files**, file sets were identical. Exactly **11 files** differed: every collection’s `.resources/definition.yaml`, solely at `auth[0].id`. All remaining files were byte-identical.
+Every collection is migrated twice into independent clean directories. Both raw outputs pass official collection lint before compatibility handling. Both normalized outputs are linted again, then checked for semantic equivalence and identical directory/file sets and bytes. The environment YAML uses exactly the same source model as JSON, including empty credential/resource values and secret flags; both independently generated environments pass official environment lint.
 
-| Collection | Request files | Official collection lint |
-| --- | ---: | --- |
-| accounts-identity-billing | 618 | 0 errors, 0 warnings |
-| analytics-observability | 434 | 0 errors, 0 warnings |
-| application-security-rulesets | 369 | 0 errors, 0 warnings |
-| media-communications | 183 | 0 errors, 0 warnings |
-| network-services | 286 | 0 errors, 0 warnings |
-| other-cloudflare-services | 1 | 0 errors, 0 warnings |
-| storage-data | 127 | 0 errors, 0 warnings |
-| workers-developer-platform | 474 | 0 errors, 0 warnings |
-| zero-trust | 594 | 0 errors, 0 warnings |
-| zones-dns-domains | 436 | 0 errors, 0 warnings |
-| bootstrap | 3 | 0 errors, 0 warnings |
+## Narrow collection-auth ID compatibility policy
 
-The temporary v3 reference output contains 3,522 request files, plus three bootstrap request files. This count and successful lint do not establish full semantic equivalence; the implementation stopped before adding the independent v2/v3 operation and semantics validator. None of the temporary v3 output is committed.
+Postman CLI 1.56.3 assigns a fresh collection-auth UUID on each migration at `.resources/definition.yaml → auth[0].id`. [Postman issue #14052](https://github.com/postmanlabs/postman-app-support/issues/14052#issuecomment-4136642843) also discusses unstable collection-auth IDs in v3/Git workflows. [Independent review approved policy v1](https://github.com/SalixiaHoldings/Cloudflare-Postman/pull/4#issuecomment-5689885557) for this one persistence identifier. This policy does not alter authentication semantics.
 
-Baseline `npm ci`, `npm run generate`, and `npm run check` pass. The latter includes lint, all 18 tests, byte-for-byte generation checking, and validation. The existing 3,522 exact-once operations, 2,496 overlaps, partition counts, auth categories, three revision-bound schema exceptions, and 47 converter warnings are unchanged. Existing public-safety validation passes; `.postman/resources.yaml` is ignored and no `.postman/` file is tracked. Full v3 release secret/PII scanning remains pending because no v3 distribution is being published.
+Before changing output, the guard requires exactly one collection auth entry, a valid UUID at the expected scalar location, and exactly one occurrence of that UUID across the entire collection directory. References in other files, comments, filenames, unexpected structures, and symlinks fail closed. Only the scalar’s UUID bytes are replaced—YAML is never reserialized.
 
-### Resuming implementation
+The ID is derived with the shared existing `deterministicUuid` algorithm using seed `postman-v3:collection-auth:<v2 _postman_id>`. Existing v2 IDs are unchanged. `.gitattributes` disables line-ending conversion and whitespace-style diagnostics only for generated YAML, whose official block scalars retain upstream trailing spaces and tabs. Byte comparisons enforce their exact content; the generator never trims them. Request, folder, example, environment, variable, and other resource IDs and filenames are untouched. Regression tests exercise invalid structures, missing/duplicate/referenced IDs, byte-only replacement, and stable-official-ID detection.
 
-Proceed only after a compatible official tool produces deterministic output, or after maintainers explicitly approve a documented compatibility approach to the unstable identifier. Re-run the two-clean-directory comparison before integrating migration into generation, manifests, validation, and upstream drift. Until then, v3 environment generation/validation, the final directory move, v3 release scanning, and desktop Local Mode acceptance remain outstanding.
+The two raw auth IDs must differ. If official migration starts producing a stable ID, generation stops for explicit compatibility review instead of continuing to rewrite it. Any other difference after the approved replacement also stops generation. Both raw and normalized lint require zero errors **and warnings**.
+
+## Validation and provenance
+
+`npm run generate:check` regenerates both representations (including the two-run comparison) and compares them with checked-in output. `npm run validate` checks v2 schema/auth/accounting plus all v3 hashes, exact file/directory inventory, official lint, and semantic equivalence. `npm run check` runs syntax checks, regression tests, generation checking, and validation. Hosted Validate runs this full gate.
+
+Semantic validation matches collection and request identities, partition ownership, HTTP methods and API paths, request names, auth modes and credential references, auth headers, core variables, pre/post scripts, and complete descriptions containing upstream operation identities. The official migrator uses filenames for ordinary request names and retains an explicit name when needed; filename-backed names trim surrounding whitespace. Validation understands that representation without editing migrated names. Bootstrap remains three requests.
+
+The manifest records the schema commit/digest, converter and CLI toolchain, compatibility-policy version, v2 hashes, v3 per-file hashes and directory/file-set digests, operation-set digests and counts, and environment hashes. Missing, extra, duplicate, stale, or edited v3 output fails validation. Public-safety validation covers the entire YAML tree and empty template values, in addition to the existing v2 checks. Public upstream examples remain attributable to the pinned schema.
+
+## Desktop acceptance boundary
+
+CLI lint proves format validity, not desktop behavior. In Postman v12+ desktop, open this repository root in Local View without a cloud binding; confirm all ten reference collections, the three-request bootstrap, and template environment appear, and no **Upgrade files** warning appears. Inspect auth/variables and bootstrap scripts without sending requests. This final UI acceptance check requires a human desktop session.
+
+For public-release secret/PII review, install checksum-verified Gitleaks 8.30.1 and run `npm run generate:check`, then `GITLEAKS_BIN=/path/to/gitleaks npm run scan:release`. The scan covers all YAML, including hidden example resources. It reports generated auth fingerprints, exact pinned-upstream examples (including encoded samples), and seeded AI Search UUID fixtures already reproduced in v2 separately; any unexplained candidate fails. Email candidates must occur in the verified upstream source or match a reproduced v2 fixture for an upstream email-format query parameter without an example. No Gitleaks rules are globally disabled, and reports containing candidate values are temporary and removed. Existing local-path and empty-template checks remain part of `npm run validate`.

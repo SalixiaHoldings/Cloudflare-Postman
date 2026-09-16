@@ -1,0 +1,41 @@
+$kind: http-example
+id: 8936956e-efc8-5db9-bd77-7d638bc1a26d
+name: Update TSIG response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/secondary_dns/tsigs/{{tsig_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "69cd1e104af3e6ed3cb344f263fd0d5a",
+        "name": "tsig.customer.cf.",
+        "secret": "{{secret}}",
+        "algo": "hmac-sha512."
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

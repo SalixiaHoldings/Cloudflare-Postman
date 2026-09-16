@@ -1,0 +1,35 @@
+$kind: http-example
+id: 2cbbabb2-9b8d-54d6-83e3-e528161f113c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers/{{identity_provider_id}}/scim/users?cf_resource_id=bd97ef8d-7986-43e3-9ee0-c25dda33e4b0&idp_resource_id=john_smith_01&username=John Smith&email=john.smith@example.com&name=John Smith&page=1&per_page=100"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    cf_resource_id: bd97ef8d-7986-43e3-9ee0-c25dda33e4b0
+    idp_resource_id: john_smith_01
+    username: John Smith
+    email: john.smith@example.com
+    name: John Smith
+    page: "1"
+    per_page: "100"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

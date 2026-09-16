@@ -1,0 +1,17 @@
+$kind: http-example
+id: 567efe48-4a34-5453-ab14-1e612915c173
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/skills/{{skill_id}}/tag-categories"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

@@ -1,0 +1,43 @@
+$kind: http-example
+id: 25299b7a-6d65-59a0-8ad5-8caf72ce493c
+name: Suppression not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "email": "user@example.com",
+        "expires_at": "2027-01-01T00:00:00Z",
+        "note": "Imported from CRM"
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+order: 4000

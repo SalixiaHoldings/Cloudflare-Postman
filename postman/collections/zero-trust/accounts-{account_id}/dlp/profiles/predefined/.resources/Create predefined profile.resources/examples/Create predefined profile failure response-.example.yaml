@@ -1,0 +1,55 @@
+$kind: http-example
+id: 124f9dd6-d195-58bf-9601-bded6106da69
+name: Create predefined profile failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles/predefined"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "profile_id": "f6396f39-e4c1-3e5a-e062-c739c64a89ac",
+        "ai_context_enabled": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "allowed_match_count": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "confidence_threshold": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "context_awareness": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "entries": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "ocr_enabled": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

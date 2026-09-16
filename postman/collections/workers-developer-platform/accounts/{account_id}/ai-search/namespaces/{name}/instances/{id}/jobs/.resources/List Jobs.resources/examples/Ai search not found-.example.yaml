@@ -1,0 +1,41 @@
+$kind: http-example
+id: 3cc8f705-14e9-54b6-9906-1eb12397360a
+name: Ai search not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/jobs?page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "20"
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

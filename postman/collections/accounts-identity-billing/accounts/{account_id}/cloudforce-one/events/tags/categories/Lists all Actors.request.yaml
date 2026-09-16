@@ -1,0 +1,39 @@
+$kind: http-request
+id: 7e1f3f5f-928d-5c21-8698-4af319194719
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_TaggedActorList
+  GET /accounts/{account_id}/cloudforce-one/events/tags/categories/actors
+
+  Returns all known Actors from the shared CFONE catalog. Non-CFONE accounts receive a redacted public projection: identity (`uuid`, `value`, `categoryUuid`, `categoryName`), metadata (`description`, `dateOfDiscovery`, `tlp`, `confidence`, `properties`), origin (`originCountryISO`, `originCountryISO_annotated`), and public aliases/references (`aliasGroupNames`, `aliases`, `externalReferences`, `externalReferences_annotated`). CFONE-internal fields (internal aliases, attribution, motive, opsec level, etc.) are stripped from the response.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: '{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/categories/actors?page=2535.467583220452&pageSize=2535.467583220452&value=string&filters={"field":"value","op":"in","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&filters={"field":"value","op":"in","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "2535.467583220452"
+  - key: pageSize
+    value: "2535.467583220452"
+  - key: value
+    value: string
+    description: Free-text substring match on actor name (Tag.value).
+  - key: filters
+    value: '{"field":"value","op":"in","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+    description: "Structured filters as a JSON array of {field, op, value} objects. Same shape as the events search API. Common use: filter actors by country with filters=[{\"field\":\"originCountryISO\",\"op\":\"in\",\"value\":[\"IR\",\"CN\"]}]. Country values may be passed as alpha-2, alpha-3, name, or alias (e.g. \"iran\"). Max 10 entries per request, max 100 values per 'in'. Non-CFONE callers may only filter on fields that are also public-readable (`value`, `categoryName`, `aliasGroupNames`, `originCountryISO`); filtering on a redacted field returns 400. Performance notes: `originCountryISO` uses its B-tree index for equals/in. `endsWith` and `aliasGroupNames` contains/like are leading-wildcard scans and slow on large result sets. `aliasGroupNames` matches on JSON-encoded text, so substrings can cross alias boundaries (\"apt28\" also matches \"apt280\" when both appear in the same tag's alias list)."
+  - key: filters
+    value: '{"field":"value","op":"in","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+    description: "Structured filters as a JSON array of {field, op, value} objects. Same shape as the events search API. Common use: filter actors by country with filters=[{\"field\":\"originCountryISO\",\"op\":\"in\",\"value\":[\"IR\",\"CN\"]}]. Country values may be passed as alpha-2, alpha-3, name, or alias (e.g. \"iran\"). Max 10 entries per request, max 100 values per 'in'. Non-CFONE callers may only filter on fields that are also public-readable (`value`, `categoryName`, `aliasGroupNames`, `originCountryISO`); filtering on a redacted field returns 400. Performance notes: `originCountryISO` uses its B-tree index for equals/in. `endsWith` and `aliasGroupNames` contains/like are leading-wildcard scans and slow on large result sets. `aliasGroupNames` matches on JSON-encoded text, so substrings can cross alias boundaries (\"apt28\" also matches \"apt280\" when both appear in the same tag's alias list)."
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Lists all Actors.resources/examples
+order: 2000

@@ -1,0 +1,31 @@
+$kind: http-example
+id: 18cb9956-7232-5e45-876b-dc5e01609c14
+name: Token details.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/tokens/{{id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "3e47d63e-419f-f94a-5160-b573bda4b55e",
+          "name": "string",
+          "cf_api_id": "string",
+          "created_at": "1970-11-10T23:13:54.702Z",
+          "modified_at": "1923-06-30T16:05:26.870Z",
+          "created_by": "string",
+          "enabled": true,
+          "legacy": true,
+          "modified_by": "string"
+        }
+      }
+order: 1000

@@ -1,0 +1,51 @@
+$kind: http-example
+id: 1cabf5fd-3758-5f92-989a-15020fe68955
+name: Get analytics summary response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/analytics/events/summary?dimensions=event&dimensions=appID&sort=+count&sort=-bytesIngress&description=End of time interval to query, defaults to current time. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.&value=<Error: Too many levels of nesting to fake this schema>&metrics=count&metrics=bytesIngress&filters=event==disconnect%20AND%20coloName!=SFO&description=Start of time interval to query, defaults to `until` - 6 hours. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.&value=<Error: Too many levels of nesting to fake this schema>"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: dimensions
+      value: event
+    - key: dimensions
+      value: appID
+    - key: sort
+      value: +count
+    - key: sort
+      value: -bytesIngress
+    - key: description
+      value: End of time interval to query, defaults to current time. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.
+    - key: value
+      value: "<Error: Too many levels of nesting to fake this schema>"
+    - key: metrics
+      value: count
+    - key: metrics
+      value: bytesIngress
+    - key: filters
+      value: event==disconnect%20AND%20coloName!=SFO
+    - key: description
+      value: Start of time interval to query, defaults to `until` - 6 hours. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.
+    - key: value
+      value: "<Error: Too many levels of nesting to fake this schema>"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

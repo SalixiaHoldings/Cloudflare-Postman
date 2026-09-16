@@ -1,0 +1,21 @@
+$kind: http-example
+id: afb5e32f-e02a-5fa9-aa1c-5cee2a1838f6
+request:
+  url: "{{base_url}}/user/subscriptions/{{identifier}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "subscription_id": "506e3185e9c882d175a2d0cb0093d9f2"
+      }
+order: 1000

@@ -1,0 +1,52 @@
+$kind: http-example
+id: ed50bc48-075c-5c5b-af64-25272d8434b2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/{{report_id}}/appeals/eligibility"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {
+          "appealable": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "has_appealable_mitigations": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "has_open_appeal": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "appeal_count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "max_appeals": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

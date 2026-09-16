@@ -1,7 +1,8 @@
-import { mkdtemp, mkdir, readFile, rm } from 'node:fs/promises';
+import { generateNative } from './native-git.mjs';
+import { cp, mkdtemp, mkdir, readFile, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { POSTMAN_DIR, ROOT } from './constants.mjs';
+import { V2_DIR, ROOT } from './constants.mjs';
 import { createBootstrapCollection, createTemplateEnvironment } from './chaining.mjs';
 import { sha256, stableJson, writeJson } from './io.mjs';
 import { listOperations, subsetSchema } from './openapi.mjs';
@@ -21,7 +22,7 @@ async function cleanGeneratedDirectories(outputRoot) {
   }
 }
 
-export async function generateAll({ outputRoot = POSTMAN_DIR, schemaPath, schemaLock } = {}) {
+async function generateV2({ outputRoot = V2_DIR, schemaPath, schemaLock } = {}) {
   const pinned = schemaPath && schemaLock ? { destination: schemaPath, lock: schemaLock } : await fetchPinnedSchema();
   const schema = JSON.parse(await readFile(pinned.destination, 'utf8'));
   const operations = listOperations(schema);
@@ -159,19 +160,31 @@ async function compareGenerated(actualRoot, expectedRoot) {
   return differences;
 }
 
-export async function verifyGenerated() {
-  const temporaryRoot = await mkdtemp(path.join(os.tmpdir(), 'cloudflare-postman-generate-'));
-  const generatedRoot = path.join(temporaryRoot, 'postman');
+export async function generateAll({ outputRoot = ROOT, schemaPath, schemaLock } = {}) {
+  const temporary = await mkdtemp(path.join(os.tmpdir(), 'cloudflare-dual-'));
   try {
-    const result = await generateAll({ outputRoot: generatedRoot });
-    const differences = await compareGenerated(POSTMAN_DIR, generatedRoot);
-    if (differences.length) {
-      throw new Error(`Generated artifacts are stale or non-deterministic:\n${differences.join('\n')}`);
+    const v2Root = path.join(temporary, 'dist', 'v2.1');
+    const result = await generateV2({ outputRoot: v2Root, schemaPath, schemaLock });
+    await generateNative(temporary);
+    for (const directory of ['dist', 'postman']) {
+      await rm(path.join(outputRoot, directory), { recursive: true, force: true });
+      await cp(path.join(temporary, directory), path.join(outputRoot, directory), { recursive: true });
     }
     return result;
-  } finally {
-    await rm(temporaryRoot, { recursive: true, force: true });
-  }
+  } finally { await rm(temporary, { recursive: true, force: true }); }
+}
+
+export async function verifyGenerated() {
+  const temporaryRoot = await mkdtemp(path.join(os.tmpdir(), 'cloudflare-postman-check-'));
+  try {
+    const result = await generateAll({ outputRoot: temporaryRoot });
+    const differences = [];
+    for (const directory of ['dist', 'postman']) {
+      differences.push(...await compareGenerated(path.join(ROOT, directory), path.join(temporaryRoot, directory)));
+    }
+    if (differences.length) throw new Error('Generated artifacts are stale or non-deterministic:\n' + differences.join('\n'));
+    return result;
+  } finally { await rm(temporaryRoot, { recursive: true, force: true }); }
 }
 
 export function formatGenerationSummary(result) {

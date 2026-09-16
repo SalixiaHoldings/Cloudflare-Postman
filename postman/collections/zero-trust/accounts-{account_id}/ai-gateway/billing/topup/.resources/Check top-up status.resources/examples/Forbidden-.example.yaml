@@ -1,0 +1,46 @@
+$kind: http-example
+id: 7e6ea4ce-0b06-5be2-b4d6-7a1c47a834e5
+name: Forbidden.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/topup/status"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "payment_intent_id": "in_1abc"
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

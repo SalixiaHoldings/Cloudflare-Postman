@@ -1,0 +1,50 @@
+$kind: http-request
+id: b051c18d-6fd5-5f11-a177-86d0d1ebce68
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-config-create-gateway
+  POST /accounts/{account_id}/ai-gateway/gateways
+
+  Creates a new AI Gateway.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "id": "my-gateway",
+      "rate_limiting_interval": 5792,
+      "rate_limiting_limit": 7626,
+      "collect_logs": true,
+      "cache_ttl": 1678,
+      "cache_invalidate_on_update": false,
+      "authentication": true,
+      "byok_only": true,
+      "log_management": 4973335,
+      "log_management_strategy": "STOP_INSERTING",
+      "logpush": false,
+      "logpush_public_key": "stringstringstring",
+      "rate_limiting_technique": "fixed",
+      "retry_backoff": "linear",
+      "retry_delay": 614,
+      "retry_max_attempts": 3,
+      "store_id": "string",
+      "workers_ai_billing_mode": "postpaid",
+      "zdr": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new Gateway.resources/examples
+order: 2000

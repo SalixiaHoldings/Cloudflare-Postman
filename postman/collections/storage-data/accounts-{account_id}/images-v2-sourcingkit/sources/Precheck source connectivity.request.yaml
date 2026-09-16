@@ -1,0 +1,38 @@
+$kind: http-request
+id: 66e1de4e-e712-5909-ba1c-8bf366486196
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-sourcingkit-precheck-source-connectivity
+  POST /accounts/{account_id}/images/v2/sourcingkit/sources/connectivity-precheck
+
+  Verify connectivity to a storage bucket before creating a source. Returns
+  connectivity status without persisting any state.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/sources/connectivity-precheck"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "bucket": "string",
+      "vendor": "s3",
+      "secret": "{{secret}}",
+      "account": "string",
+      "region": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Precheck source connectivity.resources/examples
+order: 3000

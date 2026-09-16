@@ -1,0 +1,43 @@
+$kind: http-request
+id: 5fadc50a-c13b-57b0-a05d-127d83888db9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudforce-one-add-account-exemptions
+  POST /accounts/{account_id}/cloudforce-one/rules/exemptions
+
+  Add regex patterns to per-account exemption rules (union semantics). Missing keys leave that type untouched; duplicates are silently deduped.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/exemptions"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "namespace": [
+        "^test-.*$",
+        "^test-.*$"
+      ],
+      "tag_match": [
+        "^test-.*$",
+        "^test-.*$"
+      ],
+      "worker_name": [
+        "^test-.*$",
+        "^test-.*$"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Add patterns to exemption rules.resources/examples
+order: 3000

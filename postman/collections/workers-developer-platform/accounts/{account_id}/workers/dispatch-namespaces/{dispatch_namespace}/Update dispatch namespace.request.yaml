@@ -1,0 +1,33 @@
+$kind: http-request
+id: 6b07a59d-a6ac-57c1-8638-2278766ba90a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: namespace-worker-put-namespace
+  PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}
+
+  Update a Workers for Platforms namespace.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "my-dispatch-namespace",
+      "trusted_workers": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update dispatch namespace.resources/examples
+order: 4000

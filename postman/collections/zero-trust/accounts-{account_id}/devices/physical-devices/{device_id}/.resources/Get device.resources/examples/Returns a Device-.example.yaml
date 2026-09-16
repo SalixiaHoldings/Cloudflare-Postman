@@ -1,0 +1,100 @@
+$kind: http-example
+id: f4089342-9270-54c9-b10e-1eceb34b379c
+name: Returns a Device.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/physical-devices/{{device_id}}?include=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: include
+      value: string
+      description: |
+        Comma-separated list of additional information that should be included in the device response. Supported values are: "last_seen_registration.policy".
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "created_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "updated_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "last_seen_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "active_registrations": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "client_version": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "deleted_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "device_type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "hardware_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "last_seen_registration": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "last_seen_user": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "mac_address": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "manufacturer": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "model": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "os_version": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "os_version_extra": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "public_ip": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "serial_number": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": true,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

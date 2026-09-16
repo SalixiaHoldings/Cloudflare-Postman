@@ -1,0 +1,34 @@
+$kind: http-request
+id: fd6300a7-ed53-5197-87b2-ab565798dadf
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: delete-accounts-account_id-logpush-validate-destination-exists
+  POST /accounts/{account_id}/logpush/validate/destination/exists
+
+  Checks if there is an existing job with a destination.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/logpush/validate/destination/exists"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "destination_conf": "s3://mybucket/logs?region=us-west-2"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Check destination exists.resources/examples
+order: 2000

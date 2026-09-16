@@ -1,0 +1,38 @@
+$kind: http-request
+id: c3f94b0a-de96-5011-b1a3-10eabd33dd86
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: moq-relays-create
+  POST /accounts/{account_id}/moq/relays
+
+  Provisions a new MoQ relay instance. Auto-creates a publish+subscribe
+  token and a subscribe-only token. Token values are included in the
+  response (shown once). Config is always set to defaults (upstreams
+  off) and cannot be supplied here — sending a non-empty `config` is
+  rejected (21014); `null` or `{}` is accepted as absent. Use PUT to
+  configure the relay after it exists.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/moq/relays"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Production Live Stream"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a relay.resources/examples
+order: 2000

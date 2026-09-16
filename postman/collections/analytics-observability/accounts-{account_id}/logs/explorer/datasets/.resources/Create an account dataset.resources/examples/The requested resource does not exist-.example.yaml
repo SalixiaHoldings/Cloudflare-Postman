@@ -1,0 +1,52 @@
+$kind: http-example
+id: f704dd04-effc-58b9-866d-70fd71c1cbb2
+name: The requested resource does not exist.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logs/explorer/datasets"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "dataset": "string",
+        "fields": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "filter": "string"
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "key_0": 6349,
+          "key_1": 4224.232907872647
+        },
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          "string",
+          "string"
+        ]
+      }
+order: 4000

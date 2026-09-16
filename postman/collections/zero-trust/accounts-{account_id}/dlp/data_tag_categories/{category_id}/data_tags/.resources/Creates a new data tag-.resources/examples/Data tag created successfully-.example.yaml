@@ -1,0 +1,32 @@
+$kind: http-example
+id: c4754c29-331e-5e81-bb6b-de2776febf15
+name: Data tag created successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/data_tag_categories/{{category_id}}/data_tags"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "description": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,28 @@
+$kind: http-example
+id: da3c332d-0541-5735-9c0b-99fb6d3e5d61
+name: List Image Resizing configurations response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/settings/transformations"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

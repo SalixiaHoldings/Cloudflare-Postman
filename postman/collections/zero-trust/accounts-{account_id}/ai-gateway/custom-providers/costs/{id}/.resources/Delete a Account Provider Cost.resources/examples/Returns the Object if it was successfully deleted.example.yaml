@@ -1,0 +1,34 @@
+$kind: http-example
+id: 14c0322f-9583-58a4-8e25-ab7c03a7e23f
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/custom-providers/costs/{{id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "account_provider_id": "1a9da4c8-8a99-6ee0-028b-6e0bee51727e",
+          "model": "string",
+          "id": "a4d5cea6-925a-15e8-5918-972285207910",
+          "created_at": "1940-03-24T15:11:33.068Z",
+          "modified_at": "1964-09-10T02:42:45.923Z",
+          "changed_by": "manual",
+          "cost_in": 1529.1765029542148,
+          "cost_out": 2380.657836329192,
+          "cost_type": "tokens",
+          "enable": true,
+          "model_rule": "equals",
+          "token_pricing": "string",
+          "weight": 4666
+        }
+      }
+order: 1000

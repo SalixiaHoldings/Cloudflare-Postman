@@ -1,0 +1,28 @@
+$kind: http-example
+id: c451c9f6-8a3e-57da-a083-efa23e1be846
+name: Get downloaded commands failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/commands/{{command_id}}/downloads/{{filename}}"
+  method: GET
+  headers:
+    Accept: application/zip
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

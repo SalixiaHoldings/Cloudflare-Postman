@@ -1,0 +1,84 @@
+$kind: http-example
+id: 1a059649-f3ca-5594-897e-dec492b95f54
+name: |
+  Registration is still processing. This occurs when the operation did
+  not complete within the synchronous wait window, or when `Prefer: respond-async`
+  was sent. Poll the URL in `links.self` to track progress.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations"
+  method: POST
+  headers:
+    - key: Prefer
+      value: string
+      description: |
+        Set to `respond-async` to receive an immediate `202 Accepted` without
+        waiting for the operation to complete (RFC 7240).
+
+        The header may be combined with other preferences using standard
+        comma-separated syntax.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "auto_renew": false,
+        "contact_extensions": {
+          "ca_legal_type": "CCT"
+        },
+        "contacts": {
+          "registrant": {
+            "email": "ada@example.ca",
+            "phone": "+1.6135550100",
+            "postal_info": {
+              "address": {
+                "city": "Ottawa",
+                "country_code": "CA",
+                "postal_code": "K1A 0B1",
+                "state": true,
+                "street": "123 Queen St"
+              },
+              "name": "Ada Lovelace",
+              "organization": "Example Canada Inc"
+            }
+          }
+        },
+        "domain_name": "my-brand-example.ca",
+        "years": 1
+      }
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    - key: Location
+      value: string
+      description: URL of the workflow status resource (same as `links.self`).
+    - key: Preference-Applied
+      value: string
+      description: Set to `respond-async` when the server honored the preference.
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "completed": false,
+          "context": {
+            "domain_name": "example.com"
+          },
+          "created_at": "2025-10-27T10:00:00Z",
+          "links": {
+            "resource": "/accounts/abc/registrar/registrations/example.com",
+            "self": "/accounts/abc/registrar/registrations/example.com/registration-status"
+          },
+          "state": "in_progress",
+          "updated_at": "2025-10-27T10:00:10Z"
+        },
+        "success": true
+      }
+order: 2000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: 49f3a815-c44f-5279-b9c0-ebcf011b6500
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/content_policies/{{policy_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "null"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

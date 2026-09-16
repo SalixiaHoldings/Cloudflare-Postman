@@ -1,0 +1,28 @@
+$kind: http-example
+id: 11935bb1-52fc-5e9f-b28a-31be4fffab45
+name: No participant found for the given `participant_id` or `custom_participant_id`
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/active-session/kick"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "{}"
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": {
+          "code": 404,
+          "message": "No user found with id 813432c7-3c5a-45e2-9acf-eef7061c7584"
+        },
+        "success": false
+      }
+order: 2000

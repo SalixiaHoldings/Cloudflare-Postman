@@ -1,0 +1,55 @@
+$kind: http-request
+id: 8310b3cd-71f2-5d2e-9fd7-0a9367c7d197
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: devices-set-local-domain-fallback-list-for-a-device-settings-policy
+  PUT /accounts/{account_id}/devices/policy/{policy_id}/fallback_domains
+
+  Sets the list of domains to bypass Gateway DNS resolution. These domains will use the specified local DNS resolver instead. This will only apply to the specified device settings profile.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/devices/policy/{{policy_id}}/fallback_domains"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    [
+      {
+        "suffix": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "description": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "dns_server": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      {
+        "suffix": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "description": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "dns_server": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Set the Local Domain Fallback list for a device settings profile.resources/examples
+order: 2000

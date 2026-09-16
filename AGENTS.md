@@ -31,6 +31,10 @@ This repository is the public, open-source Salixia-maintained Postman distributi
 
 ## Postman format
 
+- Generate v2.1 JSON under `dist/v2.1/` and derive v3 YAML under `postman/` using pinned official CLI migration. Both are generated; never hand-edit either format.
+- Only the guarded collection-auth ID compatibility policy in `docs/native-git.md` is approved. Any additional migration instability requires review.
+- Never commit `.postman/` workspace bindings. Upstream updates must regenerate and validate both formats together.
+
 - Use the current stable, automatable format supported by the selected generator. At staging time `openapi-to-postmanv2` is the established Postman converter and its upstream package is 6.3.3; Collection v3 support in that converter is not yet established. Pin a verified compatible version rather than assuming v3 support.
 - Structure collections so they remain practical to navigate; do not emit one monolithic 20+ MB collection if modular output can preserve complete coverage.
 - Generic reusable variables should include at minimum the Cloudflare API base URL, account ID, zone ID, and token reference. Secrets must never contain committed values.

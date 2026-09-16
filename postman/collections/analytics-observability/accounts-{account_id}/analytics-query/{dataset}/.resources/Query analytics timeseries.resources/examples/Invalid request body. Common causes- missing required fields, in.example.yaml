@@ -1,0 +1,59 @@
+$kind: http-example
+id: 69ed77d8-76ec-55e1-a02e-5533387fb862
+name: |
+  Invalid request body. Common causes: missing required fields, invalid timestamp format (must be RFC3339), or unknown dataset/column/stat names.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics/query/{{dataset}}/timeseries"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "filters": [
+          {
+            "name": "allowed",
+            "op": "eq",
+            "values": [
+              true
+            ]
+          }
+        ],
+        "from": "2024-11-01T00:00:00Z",
+        "groupBy": [
+          "country",
+          "allowed"
+        ],
+        "resolution": "day",
+        "stats": [
+          "attemptsTotal"
+        ],
+        "to": "2024-11-08T00:00:00Z"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 11005,
+            "message": "art.api.parameter.invalid"
+          }
+        ],
+        "messages": [
+          {
+            "code": 1002,
+            "message": "Parameter 'from' has invalid value '2024-11-05 00:00:00'. Should be of type: 'RFC3339'"
+          }
+        ],
+        "result": null,
+        "success": false
+      }
+order: 2000

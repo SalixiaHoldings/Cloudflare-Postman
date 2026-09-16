@@ -1,0 +1,52 @@
+$kind: http-example
+id: 03ca24b4-c7b8-5e75-9527-8f6ac1ffc544
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}?simple=false&order=asc"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: simple
+      value: "false"
+      description: When true, omits step details and returns only metadata with step_count.
+    - key: order
+      value: asc
+      description: 'Step ordering: "asc" (default, oldest first) or "desc" (newest first).'
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "messages": [
+          "string",
+          "string"
+        ],
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": null
+      }
+order: 2000

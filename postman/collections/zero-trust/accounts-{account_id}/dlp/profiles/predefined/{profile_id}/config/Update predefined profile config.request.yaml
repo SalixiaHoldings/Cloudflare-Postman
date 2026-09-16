@@ -1,0 +1,51 @@
+$kind: http-request
+id: 9d44ef6f-4926-55a4-959b-2a2405ec0733
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-profiles-update-predefined-profile-config
+  PUT /accounts/{account_id}/dlp/profiles/predefined/{profile_id}/config
+
+  This is similar to `update_predefined` but only returns entries that are enabled.
+  This is needed for our terraform API
+  Updates a DLP predefined profile. Only supports enabling/disabling entries.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles/predefined/{{profile_id}}/config"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "ai_context_enabled": false,
+      "allowed_match_count": 5,
+      "confidence_threshold": "low",
+      "enabled_entries": [
+        "0e8cd9ed-2d9b-b973-37a5-478d723c5ee0",
+        "0b1b0c77-64e5-2ee5-6456-c0455587fc6a"
+      ],
+      "entries": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "ocr_enabled": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update predefined profile config.resources/examples
+order: 3000

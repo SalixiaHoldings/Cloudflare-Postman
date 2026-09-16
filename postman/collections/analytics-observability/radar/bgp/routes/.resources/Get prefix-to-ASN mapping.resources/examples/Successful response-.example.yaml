@@ -1,0 +1,58 @@
+$kind: http-example
+id: 78e38440-9980-5004-a9ec-5321327d2290
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/bgp/routes/pfx2as?prefix=1.1.1.0/24&origin=3602&rpkiStatus=INVALID&longestPrefixMatch=true&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: prefix
+      value: 1.1.1.0/24
+    - key: origin
+      value: "3602"
+      description: Lookup prefixes originated by the given ASN.
+    - key: rpkiStatus
+      value: INVALID
+      description: "Return only results with matching rpki status: valid, invalid or unknown."
+    - key: longestPrefixMatch
+      value: "true"
+      description: Return only results with the longest prefix match for the given prefix. For example, specify a /32 prefix to lookup the origin ASN for an IPv4 address.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "prefix_origins": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "meta": {
+            "data_time": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "query_time": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "total_peers": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

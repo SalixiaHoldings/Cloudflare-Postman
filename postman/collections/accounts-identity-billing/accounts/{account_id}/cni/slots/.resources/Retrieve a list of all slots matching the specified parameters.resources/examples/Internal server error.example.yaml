@@ -1,0 +1,35 @@
+$kind: http-example
+id: 59f391ec-3234-5d89-9bf2-914a3a41bffc
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cni/slots?address_contains=string&site=string&speed=string&occupied=true&cursor=9230&limit=4653"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: address_contains
+      value: string
+      description: If specified, only show slots with the given text in their address field
+    - key: site
+      value: string
+      description: If specified, only show slots located at the given site
+    - key: speed
+      value: string
+      description: If specified, only show slots that support the given speed
+    - key: occupied
+      value: "true"
+      description: If specified, only show slots with a specific occupied/unoccupied state
+    - key: cursor
+      value: "9230"
+    - key: limit
+      value: "4653"
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

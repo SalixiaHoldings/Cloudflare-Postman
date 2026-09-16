@@ -1,0 +1,39 @@
+$kind: http-example
+id: 32b8cf40-22c1-56bb-8077-73ab7a75a88d
+name: Bad request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/topup/limits"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

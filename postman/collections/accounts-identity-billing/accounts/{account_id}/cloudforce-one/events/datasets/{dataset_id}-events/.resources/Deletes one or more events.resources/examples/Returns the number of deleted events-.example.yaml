@@ -1,0 +1,24 @@
+$kind: http-example
+id: c8ba803e-6d2e-5d69-b2ef-ce3b9fa27f81
+name: Returns the number of deleted events.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/datasets/{{dataset_id}}/events?eventIds=string&eventIds=str"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: eventIds
+      value: string
+      description: (Required) Array of Event IDs to delete.
+    - key: eventIds
+      value: str
+      description: (Required) Array of Event IDs to delete.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: "4143.242174759507"
+order: 1000

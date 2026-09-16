@@ -1,0 +1,39 @@
+$kind: http-example
+id: b706c272-81e8-5a84-a4c2-f5ed05c91798
+name: List Zones response failure.
+request:
+  url: "{{base_url}}/zones?name=example.com&status=initializing&type=full,full&account.id={{account_id}}&account.name=Dev Account&page=1&per_page=20&order=status&direction=desc&match=all"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    name: example.com
+    status: initializing
+    type: full,full
+    account.id: "{{account_id}}"
+    account.name: Dev Account
+    page: "1"
+    per_page: "20"
+    order: status
+    direction: desc
+    match: all
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

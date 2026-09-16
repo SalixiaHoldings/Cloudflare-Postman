@@ -1,0 +1,48 @@
+$kind: http-example
+id: f5d257b2-fc46-54ac-9a02-ca0ee74335c4
+name: Replace Hyperdrive Response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/hyperdrive/configs/{{hyperdrive_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "023e105f4ecef8ad9ca31a8372d0c353",
+        "name": "example-hyperdrive",
+        "origin": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "caching": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "mtls": {
+          "ca_certificate_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "mtls_certificate_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "sslmode": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "origin_connection_limit": 60
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

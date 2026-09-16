@@ -1,0 +1,60 @@
+$kind: http-example
+id: 748fdb79-c9ec-5565-b54a-6b3ef567226e
+name: Forbidden - Insufficient permissions or quota exceeded.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "tags": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "subdomain": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "observability": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "logpush": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "tail_consumers": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 4000

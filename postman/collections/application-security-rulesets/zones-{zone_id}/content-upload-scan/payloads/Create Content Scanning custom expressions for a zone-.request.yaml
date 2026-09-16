@@ -1,0 +1,44 @@
+$kind: http-request
+id: db8a0b25-063a-5908-bc3c-c73b8d13a03d
+name: Create Content Scanning custom expressions for a zone.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: waf-content-scanning-add-custom-scan-expressions
+  POST /zones/{zone_id}/content-upload-scan/payloads
+
+  Create one or more Content Scanning custom expressions, appending them to the existing list of the zone, and return the updated list. Each expression reaches content objects the scanner cannot find automatically, for example `lookup_json_string(http.request.body.raw, "file")`.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/content-upload-scan/payloads"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    [
+      {
+        "payload": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      {
+        "payload": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Content Scanning custom expressions for a zone-.resources/examples
+order: 2000

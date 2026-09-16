@@ -1,0 +1,30 @@
+$kind: http-example
+id: 7efd59f1-0d1b-516b-b293-6f3bef0b1802
+name: There is no content to send for this request, but the headers may be useful.
+request:
+  url: "{{base_url}}/organizations/{{organization_id}}/profile"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "business_name": "string",
+        "business_email": "string",
+        "business_phone": "string",
+        "business_address": "string",
+        "external_metadata": "string"
+      }
+response:
+  statusCode: 204
+  statusText: No Content
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

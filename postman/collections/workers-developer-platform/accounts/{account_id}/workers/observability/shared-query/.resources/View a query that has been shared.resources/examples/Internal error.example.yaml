@@ -1,0 +1,53 @@
+$kind: http-example
+id: f56ac95d-7552-5a86-8a27-ab87b16c58f2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/shared/query/{{id}}?view=events"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: view
+      value: events
+      description: Select the view of the query result to return, defaults to events.
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 5000

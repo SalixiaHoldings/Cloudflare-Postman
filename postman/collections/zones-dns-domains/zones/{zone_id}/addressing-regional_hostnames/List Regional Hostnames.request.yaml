@@ -1,0 +1,25 @@
+$kind: http-request
+id: 34a627db-1b18-5230-8999-bed18175ac08
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dls-zone-regional-hostnames-list
+  GET /zones/{zone_id}/addressing/regional_hostnames
+
+  List all Regional Hostnames within a zone.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/addressing/regional_hostnames"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Regional Hostnames.resources/examples
+order: 1000

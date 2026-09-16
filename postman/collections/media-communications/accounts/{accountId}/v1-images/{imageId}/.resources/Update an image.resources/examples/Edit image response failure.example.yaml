@@ -1,0 +1,29 @@
+$kind: http-example
+id: d2b5ee23-c6f0-54da-aa91-902cb8a1a6d9
+request:
+  url: "{{base_url}}/accounts/{{accountId}}/v1/images/{{imageId}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "creator": "string",
+        "metadata": {},
+        "requireSignedURLs": false
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "error": {}
+      }
+order: 2000

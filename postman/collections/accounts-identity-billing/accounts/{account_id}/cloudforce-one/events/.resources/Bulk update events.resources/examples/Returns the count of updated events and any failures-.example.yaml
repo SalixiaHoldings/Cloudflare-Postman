@@ -1,0 +1,75 @@
+$kind: http-example
+id: d158e28d-acd1-508a-a464-820036789380
+name: Returns the count of updated events and any failures.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/update/bulk"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "eventIds": [
+          "uuid-1",
+          "uuid-2",
+          "uuid-3"
+        ],
+        "datasetId": "9b769969-a211-466c-8ac3-cb91266a066a",
+        "updates": {
+          "attacker": "Flying Yeti",
+          "attackerCountry": "CN",
+          "category": "Domain Resolution",
+          "createdAt": "2025-12-19T00:00:00Z",
+          "event": "An attacker registered the domain domain.com",
+          "indicator": "domain2.com",
+          "indicatorType": "domain",
+          "insight": "This event indicates a potential phishing campaign",
+          "raw": {
+            "data": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tlp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "targetCountry": "US",
+          "targetIndustry": "Insurance",
+          "tlp": "amber"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "updatedCount": 5,
+        "failedCount": 1,
+        "failures": [
+          {
+            "eventId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "error": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "eventId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "error": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

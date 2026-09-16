@@ -1,0 +1,42 @@
+$kind: http-example
+id: 088ef340-015d-53b4-bd51-a2cf26f79ef9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/botnet_feed/asn/{{asn_id}}/day_report?date=2014-01-01T05:20:00.12345Z"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    date: 2014-01-01T05:20:00.12345Z
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "cidr": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "date": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "offense_count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

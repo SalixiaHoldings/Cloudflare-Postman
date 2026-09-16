@@ -1,0 +1,65 @@
+$kind: http-example
+id: b1da94a1-61e9-5c3c-9e25-166cf4a6d1a2
+name: "OK: Successful HTTP request"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/content/export"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "dlp_profile_information": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "dlp_profile_id": [
+          "e91a2360-da51-4fdf-9711-bcdecd462614"
+        ],
+        "integration_id": [
+          "c416bc38-75dc-425f-ae25-c37b5df5c37f"
+        ],
+        "max_affliction_date": "2024-01-01T00:00:00Z",
+        "min_affliction_date": "2023-01-01T00:00:00Z",
+        "orders": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "search": "sensitive",
+        "vendors": [
+          "GOOGLE_WORKSPACE"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

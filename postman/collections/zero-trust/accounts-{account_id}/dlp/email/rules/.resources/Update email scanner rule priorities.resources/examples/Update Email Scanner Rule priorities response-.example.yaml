@@ -1,0 +1,34 @@
+$kind: http-example
+id: 7cf7618c-e234-5741-977c-ffb648bcd5ff
+name: Update Email Scanner Rule priorities response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/email/rules"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "new_priorities": {
+          "key_0": 2040,
+          "key_1": 6575
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

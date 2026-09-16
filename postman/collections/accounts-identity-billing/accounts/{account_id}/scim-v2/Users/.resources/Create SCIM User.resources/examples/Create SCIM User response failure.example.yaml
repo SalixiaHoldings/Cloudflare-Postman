@@ -1,0 +1,53 @@
+$kind: http-example
+id: add77cb3-b068-5319-92c1-33d97bfddaad
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Users"
+  method: POST
+  headers:
+    Content-Type: application/scim+json
+    Accept: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+        ],
+        "userName": "user@example.com",
+        "emails": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "active": true,
+        "displayName": "Jane Smith",
+        "externalId": "idp-user-abc123",
+        "name": {
+          "familyName": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "givenName": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "schemas": [
+          "urn:ietf:params:scim:api:messages:2.0:Error"
+        ],
+        "status": "400",
+        "detail": "Invalid SCIM request: userName is required",
+        "scimType": "uniqueness"
+      }
+order: 2000

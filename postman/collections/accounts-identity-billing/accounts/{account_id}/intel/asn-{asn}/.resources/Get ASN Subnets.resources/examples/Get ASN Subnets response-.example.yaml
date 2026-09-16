@@ -1,0 +1,28 @@
+$kind: http-example
+id: ecf9838d-75b7-5fae-a8fe-cc3033fe6f96
+name: Get ASN Subnets response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/asn/{{asn}}/subnets"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "asn": "<integer>",
+        "count": 1,
+        "ip_count_total": 1005,
+        "page": 1,
+        "per_page": 20,
+        "subnets": [
+          "192.0.2.0/24",
+          "2001:DB8::/32"
+        ]
+      }
+order: 1000

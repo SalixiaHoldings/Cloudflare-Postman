@@ -1,0 +1,26 @@
+$kind: http-example
+id: 98202059-3223-5266-bc01-eb0879399234
+name: Threat Signals response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds/{{feed_id}}/skills"
+  method: PUT
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "skill_ids": [
+          "aef6452e-8a1e-752a-036d-485b1f3a042d",
+          "2ab7e856-fe8a-adf9-ce8e-a938aae551e0"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

@@ -1,0 +1,51 @@
+$kind: http-request
+id: 67064b98-2a7d-5087-acc5-f5061e109cc6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: pages-assets-upload
+  POST /pages/assets/upload
+
+  Upload one or more files to the Pages asset store. Each file is
+  identified by its content hash and is uploaded using the same JSON shape
+  as the Cloudflare KV bulk write API. Used as part of the Pages Direct
+  Upload workflow.
+
+  Authenticate with the JWT obtained from the upload-token endpoint:
+  GET /accounts/{account_id}/pages/projects/{project_name}/upload-token
+
+
+  Authentication support: manual-unresolved
+  Auth declaration SHA-256: 9862a410c71270d223dcea034ecefaca6dd876a6b858eef6414493b8d60bcb0a
+  Upstream security (operation; OR alternatives, AND within each object): [{"pages_upload_token":[]}]
+  Selected requirement: null
+  BLOCKED: upstream security scheme is undefined or unsupported. No Bearer assumption is made. Consult upstream documentation, configure authentication on a local copy, then explicitly remove its pre-request guard.
+url: "{{base_url}}/pages/assets/upload"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    [
+      {
+        "base64": true,
+        "key": "b026324c6904b2a9cb4b88d6d61c81d1",
+        "metadata": {
+          "contentType": "text/plain"
+        },
+        "value": "SGVsbG8sIFdvcmxkIQ=="
+      }
+    ]
+auth:
+  type: noauth
+scripts:
+  - type: beforeRequest
+    code: |-
+      console.error('BLOCKED: upstream authentication cannot be generated safely. Read the request authentication notice and configure a local copy explicitly.');
+      pm.execution.setNextRequest(null);
+      pm.execution.skipRequest();
+    language: text/javascript
+examples: ./.resources/Upload asset.resources/examples
+order: 2000

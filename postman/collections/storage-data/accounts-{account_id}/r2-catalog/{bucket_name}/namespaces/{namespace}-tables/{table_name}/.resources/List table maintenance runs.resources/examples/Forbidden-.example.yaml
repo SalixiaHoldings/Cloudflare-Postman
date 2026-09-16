@@ -1,0 +1,33 @@
+$kind: http-example
+id: fcb7868e-498b-52ed-8fec-5e264f8e323a
+name: Forbidden.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/namespaces/{{namespace}}/tables/{{table_name}}/maintenance-runs?page_size=87&page_token=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page_size: "87"
+    page_token: string
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false
+      }
+order: 4000

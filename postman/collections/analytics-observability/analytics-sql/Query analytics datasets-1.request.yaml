@@ -1,0 +1,53 @@
+$kind: http-request
+id: bd45e8c4-0a24-546d-bcf6-1bb2ba83a131
+name: Query analytics datasets
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: sql-api-query-post
+  POST /analytics/sql
+
+  Executes a SQL query against the analytics datasets available to the caller. Send either raw SQL or a JSON object containing the query and optional positional or named parameters, time range, and account or zone scope. Raw SQL placeholders can also be bound with query parameters named `param_<name>`.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/analytics/sql"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "query": "string",
+      "params": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "scope": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "time_range": {
+        "start": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "end": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Query analytics datasets-1.resources/examples
+order: 2000

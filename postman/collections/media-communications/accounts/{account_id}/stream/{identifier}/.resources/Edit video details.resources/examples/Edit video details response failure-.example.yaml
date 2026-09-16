@@ -1,0 +1,55 @@
+$kind: http-example
+id: b86e957c-fa4a-5ac8-9105-64ab7cb9fd71
+name: Edit video details response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "allowedOrigins": [
+          "example.com"
+        ],
+        "creator": "creator-id_abcde12345",
+        "maxDurationSeconds": 13662,
+        "meta": {
+          "name": "video12345.mp4"
+        },
+        "publicDetails": {
+          "channel_link": "string",
+          "logo": "string",
+          "share_link": "string",
+          "title": "string"
+        },
+        "requireSignedURLs": true,
+        "scheduledDeletion": "2014-01-02T02:20:00Z",
+        "thumbnailTimestampPct": 0.529241,
+        "uid": "ea95132c15732412d22c1476fa83f27a",
+        "uploadExpiry": "2014-01-02T02:20:00Z"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

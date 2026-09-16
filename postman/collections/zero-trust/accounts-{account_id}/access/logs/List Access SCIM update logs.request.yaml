@@ -1,0 +1,64 @@
+$kind: http-request
+id: 5bd0a45e-d8ce-58e6-9124-aabc261c0180
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-scim-update-logs-list-access-scim-update-logs
+  GET /accounts/{account_id}/access/logs/scim/updates
+
+  Lists Access SCIM update logs that maintain a record of updates made to User and Group resources synced to Cloudflare via the System for Cross-domain Identity Management (SCIM).
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/logs/scim/updates?limit=10&direction=desc&since=2025-01-01T00:00:00Z&until=2025-01-02T00:00:00Z&idp_id=df7e2w5f-02b7-4d9d-af26-8d1988fca630&idp_id=0194ae2c-efcf-7cfb-8884-055f1a161fa5&status=FAILURE&status=SUCCESS&resource_type=USER&resource_type=GROUP&request_method=DELETE&request_method=PATCH&resource_user_email=john.smith@example.com&resource_group_name=ALL_EMPLOYEES&cf_resource_id=bd97ef8d-7986-43e3-9ee0-c25dda33e4b0&idp_resource_id=all_employees&page=1&per_page=20"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: limit
+    value: "10"
+  - key: direction
+    value: desc
+  - key: since
+    value: 2025-01-01T00:00:00Z
+  - key: until
+    value: 2025-01-02T00:00:00Z
+  - key: idp_id
+    value: df7e2w5f-02b7-4d9d-af26-8d1988fca630
+    description: "(Required) "
+  - key: idp_id
+    value: 0194ae2c-efcf-7cfb-8884-055f1a161fa5
+    description: "(Required) "
+  - key: status
+    value: FAILURE
+  - key: status
+    value: SUCCESS
+  - key: resource_type
+    value: USER
+  - key: resource_type
+    value: GROUP
+  - key: request_method
+    value: DELETE
+  - key: request_method
+    value: PATCH
+  - key: resource_user_email
+    value: john.smith@example.com
+  - key: resource_group_name
+    value: ALL_EMPLOYEES
+  - key: cf_resource_id
+    value: bd97ef8d-7986-43e3-9ee0-c25dda33e4b0
+  - key: idp_resource_id
+    value: all_employees
+  - key: page
+    value: "1"
+  - key: per_page
+    value: "20"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Access SCIM update logs.resources/examples
+order: 3000

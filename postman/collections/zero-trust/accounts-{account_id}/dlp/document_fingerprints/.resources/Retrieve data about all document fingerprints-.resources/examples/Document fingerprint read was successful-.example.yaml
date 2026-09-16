@@ -1,0 +1,24 @@
+$kind: http-example
+id: 5e85f1e0-914e-5ac3-bb15-8728be8c59a9
+name: Document fingerprint read was successful.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/document_fingerprints"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

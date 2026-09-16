@@ -1,0 +1,78 @@
+$kind: http-request
+id: b60eda56-28f7-5417-bfd5-f0ee5f593abf
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_EventCreate
+  POST /accounts/{account_id}/cloudforce-one/events/create
+
+  To create a dataset, see the [`Create Dataset`](https://developers.cloudflare.com/api/resources/cloudforce_one/subresources/threat_events/subresources/datasets/methods/create/) endpoint. When `datasetId` parameter is unspecified, it will be created in a default dataset named `Cloudforce One Threat Events`.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/create"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "date": "2022-04-01T00:00:00Z",
+      "category": "Domain Resolution",
+      "event": "An attacker registered the domain domain.com",
+      "tlp": "amber",
+      "raw": {
+        "data": {
+          "key_0": 8319
+        },
+        "source": "example.com",
+        "tlp": "amber"
+      },
+      "accountId": 123456,
+      "attacker": "Flying Yeti",
+      "attackerCountry": "CN",
+      "datasetId": "durableObjectName",
+      "indicator": "domain.com",
+      "indicatorType": "domain",
+      "indicators": [
+        {
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "indicatorType": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "indicatorType": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ],
+      "insight": "This domain was likely registered for phishing purposes",
+      "source": {
+        "system": "threat-signals",
+        "resourceType": "article",
+        "resourceId": "293e0996-821e-9353-ea0c-9fb6592eb7ce"
+      },
+      "tags": [
+        "malware",
+        "malware"
+      ],
+      "targetCountry": "US",
+      "targetIndustry": "Agriculture"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Creates a new event.resources/examples
+order: 1000

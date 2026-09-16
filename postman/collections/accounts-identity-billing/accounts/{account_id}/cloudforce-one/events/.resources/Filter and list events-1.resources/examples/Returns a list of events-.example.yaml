@@ -1,0 +1,211 @@
+$kind: http-example
+id: 392f6ba4-80bc-5b6f-959e-f7ac6d445b92
+name: Returns a list of events.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events?forceRefresh=true&format=json&cache=from-graph"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: forceRefresh
+      value: "true"
+    - key: format
+      value: json
+      description: Output format for event data. 'json' returns the default format, 'stix2' returns STIX 2.1 Sighting SROs with linked Indicator SDOs, Observed Data SDOs, and SCOs, 'taxii' returns a TAXII 2.1 Envelope with Content-Type application/taxii+json;version=2.1.
+    - key: cache
+      value: from-graph
+      description: Cache strategy. 'from-graph' serves results from the graph-node KV cache when all requested UUIDs are cached; falls back to normal path on partial/zero hit.
+  body:
+    type: json
+    content: |-
+      {
+        "cursor": "eyJ2ZXJzaW9uIjoxLCJwb3NpdGlvbiI6eyJkYXRlIjoiMjAyNC0wMS0xMlQxMDowMDowMFoiLCJ1dWlkIjoiYWJjMTIzIn19",
+        "datasetId": [
+          "7632a037-fdef-4899-9b12-148470aae772",
+          "7632a037-fdef-4899-9b12-148470aae772"
+        ],
+        "order": "asc",
+        "orderBy": "created",
+        "page": 1,
+        "pageSize": 100,
+        "search": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "uuid": "12345678-1234-1234-1234-1234567890ab",
+          "date": "2022-04-01T00:00:00Z",
+          "targetCountry": "US",
+          "targetCountryAlpha3": "USA",
+          "attacker": "Flying Yeti",
+          "attackerCountry": "CN",
+          "attackerCountryAlpha3": "CHN",
+          "targetIndustry": "Agriculture",
+          "rawId": "453gw34w3",
+          "indicatorTypeId": 5,
+          "indicator": "domain.com",
+          "event": "An attacker registered the domain domain.com",
+          "numReferenced": 8306.37474777177,
+          "numReferences": 8399.549946188927,
+          "tlp": "amber",
+          "category": "Domain Resolution",
+          "indicatorType": "domain",
+          "referenced": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "references": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "tags": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "killChain": 5258.042607456446,
+          "mitreAttack": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "mitreCapec": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "referencedIds": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "referencesIds": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "hasChildren": true,
+          "datasetId": "dataset-example-id",
+          "insight": "string",
+          "releasabilityId": "string"
+        },
+        {
+          "uuid": "12345678-1234-1234-1234-1234567890ab",
+          "date": "2022-04-01T00:00:00Z",
+          "targetCountry": "US",
+          "targetCountryAlpha3": "USA",
+          "attacker": "Flying Yeti",
+          "attackerCountry": "CN",
+          "attackerCountryAlpha3": "CHN",
+          "targetIndustry": "Agriculture",
+          "rawId": "453gw34w3",
+          "indicatorTypeId": 5,
+          "indicator": "domain.com",
+          "event": "An attacker registered the domain domain.com",
+          "numReferenced": 7105.53384386003,
+          "numReferences": 8966.893726028502,
+          "tlp": "amber",
+          "category": "Domain Resolution",
+          "indicatorType": "domain",
+          "referenced": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "references": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "tags": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "killChain": 9958.694048691541,
+          "mitreAttack": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "mitreCapec": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "referencedIds": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "referencesIds": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "hasChildren": false,
+          "datasetId": "dataset-example-id",
+          "insight": "string",
+          "releasabilityId": "string"
+        }
+      ]
+order: 1000

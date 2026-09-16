@@ -1,0 +1,27 @@
+$kind: http-request
+id: c677c3b4-9c32-5158-bb4d-2aa79b165b0d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-lists-zero-trust-list-details
+  GET /accounts/{account_id}/gateway/lists/{list_id}
+
+  Fetch a single Zero Trust list.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/gateway/lists/{{list_id}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Zero Trust list details.resources/examples
+order: 2000

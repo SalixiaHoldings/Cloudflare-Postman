@@ -1,0 +1,40 @@
+$kind: http-example
+id: 379094ae-3c5a-55f5-ab7e-97822de431fd
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/subscriptions/{{subscription_identifier}}/cancel-reason"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "other": "string",
+        "reason_code": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

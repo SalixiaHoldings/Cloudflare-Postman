@@ -1,0 +1,56 @@
+$kind: http-example
+id: f3e7bde4-6be5-5013-91f4-c68dbc05b827
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/usage?from=string&to=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: from
+      value: string
+      description: (Required) Unix timestamp in milliseconds for the start of the range.
+    - key: to
+      value: string
+      description: (Required) Unix timestamp in milliseconds for the end of the range.
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 6000

@@ -1,0 +1,28 @@
+$kind: http-example
+id: 1cf9487a-7e9e-5837-b448-78ff0af0fc63
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/wans"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

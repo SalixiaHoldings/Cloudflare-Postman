@@ -1,0 +1,48 @@
+$kind: http-example
+id: 228eb14c-750f-5481-8c71-7947c183fbeb
+name: The authenticated user is not authorized to access this account.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "config": {
+          "team_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "min_extension_version": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 4000

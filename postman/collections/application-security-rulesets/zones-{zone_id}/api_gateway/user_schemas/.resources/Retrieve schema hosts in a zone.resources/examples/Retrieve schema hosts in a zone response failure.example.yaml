@@ -1,0 +1,36 @@
+$kind: http-example
+id: 912d0442-0d23-5147-ace1-7f109aed3a40
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/hosts?page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      description: Maximum number of results per page.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

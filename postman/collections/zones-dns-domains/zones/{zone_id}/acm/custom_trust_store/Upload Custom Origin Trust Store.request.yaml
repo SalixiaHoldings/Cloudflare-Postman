@@ -1,0 +1,32 @@
+$kind: http-request
+id: 9bb356e6-beb4-5eff-b308-1136a332023b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: custom-origin-trust-store-create
+  POST /zones/{zone_id}/acm/custom_trust_store
+
+  Upload a root CA certificate to the Custom Origin Trust Store for a Zone. Only root CA certificates are accepted.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/acm/custom_trust_store"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "certificate": "-----BEGIN CERTIFICATE-----\nMIIDdjCCAl6gAwIBAgIJAPnMg0Fs+/B0MA0GCSqGSIb3DQEBCwUAMFsx...\n-----END CERTIFICATE-----\n"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Upload Custom Origin Trust Store.resources/examples
+order: 2000

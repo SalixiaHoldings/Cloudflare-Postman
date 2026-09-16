@@ -1,0 +1,62 @@
+$kind: http-example
+id: 7a2add25-5935-56f3-b16a-0301aaa94769
+name: A List of namespaces.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces?per_page=20&order=id&direction=asc&cursor=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    per_page: "20"
+    order: id
+    direction: asc
+    cursor: string
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updated_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updated_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "count": 1,
+          "cursor": "01JSGCEXAMP1E0000000000000",
+          "per_page": 20
+        }
+      }
+order: 1000

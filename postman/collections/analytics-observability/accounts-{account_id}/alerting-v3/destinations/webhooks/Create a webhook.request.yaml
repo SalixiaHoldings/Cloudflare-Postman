@@ -1,0 +1,34 @@
+$kind: http-request
+id: 1c107bef-d185-58a1-99cb-d2c73cda59f1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: notification-webhooks-create-a-webhook
+  POST /accounts/{account_id}/alerting/v3/destinations/webhooks
+
+  Creates a new webhook destination.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/destinations/webhooks"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Slack Webhook",
+      "url": "https://hooks.slack.com/services/Ds3fdBFbV/456464Gdd",
+      "secret": "{{secret}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a webhook.resources/examples
+order: 2000

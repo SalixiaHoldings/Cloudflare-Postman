@@ -1,0 +1,35 @@
+$kind: http-example
+id: 2de5f3e9-a31d-522f-9377-759a11a804e7
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vuln_scanner/credential_sets"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Production API credentials"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

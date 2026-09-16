@@ -1,0 +1,44 @@
+$kind: http-example
+id: 06e9cf3b-ec2b-58a6-95b0-1fc5fc1f0bd5
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/entities/asns/{{asn}}/as_set?format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "as_sets": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "paths": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

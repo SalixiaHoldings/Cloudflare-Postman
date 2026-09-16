@@ -1,0 +1,52 @@
+$kind: http-request
+id: 523d82f3-a0a8-563b-94b2-4e12cd15b802
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-tunnel-list-all-tunnels
+  GET /accounts/{account_id}/tunnels
+
+  Lists and filters all types of Tunnels in an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: '{{base_url}}/accounts/{{account_id}}/tunnels?name=blog&is_deleted=true&existed_at=2019-10-12T07%3A20%3A50.52Z&uuid=f70ff985-a4ef-4643-bbbc-4a0ed4fc8415&was_active_at=2009-11-10T23:00:00Z&was_inactive_at=2009-11-10T23:00:00Z&include_prefix=vpc1-&exclude_prefix=vpc1-&tun_types={"value":"<Error: Too many levels of nesting to fake this schema>"}&tun_types={"value":"<Error: Too many levels of nesting to fake this schema>"}&status=healthy&per_page=<number>&page=1'
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: name
+    value: blog
+  - key: is_deleted
+    value: "true"
+  - key: existed_at
+    value: 2019-10-12T07%3A20%3A50.52Z
+  - key: uuid
+    value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+  - key: was_active_at
+    value: 2009-11-10T23:00:00Z
+  - key: was_inactive_at
+    value: 2009-11-10T23:00:00Z
+  - key: include_prefix
+    value: vpc1-
+  - key: exclude_prefix
+    value: vpc1-
+  - key: tun_types
+    value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+  - key: tun_types
+    value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+  - key: status
+    value: healthy
+  - key: per_page
+    value: <number>
+  - key: page
+    value: "1"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List All Tunnels.resources/examples
+order: 14000

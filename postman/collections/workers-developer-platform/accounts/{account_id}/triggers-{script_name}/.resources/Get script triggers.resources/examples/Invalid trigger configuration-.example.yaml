@@ -1,0 +1,45 @@
+$kind: http-example
+id: 56cd783f-9a95-53f5-87a3-4d85fe9be89b
+name: Invalid trigger configuration.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/triggers/{{script_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "messages": [
+          "string",
+          "string"
+        ],
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": null
+      }
+order: 2000

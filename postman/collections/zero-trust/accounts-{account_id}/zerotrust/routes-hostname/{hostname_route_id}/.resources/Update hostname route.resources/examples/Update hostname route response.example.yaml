@@ -1,0 +1,39 @@
+$kind: http-example
+id: 86a75f26-d50f-5dd7-8739-6d350509eb93
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zerotrust/routes/hostname/{{hostname_route_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "comment": "example comment",
+        "hostname": "office-1.local",
+        "tunnel_id": "f70ff985-a4ef-4643-bbbc-4a0ed4fc8415"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

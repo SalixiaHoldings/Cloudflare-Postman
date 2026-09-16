@@ -1,0 +1,36 @@
+$kind: http-example
+id: f774a22e-35be-586c-aa91-188e4002aa34
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/url_ignore_patterns"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "pattern": "https://example\\.com/.*",
+        "comments": "Trusted internal redirect service"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

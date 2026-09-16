@@ -1,0 +1,36 @@
+$kind: http-example
+id: 34adcb57-af9a-5739-ba88-23d492102b1a
+name: The requested resource does not exist.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/logs/explorer/datasets/{{dataset_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "key_0": 6349,
+          "key_1": 4224.232907872647
+        },
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          "string",
+          "string"
+        ]
+      }
+order: 4000

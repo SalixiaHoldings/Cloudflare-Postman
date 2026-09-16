@@ -1,0 +1,45 @@
+$kind: http-request
+id: d74ee970-3f61-55c3-b418-c59e01f94f1f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: list_slots
+  GET /accounts/{account_id}/cni/slots
+
+  Lists all available infrastructure slots for the account, showing allocation status and
+  capacity.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/cni/slots?address_contains=string&site=string&speed=string&occupied=true&cursor=9230&limit=4653"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: address_contains
+    value: string
+    description: If specified, only show slots with the given text in their address field
+  - key: site
+    value: string
+    description: If specified, only show slots located at the given site
+  - key: speed
+    value: string
+    description: If specified, only show slots that support the given speed
+  - key: occupied
+    value: "true"
+    description: If specified, only show slots with a specific occupied/unoccupied state
+  - key: cursor
+    value: "9230"
+  - key: limit
+    value: "4653"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Retrieve a list of all slots matching the specified parameters.resources/examples
+order: 1000

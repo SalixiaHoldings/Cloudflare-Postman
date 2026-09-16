@@ -1,0 +1,24 @@
+$kind: http-example
+id: f8688aa1-35d2-5c6e-8eb3-ba76d804401d
+name: Dataset created successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zt_risk_scoring/{{user_id}}/reset"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

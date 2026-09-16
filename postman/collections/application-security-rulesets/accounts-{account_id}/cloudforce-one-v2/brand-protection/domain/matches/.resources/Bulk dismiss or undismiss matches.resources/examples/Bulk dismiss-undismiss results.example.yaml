@@ -1,0 +1,45 @@
+$kind: http-example
+id: c0b3a977-4156-5096-aaa8-fb7919e1d37d
+name: Bulk dismiss/undismiss results
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/domain/matches/bulk-dismiss"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "action": "undismiss",
+        "match_ids": [
+          5399
+        ],
+        "matches": [
+          {
+            "query_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "domain_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "results": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

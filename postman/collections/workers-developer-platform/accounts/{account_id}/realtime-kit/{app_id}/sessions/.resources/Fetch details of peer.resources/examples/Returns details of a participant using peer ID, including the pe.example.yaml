@@ -1,0 +1,32 @@
+$kind: http-example
+id: 15223f31-60aa-505f-b572-a2f80e6b1f23
+name: Returns details of a participant using peer ID, including the peer report.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/peer-report/{{peer_id}}?filters=device_info&include_peer_events=false"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: filters
+      value: device_info
+      description: Filter to apply to the peer report.
+    - key: include_peer_events
+      value: "false"
+      description: if true, response includes all the peer events of participant.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "participant": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": true
+      }
+order: 1000

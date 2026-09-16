@@ -1,0 +1,33 @@
+$kind: http-example
+id: bac3af3b-37e4-5d92-a4d7-4d40a6ee77a6
+name: List domains response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/domains?zone_id={{zone_id}}&zone_name=example.com&service=my-worker&hostname=app.example.com&environment=production"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    zone_id: "{{zone_id}}"
+    zone_name: example.com
+    service: my-worker
+    hostname: app.example.com
+    environment: production
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

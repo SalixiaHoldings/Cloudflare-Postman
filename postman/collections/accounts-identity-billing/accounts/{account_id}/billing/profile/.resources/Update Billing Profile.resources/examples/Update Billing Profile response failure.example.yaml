@@ -1,0 +1,54 @@
+$kind: http-example
+id: 9c2355fd-8394-56dc-9897-21e6da84cf90
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/billing/profile"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "address": "123 Main Street",
+        "address2": "Apt 1",
+        "billing_email": "billing@example.com",
+        "buying_rate_plan": "string",
+        "captcha_challenge_jwt": "string",
+        "cf_turnstile_response": "string",
+        "city": "Anytown",
+        "company": "Example Inc",
+        "country": "US",
+        "first_name": "John",
+        "h_captcha_response": "string",
+        "last_name": "Doe",
+        "preferred_locale": "en-US",
+        "secondary_billing_email": "secondary@example.com",
+        "state": "CA",
+        "tax_id_type": "string",
+        "telephone": "+1-555-555-5555",
+        "vat": "string",
+        "zipcode": "94103"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

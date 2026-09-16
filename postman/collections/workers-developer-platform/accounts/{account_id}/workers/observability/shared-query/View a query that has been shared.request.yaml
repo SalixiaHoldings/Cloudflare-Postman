@@ -1,0 +1,29 @@
+$kind: http-request
+id: 49118464-7586-527a-bbb7-c25f6aaba5a5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: shared.query.get
+  GET /accounts/{account_id}/workers/observability/shared/query/{id}
+
+  Shared queries store the results of a previously run query, allowing you to share the results with others.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/shared/query/{{id}}?view=events"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: view
+    value: events
+    description: Select the view of the query result to return, defaults to events.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/View a query that has been shared.resources/examples
+order: 2000

@@ -1,0 +1,47 @@
+$kind: http-example
+id: dcb53a89-69eb-5cc5-86fa-bc159a0f8849
+name: Create Storage Class Migration Job response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/storage-class-migration-jobs"
+  method: POST
+  headers:
+    cf-r2-jurisdiction: default
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "jobType": "storageClassMigration",
+        "destinationStorageClass": "Standard",
+        "sourceStorageClass": "Standard"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": null
+      }
+order: 2000

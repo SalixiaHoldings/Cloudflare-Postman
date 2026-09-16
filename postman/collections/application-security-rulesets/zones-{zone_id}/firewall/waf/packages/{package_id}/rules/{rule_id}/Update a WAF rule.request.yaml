@@ -1,0 +1,36 @@
+$kind: http-request
+id: aa70de52-3a04-575e-98d2-cc843c67716f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: waf-rules-update-a-waf-rule
+  PATCH /zones/{zone_id}/firewall/waf/packages/{package_id}/rules/{rule_id}
+
+  Updates a WAF rule. You can only update the mode/action of the rule.
+
+  **Note:** Applies only to the [previous version of WAF managed rules](https://developers.cloudflare.com/support/firewall/managed-rules-web-application-firewall-waf/understanding-waf-managed-rules-web-application-firewall/).
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages/{{package_id}}/rules/{{rule_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "mode": "on"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a WAF rule.resources/examples
+order: 2000

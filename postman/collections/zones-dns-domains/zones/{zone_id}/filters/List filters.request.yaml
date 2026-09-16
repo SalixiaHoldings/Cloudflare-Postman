@@ -1,0 +1,35 @@
+$kind: http-request
+id: 1d05067d-f891-5572-a595-d7c821c128da
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: filters-list-filters
+  GET /zones/{zone_id}/filters
+
+  Fetches filters in a zone. You can filter the results using several optional parameters.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/filters?paused=false&expression=php&description=browsers&ref=FIL-100&page=1&per_page=25&id=372e67954025e0ba6aaa6d586b9e0b61"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  paused: "false"
+  expression: php
+  description: browsers
+  ref: FIL-100
+  page: "1"
+  per_page: "25"
+  id: 372e67954025e0ba6aaa6d586b9e0b61
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List filters.resources/examples
+order: 2000

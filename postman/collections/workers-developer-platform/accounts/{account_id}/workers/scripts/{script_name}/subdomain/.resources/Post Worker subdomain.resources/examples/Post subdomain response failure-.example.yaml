@@ -1,0 +1,36 @@
+$kind: http-example
+id: 6ee8aabd-b7cf-517e-b09e-11845544c9e7
+name: Post subdomain response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/subdomain"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true,
+        "previews_enabled": false
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

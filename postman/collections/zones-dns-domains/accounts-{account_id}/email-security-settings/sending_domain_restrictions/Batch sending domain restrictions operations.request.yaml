@@ -1,0 +1,43 @@
+$kind: http-request
+id: 78cf5f86-dd84-5388-b0c3-6755e95e0cc5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_batch_sending_domain_restrictions
+  POST /accounts/{account_id}/email-security/settings/sending_domain_restrictions/batch
+
+  Executes multiple delete operations on sending domain restrictions atomically. All operations succeed or fail together as a transaction. Currently only supports batch deletion. Removes TLS enforcement requirements for the specified domains.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/sending_domain_restrictions/batch"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "deletes": [
+        {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Batch sending domain restrictions operations.resources/examples
+order: 3000

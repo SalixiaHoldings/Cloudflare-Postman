@@ -1,0 +1,49 @@
+$kind: http-example
+id: 01359181-a846-5a75-8036-fa2901540454
+name: Bad request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/usage-history?value_grouping_window=day&start_time=1700000000000&end_time=1700086400000"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: value_grouping_window
+      value: day
+      description: (Required) Grouping window for usage data.
+    - key: start_time
+      value: "1700000000000"
+      description: Start time as Unix timestamp in milliseconds.
+    - key: end_time
+      value: "1700086400000"
+      description: End time as Unix timestamp in milliseconds.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

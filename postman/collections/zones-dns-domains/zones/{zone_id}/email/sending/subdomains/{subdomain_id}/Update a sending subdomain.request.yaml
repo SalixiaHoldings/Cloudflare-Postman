@@ -1,0 +1,29 @@
+$kind: http-request
+id: 802bf9f9-d486-5574-86c3-30bd5b2702a4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email-sending-subdomains-update-sending-subdomain
+  PATCH /zones/{zone_id}/email/sending/subdomains/{subdomain_id}
+
+  Updates the activity-log preview preference for a sending subdomain.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/{{subdomain_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: "{}"
+auth:
+  type: noauth
+examples: ./.resources/Update a sending subdomain.resources/examples
+order: 3000

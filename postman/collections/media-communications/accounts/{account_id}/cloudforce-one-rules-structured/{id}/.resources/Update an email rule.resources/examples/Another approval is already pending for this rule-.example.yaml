@@ -1,0 +1,87 @@
+$kind: http-example
+id: 62e58fc9-2356-54ec-a633-f81e85c9a3d2
+name: Another approval is already pending for this rule.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured/{{id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "condition": {
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "operator": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "conditions": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "description": "string",
+        "enabled": true,
+        "meta": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "name": "string",
+        "status": "blocking",
+        "strings": [
+          {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "identifier": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "match_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modifiers": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "identifier": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "match_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modifiers": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "An approval is already pending for this rule.",
+        "code": "approval_pending",
+        "approval_id": 12345
+      }
+order: 6000

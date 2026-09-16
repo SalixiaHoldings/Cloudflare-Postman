@@ -1,0 +1,26 @@
+$kind: http-example
+id: 5f06550b-93a3-5c4d-a071-f15be75f046d
+name: Created allow policy.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/allow_policies"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "null"
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

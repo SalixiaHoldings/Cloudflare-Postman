@@ -1,0 +1,70 @@
+$kind: http-request
+id: 53591275-d7fb-5b2a-a7a1-808d88a2adcb
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: radar-get-quality-speed-top-locations
+  GET /radar/quality/speed/top/locations
+
+  Retrieves the top locations by bandwidth, latency, jitter, or packet loss, from the previous 90 days of Cloudflare Speed Test data.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/radar/quality/speed/top/locations?limit=5&name=main_series&name=main_series&dateEnd=1927-12-19T06:37:38.317Z&dateEnd=1959-05-01T07:56:39.610Z&asn=string&asn=string&location=string&location=string&continent=string&continent=string&orderBy=BANDWIDTH_DOWNLOAD&reverse=true&format=JSON"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: limit
+    value: "5"
+    description: Limits the number of objects returned in the response.
+  - key: name
+    value: main_series
+    description: Array of names used to label the series in the response.
+  - key: name
+    value: main_series
+    description: Array of names used to label the series in the response.
+  - key: dateEnd
+    value: 1927-12-19T06:37:38.317Z
+    description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: dateEnd
+    value: 1959-05-01T07:56:39.610Z
+    description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: asn
+    value: string
+    description: Filters results by Autonomous System. Specify one or more Autonomous System Numbers (ASNs) as a comma-separated list. Prefix with `-` to exclude ASNs from results. For example, `-174, 3356` excludes results from AS174, but includes results from AS3356.
+  - key: asn
+    value: string
+    description: Filters results by Autonomous System. Specify one or more Autonomous System Numbers (ASNs) as a comma-separated list. Prefix with `-` to exclude ASNs from results. For example, `-174, 3356` excludes results from AS174, but includes results from AS3356.
+  - key: location
+    value: string
+    description: Filters results by location. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude locations from results. For example, `-US,PT` excludes results from the US, but includes results from PT.
+  - key: location
+    value: string
+    description: Filters results by location. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude locations from results. For example, `-US,PT` excludes results from the US, but includes results from PT.
+  - key: continent
+    value: string
+    description: Filters results by continent. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude continents from results. For example, `-EU,NA` excludes results from EU, but includes results from NA.
+  - key: continent
+    value: string
+    description: Filters results by continent. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude continents from results. For example, `-EU,NA` excludes results from EU, but includes results from NA.
+  - key: orderBy
+    value: BANDWIDTH_DOWNLOAD
+    description: Specifies the metric to order the results by.
+  - key: reverse
+    value: "true"
+    description: Reverses the order of results.
+  - key: format
+    value: JSON
+    description: Format in which results will be returned.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get top locations by speed test results.resources/examples
+order: 2000

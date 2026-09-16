@@ -1,0 +1,34 @@
+$kind: http-example
+id: 2174fd1e-8cc3-5706-97e6-f1bbc11a8317
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/organizations/revoke_user"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "email": "test@example.com"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

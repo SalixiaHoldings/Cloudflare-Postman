@@ -1,0 +1,25 @@
+$kind: http-request
+id: ece8307d-d9d1-5965-b2a4-993e56f07f32
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: secondary-dns-(-secondary-zone)-secondary-zone-configuration-details
+  GET /zones/{zone_id}/secondary_dns/incoming
+
+  Get secondary zone configuration for incoming zone transfers.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/secondary_dns/incoming"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Secondary Zone Configuration Details.resources/examples
+order: 2000

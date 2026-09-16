@@ -1,0 +1,47 @@
+$kind: http-example
+id: fbc6b2b2-5c14-5c18-8fb1-336a9d083969
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/{{schema_id}}/operations?feature=thresholds&host=api.cloudflare.com&method=GET&endpoint=/api/v1&page=1&per_page=20&operation_status=new"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: feature
+      value: thresholds
+      description: Add feature(s) to the results. The feature name that is given here corresponds to the resulting feature object. Have a look at the top-level object description for more details on the specific meaning.
+    - key: host
+      value: api.cloudflare.com
+    - key: method
+      value: GET
+    - key: endpoint
+      value: /api/v1
+    - key: page
+      value: "1"
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      description: Maximum number of results per page.
+    - key: operation_status
+      value: new
+      description: Filter results by whether operations exist in API Shield Endpoint Management or not. `new` will just return operations from the schema that do not exist in API Shield Endpoint Management. `existing` will just return operations from the schema that already exist in API Shield Endpoint Management.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

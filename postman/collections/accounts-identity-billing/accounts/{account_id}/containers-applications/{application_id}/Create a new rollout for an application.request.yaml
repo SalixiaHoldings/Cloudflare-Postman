@@ -1,0 +1,71 @@
+$kind: http-request
+id: 41e65f6e-aeaf-53e0-9a4b-58d2acb5c042
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: createApplicationRollout
+  POST /accounts/{account_id}/containers/applications/{application_id}/rollouts
+
+  Creates a rollout to update the application's configuration across instances
+  with minimal downtime. Rollouts apply only to scheduler-backed applications
+  with `scheduling_policy: "default"`. Versions and rollouts do not apply to
+  applications with `scheduling_policy: "durable_object"`.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/rollouts"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "target_configuration": {
+        "authorized_keys": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "command": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "entrypoint": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "environment_variables": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "image": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "instance_type": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "observability": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "strategy": "rolling",
+      "description": "string",
+      "kind": "full_auto",
+      "percentage": 1,
+      "step_percentage": 20,
+      "steps": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new rollout for an application.resources/examples
+order: 5000

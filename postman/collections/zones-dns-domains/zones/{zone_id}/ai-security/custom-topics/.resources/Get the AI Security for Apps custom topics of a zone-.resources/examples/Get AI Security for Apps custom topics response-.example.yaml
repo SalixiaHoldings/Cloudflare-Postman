@@ -1,0 +1,24 @@
+$kind: http-example
+id: e8fb2812-0ffd-5a95-a94c-b20bc62f2c84
+name: Get AI Security for Apps custom topics response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ai-security/custom-topics"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,33 @@
+$kind: http-request
+id: 90d9ca82-f610-5b50-969b-eb30eac301b9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_PirInterestCreate
+  POST /accounts/{account_id}/cloudforce-one/v2/priority-intelligence/interests
+
+  Creates a structured account interest used by Priority Intelligence Option 2 evaluations. Interests are evaluated independently from free-form PIR requirements.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/interests"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "dimension": "actor",
+      "value": "string",
+      "enabled": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create an account interest for PIR Option 2.resources/examples
+order: 2000

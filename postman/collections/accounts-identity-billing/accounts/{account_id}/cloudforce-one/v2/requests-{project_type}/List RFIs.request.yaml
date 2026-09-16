@@ -1,0 +1,60 @@
+$kind: http-request
+id: 42c97c86-63db-5924-96da-86353d851680
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_RequestList
+  GET /accounts/{account_id}/cloudforce-one/v2/requests/{project_type}
+
+  Retrieves a paginated list of RFIs with filtering and sorting options.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}?page=2535.467583220452&pageSize=2535.467583220452&status=string&search=string&createdBy=string&assignee=string&requestType=string&priority=string&tlp=string&id=string&readableId=string&summary=string&accountId=string&metadata=string&orderBy=string&order=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "2535.467583220452"
+  - key: pageSize
+    value: "2535.467583220452"
+  - key: status
+    value: string
+  - key: search
+    value: string
+  - key: createdBy
+    value: string
+    description: "Filter by creator email. NOTE: For the `legal-response` project type this query parameter is **rejected with HTTP 400** — the server derives the filter from the authenticated user's JWT automatically and does not accept a client-supplied value. Requests to `legal-response` with no valid JWT identity are rejected with HTTP 401."
+  - key: assignee
+    value: string
+  - key: requestType
+    value: string
+  - key: priority
+    value: string
+  - key: tlp
+    value: string
+  - key: id
+    value: string
+  - key: readableId
+    value: string
+  - key: summary
+    value: string
+  - key: accountId
+    value: string
+  - key: metadata
+    value: string
+    description: "JSON string object of metadata filters. Supports two formats: 1) Simple values for exact match (backward compatible): {\"status\": \"open\"} 2) Operator objects for advanced filtering: {\"identifiers\": {\"operator\": \"contains_line\", \"value\": \"blah.com\"}}. Available operators: 'eq' (exact match, default), 'contains' (substring match), 'contains_line' (match complete line in newline-separated text). Date fields are automatically normalized to YYYY-MM-DD format."
+  - key: orderBy
+    value: string
+  - key: order
+    value: string
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List RFIs.resources/examples
+order: 1000

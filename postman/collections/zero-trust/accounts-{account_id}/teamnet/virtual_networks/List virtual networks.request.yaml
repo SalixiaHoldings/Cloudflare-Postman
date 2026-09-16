@@ -1,0 +1,31 @@
+$kind: http-request
+id: cc9f2a78-f5a9-55ed-97ac-ccab645d099d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: tunnel-virtual-network-list-virtual-networks
+  GET /accounts/{account_id}/teamnet/virtual_networks
+
+  Lists and filters virtual networks in an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/teamnet/virtual_networks?id=f70ff985-a4ef-4643-bbbc-4a0ed4fc8415&name=us-east-1-vpc&is_default=false&is_default_network=true&is_deleted=false"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  id: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+  name: us-east-1-vpc
+  is_default: "false"
+  is_default_network: "true"
+  is_deleted: "false"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List virtual networks.resources/examples
+order: 1000

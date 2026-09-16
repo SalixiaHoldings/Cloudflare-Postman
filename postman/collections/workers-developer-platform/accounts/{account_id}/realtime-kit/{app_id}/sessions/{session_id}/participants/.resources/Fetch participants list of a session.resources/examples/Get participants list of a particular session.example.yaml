@@ -1,0 +1,72 @@
+$kind: http-example
+id: fd6af6b1-2545-5989-be41-5b5331c74526
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}/participants?search=string&page_no=1043.4947488829494&per_page=25&sort_order=DESC&sort_by=duration&include_peer_events=false&view=raw"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: search
+      value: string
+      description: The search query string. You can search using participant ID, custom participant ID, or display name.
+    - key: page_no
+      value: "1043.4947488829494"
+      description: The page number from which you want your page search results to be displayed.
+    - key: per_page
+      value: "25"
+      description: Number of results per page.
+    - key: sort_order
+      value: DESC
+    - key: sort_by
+      value: duration
+    - key: include_peer_events
+      value: "false"
+      description: if true, response includes all the peer events of participants.
+    - key: view
+      value: raw
+      description: In breakout room sessions, the view parameter can be set to `raw` for session specific duration for participants or `consolidated` to accumulate breakout room durations.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "paging": {
+            "end_offset": 2,
+            "start_offset": 1,
+            "total_count": 123
+          },
+          "participants": [
+            {
+              "created_at": "2023-02-01T10:51:08.039Z",
+              "custom_participant_id": "83qi0i",
+              "display_name": "Mark",
+              "duration": 5.8097,
+              "id": "005f4e0c-4d08-4d4e-a391-a76be75cd296",
+              "joined_at": "2023-02-01T10:51:08.03Z",
+              "left_at": "2023-02-01T10:56:56.612Z",
+              "preset_name": "webinar_participant",
+              "updated_at": "2023-02-01T10:56:56.618Z",
+              "user_id": "0a08343d-a9dc-45f0-9feb-6a64afcc4f81"
+            },
+            {
+              "created_at": "2023-02-01T10:50:36.853Z",
+              "custom_participant_id": "3uggr",
+              "display_name": "Henry",
+              "duration": 6.9263,
+              "id": "51fdf95f-d893-471a-922b-7db7adb14453",
+              "joined_at": "2023-02-01T10:50:36.846Z\"",
+              "left_at": "2023-02-01T10:57:32.424Z",
+              "preset_name": "webinar_participant",
+              "updated_at": "2023-02-01T10:57:32.431Z",
+              "user_id": "85e7f0fd-7c16-45e9-9d68-f17ef007c4eb"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

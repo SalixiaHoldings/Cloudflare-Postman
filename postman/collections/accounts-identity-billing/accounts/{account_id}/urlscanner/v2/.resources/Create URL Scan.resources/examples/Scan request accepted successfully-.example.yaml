@@ -1,0 +1,47 @@
+$kind: http-example
+id: 6ddc6006-f111-5918-bf42-ec80302dd141
+name: Scan request accepted successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/scan"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "url": "https://www.example.com",
+        "agentReadiness": true,
+        "country": "RW",
+        "customHeaders": {
+          "key_0": "string",
+          "key_1": "string"
+        },
+        "customagent": "string",
+        "referer": "string",
+        "screenshotsResolutions": [
+          "desktop"
+        ],
+        "visibility": "Public"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "Submission successful",
+        "uuid": "382845ea-f546-445e-c12b-f17c13dc02a4",
+        "result": "string",
+        "api": "string",
+        "visibility": "public",
+        "url": "string",
+        "options": {
+          "useragent": "string"
+        }
+      }
+order: 1000

@@ -1,0 +1,23 @@
+$kind: http-example
+id: cef9e1ae-cccf-523f-94d5-b2151e4805e3
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/apps/{{app_id}}/policies/{{policy_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

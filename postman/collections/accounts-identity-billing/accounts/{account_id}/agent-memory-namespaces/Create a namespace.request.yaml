@@ -1,0 +1,32 @@
+$kind: http-request
+id: 1317ad41-eff4-50cf-abde-f217842c12a8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: agent-memory-namespace-create
+  POST /accounts/{account_id}/agent-memory/namespaces
+
+  Creates a new memory namespace owned by the account.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "support-agent"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a namespace.resources/examples
+order: 2000

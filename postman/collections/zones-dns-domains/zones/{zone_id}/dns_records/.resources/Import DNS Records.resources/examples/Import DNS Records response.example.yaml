@@ -1,0 +1,44 @@
+$kind: http-example
+id: 0c3f109b-35b5-5ac3-9d6b-dca72ef4f82b
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dns_records/import"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: file
+        value: www.example.com. 300 IN  A 127.0.0.1
+        description: |
+          (Required) BIND config to import.
+
+          **Tip:** When using cURL, a file can be uploaded using `--form 'file=@bind_config.txt'`.
+      - type: text
+        key: proxied
+        value: "true"
+        description: |-
+          Whether or not proxiable records should receive the performance and security benefits of Cloudflare.
+
+          The value should be either `true` or `false`.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "recs_added": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total_records_parsed": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

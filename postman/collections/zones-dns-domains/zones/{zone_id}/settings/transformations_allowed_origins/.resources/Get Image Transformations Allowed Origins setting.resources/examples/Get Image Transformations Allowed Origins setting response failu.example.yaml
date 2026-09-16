@@ -1,0 +1,28 @@
+$kind: http-example
+id: c39873e6-13b8-5399-8115-77ddc4b84f03
+name: Get Image Transformations Allowed Origins setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/transformations_allowed_origins"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: 4af175b8-7b10-5ee1-a84b-679a4bdd3e52
+name: Browser extension configuration response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": true,
+        "errors": [],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

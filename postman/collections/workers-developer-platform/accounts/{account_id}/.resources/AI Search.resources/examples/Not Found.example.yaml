@@ -1,0 +1,67 @@
+$kind: http-example
+id: cbd5263e-cb35-54c4-bcf7-6e056041a883
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/autorag/rags/{{id}}/ai-search"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "query": "string",
+        "filters": {
+          "key": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "max_num_results": 10,
+        "model": "grok/grok-4",
+        "ranking_options": {},
+        "reranking": {
+          "enabled": false,
+          "model": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "rewrite_query": false,
+        "stream": false,
+        "system_prompt": "string"
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

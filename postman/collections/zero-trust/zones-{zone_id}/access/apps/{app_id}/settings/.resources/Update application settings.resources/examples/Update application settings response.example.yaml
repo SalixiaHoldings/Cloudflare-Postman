@@ -1,0 +1,27 @@
+$kind: http-example
+id: c84089b1-3e32-5816-818c-ef8bb54752a7
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/apps/{{app_id}}/settings"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "allow_iframe": true,
+        "skip_interstitial": true
+      }
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+order: 1000

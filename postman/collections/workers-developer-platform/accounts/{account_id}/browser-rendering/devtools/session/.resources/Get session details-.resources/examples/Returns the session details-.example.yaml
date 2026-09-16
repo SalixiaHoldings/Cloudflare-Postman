@@ -1,0 +1,32 @@
+$kind: http-example
+id: 1f4f75b2-5010-50b1-b264-4500ababb79b
+name: Returns the session details.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/session/{{session_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "sessionId": "122d35ea-9176-a619-c0c0-b7d699d13668",
+        "closeReason": 2561.055941041559,
+        "closeReasonText": "string",
+        "connectionEndTime": 8916.20718408376,
+        "connectionId": "string",
+        "connectionStartTime": 1344.889490865171,
+        "devtoolsFrontendUrl": "string",
+        "endTime": 5883.99444706738,
+        "lastUpdated": 6145.249716937542,
+        "startTime": 1705.5502790026367,
+        "webSocketDebuggerUrl": "string"
+      }
+order: 1000

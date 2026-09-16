@@ -1,0 +1,103 @@
+$kind: http-request
+id: 0b643730-fff9-5af4-afd9-49167a511285
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: telemetry.query
+  POST /accounts/{account_id}/workers/observability/telemetry/query
+
+  Run a temporary or saved query.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/telemetry/query"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "queryId": "string",
+      "timeframe": {
+        "to": 175372278903183,
+        "from": 55262488301111
+      },
+      "chart": false,
+      "chartType": "distribution",
+      "compare": false,
+      "distributionScale": "linear",
+      "dry": false,
+      "granularity": 9391.431915573776,
+      "ignoreSeries": false,
+      "limit": 50,
+      "offset": "string",
+      "offsetBy": 5319.166344124824,
+      "offsetDirection": "string",
+      "parameters": {
+        "calculations": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "filterCombination": "AND",
+        "filters": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "groupBys": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "havings": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "limit": 834,
+        "needle": {
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "isRegex": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "matchCase": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "orderBy": {
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "order": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      },
+      "view": "calculations"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Run a query.resources/examples
+order: 3000

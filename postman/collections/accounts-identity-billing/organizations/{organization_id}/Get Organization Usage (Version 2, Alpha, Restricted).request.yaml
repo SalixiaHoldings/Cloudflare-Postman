@@ -1,0 +1,47 @@
+$kind: http-request
+id: 14e9a79c-32a5-5604-a420-9487a222610c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: billable-usage-v2-get-organization-usage
+  GET /organizations/{organization_id}/billable/usage
+
+  Returns cost and usage data for all accounts within an organization,
+  aligned with the [FinOps FOCUS v1.3](https://focus.finops.org/focus-specification/v1-3/)
+  Cost and Usage dataset specification.
+
+  Each record represents one billable metric for one account on one day.
+  This includes all metered usage, including usage that falls within
+  free-tier allowances and may result in zero cost. The response
+  includes usage for every account belonging to the specified
+  organization.
+
+  **Note:** Cost and pricing fields are not yet populated and
+  will be absent from responses until billing integration is complete.
+
+  When `from` and `to` are omitted, defaults to the start of the current
+  month through today. The maximum date range is 31 days.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/organizations/{{organization_id}}/billable/usage?from=2025-05-01&to=2025-05-31"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: from
+    value: 2025-05-01
+    description: Start date for the usage query (ISO 8601). Required if `to` is set. When omitted along with `to`, defaults to the start of the current month. Filters by charge period (when consumption happened), not billing period. The maximum date range is 31 days.
+  - key: to
+    value: 2025-05-31
+    description: End date for the usage query (ISO 8601). Required if `from` is set. When omitted along with `from`, defaults to today. Filters by charge period (when consumption happened), not billing period. The maximum date range is 31 days.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Organization Usage (Version 2, Alpha, Restricted).resources/examples
+order: 5000

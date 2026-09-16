@@ -1,0 +1,28 @@
+$kind: http-example
+id: 1e0091a4-1569-5569-8b86-69b163a1ed62
+name: Failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/queues/{{queue_id}}/metrics"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "success": false
+      }
+order: 2000

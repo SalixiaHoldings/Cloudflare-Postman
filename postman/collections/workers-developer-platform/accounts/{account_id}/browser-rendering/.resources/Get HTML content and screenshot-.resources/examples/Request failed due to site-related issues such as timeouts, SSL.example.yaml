@@ -1,0 +1,55 @@
+$kind: http-example
+id: 85a11c44-d809-531d-905f-7f89d82c4c50
+name: Request failed due to site-related issues such as timeouts, SSL errors, or inaccessible content.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/snapshot?cacheTTL=5"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cacheTTL
+      value: "5"
+      description: Cache TTL default is 5s. Set to 0 to disable.
+  body:
+    type: json
+    content: |-
+      {
+        "formats": [
+          "content",
+          "screenshot"
+        ],
+        "url": "https://www.example.com/"
+      }
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

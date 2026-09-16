@@ -1,0 +1,28 @@
+$kind: http-example
+id: eb530744-3044-55be-ad0b-38812a1bdf1b
+request:
+  url: '{{base_url}}/accounts/{{account_id}}/scim/v2/Users?startIndex=1&count=5628&filter=userName eq "user@example.com"'
+  method: GET
+  headers:
+    Accept: application/scim+json
+  queryParams:
+    startIndex: "1"
+    count: "5628"
+    filter: userName eq "user@example.com"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "schemas": [
+          "urn:ietf:params:scim:api:messages:2.0:Error"
+        ],
+        "status": "400",
+        "detail": "Invalid SCIM request: userName is required",
+        "scimType": "uniqueness"
+      }
+order: 2000

@@ -1,0 +1,41 @@
+$kind: http-request
+id: 4813bd4f-e137-50c5-a2c9-54458d1baea8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: CreateRemediationJobsExportCSV
+  POST /accounts/{account_id}/data-security/posture/remediations/jobs/export
+
+  Creates a CSV export for remediation jobs and accepts optional filters in the payload.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/remediations/jobs/export"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "integration_id": [
+        "55d7337e-1d0a-49fc-9826-925ba40df035"
+      ],
+      "max_updated_at": "2025-01-01T00:00:00Z",
+      "min_updated_at": "2024-01-01T00:00:00Z",
+      "search": "public access",
+      "status": [
+        "pending",
+        "completed"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a remediation jobs export.resources/examples
+order: 3000

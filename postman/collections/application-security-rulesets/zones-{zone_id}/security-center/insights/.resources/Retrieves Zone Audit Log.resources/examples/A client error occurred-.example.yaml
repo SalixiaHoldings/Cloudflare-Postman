@@ -1,0 +1,50 @@
+$kind: http-example
+id: 3356b7ba-c1cc-5d3d-b95a-d9a95f9c684e
+name: A client error occurred.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/security-center/insights/audit-log?per_page=25&cursor=string&field_changed=user_classification&changed_by=string&since=1975-02-17T04:30:50.988Z&before=1975-02-17T04:30:50.988Z&order=desc"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "25"
+      description: Number of results per page.
+    - key: cursor
+      value: string
+      description: Opaque cursor for pagination. Use the cursor value from result_info of the previous response.
+    - key: field_changed
+      value: user_classification
+      description: Filter by the field that was changed.
+    - key: changed_by
+      value: string
+      description: Filter by the actor that made the change.
+    - key: since
+      value: 1975-02-17T04:30:50.988Z
+      description: Filter entries changed at or after this timestamp (RFC 3339).
+    - key: before
+      value: 1975-02-17T04:30:50.988Z
+      description: Filter entries changed before this timestamp (RFC 3339).
+    - key: order
+      value: desc
+      description: Sort order for results. Use 'asc' for oldest first or 'desc' for newest first.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

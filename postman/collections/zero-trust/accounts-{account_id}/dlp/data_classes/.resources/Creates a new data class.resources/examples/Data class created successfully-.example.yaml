@@ -1,0 +1,45 @@
+$kind: http-example
+id: 54401baf-48b6-5bae-8e8c-bd9ad2e42e05
+name: Data class created successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/data_classes"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "expression": "string",
+        "sensitivity_levels": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "data_tags": [
+          "0f68c03d-c4f8-8702-f10a-f81c9e473759",
+          "90ca8e9a-fe3c-1e33-5c8f-fce1d9649c5e"
+        ],
+        "description": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

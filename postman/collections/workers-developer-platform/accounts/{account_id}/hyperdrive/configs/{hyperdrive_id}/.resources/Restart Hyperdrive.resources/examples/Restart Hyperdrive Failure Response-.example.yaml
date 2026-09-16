@@ -1,0 +1,28 @@
+$kind: http-example
+id: e8804bb4-440c-548a-8ef6-9a0bd564adb8
+name: Restart Hyperdrive Failure Response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/hyperdrive/configs/{{hyperdrive_id}}/restart"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

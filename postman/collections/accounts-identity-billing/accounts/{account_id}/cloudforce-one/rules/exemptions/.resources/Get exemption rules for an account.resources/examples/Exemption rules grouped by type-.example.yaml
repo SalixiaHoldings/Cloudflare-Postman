@@ -1,0 +1,28 @@
+$kind: http-example
+id: dfb95e29-6e6c-588a-a1aa-d679d1f934ec
+name: Exemption rules grouped by type.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/exemptions"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "namespace": [
+          "^test-.*$"
+        ],
+        "tag_match": [
+          "^staging-.*$"
+        ],
+        "worker_name": [
+          "^demo-.*$"
+        ]
+      }
+order: 1000

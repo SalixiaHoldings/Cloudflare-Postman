@@ -1,0 +1,31 @@
+$kind: http-example
+id: ff5defe3-5631-515a-b49b-5bb0468f8e72
+name: "OK: Successful HTTP request"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/finding_types/{{finding_type_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

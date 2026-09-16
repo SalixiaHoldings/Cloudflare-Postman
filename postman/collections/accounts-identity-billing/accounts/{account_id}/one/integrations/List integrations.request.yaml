@@ -1,0 +1,53 @@
+$kind: http-request
+id: 41b86880-d0f9-5f5f-9eb2-31b8696bf789
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: list_integrations_v2
+  GET /accounts/{account_id}/one/integrations
+
+  Returns a paginated list of integrations for the account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/one/integrations?application=string&direction=desc&dlp_enabled=true&order=status&page=8161&page_size=8161&search=string&status=Unhealthy&use_cases=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: application
+    value: string
+    description: Filter by application/vendor (e.g., GOOGLE_WORKSPACE, MICROSOFT_INTERNAL).
+  - key: direction
+    value: desc
+    description: Direction to order results.
+  - key: dlp_enabled
+    value: "true"
+    description: Filter by DLP enabled status (true/false).
+  - key: order
+    value: status
+    description: Field to order results by.
+  - key: page
+    value: "8161"
+    description: Page number within the paginated result set.
+  - key: page_size
+    value: "8161"
+    description: Number of results per page.
+  - key: search
+    value: string
+    description: Search integrations by name or application.
+  - key: status
+    value: Unhealthy
+    description: Filter by integration status.
+  - key: use_cases
+    value: string
+    description: Filter by enabled use cases (e.g., casb, ces). Matches integrations enrolled in any of the specified values. Can be specified multiple times.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List integrations.resources/examples
+order: 1000

@@ -1,0 +1,61 @@
+$kind: http-example
+id: 0c3158bc-fb4a-5612-a1e6-708c3467322f
+name: "OK: Successful HTTP request"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/export"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "ignored": true,
+        "integration_id": [
+          "55d7337e-1d0a-49fc-9826-925ba40df035"
+        ],
+        "max_affliction_date": "2019-08-24T14:15:22Z",
+        "min_affliction_date": "2018-08-24T14:15:22Z",
+        "orders": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "product": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "search": "public access",
+        "severities": [
+          "CRITICAL"
+        ],
+        "vendors": [
+          "AWS"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

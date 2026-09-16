@@ -1,0 +1,30 @@
+$kind: http-example
+id: 6acc6401-0dfa-5a4b-82c3-b918e6bef763
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/credential-monitor/domains"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domain": "string"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": 125,
+          "domain": "string"
+        }
+      }
+order: 1000

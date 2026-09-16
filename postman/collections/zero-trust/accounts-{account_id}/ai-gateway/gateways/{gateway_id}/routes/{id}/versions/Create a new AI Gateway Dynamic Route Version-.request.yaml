@@ -1,0 +1,40 @@
+$kind: http-request
+id: 9b65fa0a-acf7-5b6a-9777-cbf7bc606a51
+name: Create a new AI Gateway Dynamic Route Version.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-config-post-gateway-dynamic-route-version
+  POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions
+
+  Create a new AI Gateway Dynamic Route Version.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/routes/{{id}}/versions"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "elements": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new AI Gateway Dynamic Route Version-.resources/examples
+order: 2000

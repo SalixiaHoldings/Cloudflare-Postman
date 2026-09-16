@@ -1,0 +1,16 @@
+$kind: http-example
+id: efe6c082-4568-52cf-ab8c-8ff491fb3160
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/calls/turn_keys/{{key_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: '""'
+order: 2000

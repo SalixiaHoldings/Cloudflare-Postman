@@ -1,0 +1,21 @@
+$kind: http-example
+id: 10c5bb54-2cad-546e-8575-28f603208948
+name: An empty response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/rulesets/{{ruleset_id}}?dry_run=false"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: dry_run
+      value: "false"
+      description: "Validates the request without persisting changes when set to `true`. Responses that normally return 200 return `result: null`; endpoints that normally return 204 continue to return 204."
+response:
+  statusCode: 204
+  statusText: No Content
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

@@ -1,0 +1,25 @@
+$kind: http-request
+id: 63f8d1e5-3452-5a5f-9551-1a84991bcc21
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: namespace-worker-script-worker-details
+  GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}
+
+  Fetch information about a script uploaded to a Workers for Platforms namespace.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts/{{script_name}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Worker Details.resources/examples
+order: 2000

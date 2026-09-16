@@ -1,0 +1,22 @@
+$kind: http-example
+id: d22750a5-e1d3-5205-a89f-3347f81919e1
+name: Trusted domain details.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/trusted_domains/{{trusted_domain_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

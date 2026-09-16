@@ -1,0 +1,52 @@
+$kind: http-example
+id: e3f59526-daa5-503e-bb9b-99e92bc7571f
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}?page=2535.467583220452&pageSize=2535.467583220452&status=string&search=string&createdBy=string&assignee=string&requestType=string&priority=string&tlp=string&id=string&readableId=string&summary=string&accountId=string&metadata=string&orderBy=string&order=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "2535.467583220452"
+    - key: pageSize
+      value: "2535.467583220452"
+    - key: status
+      value: string
+    - key: search
+      value: string
+    - key: createdBy
+      value: string
+      description: "Filter by creator email. NOTE: For the `legal-response` project type this query parameter is **rejected with HTTP 400** — the server derives the filter from the authenticated user's JWT automatically and does not accept a client-supplied value. Requests to `legal-response` with no valid JWT identity are rejected with HTTP 401."
+    - key: assignee
+      value: string
+    - key: requestType
+      value: string
+    - key: priority
+      value: string
+    - key: tlp
+      value: string
+    - key: id
+      value: string
+    - key: readableId
+      value: string
+    - key: summary
+      value: string
+    - key: accountId
+      value: string
+    - key: metadata
+      value: string
+      description: "JSON string object of metadata filters. Supports two formats: 1) Simple values for exact match (backward compatible): {\"status\": \"open\"} 2) Operator objects for advanced filtering: {\"identifiers\": {\"operator\": \"contains_line\", \"value\": \"blah.com\"}}. Available operators: 'eq' (exact match, default), 'contains' (substring match), 'contains_line' (match complete line in newline-separated text). Date fields are automatically normalized to YYYY-MM-DD format."
+    - key: orderBy
+      value: string
+    - key: order
+      value: string
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

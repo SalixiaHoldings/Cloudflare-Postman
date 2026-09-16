@@ -1,0 +1,55 @@
+$kind: http-example
+id: 17a52082-9a4b-582e-986b-1ca0c11694fe
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/seats"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "seat_uid": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "gateway_seat": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "access_seat": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "seat_uid": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "gateway_seat": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "access_seat": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

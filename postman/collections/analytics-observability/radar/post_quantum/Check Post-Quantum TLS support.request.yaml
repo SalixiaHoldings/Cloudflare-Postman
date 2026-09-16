@@ -1,0 +1,31 @@
+$kind: http-request
+id: 12b7ab26-6e08-5c76-a2a3-b5a9a3f2accb
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: radar-get-post-quantum-tls-support
+  GET /radar/post_quantum/tls/support
+
+  Tests whether a hostname or IP address supports Post-Quantum (PQ) TLS key exchange. Returns information about the negotiated key exchange algorithm, whether it uses PQ cryptography, and any detected TLS implementation bugs (Split ClientHello, HRR failure, etc.).
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/radar/post_quantum/tls/support?host=cloudflare.com"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: host
+    value: cloudflare.com
+    description: (Required) Hostname or IP address to test for Post-Quantum TLS support, optionally with port (defaults to 443).
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Check Post-Quantum TLS support.resources/examples
+order: 2000

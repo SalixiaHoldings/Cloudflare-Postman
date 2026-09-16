@@ -1,0 +1,35 @@
+$kind: http-request
+id: a697f1d2-7c07-59df-aace-2b504b20c254
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: user-api-tokens-list-tokens
+  GET /user/tokens
+
+  List all access tokens you created. Results include active, disabled, and recently-expired tokens when include_expired is set to true.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/user/tokens?page=1&per_page=20&direction=desc&include_expired=false"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+  - key: per_page
+    value: "20"
+  - key: direction
+    value: desc
+  - key: include_expired
+    value: "false"
+    description: When true, includes recently-expired tokens in the response.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Tokens.resources/examples
+order: 1000

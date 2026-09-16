@@ -1,0 +1,35 @@
+$kind: http-example
+id: 45673d69-0b4c-5f9f-85b5-e3e3d89ab5f4
+name: Get Bucket Job response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs/{{job_id}}"
+  method: GET
+  headers:
+    cf-r2-jurisdiction: default
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "endTime": "2026-07-20T12:14:31Z",
+          "id": "7f24658b-31d7-4b91-9a12-cb5a2c99b294",
+          "jobType": "prefixDelete",
+          "prefixDelete": {
+            "deletedObjects": 2481,
+            "isBucketClear": true,
+            "prefix": ""
+          },
+          "startTime": "2026-07-20T12:00:00Z",
+          "status": "COMPLETED"
+        },
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,23 @@
+$kind: http-example
+id: 24d2225f-244a-58ae-b505-65637e04bdb4
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/webhooks/all"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "data": [
+          "meeting.ended",
+          "meeting.participantLeft"
+        ]
+      }
+order: 1000

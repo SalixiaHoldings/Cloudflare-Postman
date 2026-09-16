@@ -1,0 +1,32 @@
+$kind: http-example
+id: f2fb3a0e-d664-55ba-8cc2-34b104272011
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/history?per_page=25&before=2022-05-20T20:29:58.679897Z&page=1&since=2022-05-19T20:29:58.679897Z"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    per_page: "25"
+    before: 2022-05-20T20:29:58.679897Z
+    page: "1"
+    since: 2022-05-19T20:29:58.679897Z
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: 3863b92c-8947-59c5-bc62-f3744cb46382
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/portals/{{id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "id": "my-mcp-portal",
+          "name": "My MCP Portal",
+          "hostname": "example.com",
+          "allow_code_mode": true,
+          "code_mode": "opt_in",
+          "created_at": "1947-08-02T01:09:35.311Z",
+          "created_by": "string",
+          "description": "This is my custom MCP Portal",
+          "modified_at": "1946-05-23T17:38:26.550Z",
+          "modified_by": "string",
+          "secure_web_gateway": false
+        }
+      }
+order: 1000

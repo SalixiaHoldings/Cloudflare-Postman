@@ -1,0 +1,36 @@
+$kind: http-request
+id: 5cac2399-f532-5517-9b8a-2acd41ddf078
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ip-address-management-prefixes-update-bgp-prefix
+  PATCH /accounts/{account_id}/addressing/prefixes/{prefix_id}/bgp/prefixes/{bgp_prefix_id}
+
+  Update the properties of a BGP Prefix, such as the on demand advertisement status (advertised or withdrawn).
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/addressing/prefixes/{{prefix_id}}/bgp/prefixes/{{bgp_prefix_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "asn_prepend_count": 2,
+      "auto_advertise_withdraw": true,
+      "on_demand": {
+        "advertised": false
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update BGP Prefix.resources/examples
+order: 3000

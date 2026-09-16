@@ -1,0 +1,104 @@
+$kind: http-example
+id: 1793afeb-9515-5b07-aa73-e540061b7cef
+name: Update Zaraz configuration response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/zaraz/config"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "consent": {
+          "cookieName": "zaraz-consent",
+          "customIntroDisclaimerDismissed": true,
+          "enabled": false
+        },
+        "dataLayer": true,
+        "debugKey": "my-debug-key",
+        "settings": {
+          "autoInjectScript": true,
+          "ecommerce": true,
+          "initPath": "/i"
+        },
+        "tools": {
+          "aJvt": {
+            "actions": {
+              "hrnc": {
+                "actionType": "pageview",
+                "blockingTriggers": [],
+                "data": {
+                  "__zaraz_setting_name": "Page view",
+                  "ev": "PageView"
+                },
+                "firingTriggers": [
+                  "Pageview"
+                ]
+              }
+            },
+            "component": "facebook-pixel",
+            "defaultFields": {
+              "testKey": "TEST123456"
+            },
+            "enabled": true,
+            "name": "Facebook Pixel",
+            "permissions": [
+              "access_client_kv"
+            ],
+            "settings": {
+              "accessToken": "{{accesstoken}}",
+              "ecommerce": true,
+              "property": "12345"
+            },
+            "type": "component"
+          }
+        },
+        "triggers": {
+          "ktBn": {
+            "Pageview": {
+              "clientRules": [],
+              "description": "All page loads",
+              "excludeRules": [],
+              "loadRules": [
+                {
+                  "match": "{{ client.__zarazTrack }}",
+                  "op": "EQUALS",
+                  "value": "Pageview"
+                }
+              ],
+              "name": "Pageview",
+              "system": "pageload"
+            }
+          }
+        },
+        "variables": {
+          "Autd": {
+            "name": "ip",
+            "type": "string",
+            "value": "{{ system.device.ip }}"
+          }
+        },
+        "zarazVersion": 43
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

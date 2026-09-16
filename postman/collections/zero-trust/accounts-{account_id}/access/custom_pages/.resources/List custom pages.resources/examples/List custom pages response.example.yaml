@@ -1,0 +1,29 @@
+$kind: http-example
+id: 7fece719-0315-5cad-a825-b116f6aa2295
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/custom_pages?page=1&per_page=50"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "50"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

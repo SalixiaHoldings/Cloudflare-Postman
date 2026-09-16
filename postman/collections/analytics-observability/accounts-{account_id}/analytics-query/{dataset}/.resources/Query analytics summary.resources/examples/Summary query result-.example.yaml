@@ -1,0 +1,52 @@
+$kind: http-example
+id: 11e40999-1170-59a1-ba44-9376ba439a4b
+name: Summary query result.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics/query/{{dataset}}/summary"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "filters": [],
+        "from": "2024-11-01T00:00:00Z",
+        "groupBy": [],
+        "stats": [
+          "attemptsTotal"
+        ],
+        "to": "2024-11-08T00:00:00Z"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [
+          {
+            "code": 1000,
+            "message": "API in beta: expect breaking changes."
+          }
+        ],
+        "result": {
+          "currentTotal": [
+            {
+              "attemptsTotal": 48291
+            }
+          ],
+          "previousTotal": [
+            {
+              "attemptsTotal": 41033
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

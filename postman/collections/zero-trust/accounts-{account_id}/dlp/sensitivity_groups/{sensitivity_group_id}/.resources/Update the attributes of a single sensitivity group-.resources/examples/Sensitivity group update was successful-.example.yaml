@@ -1,0 +1,40 @@
+$kind: http-example
+id: 8acd1406-8697-56c7-8fe8-d4cb8912b704
+name: Sensitivity group update was successful.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/sensitivity_groups/{{sensitivity_group_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "description": "string",
+        "levels": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "name": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

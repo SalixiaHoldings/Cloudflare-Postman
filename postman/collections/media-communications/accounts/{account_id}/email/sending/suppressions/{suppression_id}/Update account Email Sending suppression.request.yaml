@@ -1,0 +1,33 @@
+$kind: http-request
+id: 0444f8ae-308e-53d2-8ed1-443d6bbe3b29
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: patch_publicUpdateSendingSuppression
+  PATCH /accounts/{account_id}/email/sending/suppressions/{suppression_id}
+
+  Updates expiry or advisory note fields without changing legacy internal zone memberships.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions/{{suppression_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "expires_at": "2027-01-01T00:00:00Z",
+      "note": "Customer re-confirmed opt-in"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update account Email Sending suppression.resources/examples
+order: 3000

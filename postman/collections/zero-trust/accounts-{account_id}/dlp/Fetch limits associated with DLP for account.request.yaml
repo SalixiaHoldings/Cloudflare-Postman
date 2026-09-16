@@ -1,0 +1,29 @@
+$kind: http-request
+id: d34abaf0-faf3-5c97-9ad2-004609901b68
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-limits-get
+  GET /accounts/{account_id}/dlp/limits
+
+  Retrieves current DLP usage limits and quotas for the account, including
+  maximum allowed counts and current usage for custom entries, dataset cells,
+  and document fingerprints.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/dlp/limits"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Fetch limits associated with DLP for account.resources/examples
+order: 9000

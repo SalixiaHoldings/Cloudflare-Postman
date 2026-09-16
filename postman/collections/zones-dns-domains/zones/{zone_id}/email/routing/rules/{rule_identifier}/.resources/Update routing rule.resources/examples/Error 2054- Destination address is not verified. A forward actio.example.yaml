@@ -1,0 +1,43 @@
+$kind: http-example
+id: 21fb6415-8ede-5381-a71d-6607852e43c2
+name: "Error 2054: Destination address is not verified. A forward action destination address must be verified before it can be used in a rule."
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/routing/rules/{{rule_identifier}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "actions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "matchers": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "enabled": true,
+        "name": "Send to user@example.net rule.",
+        "owner_worker_tag": "a7e6fb77503c41d8a7f3113c6918f10c",
+        "priority": 0,
+        "source": "api"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

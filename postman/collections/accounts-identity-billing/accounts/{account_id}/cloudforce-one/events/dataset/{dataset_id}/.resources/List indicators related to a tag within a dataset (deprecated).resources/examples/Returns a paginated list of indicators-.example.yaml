@@ -1,0 +1,104 @@
+$kind: http-example
+id: cf194fd2-bccc-5b92-a5b9-c42d88644df1
+name: Returns a paginated list of indicators.
+request:
+  url: '{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/tags/{{tag_uuid}}/indicators?page=2535.467583220452&pageSize=2535.467583220452&indicatorType=string&relatedEvent=string&relatedEvent=string&search={"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&search={"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "2535.467583220452"
+    - key: pageSize
+      value: "2535.467583220452"
+    - key: indicatorType
+      value: string
+    - key: relatedEvent
+      value: string
+      description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+    - key: relatedEvent
+      value: string
+      description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+    - key: search
+      value: '{"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+      description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+    - key: search
+      value: '{"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+      description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "indicators": [
+          {
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "indicatorType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updatedAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "datasetId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "relatedEvents": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tags": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tlp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "indicatorType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updatedAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "datasetId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "relatedEvents": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tags": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tlp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "pagination": {
+          "page": 8832.02004712075,
+          "pageSize": 6219.562471378595,
+          "totalCount": 5678.810854442418,
+          "totalPages": 2164.448720868677
+        }
+      }
+order: 1000

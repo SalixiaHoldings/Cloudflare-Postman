@@ -1,0 +1,39 @@
+$kind: http-request
+id: a0447ab4-a357-570b-a32d-a3423518eb3b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-lockdown-list-zone-lockdown-rules
+  GET /zones/{zone_id}/firewall/lockdowns
+
+  Fetches Zone Lockdown rules. You can filter the results using several optional parameters.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/firewall/lockdowns?page=1&description=endpoints&modified_on=2014-01-01T05:20:00.12345Z&ip=1.2.3.4&priority=5&uri_search=/some/path&ip_range_search=1.2.3.0/16&per_page=20&created_on=2014-01-01T05:20:00.12345Z&description_search=endpoints&ip_search=1.2.3.4"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  page: "1"
+  description: endpoints
+  modified_on: 2014-01-01T05:20:00.12345Z
+  ip: 1.2.3.4
+  priority: "5"
+  uri_search: /some/path
+  ip_range_search: 1.2.3.0/16
+  per_page: "20"
+  created_on: 2014-01-01T05:20:00.12345Z
+  description_search: endpoints
+  ip_search: 1.2.3.4
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Zone Lockdown rules.resources/examples
+order: 1000

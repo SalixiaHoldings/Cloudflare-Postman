@@ -1,0 +1,30 @@
+$kind: http-example
+id: 3bda9770-6cde-5ed6-9bba-19a78a839682
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zerotrust/subnets/initial_resolved_ip/{{address_family}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

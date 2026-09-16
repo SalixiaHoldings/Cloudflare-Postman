@@ -1,0 +1,34 @@
+$kind: http-request
+id: 9e35a7ad-4bda-5f09-b10c-4161004de580
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: start-security-center-account-scan
+  POST /accounts/{account_id}/security-center/insights/scans
+
+  Initiates an on-demand security scan for the entire account, scanning all zones associated with the account. Rate limited to 5 scans per account per 24-hour window.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/security-center/insights/scans"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "issue_type": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Start On-Demand Account Scan.resources/examples
+order: 2000

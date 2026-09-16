@@ -1,0 +1,28 @@
+$kind: http-request
+id: 51e3f532-9321-574b-a155-19acac966434
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: spectrum-aggregate-analytics-get-current-aggregated-analytics
+  GET /zones/{zone_id}/spectrum/analytics/aggregate/current
+
+  Retrieves analytics aggregated from the last minute of usage on Spectrum applications underneath a given zone.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/spectrum/analytics/aggregate/current?appID=ea95132c15732412d22c1476fa83f27a,d122c5f4bb71e25cc9e86ab43b142e2f&colo_name=PDX"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  appID: ea95132c15732412d22c1476fa83f27a,d122c5f4bb71e25cc9e86ab43b142e2f
+  colo_name: PDX
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get current aggregated analytics.resources/examples
+order: 1000

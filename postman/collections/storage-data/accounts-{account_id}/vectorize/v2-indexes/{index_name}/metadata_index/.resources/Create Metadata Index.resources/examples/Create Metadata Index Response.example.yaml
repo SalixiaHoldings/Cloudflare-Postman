@@ -1,0 +1,29 @@
+$kind: http-example
+id: 7957ce51-64c8-50ea-86df-f842ad810ce3
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vectorize/v2/indexes/{{index_name}}/metadata_index/create"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "propertyName": "random_metadata_property",
+        "indexType": "boolean"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

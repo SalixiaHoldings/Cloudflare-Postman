@@ -1,0 +1,28 @@
+$kind: http-example
+id: 232a225c-566b-5ded-a493-569099f059c0
+name: Purge build cache failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pages/projects/{{project_name}}/purge_build_cache"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

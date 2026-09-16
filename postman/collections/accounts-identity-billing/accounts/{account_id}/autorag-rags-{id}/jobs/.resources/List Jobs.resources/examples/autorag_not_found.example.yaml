@@ -1,0 +1,40 @@
+$kind: http-example
+id: 9a23240d-cd57-5e1f-b0bd-8f90d589beff
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/autorag/rags/{{id}}/jobs?page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "20"
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

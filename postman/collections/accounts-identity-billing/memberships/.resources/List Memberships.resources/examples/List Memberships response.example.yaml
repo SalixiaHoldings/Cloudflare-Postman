@@ -1,0 +1,29 @@
+$kind: http-example
+id: 1e36129b-957c-5b4d-839c-14759fed8cda
+request:
+  url: "{{base_url}}/memberships?account.name=Demo Account&page=1&per_page=20&order=status&direction=desc&name=Demo Account&status=accepted"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    account.name: Demo Account
+    page: "1"
+    per_page: "20"
+    order: status
+    direction: desc
+    name: Demo Account
+    status: accepted
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+order: 1000

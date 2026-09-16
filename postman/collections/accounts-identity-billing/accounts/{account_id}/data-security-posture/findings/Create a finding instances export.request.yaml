@@ -1,0 +1,39 @@
+$kind: http-request
+id: 768270eb-fbd1-5945-90e1-261710324101
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: CreateFindingInstancesExportCSV
+  POST /accounts/{account_id}/data-security/posture/findings/{storage_namespace_id}/instances/export
+
+  Creates a CSV export for Finding instances and accepts optional filters in the payload.
+
+  The `storage_namespace_id` path parameter is derived from the finding ID by base64-decoding it
+  (which yields `integration_id:finding_type_id`) and replacing the colon with a hyphen.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{storage_namespace_id}}/instances/export"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "archived": false,
+      "max_affliction_date": "2024-01-01T00:00:00Z",
+      "min_affliction_date": "2023-01-01T00:00:00Z",
+      "search": "sensitive data"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a finding instances export.resources/examples
+order: 6000

@@ -1,0 +1,28 @@
+$kind: http-request
+id: b4b46096-4c04-5c1e-95a8-3f2296ae5889
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: csam-scanner-get-setting
+  GET /zones/{zone_id}/settings/csam_scanner_third_party
+
+  Retrieve the current CSAM Scanner configuration for a zone.
+
+  The notification email is masked by default in responses.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/settings/csam_scanner_third_party"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get CSAM Scanner setting.resources/examples
+order: 1000

@@ -1,0 +1,76 @@
+$kind: http-example
+id: 09244654-0783-5593-a9bf-cbac3f216f8f
+name: New custom profile response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles/custom"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "ai_context_enabled": false,
+        "allowed_match_count": 5,
+        "confidence_threshold": "low",
+        "context_awareness": {
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "skip": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "data_classes": [
+          "444f2860-b5b7-5b29-3034-27d1618d8256",
+          "fa2d1278-998a-975e-bc55-77b6797e3195"
+        ],
+        "data_tags": [
+          "db56cc01-7a12-3085-1f5e-7a76312c2db0",
+          "e3ad13f5-1b37-bb09-78bc-0bb7bd1fae3d"
+        ],
+        "description": "string",
+        "entries": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "ocr_enabled": false,
+        "sensitivity_levels": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "shared_entries": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

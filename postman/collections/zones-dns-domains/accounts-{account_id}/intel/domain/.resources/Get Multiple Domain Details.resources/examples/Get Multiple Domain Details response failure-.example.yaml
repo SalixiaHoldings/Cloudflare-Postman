@@ -1,0 +1,54 @@
+$kind: http-example
+id: 3ffbdc01-bb58-590b-8a4e-d33afe9ee8df
+name: Get Multiple Domain Details response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/domain/bulk?domain=string&domain=string&include_ranking=false&skip_ranking=true"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: domain
+      value: string
+      description: Accepts multiple values like `?domain=cloudflare.com&domain=example.com`.
+    - key: domain
+      value: string
+      description: Accepts multiple values like `?domain=cloudflare.com&domain=example.com`.
+    - key: include_ranking
+      value: "false"
+      description: |
+        Whether to include domain ranking data in the response. Defaults to
+        `false` — ranking lookups are expensive at bulk scale and most
+        callers do not need them. Set to `true` to opt in. This parameter
+        replaces the deprecated `skip_ranking` (see below).
+    - key: skip_ranking
+      value: "true"
+      description: |
+        **Deprecated.** Previously controlled whether the ranking lookup
+        was skipped (defaulted to `false`, meaning ranking ran). The
+        endpoint's default behavior is being flipped — ranking is now
+        opt-in via `include_ranking=true` — and this parameter will be
+        silently ignored. Remove it from your callers and use
+        `include_ranking` instead.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

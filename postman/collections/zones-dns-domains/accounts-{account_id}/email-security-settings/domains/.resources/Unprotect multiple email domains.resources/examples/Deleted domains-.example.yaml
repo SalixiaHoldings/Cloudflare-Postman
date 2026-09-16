@@ -1,0 +1,38 @@
+$kind: http-example
+id: a0c1ead8-94d3-53e8-85a7-4a96792d3ba0
+name: Deleted domains.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/domains"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: b444fa86-c96c-5fa5-a95e-fd26cfc252d3
+name: Not found.
+request:
+  url: "{{base_url}}/radar/bgp/top/ases/prefixes?country=NZ&limit=10&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: country
+      value: NZ
+      description: Alpha-2 country code.
+    - key: limit
+      value: "10"
+      description: Maximum number of ASes to return.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not Found."
+      }
+order: 2000

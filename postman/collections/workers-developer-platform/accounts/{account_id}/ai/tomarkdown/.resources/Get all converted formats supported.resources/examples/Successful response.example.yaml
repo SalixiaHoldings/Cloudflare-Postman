@@ -1,0 +1,37 @@
+$kind: http-example
+id: 4cf97c53-0b5b-5995-9275-ccc4c950a6c4
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/tomarkdown/supported"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": [
+          {
+            "extension": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "mimeType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "extension": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "mimeType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

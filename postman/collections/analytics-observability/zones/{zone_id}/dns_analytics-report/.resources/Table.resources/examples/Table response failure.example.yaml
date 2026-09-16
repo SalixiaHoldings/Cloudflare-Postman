@@ -1,0 +1,38 @@
+$kind: http-example
+id: d98c22f4-fd38-52a0-b614-7720c45275fb
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dns_analytics/report?metrics=queryCount,uncachedCount&dimensions=queryType&since=2023-11-11T12:00:00Z&until=2023-11-11T13:00:00Z&limit=100&sort=+responseCode,-queryName&filters=responseCode==NOERROR,queryType==A"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    metrics: queryCount,uncachedCount
+    dimensions: queryType
+    since: 2023-11-11T12:00:00Z
+    until: 2023-11-11T13:00:00Z
+    limit: "100"
+    sort: +responseCode,-queryName
+    filters: responseCode==NOERROR,queryType==A
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

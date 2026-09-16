@@ -1,0 +1,119 @@
+$kind: http-example
+id: 133b482c-0d61-51c5-af7b-244d8f331718
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/assets/upload"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: description
+        value: string
+        description: Optional description of the asset
+      - type: file
+        key: file
+        src: ""
+        description: The file to upload (can also use 'source')
+      - type: text
+        key: metadata
+        value: string
+        description: Optional JSON string of key-value pairs (e.g., '{"key1":"value1"}')
+      - type: file
+        key: source
+        src: ""
+        description: The file to upload (can also use 'file')
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "fileName": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "fileSize": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "contentType": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "uploadedAt": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "tlp": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "enum": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "state": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "origin": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "is_cloudflare_team": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "downloadable": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "expiresAt": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "nullable": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "metadata": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "additionalProperties": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "nullable": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+order: 1000

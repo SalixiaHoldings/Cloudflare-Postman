@@ -1,0 +1,24 @@
+$kind: http-example
+id: e364f809-b26a-54c9-bae0-6b3695f16264
+name: Custom profile response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles/custom/{{profile_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

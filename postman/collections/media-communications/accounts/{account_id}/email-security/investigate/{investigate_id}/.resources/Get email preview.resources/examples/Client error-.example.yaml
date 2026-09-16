@@ -1,0 +1,28 @@
+$kind: http-example
+id: 1aeca550-85ab-5048-81b6-9ed14b981734
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}/preview"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,21 @@
+$kind: http-example
+id: f1941e5a-d2f4-51e6-a6e3-73734fa17c91
+name: Indicator deleted successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators/{{indicator_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "string",
+        "success": false
+      }
+order: 1000

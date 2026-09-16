@@ -1,0 +1,35 @@
+$kind: http-request
+id: 805a8482-a9db-57b0-a317-2830a40f58ea
+name: Updates a raw event
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_EventRawUpdate
+  POST /accounts/{account_id}/cloudforce-one/events/{event_id}/raw/{raw_id}
+
+  Updates a raw event
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/{{event_id}}/raw/{{raw_id}}"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "data": {},
+      "source": "example.com",
+      "tlp": "amber"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Updates a raw event-1.resources/examples
+order: 3000

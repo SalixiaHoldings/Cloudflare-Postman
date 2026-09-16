@@ -1,0 +1,27 @@
+$kind: http-example
+id: 021c6a2e-c4e3-5b3e-8a3f-6e4a9d7bbae3
+name: Get Origin Max HTTP Version setting response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/origin_max_http_version"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "editable": true,
+          "id": "origin_max_http_version",
+          "value": "2"
+        },
+        "success": true
+      }
+order: 1000

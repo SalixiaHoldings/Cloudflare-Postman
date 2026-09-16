@@ -1,0 +1,31 @@
+$kind: http-example
+id: 1aa2ee22-8be4-54e6-971c-48d98183faac
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/policies/{{policy_id}}/test"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "severity": 1,
+        "source": "string",
+        "state_correlation_id": "string",
+        "state_event": 2
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

@@ -1,0 +1,25 @@
+$kind: http-example
+id: 46d89110-a0f7-5715-bc05-47f367c0cfe3
+name: Returns the raw event data.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/datasets/{{dataset_id}}/events/{{event_id}}/raw"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 1,
+        "accountId": 1234,
+        "created": "1970-01-01T00:00:00Z",
+        "data": "{\"foo\": \"bar\"}",
+        "source": "https://example.com",
+        "tlp": "amber"
+      }
+order: 1000

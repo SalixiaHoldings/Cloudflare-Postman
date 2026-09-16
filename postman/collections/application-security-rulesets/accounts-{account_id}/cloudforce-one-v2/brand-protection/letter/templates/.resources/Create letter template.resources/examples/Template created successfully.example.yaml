@@ -1,0 +1,36 @@
+$kind: http-example
+id: dc42df6b-ba43-59d6-b84a-9d4f7a9bc9f5
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/letter/templates"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "category": "string",
+        "body": "string",
+        "description": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "string",
+        "source": "system",
+        "name": "string",
+        "category": "string",
+        "description": "string",
+        "body": "string",
+        "createdAt": "string",
+        "updatedAt": "string"
+      }
+order: 1000

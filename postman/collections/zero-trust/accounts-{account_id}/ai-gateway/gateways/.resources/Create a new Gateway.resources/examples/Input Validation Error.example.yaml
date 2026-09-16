@@ -1,0 +1,68 @@
+$kind: http-example
+id: 0993fc65-af65-5b2c-9754-646c5695ecd3
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "my-gateway",
+        "rate_limiting_interval": 5792,
+        "rate_limiting_limit": 7626,
+        "collect_logs": true,
+        "cache_ttl": 1678,
+        "cache_invalidate_on_update": false,
+        "authentication": true,
+        "byok_only": true,
+        "log_management": 4973335,
+        "log_management_strategy": "STOP_INSERTING",
+        "logpush": false,
+        "logpush_public_key": "stringstringstring",
+        "rate_limiting_technique": "fixed",
+        "retry_backoff": "linear",
+        "retry_delay": 614,
+        "retry_max_attempts": 3,
+        "store_id": "string",
+        "workers_ai_billing_mode": "postpaid",
+        "zdr": false
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "path": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "path": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

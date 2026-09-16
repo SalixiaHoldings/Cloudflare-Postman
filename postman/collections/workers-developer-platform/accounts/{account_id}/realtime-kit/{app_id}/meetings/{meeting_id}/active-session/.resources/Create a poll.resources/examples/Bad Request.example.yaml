@@ -1,0 +1,29 @@
+$kind: http-example
+id: a927ca3a-8cde-5999-8712-21b37f0c959b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/active-session/poll"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "question": "string",
+        "options": [
+          "string",
+          "string"
+        ],
+        "anonymous": false,
+        "hide_votes": true
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

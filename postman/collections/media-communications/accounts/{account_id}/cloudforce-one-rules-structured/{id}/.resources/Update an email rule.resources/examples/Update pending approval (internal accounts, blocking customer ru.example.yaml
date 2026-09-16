@@ -1,0 +1,86 @@
+$kind: http-example
+id: de996f5c-a7e1-5787-8f1b-1b642ea0eea3
+name: Update pending approval (internal accounts, blocking customer rules, and customer rules with compiler warnings).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured/{{id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "condition": {
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "operator": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "conditions": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "description": "string",
+        "enabled": true,
+        "meta": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "name": "string",
+        "status": "blocking",
+        "strings": [
+          {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "identifier": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "match_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modifiers": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "identifier": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "match_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modifiers": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "approval_id": 1,
+        "message": "Rule creation pending approval"
+      }
+order: 2000

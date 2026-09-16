@@ -1,0 +1,32 @@
+$kind: http-example
+id: a2e4fa3e-098f-5152-afe8-9bc6541d8ff1
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/logging-state"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

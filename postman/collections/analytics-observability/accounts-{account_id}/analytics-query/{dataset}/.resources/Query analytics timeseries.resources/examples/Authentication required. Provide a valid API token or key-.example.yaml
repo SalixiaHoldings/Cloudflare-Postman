@@ -1,0 +1,53 @@
+$kind: http-example
+id: 58c6efb8-ea64-5826-af16-3a45d17f9d0e
+name: Authentication required. Provide a valid API token or key.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics/query/{{dataset}}/timeseries"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "filters": [
+          {
+            "name": "allowed",
+            "op": "eq",
+            "values": [
+              true
+            ]
+          }
+        ],
+        "from": "2024-11-01T00:00:00Z",
+        "groupBy": [
+          "country",
+          "allowed"
+        ],
+        "resolution": "day",
+        "stats": [
+          "attemptsTotal"
+        ],
+        "to": "2024-11-08T00:00:00Z"
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 11003,
+            "message": "art.api.resource.insufficient_permissions"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

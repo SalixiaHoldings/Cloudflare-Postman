@@ -1,0 +1,60 @@
+$kind: http-example
+id: 0ccf4d2c-eead-518e-81ec-cab276a6d6f0
+name: Write multiple key-value pairs response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}/bulk"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "key": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "value": "Some string",
+          "base64": false,
+          "expiration": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "expiration_ttl": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "metadata": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "key": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "value": "Some string",
+          "base64": false,
+          "expiration": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "expiration_ttl": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "metadata": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

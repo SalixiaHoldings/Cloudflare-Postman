@@ -1,0 +1,31 @@
+$kind: http-example
+id: a63c7555-104d-53a4-84eb-1d04a29d5115
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/{{subdomain_id}}/dns"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "errors": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "records": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "status": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

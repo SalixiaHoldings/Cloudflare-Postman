@@ -1,0 +1,34 @@
+$kind: http-example
+id: adefe030-8a77-5263-a961-9272b0258f33
+name: Change Cache Reserve setting response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/cache_reserve"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "off"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "editable": true,
+          "id": "cache_reserve",
+          "value": "on"
+        },
+        "success": true
+      }
+order: 1000

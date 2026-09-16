@@ -1,0 +1,33 @@
+$kind: http-example
+id: a619d410-7571-52a2-861d-2a0078a6d2bc
+name: Get Automatic SSL/TLS Enrollment status failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/ssl_automatic_mode"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1008,
+            "message": "Invalid SSL/TLS encryption configuration value, only auto or custom accepted"
+          }
+        ],
+        "messages": [],
+        "result": {
+          "editable": true,
+          "id": "ssl_automatic_mode",
+          "modified_on": "2014-01-01T05:20:00.12345Z",
+          "value": "custom"
+        },
+        "success": false
+      }
+order: 2000

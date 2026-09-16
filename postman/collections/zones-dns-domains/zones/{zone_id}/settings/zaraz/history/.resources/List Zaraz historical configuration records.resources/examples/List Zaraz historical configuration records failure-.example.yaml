@@ -1,0 +1,41 @@
+$kind: http-example
+id: 8d0d982b-7226-5d75-b427-96d3363455f6
+name: List Zaraz historical configuration records failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/zaraz/history?offset=0&limit=10&sortField=updated_at&sortOrder=DESC"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: offset
+      value: "0"
+      description: Ordinal number to start listing the results with. Default value is 0.
+    - key: limit
+      value: "10"
+      description: Maximum amount of results to list. Default value is 10.
+    - key: sortField
+      value: updated_at
+      description: The field to sort by. Default is updated_at.
+    - key: sortOrder
+      value: DESC
+      description: Sorting order. Default is DESC.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

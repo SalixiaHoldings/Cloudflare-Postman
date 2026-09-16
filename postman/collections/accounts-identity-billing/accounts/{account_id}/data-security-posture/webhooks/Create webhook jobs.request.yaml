@@ -1,0 +1,39 @@
+$kind: http-request
+id: 5b29e241-7912-5d52-a2a4-390505425707
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: CreateWebhookJobs
+  POST /accounts/{account_id}/data-security/posture/webhooks/jobs
+
+  Creates webhook jobs to send a finding instance to one or more configured webhooks.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/jobs"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "webhook_ids": [
+        "550e8400-e29b-41d4-a716-446655440000",
+        "660e8400-e29b-41d4-a716-446655440001"
+      ],
+      "finding_instance_ids": [
+        "770e8400-e29b-41d4-a716-446655440002",
+        "660e8400-e29b-41d4-a716-446655440001"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create webhook jobs.resources/examples
+order: 4000

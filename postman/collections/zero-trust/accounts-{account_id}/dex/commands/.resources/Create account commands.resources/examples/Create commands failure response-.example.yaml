@@ -1,0 +1,70 @@
+$kind: http-example
+id: 6ea916b7-0a96-58f4-8fac-58677ad64db9
+name: Create commands failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/commands"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "commands": [
+          {
+            "device_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "user_email": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "args": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "registration_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "device_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "user_email": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "args": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "registration_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

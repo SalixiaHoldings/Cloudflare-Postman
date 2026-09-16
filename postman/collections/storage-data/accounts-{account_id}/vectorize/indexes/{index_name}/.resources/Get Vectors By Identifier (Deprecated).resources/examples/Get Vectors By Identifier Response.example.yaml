@@ -1,0 +1,31 @@
+$kind: http-example
+id: d59c5e3f-139f-59ae-9f3c-e36691e837c4
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vectorize/indexes/{{index_name}}/get-by-ids"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "ids": [
+          "5121db81354a40c6aedc3fe1ace51c59",
+          "f90eb49c2107486abdfd78c67e853430"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

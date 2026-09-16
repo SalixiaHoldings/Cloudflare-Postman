@@ -1,0 +1,21 @@
+$kind: http-example
+id: 6236aa69-118a-5639-ad41-0351396dc8e4
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/migrations/{{migration_id}}/lifecycle/abort"
+  method: PATCH
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

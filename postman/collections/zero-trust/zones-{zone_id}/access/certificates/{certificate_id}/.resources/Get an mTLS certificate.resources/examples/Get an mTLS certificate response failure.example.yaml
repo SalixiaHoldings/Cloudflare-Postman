@@ -1,0 +1,27 @@
+$kind: http-example
+id: 015634e5-1a72-5f29-9088-0b8e4f18e87b
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/certificates/{{certificate_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

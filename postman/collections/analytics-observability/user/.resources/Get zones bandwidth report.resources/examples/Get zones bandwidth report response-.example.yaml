@@ -1,0 +1,46 @@
+$kind: http-example
+id: d27b13ee-7076-577e-9c9d-01aa52eb41b0
+name: Get zones bandwidth report response.
+request:
+  url: "{{base_url}}/user/spectrum_analytics/zones/report?description=Start of time interval to query, defaults to `until` - 6 hours. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.&value=<Error: Too many levels of nesting to fake this schema>&description=End of time interval to query, defaults to current time. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.&value=<Error: Too many levels of nesting to fake this schema>&cdn_traffic=true"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: description
+      value: Start of time interval to query, defaults to `until` - 6 hours. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.
+    - key: value
+      value: "<Error: Too many levels of nesting to fake this schema>"
+    - key: description
+      value: End of time interval to query, defaults to current time. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.
+    - key: value
+      value: "<Error: Too many levels of nesting to fake this schema>"
+    - key: cdn_traffic
+      value: "true"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "query": {
+          "since": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "until": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

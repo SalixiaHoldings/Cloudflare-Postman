@@ -1,0 +1,54 @@
+$kind: http-example
+id: 5e6fa159-3ac1-5d06-a457-843d42473283
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/copy?keepRawData=true"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: keepRawData
+      value: "true"
+      description: If true, copies raw data to the destination dataset. Default is false (raw data is stripped/not copied).
+  body:
+    type: json
+    content: |-
+      {
+        "destDatasetId": "12345678-1234-1234-1234-1234567890ab",
+        "eventIds": [
+          "7632a037-fdef-4899-9b12-148470aae772",
+          "7632a037-fdef-4899-9b12-148470aae772"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "copied": 2,
+        "indicatorsCopied": 5,
+        "relationshipsCopied": 3,
+        "insertFailures": [
+          {
+            "index": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "reason": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "index": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "reason": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

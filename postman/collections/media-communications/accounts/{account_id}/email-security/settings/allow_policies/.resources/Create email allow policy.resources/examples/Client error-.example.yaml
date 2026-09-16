@@ -1,0 +1,32 @@
+$kind: http-example
+id: de65219b-fc52-5fa8-8c5a-edcfa8e2580b
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/allow_policies"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "null"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

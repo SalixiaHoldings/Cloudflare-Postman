@@ -1,0 +1,64 @@
+$kind: http-request
+id: 149a4514-3457-5c3f-b9e2-0b94502e2222
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: onramps-create
+  POST /accounts/{account_id}/magic/cloud/onramps
+
+  Create a new On-ramp (Closed Beta).
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps"
+method: POST
+headers:
+  forwarded: string
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "type": "OnrampTypeSingle",
+      "cloud_type": "GOOGLE",
+      "install_routes_in_cloud": true,
+      "install_routes_in_magic_wan": true,
+      "dynamic_routing": true,
+      "adopted_hub_id": "45aaf23c-377b-7097-c12c-a2dd1147ec55",
+      "attached_hubs": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "attached_vpcs": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "cloud_asn": 7833,
+      "description": "string",
+      "hub_provider_id": "903254a9-4fbc-35f9-a0db-3f8fac29fdee",
+      "manage_hub_to_hub_attachments": false,
+      "manage_vpc_to_hub_attachments": true,
+      "region": "string",
+      "vpc": "1aa57e36-a120-d1b7-ecbd-917879607ebc"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create On-ramp.resources/examples
+order: 2000

@@ -1,0 +1,25 @@
+$kind: http-example
+id: 4446a4b6-c9e9-57bf-b07b-612f642b3c83
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/indicators?feed_id=961369b3-4c6b-c336-f4be-57208027a0c9&article_id=961369b3-4c6b-c336-f4be-57208027a0c9&search=string&per_page=20&sort=id&include_total=false&cursor=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    feed_id: 961369b3-4c6b-c336-f4be-57208027a0c9
+    article_id: 961369b3-4c6b-c336-f4be-57208027a0c9
+    search: string
+    per_page: "20"
+    sort: id
+    include_total: "false"
+    cursor: string
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

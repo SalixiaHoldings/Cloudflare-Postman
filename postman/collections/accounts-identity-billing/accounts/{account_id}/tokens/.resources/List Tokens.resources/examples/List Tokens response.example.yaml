@@ -1,0 +1,36 @@
+$kind: http-example
+id: 750d01d5-1e02-5052-adc9-f13de0b88072
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/tokens?page=1&per_page=20&direction=desc&include_expired=false"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+    - key: per_page
+      value: "20"
+    - key: direction
+      value: desc
+    - key: include_expired
+      value: "false"
+      description: When true, includes recently-expired tokens in the response.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

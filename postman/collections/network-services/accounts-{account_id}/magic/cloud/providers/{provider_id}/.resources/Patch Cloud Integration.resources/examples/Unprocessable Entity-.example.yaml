@@ -1,0 +1,49 @@
+$kind: http-example
+id: f2c04be3-d8b4-5d3a-a1a3-f4e068da349c
+name: Unprocessable Entity.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers/{{provider_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "aws_arn": "string",
+        "azure_subscription_id": "string",
+        "azure_tenant_id": "string",
+        "description": "string",
+        "friendly_name": "string",
+        "gcp_project_id": "string",
+        "gcp_service_account_email": "string"
+      }
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": null,
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 7000

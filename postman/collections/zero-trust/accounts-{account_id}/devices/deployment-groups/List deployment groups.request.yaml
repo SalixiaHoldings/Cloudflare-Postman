@@ -1,0 +1,32 @@
+$kind: http-request
+id: 9eeed630-3cf3-5792-b562-032b10641de3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: list-deployment-groups
+  GET /accounts/{account_id}/devices/deployment-groups
+
+  Lists all deployment groups for an account. Use deployment groups to assign target WARP client versions to specific devices. This endpoint is in Beta.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/devices/deployment-groups?page=1&per_page=50"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    description: The page number to return.
+  - key: per_page
+    value: "50"
+    description: The maximum number of deployment groups to return per page.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List deployment groups.resources/examples
+order: 1000

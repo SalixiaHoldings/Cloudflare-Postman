@@ -1,0 +1,31 @@
+$kind: http-example
+id: 7b48428d-9011-534c-8fab-4130c681aea9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cf_interconnects"
+  method: GET
+  headers:
+    - key: x-magic-new-hc-target
+      value: "true"
+      description: If true, the health check target in the response body will be presented using the new object format. Defaults to false.
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "interconnects": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

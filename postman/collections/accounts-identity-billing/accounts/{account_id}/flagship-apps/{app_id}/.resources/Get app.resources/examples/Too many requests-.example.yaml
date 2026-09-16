@@ -1,0 +1,37 @@
+$kind: http-example
+id: 7141dc72-b6f3-5559-a323-f52012ccda9d
+name: Too many requests.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 429
+  statusText: Too Many Requests
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": null,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 6000

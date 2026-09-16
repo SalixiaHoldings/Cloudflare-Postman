@@ -1,0 +1,21 @@
+$kind: http-example
+id: 342fdde4-bd07-53f6-a18a-d47039d7fa6e
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/domain/queries/{{query_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "null"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

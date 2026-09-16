@@ -1,0 +1,19 @@
+$kind: http-example
+id: 5545e0c5-4b32-53cb-97da-cd6536efd445
+name: Delete video response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

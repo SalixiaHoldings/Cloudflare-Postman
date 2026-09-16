@@ -1,0 +1,22 @@
+$kind: http-example
+id: 5a1fe901-ae7a-5639-b2d5-2e0d716ab251
+name: Delete all SYN Protection filters response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/syn_protection/filters"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

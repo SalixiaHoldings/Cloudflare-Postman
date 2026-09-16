@@ -1,0 +1,39 @@
+$kind: http-example
+id: a97651db-b764-50fb-8015-ed650dbf98d7
+name: Create Assets Upload Session response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts/{{script_name}}/assets-upload-session"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "manifest": {
+          "key_0": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

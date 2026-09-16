@@ -1,0 +1,30 @@
+$kind: http-example
+id: 09f9cc3a-4a00-598a-8b31-53afed9fce08
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/sources/{{source_id}}/connectivity"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

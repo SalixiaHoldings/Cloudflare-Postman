@@ -1,0 +1,26 @@
+$kind: http-example
+id: 584d8e2f-7795-50de-8d19-04518fb8055e
+name: Delete Load Balancer response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/load_balancers/{{load_balancer_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

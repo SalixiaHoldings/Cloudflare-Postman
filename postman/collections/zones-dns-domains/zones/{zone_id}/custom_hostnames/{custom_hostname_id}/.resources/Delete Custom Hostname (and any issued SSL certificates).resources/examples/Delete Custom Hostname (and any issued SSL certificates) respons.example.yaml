@@ -1,0 +1,20 @@
+$kind: http-example
+id: 31ea14ba-b902-5407-8e03-558dcd24122c
+name: Delete Custom Hostname (and any issued SSL certificates) response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/custom_hostnames/{{custom_hostname_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "023e105f4ecef8ad9ca31a8372d0c353"
+      }
+order: 1000

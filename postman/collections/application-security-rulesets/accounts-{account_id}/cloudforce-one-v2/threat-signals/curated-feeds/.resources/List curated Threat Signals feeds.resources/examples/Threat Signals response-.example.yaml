@@ -1,0 +1,18 @@
+$kind: http-example
+id: 3e5d092a-78f9-5b18-b0cb-2f439e1339a2
+name: Threat Signals response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/curated-feeds?category=string&include_inactive=false"
+  method: GET
+  queryParams:
+    category: string
+    include_inactive: "false"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

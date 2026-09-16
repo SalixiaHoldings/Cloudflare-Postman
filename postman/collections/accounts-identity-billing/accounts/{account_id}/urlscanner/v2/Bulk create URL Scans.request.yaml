@@ -1,0 +1,67 @@
+$kind: http-request
+id: 4dc17e01-018f-5a82-acaf-f90684cf0114
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: urlscanner-create-scan-bulk-v2
+  POST /accounts/{account_id}/urlscanner/v2/bulk
+
+  Submit URLs to scan. Check limits at https://developers.cloudflare.com/security-center/investigate/scan-limits/ and take into account scans submitted in bulk have lower priority and may take longer to finish.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/bulk"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    [
+      {
+        "url": "https://www.example.com",
+        "agentReadiness": true,
+        "customHeaders": {
+          "key_0": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "customagent": "string",
+        "referer": "string",
+        "screenshotsResolutions": [
+          "desktop"
+        ],
+        "visibility": "Public"
+      },
+      {
+        "url": "https://www.example.com",
+        "agentReadiness": true,
+        "customHeaders": {
+          "key_0": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "key_1": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "key_2": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "customagent": "string",
+        "referer": "string",
+        "screenshotsResolutions": [
+          "desktop"
+        ],
+        "visibility": "Public"
+      }
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Bulk create URL Scans.resources/examples
+order: 1000

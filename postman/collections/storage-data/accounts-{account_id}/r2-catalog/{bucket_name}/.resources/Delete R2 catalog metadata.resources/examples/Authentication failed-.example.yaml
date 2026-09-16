@@ -1,0 +1,21 @@
+$kind: http-example
+id: 6a8fa675-8e54-52be-befb-6c558b7ffe34
+name: Authentication failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/delete?force=false"
+  method: POST
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: force
+      value: "false"
+      description: Remove child metadata before deleting the catalog.
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

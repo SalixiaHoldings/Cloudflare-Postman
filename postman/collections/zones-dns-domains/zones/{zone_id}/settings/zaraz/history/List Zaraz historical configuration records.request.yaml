@@ -1,0 +1,38 @@
+$kind: http-request
+id: dbaecf58-f689-5930-be96-d319b3216e1a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-zones-zone_identifier-zaraz-history
+  GET /zones/{zone_id}/settings/zaraz/history
+
+  Lists a history of published Zaraz configuration records for a zone.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/settings/zaraz/history?offset=0&limit=10&sortField=updated_at&sortOrder=DESC"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: offset
+    value: "0"
+    description: Ordinal number to start listing the results with. Default value is 0.
+  - key: limit
+    value: "10"
+    description: Maximum amount of results to list. Default value is 10.
+  - key: sortField
+    value: updated_at
+    description: The field to sort by. Default is updated_at.
+  - key: sortOrder
+    value: DESC
+    description: Sorting order. Default is DESC.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Zaraz historical configuration records.resources/examples
+order: 1000

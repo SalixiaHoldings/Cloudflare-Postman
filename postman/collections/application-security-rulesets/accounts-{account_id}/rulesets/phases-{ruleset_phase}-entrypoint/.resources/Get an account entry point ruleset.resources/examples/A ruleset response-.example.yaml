@@ -1,0 +1,27 @@
+$kind: http-example
+id: cdacc45b-41f5-5970-abc7-3627a94af679
+name: A ruleset response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/rulesets/phases/{{ruleset_phase}}/entrypoint"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": true,
+        "errors": [],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

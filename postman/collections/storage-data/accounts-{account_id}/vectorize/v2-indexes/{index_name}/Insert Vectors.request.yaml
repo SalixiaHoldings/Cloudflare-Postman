@@ -1,0 +1,31 @@
+$kind: http-request
+id: 10550559-9c77-5603-9682-837627948f6f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: vectorize-insert-vector
+  POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/insert
+
+  Inserts vectors into the specified index and returns a mutation id corresponding to the vectors enqueued for insertion.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/vectorize/v2/indexes/{{index_name}}/insert?unparsable-behavior=error"
+method: POST
+headers:
+  Content-Type: application/x-ndjson
+  Accept: application/json
+queryParams:
+  unparsable-behavior: error
+body:
+  type: file
+  content: {}
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Insert Vectors.resources/examples
+order: 6000

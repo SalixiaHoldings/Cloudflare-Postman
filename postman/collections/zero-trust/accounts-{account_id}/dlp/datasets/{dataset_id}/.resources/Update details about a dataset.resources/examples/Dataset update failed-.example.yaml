@@ -1,0 +1,39 @@
+$kind: http-example
+id: 8e1152b6-623c-56f3-b29d-020c5da1ade5
+name: Dataset update failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/datasets/{{dataset_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "case_sensitive": false,
+        "description": "string",
+        "name": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

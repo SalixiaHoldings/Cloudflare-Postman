@@ -1,0 +1,38 @@
+$kind: http-example
+id: 54fdc6aa-04eb-5577-a853-1088bc767c9e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/logging-state"
+  method: PATCH
+  headers:
+    Accept: application/json
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {},
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

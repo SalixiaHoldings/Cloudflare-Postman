@@ -1,0 +1,40 @@
+$kind: http-example
+id: 24646cc0-7e84-5254-bbf0-602e8ec42a6f
+name: Create webhooks response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/webhook"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "notificationUrl": 6621.933619026095
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "modified": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "notificationUrl": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "notification_url": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "secret": "{{secret}}"
+        }
+      }
+order: 1000

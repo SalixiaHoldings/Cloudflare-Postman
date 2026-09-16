@@ -1,0 +1,60 @@
+$kind: http-example
+id: a4475ba6-6bf4-5dfc-8d7f-703f42d737ab
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/bots/{{bot_slug}}?format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "bot": {
+            "slug": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "kind": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "operator": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "operatorUrl": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "category": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "userAgents": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "userAgentPatterns": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "signatureAgentUrl": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

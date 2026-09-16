@@ -1,0 +1,34 @@
+$kind: http-example
+id: 3969e091-9a82-52a0-ba0a-1b377a3c3e5a
+name: Bad request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/delete?force=false"
+  method: POST
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: force
+      value: "false"
+      description: Remove child metadata before deleting the catalog.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false
+      }
+order: 2000

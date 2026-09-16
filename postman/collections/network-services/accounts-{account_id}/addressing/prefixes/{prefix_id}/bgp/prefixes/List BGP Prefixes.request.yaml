@@ -1,0 +1,25 @@
+$kind: http-request
+id: 316a2799-d21f-57a3-8465-35a58c061d70
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ip-address-management-prefixes-list-bgp-prefixes
+  GET /accounts/{account_id}/addressing/prefixes/{prefix_id}/bgp/prefixes
+
+  List all BGP Prefixes within the specified IP Prefix. BGP Prefixes are used to control which specific subnets are advertised to the Internet. It is possible to advertise subnets more specific than an IP Prefix by creating more specific BGP Prefixes.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/addressing/prefixes/{{prefix_id}}/bgp/prefixes"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List BGP Prefixes.resources/examples
+order: 1000

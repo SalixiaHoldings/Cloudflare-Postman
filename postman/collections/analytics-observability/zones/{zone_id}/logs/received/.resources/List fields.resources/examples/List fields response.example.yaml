@@ -1,0 +1,21 @@
+$kind: http-example
+id: 3b1099aa-8e06-5509-be0b-e29a3f939f57
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/logs/received/fields"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "key": "value"
+      }
+order: 1000

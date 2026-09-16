@@ -1,0 +1,48 @@
+$kind: http-example
+id: 41d4bc93-cc0a-5d32-add2-34b6577333cd
+name: Delete tags response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/tags"
+  method: DELETE
+  headers:
+    - key: If-Match
+      value: '"v1:RBNvo1WzZ4oRRq0W9-hkng"'
+      description: |
+        ETag value for optimistic concurrency control. When provided, the server will
+        verify the current resource ETag matches before applying the write. Returns
+        412 Precondition Failed if the resource has been modified since the ETag was
+        obtained. Omit this header for unconditional writes.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

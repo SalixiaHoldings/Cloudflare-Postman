@@ -1,0 +1,48 @@
+$kind: http-example
+id: d1c8d27c-6128-53d0-85b4-73f8dce7887e
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations?page=1&per_page=20&order=method&direction=desc&host=api.cloudflare.com&method=GET&endpoint=/api/v1&feature=thresholds"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      description: Maximum number of results per page.
+    - key: order
+      value: method
+    - key: direction
+      value: desc
+    - key: host
+      value: api.cloudflare.com
+    - key: method
+      value: GET
+    - key: endpoint
+      value: /api/v1
+    - key: feature
+      value: thresholds
+      description: Add feature(s) to the results. The feature name that is given here corresponds to the resulting feature object. Have a look at the top-level object description for more details on the specific meaning.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

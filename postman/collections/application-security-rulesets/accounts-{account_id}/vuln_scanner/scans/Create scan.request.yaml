@@ -1,0 +1,43 @@
+$kind: http-request
+id: ff1399ba-118f-5e02-9294-63800816c92b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: create-scan
+  POST /accounts/{account_id}/vuln_scanner/scans
+
+  Creates and starts a new vulnerability scan. The response may include non-fatal warnings in the `messages` array.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/vuln_scanner/scans"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "target_environment_id": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "scan_type": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "open_api": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "credential_sets": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create scan.resources/examples
+order: 2000

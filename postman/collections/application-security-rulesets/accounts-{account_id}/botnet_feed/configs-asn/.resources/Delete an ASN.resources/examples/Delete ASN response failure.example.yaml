@@ -1,0 +1,29 @@
+$kind: http-example
+id: 5d3a0f04-b538-5559-af71-3e0c88aeceaa
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/botnet_feed/configs/asn/{{asn_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

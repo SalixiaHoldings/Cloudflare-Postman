@@ -1,0 +1,35 @@
+$kind: http-example
+id: fb815016-0e89-5c0e-9687-ac31d1b00bf0
+name: Create Subdomain response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/subdomain"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "subdomain": "my-subdomain"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

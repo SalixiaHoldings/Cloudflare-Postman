@@ -1,0 +1,22 @@
+$kind: http-example
+id: fd40d338-7cbe-594b-a108-58a7b23d8518
+name: Delete DNS Protection rule response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_dns_protection/configs/dns_protection/rules/{{rule_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

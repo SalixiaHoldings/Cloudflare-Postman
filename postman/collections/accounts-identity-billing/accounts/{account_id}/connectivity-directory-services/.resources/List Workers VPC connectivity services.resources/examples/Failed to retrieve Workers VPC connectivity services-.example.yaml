@@ -1,0 +1,39 @@
+$kind: http-example
+id: 30fd03cd-26ee-534f-96e1-d7a1834427b2
+name: Failed to retrieve Workers VPC connectivity services.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/connectivity/directory/services?type=tcp&page=1&per_page=1000"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: type
+      value: tcp
+    - key: page
+      value: "1"
+      description: Current page in the response
+    - key: per_page
+      value: "1000"
+      description: Max amount of entries returned per page
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

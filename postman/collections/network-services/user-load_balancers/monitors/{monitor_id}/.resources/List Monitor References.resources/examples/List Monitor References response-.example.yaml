@@ -1,0 +1,38 @@
+$kind: http-example
+id: faffa111-8eb3-544e-935c-ae7f516f8050
+name: List Monitor References response.
+request:
+  url: "{{base_url}}/user/load_balancers/monitors/{{monitor_id}}/references"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          {
+            "reference_type": "referrer",
+            "resource_id": "17b5962d775c646f3f9725cbc7a53df4",
+            "resource_name": "primary-dc-1",
+            "resource_type": "pool"
+          }
+        ]
+      }
+order: 1000

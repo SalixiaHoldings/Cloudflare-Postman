@@ -1,0 +1,26 @@
+$kind: http-example
+id: b3a40780-9c97-5b49-b63c-b08790859b1e
+name: Threat Signals response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/articles"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "article_ids": [
+          "11044cf2-28e3-1148-ef90-04c0ce712c03"
+        ],
+        "read": false
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

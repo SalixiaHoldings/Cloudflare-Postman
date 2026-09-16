@@ -1,0 +1,67 @@
+$kind: http-example
+id: 01a087ed-e80f-5b5d-94f2-9bf7d4ed8cf4
+name: Insufficient permissions.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/blob/{{hash}}"
+  method: GET
+  headers:
+    Accept: application/octet-stream
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "documentation_url": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "documentation_url": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "documentation_url": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 4000

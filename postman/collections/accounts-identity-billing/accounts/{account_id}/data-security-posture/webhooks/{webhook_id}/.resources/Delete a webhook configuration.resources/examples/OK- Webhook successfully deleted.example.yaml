@@ -1,0 +1,22 @@
+$kind: http-example
+id: d10e0a5b-07d4-597c-afbe-20d3132f06c8
+name: "OK: Webhook successfully deleted"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/{{webhook_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

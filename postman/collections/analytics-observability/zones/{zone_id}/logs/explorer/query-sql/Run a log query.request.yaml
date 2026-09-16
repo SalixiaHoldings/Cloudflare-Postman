@@ -1,0 +1,29 @@
+$kind: http-request
+id: 64aa1b5d-91c9-5978-9d58-92073492f7c5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zones-logs-explorer-query-get
+  GET /zones/{zone_id}/logs/explorer/query/sql
+
+  Run a SQL query against zone-level datasets. The SQL query is passed as the `query` query parameter. Because the query appears in the URL, it is subject to gateway and proxy URL-length limits and may be recorded in access logs. This endpoint is deprecated in favour of the POST variant which sends the query in the request body.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/logs/explorer/query/sql?query=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: query
+    value: string
+    description: (Required) SQL query to execute.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Run a log query.resources/examples
+order: 1000

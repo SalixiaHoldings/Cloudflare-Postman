@@ -1,0 +1,24 @@
+$kind: http-example
+id: cd1f6a73-01d2-57db-96d3-c8513a27f304
+name: Delete an Access application policy response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/apps/{{app_id}}/policies/{{policy_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

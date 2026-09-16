@@ -1,0 +1,28 @@
+$kind: http-example
+id: 2d56e6a8-1087-5d00-822c-c3dbd2899818
+name: Get Origin Max HTTP Version setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/origin_max_http_version"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12345,
+            "message": "Some error message"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

@@ -1,0 +1,40 @@
+$kind: http-example
+id: 159a4a91-f37b-5806-bb5d-3dc3db822719
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/reporting/industry"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "industry": "accounting"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "industry": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "version": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "valid_from": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "unlock_time": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

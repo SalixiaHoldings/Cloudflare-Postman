@@ -1,0 +1,39 @@
+$kind: http-request
+id: 894e18c7-b8ab-5c01-b620-6e68830b1df8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: api-shield-schema-validation-retrieve-information-about-all-schemas
+  GET /zones/{zone_id}/api_gateway/user_schemas
+
+  Lists all OpenAPI schemas uploaded to API Shield for the zone, including their validation status and associated operations. Deprecated; use `/zones/{zone_id}/schema_validation/schemas` instead.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas?page=1&per_page=20&omit_source=false&validation_enabled=false"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: page
+    value: "1"
+    description: Page number of paginated results.
+  - key: per_page
+    value: "20"
+    description: Maximum number of results per page.
+  - key: omit_source
+    value: "false"
+    description: Omit the source-files of schemas and only retrieve their meta-data.
+  - key: validation_enabled
+    value: "false"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Retrieve information about all schemas on a zone.resources/examples
+order: 1000

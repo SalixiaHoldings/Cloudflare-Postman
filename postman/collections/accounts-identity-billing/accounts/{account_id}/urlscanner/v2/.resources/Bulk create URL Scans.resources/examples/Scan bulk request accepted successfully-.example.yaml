@@ -1,0 +1,85 @@
+$kind: http-example
+id: 4fd8bbfe-c293-533b-9c15-33bc6f1c9dc0
+name: Scan bulk request accepted successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/bulk"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "url": "https://www.example.com",
+          "agentReadiness": true,
+          "customHeaders": {
+            "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "customagent": "string",
+          "referer": "string",
+          "screenshotsResolutions": [
+            "desktop"
+          ],
+          "visibility": "Public"
+        },
+        {
+          "url": "https://www.example.com",
+          "agentReadiness": true,
+          "customHeaders": {
+            "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "key_1": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "key_2": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "customagent": "string",
+          "referer": "string",
+          "screenshotsResolutions": [
+            "desktop"
+          ],
+          "visibility": "Public"
+        }
+      ]
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "uuid": "daab6559-52df-ed38-f4e9-2fe0a540f4a1",
+          "result": "string",
+          "api": "string",
+          "visibility": "public",
+          "url": "string",
+          "options": {
+            "useragent": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        {
+          "uuid": "403ae2af-2771-5659-a36a-aa442f09e5da",
+          "result": "string",
+          "api": "string",
+          "visibility": "public",
+          "url": "string",
+          "options": {
+            "useragent": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      ]
+order: 1000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: 1a270af7-2c1a-5455-9f8c-115050697e0d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/iam/resource_groups/{{resource_group_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

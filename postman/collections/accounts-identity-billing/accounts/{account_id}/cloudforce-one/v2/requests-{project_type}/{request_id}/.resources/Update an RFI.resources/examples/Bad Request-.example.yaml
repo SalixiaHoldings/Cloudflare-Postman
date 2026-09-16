@@ -1,0 +1,47 @@
+$kind: http-example
+id: e03cf0de-1de8-5d5d-a5a4-12b0425851b5
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "description": "string",
+        "eventId": "string",
+        "priority": "unknown",
+        "request_type": "string",
+        "subtypeId": "string",
+        "summary": "string",
+        "title": "string",
+        "tlp": "purple"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

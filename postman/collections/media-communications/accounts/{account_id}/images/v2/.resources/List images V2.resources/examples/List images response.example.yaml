@@ -1,0 +1,54 @@
+$kind: http-example
+id: 1860259b-ef51-5f8e-84ce-800a1372a747
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v2?continuation_token=string&per_page=1000&sort_order=desc&creator=string&meta.<field>[<operator>]=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: continuation_token
+      value: string
+    - key: per_page
+      value: "1000"
+    - key: sort_order
+      value: desc
+    - key: creator
+      value: string
+    - key: meta.<field>[<operator>]
+      value: string
+      description: |
+        Optional metadata filter(s). Multiple filters can be combined with AND logic.
+
+        **Operators:**
+        - `eq`, `eq:string`, `eq:number`, `eq:boolean` - Exact match
+        - `gt`, `gt:number` - Greater than (number only)
+        - `gte`, `gte:number` - Greater than or equal (number only)
+        - `lt`, `lt:number` - Less than (number only)
+        - `lte`, `lte:number` - Less than or equal (number only)
+        - `in`, `in:string`, `in:number` - Match any value in pipe-separated list
+
+        **Examples:**
+        - `meta.status[eq]=active`
+        - `meta.priority[eq:number]=5`
+        - `meta.enabled[eq:boolean]=true`
+        - `meta.priority[gte:number]=1`
+        - `meta.score[lt:number]=100`
+        - `meta.region[in]=us-east|us-west|eu-west`
+
+        **Note:** Filter consistency is not validated. Contradictory filters (e.g., `meta.priority[eq:number]=5&meta.priority[lte:number]=3`) will return zero results.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "images": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,34 @@
+$kind: http-example
+id: 188d662d-d846-5aa0-b16a-c84f88a6d85e
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/schemas/{{schema_id}}?omit_source=false"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: omit_source
+      value: "false"
+      description: Omit the source-files of schemas and only retrieve their meta-data.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

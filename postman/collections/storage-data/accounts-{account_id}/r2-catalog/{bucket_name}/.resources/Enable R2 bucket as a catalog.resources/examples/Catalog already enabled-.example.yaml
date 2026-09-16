@@ -1,0 +1,30 @@
+$kind: http-example
+id: 32703637-022a-59a0-9e9f-6c83b88419ad
+name: Catalog already enabled.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/enable"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false
+      }
+order: 6000

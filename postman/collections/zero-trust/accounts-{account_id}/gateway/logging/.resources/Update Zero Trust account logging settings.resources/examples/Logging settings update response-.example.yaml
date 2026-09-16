@@ -1,0 +1,42 @@
+$kind: http-example
+id: f4256e63-e6f1-5111-9fb8-3a4d106c45da
+name: Logging settings update response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/logging"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "redact_pii": true,
+        "settings_by_rule_type": {
+          "dns": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "http": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "l4": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

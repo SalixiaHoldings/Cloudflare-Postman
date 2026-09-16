@@ -1,0 +1,41 @@
+$kind: http-example
+id: c70c2b0e-0869-5982-944a-49d75d83b48c
+name: Not Found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps/{{onramp_id}}?status=true&vpcs=true&post_apply_resources=true&planned_resources=true"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    status: "true"
+    vpcs: "true"
+    post_apply_resources: "true"
+    planned_resources: "true"
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": null,
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 5000

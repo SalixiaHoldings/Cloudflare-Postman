@@ -1,0 +1,35 @@
+$kind: http-example
+id: a60d8400-0ca1-5ab6-a510-c5a6474ce352
+name: Rename a Namespace response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "title": "My Own Namespace"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

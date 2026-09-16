@@ -1,0 +1,27 @@
+$kind: http-example
+id: 45f49972-0137-5fdc-9caa-8bc7f37ff812
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/slurper/jobs/{{job_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "success": false
+      }
+order: 3000

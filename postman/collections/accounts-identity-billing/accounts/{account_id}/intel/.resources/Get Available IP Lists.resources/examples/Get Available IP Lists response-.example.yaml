@@ -1,0 +1,27 @@
+$kind: http-example
+id: a7fe43af-e921-51c9-bfba-d04722bea3cd
+name: Get Available IP Lists response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/ip-lists"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

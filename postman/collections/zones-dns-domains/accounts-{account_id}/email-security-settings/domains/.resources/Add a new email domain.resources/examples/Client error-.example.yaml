@@ -1,0 +1,66 @@
+$kind: http-example
+id: bd60c82f-cd09-5a43-a0c6-54065f42d79c
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/domains"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domain": "string",
+        "allowed_delivery_modes": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "ip_restrictions": [
+          "192.0.2.0/24",
+          "2001:db8::/32"
+        ],
+        "drop_dispositions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "regions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "folder": {
+          "x-stainless-terraform-configurability": "computed_optional",
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "integration_id": "a357b99c-647d-1af7-ac76-e2761a01da29",
+        "lookback_hops": 10,
+        "require_tls_inbound": false,
+        "require_tls_outbound": true,
+        "transport": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,17 @@
+$kind: http-example
+id: 408b9542-178f-533b-9d8a-ae592f6afbbe
+name: "Bad Request: Invalid request parameters"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{finding_id}}/reset_finding_severity"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

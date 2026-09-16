@@ -1,0 +1,63 @@
+$kind: http-example
+id: 9d6e6503-c5c5-5307-b042-d51d201e6fcb
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dns_records?name=www.example.com&name.exact=www.example.com&name.contains=w.example.&name.startswith=www.example&name.endswith=.example.com&type=A&content=127.0.0.1&content.exact=127.0.0.1&content.contains=7.0.0.&content.startswith=127.0.&content.endswith=.0.1&proxied=true&match=any&comment=Hello, world&comment.present=string&comment.absent=string&comment.exact=Hello, world&comment.contains=ello, worl&comment.startswith=Hello, w&comment.endswith=o, world&tag=team:DNS&tag.present=important&tag.absent=important&tag.exact=greeting:Hello, world&tag.contains=greeting:ello, worl&tag.startswith=greeting:Hello, w&tag.endswith=greeting:o, world&search=www.cloudflare.com&tag_match=any&page=1&per_page=5&order=type&direction=asc&include_shadow_metadata=true&shadowed_by_name=sub.example.com&shadowing_name=www.sub.example.com"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    name: www.example.com
+    name.exact: www.example.com
+    name.contains: w.example.
+    name.startswith: www.example
+    name.endswith: .example.com
+    type: A
+    content: 127.0.0.1
+    content.exact: 127.0.0.1
+    content.contains: 7.0.0.
+    content.startswith: 127.0.
+    content.endswith: .0.1
+    proxied: "true"
+    match: any
+    comment: Hello, world
+    comment.present: string
+    comment.absent: string
+    comment.exact: Hello, world
+    comment.contains: ello, worl
+    comment.startswith: Hello, w
+    comment.endswith: o, world
+    tag: team:DNS
+    tag.present: important
+    tag.absent: important
+    tag.exact: greeting:Hello, world
+    tag.contains: greeting:ello, worl
+    tag.startswith: greeting:Hello, w
+    tag.endswith: greeting:o, world
+    search: www.cloudflare.com
+    tag_match: any
+    page: "1"
+    per_page: "5"
+    order: type
+    direction: asc
+    include_shadow_metadata: "true"
+    shadowed_by_name: sub.example.com
+    shadowing_name: www.sub.example.com
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

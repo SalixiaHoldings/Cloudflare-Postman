@@ -1,0 +1,40 @@
+$kind: http-example
+id: 7fb71b1e-8752-5ce8-b85e-9ca15cb8c76a
+name: Not Modified — client cache is current. Returned when the request includes an `If-None-Match` header matching the current ETag.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/extensions?name=com&cursor=string&per_page=20&direction=asc&sort_by=name"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: name
+      value: com
+      description: |
+        Filter extensions by exact name match.
+        For example, `name=com` returns only the `com` extension.
+    - key: cursor
+      value: string
+      description: |
+        Opaque token from a previous response's `result_info.cursor`.
+        Pass this value to fetch the next page of results. Omit (or
+        pass an empty string) for the first page.
+    - key: per_page
+      value: "20"
+      description: Number of items to return per page.
+    - key: direction
+      value: asc
+      description: |
+        Sort direction for results. Defaults to ascending order.
+    - key: sort_by
+      value: name
+      description: |
+        Column to sort results by. Defaults to `name` when omitted.
+response:
+  statusCode: 304
+  statusText: Not Modified
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

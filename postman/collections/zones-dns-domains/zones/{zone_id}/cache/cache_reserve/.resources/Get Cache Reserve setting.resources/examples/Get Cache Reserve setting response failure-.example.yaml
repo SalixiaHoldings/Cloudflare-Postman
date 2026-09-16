@@ -1,0 +1,28 @@
+$kind: http-example
+id: 6af2ae06-5409-5683-802a-b4f15ad63a39
+name: Get Cache Reserve setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/cache_reserve"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12345,
+            "message": "Some error message"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

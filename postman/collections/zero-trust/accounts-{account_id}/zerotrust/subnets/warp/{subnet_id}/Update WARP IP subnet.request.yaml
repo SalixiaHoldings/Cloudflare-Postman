@@ -1,0 +1,40 @@
+$kind: http-request
+id: 96567711-f0fb-5ad9-b498-1068aa7d803e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-networks-subnet-update-warp
+  PATCH /accounts/{account_id}/zerotrust/subnets/warp/{subnet_id}
+
+  Updates a WARP IP assignment subnet.
+
+  **Update constraints:**
+  - The `network` field cannot be modified for WARP subnets. Only `name`, `comment`, and `is_default_network` can be updated.
+  - IPv6 subnets cannot be updated
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/zerotrust/subnets/warp/{{subnet_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "comment": "example comment",
+      "is_default_network": false,
+      "name": "IPv4 Cloudflare Source IPs",
+      "network": "100.64.0.0/12"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update WARP IP subnet.resources/examples
+order: 3000

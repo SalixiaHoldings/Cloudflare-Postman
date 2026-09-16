@@ -1,0 +1,51 @@
+$kind: http-request
+id: 53f31327-9c6c-5f37-9ac5-c9416b3cc55a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers-ai-search-model
+  GET /accounts/{account_id}/ai/models/search
+
+  Searches Workers AI models by name or description.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai/models/search?per_page=100&page=1&task=Text Generation&author=&source=7160.418841522187&hide_experimental=false&search=&include_deprecated=false&format=openrouter"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: per_page
+    value: "100"
+  - key: page
+    value: "1"
+  - key: task
+    value: Text Generation
+    description: Filter by Task Name.
+  - key: author
+    value: ""
+    description: Filter by Author.
+  - key: source
+    value: "7160.418841522187"
+    description: Filter by Source Id.
+  - key: hide_experimental
+    value: "false"
+    description: Filter to hide experimental models.
+  - key: search
+    value: ""
+    description: Search.
+  - key: include_deprecated
+    value: "false"
+    description: If true, include models for up to three months after their deprecation date. Defaults to false.
+  - key: format
+    value: openrouter
+    description: If set, return models in the requested marketplace format instead of the default response.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Model Search.resources/examples
+order: 2000

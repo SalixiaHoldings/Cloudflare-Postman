@@ -1,0 +1,35 @@
+$kind: http-example
+id: cdd9f810-bad8-5869-a677-03209cb5fc89
+name: Successfully returned extension.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/extensions/{{extension}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    - key: ETag
+      value: string
+      description: Opaque identifier for the current version of the response. Send this value in the `If-None-Match` header on subsequent requests to enable conditional GET.
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

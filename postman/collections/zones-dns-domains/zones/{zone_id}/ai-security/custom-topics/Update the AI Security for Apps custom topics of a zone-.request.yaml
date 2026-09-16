@@ -1,0 +1,52 @@
+$kind: http-request
+id: 2848d41f-62e2-590e-b5b0-4feedb8d8992
+name: Update the AI Security for Apps custom topics of a zone.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ai-security-custom-topics-put
+  PUT /zones/{zone_id}/ai-security/custom-topics
+
+  Update the custom topic list of the zone, overwriting it entirely with the topics in the request, so include
+  every topic you want to keep. Changes can take up to a minute to propagate.
+
+  Each entry has a `label`, used to reference the topic in rule expressions and analytics, and a `topic`
+  description, which the classifier scores prompts against while AI Security for Apps is enabled. The following
+  rules apply:
+
+  - A zone can hold at most 20 topics.
+  - `label` must be 2–20 characters, using only lowercase letters (a–z), digits (0–9), and hyphens.
+  - `topic` must be 2–50 printable ASCII characters.
+  - Labels must be unique within the zone, and so must topic descriptions.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/ai-security/custom-topics"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "topics": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update the AI Security for Apps custom topics of a zone-.resources/examples
+order: 2000

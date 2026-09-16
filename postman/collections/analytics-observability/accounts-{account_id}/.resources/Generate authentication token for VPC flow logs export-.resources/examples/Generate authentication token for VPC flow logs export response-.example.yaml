@@ -1,0 +1,24 @@
+$kind: http-example
+id: 976da736-ff44-5931-a806-9b2595b2df94
+name: Generate authentication token for VPC flow logs export response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/mnm/vpc-flows/token"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

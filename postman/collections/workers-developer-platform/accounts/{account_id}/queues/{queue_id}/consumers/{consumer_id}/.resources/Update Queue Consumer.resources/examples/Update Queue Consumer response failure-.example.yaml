@@ -1,0 +1,46 @@
+$kind: http-example
+id: 49e3e3d1-6323-5a61-86b2-6a7950901235
+name: Update Queue Consumer response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/queues/{{queue_id}}/consumers/{{consumer_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "type": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "script_name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "dead_letter_queue": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "settings": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "success": false
+      }
+order: 2000

@@ -1,0 +1,43 @@
+$kind: http-example
+id: 83aafaeb-f298-5a7f-87bb-bc5c82a46b6a
+name: "Forbidden: Insufficient permissions"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/{{webhook_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "label": "Send to Slack",
+        "destination_url": "https://example.com/webhook",
+        "authentication_type": "Bearer Auth",
+        "status": "enabled",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer token123"
+          },
+          {
+            "key": "X-Custom-Header",
+            "value": "value"
+          }
+        ],
+        "signing_secret": "{{signing_secret}}"
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 4000

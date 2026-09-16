@@ -1,0 +1,74 @@
+$kind: http-request
+id: f5c84764-1d2c-5ee3-926d-d09d448d727d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-security-center-issues
+  GET /accounts/{account_id}/intel/attack-surface-report/issues
+
+  Lists all Security Center issues for the account, showing active security problems requiring attention.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: '{{base_url}}/accounts/{{account_id}}/intel/attack-surface-report/issues?dismissed=false&issue_class=a_record_dangling&issue_class=always_use_https_not_enabled&issue_type=compliance_violation&issue_type=email_security&product=access&product=dns&source=cloudflare&severity=low&severity=moderate&subject={"value":"<Error: Too many levels of nesting to fake this schema>"}&subject={"value":"<Error: Too many levels of nesting to fake this schema>"}&issue_class~neq=a_record_dangling&issue_class~neq=always_use_https_not_enabled&issue_type~neq=compliance_violation&issue_type~neq=email_security&product~neq=access&product~neq=dns&severity~neq=low&severity~neq=moderate&subject~neq={"value":"<Error: Too many levels of nesting to fake this schema>"}&subject~neq={"value":"<Error: Too many levels of nesting to fake this schema>"}&page=1&per_page=25'
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: dismissed
+    value: "false"
+  - key: issue_class
+    value: a_record_dangling
+  - key: issue_class
+    value: always_use_https_not_enabled
+  - key: issue_type
+    value: compliance_violation
+  - key: issue_type
+    value: email_security
+  - key: product
+    value: access
+  - key: product
+    value: dns
+  - key: source
+    value: cloudflare
+  - key: severity
+    value: low
+  - key: severity
+    value: moderate
+  - key: subject
+    value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+  - key: subject
+    value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+  - key: issue_class~neq
+    value: a_record_dangling
+  - key: issue_class~neq
+    value: always_use_https_not_enabled
+  - key: issue_type~neq
+    value: compliance_violation
+  - key: issue_type~neq
+    value: email_security
+  - key: product~neq
+    value: access
+  - key: product~neq
+    value: dns
+  - key: severity~neq
+    value: low
+  - key: severity~neq
+    value: moderate
+  - key: subject~neq
+    value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+  - key: subject~neq
+    value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+  - key: page
+    value: "1"
+  - key: per_page
+    value: "25"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Retrieves Security Center Issues.resources/examples
+order: 1000

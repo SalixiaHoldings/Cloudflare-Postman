@@ -1,0 +1,42 @@
+$kind: http-example
+id: 2e14807d-2678-5edb-bc2b-9ed2ed99ab33
+name: No updatable fields supplied.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions/{{suppression_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "expires_at": "2027-01-01T00:00:00Z",
+        "note": "Customer re-confirmed opt-in"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+order: 2000

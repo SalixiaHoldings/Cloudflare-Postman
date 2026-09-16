@@ -1,0 +1,36 @@
+$kind: http-example
+id: 886ba01d-f479-5812-93d0-19ea3548c92b
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}/move"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "destination": "JunkEmail",
+        "expected_disposition": "UNKNOWN"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,65 @@
+$kind: http-example
+id: f7ea6c28-5c67-52f3-a206-8e0e1af82138
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/lans/{{lan_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "bond_id": 2,
+        "is_breakout": false,
+        "is_prioritized": true,
+        "name": "string",
+        "nat": {
+          "static_prefix": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "physport": 1,
+        "routed_subnets": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "static_addressing": {
+          "address": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "dhcp_relay": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "dhcp_server": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "secondary_address": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "virtual_address": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "vlan_tag": 42
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

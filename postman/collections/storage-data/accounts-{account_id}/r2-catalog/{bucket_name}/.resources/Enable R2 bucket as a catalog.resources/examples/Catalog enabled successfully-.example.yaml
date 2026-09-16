@@ -1,0 +1,26 @@
+$kind: http-example
+id: b2410a5f-8a02-5dc1-8a23-4a4c044475fc
+name: Catalog enabled successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/enable"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "id": "550e8400-e29b-41d4-a716-446655440000",
+          "name": "account123_my-bucket"
+        },
+        "success": true
+      }
+order: 1000

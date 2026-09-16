@@ -1,0 +1,22 @@
+$kind: http-example
+id: 13631371-3463-5502-b6ae-a3730cb6d61f
+name: "Not Found: Policy config not found"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/policies/{{policy_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 5000

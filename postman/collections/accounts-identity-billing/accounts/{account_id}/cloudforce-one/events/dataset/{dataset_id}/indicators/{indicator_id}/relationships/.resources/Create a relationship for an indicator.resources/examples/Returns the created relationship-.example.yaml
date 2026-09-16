@@ -1,0 +1,35 @@
+$kind: http-example
+id: 339bea91-0e90-551b-ba45-aa4899621341
+name: Returns the created relationship.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators/{{indicator_id}}/relationships"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "targetType": "event",
+        "targetId": "string",
+        "type": "related-to",
+        "confidence": 2,
+        "metadata": {
+          "key_0": true,
+          "key_1": false
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {}
+      }
+order: 1000

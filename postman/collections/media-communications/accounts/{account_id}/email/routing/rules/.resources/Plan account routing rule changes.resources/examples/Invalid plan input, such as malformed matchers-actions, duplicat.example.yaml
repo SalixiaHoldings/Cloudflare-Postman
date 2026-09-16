@@ -1,0 +1,42 @@
+$kind: http-example
+id: 875a5ab2-252f-51fd-8418-2751c6b608a9
+name: Invalid plan input, such as malformed matchers/actions, duplicate targets, or an owner_worker_tag that does not resolve to a known Worker script.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/routing/rules/plan"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "owner_worker_tag": "a7e6fb77503c41d8a7f3113c6918f10c",
+        "catch_all_rules": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "rules": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 4000

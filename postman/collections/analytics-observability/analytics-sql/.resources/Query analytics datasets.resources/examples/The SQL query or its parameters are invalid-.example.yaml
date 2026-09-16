@@ -1,0 +1,21 @@
+$kind: http-example
+id: 05261312-a1ff-5654-9620-1cbf958e6a67
+name: The SQL query or its parameters are invalid.
+request:
+  url: "{{base_url}}/analytics/sql?query=SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: query
+      value: SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10
+      description: (Required) SQL query to execute.
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: string
+order: 4000

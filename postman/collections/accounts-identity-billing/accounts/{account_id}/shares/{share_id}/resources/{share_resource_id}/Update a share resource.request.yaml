@@ -1,0 +1,32 @@
+$kind: http-request
+id: 497ee80c-529b-5d27-b349-2c7892a48368
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: share-resource-update
+  PUT /accounts/{account_id}/shares/{share_id}/resources/{share_resource_id}
+
+  Update is not immediate, an updated share resource object with a new status will be returned.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/resources/{{share_resource_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "meta": {}
+    }
+auth:
+  type: noauth
+examples: ./.resources/Update a share resource.resources/examples
+order: 3000

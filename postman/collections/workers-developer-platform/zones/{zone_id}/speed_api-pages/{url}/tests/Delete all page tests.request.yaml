@@ -1,0 +1,27 @@
+$kind: http-request
+id: 7df66e5e-da57-5755-8ea9-980e0bfa1a2d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: speed-delete-tests
+  DELETE /zones/{zone_id}/speed_api/pages/{url}/tests
+
+  Deletes all tests for a specific webpage from a specific region. Deleted tests are still counted as part of the quota.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/speed_api/pages/{{url}}/tests?region=us-central1"
+method: DELETE
+headers:
+  Accept: application/json
+queryParams:
+  region: us-central1
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete all page tests.resources/examples
+order: 1000

@@ -1,0 +1,134 @@
+$kind: http-request
+id: 82bcb5b9-df75-5bd7-bc62-f1db44ec23cf
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: load-balancers-create-load-balancer
+  POST /zones/{zone_id}/load_balancers
+
+  Create a new load balancer.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/load_balancers"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "www.example.com",
+      "default_pools": [
+        "17b5962d775c646f3f9725cbc7a53df4",
+        "9290f38c5d07c2e2f4df57b1f61d4196",
+        "00920f38ce07c2e2f4df50b1f61d4194"
+      ],
+      "fallback_pool": "string",
+      "adaptive_routing": {
+        "failover_across_pools": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "country_pools": {
+        "GB": [
+          "abd90f38ced07c2e2f4df50b1f61d4194"
+        ],
+        "US": [
+          "de90f38ced07c2e2f4df50b1f61d4194",
+          "00920f38ce07c2e2f4df50b1f61d4194"
+        ]
+      },
+      "description": "Load Balancer for www.example.com",
+      "location_strategy": {
+        "mode": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "prefer_ecs": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "networks": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "pop_pools": {
+        "LAX": [
+          "de90f38ced07c2e2f4df50b1f61d4194",
+          "9290f38c5d07c2e2f4df57b1f61d4196"
+        ],
+        "LHR": [
+          "abd90f38ced07c2e2f4df50b1f61d4194",
+          "f9138c5d07c2e2f4df57b1f61d4196"
+        ],
+        "SJC": [
+          "00920f38ce07c2e2f4df50b1f61d4194"
+        ]
+      },
+      "proxied": true,
+      "random_steering": {
+        "default_weight": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "pool_weights": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "region_pools": {
+        "ENAM": [
+          "00920f38ce07c2e2f4df50b1f61d4194"
+        ],
+        "WNAM": [
+          "de90f38ced07c2e2f4df50b1f61d4194",
+          "9290f38c5d07c2e2f4df57b1f61d4196"
+        ]
+      },
+      "rules": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "session_affinity": "cookie",
+      "session_affinity_attributes": {
+        "drain_duration": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "headers": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "require_all_headers": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "samesite": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "secure": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "zero_downtime_failover": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "session_affinity_ttl": 1800,
+      "steering_policy": "dynamic_latency",
+      "ttl": 30
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Load Balancer.resources/examples
+order: 2000

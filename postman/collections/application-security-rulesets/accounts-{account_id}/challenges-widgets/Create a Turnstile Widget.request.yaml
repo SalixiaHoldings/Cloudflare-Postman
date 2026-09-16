@@ -1,0 +1,64 @@
+$kind: http-request
+id: dab4c0f0-c84b-5ce5-936e-d432e3c37914
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: accounts-turnstile-widget-create
+  POST /accounts/{account_id}/challenges/widgets
+
+  Lists challenge widgets.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/challenges/widgets?page=1&per_page=25&order=id&direction=asc&filter=name:my-widget"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+  - key: per_page
+    value: "25"
+  - key: order
+    value: id
+  - key: direction
+    value: asc
+  - key: filter
+    value: name:my-widget
+    description: |
+      Filter widgets by field using case-insensitive substring matching.
+      Format: `field:value`
+
+      Supported fields:
+      - `name` - Filter by widget name (e.g., `filter=name:login-form`)
+      - `sitekey` - Filter by sitekey (e.g., `filter=sitekey:0x4AAA`)
+
+      Returns 400 Bad Request if the field is unsupported or format is invalid.
+      An empty filter value returns all results.
+body:
+  type: json
+  content: |-
+    {
+      "name": "blog.cloudflare.com login form",
+      "mode": "invisible",
+      "domains": [
+        "203.0.113.1",
+        "cloudflare.com",
+        "blog.example.com"
+      ],
+      "bot_fight_mode": false,
+      "clearance_level": "interactive",
+      "ephemeral_id": false,
+      "offlabel": false,
+      "region": "world"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a Turnstile Widget.resources/examples
+order: 2000

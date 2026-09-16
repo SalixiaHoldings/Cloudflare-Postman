@@ -1,0 +1,28 @@
+$kind: http-example
+id: 270507fe-5fd9-5c17-bde6-f18aad5c4d50
+name: Get a Namespace response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

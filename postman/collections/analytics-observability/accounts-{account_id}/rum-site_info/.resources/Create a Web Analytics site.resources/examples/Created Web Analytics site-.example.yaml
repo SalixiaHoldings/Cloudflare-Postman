@@ -1,0 +1,42 @@
+$kind: http-example
+id: c51adb50-6a3c-54e5-8883-3949e5a1a356
+name: Created Web Analytics site.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/rum/site_info"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "auto_install": true,
+        "host": "example.com",
+        "zone_tag": "023e105f4ecef8ad9ca31a8372d0c353"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

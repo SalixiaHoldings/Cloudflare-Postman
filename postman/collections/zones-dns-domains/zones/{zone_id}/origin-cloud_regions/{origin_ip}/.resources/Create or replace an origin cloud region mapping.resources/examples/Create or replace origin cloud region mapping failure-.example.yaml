@@ -1,0 +1,37 @@
+$kind: http-example
+id: 5446f046-87b3-5d47-b6e1-a256c0088137
+name: Create or replace origin cloud region mapping failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions/{{origin_ip}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "origin_ip": "192.0.2.1",
+        "region": "us-east-1",
+        "vendor": "aws"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1157,
+            "message": "The vendor provided doesn't exist or the region provided does not exist for the specified cloud vendor"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

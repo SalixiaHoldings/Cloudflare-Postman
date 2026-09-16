@@ -1,0 +1,36 @@
+$kind: http-example
+id: fa43cb8a-befd-53ba-b89b-b76cedc9787f
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/page_shield/connections?exclude_urls=blog.cloudflare.com,www.example&urls=blog.cloudflare.com,www.example&hosts=blog.cloudflare.com,www.example*,*cloudflare.com&page=string&per_page=100&order_by=first_seen_at&direction=asc&prioritize_malicious=true&exclude_cdn_cgi=true&status=active,inactive&page_url=example.com/page,*/checkout,example.com/*,*checkout*&export=csv"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    exclude_urls: blog.cloudflare.com,www.example
+    urls: blog.cloudflare.com,www.example
+    hosts: blog.cloudflare.com,www.example*,*cloudflare.com
+    page: string
+    per_page: "100"
+    order_by: first_seen_at
+    direction: asc
+    prioritize_malicious: "true"
+    exclude_cdn_cgi: "true"
+    status: active,inactive
+    page_url: example.com/page,*/checkout,example.com/*,*checkout*
+    export: csv
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "result": null
+      }
+order: 2000

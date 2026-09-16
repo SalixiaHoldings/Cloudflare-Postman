@@ -1,0 +1,39 @@
+$kind: http-example
+id: 375fdc88-e54a-50ed-9ab1-f903fab26ac9
+name: Submitted abuse report found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/submitted/{{report_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

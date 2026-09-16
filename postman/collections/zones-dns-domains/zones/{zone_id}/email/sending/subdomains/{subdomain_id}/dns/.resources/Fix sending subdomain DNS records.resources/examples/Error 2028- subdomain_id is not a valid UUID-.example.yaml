@@ -1,0 +1,19 @@
+$kind: http-example
+id: 817da4e7-9d43-55fc-aff8-c70ed4fdfed8
+name: "Error 2028: subdomain_id is not a valid UUID."
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/{{subdomain_id}}/dns"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

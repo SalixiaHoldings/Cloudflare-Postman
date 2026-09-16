@@ -1,0 +1,48 @@
+$kind: http-request
+id: 868ff2b0-1454-583b-bfe8-80325eccaca4
+name: Aggregate events by single or multiple columns with optional date filtering
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_EventAggregate
+  GET /accounts/{account_id}/cloudforce-one/events/aggregate
+
+  Aggregate threat events by one or more columns (e.g., attacker, targetIndustry) with optional date filtering and daily grouping. Supports multi-dimensional aggregation for cross-analysis.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/aggregate?aggregateBy=string&datasetId=string&datasetId=string&startDate=string&endDate=string&groupByDate=false&limit=100"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: aggregateBy
+    value: string
+    description: (Required) Column(s) to aggregate by - single column or comma-separated list (e.g., 'attacker', 'targetIndustry', 'attacker,targetIndustry')
+  - key: datasetId
+    value: string
+    description: "Dataset UUIDs to filter by, or one standalone scope value: 'all'/'*' for all accessible non-analytics event datasets (analytics datasets are silently excluded), 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, uses the default dataset."
+  - key: datasetId
+    value: string
+    description: "Dataset UUIDs to filter by, or one standalone scope value: 'all'/'*' for all accessible non-analytics event datasets (analytics datasets are silently excluded), 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, uses the default dataset."
+  - key: startDate
+    value: string
+    description: Start date for filtering (ISO 8601 format, e.g., '2024-01-01')
+  - key: endDate
+    value: string
+    description: End date for filtering (ISO 8601 format, e.g., '2024-12-31')
+  - key: groupByDate
+    value: "false"
+    description: Whether to group results by date (daily aggregation)
+  - key: limit
+    value: "100"
+    description: Maximum number of results to return
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Aggregate events by single or multiple columns with optional dat.resources/examples
+order: 3000

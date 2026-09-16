@@ -1,0 +1,39 @@
+$kind: http-request
+id: 15ddee5c-136a-5fa9-85a0-d12c7244663e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-tunnel-get-a-cloudflare-tunnel-management-token
+  POST /accounts/{account_id}/cfd_tunnel/{tunnel_id}/management
+
+  Creates a short-lived management token for the requested Tunnel management resources, such as streaming logs. Treat the token as a secret.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cfd_tunnel/{{tunnel_id}}/management"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "resources": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get a Cloudflare Tunnel management token.resources/examples
+order: 7000

@@ -1,0 +1,31 @@
+$kind: http-example
+id: 255a1222-e459-5fa5-a4ee-b097b0cb8233
+name: Indicates an error in creating a Stream.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/streams/{{stream_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "http": {
+          "enabled": true,
+          "authentication": false,
+          "cors": {}
+        },
+        "worker_binding": {
+          "enabled": true
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

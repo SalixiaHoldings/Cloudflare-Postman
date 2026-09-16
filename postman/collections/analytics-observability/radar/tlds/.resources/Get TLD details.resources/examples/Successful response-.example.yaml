@@ -1,0 +1,39 @@
+$kind: http-example
+id: b08d4998-fe6b-55b6-a6c6-78583cfe2338
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/tlds/{{tld}}?format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "tld": {
+            "tld": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "manager": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

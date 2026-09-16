@@ -1,0 +1,17 @@
+$kind: http-example
+id: e2d74743-a436-5621-84ad-a32d98592615
+name: Invalid request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/one/integrations/{{id}}/resume"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

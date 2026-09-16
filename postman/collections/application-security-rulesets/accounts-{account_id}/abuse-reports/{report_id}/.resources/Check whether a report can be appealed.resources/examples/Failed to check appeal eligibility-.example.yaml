@@ -1,0 +1,28 @@
+$kind: http-example
+id: 69930e59-e782-55df-af34-c99c488ed3b9
+name: Failed to check appeal eligibility.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/{{report_id}}/appeals/eligibility"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 4000

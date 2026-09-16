@@ -1,0 +1,25 @@
+$kind: http-request
+id: e4914c1e-71c3-58c2-b549-441b77710236
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-security-center-account-scans
+  GET /accounts/{account_id}/security-center/insights/scans
+
+  Returns the most recent on-demand scans for the account, up to a maximum of 5. Each scan includes its ID, start time, and current status. This includes both account-wide and zone-scoped scans. Also returns quota information showing how many scans have been used and how many remain in the current 24-hour window.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/security-center/insights/scans"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Recent Account Scans.resources/examples
+order: 1000

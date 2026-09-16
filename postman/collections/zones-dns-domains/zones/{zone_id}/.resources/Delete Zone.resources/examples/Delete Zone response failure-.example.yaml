@@ -1,0 +1,28 @@
+$kind: http-example
+id: 3379ad98-64ae-5bbb-98e4-379057e1b7d9
+name: Delete Zone response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

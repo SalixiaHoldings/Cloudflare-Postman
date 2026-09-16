@@ -1,0 +1,27 @@
+$kind: http-example
+id: b121973a-11e5-556c-94e9-3038cb101a72
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/custom_pages/{{custom_page_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,32 @@
+$kind: http-request
+id: 3a2b3664-c029-5a06-aadc-7d0a830fcef2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zones-logs-explorer-datasets-available-list
+  GET /zones/{zone_id}/logs/explorer/datasets/available
+
+  Returns all dataset types that this zone can create. Each entry includes
+  the dataset schema and timestamp field.
+
+  The schema shows all possible fields for a dataset. However, not all
+  fields may be available for your account. When creating or updating a
+  dataset, only fields available to your account can be enabled. If you
+  request a field that is not available, you will receive an error.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/logs/explorer/datasets/available"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List available zone datasets.resources/examples
+order: 3000

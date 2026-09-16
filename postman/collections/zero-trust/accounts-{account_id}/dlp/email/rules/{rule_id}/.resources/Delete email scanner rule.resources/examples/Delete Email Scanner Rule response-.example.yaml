@@ -1,0 +1,24 @@
+$kind: http-example
+id: 0b91b1d3-76a5-5698-8cb7-7c0b478d27af
+name: Delete Email Scanner Rule response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/email/rules/{{rule_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

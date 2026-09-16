@@ -1,0 +1,45 @@
+$kind: http-example
+id: 317e686b-4f8b-50b5-b265-00fd7b2dc323
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/challenges/widgets/{{sitekey}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "blog.cloudflare.com login form",
+        "mode": "invisible",
+        "domains": [
+          "203.0.113.1",
+          "cloudflare.com",
+          "blog.example.com"
+        ],
+        "bot_fight_mode": false,
+        "clearance_level": "interactive",
+        "ephemeral_id": false,
+        "offlabel": false,
+        "region": "world"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

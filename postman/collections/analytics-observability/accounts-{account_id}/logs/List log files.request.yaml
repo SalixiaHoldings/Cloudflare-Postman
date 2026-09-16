@@ -1,0 +1,48 @@
+$kind: http-request
+id: 0016ed1f-3f7e-5556-8d35-8e8734fe8653
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: logpull-list-log-files
+  GET /accounts/{account_id}/logs/list
+
+  Lists R2 objects containing logs matching the provided query parameters.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/logs/list?start=2022-06-06T16:00:00Z&end=2022-06-06T16:00:00Z&bucket=cloudflare-logs&prefix=http_requests/example.com/{DATE}&limit=1000"
+method: GET
+headers:
+  - key: R2-Access-Key-Id
+    value: 29a92f1a6e6887d79f3401a41
+    description: "(Required) "
+  - key: R2-Secret-Access-Key
+    value: 869b6e19534a6715ab69a07d76492d673f8134d
+    description: "(Required) "
+  - key: Accept
+    value: application/json
+queryParams:
+  - key: start
+    value: 2022-06-06T16:00:00Z
+    description: (Required) Start time in RFC3339 format.
+  - key: end
+    value: 2022-06-06T16:00:00Z
+    description: (Required) End time in RFC3339 format.
+  - key: bucket
+    value: cloudflare-logs
+    description: (Required) R2 bucket name.
+  - key: prefix
+    value: http_requests/example.com/{DATE}
+    description: R2 bucket prefix logs are stored under.
+  - key: limit
+    value: "1000"
+    description: Maximum number of results to return.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List log files.resources/examples
+order: 4000

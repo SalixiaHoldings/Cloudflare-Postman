@@ -1,0 +1,55 @@
+$kind: http-example
+id: d77480d8-b19d-5822-b31f-393341f1f7fb
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/bgp/routes/moas?origin=4680&prefix=1.1.1.0/24&invalid_only=false&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: origin
+      value: "4680"
+      description: Lookup MOASes originated by the given ASN.
+    - key: prefix
+      value: 1.1.1.0/24
+    - key: invalid_only
+      value: "false"
+      description: Lookup only RPKI invalid MOASes.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "moas": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "meta": {
+            "data_time": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "query_time": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "total_peers": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

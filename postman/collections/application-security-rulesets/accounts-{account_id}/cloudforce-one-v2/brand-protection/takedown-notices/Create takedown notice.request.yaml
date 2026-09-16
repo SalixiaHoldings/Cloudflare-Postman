@@ -1,0 +1,36 @@
+$kind: http-request
+id: c6a8774f-be8e-52d6-930e-2ddd1d1230d4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_TakedownNoticeCreate
+  POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/takedown-notices
+
+  Create a new takedown notice for a domain suspected of trademark infringement.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/takedown-notices"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "domain": "string",
+      "matchId": 8083,
+      "matchType": "logo",
+      "queryId": 2748,
+      "status": "draft"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create takedown notice.resources/examples
+order: 2000

@@ -1,0 +1,37 @@
+$kind: http-request
+id: a78700ac-1131-510e-b8bf-314d3578b555
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: update-ip-profile
+  PATCH /accounts/{account_id}/devices/ip-profiles/{profile_id}
+
+  Updates a WARP Device IP profile. Currently, only IPv4 Device subnets can be associated.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/devices/ip-profiles/{{profile_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "description": "example comment",
+      "enabled": true,
+      "match": "identity.email == \"test@cloudflare.com\"",
+      "name": "IPv4 Cloudflare Source IPs",
+      "precedence": 100,
+      "subnet_id": "b70ff985-a4ef-4643-bbbc-4a0ed4fc8415"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update IP profile.resources/examples
+order: 3000

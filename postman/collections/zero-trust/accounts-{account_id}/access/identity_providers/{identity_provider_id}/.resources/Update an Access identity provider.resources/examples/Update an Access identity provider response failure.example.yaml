@@ -1,0 +1,34 @@
+$kind: http-example
+id: d89bbc52-ff7c-5529-82a6-adbcd36446fb
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers/{{identity_provider_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

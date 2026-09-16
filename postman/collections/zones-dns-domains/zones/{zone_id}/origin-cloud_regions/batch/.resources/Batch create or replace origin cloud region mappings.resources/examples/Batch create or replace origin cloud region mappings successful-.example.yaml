@@ -1,0 +1,53 @@
+$kind: http-example
+id: 536d78cd-53e8-54ab-952a-6166a930b4ea
+name: Batch create or replace origin cloud region mappings successful.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions/batch"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "origin_ip": "192.0.2.1",
+          "region": "us-east-1",
+          "vendor": "aws"
+        },
+        {
+          "origin_ip": "2001:db8::1",
+          "region": "us-central1",
+          "vendor": "gcp"
+        }
+      ]
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "failed": [],
+          "succeeded": [
+            {
+              "origin_ip": "192.0.2.1",
+              "region": "us-east-1",
+              "vendor": "aws"
+            },
+            {
+              "origin_ip": "2001:db8::1",
+              "region": "us-central1",
+              "vendor": "gcp"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

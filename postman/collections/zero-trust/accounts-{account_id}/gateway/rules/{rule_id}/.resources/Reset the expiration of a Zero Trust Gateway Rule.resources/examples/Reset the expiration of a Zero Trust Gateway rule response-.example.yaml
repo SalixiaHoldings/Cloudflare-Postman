@@ -1,0 +1,24 @@
+$kind: http-example
+id: fa40caff-357e-5fe0-9563-202c97849a6f
+name: Reset the expiration of a Zero Trust Gateway rule response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/rules/{{rule_id}}/reset_expiration"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,30 @@
+$kind: http-example
+id: 02f8e2a3-cf81-59fc-9aa1-a38f8178211b
+name: "Bad Request: Invalid request parameters"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/finding_types?page=8161&per_page=8161&vendors=GOOGLE_WORKSPACE,GOOGLE_WORKSPACE&search=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "8161"
+      description: A page number within the paginated result set.
+    - key: per_page
+      value: "8161"
+      description: Number of results to return per page.
+    - key: vendors
+      value: GOOGLE_WORKSPACE,GOOGLE_WORKSPACE
+      description: Filter finding types by vendor. Supports multiple comma-separated values. Each value may be either the vendor enum (GOOGLE_WORKSPACE) or the friendly name returned by the read routes (Google Workspace).
+    - key: search
+      value: string
+      description: Filter finding types by name or ID (case-insensitive substring match).
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

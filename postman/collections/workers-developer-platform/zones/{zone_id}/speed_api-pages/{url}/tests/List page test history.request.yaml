@@ -1,0 +1,29 @@
+$kind: http-request
+id: c821cd37-2ce0-5955-b4b9-e028ec7e211b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: speed-list-test-history
+  GET /zones/{zone_id}/speed_api/pages/{url}/tests
+
+  Test history (list of tests) for a specific webpage.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/speed_api/pages/{{url}}/tests?page=1&per_page=20&region=us-central1"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  page: "1"
+  per_page: "20"
+  region: us-central1
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List page test history.resources/examples
+order: 2000

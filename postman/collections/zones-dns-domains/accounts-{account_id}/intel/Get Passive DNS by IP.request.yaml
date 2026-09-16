@@ -1,0 +1,31 @@
+$kind: http-request
+id: e76a7f4f-7e04-51ae-b729-020f438af55c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: passive-dns-by-ip-get-passive-dns-by-ip
+  GET /accounts/{account_id}/intel/dns
+
+  Gets a list of all the domains that have resolved to a specific IP address.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/intel/dns?end=2021-04-30&start=2021-04-01&ipv4=string&page=1&per_page=20"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  end: 2021-04-30
+  start: 2021-04-01
+  ipv4: string
+  page: "1"
+  per_page: "20"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Passive DNS by IP.resources/examples
+order: 1000

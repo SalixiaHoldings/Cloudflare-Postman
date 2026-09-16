@@ -1,0 +1,27 @@
+$kind: http-example
+id: 70572da2-8e93-535b-bb24-3c1fa099ac7f
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/custom-domains/{{hostname}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "hostname": "ai.acme.com",
+          "gateway_id": "my-gateway",
+          "ssl_hostname_id": "string",
+          "status": "blocked",
+          "created_at": 1717459200000,
+          "modified_at": 1717459200000
+        }
+      }
+order: 1000

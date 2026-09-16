@@ -1,0 +1,52 @@
+$kind: http-example
+id: 845ec97f-95cc-51ef-9722-872ae9ce8d7e
+name: Bad Request.
+request:
+  url: '{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/tags/{{tag_uuid}}/indicators?page=2535.467583220452&pageSize=2535.467583220452&indicatorType=string&relatedEvent=string&relatedEvent=string&search={"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&search={"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "2535.467583220452"
+    - key: pageSize
+      value: "2535.467583220452"
+    - key: indicatorType
+      value: string
+    - key: relatedEvent
+      value: string
+      description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+    - key: relatedEvent
+      value: string
+      description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+    - key: search
+      value: '{"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+      description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+    - key: search
+      value: '{"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+      description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

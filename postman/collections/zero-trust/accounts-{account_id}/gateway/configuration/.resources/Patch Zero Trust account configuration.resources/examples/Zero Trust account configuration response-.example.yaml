@@ -1,0 +1,77 @@
+$kind: http-example
+id: 9c3ef028-b4c1-565f-a1c7-001a720c2a51
+name: Zero Trust account configuration response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/configuration"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "settings": {
+          "activity_log": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "antivirus": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "block_page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "body_scanning": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "browser_isolation": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "certificate": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "custom_certificate": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "extended_email_matching": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "fips": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "host_selector": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "inspection": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "max_ttl_secs": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "protocol_detection": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "sandbox": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "tls_decrypt": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

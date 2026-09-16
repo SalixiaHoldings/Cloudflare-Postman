@@ -1,0 +1,47 @@
+$kind: http-example
+id: f9977d94-8841-5c78-9d9a-417be8383aca
+name: The request has succeeded.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/move"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "destination_organization_id": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {
+          "account_id": "{{account_id}}",
+          "source_organization_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "destination_organization_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

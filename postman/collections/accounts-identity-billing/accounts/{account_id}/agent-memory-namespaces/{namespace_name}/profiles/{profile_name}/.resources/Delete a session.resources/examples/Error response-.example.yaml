@@ -1,0 +1,28 @@
+$kind: http-example
+id: 2d2e4636-f50e-5af2-9082-e4d6b82d9305
+name: Error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/sessions/{{session_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": 1003,
+            "message": "namespace not found"
+          }
+        ],
+        "messages": []
+      }
+order: 2000

@@ -1,0 +1,33 @@
+$kind: http-example
+id: adeef612-53e1-5eb7-8bc6-45c36dbc9867
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/queries/{{query_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

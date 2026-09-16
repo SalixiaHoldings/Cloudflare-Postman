@@ -1,0 +1,47 @@
+$kind: http-example
+id: 834136ba-680c-5b62-a27b-555b9642151a
+name: Sensitivity group creation failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/sensitivity_groups"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "description": "string",
+        "levels": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "template_id": "bcb89230-000c-196a-42f3-1912d3f90560"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

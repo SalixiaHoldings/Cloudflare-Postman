@@ -1,0 +1,63 @@
+$kind: http-example
+id: c40e852d-c438-5ca9-8790-15fb539fed7e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/queues/{{queue_id}}/messages/preview/ack"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "acks": [
+          {
+            "lease_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "lease_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "retries": [
+          {
+            "delay_seconds": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "lease_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "delay_seconds": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "lease_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "success": false
+      }
+order: 2000

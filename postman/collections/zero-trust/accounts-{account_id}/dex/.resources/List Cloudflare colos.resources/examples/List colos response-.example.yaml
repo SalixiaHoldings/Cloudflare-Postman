@@ -1,0 +1,41 @@
+$kind: http-example
+id: 5d74e493-20fa-56f2-9a9f-24ee13f7a4a8
+name: List colos response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/colos?from=2023-08-20T20:45:00Z&to=2023-08-24T20:45:00Z&sortBy=fleet-status-usage"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: from
+      value: 2023-08-20T20:45:00Z
+      description: (Required) Start time for connection period in ISO (RFC3339 - ISO 8601) format.
+    - key: to
+      value: 2023-08-24T20:45:00Z
+      description: (Required) End time for connection period in ISO (RFC3339 - ISO 8601) format.
+    - key: sortBy
+      value: fleet-status-usage
+      description: Type of usage that colos should be sorted by. If unspecified, returns all Cloudflare colos sorted alphabetically.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,45 @@
+$kind: http-example
+id: 30b7ffc4-3613-55f8-a43c-a4a6c93d1928
+name: Bad request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dls/regional_services/prefix_bindings"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "prefix_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+        "cidr": "10.0.1.0/24",
+        "region_key": "eu"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

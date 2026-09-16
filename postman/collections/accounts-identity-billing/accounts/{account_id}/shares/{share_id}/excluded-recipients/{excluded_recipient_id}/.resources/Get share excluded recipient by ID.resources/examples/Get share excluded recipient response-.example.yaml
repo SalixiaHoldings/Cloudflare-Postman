@@ -1,0 +1,30 @@
+$kind: http-example
+id: 9a642a40-0624-5985-98bb-7040083fa761
+name: Get share excluded recipient response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/excluded-recipients/{{excluded_recipient_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

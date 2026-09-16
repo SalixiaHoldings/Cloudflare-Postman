@@ -1,0 +1,42 @@
+$kind: http-example
+id: 217a33a7-5987-53b8-8177-12a06e126d51
+name: Update share excluded recipients failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/excluded-recipients"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "account_id": "{{account_id}}"
+        },
+        {
+          "account_id": "{{account_id}}"
+        }
+      ]
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 3000

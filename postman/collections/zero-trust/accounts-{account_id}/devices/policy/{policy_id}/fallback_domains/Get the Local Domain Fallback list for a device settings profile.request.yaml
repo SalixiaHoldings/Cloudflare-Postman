@@ -1,0 +1,27 @@
+$kind: http-request
+id: 88ab8c2e-44f4-5b83-ac17-323afbc48312
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: devices-get-local-domain-fallback-list-for-a-device-settings-policy
+  GET /accounts/{account_id}/devices/policy/{policy_id}/fallback_domains
+
+  Fetches the list of domains to bypass Gateway DNS resolution from a specified device settings profile. These domains will use the specified local DNS resolver instead.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/devices/policy/{{policy_id}}/fallback_domains"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get the Local Domain Fallback list for a device settings profile.resources/examples
+order: 1000

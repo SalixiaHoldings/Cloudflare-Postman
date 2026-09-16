@@ -1,0 +1,27 @@
+$kind: http-example
+id: 6bc54a89-90c6-594e-bfa4-f01752893cd9
+request:
+  url: "{{base_url}}/user/tokens/verify"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

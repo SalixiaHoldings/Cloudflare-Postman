@@ -1,0 +1,27 @@
+$kind: http-example
+id: 157932ea-091c-57ee-a340-259c0bb98c0c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/logs/jit_requests/{{knock_request_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

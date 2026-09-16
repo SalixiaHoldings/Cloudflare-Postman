@@ -1,0 +1,39 @@
+$kind: http-example
+id: bdeb3895-fa14-53f9-b9ed-068e645645da
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages?page=1&per_page=50&order=name&direction=desc&match=all&name=USER"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    page: "1"
+    per_page: "50"
+    order: name
+    direction: desc
+    match: all
+    name: USER
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

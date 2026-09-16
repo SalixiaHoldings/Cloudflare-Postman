@@ -1,0 +1,35 @@
+$kind: http-request
+id: b0f4b540-8d90-528e-b540-7479ffde325f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: billing-validate-address
+  POST /billing/address-validation
+
+  Validates a billing address and returns validated address suggestions. Authentication is not enforced to support pre-signup address validation flows, so credentials are accepted but not required.
+
+  Authentication support: anonymous
+  Auth declaration SHA-256: abe38dc80d03b810374787e45451dcc90d3dc9893b27f995721e5bb40112d653
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]},{}]
+  Selected requirement: {}
+  Upstream permits an unauthenticated request; collection Bearer inheritance is disabled.
+url: "{{base_url}}/billing/address-validation"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "address": "string",
+      "address2": "string",
+      "city": "string",
+      "country": "string",
+      "state": "string",
+      "zipcode": "string"
+    }
+auth:
+  type: noauth
+examples: ./.resources/Validate Billing Address.resources/examples
+order: 1000

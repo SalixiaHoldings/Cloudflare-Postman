@@ -1,0 +1,51 @@
+$kind: http-example
+id: 25362724-efe9-500a-b55d-4cc5a499e8fb
+name: Update Dex test response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/devices/dex_tests/{{dex_test_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "HTTP dash health check",
+        "interval": "30m",
+        "enabled": true,
+        "data": {
+          "host": "https://dash.cloudflare.com",
+          "kind": "http",
+          "method": "GET"
+        },
+        "description": "Checks the dash endpoint every 30 minutes",
+        "target_policies": {
+          "x-stainless-terraform-configurability": "computed_optional",
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "targeted": false,
+        "test_id": "372e67954025e0ba6aaa6d586b9e0b59"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,42 @@
+$kind: http-example
+id: 54bef982-4bb8-5b0f-9233-8bd91eb31dbb
+name: "Error 2007: Invalid Input. Forward actions must contain exactly one destination address."
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/routing/rules/catch_all"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "actions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "matchers": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "enabled": true,
+        "name": "Send to user@example.net rule.",
+        "owner_worker_tag": "a7e6fb77503c41d8a7f3113c6918f10c",
+        "source": "api"
+      }
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

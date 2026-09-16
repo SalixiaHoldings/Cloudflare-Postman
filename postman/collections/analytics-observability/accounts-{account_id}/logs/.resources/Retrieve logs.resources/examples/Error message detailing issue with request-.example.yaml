@@ -1,0 +1,63 @@
+$kind: http-example
+id: cd014f0b-fdc1-56db-b9e1-f676a4078127
+name: Error message detailing issue with request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logs/retrieve?start=2022-06-06T16:00:00Z&end=2022-06-06T16:00:00Z&bucket=cloudflare-logs&prefix=http_requests/example.com/{DATE}"
+  method: GET
+  headers:
+    - key: R2-Access-Key-Id
+      value: 29a92f1a6e6887d79f3401a41
+      description: "(Required) "
+    - key: R2-Secret-Access-Key
+      value: 869b6e19534a6715ab69a07d76492d673f8134d
+      description: "(Required) "
+    - key: Accept
+      value: application/json
+  queryParams:
+    - key: start
+      value: 2022-06-06T16:00:00Z
+      description: (Required) Start time in RFC3339 format.
+    - key: end
+      value: 2022-06-06T16:00:00Z
+      description: (Required) End time in RFC3339 format.
+    - key: bucket
+      value: cloudflare-logs
+      description: (Required) R2 bucket name.
+    - key: prefix
+      value: http_requests/example.com/{DATE}
+      description: R2 bucket prefix logs are stored under.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [
+          "string",
+          "string"
+        ],
+        "result": {},
+        "success": false
+      }
+order: 2000

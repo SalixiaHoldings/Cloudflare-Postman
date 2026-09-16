@@ -1,0 +1,33 @@
+$kind: http-request
+id: 7269a0ae-6d99-5f0a-977f-a355545ca21e
+name: Pause/Resume/Stop recording
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: pause_resume_stop_recording
+  PUT /accounts/{account_id}/realtime/kit/{app_id}/recordings/{recording_id}
+
+  Pause/Resume/Stop a given recording ID.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/recordings/{{recording_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "action": "stop"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Pause-Resume-Stop recording.resources/examples
+order: 2000

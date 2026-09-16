@@ -1,0 +1,37 @@
+$kind: http-request
+id: ee3aa9ee-e0d6-50f8-8b69-7ce2f300c60a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zones-0-hold-patch
+  PATCH /zones/{zone_id}/hold
+
+  Update the `hold_after` and/or `include_subdomains` values on an existing zone hold.
+  The hold is enabled if the `hold_after` date-time value is in the past.
+  Existing zone holds can be removed from CDN-only zones by setting `hold_after` to `null`.
+  Other zone hold updates cannot be made on CDN-only zones.
+  Active holds are automatically disabled when a zone transitions to CDN-only mode.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/hold"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "hold_after": "2023-01-31T15:56:36Z",
+      "include_subdomains": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Zone Hold.resources/examples
+order: 3000

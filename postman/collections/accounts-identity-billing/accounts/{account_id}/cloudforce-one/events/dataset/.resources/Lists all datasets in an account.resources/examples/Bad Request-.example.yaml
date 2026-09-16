@@ -1,0 +1,37 @@
+$kind: http-example
+id: bcaf053a-f866-5414-ace4-a1c2d353b068
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset?includeDeleted=true"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: includeDeleted
+      value: "true"
+      description: "When true, include soft-deleted datasets in the response. Each item includes a `deletedAt` field (ISO 8601 or null). Default: false."
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

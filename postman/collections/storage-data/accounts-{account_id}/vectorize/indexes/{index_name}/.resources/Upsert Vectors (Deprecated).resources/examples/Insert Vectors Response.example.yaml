@@ -1,0 +1,25 @@
+$kind: http-example
+id: 4044165f-c016-59c1-857e-275411bac28b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vectorize/indexes/{{index_name}}/upsert"
+  method: POST
+  headers:
+    Content-Type: application/x-ndjson
+    Accept: application/json
+  body:
+    type: file
+    content: {}
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

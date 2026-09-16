@@ -1,0 +1,66 @@
+$kind: http-request
+id: af065df9-9340-573d-9752-60c705a93c18
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-cache-settings-change-variants-setting
+  PATCH /zones/{zone_id}/cache/variants
+
+  Variant support enables caching variants of images with certain file extensions in addition to the original. This only applies when the origin server sends the 'Vary: Accept' response header. If the origin server sends 'Vary: Accept' but does not serve the variant requested, the response will not be cached. This will be indicated with BYPASS cache status in the response headers.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/cache/variants"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": {
+        "avif": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "bmp": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "gif": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "jp2": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "jpeg": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "jpg": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "jpg2": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "png": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "tif": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "tiff": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "webp": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Change variants setting.resources/examples
+order: 3000

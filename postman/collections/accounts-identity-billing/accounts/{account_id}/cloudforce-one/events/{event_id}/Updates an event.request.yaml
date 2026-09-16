@@ -1,0 +1,52 @@
+$kind: http-request
+id: cb54baac-e573-552b-a786-9f874ebfe6e1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: patch_EventUpdate
+  PATCH /accounts/{account_id}/cloudforce-one/events/{event_id}
+
+  Partially updates a threat event in Cloudforce One, modifying specific fields without replacing the entire event.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/{{event_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "datasetId": "9b769969-a211-466c-8ac3-cb91266a066a",
+      "attacker": "Flying Yeti",
+      "attackerCountry": "CN",
+      "category": "Domain Resolution",
+      "createdAt": "2025-12-19T00:00:00Z",
+      "date": "2022-04-01T00:00:00Z",
+      "event": "An attacker registered the domain domain.com",
+      "indicator": "domain2.com",
+      "indicatorType": "domain",
+      "insight": "new insight",
+      "raw": {
+        "data": {
+          "key_0": false,
+          "key_1": 3459
+        },
+        "source": "example.com",
+        "tlp": "amber"
+      },
+      "targetCountry": "US",
+      "targetIndustry": "Insurance",
+      "tlp": "amber"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Updates an event.resources/examples
+order: 2000

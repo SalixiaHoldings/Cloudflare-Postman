@@ -1,0 +1,43 @@
+$kind: http-example
+id: a1a83882-b80d-54a1-af68-53a68f471188
+name: List WAF rules response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages/{{package_id}}/rules?mode=CHL&group_id=de677e5818985db1285d0e80225f06e5&page=1&per_page=50&order=description&direction=desc&match=all&description=SQL injection prevention for SELECT statements&priority=string"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    mode: CHL
+    group_id: de677e5818985db1285d0e80225f06e5
+    page: "1"
+    per_page: "50"
+    order: description
+    direction: desc
+    match: all
+    description: SQL injection prevention for SELECT statements
+    priority: string
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

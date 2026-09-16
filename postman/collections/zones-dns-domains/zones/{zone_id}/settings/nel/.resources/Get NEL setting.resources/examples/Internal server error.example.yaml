@@ -1,0 +1,27 @@
+$kind: http-example
+id: 851d5d19-b219-5d98-ab99-c38c2b68a1b3
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/nel"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1000,
+            "message": "internal_error"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 4000

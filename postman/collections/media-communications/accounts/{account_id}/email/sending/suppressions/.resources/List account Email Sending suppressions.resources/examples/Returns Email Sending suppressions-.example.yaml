@@ -1,0 +1,81 @@
+$kind: http-example
+id: fa48ede8-a2c9-5b56-a133-db6861dcc854
+name: Returns Email Sending suppressions.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions?per_page=100&cursor=eyJ0IjozLCJwIjoxMjMsImMiOiJjM2RjNWYwYjM0YTE0ZmY4ZTFiM2VjMDQ4OTVlMWIyMiJ9&email=user@example.com&search=billing@&reason=hard_bounce"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    per_page: "100"
+    cursor: eyJ0IjozLCJwIjoxMjMsImMiOiJjM2RjNWYwYjM0YTE0ZmY4ZTFiM2VjMDQ4OTVlMWIyMiJ9
+    email: user@example.com
+    search: billing@
+    reason: hard_bounce
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "success": true,
+        "result": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "email": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "reason": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "expires_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "read_only": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "note": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "email": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "reason": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "expires_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "read_only": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "note": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "count": 1,
+          "next_cursor": null,
+          "per_page": 100
+        }
+      }
+order: 1000

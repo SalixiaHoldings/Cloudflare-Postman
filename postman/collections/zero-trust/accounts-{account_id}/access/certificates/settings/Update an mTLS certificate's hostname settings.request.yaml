@@ -1,0 +1,39 @@
+$kind: http-request
+id: 6ca3ce26-5f9c-5dc0-acd9-ce9351cdc413
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-mtls-authentication-update-an-mtls-certificate-settings
+  PUT /accounts/{account_id}/access/certificates/settings
+
+  Updates an mTLS certificate's hostname settings.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/certificates/settings"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "settings": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update an mTLS certificate's hostname settings.resources/examples
+order: 2000

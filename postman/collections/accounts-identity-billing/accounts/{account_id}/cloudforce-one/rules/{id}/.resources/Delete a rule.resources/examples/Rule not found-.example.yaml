@@ -1,0 +1,27 @@
+$kind: http-example
+id: 72d46f23-1d1f-5984-9204-d8555217f06c
+name: Rule not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/{{id}}"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "commit_message": "Rule superseded by yara/workers/tighter-panel.yar."
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 5000

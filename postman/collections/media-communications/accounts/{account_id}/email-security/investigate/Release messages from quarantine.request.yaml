@@ -1,0 +1,33 @@
+$kind: http-request
+id: d45ba9ac-38bb-5fe5-8671-62fb9a027188
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_post_release
+  POST /accounts/{account_id}/email-security/investigate/release
+
+  Delivers one or more quarantined messages to their intended recipients, for cases where a message was incorrectly quarantined. The response includes delivery status for each recipient.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/release"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    [
+      "4Njp3P0STMz2c02Q-2024-01-05T10:00:00-12345678",
+      "4Njp3P0STMz2c02Q-2024-01-05T10:00:00-12345678"
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Release messages from quarantine.resources/examples
+order: 5000

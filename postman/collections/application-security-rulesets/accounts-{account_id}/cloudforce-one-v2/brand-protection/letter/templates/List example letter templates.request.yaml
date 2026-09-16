@@ -1,0 +1,25 @@
+$kind: http-request
+id: af02d9d7-82e6-5db9-987b-28580dcaa617
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_LetterTemplateExamples
+  GET /accounts/{account_id}/cloudforce-one/v2/brand-protection/letter/templates/examples
+
+  List system-provided example templates that can be used as starting points when creating custom templates. These templates cannot be used directly for letter generation.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/letter/templates/examples"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List example letter templates.resources/examples
+order: 3000

@@ -1,0 +1,40 @@
+$kind: http-example
+id: bcf8eeba-5735-51e6-bacd-695c23b3d149
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/teamnet/virtual_networks"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "us-east-1-vpc",
+        "comment": "Staging VPC for data science",
+        "is_default": true,
+        "is_default_network": false
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

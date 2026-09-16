@@ -1,0 +1,25 @@
+$kind: http-request
+id: a487d41f-74ea-5267-977b-331ba6fbdd45
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: origin-cloud-regions-v2-delete
+  DELETE /zones/{zone_id}/origin/cloud_regions/{origin_ip}
+
+  Removes the cloud region mapping for a single origin IP address. The IP path parameter is normalized before lookup. Returns the deleted IP on success. Returns 404 if no mapping exists for the specified IP. When the last mapping for the zone is removed the underlying rule record is also deleted.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions/{{origin_ip}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete an origin cloud region mapping.resources/examples
+order: 1000

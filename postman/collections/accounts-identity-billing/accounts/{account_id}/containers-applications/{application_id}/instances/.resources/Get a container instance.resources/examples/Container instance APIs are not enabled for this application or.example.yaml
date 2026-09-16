@@ -1,0 +1,28 @@
+$kind: http-example
+id: bd40aeda-fc8c-5b0e-b641-5729e93e3763
+name: Container instance APIs are not enabled for this application or the request was invalid.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/instances/{{instance_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

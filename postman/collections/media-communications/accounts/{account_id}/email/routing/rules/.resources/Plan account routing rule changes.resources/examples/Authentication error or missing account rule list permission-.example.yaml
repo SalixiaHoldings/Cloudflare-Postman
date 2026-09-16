@@ -1,0 +1,42 @@
+$kind: http-example
+id: 73b81098-d9eb-54e7-b749-e3a7b598f3f9
+name: Authentication error or missing account rule list permission.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/routing/rules/plan"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "owner_worker_tag": "a7e6fb77503c41d8a7f3113c6918f10c",
+        "catch_all_rules": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "rules": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

@@ -1,0 +1,79 @@
+$kind: http-example
+id: 2ba635bb-439a-57fc-b07f-6a26f23cc963
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/ipsec_tunnels/{{ipsec_tunnel_id}}"
+  method: PUT
+  headers:
+    - key: x-magic-new-hc-target
+      value: "true"
+      description: If true, the health check target in the request and response bodies will be presented using the new object format. Defaults to false.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "IPsec_1",
+        "cloudflare_endpoint": "203.0.113.1",
+        "interface_address": "192.0.2.0/31",
+        "automatic_return_routing": true,
+        "bgp": {
+          "customer_asn": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "export_filter_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "extra_prefixes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "import_filter_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "md5_key": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "custom_remote_identities": {
+          "fqdn_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "customer_endpoint": "203.0.113.1",
+        "description": "Tunnel for ISP X",
+        "health_check": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "interface_address6": "2606:54c1:7:0:a9fe:12d2:1:200/127",
+        "psk": "O3bwKSjnaoCxDoUxjcq4Rk8ZKkezQUiy",
+        "replay_protection": false
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

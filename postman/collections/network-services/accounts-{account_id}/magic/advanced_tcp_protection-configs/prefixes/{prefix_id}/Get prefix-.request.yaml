@@ -1,0 +1,26 @@
+$kind: http-request
+id: e0dbd7d8-aa3b-5a1a-8f1e-31e0189d0a3f
+name: Get prefix.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getPrefix
+  GET /accounts/{account_id}/magic/advanced_tcp_protection/configs/prefixes/{prefix_id}
+
+  Get a prefix specified by the given UUID.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/prefixes/{{prefix_id}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get prefix-.resources/examples
+order: 2000

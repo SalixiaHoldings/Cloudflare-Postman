@@ -1,0 +1,48 @@
+$kind: http-example
+id: fffebce8-fe18-5c1d-a9b7-0778432108df
+name: Not Found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/relationships/{{rel_uuid}}?datasetId=string"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: datasetId
+      value: string
+      description: (Required) Dataset UUID containing the relationship.
+  body:
+    type: json
+    content: |-
+      {
+        "confidence": 47,
+        "metadata": {
+          "key_0": "string"
+        },
+        "type": "string"
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

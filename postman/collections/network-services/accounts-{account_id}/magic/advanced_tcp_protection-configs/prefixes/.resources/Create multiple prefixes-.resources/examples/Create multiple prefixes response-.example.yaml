@@ -1,0 +1,55 @@
+$kind: http-example
+id: ab7fbacd-d9ca-5f21-a547-ab729ff9e926
+name: Create multiple prefixes response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/prefixes/bulk"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "prefix": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "comment": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "excluded": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "prefix": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "comment": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "excluded": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

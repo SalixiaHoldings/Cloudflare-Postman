@@ -1,0 +1,47 @@
+$kind: http-example
+id: 65e4021f-1fe3-52ca-a130-74ec5763e74c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/bulk/subscriptions?idemp_key=string"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    idemp_key: string
+  body:
+    type: json
+    content: |-
+      {
+        "coupon_code": "string",
+        "payment_hold_id": 8539,
+        "subscriptions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "user_is_on_session": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "client_secrets": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "subscriptions": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

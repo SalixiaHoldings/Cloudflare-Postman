@@ -1,0 +1,36 @@
+$kind: http-request
+id: 9ce1810e-630c-5881-8ba0-f6c6f42644ac
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-networks-subnet-update-initial-resolved-ip
+  PUT /accounts/{account_id}/zerotrust/subnets/initial_resolved_ip/{address_family}
+
+  Updates the CIDR for the account's default Initial Resolved IP Subnet of the given address
+  family. The new CIDR must not conflict with existing private routes in the account.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/zerotrust/subnets/initial_resolved_ip/{{address_family}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "comment": "example comment",
+      "name": "IPv4 Cloudflare Source IPs",
+      "network": "100.64.0.0/12"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Initial Resolved IP Subnet.resources/examples
+order: 2000

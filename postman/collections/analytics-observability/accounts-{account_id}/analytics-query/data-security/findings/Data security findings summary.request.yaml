@@ -1,0 +1,35 @@
+$kind: http-request
+id: c1b27eb8-b3cb-519b-b4a0-32794b87908a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: data-security-findings-summary
+  POST /accounts/{account_id}/analytics/query/data-security/findings/summary
+
+  Returns aggregate current-period and previous-period totals for CASB findings.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/analytics/query/data-security/findings/summary"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "filters": [],
+      "from": "2024-11-01T00:00:00Z",
+      "to": "2024-11-08T00:00:00Z"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Data security findings summary.resources/examples
+order: 1000

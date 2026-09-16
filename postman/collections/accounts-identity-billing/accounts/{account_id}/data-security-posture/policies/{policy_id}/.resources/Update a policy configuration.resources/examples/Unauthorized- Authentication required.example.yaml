@@ -1,0 +1,43 @@
+$kind: http-example
+id: 4af319b8-bf7d-5664-8a7f-7640d263bbc6
+name: "Unauthorized: Authentication required"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/policies/{{policy_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "display_name": "Auto-remediate public files",
+        "enabled": true,
+        "applies_to_all_integrations": false,
+        "actions": {
+          "remediation_types": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "webhook_configs": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "description": "Automatically remove public access from files when detected",
+        "integration_ids": [
+          "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+        ]
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 3000

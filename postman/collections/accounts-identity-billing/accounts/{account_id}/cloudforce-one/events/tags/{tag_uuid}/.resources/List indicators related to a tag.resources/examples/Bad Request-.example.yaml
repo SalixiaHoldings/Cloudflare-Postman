@@ -1,0 +1,58 @@
+$kind: http-example
+id: 0cb33a14-7835-573d-a8e4-d38606ca2313
+name: Bad Request.
+request:
+  url: '{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/indicators?datasetIds=string&datasetIds=string&page=2535.467583220452&pageSize=2535.467583220452&indicatorType=string&relatedEvent=string&relatedEvent=string&search={"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&search={"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: datasetIds
+      value: string
+      description: "Dataset UUIDs to scope to (repeat the param for multiple), or one standalone scope: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. Analytics datasets do not expose tag associations, so 'analytics' returns an empty result. Omit to search all readable datasets."
+    - key: datasetIds
+      value: string
+      description: "Dataset UUIDs to scope to (repeat the param for multiple), or one standalone scope: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. Analytics datasets do not expose tag associations, so 'analytics' returns an empty result. Omit to search all readable datasets."
+    - key: page
+      value: "2535.467583220452"
+    - key: pageSize
+      value: "2535.467583220452"
+    - key: indicatorType
+      value: string
+    - key: relatedEvent
+      value: string
+      description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+    - key: relatedEvent
+      value: string
+      description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+    - key: search
+      value: '{"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+      description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+    - key: search
+      value: '{"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+      description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

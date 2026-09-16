@@ -1,0 +1,23 @@
+$kind: http-example
+id: dd10fc3d-8465-51f2-a81e-06abf60bf25c
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/page_shield/scripts/{{script_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

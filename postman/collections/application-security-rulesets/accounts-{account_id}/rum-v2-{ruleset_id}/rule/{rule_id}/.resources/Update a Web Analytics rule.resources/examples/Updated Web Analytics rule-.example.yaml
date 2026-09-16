@@ -1,0 +1,45 @@
+$kind: http-example
+id: 38d35e96-5b0e-5cd9-b496-51a9932aa9fd
+name: Updated Web Analytics rule.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/rum/v2/{{ruleset_id}}/rule/{{rule_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "host": "example.com",
+        "inclusive": true,
+        "is_paused": false,
+        "paths": [
+          "*"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

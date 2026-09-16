@@ -1,0 +1,33 @@
+$kind: http-example
+id: 758f500d-5c59-5e21-80b4-ffc0cd1d34ef
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers/{{identity_provider_id}}/scim/groups?cf_resource_id=a2abeb50-59c9-4c01-8c5c-963d3bf5700f&idp_resource_id=all_employees&name=ALL_EMPLOYEES&page=1&per_page=100"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    cf_resource_id: a2abeb50-59c9-4c01-8c5c-963d3bf5700f
+    idp_resource_id: all_employees
+    name: ALL_EMPLOYEES
+    page: "1"
+    per_page: "100"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

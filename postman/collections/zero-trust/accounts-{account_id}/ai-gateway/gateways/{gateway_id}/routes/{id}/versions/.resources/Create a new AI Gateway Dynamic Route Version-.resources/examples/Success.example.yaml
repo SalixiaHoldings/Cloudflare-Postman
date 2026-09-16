@@ -1,0 +1,48 @@
+$kind: http-example
+id: 0e056b15-a703-57cd-9653-c8e7984b1256
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/routes/{{id}}/versions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "elements": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "name": "string",
+          "elements": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "created_at": "1989-08-13T16:58:37.956Z",
+          "modified_at": "1965-05-24T07:21:12.736Z",
+          "gateway_id": "string"
+        }
+      }
+order: 1000

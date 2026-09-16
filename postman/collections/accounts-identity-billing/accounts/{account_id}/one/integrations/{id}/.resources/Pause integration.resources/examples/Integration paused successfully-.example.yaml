@@ -1,0 +1,95 @@
+$kind: http-example
+id: 6c4862b2-2389-5972-b182-165328dc2c81
+name: Integration paused successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/one/integrations/{{id}}/pause"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "application": {
+            "category": "Productivity",
+            "display_name": "Google Workspace",
+            "logo": "https://dash.cloudflare.com/v2/static/google_workspace.png"
+          },
+          "auth_method": {
+            "display_name": "OAuth 2.0",
+            "id": "oauth"
+          },
+          "authorization_link": {
+            "components": {
+              "client_id": "abc",
+              "instance_name": "example"
+            },
+            "link": "https://example.cloudflare.com/authorize"
+          },
+          "created": "2025-01-01T00:00:00Z",
+          "credentials_expiry": "2026-01-01T00:00:00Z",
+          "dlp_profiles": [
+            "e91a2360-da51-4fdf-9711-bcdecd462614"
+          ],
+          "health_details": [],
+          "id": "019d2e6a-d995-7185-afbd-4feead9e42ec",
+          "is_paused": true,
+          "last_hydrated": "2025-04-10T08:30:00Z",
+          "name": "My Google Workspace",
+          "status": "Healthy",
+          "updated": "2025-04-10T08:30:00Z",
+          "use_cases": [
+            {
+              "description": "Discover and secure SaaS applications",
+              "features": [
+                {
+                  "description": "Automatically remediate security issues (requires write permissions)",
+                  "id": "auto_remediation",
+                  "is_enabled": true,
+                  "name": "Auto Remediation",
+                  "permissions": [
+                    {
+                      "display_name": "Manage users",
+                      "scope": "https://www.googleapis.com/auth/admin.directory.user",
+                      "status": "granted"
+                    }
+                  ]
+                }
+              ],
+              "id": "casb",
+              "is_enabled": true,
+              "name": "Cloud Access Security Broker",
+              "permissions": [
+                {
+                  "display_name": "Drive (Read Only)",
+                  "scope": "https://www.googleapis.com/auth/drive.readonly",
+                  "status": "granted"
+                },
+                {
+                  "display_name": "Gmail (Read Only)",
+                  "scope": "https://www.googleapis.com/auth/gmail.readonly",
+                  "status": "missing"
+                }
+              ]
+            },
+            {
+              "description": "Protect against email-based threats",
+              "features": [],
+              "id": "ces",
+              "is_enabled": false,
+              "name": "Cloud Email Security",
+              "permissions": []
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,24 @@
+$kind: http-example
+id: aed28f71-ac2a-51ce-b0d1-04de587986f5
+name: Failed to retrieve submitted abuse report emails.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/submitted/{{report_id}}/emails?page=6305&per_page=6305"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "6305"
+      description: Page number to retrieve (default 1).
+    - key: per_page
+      value: "6305"
+      description: Number of emails per page (default 20, max 100).
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 5000

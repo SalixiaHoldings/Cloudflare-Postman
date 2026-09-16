@@ -1,0 +1,66 @@
+$kind: http-example
+id: 778a4d2a-adf4-5836-8d8f-18296f815608
+name: Email sending is disabled, or the sending domain is not configured for email sending.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/send"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "attachments": [
+          {
+            "content": "JVBERi0xLjQK...",
+            "disposition": "attachment",
+            "filename": "report.pdf",
+            "type": "application/pdf"
+          }
+        ],
+        "from": "sender@example.com",
+        "html": "<h1>Hello</h1><p>Please find your report attached.</p>",
+        "subject": "Monthly Report",
+        "text": "Hello\n\nPlease find your report attached.",
+        "to": [
+          "recipient@example.com"
+        ]
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "messages": [
+          "string",
+          "string"
+        ],
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": null
+      }
+order: 3000

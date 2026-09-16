@@ -1,0 +1,29 @@
+$kind: http-request
+id: 6fa84bdb-6cbf-5943-b9b2-bf1d04a2f9dd
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: deleteAccountRulesetRule
+  DELETE /accounts/{account_id}/rulesets/{ruleset_id}/rules/{rule_id}
+
+  Deletes an existing rule from an account ruleset.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/rulesets/{{ruleset_id}}/rules/{{rule_id}}?dry_run=false"
+method: DELETE
+headers:
+  Accept: application/json
+queryParams:
+  - key: dry_run
+    value: "false"
+    description: "Validates the request without persisting changes when set to `true`. Responses that normally return 200 return `result: null`; endpoints that normally return 204 continue to return 204."
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete an account ruleset rule.resources/examples
+order: 1000

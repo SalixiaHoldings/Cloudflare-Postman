@@ -1,0 +1,23 @@
+$kind: http-example
+id: 004c7aef-1124-56aa-bdb0-cc8c3f804918
+name: Returns a list of target industries for the dataset.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/targetIndustries"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+order: 1000

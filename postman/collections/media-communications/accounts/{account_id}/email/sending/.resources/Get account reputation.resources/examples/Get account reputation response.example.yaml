@@ -1,0 +1,23 @@
+$kind: http-example
+id: b9f4a344-a64b-55a2-8683-7043b4a6e1a7
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/reputation"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

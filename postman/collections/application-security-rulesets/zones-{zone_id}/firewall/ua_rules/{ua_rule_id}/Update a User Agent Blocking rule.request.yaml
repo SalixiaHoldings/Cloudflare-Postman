@@ -1,0 +1,40 @@
+$kind: http-request
+id: 125bb67b-b030-5fa2-a63a-cc1e97120c75
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: user-agent-blocking-rules-update-a-user-agent-blocking-rule
+  PUT /zones/{zone_id}/firewall/ua_rules/{ua_rule_id}
+
+  Updates an existing User Agent Blocking rule.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/firewall/ua_rules/{{ua_rule_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "id": "de677e5818985db1285d0e80225f06e5",
+      "mode": "challenge",
+      "configuration": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "description": "Prevent multiple login failures to mitigate brute force attacks",
+      "paused": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a User Agent Blocking rule.resources/examples
+order: 3000

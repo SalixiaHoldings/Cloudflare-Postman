@@ -1,0 +1,85 @@
+$kind: http-example
+id: 0fc5d7e2-c5b3-518b-bf10-80ea05ced03c
+name: Unauthorized.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured/{{id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "condition": {
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "operator": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "conditions": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "description": "string",
+        "enabled": true,
+        "meta": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "name": "string",
+        "status": "blocking",
+        "strings": [
+          {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "identifier": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "match_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modifiers": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "identifier": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "match_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modifiers": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 4000

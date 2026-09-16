@@ -1,0 +1,43 @@
+$kind: http-example
+id: fa2f3918-c6d9-5a48-9998-cd09f39f8fe9
+name: List IP Access rules response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/firewall/access_rules/rules?mode=challenge&configuration.target=ip&configuration.value=198.51.100.4&notes=my note&match=all&page=1&per_page=20&order=mode&direction=desc"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    mode: challenge
+    configuration.target: ip
+    configuration.value: 198.51.100.4
+    notes: my note
+    match: all
+    page: "1"
+    per_page: "20"
+    order: mode
+    direction: desc
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

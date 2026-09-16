@@ -1,0 +1,52 @@
+$kind: http-example
+id: 33a827f3-6427-578f-8250-73c98a315d8d
+name: Number of deleted trigger declarations.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/triggers/{{script_name}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": {
+          "deleted": 2752527720251391
+        },
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 5102.892820723355,
+          "count": 9848.349483218044,
+          "total_count": 2872.230331413448,
+          "cursor": "string",
+          "page": 5430.128532461822,
+          "total_pages": 1791.1550006829202
+        }
+      }
+order: 1000

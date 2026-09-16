@@ -1,0 +1,73 @@
+$kind: http-example
+id: 6e68f80d-1563-5687-8e83-fe2ba2366502
+name: Top-up limits retrieved.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/topup/limits"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "min_cents": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "max_cents": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "currency": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "has_more": false,
+          "page": 9643.058951478451,
+          "per_page": 5946.570602245629,
+          "total_count": 8351.552481763065
+        }
+      }
+order: 1000

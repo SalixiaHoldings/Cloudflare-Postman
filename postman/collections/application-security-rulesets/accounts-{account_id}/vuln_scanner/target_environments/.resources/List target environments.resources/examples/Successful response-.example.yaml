@@ -1,0 +1,34 @@
+$kind: http-example
+id: 240fbee6-69a1-5703-b91f-074f5f2f4917
+name: Successful response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vuln_scanner/target_environments?page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      description: Number of results per page.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

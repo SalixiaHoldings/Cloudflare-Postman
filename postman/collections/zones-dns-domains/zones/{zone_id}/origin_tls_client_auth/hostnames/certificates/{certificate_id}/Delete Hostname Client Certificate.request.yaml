@@ -1,0 +1,27 @@
+$kind: http-request
+id: 1b29855e-59ca-56ee-a9d9-0a8ff71b1764
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: per-hostname-authenticated-origin-pull-delete-hostname-client-certificate
+  DELETE /zones/{zone_id}/origin_tls_client_auth/hostnames/certificates/{certificate_id}
+
+  Removes a client certificate used for authenticated origin pulls on a specific hostname.
+  Note: Before deleting the certificate, you must first invalidate the hostname for client authentication by sending a PUT request with `enabled` set to null. After invalidating the association, the certificate can be safely deleted.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/origin_tls_client_auth/hostnames/certificates/{{certificate_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete Hostname Client Certificate.resources/examples
+order: 1000

@@ -1,0 +1,40 @@
+$kind: http-example
+id: a113222a-fc72-5b3d-bf00-90f9aabcdd0d
+name: "Bad request. Possible errors: 21003 (relay ID should be 32 hex characters), 21004 (failed to decode body, invalid JSON), 21010 (invalid operations), 21012 (expires more than 1 year out)."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/moq/relays/{{relay_id}}/tokens"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "operations": [
+          "publish",
+          "subscribe"
+        ],
+        "expires": "2027-03-27T15:00:00Z",
+        "label": "primary-encoder"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 21007,
+            "message": "A MoQ relay with this ID was not found."
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

@@ -1,0 +1,52 @@
+$kind: http-example
+id: 123353ec-297b-55ee-bf6e-d76cc3993d48
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/billing/credits"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "confirmed_balance_cents": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "currency": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "days_remaining": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "eligible": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "has_record": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "original_amount_cents": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "percent_consumed": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "projected_depletion_date": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "valid_from": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "valid_to": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

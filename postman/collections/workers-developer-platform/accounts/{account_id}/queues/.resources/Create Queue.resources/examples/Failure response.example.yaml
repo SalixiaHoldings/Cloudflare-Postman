@@ -1,0 +1,35 @@
+$kind: http-example
+id: fd2ed719-fb95-5fcf-a9af-c78c65ebe697
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/queues"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "queue_name": "example-queue",
+        "jurisdiction": "eu"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "success": false
+      }
+order: 2000

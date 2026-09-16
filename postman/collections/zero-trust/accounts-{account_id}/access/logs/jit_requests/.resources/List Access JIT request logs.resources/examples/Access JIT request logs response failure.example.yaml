@@ -1,0 +1,43 @@
+$kind: http-example
+id: 858415ce-f6df-556e-b81e-5ab3ef5fd684
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/logs/jit_requests?page=1&per_page=25&status=CANCELED&search=string&since=1976-02-19T15:56:07.521Z&until=1976-02-19T15:56:07.521Z"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+    - key: per_page
+      value: "25"
+    - key: status
+      value: CANCELED
+    - key: search
+      value: string
+      description: Case-insensitive search over request ID, requester email, application audience, and application hostname.
+    - key: since
+      value: 1976-02-19T15:56:07.521Z
+      description: The earliest request timestamp to query. Defaults to 366 days before the current time.
+    - key: until
+      value: 1976-02-19T15:56:07.521Z
+      description: The latest request timestamp to query. Defaults to the current time.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

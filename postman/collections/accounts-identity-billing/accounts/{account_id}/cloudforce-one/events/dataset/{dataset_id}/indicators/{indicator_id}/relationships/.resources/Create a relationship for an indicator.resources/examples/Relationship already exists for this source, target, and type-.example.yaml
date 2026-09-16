@@ -1,0 +1,46 @@
+$kind: http-example
+id: 2a980011-b685-5e1d-84ce-67043237ea17
+name: Relationship already exists for this source, target, and type.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators/{{indicator_id}}/relationships"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "targetType": "event",
+        "targetId": "string",
+        "type": "related-to",
+        "confidence": 2,
+        "metadata": {
+          "key_0": true,
+          "key_1": false
+        }
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

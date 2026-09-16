@@ -1,0 +1,64 @@
+$kind: http-example
+id: 4f398b8b-19cb-5e43-ad85-dc1121191d30
+name: List organization shares response failure.
+request:
+  url: "{{base_url}}/organizations/{{organization_id}}/shares?status=<string>&kind=<string>&target_type=<string>&resource_types=<string>&resource_types=<string>&order=created&direction=asc&page=2&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: status
+      value: <string>
+      description: Filter shares by status.
+    - key: kind
+      value: <string>
+      description: Filter shares by kind.
+    - key: target_type
+      value: <string>
+      description: Filter shares by target_type.
+    - key: resource_types
+      value: <string>
+      description: Filter share resources by resource_types.
+    - key: resource_types
+      value: <string>
+      description: Filter share resources by resource_types.
+    - key: order
+      value: created
+      description: Order shares by values in the given field.
+    - key: direction
+      value: asc
+      description: Direction to sort objects.
+    - key: page
+      value: "2"
+      description: |-
+        Page number. Defaults to `1` when `per_page` is supplied without
+        `page`. May be omitted entirely along with `per_page` to receive a
+        non-paginated response.
+    - key: per_page
+      value: "20"
+      description: |-
+        Number of objects to return per page. Defaults to `20` when `page`
+        is supplied without `per_page`. May be omitted entirely along with
+        `page` to receive a non-paginated response.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

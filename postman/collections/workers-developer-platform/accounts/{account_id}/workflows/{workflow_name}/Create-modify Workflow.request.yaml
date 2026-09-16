@@ -1,0 +1,62 @@
+$kind: http-request
+id: c8365375-284f-5dd0-b519-8b510c319b66
+name: Create/modify Workflow
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: wor-create-or-modify-workflow
+  PUT /accounts/{account_id}/workflows/{workflow_name}
+
+  Creates a new workflow or updates an existing workflow definition.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "script_name": "string",
+      "class_name": "string",
+      "concurrency": {
+        "limit": 7841296819421183
+      },
+      "default_retention": {
+        "error_retention": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success_retention": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "limits": {
+        "steps": 6855257709608959
+      },
+      "schedules": [
+        {
+          "cron": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "cron": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create-modify Workflow.resources/examples
+order: 3000

@@ -1,0 +1,35 @@
+$kind: http-example
+id: 9f3c14a5-301b-5bad-9b64-ff7f65c41d45
+name: Get Storage Class Migration Job response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/storage-class-migration-jobs/{{job_id}}"
+  method: GET
+  headers:
+    cf-r2-jurisdiction: default
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "endTime": "2026-09-04T12:14:31Z",
+          "id": "7f24658b-31d7-4b91-9a12-cb5a2c99b294",
+          "jobType": "storageClassMigration",
+          "startTime": "2026-09-04T12:00:00Z",
+          "status": "COMPLETED",
+          "storageClassMigration": {
+            "destinationStorageClass": "Standard",
+            "migratedObjects": 2481,
+            "sourceStorageClass": "InfrequentAccess"
+          }
+        },
+        "success": true
+      }
+order: 1000

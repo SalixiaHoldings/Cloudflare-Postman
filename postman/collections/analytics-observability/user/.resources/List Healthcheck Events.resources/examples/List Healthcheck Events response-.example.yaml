@@ -1,0 +1,37 @@
+$kind: http-example
+id: 23ea338d-af0d-5f11-bdd5-7b15d3760f47
+name: List Healthcheck Events response.
+request:
+  url: "{{base_url}}/user/load_balancing_analytics/events?until=2016-11-11T13:00:00Z&pool_name=primary-dc&origin_healthy=true&pool_id=17b5962d775c646f3f9725cbc7a53df4&since=2016-11-11T12:00:00Z&origin_name=primary-dc-1&pool_healthy=true"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    until: 2016-11-11T13:00:00Z
+    pool_name: primary-dc
+    origin_healthy: "true"
+    pool_id: 17b5962d775c646f3f9725cbc7a53df4
+    since: 2016-11-11T12:00:00Z
+    origin_name: primary-dc-1
+    pool_healthy: "true"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

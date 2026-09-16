@@ -1,0 +1,33 @@
+$kind: http-example
+id: 97594678-e6c7-5a5a-b5d7-ac52de25a324
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/graphql"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

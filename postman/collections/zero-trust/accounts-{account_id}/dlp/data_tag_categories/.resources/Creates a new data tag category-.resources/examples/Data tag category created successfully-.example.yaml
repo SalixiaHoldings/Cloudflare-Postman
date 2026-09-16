@@ -1,0 +1,41 @@
+$kind: http-example
+id: 8d43c2fd-a930-5c60-98ac-9eccd3be777f
+name: Data tag category created successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/data_tag_categories"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "description": "string",
+        "tags": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "template_id": "bd90638e-19b2-396b-e35d-e42510cfdaf7"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

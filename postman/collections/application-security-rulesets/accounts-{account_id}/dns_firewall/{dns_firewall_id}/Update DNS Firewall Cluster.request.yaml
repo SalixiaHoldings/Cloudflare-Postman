@@ -1,0 +1,61 @@
+$kind: http-request
+id: de1cc415-b635-571b-bf3b-920a734892ac
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dns-firewall-update-dns-firewall-cluster
+  PATCH /accounts/{account_id}/dns_firewall/{dns_firewall_id}
+
+  Modify the configuration of a DNS Firewall cluster
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dns_firewall/{{dns_firewall_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "attack_mitigation": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "deprecate_any_requests": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "ecs_fallback": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "maximum_cache_ttl": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "minimum_cache_ttl": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "name": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "negative_cache_ttl": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "ratelimit": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "retries": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "upstream_ips": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update DNS Firewall Cluster.resources/examples
+order: 3000

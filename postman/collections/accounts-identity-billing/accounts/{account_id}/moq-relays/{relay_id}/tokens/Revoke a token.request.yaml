@@ -1,0 +1,29 @@
+$kind: http-request
+id: 78a07109-d236-5817-a62d-c0de357aeb17
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: moq-relays-tokens-delete
+  DELETE /accounts/{account_id}/moq/relays/{relay_id}/tokens/{jti}
+
+  Revokes a token by removing it from the set the relay accepts. Relays
+  cache that set, so revocation takes effect within seconds rather than
+  instantly, and connections already established with the token are not
+  closed. Revoking an unknown token succeeds, so the call is idempotent.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/moq/relays/{{relay_id}}/tokens/{{jti}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Revoke a token.resources/examples
+order: 3000

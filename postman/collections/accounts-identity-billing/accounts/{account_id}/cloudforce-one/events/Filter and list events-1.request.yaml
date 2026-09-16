@@ -1,0 +1,58 @@
+$kind: http-request
+id: c9346695-7fe9-5b84-a9f3-96869d46711f
+name: Filter and list events
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_EventList
+  POST /accounts/{account_id}/cloudforce-one/events
+
+  Use `datasetId: ["all"]` or `datasetId: ["*"]` for the legacy all-datasets scope, `datasetId: ["analytics"]` for datasets with `isAnalytics=true`, or `datasetId: ["operational"]` for datasets with `isAnalytics=false` (limited to 50). Scope values must be used alone. When `datasetId` is unspecified, events are listed from the default Cloudforce One Threat Events dataset. To list existing datasets, use the [`List Datasets`](https://developers.cloudflare.com/api/resources/cloudforce_one/subresources/threat_events/subresources/datasets/methods/list/) endpoint.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events?forceRefresh=true&format=json&cache=from-graph"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  - key: forceRefresh
+    value: "true"
+  - key: format
+    value: json
+    description: Output format for event data. 'json' returns the default format, 'stix2' returns STIX 2.1 Sighting SROs with linked Indicator SDOs, Observed Data SDOs, and SCOs, 'taxii' returns a TAXII 2.1 Envelope with Content-Type application/taxii+json;version=2.1.
+  - key: cache
+    value: from-graph
+    description: Cache strategy. 'from-graph' serves results from the graph-node KV cache when all requested UUIDs are cached; falls back to normal path on partial/zero hit.
+body:
+  type: json
+  content: |-
+    {
+      "cursor": "eyJ2ZXJzaW9uIjoxLCJwb3NpdGlvbiI6eyJkYXRlIjoiMjAyNC0wMS0xMlQxMDowMDowMFoiLCJ1dWlkIjoiYWJjMTIzIn19",
+      "datasetId": [
+        "7632a037-fdef-4899-9b12-148470aae772",
+        "7632a037-fdef-4899-9b12-148470aae772"
+      ],
+      "order": "asc",
+      "orderBy": "created",
+      "page": 1,
+      "pageSize": 100,
+      "search": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Filter and list events-1.resources/examples
+order: 2000

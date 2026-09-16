@@ -1,0 +1,38 @@
+$kind: http-example
+id: 19640e27-5ee3-5c51-8632-05dd1d3d2d7e
+name: Success response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/rules?page=1&per_page=10&sort_order=ASC&sort_by=name&name=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      description: (Required) Page number of paginated results.
+    - key: per_page
+      value: "10"
+      description: (Required) Number of results per page.
+    - key: sort_order
+      value: ASC
+      description: Sort direction for sort_by property.
+    - key: sort_by
+      value: name
+      description: Which property to sort results by.
+    - key: name
+      value: string
+      description: Filter results by rule name.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

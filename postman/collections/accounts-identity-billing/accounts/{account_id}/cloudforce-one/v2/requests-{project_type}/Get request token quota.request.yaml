@@ -1,0 +1,23 @@
+$kind: http-request
+id: b6ab474f-6c3d-5ab3-ba88-f9148a47d08f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_RequestQuota
+  GET /accounts/{account_id}/cloudforce-one/v2/requests/{project_type}/quota
+
+  Returns the account's token quota for the current anniversary quarter: total granted, used, remaining, and the quarter/anniversary boundaries.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/quota"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get request token quota.resources/examples
+order: 5000

@@ -1,0 +1,53 @@
+$kind: http-example
+id: 029c4da1-1faf-50e3-aa81-8cb7897c91fd
+name: Not found.
+request:
+  url: "{{base_url}}/radar/robots_txt/top/user_agents/directive?limit=5&name=main_series&name=main_series&userAgentCategory=AI&date=1930-12-13&date=1954-10-21&domainCategory=string&domainCategory=string&directive=ALLOW&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: limit
+      value: "5"
+      description: Limits the number of objects returned in the response.
+    - key: name
+      value: main_series
+      description: Array of names used to label the series in the response.
+    - key: name
+      value: main_series
+      description: Array of names used to label the series in the response.
+    - key: userAgentCategory
+      value: AI
+      description: Filters results by user agent category.
+    - key: date
+      value: 1930-12-13
+      description: Filters results by the specified array of dates.
+    - key: date
+      value: 1954-10-21
+      description: Filters results by the specified array of dates.
+    - key: domainCategory
+      value: string
+      description: Filters results by domain category.
+    - key: domainCategory
+      value: string
+      description: Filters results by domain category.
+    - key: directive
+      value: ALLOW
+      description: Filters results by robots.txt directive.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not Found."
+      }
+order: 2000

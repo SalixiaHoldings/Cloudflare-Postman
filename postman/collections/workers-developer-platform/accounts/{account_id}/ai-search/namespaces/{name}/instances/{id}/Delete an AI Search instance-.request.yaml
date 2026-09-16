@@ -1,0 +1,26 @@
+$kind: http-request
+id: e2c9e2c6-5ebd-55d4-bbbe-2e700b947b37
+name: Delete an AI Search instance.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ai-search-namespace-delete-instance
+  DELETE /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}
+
+  Permanently delete an AI Search instance and all its indexed data.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete an AI Search instance-.resources/examples
+order: 1000

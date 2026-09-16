@@ -1,0 +1,30 @@
+$kind: http-example
+id: ba39daa2-e97f-53f0-ab56-557e19944f8d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/slurper/jobs?limit=16&offset=4405"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    limit: "16"
+    offset: "4405"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "success": false
+      }
+order: 2000

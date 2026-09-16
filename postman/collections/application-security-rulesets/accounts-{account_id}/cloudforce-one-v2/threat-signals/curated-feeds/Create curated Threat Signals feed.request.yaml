@@ -1,0 +1,36 @@
+$kind: http-request
+id: 46e0ab99-07a6-5333-a22a-d21e054da0d1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: rssCuratedFeedCreate
+  POST /accounts/{account_id}/cloudforce-one/v2/threat-signals/curated-feeds
+
+  Create curated Threat Signals feed.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/curated-feeds"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "url": "http://FNJVngrSTnpseVmNAnQgojDj.kbxonEPumq-7DGYzd8GtE-VPIHNrJ8UvrHx",
+      "name": "string",
+      "category": "string",
+      "display_order": 5747,
+      "is_active": true,
+      "why_valuable": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create curated Threat Signals feed.resources/examples
+order: 2000

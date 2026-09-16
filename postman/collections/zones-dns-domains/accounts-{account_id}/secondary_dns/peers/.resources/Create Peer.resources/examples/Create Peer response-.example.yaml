@@ -1,0 +1,29 @@
+$kind: http-example
+id: 825b8550-020a-5eba-81ed-3d12b1f92a48
+name: Create Peer response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/secondary_dns/peers"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "my-peer-1"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

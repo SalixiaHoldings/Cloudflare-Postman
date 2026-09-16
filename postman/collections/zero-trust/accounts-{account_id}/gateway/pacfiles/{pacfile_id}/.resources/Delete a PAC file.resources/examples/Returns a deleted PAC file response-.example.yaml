@@ -1,0 +1,22 @@
+$kind: http-example
+id: b1b486a6-89ac-5889-b0d7-a3b2eeb5d9cf
+name: Returns a deleted PAC file response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/pacfiles/{{pacfile_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {}
+      }
+order: 1000

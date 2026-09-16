@@ -1,0 +1,34 @@
+$kind: http-request
+id: b4ca9710-a82d-5e87-b90c-5e7b67070aa2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: origin-cloud-regions-v2-upsert
+  PUT /zones/{zone_id}/origin/cloud_regions/{origin_ip}
+
+  Creates a new IP-to-cloud-region mapping or replaces the existing mapping for the specified IP. PUT is idempotent — calling it repeatedly with the same body produces the same result. The IP path parameter is normalized to canonical form (RFC 5952 for IPv6) before storage. The vendor and region are validated against the list from `GET /zones/{zone_id}/origin/cloud_regions/supported_regions`. Returns 400 if the `origin_ip` in the body does not match the URL path parameter. Returns 403 (code 1164) when the zone has reached the limit of 3,500 IP mappings.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions/{{origin_ip}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "origin_ip": "192.0.2.1",
+      "region": "us-east-1",
+      "vendor": "aws"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create or replace an origin cloud region mapping.resources/examples
+order: 3000

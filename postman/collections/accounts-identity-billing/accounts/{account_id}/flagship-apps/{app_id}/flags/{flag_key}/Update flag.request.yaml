@@ -1,0 +1,71 @@
+$kind: http-request
+id: 6140c19e-97aa-5723-a66b-1700b8b33655
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: flagship_update_flag
+  PUT /accounts/{account_id}/flagship/apps/{app_id}/flags/{flag_key}
+
+  Replaces the entire flag definition. Omitted fields are dropped, not preserved — read before writing. Each update appends a changelog entry.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags/{{flag_key}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "key": "xt3nfXz",
+      "default_variation": "string",
+      "variations": {
+        "key_0": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "rules": [
+        {
+          "priority": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "conditions": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "serve_variation": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "rollout": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "priority": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "conditions": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "serve_variation": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "rollout": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ],
+      "enabled": true,
+      "description": "string",
+      "type": "json"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update flag.resources/examples
+order: 3000

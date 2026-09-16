@@ -1,0 +1,54 @@
+$kind: http-request
+id: 6727900c-9214-5066-9fa6-fa822124257d
+name: Create multiple prefixes.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: bulkCreatePrefixes
+  POST /accounts/{account_id}/magic/advanced_tcp_protection/configs/prefixes/bulk
+
+  Create multiple prefixes for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/prefixes/bulk"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    [
+      {
+        "prefix": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "comment": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "excluded": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      {
+        "prefix": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "comment": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "excluded": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create multiple prefixes-.resources/examples
+order: 4000

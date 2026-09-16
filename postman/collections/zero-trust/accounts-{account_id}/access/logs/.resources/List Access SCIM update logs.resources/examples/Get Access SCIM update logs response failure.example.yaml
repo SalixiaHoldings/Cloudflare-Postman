@@ -1,0 +1,66 @@
+$kind: http-example
+id: efe0271a-8bc9-5e9a-a579-dbaaea35a86a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/logs/scim/updates?limit=10&direction=desc&since=2025-01-01T00:00:00Z&until=2025-01-02T00:00:00Z&idp_id=df7e2w5f-02b7-4d9d-af26-8d1988fca630&idp_id=0194ae2c-efcf-7cfb-8884-055f1a161fa5&status=FAILURE&status=SUCCESS&resource_type=USER&resource_type=GROUP&request_method=DELETE&request_method=PATCH&resource_user_email=john.smith@example.com&resource_group_name=ALL_EMPLOYEES&cf_resource_id=bd97ef8d-7986-43e3-9ee0-c25dda33e4b0&idp_resource_id=all_employees&page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: limit
+      value: "10"
+    - key: direction
+      value: desc
+    - key: since
+      value: 2025-01-01T00:00:00Z
+    - key: until
+      value: 2025-01-02T00:00:00Z
+    - key: idp_id
+      value: df7e2w5f-02b7-4d9d-af26-8d1988fca630
+      description: "(Required) "
+    - key: idp_id
+      value: 0194ae2c-efcf-7cfb-8884-055f1a161fa5
+      description: "(Required) "
+    - key: status
+      value: FAILURE
+    - key: status
+      value: SUCCESS
+    - key: resource_type
+      value: USER
+    - key: resource_type
+      value: GROUP
+    - key: request_method
+      value: DELETE
+    - key: request_method
+      value: PATCH
+    - key: resource_user_email
+      value: john.smith@example.com
+    - key: resource_group_name
+      value: ALL_EMPLOYEES
+    - key: cf_resource_id
+      value: bd97ef8d-7986-43e3-9ee0-c25dda33e4b0
+    - key: idp_resource_id
+      value: all_employees
+    - key: page
+      value: "1"
+    - key: per_page
+      value: "20"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

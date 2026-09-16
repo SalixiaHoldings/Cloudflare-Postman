@@ -1,0 +1,46 @@
+$kind: http-request
+id: 3ece04d1-0960-5fc0-b410-f16bc33a3b58
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-static-routes-create-routes
+  POST /accounts/{account_id}/magic/routes
+
+  Creates a new Magic static route. Use `?validate_only=true` as an optional query parameter to run validation only without persisting changes.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/routes"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "prefix": "192.0.2.0/24",
+      "nexthop": "203.0.113.1",
+      "priority": 4332,
+      "description": "New route for new prefix 203.0.113.1",
+      "scope": {
+        "colo_names": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "colo_regions": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "weight": 8335
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a Route.resources/examples
+order: 3000

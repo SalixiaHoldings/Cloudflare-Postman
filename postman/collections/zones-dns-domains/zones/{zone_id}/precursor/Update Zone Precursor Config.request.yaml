@@ -1,0 +1,49 @@
+$kind: http-request
+id: bacf035f-fcf4-54d5-9276-5433b318aea1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: precursor-for-a-zone-update-config
+  PUT /zones/{zone_id}/precursor
+
+  Updates the Precursor configuration for a zone.
+
+  `default_mode` sets the zone-level enforcement mode. `enforcement_rules`
+  is the ordered list of rules that override enforcement for matching
+  requests.
+
+  This is a partial update: only the fields present in the request body
+  are changed.
+
+  - Sending an empty array (`[]`) clears all enforcement rules.
+  - At least one of `default_mode` or `enforcement_rules` must be present;
+    an empty body (`{}`) is rejected with `400`.
+  - Rule `id` is read-only (assigned by Cloudflare) and ignored on input.
+  - Rule `mode` must be `min-friction` or `max-security` (`off` is not a
+    valid rule mode; use `default_mode` to disable enforcement).
+  - Rule `expression` is limited to 4000 characters. The limit applies to
+    each rule individually, not to the combined size of all rules.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/precursor"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "default_mode": "min-friction"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Zone Precursor Config.resources/examples
+order: 2000

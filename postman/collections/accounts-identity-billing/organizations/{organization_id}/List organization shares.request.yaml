@@ -1,0 +1,59 @@
+$kind: http-request
+id: a4b2eece-994e-50af-9350-70b8b0a0b119
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: organization-shares-list
+  GET /organizations/{organization_id}/shares
+
+  Lists all organization shares.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/organizations/{{organization_id}}/shares?status=<string>&kind=<string>&target_type=<string>&resource_types=<string>&resource_types=<string>&order=created&direction=asc&page=2&per_page=20"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: status
+    value: <string>
+    description: Filter shares by status.
+  - key: kind
+    value: <string>
+    description: Filter shares by kind.
+  - key: target_type
+    value: <string>
+    description: Filter shares by target_type.
+  - key: resource_types
+    value: <string>
+    description: Filter share resources by resource_types.
+  - key: resource_types
+    value: <string>
+    description: Filter share resources by resource_types.
+  - key: order
+    value: created
+    description: Order shares by values in the given field.
+  - key: direction
+    value: asc
+    description: Direction to sort objects.
+  - key: page
+    value: "2"
+    description: |-
+      Page number. Defaults to `1` when `per_page` is supplied without
+      `page`. May be omitted entirely along with `per_page` to receive a
+      non-paginated response.
+  - key: per_page
+    value: "20"
+    description: |-
+      Number of objects to return per page. Defaults to `20` when `page`
+      is supplied without `per_page`. May be omitted entirely along with
+      `page` to receive a non-paginated response.
+auth:
+  type: noauth
+examples: ./.resources/List organization shares.resources/examples
+order: 9000

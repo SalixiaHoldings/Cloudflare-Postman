@@ -1,0 +1,35 @@
+$kind: http-example
+id: cfb7d8d6-44e6-5596-8676-8805b515673c
+name: List Hostname Associations response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/origin_tls_client_auth/hostnames?page=1&per_page=50&status=active"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "50"
+    status: active
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

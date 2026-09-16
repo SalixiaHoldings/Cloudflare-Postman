@@ -1,0 +1,25 @@
+$kind: http-request
+id: 335fe2af-1624-5fbe-bb73-f5abb24becfb
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-registration-override-codes
+  GET /accounts/{account_id}/devices/registrations/{registration_id}/override_codes
+
+  Fetches one-time use admin override codes for a registration. This relies on the **Admin Override** setting being enabled in your device configuration.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/devices/registrations/{{registration_id}}/override_codes"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get override codes.resources/examples
+order: 3000

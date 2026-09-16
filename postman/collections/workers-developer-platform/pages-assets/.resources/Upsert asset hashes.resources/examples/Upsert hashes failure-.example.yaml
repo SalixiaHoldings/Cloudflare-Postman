@@ -1,0 +1,38 @@
+$kind: http-example
+id: 11b8348c-543d-5473-81a8-6bf43a573e3d
+name: Upsert hashes failure.
+request:
+  url: "{{base_url}}/pages/assets/upsert-hashes"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "hashes": [
+          "a948904f2f0f479b8f936b8a0c5d9882",
+          "b026324c6904b2a9cb4b88d6d61c81d1"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

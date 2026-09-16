@@ -1,0 +1,101 @@
+$kind: http-example
+id: 4cc9bd22-7fb3-5bd4-868b-9bef3aca036d
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/bgp/routes/stats?asn=174&location=US&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: asn
+      value: "174"
+      description: Filters results by Autonomous System. Specify a single Autonomous System Number (ASN) as integer.
+    - key: location
+      value: US
+      description: Filters results by location. Specify an alpha-2 location code.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "stats": {
+            "distinct_origins": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "distinct_origins_ipv4": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "distinct_origins_ipv6": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "distinct_prefixes": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "distinct_prefixes_ipv4": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "distinct_prefixes_ipv6": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "routes_invalid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "routes_invalid_ipv4": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "routes_invalid_ipv6": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "routes_total": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "routes_total_ipv4": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "routes_total_ipv6": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "routes_unknown": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "routes_unknown_ipv4": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "routes_unknown_ipv6": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "routes_valid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "routes_valid_ipv4": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "routes_valid_ipv6": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "meta": {
+            "data_time": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "query_time": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "total_peers": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

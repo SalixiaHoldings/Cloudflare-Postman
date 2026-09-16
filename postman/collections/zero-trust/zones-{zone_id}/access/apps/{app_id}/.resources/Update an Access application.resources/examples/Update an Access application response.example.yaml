@@ -1,0 +1,25 @@
+$kind: http-example
+id: ce976504-75be-57bf-98a1-ed5e4d5ff5b4
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/apps/{{app_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "{}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

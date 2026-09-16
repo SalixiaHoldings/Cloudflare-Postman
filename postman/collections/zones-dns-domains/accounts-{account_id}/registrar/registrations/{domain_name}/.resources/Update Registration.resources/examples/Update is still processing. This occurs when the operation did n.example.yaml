@@ -1,0 +1,59 @@
+$kind: http-example
+id: c439c3ae-a9f6-5076-9f14-903135382eb2
+name: |
+  Update is still processing. This occurs when the operation did not
+  complete within the synchronous wait window, or when `Prefer: respond-async`
+  was sent. Poll the URL in `links.self` to track progress.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations/{{domain_name}}"
+  method: PATCH
+  headers:
+    - key: Prefer
+      value: respond-async
+      description: |
+        Set to `respond-async` to receive an immediate `202 Accepted` without
+        waiting for the operation to complete (RFC 7240).
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "auto_renew": false
+      }
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    - key: Location
+      value: string
+      description: URL of the workflow status resource (same as `links.self`).
+    - key: Preference-Applied
+      value: string
+      description: Set to `respond-async` when the server honored the preference.
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "completed": false,
+          "context": {
+            "domain_name": "example.com"
+          },
+          "created_at": "2025-10-27T10:00:00Z",
+          "links": {
+            "resource": "/accounts/abc/registrar/registrations/example.com",
+            "self": "/accounts/abc/registrar/registrations/example.com/update-status"
+          },
+          "state": "in_progress",
+          "updated_at": "2025-10-27T10:00:10Z"
+        },
+        "success": true
+      }
+order: 2000

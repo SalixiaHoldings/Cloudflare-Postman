@@ -1,0 +1,30 @@
+$kind: http-example
+id: 9261384b-c506-59f8-9609-a65c1ada4804
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/pay-per-crawl/configuration"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": "",
+        "success": true
+      }
+order: 2000

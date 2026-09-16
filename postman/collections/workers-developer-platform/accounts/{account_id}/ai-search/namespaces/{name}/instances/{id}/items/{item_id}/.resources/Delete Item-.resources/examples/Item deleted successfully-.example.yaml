@@ -1,0 +1,23 @@
+$kind: http-example
+id: eb06029e-6624-551a-a698-55785ac332cd
+name: Item deleted successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items/{{item_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "key": "string"
+        }
+      }
+order: 1000

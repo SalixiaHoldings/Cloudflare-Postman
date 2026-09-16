@@ -7,7 +7,7 @@ Thank you for helping maintain this independent Cloudflare Postman reference lib
 1. Use Node.js 24.
 2. Install with `npm ci`.
 3. Make changes in source, configuration, tests, or documentation—not directly in generated Postman artifacts.
-4. Run `npm run generate` when generation inputs change.
+4. Run `npm run generate` when generation inputs change; commit both `dist/v2.1/` and `postman/`. The pinned CLI is installed by `npm ci`. See [Native Git generation and compatibility policy](docs/native-git.md). Never commit `.postman/` workspace state.
 5. Run `npm run check` and include relevant results in the pull request.
 
 Every upstream HTTP operation must continue to be represented exactly once. New unclassified or duplicated operations are hard failures. A residual assignment must remain visible and should be narrowed when a stable product mapping is available.

@@ -1,0 +1,39 @@
+$kind: http-example
+id: 9e314a84-b6f2-505a-9e65-307393c8d6be
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps/{{onramp_id}}?destroy=true&force=true"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    destroy: "true"
+    force: "true"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": null,
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

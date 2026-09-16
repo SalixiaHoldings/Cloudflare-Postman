@@ -1,0 +1,32 @@
+$kind: http-request
+id: 95256df5-7562-5b4a-8b9c-840667b79ba0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: archive-security-center-insight-deprecated
+  PUT /accounts/{account_id}/intel/attack-surface-report/issues/{issue_id}/dismiss
+
+  Deprecated endpoint for archiving Security Center insights. Use the newer archive-security-center-insight endpoint instead.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/intel/attack-surface-report/issues/{{issue_id}}/dismiss"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "dismiss": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Archives Security Center Insight.resources/examples
+order: 5000

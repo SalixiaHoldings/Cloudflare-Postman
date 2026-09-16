@@ -1,0 +1,31 @@
+$kind: http-example
+id: b06f2c9e-67ea-5cd5-85ca-4919a76f4723
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/apps/{{app_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "{}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,101 @@
+$kind: http-request
+id: c733f7c0-3d92-5284-aa96-57d1193bd3b8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: put-zones-zone_identifier-zaraz-config
+  PUT /zones/{zone_id}/settings/zaraz/config
+
+  Updates Zaraz configuration for a zone.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/settings/zaraz/config"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "consent": {
+        "cookieName": "zaraz-consent",
+        "customIntroDisclaimerDismissed": true,
+        "enabled": false
+      },
+      "dataLayer": true,
+      "debugKey": "my-debug-key",
+      "settings": {
+        "autoInjectScript": true,
+        "ecommerce": true,
+        "initPath": "/i"
+      },
+      "tools": {
+        "aJvt": {
+          "actions": {
+            "hrnc": {
+              "actionType": "pageview",
+              "blockingTriggers": [],
+              "data": {
+                "__zaraz_setting_name": "Page view",
+                "ev": "PageView"
+              },
+              "firingTriggers": [
+                "Pageview"
+              ]
+            }
+          },
+          "component": "facebook-pixel",
+          "defaultFields": {
+            "testKey": "TEST123456"
+          },
+          "enabled": true,
+          "name": "Facebook Pixel",
+          "permissions": [
+            "access_client_kv"
+          ],
+          "settings": {
+            "accessToken": "{{accesstoken}}",
+            "ecommerce": true,
+            "property": "12345"
+          },
+          "type": "component"
+        }
+      },
+      "triggers": {
+        "ktBn": {
+          "Pageview": {
+            "clientRules": [],
+            "description": "All page loads",
+            "excludeRules": [],
+            "loadRules": [
+              {
+                "match": "{{ client.__zarazTrack }}",
+                "op": "EQUALS",
+                "value": "Pageview"
+              }
+            ],
+            "name": "Pageview",
+            "system": "pageload"
+          }
+        }
+      },
+      "variables": {
+        "Autd": {
+          "name": "ip",
+          "type": "string",
+          "value": "{{ system.device.ip }}"
+        }
+      },
+      "zarazVersion": 43
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Zaraz configuration.resources/examples
+order: 2000

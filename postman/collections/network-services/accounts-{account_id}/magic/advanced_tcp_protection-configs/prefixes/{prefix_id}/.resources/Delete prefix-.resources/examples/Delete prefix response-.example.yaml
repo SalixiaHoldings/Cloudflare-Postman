@@ -1,0 +1,22 @@
+$kind: http-example
+id: 44815c04-aac8-5fd8-834b-32cd2d8d0343
+name: Delete prefix response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/prefixes/{{prefix_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

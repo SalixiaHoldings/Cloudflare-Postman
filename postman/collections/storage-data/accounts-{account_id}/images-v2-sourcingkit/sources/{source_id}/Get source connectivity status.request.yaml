@@ -1,0 +1,25 @@
+$kind: http-request
+id: 0a89c4bc-1d86-5385-b998-0256f56a92ef
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-sourcingkit-get-source-connectivity
+  GET /accounts/{account_id}/images/v2/sourcingkit/sources/{source_id}/connectivity
+
+  Check the current connectivity status of an existing migration source.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/sources/{{source_id}}/connectivity"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get source connectivity status.resources/examples
+order: 4000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: 507b54d5-0986-5ddc-9420-e5197e1e5332
+name: Browser version information.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json/version"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "Browser": "string",
+        "Protocol-Version": "string",
+        "User-Agent": "string",
+        "V8-Version": "string",
+        "WebKit-Version": "string",
+        "webSocketDebuggerUrl": "string"
+      }
+order: 1000

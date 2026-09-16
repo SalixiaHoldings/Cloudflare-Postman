@@ -1,0 +1,46 @@
+$kind: http-example
+id: 8492fcb4-90d1-571f-b192-72e9e65ef70d
+name: Bad request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json/new?url=https://suweLcMthpYMXdZKmJUwbEtIOf.vumT0DRbzrkAcTZeOKiUVWHLwvoh.LmeIqeycCIFIQ3ie.pUJZuy&liveViewUrlExpiresInMs=300000"
+  method: PUT
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: url
+      value: https://suweLcMthpYMXdZKmJUwbEtIOf.vumT0DRbzrkAcTZeOKiUVWHLwvoh.LmeIqeycCIFIQ3ie.pUJZuy
+    - key: liveViewUrlExpiresInMs
+      value: "300000"
+      description: How long the live view URL remains valid, in milliseconds (max 60 minutes)
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

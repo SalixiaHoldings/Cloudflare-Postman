@@ -1,0 +1,47 @@
+$kind: http-example
+id: 086fbcfa-8c53-5a00-9f0a-19cd4114feef
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/ipsec_tunnels/psk?validate_only=true"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: validate_only
+      value: "true"
+      description: If `true`, only run validation without persisting changes.
+  body:
+    type: json
+    content: |-
+      {
+        "psks": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

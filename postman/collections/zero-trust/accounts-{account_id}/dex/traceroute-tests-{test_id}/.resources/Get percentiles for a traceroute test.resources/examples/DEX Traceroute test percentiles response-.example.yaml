@@ -1,0 +1,38 @@
+$kind: http-example
+id: 7aaf1dca-a9ab-5ec4-a603-777ab84bccf6
+name: DEX Traceroute test percentiles response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}/percentiles?deviceId=string&deviceId=string&from=2023-09-20T17:00:00Z&to=2023-09-20T17:00:00Z&colo=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: deviceId
+      value: string
+      description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+    - key: deviceId
+      value: string
+      description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+    - key: from
+      value: 2023-09-20T17:00:00Z
+      description: (Required) Start time for the query in ISO (RFC3339 - ISO 8601) format.
+    - key: to
+      value: 2023-09-20T17:00:00Z
+      description: (Required) End time for the query in ISO (RFC3339 - ISO 8601) format.
+    - key: colo
+      value: string
+      description: Optionally filter result stats to a Cloudflare colo. Cannot be used in combination with deviceId param.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

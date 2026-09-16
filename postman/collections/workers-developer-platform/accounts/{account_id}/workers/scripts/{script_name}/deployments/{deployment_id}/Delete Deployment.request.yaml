@@ -1,0 +1,25 @@
+$kind: http-request
+id: 56ff8c52-fc17-5b4c-8d03-e97735bf848b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: worker-deployments-delete-deployment
+  DELETE /accounts/{account_id}/workers/scripts/{script_name}/deployments/{deployment_id}
+
+  Delete a Worker Deployment. The latest deployment, which is actively serving traffic, cannot be deleted. All other deployments can be deleted.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/deployments/{{deployment_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete Deployment.resources/examples
+order: 1000

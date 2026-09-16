@@ -1,0 +1,35 @@
+$kind: http-example
+id: d7523533-8939-562c-8094-9f209ec6e994
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/hosts?page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      description: Maximum number of results per page.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

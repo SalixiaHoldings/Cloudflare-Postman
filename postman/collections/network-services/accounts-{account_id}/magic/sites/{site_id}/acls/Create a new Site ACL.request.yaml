@@ -1,0 +1,75 @@
+$kind: http-request
+id: 982d725a-0eb6-5b2f-86c7-70aee6b3e3f7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-site-acls-create-acl
+  POST /accounts/{account_id}/magic/sites/{site_id}/acls
+
+  Creates a new Site ACL.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/acls"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "PIN Pad - Cash Register",
+      "lan_1": {
+        "lan_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "lan_name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "port_ranges": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "ports": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "subnets": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "lan_2": {
+        "lan_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "lan_name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "port_ranges": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "ports": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "subnets": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "description": "Allows local traffic between PIN pads and cash register.",
+      "forward_locally": false,
+      "protocols": [
+        "tcp",
+        "udp"
+      ],
+      "unidirectional": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new Site ACL.resources/examples
+order: 2000

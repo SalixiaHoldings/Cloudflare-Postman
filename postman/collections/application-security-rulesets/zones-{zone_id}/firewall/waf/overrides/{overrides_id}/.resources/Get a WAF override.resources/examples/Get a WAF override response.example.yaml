@@ -1,0 +1,23 @@
+$kind: http-example
+id: 7ee9190d-4679-5e64-8850-8057437018d5
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/overrides/{{overrides_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

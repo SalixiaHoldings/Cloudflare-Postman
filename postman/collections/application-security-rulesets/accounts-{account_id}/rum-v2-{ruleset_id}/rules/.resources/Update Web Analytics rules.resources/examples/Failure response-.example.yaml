@@ -1,0 +1,80 @@
+$kind: http-example
+id: 66d71446-0d74-50cb-9722-b0f3dacabe95
+name: Failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/rum/v2/{{ruleset_id}}/rules"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "delete_rules": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "rules": [
+          {
+            "host": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "inclusive": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "is_paused": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "paths": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "host": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "inclusive": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "is_paused": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "paths": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

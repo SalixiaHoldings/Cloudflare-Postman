@@ -1,0 +1,22 @@
+$kind: http-example
+id: 3a57ba2b-5933-593d-ac54-227b5d4f0baf
+name: Get domain response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/domains/{{domain_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {}
+      }
+order: 1000

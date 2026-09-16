@@ -1,0 +1,64 @@
+$kind: http-example
+id: 245b6018-26d2-5500-a094-c3b0b01bfd57
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/export"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "output_format": "polling",
+        "current_bookmark": "string",
+        "dump_options": {
+          "no_data": false,
+          "no_schema": false,
+          "tables": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      }
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "at_bookmark": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "messages": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "status": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "success": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 2000

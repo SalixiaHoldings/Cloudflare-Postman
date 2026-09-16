@@ -1,0 +1,29 @@
+$kind: http-example
+id: ef7355a1-cddc-58e1-80fe-55fb48d44d8f
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/iam/user_groups/{{user_group_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

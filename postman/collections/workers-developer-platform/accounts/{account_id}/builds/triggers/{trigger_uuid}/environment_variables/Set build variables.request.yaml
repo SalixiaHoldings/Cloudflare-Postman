@@ -1,0 +1,36 @@
+$kind: http-request
+id: 5e688ef2-db30-5860-89b7-14776e5da9d0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: upsertEnvironmentVariables
+  PATCH /accounts/{account_id}/builds/triggers/{trigger_uuid}/environment_variables
+
+  Add or replace build-time variables and secrets without changing unspecified keys.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/builds/triggers/{{trigger_uuid}}/environment_variables"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "API_KEY": "{{api_key}}",
+      "NODE_ENV": {
+        "is_secret": "{{is_secret}}",
+        "value": "production"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Set build variables.resources/examples
+order: 2000

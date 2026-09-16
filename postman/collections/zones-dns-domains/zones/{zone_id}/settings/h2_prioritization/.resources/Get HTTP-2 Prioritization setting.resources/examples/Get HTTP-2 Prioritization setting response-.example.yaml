@@ -1,0 +1,31 @@
+$kind: http-example
+id: b3e44afc-0013-57a2-a873-50b248c5dc2c
+name: Get HTTP/2 Prioritization setting response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/h2_prioritization"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,24 @@
+$kind: http-example
+id: 6293d99e-6b54-5af2-9b93-4f78bc0ed676
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/logging-state"
+  method: PATCH
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "platform": "workers_observability",
+          "migrated_at": 8456,
+          "migration_available": true
+        }
+      }
+order: 1000

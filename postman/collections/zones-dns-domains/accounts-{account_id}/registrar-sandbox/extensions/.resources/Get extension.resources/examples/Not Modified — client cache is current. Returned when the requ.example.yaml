@@ -1,0 +1,17 @@
+$kind: http-example
+id: d6316c0c-bca3-5fb5-a09e-bbd28aeea11a
+name: Not Modified — client cache is current. Returned when the request includes an `If-None-Match` header matching the current ETag.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/extensions/{{extension}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 304
+  statusText: Not Modified
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

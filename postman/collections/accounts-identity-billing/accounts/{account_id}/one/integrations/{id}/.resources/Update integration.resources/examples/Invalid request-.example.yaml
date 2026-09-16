@@ -1,0 +1,27 @@
+$kind: http-example
+id: f7de9371-c7f8-5c44-9080-e47aa0b24cc3
+name: Invalid request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/one/integrations/{{id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "credentials": {
+          "access_token": "{{access_token}}",
+          "refresh_token": "{{refresh_token}}"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

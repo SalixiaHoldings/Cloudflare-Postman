@@ -1,0 +1,67 @@
+$kind: http-request
+id: 4223f4ab-8c21-54de-8dab-a5e0e8c5ffbb
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone.observability.tracing.rules.update
+  PUT /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/rules
+
+  Replace all sampling overrides in a zone's managed Cloudflare Traces ruleset. Rules are evaluated in the supplied order.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/zones/{{zone_id}}/observability/tracing/rules"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "rules": [
+        {
+          "action": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "action_parameters": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "expression": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "action": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "action_parameters": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "expression": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Replace zone trace rules.resources/examples
+order: 2000

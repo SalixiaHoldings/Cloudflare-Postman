@@ -1,0 +1,102 @@
+$kind: http-request
+id: 3c9d5046-611f-5207-81f4-5858f835ed01
+description: |-
+  
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts?per_page=50&page={{_cf_bootstrap_account_page}}"
+method: GET
+headers:
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  per_page: "50"
+  page: "{{_cf_bootstrap_account_page}}"
+auth:
+  type: noauth
+scripts:
+  - type: beforeRequest
+    code: |-
+      function initialPageState(selectors) {
+        return { page: 1, totalPages: null, totalCount: null, items: [], selectors };
+      }
+      if (!pm.variables.get('_cf_bootstrap_account_state')) {
+        const state = initialPageState({ id: pm.variables.get('account_id'), name: pm.variables.get('account_name') });
+        pm.variables.set('_cf_bootstrap_account_state', JSON.stringify(state));
+        pm.variables.set('_cf_bootstrap_account_page', 1);
+      }
+    language: text/javascript
+  - type: afterResponse
+    code: |-
+      function acceptResourcePage(state, envelope) {
+        if (envelope?.success !== true || !Array.isArray(envelope.result)) throw new Error('Invalid listing response envelope.');
+        const info = envelope.result_info;
+        if (!info || !Number.isInteger(info.page) || info.page !== state.page ||
+            !Number.isInteger(info.total_pages) || info.total_pages < 0 || info.total_pages > 1000 ||
+            (info.total_pages < state.page && !(state.page === 1 && info.total_pages === 0 && envelope.result.length === 0)) ||
+            info.per_page !== 50 || envelope.result.length > 50 ||
+            (info.count !== undefined && info.count !== envelope.result.length)) {
+          throw new Error('Invalid pagination metadata or exceeded 1000-page bound.');
+        }
+        const totalCount = info.total_count ?? null;
+        if (totalCount !== null && (!Number.isInteger(totalCount) || totalCount < 0)) throw new Error('Invalid pagination total count.');
+        if (state.totalPages !== null && (state.totalPages !== info.total_pages || state.totalCount !== totalCount)) {
+          throw new Error('Pagination totals changed during listing; retry the bootstrap.');
+        }
+        state.totalPages = info.total_pages;
+        state.totalCount = totalCount;
+        const seen = new Set(state.items.map((item) => item.id));
+        for (const item of envelope.result) {
+          if (!item || typeof item.id !== 'string' || !item.id || seen.has(item.id)) throw new Error('Invalid or repeated resource ID across pages.');
+          seen.add(item.id);
+          state.items.push({ id: item.id, name: item.name });
+        }
+        const done = state.page >= state.totalPages;
+        if (!done && envelope.result.length === 0) throw new Error('Empty intermediate resource page.');
+        if (done && state.totalCount !== null && state.totalCount !== state.items.length) throw new Error('Incomplete paginated result set.');
+        if (!done) state.page += 1;
+        return done;
+      }
+      function resolveUniqueResource(items, { id, name, label }) {
+        let matches = items;
+        if (id) matches = matches.filter((item) => item.id === id);
+        if (!id && name) matches = matches.filter((item) => item.name === name);
+        if (matches.length === 0) {
+          throw new Error(`${label} resolution returned no matches. Set a valid ${label.toLowerCase()} ID or name.`);
+        }
+        if (matches.length > 1) {
+          throw new Error(
+            `${label} resolution is ambiguous (${matches.length} matches). Set an explicit ${label.toLowerCase()} ID or unique name.`
+          );
+        }
+        return matches[0];
+      }
+      try {
+        if (pm.response.code !== 200) throw new Error('Resource listing returned non-200 HTTP status.');
+        const state = JSON.parse(pm.variables.get('_cf_bootstrap_account_state'));
+        const done = acceptResourcePage(state, pm.response.json());
+        if (!done) {
+          pm.variables.set('_cf_bootstrap_account_state', JSON.stringify(state));
+          pm.variables.set('_cf_bootstrap_account_page', state.page);
+          pm.execution.setNextRequest(pm.info.requestId);
+        } else {
+          const resolved = resolveUniqueResource(state.items, { ...state.selectors, label: 'Account' });
+          pm.collectionVariables.set('account_id', resolved.id);
+          pm.environment.set('account_id', resolved.id);
+          pm.variables.set('account_id', resolved.id);
+          pm.variables.unset('_cf_bootstrap_account_state');
+          pm.variables.set('_cf_bootstrap_account_page', 1);
+          pm.execution.setNextRequest("3. List and resolve zone");
+        }
+      } catch (error) {
+        pm.execution.setNextRequest(null);
+        pm.variables.unset('_cf_bootstrap_account_state');
+        pm.variables.set('_cf_bootstrap_account_page', 1);
+        throw error;
+      }
+    language: text/javascript
+order: 2000

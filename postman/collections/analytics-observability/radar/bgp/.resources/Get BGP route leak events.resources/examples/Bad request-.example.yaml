@@ -1,0 +1,72 @@
+$kind: http-example
+id: 9a302b39-753f-5ec6-ae65-1297ef7cd8d5
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/bgp/leaks/events?page=1&per_page=50&eventId=592&leakAsn=9674&involvedAsn=8770&involvedCountry=PT&dateRange=7d&dateStart=2023-09-01T11:41:33.782Z&dateEnd=2023-09-01T11:41:33.782Z&sortBy=TIME&sortOrder=DESC&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      description: Current page number, starting from 1.
+    - key: per_page
+      value: "50"
+      description: Number of entries per page.
+    - key: eventId
+      value: "592"
+      description: The unique identifier of a event.
+    - key: leakAsn
+      value: "9674"
+      description: The leaking AS of a route leak event.
+    - key: involvedAsn
+      value: "8770"
+      description: ASN that is causing or affected by a route leak event.
+    - key: involvedCountry
+      value: PT
+      description: Country code of a involved ASN in a route leak event.
+    - key: dateRange
+      value: 7d
+      description: "Filters results by a relative date range ending at the current time. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`), e.g. `7d`. Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `3dcontrol` covers days -10 to -7, `7dcontrol` covers days -14 to -7, `28dcontrol` covers days -56 to -28, and `10dcontrol` covers days -24 to -14). Mutually exclusive with `dateStart`/`dateEnd`."
+    - key: dateStart
+      value: 2023-09-01T11:41:33.782Z
+      description: Start of the date range (inclusive). Alternative to `dateRange`; provide together with `dateEnd`.
+    - key: dateEnd
+      value: 2023-09-01T11:41:33.782Z
+      description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`.
+    - key: sortBy
+      value: TIME
+      description: Sorts results by the specified field.
+    - key: sortOrder
+      value: DESC
+      description: Sort order.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

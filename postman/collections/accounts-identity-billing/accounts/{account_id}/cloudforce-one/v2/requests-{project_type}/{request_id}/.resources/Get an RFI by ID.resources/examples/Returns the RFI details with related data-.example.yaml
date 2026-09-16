@@ -1,0 +1,49 @@
+$kind: http-example
+id: 2f25a51a-01ac-51e4-bb6d-93438df4d68b
+name: Returns the RFI details with related data.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "4c27f9a8-6050-41a7-bc8a-b417641e646d",
+        "created": "2025-09-03T00:35:11.194629Z",
+        "updated": "2025-09-03T19:45:47.412319Z",
+        "completed": "1990-01-08T19:24:32.013Z",
+        "account": {
+          "id": "ab6b12f7ff92ba7a4d00c306ea7361aa",
+          "name": "JPMC",
+          "anniversary": "2024-12-30T17:31:04.914016Z"
+        },
+        "assignee": "juliette@cloudflare.com",
+        "investigation_id": "75a73d09-5938-4544-aeba-ab791dcdb445",
+        "is_free_request": false,
+        "message_tokens": 7094.871231820434,
+        "priority": "high",
+        "readable_id": "RFI-2025-000014",
+        "release_entitlements": "string",
+        "report_id": "00000000-0000-0000-0000-000000000000",
+        "request": {
+          "category": "Threat Research",
+          "name": "Traffic Analysis - IOCs",
+          "result": "Indicators of Compromise",
+          "source": "string",
+          "request_tokens": 6,
+          "response_tokens": 3,
+          "message_tokens": 2
+        },
+        "status": "accepted",
+        "summary": "RFI on jpmorgan-access[.]com",
+        "tlp": "red",
+        "tokens": 9
+      }
+order: 1000

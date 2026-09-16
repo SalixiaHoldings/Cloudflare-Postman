@@ -1,0 +1,27 @@
+$kind: http-example
+id: a2cc0449-b555-58d0-a247-1c694ce9e03f
+name: Return a snippet response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/snippets/{{snippet_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": true,
+        "errors": [],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

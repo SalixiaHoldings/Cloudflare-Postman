@@ -1,0 +1,55 @@
+$kind: http-example
+id: 7fecc374-bd9c-5e91-9566-919a3c9c4ed4
+name: Internal server error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}?keep_alive=60000&lab=false&recording=false"
+  method: GET
+  headers:
+    - key: cf-brapi-guardrails
+      value: eyJtb2RlIjoicmVhZG9ubHkifQ
+      description: Optional base64url-encoded JSON connection guardrails (mode)
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+  queryParams:
+    - key: keep_alive
+      value: "60000"
+      description: Keep-alive time in ms (only valid when acquiring new session).
+    - key: lab
+      value: "false"
+      description: Use experimental browser.
+    - key: recording
+      value: "false"
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 4000

@@ -1,0 +1,52 @@
+$kind: http-example
+id: 83910f5f-3bfb-5551-bb0f-e63542802bf7
+name: Get status of the job responsible for terminate all instances of a workflow.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/terminate"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": {
+          "status": "not_running"
+        },
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 2920.6209047697484,
+          "count": 9140.935058239847,
+          "total_count": 7616.705528926104,
+          "cursor": "string",
+          "page": 7664.276668801904,
+          "total_pages": 9141.37801155448
+        }
+      }
+order: 1000

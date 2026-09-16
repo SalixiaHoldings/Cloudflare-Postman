@@ -1,0 +1,33 @@
+$kind: http-request
+id: 30986a47-581c-5ba1-9ef9-55e25188d8e4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-config-list-account-provider-cost
+  GET /accounts/{account_id}/ai-gateway/custom-providers/costs
+
+  Lists all AI Gateway evaluator types configured for the account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/custom-providers/costs?page=1&per_page=20&enable=true&account_provider_id=beeedb43-a733-4059-bf54-c4b8fcf317c9&model_rule=equals&cost_type=tokens&search=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  page: "1"
+  per_page: "20"
+  enable: "true"
+  account_provider_id: beeedb43-a733-4059-bf54-c4b8fcf317c9
+  model_rule: equals
+  cost_type: tokens
+  search: string
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Account Provider Costs.resources/examples
+order: 1000

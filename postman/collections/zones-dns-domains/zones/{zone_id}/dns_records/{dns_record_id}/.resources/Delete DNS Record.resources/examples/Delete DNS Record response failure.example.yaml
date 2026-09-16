@@ -1,0 +1,36 @@
+$kind: http-example
+id: 145e2ab2-b561-5981-ad36-3fe24571a029
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dns_records/{{dns_record_id}}"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: ""
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 2000

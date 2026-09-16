@@ -1,0 +1,22 @@
+$kind: http-example
+id: 5ac1bceb-6567-5b02-b3b6-e60b86d57180
+name: Retrieve the DCV Delegation unique identifier response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dcv_delegation/uuid"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

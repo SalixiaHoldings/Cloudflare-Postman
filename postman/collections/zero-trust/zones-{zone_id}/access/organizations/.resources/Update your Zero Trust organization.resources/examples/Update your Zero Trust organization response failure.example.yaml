@@ -1,0 +1,55 @@
+$kind: http-example
+id: 67b025ae-f0f5-5940-b8c6-e974963df65e
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/organizations"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "auth_domain": "test.cloudflareaccess.com",
+        "is_ui_read_only": false,
+        "login_design": {
+          "background_color": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "footer_text": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "header_text": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "logo_path": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "text_color": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "name": "Widget Corps Internal Applications",
+        "ui_read_only_toggle_reason": "Temporarily turn off the UI read only lock to make a change via the UI",
+        "user_seat_expiration_inactive_time": "720h"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

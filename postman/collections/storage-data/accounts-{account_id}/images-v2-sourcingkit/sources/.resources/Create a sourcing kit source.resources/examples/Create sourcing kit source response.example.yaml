@@ -1,0 +1,32 @@
+$kind: http-example
+id: b4cddfc5-2c42-5795-a5d4-d062510deb43
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/sources"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "my-s3-bucket",
+        "bucket": "my-images-bucket",
+        "vendor": "s3",
+        "secret": "{{secret}}",
+        "account": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

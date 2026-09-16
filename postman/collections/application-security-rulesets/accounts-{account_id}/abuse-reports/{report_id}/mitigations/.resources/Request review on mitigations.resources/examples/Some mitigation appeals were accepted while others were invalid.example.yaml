@@ -1,0 +1,58 @@
+$kind: http-example
+id: 22a1dc57-b043-51a1-a75f-fbec24da9722
+name: Some mitigation appeals were accepted while others were invalid or cannot be appealed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/{{report_id}}/mitigations/appeal"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "appeals": 6400
+      }
+response:
+  statusCode: 207
+  statusText: Multi-Status (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result_info": {
+          "page": 5330.302999354899,
+          "per_page": 1123.0070632882416,
+          "count": 3837.6287813298404,
+          "total_count": 3755.7920231483877,
+          "total_pages": 1210.1946747861803
+        },
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 2000

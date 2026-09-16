@@ -1,0 +1,53 @@
+$kind: http-example
+id: ea497e67-7563-5c30-9779-1fdc8acfa62e
+name: List tag key summary response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/tags/summary?cursor=eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cursor
+      value: eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ
+      description: Cursor for pagination.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          {
+            "key": "environment",
+            "values": [
+              "production",
+              "staging"
+            ]
+          },
+          {
+            "key": "team",
+            "values": [
+              "engineering",
+              "platform"
+            ]
+          }
+        ],
+        "result_info": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: 00878463-4e54-57c2-a155-7d814a753c8a
+name: Returns the tag category.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/categories/{{category_uuid}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "name": "Actor",
+        "createdAt": "string",
+        "description": "string",
+        "schema": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "updatedAt": "string"
+      }
+order: 1000

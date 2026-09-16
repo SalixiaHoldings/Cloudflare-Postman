@@ -1,0 +1,34 @@
+$kind: http-example
+id: d5877e74-3307-5aee-9dad-e1cd4524a96c
+name: Add buckets for full packet captures response failure (server error).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pcaps/ownership"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "destination_conf": "s3://pcaps-bucket?region=us-east-1"
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "result": null
+      }
+order: 3000

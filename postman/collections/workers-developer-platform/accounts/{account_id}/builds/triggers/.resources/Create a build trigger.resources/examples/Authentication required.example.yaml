@@ -1,0 +1,51 @@
+$kind: http-example
+id: fac3487d-e54b-5de8-9fd3-26dd6253c388
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/triggers"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "external_script_id": "dd7160bb9cef458093557736f4b9e75b",
+        "build_token_uuid": "{{build_token_uuid}}",
+        "trigger_name": "Production Deploy",
+        "build_command": "npm run build",
+        "deploy_command": "npx wrangler deploy",
+        "root_directory": "/",
+        "branch_includes": [
+          "main"
+        ],
+        "branch_excludes": [],
+        "path_includes": [
+          "*"
+        ],
+        "path_excludes": [
+          "*.md"
+        ],
+        "repo_connection_uuid": "<uuid>",
+        "build_caching_enabled": false
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12005,
+            "message": "Missing token from authorization header"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

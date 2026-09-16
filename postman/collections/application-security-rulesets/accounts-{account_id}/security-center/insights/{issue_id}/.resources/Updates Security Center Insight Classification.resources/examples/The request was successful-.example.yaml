@@ -1,0 +1,28 @@
+$kind: http-example
+id: a427fc19-0e80-5e57-a7d8-38ff62c8976b
+name: The request was successful.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/security-center/insights/{{issue_id}}/classification"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "classification": "false_positive",
+        "rationale": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+order: 1000

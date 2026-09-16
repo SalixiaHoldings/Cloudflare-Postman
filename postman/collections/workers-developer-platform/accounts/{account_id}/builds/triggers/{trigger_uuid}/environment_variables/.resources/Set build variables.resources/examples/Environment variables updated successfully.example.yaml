@@ -1,0 +1,44 @@
+$kind: http-example
+id: 5e6ad431-3dd6-5ab9-97cc-e0c5839f5187
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/triggers/{{trigger_uuid}}/environment_variables"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "API_KEY": "{{api_key}}",
+        "NODE_ENV": {
+          "is_secret": "{{is_secret}}",
+          "value": "production"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result_info": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

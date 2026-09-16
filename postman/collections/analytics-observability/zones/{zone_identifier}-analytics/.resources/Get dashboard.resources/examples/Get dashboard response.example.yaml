@@ -1,0 +1,30 @@
+$kind: http-example
+id: 6d8441e1-e5cc-54a4-993f-92a2ebdad5c0
+request:
+  url: "{{base_url}}/zones/{{zone_identifier}}/analytics/dashboard?until=<string>&since=string&continuous=true"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    until: <string>
+    since: string
+    continuous: "true"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "query": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,80 @@
+$kind: http-example
+id: 7d01a4bc-ea00-57a2-888a-b4a67dc08ed1
+name: Returns the indicator.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators/{{indicator_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "indicatorType": "domain",
+        "value": "malicious-domain.com",
+        "createdAt": "2022-04-01T00:00:00Z",
+        "updatedAt": "2022-04-01T00:00:00Z",
+        "datasetId": "dataset-uuid-123",
+        "relatedEvents": [
+          {
+            "datasetId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "eventId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "eventDate": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "datasetId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "eventId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "eventDate": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "categoryId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "categoryName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "categoryId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "categoryName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "tlp": "AMBER"
+      }
+order: 1000

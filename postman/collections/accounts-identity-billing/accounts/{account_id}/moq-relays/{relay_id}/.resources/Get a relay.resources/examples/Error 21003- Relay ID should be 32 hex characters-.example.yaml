@@ -1,0 +1,28 @@
+$kind: http-example
+id: 25ab1730-c351-56f2-9faf-756461ae5cf6
+name: "Error 21003: Relay ID should be 32 hex characters."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/moq/relays/{{relay_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 21007,
+            "message": "A MoQ relay with this ID was not found."
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

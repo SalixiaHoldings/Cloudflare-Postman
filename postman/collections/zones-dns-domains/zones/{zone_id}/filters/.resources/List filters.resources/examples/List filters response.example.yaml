@@ -1,0 +1,36 @@
+$kind: http-example
+id: eef2ff18-f27b-59e5-8bb2-5c0d3a4c2a6c
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/filters?paused=false&expression=php&description=browsers&ref=FIL-100&page=1&per_page=25&id=372e67954025e0ba6aaa6d586b9e0b61"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    paused: "false"
+    expression: php
+    description: browsers
+    ref: FIL-100
+    page: "1"
+    per_page: "25"
+    id: 372e67954025e0ba6aaa6d586b9e0b61
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

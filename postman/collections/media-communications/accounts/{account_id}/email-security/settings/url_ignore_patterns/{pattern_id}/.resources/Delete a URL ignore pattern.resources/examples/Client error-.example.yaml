@@ -1,0 +1,28 @@
+$kind: http-example
+id: 8937c391-ce87-5322-a6a3-23ed33e25337
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/url_ignore_patterns/{{pattern_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

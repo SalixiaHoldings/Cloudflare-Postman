@@ -1,0 +1,37 @@
+$kind: http-example
+id: 1fd6644b-2b4e-59ae-aca8-e20a1794105a
+name: Delete IPFS Universal Path Gateway Content List Entry error response (4XX).
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/web3/hostnames/{{identifier}}/ipfs_universal_path/content_list/entries/{{content_list_entry_identifier}}"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: ""
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

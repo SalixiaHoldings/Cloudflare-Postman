@@ -1,0 +1,22 @@
+$kind: http-example
+id: dc00015e-5420-574e-89fa-f841a234053b
+name: Health Check Details response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/smart_shield/healthchecks/{{healthcheck_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

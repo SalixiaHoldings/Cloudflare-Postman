@@ -1,0 +1,22 @@
+$kind: http-example
+id: c6cf5f5c-3e81-51fc-9fc0-223e5dda8572
+name: Delete all TCP Flow Protection filters response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/tcp_flow_protection/filters"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

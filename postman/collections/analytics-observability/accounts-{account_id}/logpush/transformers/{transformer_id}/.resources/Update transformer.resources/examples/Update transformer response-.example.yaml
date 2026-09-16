@@ -1,0 +1,33 @@
+$kind: http-example
+id: 8c9629ae-2ef9-5b91-a1c4-2ca6a1ad682b
+name: Update transformer response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logpush/transformers/{{transformer_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "redact-pii",
+        "code": "SELECT ClientIP, RayID FROM http_requests",
+        "description": "Redacts PII fields from HTTP request logs."
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

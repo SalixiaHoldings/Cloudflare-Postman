@@ -1,0 +1,26 @@
+$kind: http-example
+id: 90e1ef65-9b50-551f-9bb9-c6163e3cb63b
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dns_records/scan/review"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

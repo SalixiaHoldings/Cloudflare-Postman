@@ -1,0 +1,45 @@
+$kind: http-request
+id: 04bef986-3504-56bb-bbcd-cf6c67fc4923
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: queues-update-consumer
+  PUT /accounts/{account_id}/queues/{queue_id}/consumers/{consumer_id}
+
+  Updates the consumer for a queue, or creates one if it does not exist.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/queues/{{queue_id}}/consumers/{{consumer_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "type": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "script_name": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "dead_letter_queue": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "settings": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Queue Consumer.resources/examples
+order: 3000

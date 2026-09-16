@@ -1,0 +1,18 @@
+$kind: http-example
+id: 5aa241dd-1927-552d-9cba-05836c742f95
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence?page=1&per_page=20"
+  method: GET
+  queryParams:
+    page: "1"
+    per_page: "20"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

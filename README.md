@@ -8,8 +8,8 @@ An independent, Salixia-maintained distribution of modular Postman collections g
 2. Open Postman.
 3. Click **Import**.
 4. Choose **Files** (or the file picker in the import window).
-5. Import one or more collection files from `postman/reference/`; use the table below to choose.
-6. Import `postman/environments/cloudflare.template.postman_environment.json`.
+5. Import one or more collection files from `dist/v2.1/reference/`; use the table below to choose.
+6. Import `dist/v2.1/environments/cloudflare.template.postman_environment.json`.
 7. Select the imported **Cloudflare API — Template** environment.
 8. Add your Cloudflare credential values locally; normally begin with `api_token`.
 9. Set `account_id` and/or `zone_id` when the request requires them, along with any other request parameters.
@@ -17,9 +17,18 @@ An independent, Salixia-maintained distribution of modular Postman collections g
 
 Keep populated environments local/private. Do not commit them or export them publicly.
 
+## Local Mode / Native Git (Postman v12+)
+
+1. Clone this repository and open its root in Postman desktop.
+2. Switch to **Local View**.
+3. Use the generated collections and template environment under `postman/`.
+4. Set credential and resource values only in your private local environment.
+
+Local Mode does **not** require connecting or pushing to Postman Cloud. A cloud workspace binding is optional; its `.postman/resources.yaml` stays local and ignored. See [Native Git usage and generation](docs/native-git.md).
+
 ## Which collection should I import?
 
-Files below are in `postman/reference/` and end in `.postman_collection.json`.
+Files below are in `dist/v2.1/reference/` and end in `.postman_collection.json`.
 
 | File basename | Common uses |
 | --- | --- |
@@ -42,7 +51,7 @@ Read the request's authentication notice before sending it. See the [detailed au
 
 ## Optional account/zone bootstrap
 
-Import `postman/workflows/bootstrap.postman_collection.json` to verify a token and resolve account/zone IDs. Run the **whole collection from its first request in Collection Runner**, not individual Send requests, so pagination works.
+Import `dist/v2.1/workflows/bootstrap.postman_collection.json` to verify a token and resolve account/zone IDs. Run the **whole collection from its first request in Collection Runner**, not individual Send requests, so pagination works.
 
 The pinned account-list operation requires local `api_email` and `api_key` values; token verification and zone listing use `api_token`. If you do not want to supply legacy credentials, set account/zone IDs manually and use token-supported reference requests. See [bootstrap details](docs/architecture.md#paginated-postman-bootstrap).
 

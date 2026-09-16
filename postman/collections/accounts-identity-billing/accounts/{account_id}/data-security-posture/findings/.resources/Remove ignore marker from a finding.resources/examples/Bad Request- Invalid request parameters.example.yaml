@@ -1,0 +1,26 @@
+$kind: http-example
+id: ea8cde56-a279-52b6-a401-db27377ff31d
+name: "Bad Request: Invalid request parameters"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/unignore"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "checks": [
+          "MDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxOjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMgo="
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

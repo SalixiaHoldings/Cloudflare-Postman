@@ -1,0 +1,57 @@
+$kind: http-example
+id: 92a61df4-1d3f-554d-aefd-3c1b3598cbe5
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/entities/locations?limit=5&offset=3789&location=US,CA&region=Middle East&subregion=Southern Europe&continent=EU&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: limit
+      value: "5"
+      description: Limits the number of objects returned in the response.
+    - key: offset
+      value: "3789"
+      description: Skips the specified number of objects before fetching the results.
+    - key: location
+      value: US,CA
+      description: Filters results by location. Specify a comma-separated list of alpha-2 location codes.
+    - key: region
+      value: Middle East
+      description: Filters results by region.
+    - key: subregion
+      value: Southern Europe
+      description: Filters results by subregion.
+    - key: continent
+      value: EU
+      description: Filters results by continent code.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: 7ff2b088-628d-5c52-abb4-cc1a03bfe0bb
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/takedown-notices"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domain": "string",
+        "matchId": 8083,
+        "matchType": "logo",
+        "queryId": 2748,
+        "status": "draft"
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

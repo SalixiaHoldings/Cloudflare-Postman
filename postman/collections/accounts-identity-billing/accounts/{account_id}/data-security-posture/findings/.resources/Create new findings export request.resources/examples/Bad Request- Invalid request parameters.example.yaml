@@ -1,0 +1,47 @@
+$kind: http-example
+id: 983dc2e8-4814-5715-ace2-ad1dde87e0ad
+name: "Bad Request: Invalid request parameters"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/export"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "ignored": true,
+        "integration_id": [
+          "55d7337e-1d0a-49fc-9826-925ba40df035"
+        ],
+        "max_affliction_date": "2019-08-24T14:15:22Z",
+        "min_affliction_date": "2018-08-24T14:15:22Z",
+        "orders": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "product": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "search": "public access",
+        "severities": [
+          "CRITICAL"
+        ],
+        "vendors": [
+          "AWS"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

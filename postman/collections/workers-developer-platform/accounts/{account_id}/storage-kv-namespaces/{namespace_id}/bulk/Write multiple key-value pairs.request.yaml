@@ -1,0 +1,63 @@
+$kind: http-request
+id: 9bf2f16d-ac60-57f7-9fe9-11bd63f6ea49
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers-kv-namespace-write-multiple-key-value-pairs
+  PUT /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk
+
+  Write multiple keys and values at once. Body should be an array of up to 10,000 key-value pairs to be stored, along with optional expiration information. Existing values and expirations will be overwritten. If neither `expiration` nor `expiration_ttl` is specified, the key-value pair will never expire. If both are set, `expiration_ttl` is used and `expiration` is ignored. The entire request size must be 100 megabytes or less.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}/bulk"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    [
+      {
+        "key": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "value": "Some string",
+        "base64": false,
+        "expiration": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "expiration_ttl": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "metadata": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      {
+        "key": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "value": "Some string",
+        "base64": false,
+        "expiration": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "expiration_ttl": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "metadata": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Write multiple key-value pairs.resources/examples
+order: 2000

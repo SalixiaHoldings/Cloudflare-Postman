@@ -1,0 +1,57 @@
+$kind: http-request
+id: 9c7e6348-2027-5216-a41a-da842e877fc9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: domain-intelligence-get-multiple-domain-details
+  GET /accounts/{account_id}/intel/domain/bulk
+
+  Returns security details and statistics about multiple domains in a
+  single request.
+
+  **Behavior change — domain ranking is becoming opt-in.** This endpoint
+  previously included domain ranking data in every response and accepted
+  a `skip_ranking=true` query parameter to opt out. That parameter is
+  being deprecated and ranking will no longer be returned by default.
+  Callers that want ranking data must pass `include_ranking=true`. The
+  `skip_ranking` parameter will be silently ignored once the change ships.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/intel/domain/bulk?domain=string&domain=string&include_ranking=false&skip_ranking=true"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: domain
+    value: string
+    description: Accepts multiple values like `?domain=cloudflare.com&domain=example.com`.
+  - key: domain
+    value: string
+    description: Accepts multiple values like `?domain=cloudflare.com&domain=example.com`.
+  - key: include_ranking
+    value: "false"
+    description: |
+      Whether to include domain ranking data in the response. Defaults to
+      `false` — ranking lookups are expensive at bulk scale and most
+      callers do not need them. Set to `true` to opt in. This parameter
+      replaces the deprecated `skip_ranking` (see below).
+  - key: skip_ranking
+    value: "true"
+    description: |
+      **Deprecated.** Previously controlled whether the ranking lookup
+      was skipped (defaulted to `false`, meaning ranking ran). The
+      endpoint's default behavior is being flipped — ranking is now
+      opt-in via `include_ranking=true` — and this parameter will be
+      silently ignored. Remove it from your callers and use
+      `include_ranking` instead.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Multiple Domain Details.resources/examples
+order: 2000

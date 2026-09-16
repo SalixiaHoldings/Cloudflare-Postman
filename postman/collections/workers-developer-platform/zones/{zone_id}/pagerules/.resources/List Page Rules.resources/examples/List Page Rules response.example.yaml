@@ -1,0 +1,40 @@
+$kind: http-example
+id: c1826cb9-e59f-56d9-a107-3b678f3a2dd8
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/pagerules?order=status&direction=desc&match=all&status=active"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    order: status
+    direction: desc
+    match: all
+    status: active
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

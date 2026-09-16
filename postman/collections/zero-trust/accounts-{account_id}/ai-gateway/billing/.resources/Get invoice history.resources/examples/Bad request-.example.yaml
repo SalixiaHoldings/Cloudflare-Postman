@@ -1,0 +1,43 @@
+$kind: http-example
+id: 0595e871-254c-5f88-8660-106aef7c3e9e
+name: Bad request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/invoice-history?type=all"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: type
+      value: all
+      description: "Filter invoice type: auto, manual, or all."
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

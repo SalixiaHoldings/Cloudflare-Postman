@@ -1,0 +1,41 @@
+$kind: http-request
+id: f7e6b8ac-f713-5b18-bfa5-5df4ea9e88f3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_publicBulkCreateSendingSuppressions
+  POST /accounts/{account_id}/email/sending/suppressions/bulk
+
+  Imports up to 1,000 account-level Email Sending suppressions in one request.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions/bulk"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "items": [
+        {
+          "email": "user@example.com"
+        },
+        {
+          "email": "other@example.com",
+          "expires_at": "2027-01-01T00:00:00Z",
+          "note": "Imported from CRM"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Bulk import account Email Sending suppressions.resources/examples
+order: 3000

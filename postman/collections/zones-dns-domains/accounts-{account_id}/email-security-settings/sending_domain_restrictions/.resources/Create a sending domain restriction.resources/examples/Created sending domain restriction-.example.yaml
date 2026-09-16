@@ -1,0 +1,37 @@
+$kind: http-example
+id: 3809a335-ec6e-5e84-9bba-637bbc465ef0
+name: Created sending domain restriction.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/sending_domain_restrictions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domain": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "exclude": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "comments": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

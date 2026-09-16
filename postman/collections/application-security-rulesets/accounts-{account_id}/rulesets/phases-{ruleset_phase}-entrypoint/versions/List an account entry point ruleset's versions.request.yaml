@@ -1,0 +1,25 @@
+$kind: http-request
+id: 4d6328c7-1126-5aea-9743-a1551171e562
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: listAccountEntrypointRulesetVersions
+  GET /accounts/{account_id}/rulesets/phases/{ruleset_phase}/entrypoint/versions
+
+  Fetches the versions of an account entry point ruleset.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/rulesets/phases/{{ruleset_phase}}/entrypoint/versions"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List an account entry point ruleset's versions.resources/examples
+order: 1000

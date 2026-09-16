@@ -1,0 +1,45 @@
+$kind: http-example
+id: e3a70417-60c1-558a-b9bb-16511632aca9
+name: Conflict.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dls/regional_services/prefix_bindings"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "prefix_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+        "cidr": "10.0.1.0/24",
+        "region_key": "eu"
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 5000

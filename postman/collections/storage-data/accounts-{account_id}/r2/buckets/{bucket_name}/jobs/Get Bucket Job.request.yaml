@@ -1,0 +1,29 @@
+$kind: http-request
+id: 6fc4364e-5744-570c-a38f-014e6e1fbca5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-get-bucket-job
+  GET /accounts/{account_id}/r2/buckets/{bucket_name}/jobs/{job_id}
+
+  Gets the current status of a background job for an R2 bucket. Poll this endpoint with
+  the job identifier returned when the operation was submitted until the status is
+  `COMPLETED`, `FAILED`, or `CANCELLED`.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs/{{job_id}}"
+method: GET
+headers:
+  cf-r2-jurisdiction: default
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Bucket Job.resources/examples
+order: 2000

@@ -1,0 +1,60 @@
+$kind: http-example
+id: 1bea27ed-d111-5dd4-b4c6-33949098618a
+name: Authentication required or insufficient permissions.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "tags": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "subdomain": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "observability": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "logpush": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "tail_consumers": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 3000

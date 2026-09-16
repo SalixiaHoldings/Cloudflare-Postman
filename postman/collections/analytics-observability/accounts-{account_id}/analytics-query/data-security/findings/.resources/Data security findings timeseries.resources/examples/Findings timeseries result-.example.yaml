@@ -1,0 +1,62 @@
+$kind: http-example
+id: e6a016a9-b3b2-5784-b054-37d26c4b7ab9
+name: Findings timeseries result.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics/query/data-security/findings/timeseries"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "filters": [],
+        "from": "2024-11-01T00:00:00Z",
+        "to": "2024-11-08T00:00:00Z"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [
+          {
+            "code": 1000,
+            "message": "API in beta: expect breaking changes."
+          }
+        ],
+        "result": {
+          "slots": [
+            {
+              "content": {
+                "cloud": 150,
+                "saas": 23
+              },
+              "posture": {
+                "cloud": 0,
+                "saas": 5
+              },
+              "timestamp": "2024-11-05T00:00:00Z"
+            },
+            {
+              "content": {
+                "cloud": 180,
+                "saas": 30
+              },
+              "posture": {
+                "cloud": 0,
+                "saas": 7
+              },
+              "timestamp": "2024-11-06T00:00:00Z"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

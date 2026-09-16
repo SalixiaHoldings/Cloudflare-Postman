@@ -1,0 +1,32 @@
+$kind: http-request
+id: 923bf496-4c27-5388-9766-3ca6855c5d0b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: namespace-worker-delete-scripts
+  DELETE /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts
+
+  Delete multiple scripts from a Workers for Platforms namespace based on optional tag filters.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts?tags=production:yes,staging:no&limit=1000"
+method: DELETE
+headers:
+  Accept: application/json
+queryParams:
+  - key: tags
+    value: production:yes,staging:no
+    description: "Filter scripts by tags before deletion. Format: comma-separated list of tag:allowed pairs where allowed is 'yes' or 'no'."
+  - key: limit
+    value: "1000"
+    description: Limit the number of scripts to delete.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete Scripts in Namespace.resources/examples
+order: 1000

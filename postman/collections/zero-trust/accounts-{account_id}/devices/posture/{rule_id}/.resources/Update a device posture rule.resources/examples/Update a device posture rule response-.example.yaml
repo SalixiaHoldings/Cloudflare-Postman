@@ -1,0 +1,46 @@
+$kind: http-example
+id: 54d8e80d-99f5-5265-b493-ad31ba579e9f
+name: Update a device posture rule response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/posture/{{rule_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Admin Serial Numbers",
+        "type": "file",
+        "description": "The rule for admin serial numbers",
+        "expiration": "1h",
+        "input": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "match": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "schedule": "1h"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

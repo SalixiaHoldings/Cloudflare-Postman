@@ -1,0 +1,32 @@
+$kind: http-example
+id: 1ca226d2-03fe-5e44-a7b8-27f51f322826
+name: Upload captions or subtitles response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/captions/{{language}}"
+  method: PUT
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: file
+        value: "@/Users/kyle/Desktop/tr.vtt"
+        description: (Required) The WebVTT file containing the caption or subtitle content.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

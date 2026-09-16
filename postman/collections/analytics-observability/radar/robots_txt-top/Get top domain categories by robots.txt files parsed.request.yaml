@@ -1,0 +1,49 @@
+$kind: http-request
+id: 230c533f-09bc-5270-81b8-15c5ec64e58f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: radar-get-robots-txt-top-domain-categories-by-files-parsed
+  GET /radar/robots_txt/top/domain_categories
+
+  Retrieves the top domain categories by the number of robots.txt files parsed.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/radar/robots_txt/top/domain_categories?limit=5&name=main_series&name=main_series&userAgentCategory=AI&date=1930-12-13&date=1954-10-21&format=JSON"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: limit
+    value: "5"
+    description: Limits the number of objects returned in the response.
+  - key: name
+    value: main_series
+    description: Array of names used to label the series in the response.
+  - key: name
+    value: main_series
+    description: Array of names used to label the series in the response.
+  - key: userAgentCategory
+    value: AI
+    description: Filters results by user agent category.
+  - key: date
+    value: 1930-12-13
+    description: Filters results by the specified array of dates.
+  - key: date
+    value: 1954-10-21
+    description: Filters results by the specified array of dates.
+  - key: format
+    value: JSON
+    description: Format in which results will be returned.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get top domain categories by robots.txt files parsed.resources/examples
+order: 1000

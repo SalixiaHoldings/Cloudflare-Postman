@@ -1,0 +1,56 @@
+$kind: http-request
+id: 1622274d-9093-54fd-b8ba-c3aef229e7c2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: update-security-txt
+  PUT /zones/{zone_id}/security-center/securitytxt
+
+  Updates the security.txt file configuration for a zone, which provides security researchers with vulnerability reporting information.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/security-center/securitytxt"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "acknowledgments": [
+        "https://example.com/hall-of-fame.html"
+      ],
+      "canonical": [
+        "https://www.example.com/.well-known/security.txt"
+      ],
+      "contact": [
+        "mailto:security@example.com",
+        "tel:+1-201-555-0123",
+        "https://example.com/security-contact.html"
+      ],
+      "enabled": true,
+      "encryption": [
+        "https://example.com/pgp-key.txt",
+        "dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY",
+        "openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f"
+      ],
+      "expires": "1941-08-22T02:52:26.425Z",
+      "hiring": [
+        "https://example.com/jobs.html"
+      ],
+      "policy": [
+        "https://example.com/disclosure-policy.html"
+      ],
+      "preferred_languages": "en, es, fr"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Updates security.txt.resources/examples
+order: 3000

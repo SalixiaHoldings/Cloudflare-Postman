@@ -1,0 +1,23 @@
+$kind: http-example
+id: ed77a1b7-d03b-5761-a3e8-9c55f1c8230e
+name: Session deleted.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/sessions/{{session_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

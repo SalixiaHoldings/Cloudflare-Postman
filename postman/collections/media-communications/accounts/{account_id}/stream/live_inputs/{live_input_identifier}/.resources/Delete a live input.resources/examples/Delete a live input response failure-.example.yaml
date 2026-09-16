@@ -1,0 +1,19 @@
+$kind: http-example
+id: df481d15-8af5-59c1-bf4f-2535ba8722fa
+name: Delete a live input response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs/{{live_input_identifier}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: '""'
+order: 2000

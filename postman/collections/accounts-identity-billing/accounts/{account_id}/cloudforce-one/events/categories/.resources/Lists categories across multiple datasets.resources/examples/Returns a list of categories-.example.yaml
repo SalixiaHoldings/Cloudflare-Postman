@@ -1,0 +1,70 @@
+$kind: http-example
+id: 57e16258-4180-53f0-ac21-2bcfb660bdbb
+name: Returns a list of categories.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/categories?datasetIds=string&datasetIds=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: datasetIds
+      value: string
+      description: Array of dataset IDs to query categories from. If not provided, uses the default dataset.
+    - key: datasetIds
+      value: string
+      description: Array of dataset IDs to query categories from. If not provided, uses the default dataset.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "uuid": "12345678-1234-1234-1234-1234567890ab",
+          "name": "name",
+          "killChain": 5394.60705826059,
+          "mitreAttack": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "mitreCapec": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "shortname": "shortname"
+        },
+        {
+          "uuid": "12345678-1234-1234-1234-1234567890ab",
+          "name": "name",
+          "killChain": 9920.128381345421,
+          "mitreAttack": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "mitreCapec": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "shortname": "shortname"
+        }
+      ]
+order: 1000

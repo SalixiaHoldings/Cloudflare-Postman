@@ -1,0 +1,21 @@
+$kind: http-example
+id: 71da7c87-9609-5ad1-bdfb-c4732980ef3f
+name: A required service is temporarily unavailable.
+request:
+  url: "{{base_url}}/analytics/sql?query=SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: query
+      value: SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10
+      description: (Required) SQL query to execute.
+response:
+  statusCode: 503
+  statusText: Service Unavailable
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: string
+order: 8000

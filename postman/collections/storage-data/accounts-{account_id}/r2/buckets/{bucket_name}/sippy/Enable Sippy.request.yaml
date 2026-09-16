@@ -1,0 +1,38 @@
+$kind: http-request
+id: 9038584f-fa9d-5765-bba3-fd2745f89fe3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-put-bucket-sippy-config
+  PUT /accounts/{account_id}/r2/buckets/{bucket_name}/sippy
+
+  Sets configuration for Sippy for an existing R2 bucket.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/sippy"
+method: PUT
+headers:
+  cf-r2-jurisdiction: default
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "destination": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "source": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Enable Sippy.resources/examples
+order: 3000

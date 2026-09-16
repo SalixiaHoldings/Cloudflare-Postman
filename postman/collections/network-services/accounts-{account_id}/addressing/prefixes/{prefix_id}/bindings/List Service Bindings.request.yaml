@@ -1,0 +1,27 @@
+$kind: http-request
+id: 25b941b7-2391-561a-b90e-4305f6557d82
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ip-address-management-service-bindings-list-service-bindings
+  GET /accounts/{account_id}/addressing/prefixes/{prefix_id}/bindings
+
+  List the Cloudflare services this prefix is currently bound to. Traffic sent to an address within an IP prefix will be routed to the Cloudflare service of the most-specific Service Binding matching the address.
+  **Example:** binding `192.0.2.0/24` to Cloudflare Magic Transit and `192.0.2.1/32` to the Cloudflare CDN would route traffic for `192.0.2.1` to the CDN, and traffic for all other IPs in the prefix to Cloudflare Magic Transit.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/addressing/prefixes/{{prefix_id}}/bindings"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Service Bindings.resources/examples
+order: 1000

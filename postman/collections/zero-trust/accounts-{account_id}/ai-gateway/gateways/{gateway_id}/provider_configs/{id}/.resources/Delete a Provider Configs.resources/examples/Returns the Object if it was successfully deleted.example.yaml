@@ -1,0 +1,31 @@
+$kind: http-example
+id: 0b7eb166-0f67-5f56-9387-61a55d6f5b37
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/provider_configs/{{id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "provider_slug": "string",
+          "secret_preview": "{{secret_preview}}",
+          "default_config": true,
+          "gateway_id": "my-gateway",
+          "modified_at": "1967-01-25T13:12:09.950Z",
+          "alias": "string",
+          "secret_id": "{{secret_id}}",
+          "rate_limit": 1778.567167930305,
+          "rate_limit_period": 60
+        }
+      }
+order: 1000

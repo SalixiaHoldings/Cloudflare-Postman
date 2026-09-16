@@ -1,0 +1,28 @@
+$kind: http-example
+id: 4d2af9f1-ef9f-5b5f-902f-4c266c8d0ce7
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vectorize/v2/indexes/{{index_name}}/metadata_index/delete"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "propertyName": "random_metadata_property"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

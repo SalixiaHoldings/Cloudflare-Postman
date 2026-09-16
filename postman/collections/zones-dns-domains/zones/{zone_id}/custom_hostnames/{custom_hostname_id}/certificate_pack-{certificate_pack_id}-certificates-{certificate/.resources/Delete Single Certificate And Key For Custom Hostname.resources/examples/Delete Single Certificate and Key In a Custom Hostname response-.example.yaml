@@ -1,0 +1,20 @@
+$kind: http-example
+id: 8a14e246-f7d5-5428-8b52-b8fa43be2b40
+name: Delete Single Certificate and Key In a Custom Hostname response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/custom_hostnames/{{custom_hostname_id}}/certificate_pack/{{certificate_pack_id}}/certificates/{{certificate_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "023e105f4ecef8ad9ca31a8372d0c353"
+      }
+order: 1000

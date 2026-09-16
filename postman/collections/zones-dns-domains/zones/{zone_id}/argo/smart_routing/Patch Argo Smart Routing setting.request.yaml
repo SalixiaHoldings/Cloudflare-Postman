@@ -1,0 +1,32 @@
+$kind: http-request
+id: eff6e7b3-2917-5883-bd6d-b2f971c66393
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: argo-smart-routing-patch-argo-smart-routing-setting
+  PATCH /zones/{zone_id}/argo/smart_routing
+
+  Configures the value of the Argo Smart Routing enablement setting.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/argo/smart_routing"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": "on"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Patch Argo Smart Routing setting.resources/examples
+order: 2000

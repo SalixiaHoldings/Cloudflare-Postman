@@ -1,0 +1,20 @@
+$kind: http-example
+id: a86d2b86-576f-574b-8dba-d35af598d998
+name: Cross-account approval access is restricted.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals/{{id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 3000

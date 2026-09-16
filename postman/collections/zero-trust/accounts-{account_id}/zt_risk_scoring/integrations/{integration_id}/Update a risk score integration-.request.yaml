@@ -1,0 +1,37 @@
+$kind: http-request
+id: 385aca02-f0db-5a8d-a9b9-881aabe37620
+name: Update a risk score integration.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-zt-risk-score-integration-update
+  PUT /accounts/{account_id}/zt_risk_scoring/integrations/{integration_id}
+
+  Overwrite the reference_id, tenant_url, and active values with the ones provided.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/zt_risk_scoring/integrations/{{integration_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "tenant_url": "http://xzRnMJyJYYqWvGvMqbZojNxU.zopruhkAEOFLxOkPqF1wD",
+      "active": true,
+      "reference_id": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a risk score integration-.resources/examples
+order: 3000

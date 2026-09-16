@@ -1,0 +1,43 @@
+$kind: http-request
+id: 8be7624e-ecc1-585d-a083-52cdacbc4d80
+name: Acquire and connect to browser session.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: brapi-get_DevtoolsBrowserAcquire
+  GET /accounts/{account_id}/browser-rendering/devtools/browser
+
+  Acquires and establishes a WebSocket connection to a browser session. Session guardrails may be supplied in the `cf-brapi-guardrails` header as base64url-encoded JSON of the same `guardrails` object the POST body accepts (for example `{"allowedDomains":["*.example.com"]}`).
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser?keep_alive=60000&lab=false&recording=false"
+method: GET
+headers:
+  - key: cf-brapi-guardrails
+    value: eyJhbGxvd2VkRG9tYWlucyI6WyIqLmV4YW1wbGUuY29tIl19
+    description: Optional base64url-encoded JSON session guardrails (allowedDomains and allowedDomainSets)
+  - key: Accept
+    value: application/json
+  - key: X-Auth-Email
+    value: "{{api_email}}"
+  - key: X-Auth-Key
+    value: "{{api_key}}"
+queryParams:
+  - key: keep_alive
+    value: "60000"
+    description: Keep-alive time in ms (only valid when acquiring new session).
+  - key: lab
+    value: "false"
+    description: Use experimental browser.
+  - key: recording
+    value: "false"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Acquire and connect to browser session-.resources/examples
+order: 1000

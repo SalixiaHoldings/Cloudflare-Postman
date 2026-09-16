@@ -1,0 +1,34 @@
+$kind: http-example
+id: d31166b0-f084-59cf-a39d-64e66283ca8a
+name: List Hyperdrives Response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/hyperdrive/configs?page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      description: Maximum number of results per page.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

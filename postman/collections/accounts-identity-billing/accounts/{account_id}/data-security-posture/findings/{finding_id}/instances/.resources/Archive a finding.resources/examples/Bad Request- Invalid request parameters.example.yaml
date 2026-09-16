@@ -1,0 +1,26 @@
+$kind: http-example
+id: 854fcae8-6ab5-5161-9650-aa8276b74682
+name: "Bad Request: Invalid request parameters"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{finding_id}}/instances/archive"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "check_instances": [
+          "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

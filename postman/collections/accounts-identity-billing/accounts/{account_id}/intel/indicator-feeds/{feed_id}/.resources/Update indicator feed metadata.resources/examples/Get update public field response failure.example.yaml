@@ -1,0 +1,43 @@
+$kind: http-example
+id: 22db2a76-4e32-51b3-b3a4-d10d148f3acf
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/indicator-feeds/{{feed_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "description": "This is an example description",
+        "is_attributable": true,
+        "is_downloadable": true,
+        "is_public": true,
+        "name": "indicator_list"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

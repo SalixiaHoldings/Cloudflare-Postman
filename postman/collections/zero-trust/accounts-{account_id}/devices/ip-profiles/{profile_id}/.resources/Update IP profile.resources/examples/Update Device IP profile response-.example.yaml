@@ -1,0 +1,77 @@
+$kind: http-example
+id: 0aef6d66-d4c1-5297-8a25-74dc5b47ad23
+name: Update Device IP profile response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/ip-profiles/{{profile_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "description": "example comment",
+        "enabled": true,
+        "match": "identity.email == \"test@cloudflare.com\"",
+        "name": "IPv4 Cloudflare Source IPs",
+        "precedence": 100,
+        "subnet_id": "b70ff985-a4ef-4643-bbbc-4a0ed4fc8415"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "match": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "precedence": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "subnet_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "created_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "updated_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

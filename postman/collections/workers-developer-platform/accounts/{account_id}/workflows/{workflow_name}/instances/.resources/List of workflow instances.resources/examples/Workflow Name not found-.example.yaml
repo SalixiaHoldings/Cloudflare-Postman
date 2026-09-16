@@ -1,0 +1,65 @@
+$kind: http-example
+id: 5b2c3a1d-07b2-5fad-94ca-888a143153ae
+name: Workflow Name not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances?page=5076.798240310978&per_page=50&cursor=string&direction=desc&status=waitingForPause&date_start=1922-11-28T14:57:39.484Z&date_end=1922-11-28T14:57:39.484Z"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "5076.798240310978"
+      description: "Deprecated: use `cursor` for pagination instead."
+    - key: per_page
+      value: "50"
+    - key: cursor
+      value: string
+      description: Opaque token for cursor-based pagination. Mutually exclusive with `page`.
+    - key: direction
+      value: desc
+      description: Defines the direction for cursor-based pagination.
+    - key: status
+      value: waitingForPause
+    - key: date_start
+      value: 1922-11-28T14:57:39.484Z
+      description: Accepts ISO 8601 with no timezone offsets and in UTC.
+    - key: date_end
+      value: 1922-11-28T14:57:39.484Z
+      description: Accepts ISO 8601 with no timezone offsets and in UTC.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "messages": [
+          "string",
+          "string"
+        ],
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": null
+      }
+order: 3000

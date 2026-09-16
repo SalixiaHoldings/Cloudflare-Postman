@@ -1,0 +1,45 @@
+$kind: http-request
+id: f5aba9de-0e62-5348-8fae-6de9d304a9c2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-site-app-configs-patch-app-config
+  PATCH /accounts/{account_id}/magic/sites/{site_id}/app_configs/{app_config_id}
+
+  Updates an App Config for a site
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/app_configs/{{app_config_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "account_app_id": "ac60d3d0435248289d446cedd870bcf4",
+      "breakout": true,
+      "managed_app_id": "cloudflare",
+      "preferred_wans": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "priority": 0
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update an App Config.resources/examples
+order: 2000

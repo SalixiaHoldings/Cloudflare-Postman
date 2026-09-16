@@ -1,0 +1,26 @@
+$kind: http-example
+id: 929b03cc-c5ce-5685-8fe8-2ba96d6ae76c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/columns"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "6",
+        "type": "number",
+        "default": {},
+        "required": false
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

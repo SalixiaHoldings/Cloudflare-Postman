@@ -1,0 +1,42 @@
+$kind: http-request
+id: 995fa444-bc99-5ce1-aab0-ea7857e9081f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-config-create-account-provider
+  POST /accounts/{account_id}/ai-gateway/custom-providers
+
+  Creates a new AI Gateway.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/custom-providers"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "slug": "vMSIei",
+      "base_url": "https://DfNQeayMYxPqtQFxT.hbrZK2SXd5UQq.mdoFRumcPNIvo1q+7eRg4C7lWwdDFl2N.7-ES4VBZt0mqK5bHsUMaqo5v",
+      "beta": true,
+      "curl_example": "string",
+      "description": "string",
+      "enable": false,
+      "headers": "string",
+      "js_example": "string",
+      "link": "string",
+      "position": 1188
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new Account Provider.resources/examples
+order: 2000

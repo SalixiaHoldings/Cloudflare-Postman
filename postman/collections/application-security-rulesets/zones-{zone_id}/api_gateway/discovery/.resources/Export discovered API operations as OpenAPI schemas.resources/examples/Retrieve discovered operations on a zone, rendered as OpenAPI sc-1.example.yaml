@@ -1,0 +1,33 @@
+$kind: http-example
+id: ae3c17bc-511d-5ce1-9735-ae0bf3768766
+name: Retrieve discovered operations on a zone, rendered as OpenAPI schemas response failure
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/discovery"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

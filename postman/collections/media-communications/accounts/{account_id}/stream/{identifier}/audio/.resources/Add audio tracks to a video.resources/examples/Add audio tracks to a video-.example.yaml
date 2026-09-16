@@ -1,0 +1,41 @@
+$kind: http-example
+id: 1942aaff-a165-526b-b2e6-f348f1043911
+name: Add audio tracks to a video.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/audio/copy"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "label": "director commentary",
+        "url": "https://www.examplestorage.com/audio_file.mp3"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

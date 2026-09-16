@@ -1,0 +1,88 @@
+$kind: http-example
+id: 6cad12c0-732c-5d59-b7c6-e4adb539eb49
+name: Returns a Registration.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/registrations/{{registration_id}}?include=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: include
+      value: string
+      description: |
+        Comma-separated list of additional information that should be included in the registration response. Supported values are: "policy".
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "key": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "registration_type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "device": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "created_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "updated_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "last_seen_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "deleted_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "key_type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "policy": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "revoked_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "tunnel_type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "user": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "virtual_ipv4": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "virtual_ipv6": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": true,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

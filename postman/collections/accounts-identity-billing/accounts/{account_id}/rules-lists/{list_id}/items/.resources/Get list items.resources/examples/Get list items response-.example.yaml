@@ -1,0 +1,33 @@
+$kind: http-example
+id: 1f774214-346a-578e-8217-a1edd48d060a
+name: Get list items response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/rules/lists/{{list_id}}/items?cursor=zzz&per_page=246&search=1.1.1."
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    cursor: zzz
+    per_page: "246"
+    search: 1.1.1.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result_info": {
+          "cursors": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

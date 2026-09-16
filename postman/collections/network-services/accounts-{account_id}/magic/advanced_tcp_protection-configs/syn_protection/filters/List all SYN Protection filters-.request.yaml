@@ -1,0 +1,42 @@
+$kind: http-request
+id: 6186b045-e832-5bfc-8dea-ae650d55a437
+name: List all SYN Protection filters.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: listSynProtectionFiltersForAccount
+  GET /accounts/{account_id}/magic/advanced_tcp_protection/configs/syn_protection/filters
+
+  List all SYN Protection filters for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/syn_protection/filters?mode=string&page=1033&per_page=1033&order=string&direction=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: mode
+    value: string
+    description: "The mode of the filters to get. Optional. Valid values: 'enabled', 'disabled', 'monitoring'."
+  - key: page
+    value: "1033"
+    description: The page number for pagination. Defaults to 1.
+  - key: per_page
+    value: "1033"
+    description: The number of items per page. Must be between 10 and 1000. Defaults to 25.
+  - key: order
+    value: string
+    description: The field to order by. Defaults to 'prefix'.
+  - key: direction
+    value: string
+    description: The direction of ordering (ASC or DESC). Defaults to 'ASC'.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List all SYN Protection filters-.resources/examples
+order: 2000

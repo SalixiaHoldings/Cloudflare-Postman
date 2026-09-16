@@ -1,0 +1,61 @@
+$kind: http-example
+id: 14823fab-37af-5105-ac18-23ed68cb21c5
+name: Returns aggregated indicator data.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/indicators/aggregate?aggregateBy=string&measure=indicators&tagUuid=string&datasetIds=string&datasetIds=string&createdAfter=1976-05-14T19:51:33.788Z&createdBefore=1976-05-14T19:51:33.788Z&eventDateAfter=string&eventDateBefore=string&limit=10"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: aggregateBy
+      value: string
+      description: (Required) Column(s) to aggregate by - single column or comma-separated list (e.g., 'indicatorType', 'value', 'indicatorType,value')
+    - key: measure
+      value: indicators
+      description: "What to count per group: 'indicators' (catalog rows, default) or 'relationships' (linked events per indicator). Use 'relationships' for 'top indicator by event activity'."
+    - key: tagUuid
+      value: string
+      description: Scope to indicators associated with this tag/actor UUID. Combine with measure=relationships for 'top indicator for an actor'.
+    - key: datasetIds
+      value: string
+      description: "Dataset UUIDs to filter by, or one standalone scope value: 'all'/'*' for all accessible datasets, 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, aggregates across all accessible datasets."
+    - key: datasetIds
+      value: string
+      description: "Dataset UUIDs to filter by, or one standalone scope value: 'all'/'*' for all accessible datasets, 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, aggregates across all accessible datasets."
+    - key: createdAfter
+      value: 1976-05-14T19:51:33.788Z
+      description: Filter indicators created after this date/datetime (ISO 8601, e.g., '2024-01-01' or '2024-01-01T00:00:00Z')
+    - key: createdBefore
+      value: 1976-05-14T19:51:33.788Z
+      description: Filter indicators created before this date/datetime (ISO 8601, e.g., '2024-12-31' or '2024-12-31T23:59:59Z')
+    - key: eventDateAfter
+      value: string
+      description: "For measure=relationships: only count indicator→event links whose relationship was created/observed on or after this date (ISO 8601). Bounds the activity view to recently-observed links. Note: this filters by the relationship's createdAt (link-observation time), not the underlying event's business date."
+    - key: eventDateBefore
+      value: string
+      description: "For measure=relationships: only count indicator→event links whose relationship was created/observed on or before this date (ISO 8601). Bounds the activity view by the relationship's createdAt (link-observation time), not the underlying event's business date."
+    - key: limit
+      value: "10"
+      description: Maximum number of aggregation results to return (1-100)
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "aggregations": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "total": 1121.3572695851326,
+        "aggregateBy": "string",
+        "failedDatasets": 6666.764265391976
+      }
+order: 1000

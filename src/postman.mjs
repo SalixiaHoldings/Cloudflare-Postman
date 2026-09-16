@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { deterministicUuid } from './identity.mjs';
 import { createRequire } from 'node:module';
 import { format } from 'node:util';
 import { DEFAULT_BASE_URL } from './constants.mjs';
@@ -7,15 +8,6 @@ import { applyAuthentication, AUTH_VARIABLES } from './auth.mjs';
 const require = createRequire(import.meta.url);
 const converter = require('openapi-to-postmanv2');
 const schemaFaker = require('openapi-to-postmanv2/assets/json-schema-faker.js');
-
-function deterministicUuid(seed) {
-  const digest = createHash('sha256').update(seed).digest('hex').slice(0, 32).split('');
-  digest[12] = '5';
-  digest[16] = ['8', '9', 'a', 'b'][Number.parseInt(digest[16], 16) % 4];
-  return `${digest.slice(0, 8).join('')}-${digest.slice(8, 12).join('')}-${digest
-    .slice(12, 16)
-    .join('')}-${digest.slice(16, 20).join('')}-${digest.slice(20).join('')}`;
-}
 
 function convert(schema) {
   return new Promise((resolve, reject) => {

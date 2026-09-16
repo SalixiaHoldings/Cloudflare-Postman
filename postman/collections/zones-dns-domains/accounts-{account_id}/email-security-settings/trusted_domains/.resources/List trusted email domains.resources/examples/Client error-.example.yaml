@@ -1,0 +1,52 @@
+$kind: http-example
+id: b3441d80-fe7e-50fa-b9cc-7ad8fdd8cd36
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/trusted_domains?page=1&per_page=20&search=string&order=pattern&direction=desc&is_recent=false&is_similarity=false&pattern=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      description: Current page within paginated list of results.
+    - key: per_page
+      value: "20"
+      description: The number of results per page. Maximum value is 1000.
+    - key: search
+      value: string
+      description: Search term for filtering records. Behavior may change.
+    - key: order
+      value: pattern
+      description: Field to sort by.
+    - key: direction
+      value: desc
+      description: The sorting direction.
+    - key: is_recent
+      value: "false"
+      description: Filter to show only recently registered domains that are trusted to prevent triggering Suspicious or Malicious dispositions.
+    - key: is_similarity
+      value: "false"
+      description: Filter to show only proximity domains (partner or approved domains with similar spelling to connected domains) that prevent Spoof dispositions.
+    - key: pattern
+      value: string
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

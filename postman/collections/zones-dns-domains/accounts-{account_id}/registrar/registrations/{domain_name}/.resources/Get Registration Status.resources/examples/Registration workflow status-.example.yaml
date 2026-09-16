@@ -1,0 +1,37 @@
+$kind: http-example
+id: 2306c52c-bf46-5b17-916e-260575b36fb4
+name: Registration workflow status.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations/{{domain_name}}/registration-status"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "completed": false,
+          "context": {
+            "action": "registrant_email_confirmation_pending",
+            "confirmation_sent_to": "a***@example.com",
+            "domain_name": "example.com"
+          },
+          "created_at": "2025-10-27T10:00:00Z",
+          "links": {
+            "resource": "/accounts/abc/registrar/registrations/example.com",
+            "self": "/accounts/abc/registrar/registrations/example.com/registration-status"
+          },
+          "state": "action_required",
+          "updated_at": "2025-10-27T10:01:00Z"
+        },
+        "success": true
+      }
+order: 1000

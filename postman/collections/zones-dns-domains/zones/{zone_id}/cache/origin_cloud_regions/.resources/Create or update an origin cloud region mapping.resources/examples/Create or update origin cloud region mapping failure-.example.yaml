@@ -1,0 +1,37 @@
+$kind: http-example
+id: 7564612a-ab18-5ea4-8ea9-5ef05cb30330
+name: Create or update origin cloud region mapping failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "ip": "2001:db8::1",
+        "region": "us-central1",
+        "vendor": "gcp"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1157,
+            "message": "The vendor provided doesn't exist or the region provided does not exist for the specified cloud vendor"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

@@ -1,0 +1,30 @@
+$kind: http-example
+id: bbbddec5-0f82-552d-9bb7-8d7c727d2c59
+name: Get Content Scanning status failure response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/content-upload-scan/settings"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 10000,
+            "message": "Authentication error"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,22 @@
+$kind: http-example
+id: 0719864c-ff80-5720-bfae-589706ff8133
+name: Get Certificate response.
+request:
+  url: "{{base_url}}/certificates/{{certificate_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

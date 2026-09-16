@@ -1,0 +1,17 @@
+$kind: http-example
+id: c2bb3a58-6bda-5317-9f84-0494e030881c
+name: Read key-value pair response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}/values/{{key_name}}"
+  method: GET
+  headers:
+    Accept: application/octet-stream
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/octet-stream
+  body:
+    type: text
+    content: string
+order: 1000

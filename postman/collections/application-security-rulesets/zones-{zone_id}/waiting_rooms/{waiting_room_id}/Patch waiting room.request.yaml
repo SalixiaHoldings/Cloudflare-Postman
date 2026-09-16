@@ -1,0 +1,65 @@
+$kind: http-request
+id: 6e7892b2-3b78-5cc9-b167-70f85ae420c8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: waiting-room-patch-waiting-room
+  PATCH /zones/{zone_id}/waiting_rooms/{waiting_room_id}
+
+  Patches a configured waiting room.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/{{waiting_room_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "production_webinar",
+      "host": "shop.example.com",
+      "new_users_per_minute": 1748845531,
+      "total_active_users": 2026187473,
+      "additional_routes": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "cookie_attributes": {
+        "samesite": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "secure": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "cookie_suffix": "abcd",
+      "custom_page_html": "{{#waitTimeKnown}} {{waitTime}} mins {{/waitTimeKnown}} {{^waitTimeKnown}} Queue all enabled {{/waitTimeKnown}}",
+      "default_template_language": "es-ES",
+      "description": "Production - DO NOT MODIFY",
+      "disable_session_renewal": false,
+      "json_response_enabled": false,
+      "path": "/shop/checkout",
+      "queue_all": true,
+      "queueing_method": "fifo",
+      "queueing_status_code": 202,
+      "session_duration": 5,
+      "suspended": false,
+      "turnstile_action": "log",
+      "turnstile_mode": "invisible"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Patch waiting room.resources/examples
+order: 3000

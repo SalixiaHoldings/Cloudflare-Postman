@@ -1,0 +1,36 @@
+$kind: http-request
+id: 1532962a-6b1f-574b-ae9e-b6e770284146
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: api-shield-endpoint-management-retrieve-operations-and-features-as-open-api-schemas
+  GET /zones/{zone_id}/api_gateway/schemas
+
+  Returns tracked web and API operations and their feature configuration rendered as OpenAPI schemas.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/schemas?host=www.example.com&feature=thresholds&include_schema_kind=learned"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: host
+    value: www.example.com
+  - key: feature
+    value: thresholds
+    description: Add feature(s) to the results. The feature name that is given here corresponds to the resulting feature object. Have a look at the top-level object description for more details on the specific meaning.
+  - key: include_schema_kind
+    value: learned
+    description: Schema kinds to include in exported OpenAPI schemas.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Export web and API operations as OpenAPI schemas.resources/examples
+order: 6000

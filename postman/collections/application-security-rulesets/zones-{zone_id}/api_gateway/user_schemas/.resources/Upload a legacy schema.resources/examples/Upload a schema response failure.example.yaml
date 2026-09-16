@@ -1,0 +1,55 @@
+$kind: http-example
+id: 2792a873-d818-5720-9bb4-cae72d6c5629
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: formdata
+    content:
+      - type: file
+        key: file
+        src: ""
+        description: (Required) Schema file bytes
+      - type: text
+        key: kind
+        value: openapi_v3
+        description: "(Required) "
+      - type: text
+        key: name
+        value: petstore schema
+        description: Name of the schema
+      - type: text
+        key: validation_enabled
+        value: "true"
+        description: Flag whether schema is enabled for validation. (This can only be one of true,false)
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "upload_details": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

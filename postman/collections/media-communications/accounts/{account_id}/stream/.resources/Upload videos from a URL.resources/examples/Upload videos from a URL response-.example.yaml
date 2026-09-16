@@ -1,0 +1,32 @@
+$kind: http-example
+id: 97a9d71f-995a-556a-b1db-cee981f86578
+name: Upload videos from a URL response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/copy"
+  method: POST
+  headers:
+    Upload-Creator: creator-id_abcde12345
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "input": 8761.759591288865
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

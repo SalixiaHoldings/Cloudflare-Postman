@@ -1,0 +1,38 @@
+$kind: http-example
+id: d444607b-ee6e-5b21-94ec-9910458d9346
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/page_shield/cookies?hosts=blog.cloudflare.com,www.example*,*cloudflare.com&page=string&per_page=100&order_by=first_seen_at&direction=asc&page_url=example.com/page,*/checkout,example.com/*,*checkout*&export=csv&name=session_id&secure=true&http_only=true&same_site=strict&type=first_party&path=/&domain=example.com"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    hosts: blog.cloudflare.com,www.example*,*cloudflare.com
+    page: string
+    per_page: "100"
+    order_by: first_seen_at
+    direction: asc
+    page_url: example.com/page,*/checkout,example.com/*,*checkout*
+    export: csv
+    name: session_id
+    secure: "true"
+    http_only: "true"
+    same_site: strict
+    type: first_party
+    path: /
+    domain: example.com
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "result": null
+      }
+order: 2000

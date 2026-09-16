@@ -1,0 +1,33 @@
+$kind: http-example
+id: 21aae966-a635-5b24-abb9-4073b47f2d44
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators?page=2535.467583220452&pageSize=2535.467583220452&name=string&indicatorType=string&relatedEvent=string&relatedEvent=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "2535.467583220452"
+    - key: pageSize
+      value: "2535.467583220452"
+    - key: name
+      value: string
+      description: Filter by indicator value (substring match)
+    - key: indicatorType
+      value: string
+    - key: relatedEvent
+      value: string
+      description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+    - key: relatedEvent
+      value: string
+      description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

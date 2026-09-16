@@ -1,0 +1,45 @@
+$kind: http-example
+id: a09ec869-4b97-5d55-b015-92c017f80849
+name: List registrations failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/registrations?cursor=string&per_page=20&direction=asc&sort_by=registry_created_at"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: cursor
+      value: string
+      description: |
+        Opaque token from a previous response's `result_info.cursor`.
+        Pass this value to fetch the next page of results. Omit (or
+        pass an empty string) for the first page.
+    - key: per_page
+      value: "20"
+      description: Number of items to return per page.
+    - key: direction
+      value: asc
+      description: |
+        Sort direction for results. Defaults to ascending order.
+    - key: sort_by
+      value: registry_created_at
+      description: Column to sort results by. Defaults to registration date (`registry_created_at`) when omitted.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 10000,
+            "message": "Invalid pagination cursor"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

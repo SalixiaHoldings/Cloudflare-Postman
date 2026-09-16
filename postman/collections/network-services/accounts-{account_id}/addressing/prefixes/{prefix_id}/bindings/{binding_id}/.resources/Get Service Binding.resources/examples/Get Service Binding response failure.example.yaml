@@ -1,0 +1,27 @@
+$kind: http-example
+id: a396d7c7-5e98-59d4-8012-b66453d52a45
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/addressing/prefixes/{{prefix_id}}/bindings/{{binding_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

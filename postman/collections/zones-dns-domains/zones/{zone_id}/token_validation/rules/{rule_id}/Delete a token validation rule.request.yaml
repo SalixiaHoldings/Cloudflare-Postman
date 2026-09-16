@@ -1,0 +1,25 @@
+$kind: http-request
+id: 454f6b90-2fc7-5187-99f8-e75e2e6c3001
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: token-validation-rules-delete
+  DELETE /zones/{zone_id}/token_validation/rules/{rule_id}
+
+  Deletes a token validation rule from the zone.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules/{{rule_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete a token validation rule.resources/examples
+order: 1000

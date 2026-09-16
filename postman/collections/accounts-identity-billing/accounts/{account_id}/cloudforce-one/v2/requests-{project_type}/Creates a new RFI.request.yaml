@@ -1,0 +1,42 @@
+$kind: http-request
+id: eb504c42-0854-5b87-80d1-a90c8c075cd3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_RequestCreate
+  POST /accounts/{account_id}/cloudforce-one/v2/requests/{project_type}
+
+  Creates a new Request for Information with the specified project type and details.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "description": "We need analysis of domain patterns observed in recent security events",
+      "eventId": "event-456",
+      "metadata": {
+        "key_0": false,
+        "key_1": "string"
+      },
+      "priority": "routine",
+      "request_type": "string",
+      "subtypeId": "subtype-123",
+      "title": "Investigation into suspicious domain activity",
+      "tlp": "amber"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Creates a new RFI.resources/examples
+order: 2000

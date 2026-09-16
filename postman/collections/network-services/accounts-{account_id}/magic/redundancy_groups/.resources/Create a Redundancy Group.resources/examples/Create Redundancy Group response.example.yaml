@@ -1,0 +1,31 @@
+$kind: http-example
+id: ecf279e7-5242-5ea5-aff1-e2aa779343d9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/redundancy_groups"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "primary-group",
+        "description": ""
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

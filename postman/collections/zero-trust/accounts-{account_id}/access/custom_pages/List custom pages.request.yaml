@@ -1,0 +1,28 @@
+$kind: http-request
+id: 6463c709-ad97-5779-9b17-ecdc1df2aaf1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-custom-pages-list-custom-pages
+  GET /accounts/{account_id}/access/custom_pages
+
+  List custom pages
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/custom_pages?page=1&per_page=50"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  page: "1"
+  per_page: "50"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List custom pages.resources/examples
+order: 1000

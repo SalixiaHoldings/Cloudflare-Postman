@@ -1,0 +1,48 @@
+$kind: http-example
+id: 6376018d-a8c9-55fd-ac45-29d859043316
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/queues/{{queue_id}}/messages/pull"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "batch_size": 50,
+        "visibility_timeout_ms": 6000
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "message_backlog_count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "messages": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "metadata": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

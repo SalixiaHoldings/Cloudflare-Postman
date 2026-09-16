@@ -1,0 +1,31 @@
+$kind: http-example
+id: 84b23276-b908-5d3f-911e-f854c28054b2
+name: Update integration entry response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/entries/integration/{{entry_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": false
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

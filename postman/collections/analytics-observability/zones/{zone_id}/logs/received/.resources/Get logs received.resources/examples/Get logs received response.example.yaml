@@ -1,0 +1,32 @@
+$kind: http-example
+id: 60986f74-8478-5c0c-b460-650cddcc7cef
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/logs/received?start=string&end=string&fields=ClientIP,RayID,EdgeStartTimestamp&sample=0.1&count=4907&timestamps=unixnano"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: start
+      value: string
+    - key: end
+      value: string
+      description: "(Required) "
+    - key: fields
+      value: ClientIP,RayID,EdgeStartTimestamp
+    - key: sample
+      value: "0.1"
+    - key: count
+      value: "4907"
+    - key: timestamps
+      value: unixnano
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: '"string"'
+order: 1000

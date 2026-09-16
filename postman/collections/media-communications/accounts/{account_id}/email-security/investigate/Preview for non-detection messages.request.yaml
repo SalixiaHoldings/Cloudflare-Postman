@@ -1,0 +1,32 @@
+$kind: http-request
+id: bb306f2e-e424-56eb-b2ae-ea1a924f7615
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_post_preview
+  POST /accounts/{account_id}/email-security/investigate/preview
+
+  Generates a preview image for a message that was not flagged as a detection. Useful for investigating benign messages. Returns a base64-encoded PNG screenshot of the email body.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/preview"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "postfix_id": "4Njp3P0STMz2c02Q"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Preview for non-detection messages.resources/examples
+order: 4000

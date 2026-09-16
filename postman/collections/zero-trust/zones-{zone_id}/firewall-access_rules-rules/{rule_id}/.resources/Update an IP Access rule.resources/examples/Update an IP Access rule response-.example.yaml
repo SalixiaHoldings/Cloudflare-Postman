@@ -1,0 +1,32 @@
+$kind: http-example
+id: 944fe54f-a5ab-56a1-af16-168d1df49398
+name: Update an IP Access rule response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/access_rules/rules/{{rule_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "mode": "challenge",
+        "notes": "This rule is enabled because of an event that occurred on date X."
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

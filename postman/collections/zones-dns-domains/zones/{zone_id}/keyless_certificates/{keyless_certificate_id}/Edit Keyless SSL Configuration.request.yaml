@@ -1,0 +1,43 @@
+$kind: http-request
+id: 5557365d-d938-53fd-84de-4e0411a5f40b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: keyless-ssl-for-a-zone-edit-keyless-ssl-configuration
+  PATCH /zones/{zone_id}/keyless_certificates/{keyless_certificate_id}
+
+  This will update attributes of a Keyless SSL. Consists of one or more of the following:  host,name,port.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/keyless_certificates/{{keyless_certificate_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "enabled": false,
+      "host": "example.com",
+      "name": "example.com Keyless SSL",
+      "port": 24008,
+      "tunnel": {
+        "private_ip": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "vnet_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Edit Keyless SSL Configuration.resources/examples
+order: 3000

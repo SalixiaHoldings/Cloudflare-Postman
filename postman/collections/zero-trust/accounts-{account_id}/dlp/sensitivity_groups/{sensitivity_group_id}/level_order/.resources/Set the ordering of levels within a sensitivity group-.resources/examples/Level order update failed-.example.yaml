@@ -1,0 +1,40 @@
+$kind: http-example
+id: d52f94ae-5813-5a55-b71d-6380fd07278b
+name: Level order update failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/sensitivity_groups/{{sensitivity_group_id}}/level_order"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "level_ids": [
+          "6134c44a-dd6f-9cd8-3062-bdc066be36f0",
+          "ca273572-0f0a-59e3-868c-6b7c98eed548"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,28 @@
+$kind: http-example
+id: ff9fb66c-2e1a-5b06-ba8a-397c80b9455b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/tags"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "engineers"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

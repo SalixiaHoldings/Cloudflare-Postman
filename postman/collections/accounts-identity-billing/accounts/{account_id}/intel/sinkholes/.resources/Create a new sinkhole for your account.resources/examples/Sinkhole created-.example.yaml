@@ -1,0 +1,47 @@
+$kind: http-example
+id: d6bd4b39-b782-59f5-b568-4cef3729dc67
+name: Sinkhole created.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/sinkholes"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "r2_bucket": "string",
+        "r2_id": "string",
+        "r2_secret": "{{r2_secret}}"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    - key: Location
+      value: string
+      description: URI of the created sinkhole.
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,57 @@
+$kind: http-example
+id: 5a2789be-3f3e-5f73-a87d-0c866b9d8d1e
+name: Pending approval updated.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured/approvals/{{id}}?module=eml"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: module
+      value: eml
+      description: Structured rule module.
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "condition": {
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "operator": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "conditions": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "description": "string",
+        "enabled": true,
+        "meta": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "status": "silent"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "approval": {
+          "current_rule": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

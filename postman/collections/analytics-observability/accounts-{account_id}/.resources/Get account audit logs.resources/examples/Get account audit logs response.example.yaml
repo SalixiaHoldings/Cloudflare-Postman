@@ -1,0 +1,46 @@
+$kind: http-example
+id: 1c5d5f75-c523-513d-a137-8fb4e0224949
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/audit_logs?id=f174be97-19b1-40d6-954d-70cd5fbd52db&export=true&action.type=add&actor.ip=17.168.228.63&actor.email=alice@example.com&since=2019-04-30&before=2019-04-30&zone.name=example.com&direction=desc&per_page=25&page=50&hide_user_logs=false"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    id: f174be97-19b1-40d6-954d-70cd5fbd52db
+    export: "true"
+    action.type: add
+    actor.ip: 17.168.228.63
+    actor.email: alice@example.com
+    since: 2019-04-30
+    before: 2019-04-30
+    zone.name: example.com
+    direction: desc
+    per_page: "25"
+    page: "50"
+    hide_user_logs: "false"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "success": true
+      }
+order: 1000

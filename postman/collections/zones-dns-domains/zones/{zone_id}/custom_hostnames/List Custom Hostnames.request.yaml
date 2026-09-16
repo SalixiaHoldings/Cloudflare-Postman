@@ -1,0 +1,41 @@
+$kind: http-request
+id: e72f0143-e896-55b4-aeea-393b6b45513c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: custom-hostname-for-a-zone-list-custom-hostnames
+  GET /zones/{zone_id}/custom_hostnames
+
+  List, search, sort, and filter all of your custom hostnames.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/custom_hostnames?hostname=app.example.com&hostname.exact=app.example.com&hostname.startsWith=app&hostname.contain=example.com&id=0d89c70d-ad9f-4843-b99f-6cc0252067e9&page=1&per_page=20&order=ssl&direction=desc&ssl_status=active&hostname_status=provisioned&certificate_authority=google&wildcard=false&custom_origin_server=origin2.example.com&ssl=0"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  hostname: app.example.com
+  hostname.exact: app.example.com
+  hostname.startsWith: app
+  hostname.contain: example.com
+  id: 0d89c70d-ad9f-4843-b99f-6cc0252067e9
+  page: "1"
+  per_page: "20"
+  order: ssl
+  direction: desc
+  ssl_status: active
+  hostname_status: provisioned
+  certificate_authority: google
+  wildcard: "false"
+  custom_origin_server: origin2.example.com
+  ssl: "0"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Custom Hostnames.resources/examples
+order: 1000

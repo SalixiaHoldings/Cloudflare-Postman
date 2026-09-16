@@ -1,0 +1,29 @@
+$kind: http-request
+id: 399f68c8-9f89-53ba-9c48-dcf00d61ee33
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: GetSessionTranscript
+  GET /accounts/{account_id}/realtime/kit/{app_id}/sessions/{session_id}/transcript
+
+  Returns a URL to download the transcript for the session ID in CSV format.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}/transcript?format=CSV"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: format
+    value: CSV
+    description: Transcript file format to fetch.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Fetch the complete transcript for a session.resources/examples
+order: 6000

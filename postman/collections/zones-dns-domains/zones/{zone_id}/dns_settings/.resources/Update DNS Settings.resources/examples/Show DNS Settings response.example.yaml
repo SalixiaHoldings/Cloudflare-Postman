@@ -1,0 +1,35 @@
+$kind: http-example
+id: 2b3f624e-9d4c-51d3-bdcf-dafdb77bd84b
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dns_settings"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "nameservers": {
+          "ns_set": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

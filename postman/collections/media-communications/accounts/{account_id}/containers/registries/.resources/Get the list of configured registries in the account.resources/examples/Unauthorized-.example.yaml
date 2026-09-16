@@ -1,0 +1,28 @@
+$kind: http-example
+id: 494c38fd-9c6d-53bb-892f-59ded8950ae1
+name: Unauthorized.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/registries"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

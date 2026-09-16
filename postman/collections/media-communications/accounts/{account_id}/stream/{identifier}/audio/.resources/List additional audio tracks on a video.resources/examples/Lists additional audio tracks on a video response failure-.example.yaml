@@ -1,0 +1,30 @@
+$kind: http-example
+id: d3980b0e-606a-5e0c-ba7d-1204a9185d41
+name: Lists additional audio tracks on a video response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/audio"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

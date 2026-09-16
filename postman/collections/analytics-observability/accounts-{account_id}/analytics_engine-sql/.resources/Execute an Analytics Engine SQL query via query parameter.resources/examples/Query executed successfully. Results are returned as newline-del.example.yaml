@@ -1,0 +1,49 @@
+$kind: http-example
+id: b1c25d6f-de0b-5b24-9791-4417c1c2ae7d
+name: |
+  Query executed successfully. Results are returned as newline-delimited JSON (NDJSON) by default. Each line is a JSON object representing one row of results. If the FORMAT JSON clause is used in the query, the response is a single JSON object with data, meta, and rows fields.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics_engine/sql?query=SELECT blob1, count() FROM my_dataset WHERE timestamp > NOW() - INTERVAL '1' DAY GROUP BY blob1 ORDER BY count() DESC LIMIT 10"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: query
+      value: SELECT blob1, count() FROM my_dataset WHERE timestamp > NOW() - INTERVAL '1' DAY GROUP BY blob1 ORDER BY count() DESC LIMIT 10
+      description: (Required) Supply a SQL query to run against your Analytics Engine datasets. Use only SELECT statements. The service validates the query against a restricted SQL grammar before execution.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    - key: X-Query-Id
+      value: 01HXYZ1234ABCDEF5678
+      description: Unique identifier for this query execution.
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "blob1": "US",
+            "count()": 1523
+          },
+          {
+            "blob1": "DE",
+            "count()": 847
+          }
+        ],
+        "meta": [
+          {
+            "name": "blob1",
+            "type": "String"
+          },
+          {
+            "name": "count()",
+            "type": "UInt64"
+          }
+        ],
+        "rows": 2
+      }
+order: 1000

@@ -1,0 +1,48 @@
+$kind: http-example
+id: cfc5a01e-0a6e-5677-999d-9e8da881947b
+name: Authentication failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "config": {
+          "team_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "min_extension_version": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 3000

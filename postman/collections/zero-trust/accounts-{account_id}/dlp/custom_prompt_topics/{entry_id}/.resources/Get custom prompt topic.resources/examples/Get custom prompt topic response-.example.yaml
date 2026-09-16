@@ -1,0 +1,24 @@
+$kind: http-example
+id: 7b4d28c8-1272-53fa-84cf-03c53c7ee78d
+name: Get custom prompt topic response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/custom_prompt_topics/{{entry_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

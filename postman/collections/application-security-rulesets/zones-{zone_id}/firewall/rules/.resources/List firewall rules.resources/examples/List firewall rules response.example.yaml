@@ -1,0 +1,35 @@
+$kind: http-example
+id: 6f4d75ac-448f-58e5-a95a-5caf120fab79
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/rules?description=mir&action=block&page=1&per_page=25&id=372e67954025e0ba6aaa6d586b9e0b60&paused=false"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    description: mir
+    action: block
+    page: "1"
+    per_page: "25"
+    id: 372e67954025e0ba6aaa6d586b9e0b60
+    paused: "false"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

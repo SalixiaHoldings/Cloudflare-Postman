@@ -1,0 +1,18 @@
+$kind: http-example
+id: 2ff23f26-ae9f-5ab4-967f-07b6f8019ec6
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/indicator-feeds/{{feed_id}}/data"
+  method: GET
+  headers:
+    Accept: text/csv
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/csv
+  body:
+    type: text
+    content: string
+order: 1000

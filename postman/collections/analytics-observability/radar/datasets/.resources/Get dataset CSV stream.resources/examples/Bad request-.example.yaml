@@ -1,0 +1,35 @@
+$kind: http-example
+id: 054e4681-bf72-511a-8407-cda3986d895d
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/datasets/{{alias}}"
+  method: GET
+  headers:
+    Accept: text/csv
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

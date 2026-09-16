@@ -1,0 +1,53 @@
+$kind: http-example
+id: 2ca67812-ee78-5d92-a5a1-0d0772adb7ed
+name: Approval not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured/approvals/{{id}}?module=eml"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: module
+      value: eml
+      description: Structured rule module.
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "condition": {
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "operator": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "conditions": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "description": "string",
+        "enabled": true,
+        "meta": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "status": "silent"
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 4000

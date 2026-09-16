@@ -1,0 +1,32 @@
+$kind: http-request
+id: c7fef136-4758-57cb-90cf-e73277d1b797
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_application_auth_methods_v2
+  GET /accounts/{account_id}/one/applications/{application_id}/auth-methods
+
+  Returns available auth methods for the specified vendor, including credential schema, instructions, and example payloads. Use this to understand what credentials are required before calling POST /v2/integrations.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/one/applications/{{application_id}}/auth-methods?page=8161&page_size=8161"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "8161"
+    description: A page number within the paginated result set.
+  - key: page_size
+    value: "8161"
+    description: Number of results to return per page.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get auth methods.resources/examples
+order: 2000

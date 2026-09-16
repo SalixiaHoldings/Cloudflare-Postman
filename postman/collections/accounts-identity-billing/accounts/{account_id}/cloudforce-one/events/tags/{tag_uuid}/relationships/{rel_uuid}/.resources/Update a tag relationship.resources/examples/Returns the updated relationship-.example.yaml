@@ -1,0 +1,36 @@
+$kind: http-example
+id: 7982e038-96a3-596a-988e-894be144e8ff
+name: Returns the updated relationship.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/relationships/{{rel_uuid}}?datasetId=string"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: datasetId
+      value: string
+      description: (Required) Dataset UUID containing the relationship.
+  body:
+    type: json
+    content: |-
+      {
+        "confidence": 47,
+        "metadata": {
+          "key_0": "string"
+        },
+        "type": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {}
+      }
+order: 1000

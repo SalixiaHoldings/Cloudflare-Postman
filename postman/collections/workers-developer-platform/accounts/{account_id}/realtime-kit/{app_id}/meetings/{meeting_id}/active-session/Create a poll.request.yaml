@@ -1,0 +1,38 @@
+$kind: http-request
+id: f0d2e99f-aea7-5f06-913b-803ed7d3574e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: CreatePoll
+  POST /accounts/{account_id}/realtime/kit/{app_id}/meetings/{meeting_id}/active-session/poll
+
+  Creates a new poll in an active session for the given meeting ID.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/active-session/poll"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "question": "string",
+      "options": [
+        "string",
+        "string"
+      ],
+      "anonymous": false,
+      "hide_votes": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a poll.resources/examples
+order: 6000

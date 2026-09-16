@@ -1,0 +1,21 @@
+$kind: http-example
+id: bc41d656-3dee-5688-83c3-ff22970adbe5
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/silences/{{silence_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

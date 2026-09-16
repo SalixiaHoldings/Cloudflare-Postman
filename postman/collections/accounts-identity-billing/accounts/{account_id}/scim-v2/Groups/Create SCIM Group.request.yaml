@@ -1,0 +1,34 @@
+$kind: http-request
+id: dc1eb10f-12ae-5342-95fa-b137a70dc714
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: scim-groups-create
+  POST /accounts/{account_id}/scim/v2/Groups
+
+  Creates a new SCIM Group (user group) for the account. The `displayName` must not be empty and must not begin with `CF` (reserved for system groups).
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Groups"
+method: POST
+headers:
+  Content-Type: application/scim+json
+  Accept: application/scim+json
+body:
+  type: json
+  content: |-
+    {
+      "displayName": "My IdP Group",
+      "externalId": "idp-group-456"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create SCIM Group.resources/examples
+order: 2000

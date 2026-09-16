@@ -1,0 +1,96 @@
+$kind: http-request
+id: ed5c73b0-f3c6-58dd-8135-cf530858f86e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: sandbox-registrar-domain-registration-create
+  POST /accounts/{account_id}/registrar-sandbox/registrations
+
+  Starts a domain registration workflow.
+
+  ### Prerequisites
+  - The account must not already be at the maximum supported domain limit.
+      A single account may own up to 500 domains in total across registrations
+      created through either the dashboard or this API.
+  - The domain must be on a supported extension for programmatic registration.
+  - Use `POST /domain-check` immediately before calling this endpoint to confirm
+      real-time availability and pricing.
+
+  ### Defaults
+  - `years`: defaults to the extension's minimum registration period (1 year for
+      most extensions, but varies — for example, `.ai` (if supported) requires a minimum of 2 years).
+  - `auto_renew`: defaults to `false`. Setting it to `true` is an explicit
+      opt-in authorizing Cloudflare to charge the account's default payment
+      method up to 30 days before domain expiry to renew the registration.
+      Renewal pricing may change over time based on registry pricing.
+  - `privacy_mode`: defaults to `redaction`.
+
+  ### Premium domains
+  Premium domain registration is not currently supported by this API.
+  If `POST /domain-check` returns `tier: premium`, do not call this
+  endpoint for that domain.
+
+  ### Response behavior
+  By default, the server holds the connection for a bounded, server-defined
+  amount of time while the registration completes. Most registrations finish
+  within this window and return `201 Created` with a completed workflow status.
+
+  If the registration is still processing after this synchronous wait window,
+  the server returns `202 Accepted`. Poll the URL in `links.self` to track progress.
+
+  To skip the wait and receive an immediate `202`, send `Prefer: respond-async`.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/registrations"
+method: POST
+headers:
+  - key: Prefer
+    value: string
+    description: |
+      Set to `respond-async` to receive an immediate `202 Accepted` without
+      waiting for the operation to complete (RFC 7240).
+
+      The header may be combined with other preferences using standard
+      comma-separated syntax.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "auto_renew": false,
+      "contact_extensions": {
+        "ca_legal_type": "CCT"
+      },
+      "contacts": {
+        "registrant": {
+          "email": "ada@example.ca",
+          "phone": "+1.6135550100",
+          "postal_info": {
+            "address": {
+              "city": "Ottawa",
+              "country_code": "CA",
+              "postal_code": "K1A 0B1",
+              "state": true,
+              "street": "123 Queen St"
+            },
+            "name": "Ada Lovelace",
+            "organization": "Example Canada Inc"
+          }
+        }
+      },
+      "domain_name": "my-brand-example.ca",
+      "years": 1
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Registration.resources/examples
+order: 2000

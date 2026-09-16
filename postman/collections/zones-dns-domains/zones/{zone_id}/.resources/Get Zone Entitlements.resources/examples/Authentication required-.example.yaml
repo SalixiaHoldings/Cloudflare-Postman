@@ -1,0 +1,37 @@
+$kind: http-example
+id: 0c436980-a44d-5406-bfd5-e61a5aa73f73
+name: Authentication required.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/entitlements"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 4000

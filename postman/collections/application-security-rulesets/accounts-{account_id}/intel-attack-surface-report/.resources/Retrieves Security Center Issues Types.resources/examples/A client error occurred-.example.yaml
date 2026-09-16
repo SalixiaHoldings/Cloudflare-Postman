@@ -1,0 +1,28 @@
+$kind: http-example
+id: eba6742b-f3cb-5058-afd9-2640a80cdb84
+name: A client error occurred.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/attack-surface-report/issue-types"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,23 @@
+$kind: http-example
+id: 5ab9c8de-5527-555e-8d94-e314187fd2c9
+name: Namespace deleted.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

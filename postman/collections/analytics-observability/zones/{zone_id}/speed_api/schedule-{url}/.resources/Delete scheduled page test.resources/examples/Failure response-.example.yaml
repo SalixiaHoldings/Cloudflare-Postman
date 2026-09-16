@@ -1,0 +1,30 @@
+$kind: http-example
+id: 2d9c2e3b-129c-5d83-80d9-3920fc6cf00f
+name: Failure response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/speed_api/schedule/{{url}}?region=us-central1"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    region: us-central1
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

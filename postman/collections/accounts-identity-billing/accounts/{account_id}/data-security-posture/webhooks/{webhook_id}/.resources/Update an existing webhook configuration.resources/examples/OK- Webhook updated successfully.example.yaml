@@ -1,0 +1,52 @@
+$kind: http-example
+id: cf39d7ce-e916-574c-9dac-35a1ddf0040a
+name: "OK: Webhook updated successfully"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/{{webhook_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "label": "Send to Slack",
+        "destination_url": "https://example.com/webhook",
+        "authentication_type": "Bearer Auth",
+        "status": "enabled",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer token123"
+          },
+          {
+            "key": "X-Custom-Header",
+            "value": "value"
+          }
+        ],
+        "signing_secret": "{{signing_secret}}"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

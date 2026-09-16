@@ -1,0 +1,30 @@
+$kind: http-example
+id: 90a747bb-4b77-51fd-ba1e-d0d5ef0da507
+name: Predefined profile failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles/predefined/{{profile_id}}/config"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

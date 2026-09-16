@@ -1,0 +1,34 @@
+$kind: http-request
+id: 7e2290f8-fc84-501d-831e-bb526cfd274d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-config-create-custom-domain
+  POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains
+
+  Provisions a Cloudflare-for-SaaS custom hostname and returns the CNAME target to point DNS at.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/custom-domains"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "domain": "ai.acme.com",
+      "zone_id": "{{zone_id}}",
+      "minTLS": "1.2"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a custom domain for a gateway.resources/examples
+order: 2000

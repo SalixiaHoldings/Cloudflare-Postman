@@ -1,0 +1,24 @@
+$kind: http-example
+id: aa6a3d44-26e0-5946-b0ed-de12ea9e744a
+name: Submitted abuse report not found for the selected account.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/submitted/{{report_id}}/emails?page=6305&per_page=6305"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "6305"
+      description: Page number to retrieve (default 1).
+    - key: per_page
+      value: "6305"
+      description: Number of emails per page (default 20, max 100).
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 4000

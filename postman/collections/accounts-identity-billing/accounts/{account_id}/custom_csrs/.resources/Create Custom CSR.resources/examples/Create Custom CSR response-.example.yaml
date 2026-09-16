@@ -1,0 +1,41 @@
+$kind: http-example
+id: 6c5b1e9d-9bb7-5a3d-bdc4-b450a84ecc06
+name: Create Custom CSR response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/custom_csrs"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "country": "US",
+        "state": "California",
+        "locality": "San Francisco",
+        "organization": "Cloudflare, Inc.",
+        "common_name": "example.com",
+        "sans": [
+          "example.com",
+          "www.example.com"
+        ],
+        "description": "CSR for example.com wildcard",
+        "key_type": "rsa2048",
+        "name": "My Custom CSR",
+        "organizational_unit": "Engineering"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,33 @@
+$kind: http-request
+id: f60071fc-3d28-5b91-90b3-5afd8628ce93
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ip-address-management-prefixes-upload-loa-document
+  POST /accounts/{account_id}/addressing/loa_documents
+
+  Submit LOA document (pdf format) under the account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/addressing/loa_documents"
+method: POST
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+body:
+  type: formdata
+  content:
+    - type: text
+      key: loa_document
+      value: "@document.pdf"
+      description: (Required) LOA document to upload.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Upload LOA Document.resources/examples
+order: 1000

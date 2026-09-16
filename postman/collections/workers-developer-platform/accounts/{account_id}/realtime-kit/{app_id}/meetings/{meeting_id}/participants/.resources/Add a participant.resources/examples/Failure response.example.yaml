@@ -1,0 +1,33 @@
+$kind: http-example
+id: d9a53ff8-0da3-538d-82bd-3f7ebb175bd9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/participants"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "preset_name": "group_call_host",
+        "custom_participant_id": "string",
+        "name": "Mary Sue",
+        "picture": "https://i.imgur.com/test.jpg"
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "error": {
+          "code": 7665.609449613839,
+          "message": "string"
+        }
+      }
+order: 2000

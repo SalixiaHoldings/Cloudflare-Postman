@@ -1,0 +1,59 @@
+$kind: http-example
+id: f43365c6-a89d-5a19-b680-98087ef71379
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pay-per-crawl/terms/signature?remote=true"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: remote
+      value: "true"
+      description: Refresh the signature status from Ironclad.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": "string",
+        "result_info": {
+          "count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "per_page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total_count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total_pages": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": false
+      }
+order: 1000

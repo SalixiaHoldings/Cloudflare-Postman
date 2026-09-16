@@ -1,0 +1,24 @@
+$kind: http-example
+id: 51e68f51-45ff-50f8-a7eb-932700dd1033
+name: OK.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps/magic_wan_address_space"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

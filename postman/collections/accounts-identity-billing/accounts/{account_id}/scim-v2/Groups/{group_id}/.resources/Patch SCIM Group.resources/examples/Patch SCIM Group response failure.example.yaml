@@ -1,0 +1,44 @@
+$kind: http-example
+id: d7759c0a-b899-5726-b359-761487797598
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Groups/{{group_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/scim+json
+    Accept: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "Operations": [
+          {
+            "op": "add",
+            "path": "members",
+            "value": [
+              {
+                "value": "023e105f4ecef8ad9ca31a8372d0c353"
+              }
+            ]
+          }
+        ],
+        "schemas": [
+          "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "schemas": [
+          "urn:ietf:params:scim:api:messages:2.0:Error"
+        ],
+        "status": "400",
+        "detail": "Invalid SCIM request: userName is required",
+        "scimType": "uniqueness"
+      }
+order: 2000

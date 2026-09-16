@@ -1,0 +1,17 @@
+$kind: http-example
+id: 0920ca4a-e708-5e1f-9275-6912a5546783
+name: Download Simple PCAP response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pcaps/{{pcap_id}}/download"
+  method: GET
+  headers:
+    Accept: application/vnd.tcpdump.pcap
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/vnd.tcpdump.pcap
+  body:
+    type: text
+    content: ""
+order: 1000

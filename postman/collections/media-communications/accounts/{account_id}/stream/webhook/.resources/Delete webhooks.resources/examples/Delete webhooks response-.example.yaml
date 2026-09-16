@@ -1,0 +1,22 @@
+$kind: http-example
+id: 28c1839a-f6b8-58fa-8297-bda6db4ee3fa
+name: Delete webhooks response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/webhook"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": "ok"
+      }
+order: 1000

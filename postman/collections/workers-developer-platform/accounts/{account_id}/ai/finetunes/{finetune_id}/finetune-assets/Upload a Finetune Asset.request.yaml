@@ -1,0 +1,37 @@
+$kind: http-request
+id: 26b0729f-db1e-572f-aad8-770200aff1b5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers-ai-upload-finetune-asset
+  POST /accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets
+
+  Uploads training data assets for a Workers AI fine-tuning job.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai/finetunes/{{finetune_id}}/finetune-assets"
+method: POST
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+body:
+  type: formdata
+  content:
+    - type: text
+      key: file_name
+      value: string
+      description: (Required) Name of the file (adapter_config.json or adapter_model.safetensors).
+    - type: file
+      key: file
+      src: ""
+      description: (Required) File to upload.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Upload a Finetune Asset.resources/examples
+order: 1000

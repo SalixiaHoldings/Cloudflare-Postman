@@ -1,0 +1,55 @@
+$kind: http-example
+id: dd6a47dd-3fa4-514e-92be-3f8e47ed348e
+name: Invalid subscription options.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/subscribe?cursor=6991&filter=rollback_attempt_started&filter=rollback_attempt_started"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cursor
+      value: "6991"
+      description: Last event ID already received.
+    - key: filter
+      value: rollback_attempt_started
+      description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
+    - key: filter
+      value: rollback_attempt_started
+      description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "messages": [
+          "string",
+          "string"
+        ],
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": null
+      }
+order: 2000

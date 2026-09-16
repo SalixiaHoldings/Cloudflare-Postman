@@ -1,0 +1,42 @@
+$kind: http-example
+id: 99158fdf-ef23-5a16-85c2-93dbd8b7699c
+name: Failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/rum/v2/{{ruleset_id}}/rule/{{rule_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "host": "example.com",
+        "inclusive": true,
+        "is_paused": false,
+        "paths": [
+          "*"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

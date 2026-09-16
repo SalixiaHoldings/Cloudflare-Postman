@@ -1,0 +1,34 @@
+$kind: http-example
+id: c1fc3c02-25b8-54ea-8c99-f7622b82939c
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}?submission=true"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: submission
+      value: "true"
+      description: |-
+        When true, search the submissions datastore only. When false or omitted, search the
+        regular datastore only.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

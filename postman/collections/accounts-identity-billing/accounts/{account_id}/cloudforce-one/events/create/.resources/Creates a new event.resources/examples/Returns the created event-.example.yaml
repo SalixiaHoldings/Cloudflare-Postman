@@ -1,0 +1,122 @@
+$kind: http-example
+id: f28e97b2-cff0-5e32-afe7-dd44c3f79804
+name: Returns the created event.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/create"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "date": "2022-04-01T00:00:00Z",
+        "category": "Domain Resolution",
+        "event": "An attacker registered the domain domain.com",
+        "tlp": "amber",
+        "raw": {
+          "data": {
+            "key_0": 8319
+          },
+          "source": "example.com",
+          "tlp": "amber"
+        },
+        "accountId": 123456,
+        "attacker": "Flying Yeti",
+        "attackerCountry": "CN",
+        "datasetId": "durableObjectName",
+        "indicator": "domain.com",
+        "indicatorType": "domain",
+        "indicators": [
+          {
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "indicatorType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "indicatorType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "insight": "This domain was likely registered for phishing purposes",
+        "source": {
+          "system": "threat-signals",
+          "resourceType": "article",
+          "resourceId": "293e0996-821e-9353-ea0c-9fb6592eb7ce"
+        },
+        "tags": [
+          "malware",
+          "malware"
+        ],
+        "targetCountry": "US",
+        "targetIndustry": "Agriculture"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "date": "2022-04-01T00:00:00Z",
+        "targetCountry": "US",
+        "targetCountryAlpha3": "USA",
+        "attacker": "Flying Yeti",
+        "attackerCountry": "CN",
+        "attackerCountryAlpha3": "CHN",
+        "targetIndustry": "Agriculture",
+        "rawId": "453gw34w3",
+        "indicatorTypeId": 5,
+        "indicator": "domain.com",
+        "event": "An attacker registered the domain domain.com",
+        "numReferenced": 677.8819230385125,
+        "numReferences": 6417.745649814606,
+        "tlp": "amber",
+        "category": "Domain Resolution",
+        "indicatorType": "domain",
+        "referenced": [
+          " ",
+          " "
+        ],
+        "references": [
+          " ",
+          " "
+        ],
+        "tags": [
+          "malware",
+          "malware"
+        ],
+        "killChain": 4885.0944405421615,
+        "mitreAttack": [
+          " ",
+          " "
+        ],
+        "mitreCapec": [
+          " ",
+          " "
+        ],
+        "referencedIds": [
+          9288.104549050331,
+          4313.423549756408
+        ],
+        "referencesIds": [
+          5327.5248082354665,
+          7614.759986754507
+        ],
+        "hasChildren": true,
+        "datasetId": "dataset-example-id",
+        "insight": "string",
+        "releasabilityId": "string"
+      }
+order: 1000

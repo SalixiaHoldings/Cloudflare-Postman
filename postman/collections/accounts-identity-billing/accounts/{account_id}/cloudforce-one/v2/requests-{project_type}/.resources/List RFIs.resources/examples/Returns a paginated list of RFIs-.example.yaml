@@ -1,0 +1,121 @@
+$kind: http-example
+id: 399ed0a8-fb2d-5728-9870-eb9ae9e55f86
+name: Returns a paginated list of RFIs.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}?page=2535.467583220452&pageSize=2535.467583220452&status=string&search=string&createdBy=string&assignee=string&requestType=string&priority=string&tlp=string&id=string&readableId=string&summary=string&accountId=string&metadata=string&orderBy=string&order=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "2535.467583220452"
+    - key: pageSize
+      value: "2535.467583220452"
+    - key: status
+      value: string
+    - key: search
+      value: string
+    - key: createdBy
+      value: string
+      description: "Filter by creator email. NOTE: For the `legal-response` project type this query parameter is **rejected with HTTP 400** — the server derives the filter from the authenticated user's JWT automatically and does not accept a client-supplied value. Requests to `legal-response` with no valid JWT identity are rejected with HTTP 401."
+    - key: assignee
+      value: string
+    - key: requestType
+      value: string
+    - key: priority
+      value: string
+    - key: tlp
+      value: string
+    - key: id
+      value: string
+    - key: readableId
+      value: string
+    - key: summary
+      value: string
+    - key: accountId
+      value: string
+    - key: metadata
+      value: string
+      description: "JSON string object of metadata filters. Supports two formats: 1) Simple values for exact match (backward compatible): {\"status\": \"open\"} 2) Operator objects for advanced filtering: {\"identifiers\": {\"operator\": \"contains_line\", \"value\": \"blah.com\"}}. Available operators: 'eq' (exact match, default), 'contains' (substring match), 'contains_line' (match complete line in newline-separated text). Date fields are automatically normalized to YYYY-MM-DD format."
+    - key: orderBy
+      value: string
+    - key: order
+      value: string
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": "true",
+        "result": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "accountId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "projectType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdBy": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updatedAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "accountId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "projectType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdBy": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updatedAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "pagination": {
+          "page": 305.30975898727775,
+          "pageSize": 4241.788524668664,
+          "total": 6817.309153266251,
+          "totalPages": 3406.9984615780413
+        }
+      }
+order: 1000

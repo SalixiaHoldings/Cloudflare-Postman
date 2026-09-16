@@ -1,0 +1,34 @@
+$kind: http-request
+id: 5c5cdf15-0245-5b43-ba81-4d7ff9272fbe
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-settings-change-binary-ast-setting
+  PATCH /zones/{zone_id}/settings/binary_ast
+
+  Binary AST is a new binary encoding for JavaScript that enables faster parsing of scripts.
+  When enabled, Cloudflare will serve a binary-encoded version of JavaScript to compatible browsers.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/settings/binary_ast"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": "latest"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Change Binary AST setting.resources/examples
+order: 2000

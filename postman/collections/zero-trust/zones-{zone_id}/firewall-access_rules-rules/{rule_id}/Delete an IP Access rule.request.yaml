@@ -1,0 +1,36 @@
+$kind: http-request
+id: c3b7493e-118f-5e80-95ed-286ceedccbb6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ip-access-rules-for-a-zone-delete-an-ip-access-rule
+  DELETE /zones/{zone_id}/firewall/access_rules/rules/{rule_id}
+
+  Deletes an IP Access rule defined at the zone level.
+
+  Optionally, you can use the `cascade` property to specify that you wish to delete similar rules in other zones managed by the same zone owner.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/firewall/access_rules/rules/{{rule_id}}"
+method: DELETE
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "cascade": "none"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete an IP Access rule.resources/examples
+order: 1000

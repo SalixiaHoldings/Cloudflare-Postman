@@ -1,0 +1,38 @@
+$kind: http-example
+id: 179ecc91-700c-549d-9582-b80223ee5e8b
+name: Edits additional audio tracks on a video response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/audio/{{audio_identifier}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "default": false,
+        "label": "director commentary"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

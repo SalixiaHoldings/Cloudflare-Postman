@@ -1,0 +1,45 @@
+$kind: http-example
+id: be19fc12-938b-51f3-bc32-d8efc6bc900b
+name: Data class update was successful.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/data_classes/{{data_class_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "data_tags": [
+          "7a4a68ae-f386-3200-22f8-345c3ec900cf",
+          "83672d8d-cb62-4745-72b5-af7d27f4d407"
+        ],
+        "description": "string",
+        "expression": "string",
+        "name": "string",
+        "sensitivity_levels": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

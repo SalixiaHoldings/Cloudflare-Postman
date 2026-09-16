@@ -1,0 +1,42 @@
+$kind: http-example
+id: 6d23d619-34ed-5e0e-bd6a-9933d2e09da9
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/entities/asns/{{asn}}/rel?asn2=8856&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: asn2
+      value: "8856"
+      description: Retrieves the AS relationship of ASN2 with respect to the given ASN.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

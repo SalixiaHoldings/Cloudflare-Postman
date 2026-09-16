@@ -1,0 +1,57 @@
+$kind: http-example
+id: a14bb3c4-e0af-51c6-b955-9f1465419a5a
+name: Clip videos given a start and end time response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/clip"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "clippedFromVideoUID": "023e105f4ecef8ad9ca31a8372d0c353",
+        "startTimeSeconds": 5760,
+        "endTimeSeconds": 9074,
+        "allowedOrigins": [
+          "example.com"
+        ],
+        "creator": "creator-id_abcde12345",
+        "input": "https://example.com/myvideo.mp4",
+        "meta": {
+          "name": "video12345.mp4"
+        },
+        "name": "myvideo.mp4",
+        "requireSignedURLs": true,
+        "scheduledDeletion": "2014-01-02T02:20:00Z",
+        "thumbnailTimestampPct": 0.529241,
+        "url": "https://example.com/myvideo.mp4",
+        "watermark": {
+          "uid": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

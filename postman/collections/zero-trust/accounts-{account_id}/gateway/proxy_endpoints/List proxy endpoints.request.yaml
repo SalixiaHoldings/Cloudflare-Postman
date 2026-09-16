@@ -1,0 +1,50 @@
+$kind: http-request
+id: ec3df45f-20f8-55ab-a481-065a8b85b683
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-gateway-proxy-endpoints-list-proxy-endpoints
+  GET /accounts/{account_id}/gateway/proxy_endpoints
+
+  List all Zero Trust Gateway proxy endpoints for an account.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/gateway/proxy_endpoints?search=string&order_by=created_at&direction=asc"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: search
+    value: string
+    description: |-
+      Case-insensitive substring match on the endpoint name. When combined
+      with `filter`, both must match (logical AND).
+  - key: order_by
+    value: created_at
+    description: |-
+      Field to sort the returned endpoints by. When omitted, the order of
+      results is unspecified. Supported values:
+        * `name` — sort alphabetically by endpoint name.
+        * `created_at` — sort by creation time; defaults to descending unless `direction` is set.
+        * `updated_at` — sort by last-modified time; defaults to descending unless `direction` is set.
+  - key: direction
+    value: asc
+    description: |-
+      Sort direction. Only takes effect when `order_by` is also provided; it
+      is ignored otherwise. When `direction` is omitted the effective
+      direction is field-specific: `created_at` and `updated_at` default to
+      descending (newest first); `name` defaults to ascending.
+        * `asc` — ascending.
+        * `desc` — descending.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List proxy endpoints.resources/examples
+order: 1000

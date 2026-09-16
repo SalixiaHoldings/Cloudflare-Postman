@@ -1,0 +1,28 @@
+$kind: http-example
+id: 8b59f543-2f51-5056-9593-cf782b977af0
+name: File bytes.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/file?ref=string&path=string"
+  method: GET
+  headers:
+    Accept: application/octet-stream
+  queryParams:
+    - key: ref
+      value: string
+      description: (Required) Git ref, branch, tag, or commit hash.
+    - key: path
+      value: string
+      description: (Required) File path.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    - key: content-length
+      value: "8161"
+      description: Size of the response body in bytes.
+    - key: Content-Type
+      value: application/octet-stream
+  body:
+    type: text
+    content: string
+order: 1000

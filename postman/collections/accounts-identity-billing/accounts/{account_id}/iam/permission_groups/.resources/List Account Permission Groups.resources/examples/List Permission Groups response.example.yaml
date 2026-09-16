@@ -1,0 +1,27 @@
+$kind: http-example
+id: d50a8a8b-b0d8-5fae-8190-63aabbf53bf3
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/iam/permission_groups?id=6d7f2f5f5b1d4a0e9081fdc98d432fd1&name=NameOfThePermissionGroup&label=labelOfThePermissionGroup&page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    id: 6d7f2f5f5b1d4a0e9081fdc98d432fd1
+    name: NameOfThePermissionGroup
+    label: labelOfThePermissionGroup
+    page: "1"
+    per_page: "20"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

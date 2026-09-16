@@ -1,0 +1,21 @@
+$kind: http-example
+id: 4e5f0dce-d2ca-536f-82cf-a9f36f99dcc3
+request:
+  url: "{{base_url}}/user/tokens/{{token_id}}/value"
+  method: PUT
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,42 @@
+$kind: http-example
+id: 22fa99fc-8cbf-527d-a298-db82e9c49a73
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/slurper/target/connectivity-precheck"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "vendor": "r2",
+        "bucket": "string",
+        "secret": "{{secret}}",
+        "jurisdiction": "eu"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,44 @@
+$kind: http-example
+id: 1bb47da7-0497-535c-ad30-833b06b85724
+name: Batch create or update origin cloud region mappings failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions/batch"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "ip": "192.0.2.1",
+          "region": "us-east-1",
+          "vendor": "aws"
+        },
+        {
+          "ip": "2001:db8::1",
+          "region": "us-central1",
+          "vendor": "gcp"
+        }
+      ]
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1164,
+            "message": "Maximum number of IP mappings configured for zone."
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

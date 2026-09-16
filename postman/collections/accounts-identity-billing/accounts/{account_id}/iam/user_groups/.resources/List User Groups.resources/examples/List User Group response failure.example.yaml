@@ -1,0 +1,49 @@
+$kind: http-example
+id: f238da85-f242-5c78-bd38-a4b9fd413227
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/iam/user_groups?description=User Group identifier tag.&title=User Group Identifier&value=<Error: Too many levels of nesting to fake this schema>&name=NameOfTheUserGroup&fuzzyName=Foo&page=1&per_page=100&direction=desc"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: description
+      value: User Group identifier tag.
+      description: ID of the user group to be fetched.
+    - key: title
+      value: User Group Identifier
+      description: ID of the user group to be fetched.
+    - key: value
+      value: "<Error: Too many levels of nesting to fake this schema>"
+      description: ID of the user group to be fetched.
+    - key: name
+      value: NameOfTheUserGroup
+    - key: fuzzyName
+      value: Foo
+    - key: page
+      value: "1"
+    - key: per_page
+      value: "100"
+    - key: direction
+      value: desc
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

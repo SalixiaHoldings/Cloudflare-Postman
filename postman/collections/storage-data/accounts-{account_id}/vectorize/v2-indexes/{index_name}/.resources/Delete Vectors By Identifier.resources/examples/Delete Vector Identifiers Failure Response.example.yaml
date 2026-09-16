@@ -1,0 +1,40 @@
+$kind: http-example
+id: 6f58ca71-e1b1-5e06-9804-f7784a57b3d9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vectorize/v2/indexes/{{index_name}}/delete_by_ids"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "ids": [
+          "5121db81354a40c6aedc3fe1ace51c59",
+          "f90eb49c2107486abdfd78c67e853430"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

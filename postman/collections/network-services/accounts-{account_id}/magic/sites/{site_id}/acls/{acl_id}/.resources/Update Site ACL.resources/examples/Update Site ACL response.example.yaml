@@ -1,0 +1,71 @@
+$kind: http-example
+id: 851e9cc6-c571-5b74-b1db-e6ada897ce75
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/acls/{{acl_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "description": "Allows local traffic between PIN pads and cash register.",
+        "forward_locally": false,
+        "lan_1": {
+          "lan_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "lan_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "port_ranges": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ports": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "subnets": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "lan_2": {
+          "lan_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "lan_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "port_ranges": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ports": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "subnets": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "name": "PIN Pad - Cash Register",
+        "protocols": [
+          "icmp",
+          "udp"
+        ],
+        "unidirectional": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

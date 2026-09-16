@@ -1,0 +1,25 @@
+$kind: http-example
+id: d8c0f0c8-7177-5d78-8137-99227e688483
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/auth/spf/inspect?id=e5bb46707a802688812d5d1c9f7977d4"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: e5bb46707a802688812d5d1c9f7977d4
+      description: (Required) DNS record ID (rec_tag) to inspect
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

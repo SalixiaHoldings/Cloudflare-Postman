@@ -1,0 +1,53 @@
+$kind: http-example
+id: 05f72d86-e35f-5989-8d36-6c2ba860254d
+name: Threat Signals response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/skills/{{skill_id}}/tag-categories"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "category_uuids": [
+          "9f22d681-0481-c4e0-4b11-091edd97818f",
+          "3661ede5-aa2c-63e6-d828-b0c535a8a101"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "skill_id": "default-tagging-skill",
+          "category_uuids": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

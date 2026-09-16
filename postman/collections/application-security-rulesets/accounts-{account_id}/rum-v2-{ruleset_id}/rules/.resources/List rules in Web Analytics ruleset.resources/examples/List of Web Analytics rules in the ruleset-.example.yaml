@@ -1,0 +1,38 @@
+$kind: http-example
+id: de5e8b2e-0ccb-526e-96ed-035296c9f7ad
+name: List of Web Analytics rules in the ruleset.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/rum/v2/{{ruleset_id}}/rules"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "rules": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ruleset": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

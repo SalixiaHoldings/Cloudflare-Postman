@@ -1,0 +1,43 @@
+$kind: http-request
+id: 6dfda22f-e44c-5e71-8b1f-c81997c5500c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_list_impersonation_registry
+  GET /accounts/{account_id}/email-security/settings/impersonation_registry
+
+  Returns a paginated list of protected identities in the impersonation registry. These entries define identities and email addresses to protect from impersonation attacks. Can be manually added or automatically synced from directory integrations.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/impersonation_registry?page=1&per_page=20&search=string&order=name&direction=asc&provenance=SNOOPY-CASB_OFFICE_365"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    description: Current page within paginated list of results.
+  - key: per_page
+    value: "20"
+    description: The number of results per page. Maximum value is 1000.
+  - key: search
+    value: string
+    description: Search term for filtering records. Behavior may change.
+  - key: order
+    value: name
+    description: Field to sort by.
+  - key: direction
+    value: asc
+    description: The sorting direction.
+  - key: provenance
+    value: SNOOPY-CASB_OFFICE_365
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List entries in impersonation registry.resources/examples
+order: 1000

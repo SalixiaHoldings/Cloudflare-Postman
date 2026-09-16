@@ -1,0 +1,27 @@
+$kind: http-example
+id: 04c91a5b-02c2-57c1-900e-673abd4db3e7
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/sso_connectors/{{sso_connector_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

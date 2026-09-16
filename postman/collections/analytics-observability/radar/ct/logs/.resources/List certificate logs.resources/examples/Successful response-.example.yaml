@@ -1,0 +1,42 @@
+$kind: http-example
+id: 4ccb05c5-5f0b-5037-9140-28f110c65905
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/ct/logs?limit=5&offset=3789&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: limit
+      value: "5"
+      description: Limits the number of objects returned in the response.
+    - key: offset
+      value: "3789"
+      description: Skips the specified number of objects before fetching the results.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "certificateLogs": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

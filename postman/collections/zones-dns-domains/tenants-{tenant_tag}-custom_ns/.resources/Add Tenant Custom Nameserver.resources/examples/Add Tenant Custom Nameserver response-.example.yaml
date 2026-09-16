@@ -1,0 +1,30 @@
+$kind: http-example
+id: c861f266-377e-5191-a658-a6a3de1b2fb9
+name: Add Tenant Custom Nameserver response.
+request:
+  url: "{{base_url}}/tenants/{{tenant_tag}}/custom_ns"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "ns_name": "ns1.example.com",
+        "ns_set": 1
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

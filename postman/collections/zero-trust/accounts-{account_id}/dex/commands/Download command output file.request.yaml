@@ -1,0 +1,25 @@
+$kind: http-request
+id: c2b1ef83-00f3-5308-9f95-55eca4c0f561
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-commands-command-id-downloads-filename
+  GET /accounts/{account_id}/dex/commands/{command_id}/downloads/{filename}
+
+  Downloads artifacts for an executed command. Bulk downloads are not supported
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/commands/{{command_id}}/downloads/{{filename}}"
+method: GET
+headers:
+  Accept: application/zip
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Download command output file.resources/examples
+order: 5000

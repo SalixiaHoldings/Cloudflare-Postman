@@ -1,0 +1,22 @@
+$kind: http-example
+id: c1188fb0-52bf-5167-be66-59551accfd01
+name: Binding found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dls/regional_services/prefix_bindings/{{binding_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

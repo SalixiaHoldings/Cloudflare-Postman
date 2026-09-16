@@ -1,0 +1,27 @@
+$kind: http-example
+id: 2b7f3ef6-ef0d-5a17-a4dc-63a27d010c82
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/apps/{{app_id}}/policies"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

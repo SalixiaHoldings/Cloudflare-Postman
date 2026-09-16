@@ -1,0 +1,28 @@
+$kind: http-example
+id: ce1f6733-5adf-5119-b4f2-1e7cd08413ae
+name: List origin cloud region mappings response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "editable": true,
+          "id": "origin_public_cloud_region",
+          "modified_on": null,
+          "value": []
+        },
+        "success": true
+      }
+order: 1000

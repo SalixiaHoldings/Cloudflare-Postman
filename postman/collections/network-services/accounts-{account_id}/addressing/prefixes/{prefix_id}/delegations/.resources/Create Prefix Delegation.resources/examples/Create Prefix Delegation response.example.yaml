@@ -1,0 +1,29 @@
+$kind: http-example
+id: 31f26817-f6d4-5662-922c-61a7470b6cf2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/addressing/prefixes/{{prefix_id}}/delegations"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "cidr": "192.0.2.0/24",
+        "delegated_account_id": "b1946ac92492d2347c6235b4d2611184"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

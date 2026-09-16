@@ -1,0 +1,32 @@
+$kind: http-example
+id: 30d26267-73f7-5736-a2b5-664b7faa6a08
+name: Returns the updated group.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/-/groups/{{group_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "cloudforce-subscribers",
+        "description": "Cloudforce subscribers"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "name": "loudforce-subscribers",
+        "description": "Cloudforce subscribers",
+        "createdAt": "2022-04-01T00:00:00Z",
+        "updatedAt": "2022-04-01T00:00:00Z"
+      }
+order: 1000

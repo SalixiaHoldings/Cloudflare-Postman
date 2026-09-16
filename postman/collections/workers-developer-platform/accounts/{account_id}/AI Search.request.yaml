@@ -1,0 +1,55 @@
+$kind: http-request
+id: bc52ae8c-4735-5268-a42e-923e7f063841
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: autorag-config-ai-search
+  POST /accounts/{account_id}/autorag/rags/{id}/ai-search
+
+  Runs an AI Search query against an AutoRAG.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/autorag/rags/{{id}}/ai-search"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "query": "string",
+      "filters": {
+        "key": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "type": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "value": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "max_num_results": 10,
+      "model": "grok/grok-4",
+      "ranking_options": {},
+      "reranking": {
+        "enabled": false,
+        "model": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "rewrite_query": false,
+      "stream": false,
+      "system_prompt": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/AI Search.resources/examples
+order: 3000

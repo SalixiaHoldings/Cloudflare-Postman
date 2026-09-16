@@ -1,0 +1,37 @@
+$kind: http-example
+id: 2c84c078-e0ac-5ab0-be50-5990cc15e842
+name: List tag values response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/tags/values/{{tag_key}}?type=zone&cursor=eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: type
+      value: zone
+      description: Filter by resource type.
+    - key: cursor
+      value: eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ
+      description: Cursor for pagination.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

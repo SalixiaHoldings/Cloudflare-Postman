@@ -1,0 +1,34 @@
+$kind: http-example
+id: adccb548-4dd1-5aef-a6d6-0be98a080bfe
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/assets/list"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "type": "object",
+        "properties": {
+          "assets": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "items": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "count": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+order: 1000

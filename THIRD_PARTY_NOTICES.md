@@ -42,3 +42,5 @@ Generation uses Postman's `openapi-to-postmanv2` 6.3.3 package under the Apache 
 - Collection schema: <https://schema.getpostman.com/json/collection/v2.1.0/collection.json>
 
 Additional build-only JavaScript dependency licenses are recorded in `package-lock.json` and their installed package metadata.
+
+Collection v3 migration and lint use the official Postman CLI 1.56.3 as a build-only dependency; its binary is not redistributed in this repository. See the [official CLI documentation](https://learning.postman.com/docs/postman-cli/postman-cli-installation) for installation and usage. The generated YAML retains the Cloudflare attribution above.

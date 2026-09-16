@@ -1,0 +1,36 @@
+$kind: http-example
+id: 7186ec05-d3c0-59cb-a54c-e5dd7a2567d9
+name: Indicates that Sink was retrieved.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/sinks/{{sink_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "01234567890123457689012345678901",
+          "name": "my_sink",
+          "created_at": "1970-02-23T02:07:47.028Z",
+          "modified_at": "1967-01-06T01:02:55.810Z",
+          "type": "r2",
+          "config": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "format": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "schema": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

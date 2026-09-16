@@ -1,0 +1,104 @@
+$kind: http-example
+id: 6d3391c5-1a25-5a1a-a67c-56bf4f3f113b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/organizations"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "allow_authenticate_via_warp": false,
+        "auth_domain": "test.cloudflareaccess.com",
+        "auto_redirect_to_identity": false,
+        "custom_pages": {
+          "forbidden": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "identity_denied": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "deny_unmatched_requests": false,
+        "deny_unmatched_requests_exempted_zone_names": [
+          "example.com"
+        ],
+        "is_ui_read_only": false,
+        "login_design": {
+          "background_color": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "footer_text": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "header_text": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "logo_path": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "text_color": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "mfa_config": {
+          "allowed_authenticators": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "amr_matching_session_duration": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "required_aaguids": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "session_duration": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "mfa_piv_key_requirements": {
+          "pin_policy": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "require_fips_device": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ssh_key_size": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ssh_key_type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "touch_policy": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "mfa_required_for_all_apps": false,
+        "name": "Widget Corps Internal Applications",
+        "session_duration": "24h",
+        "ui_read_only_toggle_reason": "Temporarily turn off the UI read only lock to make a change via the UI",
+        "user_seat_expiration_inactive_time": "730h",
+        "warp_auth_non_browser_401": false,
+        "warp_auth_session_duration": "24h"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

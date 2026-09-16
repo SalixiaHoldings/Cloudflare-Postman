@@ -1,0 +1,21 @@
+$kind: http-example
+id: 3c8a4f02-05ef-52d5-a404-e1e597a29172
+name: Namespace deleted.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {}
+      }
+order: 1000

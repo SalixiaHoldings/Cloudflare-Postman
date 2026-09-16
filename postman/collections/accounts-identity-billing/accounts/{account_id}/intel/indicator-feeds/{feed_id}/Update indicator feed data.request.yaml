@@ -1,0 +1,56 @@
+$kind: http-request
+id: 9e6160cb-5684-5ddc-8b71-5755c2373f6c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: custom-indicator-feeds-update-indicator-feed-data
+  PUT /accounts/{account_id}/intel/indicator-feeds/{feed_id}/snapshot
+
+  Revises the raw data entries in a custom threat indicator feed.
+
+  Accepts both plain and gzipped STIX2/CRDF bodies. Gzip is
+  detected by RFC 1952 magic bytes (`0x1f 0x8b`) and/or a `.gz`
+  filename suffix (case-insensitive) — either signal alone is
+  sufficient to trigger the gzip path; if the body is not valid
+  gzip, the upload fails fast. Customers are encouraged to gzip
+  larger uploads — the api-gateway 500 MB body cap applies to
+  the on-the-wire (compressed) size, so gzip lets a single
+  upload carry several GiB of decompressed STIX.
+
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/intel/indicator-feeds/{{feed_id}}/snapshot"
+method: PUT
+headers:
+  - key: Cf-Async-Upload
+    value: "1"
+    description: |
+      Set to the literal value `1` to enqueue the upload and receive a
+      `202` response with a polling URL. Any other value uses the legacy
+      synchronous response.
+  - key: Content-Type
+    value: multipart/form-data
+  - key: Accept
+    value: application/json
+  - key: X-Auth-Email
+    value: "{{api_email}}"
+  - key: X-Auth-Key
+    value: "{{api_key}}"
+body:
+  type: formdata
+  content:
+    - type: text
+      key: source
+      value: "@/Users/me/test.stix2.gz"
+      description: |
+        The file to upload. Either a plain STIX2/CRDF body
+        or a gzipped one (recognised by `0x1f 0x8b` magic
+        bytes or a `.gz` filename suffix).
+auth:
+  type: noauth
+examples: ./.resources/Update indicator feed data.resources/examples
+order: 5000

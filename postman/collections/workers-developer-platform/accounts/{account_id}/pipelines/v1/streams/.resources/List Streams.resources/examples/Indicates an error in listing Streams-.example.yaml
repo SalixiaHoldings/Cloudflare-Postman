@@ -1,0 +1,27 @@
+$kind: http-example
+id: a5f3546d-644d-54e6-a356-571af5c0704d
+name: Indicates an error in listing Streams.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/streams?pipeline_id=043e105f4ecef8ad9ca31a8372d0c353&name=string&page=1&per_page=6111.051584593952"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: pipeline_id
+      value: 043e105f4ecef8ad9ca31a8372d0c353
+    - key: name
+      value: string
+      description: Filters streams by name (case-insensitive substring).
+    - key: page
+      value: "1"
+    - key: per_page
+      value: "6111.051584593952"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

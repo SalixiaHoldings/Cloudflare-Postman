@@ -1,0 +1,27 @@
+$kind: http-example
+id: 02cade2e-a934-51f7-86ef-1c6ccd14e4f9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/autorag/rags/{{id}}/jobs/{{job_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "id": "string",
+          "source": "schedule",
+          "end_reason": "string",
+          "ended_at": "string",
+          "last_seen_at": "string",
+          "started_at": "string"
+        }
+      }
+order: 1000

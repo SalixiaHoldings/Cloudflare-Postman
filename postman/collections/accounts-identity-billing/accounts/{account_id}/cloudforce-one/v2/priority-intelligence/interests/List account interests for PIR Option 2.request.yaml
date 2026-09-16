@@ -1,0 +1,27 @@
+$kind: http-request
+id: 314d66ae-ec2b-5135-a433-352ba761719c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_PirInterestList
+  GET /accounts/{account_id}/cloudforce-one/v2/priority-intelligence/interests
+
+  Lists structured account interests for Priority Intelligence Option 2. Filter by enabled state and paginate results.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/interests?page=1&per_page=20&enabled=false"
+method: GET
+queryParams:
+  page: "1"
+  per_page: "20"
+  enabled: "false"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List account interests for PIR Option 2.resources/examples
+order: 1000

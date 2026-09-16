@@ -1,0 +1,22 @@
+$kind: http-example
+id: 8a44b9ea-79c7-5e6f-af82-bc4f5a61be51
+name: Force DNS NOTIFY response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/secondary_dns/outgoing/force_notify"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

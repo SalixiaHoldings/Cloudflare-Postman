@@ -1,0 +1,35 @@
+$kind: http-request
+id: 1448a0be-f561-527d-bbe0-60176d91a421
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_LetterTemplateCreate
+  POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/letter/templates
+
+  Create a new user-defined takedown letter template
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/letter/templates"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "category": "string",
+      "body": "string",
+      "description": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create letter template.resources/examples
+order: 2000

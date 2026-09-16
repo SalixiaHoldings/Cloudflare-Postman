@@ -1,0 +1,60 @@
+$kind: http-example
+id: 012becca-5dab-542d-8e3f-d405c4593e3a
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/{{event_id}}"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "datasetId": "9b769969-a211-466c-8ac3-cb91266a066a",
+        "attacker": "Flying Yeti",
+        "attackerCountry": "CN",
+        "category": "Domain Resolution",
+        "createdAt": "2025-12-19T00:00:00Z",
+        "date": "2022-04-01T00:00:00Z",
+        "event": "An attacker registered the domain domain.com",
+        "indicator": "domain2.com",
+        "indicatorType": "domain",
+        "insight": "new insight",
+        "raw": {
+          "data": {
+            "key_0": false,
+            "key_1": 3459
+          },
+          "source": "example.com",
+          "tlp": "amber"
+        },
+        "targetCountry": "US",
+        "targetIndustry": "Insurance",
+        "tlp": "amber"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

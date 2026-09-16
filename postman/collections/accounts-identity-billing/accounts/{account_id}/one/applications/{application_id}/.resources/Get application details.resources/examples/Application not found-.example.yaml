@@ -1,0 +1,17 @@
+$kind: http-example
+id: 21b4f0c7-f11b-5398-8cdf-ec0d4950ffaa
+name: Application not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/one/applications/{{application_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

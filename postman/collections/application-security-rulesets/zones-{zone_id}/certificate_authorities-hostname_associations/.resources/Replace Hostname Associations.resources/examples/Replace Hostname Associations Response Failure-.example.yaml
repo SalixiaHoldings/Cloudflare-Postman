@@ -1,0 +1,43 @@
+$kind: http-example
+id: a8312c82-62f5-56a4-9d1e-2f1865fc477a
+name: Replace Hostname Associations Response Failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/certificate_authorities/hostname_associations"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "hostnames": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "mtls_certificate_id": "stringstringstringstringstringstring"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

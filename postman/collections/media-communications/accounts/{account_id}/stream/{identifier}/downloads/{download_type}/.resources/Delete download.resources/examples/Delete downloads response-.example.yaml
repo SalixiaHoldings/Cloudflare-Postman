@@ -1,0 +1,22 @@
+$kind: http-example
+id: ff831b5f-33ef-5fd4-8b92-fc519d8b1c78
+name: Delete downloads response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/downloads/{{download_type}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": "ok"
+      }
+order: 1000

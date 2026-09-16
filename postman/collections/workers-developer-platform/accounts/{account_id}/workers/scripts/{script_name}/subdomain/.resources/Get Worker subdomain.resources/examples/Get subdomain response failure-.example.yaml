@@ -1,0 +1,28 @@
+$kind: http-example
+id: d4f267e5-af59-58e4-87ac-366cdd8f8ef6
+name: Get subdomain response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/subdomain"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,30 @@
+$kind: http-example
+id: cf24f1dd-1b7c-509d-9eae-874855bb47ce
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dns_records/{{dns_record_id}}?include_shadow_metadata=true"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    include_shadow_metadata: "true"
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

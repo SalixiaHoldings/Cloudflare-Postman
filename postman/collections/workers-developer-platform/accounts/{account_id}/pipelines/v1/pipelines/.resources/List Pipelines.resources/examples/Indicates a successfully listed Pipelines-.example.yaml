@@ -1,0 +1,76 @@
+$kind: http-example
+id: c9195f9b-5575-5a66-a201-a58ff49d8dc2
+name: Indicates a successfully listed Pipelines.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/pipelines?page=1&per_page=6111.051584593952&name=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+    - key: per_page
+      value: "6111.051584593952"
+    - key: name
+      value: string
+      description: Filters pipelines by name (case-insensitive substring).
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modified_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "sql": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modified_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "sql": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "count": 1,
+          "page": 0,
+          "per_page": 10,
+          "total_count": 1
+        }
+      }
+order: 1000

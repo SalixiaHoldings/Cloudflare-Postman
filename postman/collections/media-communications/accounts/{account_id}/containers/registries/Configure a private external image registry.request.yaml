@@ -1,0 +1,52 @@
+$kind: http-request
+id: 660e4e0f-e606-5a25-a175-21d0f81f055e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: createImageRegistry
+  POST /accounts/{account_id}/containers/registries
+
+  Registers credentials for a supported private external image registry so
+  Containers can pull images from it. This endpoint does not create a registry
+  or upload an image. Public Docker Hub images and images in the Cloudflare
+  managed registry do not require this configuration.
+
+  Refer to [Image management](https://developers.cloudflare.com/containers/platform-details/image-management/)
+  for supported registries and instructions for storing registry credentials.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/containers/registries"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "domain": "docker.io",
+      "auth": {
+        "public_credential": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "private_credential": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "kind": {
+        "description": "Registry provider. This must match `domain`: `DockerHub` for `docker.io`,\n`ECR` for AWS ECR, or `GAR` for Google Artifact Registry.\n",
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "is_public": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Configure a private external image registry.resources/examples
+order: 2000

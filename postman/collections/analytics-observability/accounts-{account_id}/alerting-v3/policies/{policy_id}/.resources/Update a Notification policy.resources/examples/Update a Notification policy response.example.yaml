@@ -1,0 +1,50 @@
+$kind: http-example
+id: 01789b95-b168-5497-9e65-69f6f2203467
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/policies/{{policy_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "alert_interval": "30m",
+        "alert_type": "universal_ssl_event_type",
+        "description": "Something describing the policy.",
+        "enabled": true,
+        "filters": {
+          "slo": [
+            "99.9"
+          ]
+        },
+        "mechanisms": {
+          "email": [
+            {}
+          ],
+          "pagerduty": [
+            {}
+          ],
+          "webhooks": [
+            {}
+          ]
+        },
+        "name": "SSL Notification Event Policy"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

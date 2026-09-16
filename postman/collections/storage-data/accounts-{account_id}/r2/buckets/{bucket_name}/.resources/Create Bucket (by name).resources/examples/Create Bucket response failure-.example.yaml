@@ -1,0 +1,39 @@
+$kind: http-example
+id: c4b95c3a-10d3-50bf-bee8-14ebcc2678d1
+name: Create Bucket response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}"
+  method: PUT
+  headers:
+    cf-r2-jurisdiction: default
+    cf-r2-storage-class: Standard
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": null
+      }
+order: 2000

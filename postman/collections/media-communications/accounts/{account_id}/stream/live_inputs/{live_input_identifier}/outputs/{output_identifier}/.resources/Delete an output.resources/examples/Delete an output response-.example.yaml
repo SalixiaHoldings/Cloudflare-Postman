@@ -1,0 +1,19 @@
+$kind: http-example
+id: 76f96ba6-7a28-5cfa-8cbc-65adbf8ebdc5
+name: Delete an output response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs/{{live_input_identifier}}/outputs/{{output_identifier}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: '""'
+order: 1000

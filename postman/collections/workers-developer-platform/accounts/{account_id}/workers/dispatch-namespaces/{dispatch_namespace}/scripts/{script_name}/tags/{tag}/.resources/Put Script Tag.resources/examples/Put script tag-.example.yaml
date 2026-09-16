@@ -1,0 +1,29 @@
+$kind: http-example
+id: c0d5c160-99c0-5f5f-a152-5590b739baa6
+name: Put script tag.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts/{{script_name}}/tags/{{tag}}"
+  method: PUT
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": null
+      }
+order: 1000

@@ -1,0 +1,41 @@
+$kind: http-request
+id: 780c3d29-0320-5a4e-a03e-64a0278953dd
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_TagRelationshipCreate
+  POST /accounts/{account_id}/cloudforce-one/events/tags/{tag_uuid}/relationships
+
+  Creates a new relationship with the tag as the source entity. Requires a datasetId to locate the Indicators DO.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/relationships"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "targetType": "event",
+      "targetId": "string",
+      "datasetId": "string",
+      "type": "attributed-to",
+      "confidence": 63,
+      "metadata": {
+        "key_0": "string",
+        "key_1": "string",
+        "key_2": 5242
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a relationship for a tag.resources/examples
+order: 2000

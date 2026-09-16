@@ -1,0 +1,41 @@
+$kind: http-example
+id: 4877d9a1-8796-5048-90b9-fbaec7de5060
+name: Edit DNSSEC Status response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dnssec"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "dnssec_multi_signer": false,
+        "dnssec_presigned": true,
+        "dnssec_use_nsec3": false,
+        "status": "active"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,28 @@
+$kind: http-example
+id: c3bbee0c-fb2b-5710-b422-ceb20addbfe9
+name: Internal server error.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/entitlements"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 2000,
+            "message": "failed to fetch entitlements: internal server error"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 8000

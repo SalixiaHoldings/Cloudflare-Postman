@@ -1,0 +1,22 @@
+$kind: http-example
+id: 8fcb6441-9b82-571d-a75a-a5e139bd2f3b
+name: Internal server error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/session?limit=200&offset=0"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    limit: "200"
+    offset: "0"
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

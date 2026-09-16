@@ -1,0 +1,31 @@
+$kind: http-example
+id: 7a84b45e-c885-53c2-801a-0708eec3d30d
+name: Universal SSL Settings Details response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ssl/universal/settings"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

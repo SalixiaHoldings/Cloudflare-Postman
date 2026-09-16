@@ -1,0 +1,27 @@
+$kind: http-example
+id: 90ff8627-f0ae-5cc9-b0c5-6e8e2a73781d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/bookmarks/{{bookmark_id}}"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

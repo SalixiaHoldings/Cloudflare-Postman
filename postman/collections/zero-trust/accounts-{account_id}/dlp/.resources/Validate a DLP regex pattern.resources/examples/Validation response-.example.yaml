@@ -1,0 +1,32 @@
+$kind: http-example
+id: 254681a2-d6a9-5de2-883c-11fb92787706
+name: Validation response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/patterns/validate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "regex": "string",
+        "max_match_bytes": 548
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

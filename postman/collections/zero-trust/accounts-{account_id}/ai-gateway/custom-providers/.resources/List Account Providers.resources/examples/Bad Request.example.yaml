@@ -1,0 +1,38 @@
+$kind: http-example
+id: 4bd9e4ca-699d-56bb-b59b-ea206c2e258b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/custom-providers?page=1&per_page=20&beta=false&enable=true&search=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "20"
+    beta: "false"
+    enable: "true"
+    search: string
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

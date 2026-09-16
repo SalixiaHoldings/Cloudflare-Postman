@@ -1,0 +1,52 @@
+$kind: http-request
+id: a10be826-8d05-5b82-9bbd-47a7e38f19ac
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-config-create-account-provider-cost
+  POST /accounts/{account_id}/ai-gateway/custom-providers/costs
+
+  Creates a new AI Gateway.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/custom-providers/costs"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "account_provider_id": "50677331-2cce-0086-89a6-e4cb7fde3641",
+      "model": "string",
+      "cost_in": 4073.4015055932105,
+      "cost_out": 9490.239622537047,
+      "cost_type": "tokens",
+      "enable": false,
+      "model_rule": "equals",
+      "token_pricing": {
+        "input_audio_tokens": 3530.0906910561025,
+        "input_cache_creation_tokens": 1377.9579754918814,
+        "input_cached_tokens": 1554.974967148155,
+        "input_image_count": 6282.470333389938,
+        "input_image_tokens": 3242.5541803240776,
+        "input_text_tokens": 9029.611870646477,
+        "input_tokens": 2947.20443431288,
+        "input_video_tokens": 2627.8741471469402,
+        "output_image_count": 8013.910420704633,
+        "output_reasoning_tokens": 3566.2379604764283,
+        "output_tokens": 2136.0437548719347,
+        "total_tokens": 6249.206725042313
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new Account Provider Cost.resources/examples
+order: 2000

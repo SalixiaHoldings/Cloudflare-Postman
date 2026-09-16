@@ -1,0 +1,50 @@
+$kind: http-example
+id: c08c3c22-1be9-528d-a9d0-3b8b855798dd
+name: Create or update origin cloud region mapping response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "ip": "2001:db8::1",
+        "region": "us-central1",
+        "vendor": "gcp"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "editable": true,
+          "id": "origin_public_cloud_region",
+          "modified_on": "2026-03-01T12:00:00Z",
+          "value": [
+            {
+              "modified_on": "2026-03-01T12:00:00Z",
+              "origin-ip": "192.0.2.1",
+              "region": "us-east-1",
+              "vendor": "aws"
+            },
+            {
+              "modified_on": "2026-03-01T12:00:00Z",
+              "origin-ip": "2001:db8::1",
+              "region": "us-central1",
+              "vendor": "gcp"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

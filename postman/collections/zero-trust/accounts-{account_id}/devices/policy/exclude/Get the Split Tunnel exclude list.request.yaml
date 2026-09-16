@@ -1,0 +1,27 @@
+$kind: http-request
+id: d80ac55d-8636-59a5-af7d-cd768d0fada9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: devices-get-split-tunnel-exclude-list
+  GET /accounts/{account_id}/devices/policy/exclude
+
+  Fetches the list of routes excluded from the WARP client's tunnel.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/devices/policy/exclude"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get the Split Tunnel exclude list.resources/examples
+order: 1000

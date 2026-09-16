@@ -1,0 +1,25 @@
+$kind: http-request
+id: 2801197e-7030-5400-8b6e-1d7595585c5d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: deleteZoneSnippet
+  DELETE /zones/{zone_id}/snippets/{snippet_name}
+
+  Deletes a snippet belonging to the zone. Returns a 4XX response if the zone or snippet no longer exists.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/snippets/{{snippet_name}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete a zone snippet.resources/examples
+order: 1000

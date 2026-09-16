@@ -1,0 +1,55 @@
+$kind: http-request
+id: aba1d843-a7be-5f74-a51e-e031088f65d4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: radar-get-origin-post-quantum-summary
+  GET /radar/post_quantum/origin/summary/{dimension}
+
+  Returns a summary of origin post-quantum data grouped by the specified dimension.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/radar/post_quantum/origin/summary/{{dimension}}?name=main_series&name=main_series&dateRange=7d&dateRange=7d&dateStart=1990-07-31T02:59:38.133Z&dateStart=1929-06-14T03:10:47.996Z&dateEnd=1927-12-19T06:37:38.317Z&dateEnd=1959-05-01T07:56:39.610Z&format=JSON"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: name
+    value: main_series
+    description: Array of names used to label the series in the response.
+  - key: name
+    value: main_series
+    description: Array of names used to label the series in the response.
+  - key: dateRange
+    value: 7d
+    description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
+  - key: dateRange
+    value: 7d
+    description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
+  - key: dateStart
+    value: 1990-07-31T02:59:38.133Z
+    description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: dateStart
+    value: 1929-06-14T03:10:47.996Z
+    description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: dateEnd
+    value: 1927-12-19T06:37:38.317Z
+    description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: dateEnd
+    value: 1959-05-01T07:56:39.610Z
+    description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: format
+    value: JSON
+    description: Format in which results will be returned.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Origin Post-Quantum Data Summary.resources/examples
+order: 1000

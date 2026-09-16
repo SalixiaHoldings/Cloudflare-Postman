@@ -1,0 +1,21 @@
+$kind: http-example
+id: 3342156d-a252-5d39-a120-58911c7312bc
+name: Suppression not found.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/routing/suppression/{{suppression_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "error": "string"
+      }
+order: 2000

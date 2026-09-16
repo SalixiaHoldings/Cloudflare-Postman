@@ -1,0 +1,51 @@
+$kind: http-example
+id: 8f1cc399-9926-527d-a27a-db4d8778b436
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zerotrust/subnets?name=IPv4%20Cloudflare%20Source%20IPs&comment=example%20comment&network=172.16.0.0%2F16&existed_at=2019-10-12T07%3A20%3A50.52Z&address_family=v4&is_default_network=false&is_deleted=false&sort_order=desc&subnet_types=cloudflare_source&per_page=<number>&page=1"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: name
+      value: IPv4%20Cloudflare%20Source%20IPs
+      description: If set, only list subnets with the given name
+    - key: comment
+      value: example%20comment
+    - key: network
+      value: 172.16.0.0%2F16
+    - key: existed_at
+      value: 2019-10-12T07%3A20%3A50.52Z
+    - key: address_family
+      value: v4
+      description: If set, only include subnets in the given address family - `v4` or `v6`
+    - key: is_default_network
+      value: "false"
+    - key: is_deleted
+      value: "false"
+    - key: sort_order
+      value: desc
+    - key: subnet_types
+      value: cloudflare_source
+    - key: per_page
+      value: <number>
+    - key: page
+      value: "1"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

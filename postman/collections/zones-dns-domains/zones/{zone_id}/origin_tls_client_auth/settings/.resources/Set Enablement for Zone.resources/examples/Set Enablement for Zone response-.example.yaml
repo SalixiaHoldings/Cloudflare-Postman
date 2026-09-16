@@ -1,0 +1,31 @@
+$kind: http-example
+id: 6c423bf0-619a-57b1-8312-e868864d51f0
+name: Set Enablement for Zone response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/origin_tls_client_auth/settings"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

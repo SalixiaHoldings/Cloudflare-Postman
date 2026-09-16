@@ -1,0 +1,31 @@
+$kind: http-example
+id: a054c0b6-dd4d-5e22-b258-94ea2030c5b8
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/groups?name=string&search=string&page=1&per_page=1000"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    name: string
+    search: string
+    page: "1"
+    per_page: "1000"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

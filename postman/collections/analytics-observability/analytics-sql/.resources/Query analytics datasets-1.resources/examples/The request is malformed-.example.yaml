@@ -1,0 +1,55 @@
+$kind: http-example
+id: 27a168d0-aacc-5bf5-ba31-fa3d294a2659
+name: The request is malformed.
+request:
+  url: "{{base_url}}/analytics/sql"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "query": "string",
+        "params": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "scope": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "time_range": {
+          "start": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "end": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "code": 3253,
+        "message": "string",
+        "error_chain": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 2000

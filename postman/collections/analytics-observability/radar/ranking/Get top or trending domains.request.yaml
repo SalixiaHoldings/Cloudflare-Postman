@@ -1,0 +1,61 @@
+$kind: http-request
+id: 63d44e49-2199-5368-8d86-32b337bfc522
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: radar-get-ranking-top-domains
+  GET /radar/ranking/top
+
+  Retrieves the top or trending domains based on their rank. Popular domains are domains of broad appeal based on how people use the Internet. Trending domains are domains that are generating a surge in interest. For more information on top domains, see https://blog.cloudflare.com/radar-domain-rankings/.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/radar/ranking/top?limit=5&name=main_series&name=main_series&location=string&location=string&domainCategory=string&domainCategory=string&date=1930-12-13&date=1954-10-21&rankingType=POPULAR&format=JSON"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: limit
+    value: "5"
+    description: Limits the number of objects returned in the response.
+  - key: name
+    value: main_series
+    description: Array of names used to label the series in the response.
+  - key: name
+    value: main_series
+    description: Array of names used to label the series in the response.
+  - key: location
+    value: string
+    description: Filters results by location. Specify a comma-separated list of alpha-2 location codes.
+  - key: location
+    value: string
+    description: Filters results by location. Specify a comma-separated list of alpha-2 location codes.
+  - key: domainCategory
+    value: string
+    description: Filters results by domain category.
+  - key: domainCategory
+    value: string
+    description: Filters results by domain category.
+  - key: date
+    value: 1930-12-13
+    description: Filters results by the specified array of dates.
+  - key: date
+    value: 1954-10-21
+    description: Filters results by the specified array of dates.
+  - key: rankingType
+    value: POPULAR
+    description: The ranking type.
+  - key: format
+    value: JSON
+    description: Format in which results will be returned.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get top or trending domains.resources/examples
+order: 4000

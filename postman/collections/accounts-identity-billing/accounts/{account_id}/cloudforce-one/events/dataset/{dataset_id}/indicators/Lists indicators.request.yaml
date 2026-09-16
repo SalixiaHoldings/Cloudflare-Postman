@@ -1,0 +1,41 @@
+$kind: http-request
+id: 27f71e6d-8977-57b2-90db-19ca09b25db6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_IndicatorListLegacy
+  GET /accounts/{account_id}/cloudforce-one/events/dataset/{dataset_id}/indicators
+
+  This method is deprecated. Please use /events/indicators to retrieve a paginated list of indicators.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators?page=2535.467583220452&pageSize=2535.467583220452&name=string&indicatorType=string&relatedEvent=string&relatedEvent=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "2535.467583220452"
+  - key: pageSize
+    value: "2535.467583220452"
+  - key: name
+    value: string
+    description: Filter by indicator value (substring match)
+  - key: indicatorType
+    value: string
+  - key: relatedEvent
+    value: string
+    description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+  - key: relatedEvent
+    value: string
+    description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Lists indicators.resources/examples
+order: 1000

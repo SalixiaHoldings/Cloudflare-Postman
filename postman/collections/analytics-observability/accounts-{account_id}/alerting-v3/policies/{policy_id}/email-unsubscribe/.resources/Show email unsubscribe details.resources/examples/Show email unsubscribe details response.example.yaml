@@ -1,0 +1,28 @@
+$kind: http-example
+id: 6301ab61-294f-5ae5-a1ed-b047d8c170d1
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/policies/{{policy_id}}/email/unsubscribe?email=UD0@SKsKwYZsDkWLWIs.fi&token=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: email
+      value: UD0@SKsKwYZsDkWLWIs.fi
+      description: "(Required) "
+    - key: token
+      value: string
+      description: "(Required) "
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

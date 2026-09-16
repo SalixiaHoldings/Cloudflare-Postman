@@ -1,0 +1,36 @@
+$kind: http-example
+id: b744a756-57cd-52b5-b77b-6bfce4d4428d
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/nel"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": {
+          "enabled": false
+        }
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1010,
+            "message": "auth.forbidden"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 4000

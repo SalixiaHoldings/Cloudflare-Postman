@@ -1,0 +1,22 @@
+$kind: http-example
+id: d85c7362-59ac-5637-81ff-a87c58ea211a
+name: Page test result.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/speed_api/pages/{{url}}/tests/{{test_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,56 @@
+$kind: http-example
+id: 0f38c2b5-0955-5339-9fc0-c574eb8f9186
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "git_repository": {
+          "branch": "main",
+          "provider_account_id": "cloudflare",
+          "provider_account_name": "Cloudflare",
+          "provider_type": "github",
+          "repo_id": "workers-sdk",
+          "repo_name": "workers-sdk"
+        },
+        "production_settings": {
+          "build_caching_enabled": true,
+          "build_command": "npm run build",
+          "build_token_uuid": "{{build_token_uuid}}",
+          "deploy_command": "npx wrangler deploy",
+          "environment_variables": {},
+          "path_excludes": [
+            "*.md"
+          ],
+          "path_includes": [
+            "*"
+          ],
+          "root_directory": "/"
+        },
+        "script_tag": "my-worker"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12002,
+            "message": "Invalid request body"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

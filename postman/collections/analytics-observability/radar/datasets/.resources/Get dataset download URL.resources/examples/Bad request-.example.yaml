@@ -1,0 +1,46 @@
+$kind: http-example
+id: 3cecdb39-5fbe-545f-96c9-0bd9871a65fa
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/datasets/download?format=JSON"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+  body:
+    type: json
+    content: |-
+      {
+        "datasetId": 3
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

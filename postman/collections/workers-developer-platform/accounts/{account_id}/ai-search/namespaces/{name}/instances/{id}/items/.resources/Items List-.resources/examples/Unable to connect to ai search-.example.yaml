@@ -1,0 +1,62 @@
+$kind: http-example
+id: 87fa6059-b86f-5e6e-942d-3b4654288730
+name: Unable to connect to ai search.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items?page=1&per_page=20&search=string&sort_by=status&status=completed&source=string&metadata_filter=string&item_id=string&key=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+    - key: per_page
+      value: "20"
+    - key: search
+      value: string
+    - key: sort_by
+      value: status
+      description: Sort order for items. "status" (default) sorts by status priority then last_seen_at. "modified_at" sorts by file modification time (most recent first), falling back to created_at.
+    - key: status
+      value: completed
+    - key: source
+      value: string
+      description: Filter items by source_id. Use "builtin" for uploaded files, or a source identifier like "web-crawler:https://example.com".
+    - key: metadata_filter
+      value: string
+      description: 'JSON-encoded metadata filter using Vectorize filter syntax. Examples: {"folder":"reports/"}, {"timestamp":{"$gte":1700000000000}}, {"folder":{"$in":["docs/","reports/"]}}'
+    - key: item_id
+      value: string
+      description: Filter items by their unique ID. Returns at most one item.
+    - key: key
+      value: string
+      description: Filter items by their exact key (object key / filename). Keys are unique per source, so combine with `source` to disambiguate across data sources.
+response:
+  statusCode: 503
+  statusText: Service Unavailable
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 4000

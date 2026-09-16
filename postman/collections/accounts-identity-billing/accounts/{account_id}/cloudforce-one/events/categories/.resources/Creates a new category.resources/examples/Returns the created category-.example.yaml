@@ -1,0 +1,48 @@
+$kind: http-example
+id: e1c28565-9fb0-593f-b91f-dabde81d6e39
+name: Returns the created category.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/categories/create"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "name",
+        "killChain": 9012.652912642807,
+        "mitreAttack": [
+          "T1234",
+          "T1234"
+        ],
+        "mitreCapec": [
+          "123",
+          "123"
+        ],
+        "shortname": "shortname"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "name": "name",
+        "killChain": 7356.073257979006,
+        "mitreAttack": [
+          "T1234",
+          "T1234"
+        ],
+        "mitreCapec": [
+          "123",
+          "123"
+        ],
+        "shortname": "shortname"
+      }
+order: 1000

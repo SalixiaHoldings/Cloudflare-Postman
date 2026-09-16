@@ -1,0 +1,43 @@
+$kind: http-example
+id: fc2cdadf-b84c-5ec1-817b-b4689579fc22
+name: List of targets.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json?liveViewUrlExpiresInMs=300000"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: liveViewUrlExpiresInMs
+      value: "300000"
+      description: How long the live view URLs remain valid, in milliseconds (max 60 minutes)
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "id": "string",
+          "type": "string",
+          "url": "string",
+          "description": "string",
+          "devtoolsFrontendUrl": "string",
+          "title": "string",
+          "webSocketDebuggerUrl": "string"
+        },
+        {
+          "id": "string",
+          "type": "string",
+          "url": "string",
+          "description": "string",
+          "devtoolsFrontendUrl": "string",
+          "title": "string",
+          "webSocketDebuggerUrl": "string"
+        }
+      ]
+order: 1000

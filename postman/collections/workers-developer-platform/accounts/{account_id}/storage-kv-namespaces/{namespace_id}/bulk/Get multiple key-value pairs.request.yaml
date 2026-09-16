@@ -1,0 +1,41 @@
+$kind: http-request
+id: 6b59a750-9ba2-5481-98ac-fa2b7c1cdb63
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers-kv-namespace-get-multiple-key-value-pairs
+  POST /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/get
+
+  Retrieve up to 100 KV pairs from the namespace. Keys must contain text-based values. JSON values can optionally be parsed instead of being returned as a string value. Metadata can be included if `withMetadata` is true.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}/bulk/get"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "keys": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "type": "text",
+      "withMetadata": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get multiple key-value pairs.resources/examples
+order: 4000

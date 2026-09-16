@@ -1,0 +1,38 @@
+$kind: http-request
+id: 6ab07c7e-9068-5d44-899b-17c3efb5a147
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: list-client-versions
+  GET /accounts/{account_id}/devices/client-versions
+
+  Lists available WARP client versions for a specific target environment and release track. This endpoint is in Beta.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/devices/client-versions?target_environment=string&release_track=beta&page=1&per_page=20"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: target_environment
+    value: string
+    description: (Required) The target environment for the client version (e.g., windows, macos).
+  - key: release_track
+    value: beta
+    description: (Required) The release track (ga for General Availability, beta for Beta releases).
+  - key: page
+    value: "1"
+    description: The page number to return.
+  - key: per_page
+    value: "20"
+    description: The maximum number of versions to return per page.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List client versions.resources/examples
+order: 1000

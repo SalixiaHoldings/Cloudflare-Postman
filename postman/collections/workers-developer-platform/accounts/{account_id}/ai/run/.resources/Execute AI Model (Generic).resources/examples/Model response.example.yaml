@@ -1,0 +1,53 @@
+$kind: http-example
+id: 86fef42c-5aa4-5309-9d0d-18aca9fc7200
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/run"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "model": "openai/gpt-5.5",
+        "input": {
+          "prompt": "Tell me a joke"
+        },
+        "options": {
+          "extraHeaders": {
+            "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "key_1": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "gateway": {
+            "cacheTtl": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "skipCache": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {},
+        "errors": [],
+        "messages": []
+      }
+order: 1000

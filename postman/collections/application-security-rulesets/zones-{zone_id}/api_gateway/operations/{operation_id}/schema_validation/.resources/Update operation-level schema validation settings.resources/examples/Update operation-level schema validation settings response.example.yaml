@@ -1,0 +1,31 @@
+$kind: http-example
+id: 6ee2b316-87fc-5c95-93c5-daaf4474fac9
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations/{{operation_id}}/schema_validation"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "mitigation_action": "block"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "mitigation_action": "block",
+        "operation_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

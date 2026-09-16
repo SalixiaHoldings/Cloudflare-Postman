@@ -1,0 +1,29 @@
+$kind: http-example
+id: 7ec542f6-2d0f-531d-938f-46a0c4afdf5f
+name: Update Precursor response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/precursor"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "default_mode": "min-friction"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

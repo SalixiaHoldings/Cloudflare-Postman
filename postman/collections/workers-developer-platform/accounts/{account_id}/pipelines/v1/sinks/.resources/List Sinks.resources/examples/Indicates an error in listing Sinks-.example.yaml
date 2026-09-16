@@ -1,0 +1,27 @@
+$kind: http-example
+id: 512a0ee0-7e2a-5704-ab7f-604678d81c60
+name: Indicates an error in listing Sinks.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/sinks?pipeline_id=string&name=string&page=1&per_page=6111.051584593952"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: pipeline_id
+      value: string
+    - key: name
+      value: string
+      description: Filters sinks by name (case-insensitive substring).
+    - key: page
+      value: "1"
+    - key: per_page
+      value: "6111.051584593952"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

@@ -1,0 +1,31 @@
+$kind: http-example
+id: 84c9041c-f791-5f37-add1-9187bbbbbc6b
+name: Validation result.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/validate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "str",
+        "content": "string",
+        "excludeRuleId": "a8f5204a-8778-d993-4357-fc7efcf12471",
+        "path": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "valid": true,
+        "error": "Invalid YARA syntax"
+      }
+order: 1000

@@ -1,0 +1,53 @@
+$kind: http-request
+id: 1fa18ab5-b788-55c2-9d89-d78530ed2e9b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: EvaluateNewWebhook
+  POST /accounts/{account_id}/data-security/posture/webhooks/evaluate
+
+  Sends a test webhook event to the specified destination URL to verify the webhook endpoint 
+  is reachable and properly configured. This allows customers to validate their webhook 
+  configuration before creating the actual webhook resource.
+
+  The test payload includes:
+  - event_type: "webhook.test"
+  - timestamp: Current UTC timestamp
+  - message: Test message indicating this is from Cloudflare CASB
+  - data: Object with test: true
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/evaluate"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "destination_url": "https://example.com/webhook",
+      "authentication_type": "Bearer Auth",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer token123"
+        },
+        {
+          "key": "X-Custom-Header",
+          "value": "value"
+        }
+      ],
+      "signing_secret": "{{signing_secret}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Test a webhook configuration before creating it.resources/examples
+order: 3000

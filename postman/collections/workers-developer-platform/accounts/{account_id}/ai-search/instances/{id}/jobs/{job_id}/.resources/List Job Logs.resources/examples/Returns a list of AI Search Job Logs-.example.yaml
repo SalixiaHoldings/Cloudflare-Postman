@@ -1,0 +1,59 @@
+$kind: http-example
+id: f824b409-f748-53a7-b243-2bd874cabfd5
+name: Returns a list of AI Search Job Logs.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/instances/{{id}}/jobs/{{job_id}}/logs?page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "20"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "count": 75,
+          "page": 4916,
+          "per_page": 2592,
+          "total_count": 4316
+        }
+      }
+order: 1000

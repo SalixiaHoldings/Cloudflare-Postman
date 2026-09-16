@@ -1,0 +1,31 @@
+$kind: http-example
+id: 125acade-e13a-51b3-8446-21300b1d2743
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/schemas/{{schema_id}}?omit_source=false"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: omit_source
+      value: "false"
+      description: Omit the source-files of schemas and only retrieve their meta-data.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

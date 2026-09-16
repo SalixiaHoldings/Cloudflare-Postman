@@ -1,0 +1,25 @@
+$kind: http-request
+id: 9b1ea624-c23b-5efa-a2cb-490ea6be5a82
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: triggerDeployHook
+  POST /workers/builds/deploy_hooks/{deploy_hook_uuid}
+
+  Trigger a build using a deploy hook. This endpoint does not require authentication - the deploy_hook_uuid acts as a secret token.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: e5ae4ee23727a9b749204f30a2283915e28e10aff2fae6573db20a9ccb68c2b7
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/workers/builds/deploy_hooks/{{deploy_hook_uuid}}"
+method: POST
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Trigger deploy hook.resources/examples
+order: 4000

@@ -1,0 +1,26 @@
+$kind: http-request
+id: 47d8f6ff-ee62-5f45-99d8-42071995bd38
+name: Delete prefix.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: deletePrefix
+  DELETE /accounts/{account_id}/magic/advanced_tcp_protection/configs/prefixes/{prefix_id}
+
+  Delete the prefix for an account given a UUID.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/prefixes/{{prefix_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete prefix-.resources/examples
+order: 1000

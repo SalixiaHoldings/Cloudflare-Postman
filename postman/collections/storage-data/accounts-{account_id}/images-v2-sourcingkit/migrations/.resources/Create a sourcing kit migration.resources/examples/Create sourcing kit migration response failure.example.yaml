@@ -1,0 +1,48 @@
+$kind: http-example
+id: 57075ffa-6b64-5a01-9c19-a9122f72d11b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/migrations"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "sourceId": "4f707bc3-4191-06d0-89e2-1a4432e8e253",
+        "conflictBehaviour": "skip",
+        "excludedContentTypes": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "pathPrefix": "string",
+        "rootDirectory": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

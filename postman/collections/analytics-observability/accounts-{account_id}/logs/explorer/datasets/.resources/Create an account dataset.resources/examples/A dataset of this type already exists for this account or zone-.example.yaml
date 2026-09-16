@@ -1,0 +1,52 @@
+$kind: http-example
+id: 6be3b301-003d-542d-b4f4-75b257c71015
+name: A dataset of this type already exists for this account or zone.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logs/explorer/datasets"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "dataset": "string",
+        "fields": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "filter": "string"
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "key_0": 6349,
+          "key_1": 4224.232907872647
+        },
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          "string",
+          "string"
+        ]
+      }
+order: 5000

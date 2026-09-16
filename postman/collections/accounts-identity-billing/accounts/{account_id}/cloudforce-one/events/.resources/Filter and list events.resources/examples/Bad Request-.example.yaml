@@ -1,0 +1,54 @@
+$kind: http-example
+id: 6161d643-bad9-5447-8216-2d6d55b3505e
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events?cursor=eyJ2ZXJzaW9uIjoxLCJwb3NpdGlvbiI6eyJkYXRlIjoiMjAyNC0wMS0xMlQxMDowMDowMFoiLCJ1dWlkIjoiYWJjMTIzIn19&page=4232.7669891528785&pageSize=5203.161835670471&orderBy=string&order=desc&datasetId=string&datasetId=string&forceRefresh=true&format=json&cache=from-graph"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: cursor
+      value: eyJ2ZXJzaW9uIjoxLCJwb3NpdGlvbiI6eyJkYXRlIjoiMjAyNC0wMS0xMlQxMDowMDowMFoiLCJ1dWlkIjoiYWJjMTIzIn19
+    - key: page
+      value: "4232.7669891528785"
+    - key: pageSize
+      value: "5203.161835670471"
+    - key: orderBy
+      value: string
+    - key: order
+      value: desc
+    - key: datasetId
+      value: string
+    - key: datasetId
+      value: string
+    - key: forceRefresh
+      value: "true"
+    - key: format
+      value: json
+    - key: cache
+      value: from-graph
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

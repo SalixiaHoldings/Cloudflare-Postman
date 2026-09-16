@@ -1,0 +1,21 @@
+$kind: http-example
+id: 7edfb193-0700-5740-a3ce-e7762b085730
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers/{{identity_provider_id}}/saml_certificate"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

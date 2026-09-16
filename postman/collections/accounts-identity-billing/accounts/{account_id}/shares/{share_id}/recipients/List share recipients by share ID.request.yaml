@@ -1,0 +1,45 @@
+$kind: http-request
+id: a3d34024-453d-570b-a030-4ebec8c1f208
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: share-recipients-list
+  GET /accounts/{account_id}/shares/{share_id}/recipients
+
+  List share recipients by share ID. Returns **all** recipients
+  regardless of their `association_status` (associating, associated,
+  disassociating, disassociated). Callers that want only "active"
+  recipients must filter client-side on the `association_status` field.
+
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/recipients?include_resources=true&page=2&per_page=20"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: include_resources
+    value: "true"
+    description: Include resources in the response.
+  - key: page
+    value: "2"
+    description: |-
+      Page number. Defaults to `1` when `per_page` is supplied without
+      `page`. May be omitted entirely along with `per_page` to receive a
+      non-paginated response.
+  - key: per_page
+    value: "20"
+    description: |-
+      Number of objects to return per page. Defaults to `20` when `page`
+      is supplied without `per_page`. May be omitted entirely along with
+      `page` to receive a non-paginated response.
+auth:
+  type: noauth
+examples: ./.resources/List share recipients by share ID.resources/examples
+order: 1000

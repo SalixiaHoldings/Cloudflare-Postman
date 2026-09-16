@@ -1,0 +1,34 @@
+$kind: http-request
+id: 4cd70585-58a3-58a9-b22b-bcfd283d824c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-billing-set-spending-limit
+  POST /accounts/{account_id}/ai-gateway/billing/spending-limit
+
+  Deprecated: spending limits can no longer be created, enabled, or modified and this endpoint always responds 403. Use the new AI Gateway spend limits instead: https://developers.cloudflare.com/ai-gateway/features/spend-limits/. Existing limits can be removed via DELETE /spending-limit.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/spending-limit"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "amount": 10000,
+      "strategy": "fixed",
+      "duration": "monthly"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Set spending limit (deprecated).resources/examples
+order: 3000

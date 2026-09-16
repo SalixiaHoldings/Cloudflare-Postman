@@ -1,0 +1,22 @@
+$kind: http-example
+id: 768df066-72a1-519b-bc99-e1b5fb8a9d67
+name: "Forbidden: Insufficient permissions"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/{{webhook_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 4000

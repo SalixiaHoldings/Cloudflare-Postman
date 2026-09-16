@@ -1,0 +1,39 @@
+$kind: http-example
+id: 8dc2367a-add5-59a3-bc48-c4f13e9b3c21
+request:
+  url: "{{base_url}}/billing/address-validation"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "address": "string",
+        "address2": "string",
+        "city": "string",
+        "country": "string",
+        "state": "string",
+        "zipcode": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

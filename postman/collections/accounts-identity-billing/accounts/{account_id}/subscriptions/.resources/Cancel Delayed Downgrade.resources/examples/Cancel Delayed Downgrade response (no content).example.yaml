@@ -1,0 +1,28 @@
+$kind: http-example
+id: d99d932e-1d45-5ae5-a437-deb7ce4c9bd3
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/subscriptions/cancel-downgrade"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "subscription_ids": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 204
+  statusText: No Content
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

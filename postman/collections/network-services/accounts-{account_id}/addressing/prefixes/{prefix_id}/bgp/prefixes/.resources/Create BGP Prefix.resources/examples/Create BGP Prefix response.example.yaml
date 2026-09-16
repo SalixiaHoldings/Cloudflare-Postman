@@ -1,0 +1,28 @@
+$kind: http-example
+id: 8ba2d801-e582-51bb-830f-f4c5d9c72e55
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/addressing/prefixes/{{prefix_id}}/bgp/prefixes"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "cidr": "192.0.2.0/24"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

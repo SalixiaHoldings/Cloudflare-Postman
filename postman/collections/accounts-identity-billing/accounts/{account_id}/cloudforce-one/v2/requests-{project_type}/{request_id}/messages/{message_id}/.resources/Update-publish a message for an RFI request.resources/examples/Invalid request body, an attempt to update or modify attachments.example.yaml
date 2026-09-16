@@ -1,0 +1,35 @@
+$kind: http-example
+id: b187b75a-9018-5e6e-a977-0e2d6b280ff3
+name: Invalid request body, an attempt to update or modify attachments on an already-published message, or one or more attachment_asset_ids are invalid (not on this request, deleted, or already attached).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/messages/{{message_id}}"
+  method: PUT
+  headers:
+    - key: Idempotency-Key
+      value: string
+      description: Client command key. Required when publishing a message for a workflow-enabled project; trimmed and limited to 255 characters.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "content": "string",
+        "publish": true,
+        "tlp": "clear",
+        "attachment_asset_ids": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

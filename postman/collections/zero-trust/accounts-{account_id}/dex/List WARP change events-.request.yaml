@@ -1,0 +1,54 @@
+$kind: http-request
+id: 4b9a98c0-9ad6-5d80-b5f2-2dc645547871
+name: List WARP change events.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: list-warp-change-events
+  GET /accounts/{account_id}/dex/warp-change-events
+
+  List WARP configuration and enablement toggle change events by device.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/warp-change-events?page=1&per_page=10&from=2023-09-20T17:00:00Z&to=2023-09-20T17:00:00Z&type=config&toggle=off&config_name=MASQUE&account_name=Myorg&sort_order=ASC"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    description: (Required) Page number of paginated results.
+  - key: per_page
+    value: "10"
+    description: (Required) Number of results per page.
+  - key: from
+    value: 2023-09-20T17:00:00Z
+    description: (Required) Start time for the query in ISO (RFC3339 - ISO 8601) format.
+  - key: to
+    value: 2023-09-20T17:00:00Z
+    description: (Required) End time for the query in ISO (RFC3339 - ISO 8601) format.
+  - key: type
+    value: config
+    description: Filter events by type 'config' or 'toggle'.
+  - key: toggle
+    value: off
+    description: Filter events by type toggle value. Applicable to type='toggle' events only.
+  - key: config_name
+    value: MASQUE
+    description: Filter events by WARP configuration name changed from or to. Applicable to type='config' events only.
+  - key: account_name
+    value: Myorg
+    description: Filter events by account name.
+  - key: sort_order
+    value: ASC
+    description: Sort response by event timestamp.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List WARP change events-.resources/examples
+order: 10000

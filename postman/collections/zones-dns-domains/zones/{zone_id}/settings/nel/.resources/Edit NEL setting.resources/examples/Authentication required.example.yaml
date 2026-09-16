@@ -1,0 +1,36 @@
+$kind: http-example
+id: 56ec7366-f6b3-5754-a22b-c3d7b29805a9
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/nel"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": {
+          "enabled": false
+        }
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1009,
+            "message": "auth.not_authorized"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

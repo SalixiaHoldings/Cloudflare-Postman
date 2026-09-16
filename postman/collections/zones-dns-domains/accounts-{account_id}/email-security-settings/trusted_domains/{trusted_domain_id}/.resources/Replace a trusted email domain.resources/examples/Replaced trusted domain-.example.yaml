@@ -1,0 +1,26 @@
+$kind: http-example
+id: 88f437c2-9e01-5985-b67e-6975369be7cb
+name: Replaced trusted domain.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/trusted_domains/{{trusted_domain_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "null"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,28 @@
+$kind: http-example
+id: 2f4415ef-da35-5a78-bfd4-aec2934e5668
+name: Returns all finetunes.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/finetunes"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "id": "f5dee837-8e03-2a45-2747-2affee51e575",
+          "model": "string",
+          "name": "string",
+          "created_at": "1979-06-04T13:21:23.678Z",
+          "modified_at": "1966-04-13T23:29:01.320Z",
+          "description": "string"
+        }
+      }
+order: 1000

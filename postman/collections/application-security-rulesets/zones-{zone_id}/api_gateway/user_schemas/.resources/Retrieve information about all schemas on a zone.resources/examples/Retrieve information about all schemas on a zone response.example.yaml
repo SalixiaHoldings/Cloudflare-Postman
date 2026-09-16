@@ -1,0 +1,40 @@
+$kind: http-example
+id: 6dc0b329-b6cb-57e1-b5e0-1218a2461bc2
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas?page=1&per_page=20&omit_source=false&validation_enabled=false"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      description: Maximum number of results per page.
+    - key: omit_source
+      value: "false"
+      description: Omit the source-files of schemas and only retrieve their meta-data.
+    - key: validation_enabled
+      value: "false"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

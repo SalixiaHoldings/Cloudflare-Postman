@@ -1,0 +1,23 @@
+$kind: http-request
+id: a420c277-7ce0-55aa-95a7-4b00978bc343
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: billing-get-rate-plan
+  GET /billing/rate_plans/{public_key}
+
+  Gets a rate plan's details by its public key (e.g., 'teams_free', 'cf_pro_20_20'). This is a public catalog endpoint, so authentication is not enforced and credentials are accepted but not required.
+
+  Authentication support: anonymous
+  Auth declaration SHA-256: abe38dc80d03b810374787e45451dcc90d3dc9893b27f995721e5bb40112d653
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]},{}]
+  Selected requirement: {}
+  Upstream permits an unauthenticated request; collection Bearer inheritance is disabled.
+url: "{{base_url}}/billing/rate_plans/{{public_key}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: noauth
+examples: ./.resources/Get Rate Plan by Public Key.resources/examples
+order: 2000

@@ -1,0 +1,46 @@
+$kind: http-example
+id: b104b999-8360-5444-ae57-ba1ef0e68592
+name: Threat Signals response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds/poll?feed_id=9b51c2d8-bda3-70f7-65a8-85a4a505bfdf"
+  method: POST
+  headers:
+    Accept: application/json
+  queryParams:
+    feed_id: 9b51c2d8-bda3-70f7-65a8-85a4a505bfdf
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "feeds": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "triggered": 7410.108423791826,
+          "errors": 9508.37251264602
+        },
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

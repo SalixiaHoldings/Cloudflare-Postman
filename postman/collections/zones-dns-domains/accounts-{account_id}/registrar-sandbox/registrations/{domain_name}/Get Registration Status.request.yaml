@@ -1,0 +1,68 @@
+$kind: http-request
+id: 9ac47f3b-a0fd-5eff-b585-c0e2833cd730
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: sandbox-registrar-domain-registration-get-status
+  GET /accounts/{account_id}/registrar-sandbox/registrations/{domain_name}/registration-status
+
+  Returns the current status of a domain registration workflow.
+
+  Use this endpoint to poll for completion when the POST response
+  returned `202 Accepted`. The URL is provided in the `links.self`
+  field of the workflow status response.
+
+  Poll this endpoint until the workflow reaches a terminal state or a
+  state that requires user attention.
+
+  **Terminal states:** `succeeded` and `failed` are terminal and always
+  have `completed: true`.
+
+  **Non-terminal states:**
+  - `action_required` has `completed: false` and will not resolve on its
+    own. The workflow is paused pending user intervention.
+  - `blocked` has `completed: false` and indicates the workflow is waiting
+    on a third party such as the extension registry or losing registrar.
+    Continue polling while informing the user of the delay.
+
+  Use increasing backoff between polls. When `state: blocked`, use a
+  longer polling interval and do not poll indefinitely.
+
+  A naive polling loop that only checks `completed` can run indefinitely
+  when `state: action_required`. Break explicitly on `action_required`:
+
+  ```js
+  let status;
+  do {
+    await new Promise(r => setTimeout(r, 2000));
+    status = await cloudflare.request({
+      method: 'GET',
+      path: reg.result.links.self,
+    });
+  } while (
+    !status.result.completed &&
+    status.result.state !== 'action_required'
+  );
+
+  if (status.result.state === 'action_required') {
+    // Surface context.action and context.confirmation_sent_to to the user.
+    // Do not re-submit the registration request.
+  }
+  ```
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/registrations/{{domain_name}}/registration-status"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Registration Status.resources/examples
+order: 3000

@@ -1,0 +1,39 @@
+$kind: http-example
+id: 588aaed6-dfd4-5fab-bf54-c7fafe89e37d
+name: Indicates an error in creating a Sink.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/sinks"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "my_sink",
+        "type": "r2",
+        "config": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "format": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "schema": {
+          "fields": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "inferred": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

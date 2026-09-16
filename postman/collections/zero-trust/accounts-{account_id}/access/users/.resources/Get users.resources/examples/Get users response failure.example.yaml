@@ -1,0 +1,33 @@
+$kind: http-example
+id: 8231c611-3220-5bd5-88c1-8906ac268633
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/users?name=string&email=string&search=string&page=1&per_page=1000"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    name: string
+    email: string
+    search: string
+    page: "1"
+    per_page: "1000"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

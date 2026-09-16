@@ -1,0 +1,36 @@
+$kind: http-example
+id: b995af2d-cf32-56a2-8f3e-e866cbf4fffb
+name: Returns the updated AI Search Job.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/instances/{{id}}/jobs/{{job_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "action": "cancel"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "source": "schedule",
+          "description": "string",
+          "end_reason": "string",
+          "ended_at": "string",
+          "last_seen_at": "string",
+          "started_at": "string"
+        }
+      }
+order: 1000

@@ -1,0 +1,28 @@
+$kind: http-example
+id: 4fff3714-a12c-571a-b698-7e618b65e444
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/{{priority_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "labels": [
+          "string",
+          "string"
+        ],
+        "priority": 2703,
+        "requirement": "string",
+        "tlp": "string"
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

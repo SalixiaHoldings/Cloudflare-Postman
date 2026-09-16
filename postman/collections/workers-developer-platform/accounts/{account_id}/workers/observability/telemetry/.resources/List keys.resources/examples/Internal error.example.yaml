@@ -1,0 +1,72 @@
+$kind: http-example
+id: 670c61fa-fb50-575b-82e2-9bf22ad70b1f
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/telemetry/keys"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "from": 1675.2225160598755,
+        "keyNeedle": {
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "isRegex": false,
+          "matchCase": false
+        },
+        "limit": 5257.20214471221,
+        "needle": {
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "isRegex": true,
+          "matchCase": false
+        },
+        "to": 3949.7413765639067
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 6000

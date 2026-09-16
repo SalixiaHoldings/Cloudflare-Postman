@@ -1,0 +1,40 @@
+$kind: http-example
+id: e68fbd5a-600a-518b-9923-e961911d9098
+name: List all DNS Protection rules response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_dns_protection/configs/dns_protection/rules?page=1033&per_page=1033&order=string&direction=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1033"
+      description: The page number for pagination. Defaults to 1.
+    - key: per_page
+      value: "1033"
+      description: The number of items per page. Must be between 10 and 1000. Defaults to 25.
+    - key: order
+      value: string
+      description: The field to order by. Defaults to 'prefix'.
+    - key: direction
+      value: string
+      description: The direction of ordering (ASC or DESC). Defaults to 'ASC'.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

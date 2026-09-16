@@ -1,0 +1,21 @@
+$kind: http-example
+id: 4f1c670c-f140-5029-9a36-599b23db0e78
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/idp_federation_grants/{{grant_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

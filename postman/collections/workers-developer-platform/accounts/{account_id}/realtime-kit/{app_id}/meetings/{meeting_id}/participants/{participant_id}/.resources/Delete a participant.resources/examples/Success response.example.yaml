@@ -1,0 +1,35 @@
+$kind: http-example
+id: 101a21f2-53f5-5d17-ba6e-06dcd91d018e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/participants/{{participant_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "data": {
+          "custom_participant_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "preset_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "created_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "updated_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

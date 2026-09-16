@@ -1,0 +1,76 @@
+$kind: http-example
+id: 5de8e3ec-f12d-5c79-9d3b-2680ee96c7b1
+name: Get specific version details.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/versions/{{version_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": {
+          "created_on": "1920-01-03T18:30:31.061Z",
+          "modified_on": "1972-12-08T10:55:18.920Z",
+          "id": "909a8b76-7b41-5cf9-67dc-93109a9fa33b",
+          "workflow_id": "e52de8e5-a0cd-92d3-0970-e39f3a7f688f",
+          "class_name": "string",
+          "has_dag": false,
+          "language": "javascript",
+          "concurrency": {
+            "limit": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "default_retention": {
+            "error_retention": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "success_retention": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "limits": {
+            "steps": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 9740.41583482176,
+          "count": 842.247640248388,
+          "total_count": 5561.792375519872,
+          "cursor": "string",
+          "page": 4694.760225247592,
+          "total_pages": 4891.807229723781
+        }
+      }
+order: 1000

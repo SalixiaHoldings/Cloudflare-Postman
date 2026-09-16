@@ -1,0 +1,68 @@
+$kind: http-example
+id: e5b3479a-9627-5521-bdec-110035076391
+name: Get analytics summary response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/analytics/events/summary?dimensions=event&dimensions=appID&sort=+count&sort=-bytesIngress&description=End of time interval to query, defaults to current time. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.&value=<Error: Too many levels of nesting to fake this schema>&metrics=count&metrics=bytesIngress&filters=event==disconnect%20AND%20coloName!=SFO&description=Start of time interval to query, defaults to `until` - 6 hours. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.&value=<Error: Too many levels of nesting to fake this schema>"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: dimensions
+      value: event
+    - key: dimensions
+      value: appID
+    - key: sort
+      value: +count
+    - key: sort
+      value: -bytesIngress
+    - key: description
+      value: End of time interval to query, defaults to current time. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.
+    - key: value
+      value: "<Error: Too many levels of nesting to fake this schema>"
+    - key: metrics
+      value: count
+    - key: metrics
+      value: bytesIngress
+    - key: filters
+      value: event==disconnect%20AND%20coloName!=SFO
+    - key: description
+      value: Start of time interval to query, defaults to `until` - 6 hours. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.
+    - key: value
+      value: "<Error: Too many levels of nesting to fake this schema>"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "rows": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "data": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "data_lag": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "min": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "max": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "totals": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "query": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "time_intervals": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

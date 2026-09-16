@@ -1,0 +1,55 @@
+$kind: http-example
+id: 3ef547b5-1f3f-571d-bcf1-cd5b65463525
+name: List of bindings.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dls/regional_services/prefix_bindings?cursor=string&per_page=25"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: cursor
+      value: string
+      description: Opaque token for cursor-based pagination. Omit for the first page. Pass the value from a previous response to fetch the next page.
+    - key: per_page
+      value: "25"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result_info": {
+          "count": 9793,
+          "cursor": "string",
+          "per_page": 4352
+        }
+      }
+order: 1000

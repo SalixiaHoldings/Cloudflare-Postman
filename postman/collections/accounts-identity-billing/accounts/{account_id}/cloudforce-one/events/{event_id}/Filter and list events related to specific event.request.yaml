@@ -1,0 +1,51 @@
+$kind: http-request
+id: c603349a-dea9-5fdc-8a29-d00149963cb3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_LegacyEventRelationships
+  GET /accounts/{account_id}/cloudforce-one/events/{event_id}/relationships
+
+  Deprecated; use GET /events/by-id/{event_id}/relationships. Available through 2026-11-28.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/{{event_id}}/relationships?direction=both&maxDepth=2927.8329387307167&relationshipTypes=string&indicatorTypeIds=string&indicatorTypeIds=string&datasetId=string&includeParent=true&page=2535.467583220452&pageSize=2535.467583220452"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: direction
+    value: both
+    description: The direction to traverse the graph. Defaults to 'both' to search all.
+  - key: maxDepth
+    value: "2927.8329387307167"
+    description: The maximum depth to traverse. Defaults to 5.
+  - key: relationshipTypes
+    value: string
+    description: An optional array of relationship types to filter by.
+  - key: indicatorTypeIds
+    value: string
+    description: An optional array of indicator type IDs to filter the results by.
+  - key: indicatorTypeIds
+    value: string
+    description: An optional array of indicator type IDs to filter the results by.
+  - key: datasetId
+    value: string
+    description: (Required) The dataset ID to search within.
+  - key: includeParent
+    value: "true"
+    description: Whether to include the starting event in the results. Defaults to true.
+  - key: page
+    value: "2535.467583220452"
+  - key: pageSize
+    value: "2535.467583220452"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Filter and list events related to specific event.resources/examples
+order: 5000

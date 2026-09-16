@@ -1,0 +1,39 @@
+$kind: http-request
+id: 562296e8-6ca4-51c1-b74c-76ece5ec406c
+name: Get markdown.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: brapi-post_Markdown
+  POST /accounts/{account_id}/browser-rendering/markdown
+
+  Gets markdown of a webpage from provided URL or HTML. Control page loading with `gotoOptions` and `waitFor*` options.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/markdown?cacheTTL=5"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: cacheTTL
+    value: "5"
+    description: Cache TTL default is 5s. Set to 0 to disable.
+body:
+  type: json
+  content: |-
+    {
+      "url": "https://www.example.com/"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get markdown-.resources/examples
+order: 7000

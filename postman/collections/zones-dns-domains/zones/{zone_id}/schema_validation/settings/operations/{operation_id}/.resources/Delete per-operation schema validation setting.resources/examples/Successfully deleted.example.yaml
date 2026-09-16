@@ -1,0 +1,32 @@
+$kind: http-example
+id: bdd88f0e-f3b2-544b-a855-7dcad63e416f
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/settings/operations/{{operation_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "operation_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

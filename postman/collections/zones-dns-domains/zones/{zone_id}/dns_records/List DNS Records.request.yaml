@@ -1,0 +1,62 @@
+$kind: http-request
+id: 5551f584-85fa-5d0b-b708-7ec594629b9b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dns-records-for-a-zone-list-dns-records
+  GET /zones/{zone_id}/dns_records
+
+  List, search, sort, and filter a zones' DNS records.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/dns_records?name=www.example.com&name.exact=www.example.com&name.contains=w.example.&name.startswith=www.example&name.endswith=.example.com&type=A&content=127.0.0.1&content.exact=127.0.0.1&content.contains=7.0.0.&content.startswith=127.0.&content.endswith=.0.1&proxied=true&match=any&comment=Hello, world&comment.present=string&comment.absent=string&comment.exact=Hello, world&comment.contains=ello, worl&comment.startswith=Hello, w&comment.endswith=o, world&tag=team:DNS&tag.present=important&tag.absent=important&tag.exact=greeting:Hello, world&tag.contains=greeting:ello, worl&tag.startswith=greeting:Hello, w&tag.endswith=greeting:o, world&search=www.cloudflare.com&tag_match=any&page=1&per_page=5&order=type&direction=asc&include_shadow_metadata=true&shadowed_by_name=sub.example.com&shadowing_name=www.sub.example.com"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  name: www.example.com
+  name.exact: www.example.com
+  name.contains: w.example.
+  name.startswith: www.example
+  name.endswith: .example.com
+  type: A
+  content: 127.0.0.1
+  content.exact: 127.0.0.1
+  content.contains: 7.0.0.
+  content.startswith: 127.0.
+  content.endswith: .0.1
+  proxied: "true"
+  match: any
+  comment: Hello, world
+  comment.present: string
+  comment.absent: string
+  comment.exact: Hello, world
+  comment.contains: ello, worl
+  comment.startswith: Hello, w
+  comment.endswith: o, world
+  tag: team:DNS
+  tag.present: important
+  tag.absent: important
+  tag.exact: greeting:Hello, world
+  tag.contains: greeting:ello, worl
+  tag.startswith: greeting:Hello, w
+  tag.endswith: greeting:o, world
+  search: www.cloudflare.com
+  tag_match: any
+  page: "1"
+  per_page: "5"
+  order: type
+  direction: asc
+  include_shadow_metadata: "true"
+  shadowed_by_name: sub.example.com
+  shadowing_name: www.sub.example.com
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List DNS Records.resources/examples
+order: 1000

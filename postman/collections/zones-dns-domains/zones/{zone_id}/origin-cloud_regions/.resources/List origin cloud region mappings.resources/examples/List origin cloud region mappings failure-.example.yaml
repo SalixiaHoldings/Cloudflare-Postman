@@ -1,0 +1,35 @@
+$kind: http-example
+id: 63fc52b7-866c-5b69-980e-60846998ec7e
+name: List origin cloud region mappings failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions?page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      description: Number of items per page.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1146,
+            "message": "invalid per_page parameter, must be between 1 and 100"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

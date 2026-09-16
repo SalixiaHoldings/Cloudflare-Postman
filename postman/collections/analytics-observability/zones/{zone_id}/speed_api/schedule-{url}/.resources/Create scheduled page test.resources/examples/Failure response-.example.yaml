@@ -1,0 +1,34 @@
+$kind: http-example
+id: b4694128-792d-52ab-90a5-a16156d8a83a
+name: Failure response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/speed_api/schedule/{{url}}?region=us-central1&frequency=DAILY"
+  method: POST
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: region
+      value: us-central1
+    - key: frequency
+      value: DAILY
+      description: The frequency of the scheduled test. Defaults to WEEKLY for free plans, DAILY for paid plans.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

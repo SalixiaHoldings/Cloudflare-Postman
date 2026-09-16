@@ -1,0 +1,27 @@
+$kind: http-example
+id: a64960d9-6ad2-5821-b44e-421b7813999e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/slurper/jobs/abortAll"
+  method: PUT
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "success": false
+      }
+order: 2000

@@ -1,0 +1,27 @@
+$kind: http-request
+id: 4b936600-54cb-52cf-a7f0-873092d1c93a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dns-records-for-a-zone-export-dns-records
+  GET /zones/{zone_id}/dns_records/export
+
+  You can export your [BIND config](https://en.wikipedia.org/wiki/Zone_file "Zone file") through this endpoint.
+
+  See [the documentation](https://developers.cloudflare.com/dns/manage-dns-records/how-to/import-and-export/ "Import and export records") for more information.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/dns_records/export"
+method: GET
+headers:
+  Accept: text/plain
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Export DNS Records.resources/examples
+order: 4000

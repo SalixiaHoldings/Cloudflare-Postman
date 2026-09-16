@@ -1,0 +1,22 @@
+$kind: http-example
+id: 218875d7-8924-557d-a8f9-457309578198
+name: Delete a device posture integration response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/posture/integration/{{integration_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {}
+      }
+order: 1000

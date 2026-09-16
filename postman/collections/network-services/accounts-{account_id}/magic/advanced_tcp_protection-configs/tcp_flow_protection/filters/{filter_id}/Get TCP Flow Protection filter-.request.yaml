@@ -1,0 +1,26 @@
+$kind: http-request
+id: 9ecf04e2-e529-5dd5-b2a5-e9a09b9bb74e
+name: Get TCP Flow Protection filter.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getTcpFlowProtectionFilter
+  GET /accounts/{account_id}/magic/advanced_tcp_protection/configs/tcp_flow_protection/filters/{filter_id}
+
+  Get a TCP Flow Protection filter specified by the given UUID.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/tcp_flow_protection/filters/{{filter_id}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get TCP Flow Protection filter-.resources/examples
+order: 2000

@@ -1,0 +1,43 @@
+$kind: http-example
+id: c3611321-1202-5b88-aff4-fca1fe64505c
+name: Unauthorized.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/instances?per_page=69&page_token=string&state=not-active&name_prefix=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "69"
+      description: Maximum number of instances to return per page. Defaults to all.
+    - key: page_token
+      value: string
+      description: Opaque token from a previous response to retrieve the next page.
+    - key: state
+      value: not-active
+      description: |
+        Filters instances by lifecycle state. `active` includes provisioning, running, and stopping instances; `not-active` includes stopped and failed instances. When omitted, all instances are returned.
+    - key: name_prefix
+      value: string
+      description: |
+        Filter instances by a case-sensitive name prefix, falling back to the actor ID when no name is known. Keep the same prefix when using a page token.
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

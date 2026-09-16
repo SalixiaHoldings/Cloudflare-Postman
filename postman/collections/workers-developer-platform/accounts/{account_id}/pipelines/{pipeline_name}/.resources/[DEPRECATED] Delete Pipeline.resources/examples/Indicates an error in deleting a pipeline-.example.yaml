@@ -1,0 +1,15 @@
+$kind: http-example
+id: 7c2c7c41-f77c-5bc3-a54b-56c60b0c22e4
+name: Indicates an error in deleting a pipeline.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/{{pipeline_name}}"
+  method: DELETE
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

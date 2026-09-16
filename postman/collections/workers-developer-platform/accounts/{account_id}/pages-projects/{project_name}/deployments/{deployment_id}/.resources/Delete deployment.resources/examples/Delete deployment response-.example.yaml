@@ -1,0 +1,31 @@
+$kind: http-example
+id: cbc25d74-0e22-58d5-aa90-a40d1d438c51
+name: Delete deployment response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pages/projects/{{project_name}}/deployments/{{deployment_id}}?force=true"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    force: "true"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {},
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

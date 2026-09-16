@@ -1,0 +1,43 @@
+$kind: http-example
+id: 0bec6836-413e-5a97-ab89-5263b882a5c7
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/page_shield/cookies?hosts=blog.cloudflare.com,www.example*,*cloudflare.com&page=string&per_page=100&order_by=first_seen_at&direction=asc&page_url=example.com/page,*/checkout,example.com/*,*checkout*&export=csv&name=session_id&secure=true&http_only=true&same_site=strict&type=first_party&path=/&domain=example.com"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    hosts: blog.cloudflare.com,www.example*,*cloudflare.com
+    page: string
+    per_page: "100"
+    order_by: first_seen_at
+    direction: asc
+    page_url: example.com/page,*/checkout,example.com/*,*checkout*
+    export: csv
+    name: session_id
+    secure: "true"
+    http_only: "true"
+    same_site: strict
+    type: first_party
+    path: /
+    domain: example.com
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

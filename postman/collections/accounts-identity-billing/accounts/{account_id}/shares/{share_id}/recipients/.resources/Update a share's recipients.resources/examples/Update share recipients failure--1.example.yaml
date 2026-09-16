@@ -1,0 +1,54 @@
+$kind: http-example
+id: e1b498d5-ab90-5fcd-a1b5-ecdcba2ef7ca
+name: Update share recipients failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/recipients"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "account_id": "{{account_id}}",
+          "organization_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "recipient_account_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "account_id": "{{account_id}}",
+          "organization_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "recipient_account_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 3000

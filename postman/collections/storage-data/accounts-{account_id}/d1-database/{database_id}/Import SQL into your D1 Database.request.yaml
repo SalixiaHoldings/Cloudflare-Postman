@@ -1,0 +1,35 @@
+$kind: http-request
+id: fe4f4aab-97b1-56ed-a9fa-2b6dec979110
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: d1-import-database
+  POST /accounts/{account_id}/d1/database/{database_id}/import
+
+  Generates a temporary URL for uploading an SQL file to, then instructing the D1 to import it
+  and polling it for status updates. Imports block the D1 for their duration.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/import"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "action": "init",
+      "etag": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Import SQL into your D1 Database.resources/examples
+order: 6000

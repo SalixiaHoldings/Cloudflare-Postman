@@ -1,0 +1,20 @@
+$kind: http-example
+id: 02f2b953-93c3-5ab8-ae9c-fde3e4aa1f6d
+name: Approval not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals/{{id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 4000

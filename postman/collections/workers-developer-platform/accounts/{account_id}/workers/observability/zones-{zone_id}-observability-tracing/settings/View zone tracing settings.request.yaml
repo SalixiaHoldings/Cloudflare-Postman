@@ -1,0 +1,25 @@
+$kind: http-request
+id: 2e06ab68-2fae-551e-b98c-c0da31d56c2b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone.observability.tracing.settings.get
+  GET /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/settings
+
+  Retrieve the zone-level Cloudflare Traces settings.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/zones/{{zone_id}}/observability/tracing/settings"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/View zone tracing settings.resources/examples
+order: 1000

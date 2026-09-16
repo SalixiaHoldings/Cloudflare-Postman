@@ -1,0 +1,35 @@
+$kind: http-example
+id: a37b0d11-713c-5dea-bc53-dc8e735476ea
+name: Internal server error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/messages/{{message_id}}"
+  method: PUT
+  headers:
+    - key: Idempotency-Key
+      value: string
+      description: Client command key. Required when publishing a message for a workflow-enabled project; trimmed and limited to 255 characters.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "content": "string",
+        "publish": true,
+        "tlp": "clear",
+        "attachment_asset_ids": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 5000

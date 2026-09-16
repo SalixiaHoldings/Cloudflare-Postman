@@ -1,0 +1,19 @@
+$kind: http-example
+id: 035673cd-87de-5bd4-8717-8e76a37407d4
+name: Delete an output response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs/{{live_input_identifier}}/outputs/{{output_identifier}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: '""'
+order: 2000

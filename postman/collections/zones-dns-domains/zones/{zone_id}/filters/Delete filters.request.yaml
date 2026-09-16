@@ -1,0 +1,34 @@
+$kind: http-request
+id: b2925801-c853-54da-9d35-9588fb846526
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: filters-delete-filters
+  DELETE /zones/{zone_id}/filters
+
+  Deletes one or more existing filters.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/filters?id=372e67954025e0ba6aaa6d586b9e0b61&id=372e67954025e0ba6aaa6d586b9e0b61"
+method: DELETE
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: id
+    value: 372e67954025e0ba6aaa6d586b9e0b61
+    description: "(Required) "
+  - key: id
+    value: 372e67954025e0ba6aaa6d586b9e0b61
+    description: "(Required) "
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete filters.resources/examples
+order: 1000

@@ -1,0 +1,31 @@
+$kind: http-request
+id: 47240c35-0662-53cc-a281-20dbd8cfc88e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: wor-send-event-workflow-instance
+  POST /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/events/{event_type}
+
+  Sends an event to a running workflow instance to trigger state transitions.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/events/{{event_type}}"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: "{}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Send event to instance.resources/examples
+order: 3000

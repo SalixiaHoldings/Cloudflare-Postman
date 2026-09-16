@@ -1,0 +1,59 @@
+$kind: http-example
+id: e71d9840-3937-505c-9b65-0eee4832a557
+name: Creates a Zero Trust Gateway location response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/locations"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Austin Office Location",
+        "client_default": false,
+        "dns_destination_ips_id": "0e4a32c6-6fb8-4858-9296-98f51631e8e6",
+        "ecs_support": false,
+        "endpoints": {
+          "ipv4": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ipv6": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "doh": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "dot": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "max_ttl": {
+          "mode": "inherit"
+        },
+        "networks": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

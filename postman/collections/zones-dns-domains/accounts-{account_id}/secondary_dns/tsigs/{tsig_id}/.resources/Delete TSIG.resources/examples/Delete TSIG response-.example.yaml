@@ -1,0 +1,24 @@
+$kind: http-example
+id: 83ab4ea3-c04e-51d2-a696-912bda6d69df
+name: Delete TSIG response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/secondary_dns/tsigs/{{tsig_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

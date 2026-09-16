@@ -1,0 +1,28 @@
+$kind: http-example
+id: bf83b7c3-10d2-5b20-9805-7d5765b1e6a8
+name: The report was not found, or does not support appeals.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/{{report_id}}/appeals/eligibility"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 3000

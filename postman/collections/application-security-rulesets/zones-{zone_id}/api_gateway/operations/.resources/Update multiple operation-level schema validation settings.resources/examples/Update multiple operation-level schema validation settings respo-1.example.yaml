@@ -1,0 +1,45 @@
+$kind: http-example
+id: 95323e89-33ff-55fa-b036-16c5e84b5236
+name: Update multiple operation-level schema validation settings response failure
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations/schema_validation"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "3818d821-5901-4147-a474-f5f5aec1d54e": {
+          "mitigation_action": "log"
+        },
+        "b17c8043-99a0-4202-b7d9-8f7cdbee02cd": {
+          "mitigation_action": "block"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,63 @@
+$kind: http-example
+id: 36fb8539-dbc7-5d8e-84b6-a61e7c7214c8
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/tomarkdown"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: files
+        value: '["string","string"]'
+        description: "(Required) "
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": [
+          {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "mimeType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "format": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tokens": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "data": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "mimeType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "format": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tokens": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "data": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

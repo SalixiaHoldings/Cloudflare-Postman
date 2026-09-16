@@ -1,0 +1,44 @@
+$kind: http-example
+id: 8abfcd4e-ca9b-53d6-9f9a-9f321b5927a9
+name: Patch Smart Shield Settings response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/smart_shield"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1034,
+            "message": "Upgrade Smart Shield to unlock smart_tiered_cache."
+          },
+          {
+            "code": 1034,
+            "message": "Upgrade Smart Shield to unlock argo_smart_routing."
+          },
+          {
+            "code": 1034,
+            "message": "Upgrade Smart Shield to unlock regional_tiered_cache."
+          },
+          {
+            "code": 1034,
+            "message": "Upgrade Smart Shield to unlock cache_reserve."
+          },
+          {
+            "code": 1034,
+            "message": "Upgrade Smart Shield to unlock healthchecks_count."
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 4000

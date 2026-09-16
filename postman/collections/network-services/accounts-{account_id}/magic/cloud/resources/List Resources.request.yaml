@@ -1,0 +1,61 @@
+$kind: http-request
+id: 6f70b998-eb95-51c2-9af7-cecb5bc19cbe
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: resources-catalog-list
+  GET /accounts/{account_id}/magic/cloud/resources
+
+  List resources in the Resource Catalog (Closed Beta).
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources?provider_id=string&resource_type=aws_ec2_transit_gateway_prefix_list_reference&resource_type=azurerm_network_interface_backend_address_pool_association&resource_id=dbc81e0c-0618-b0ac-0185-2fe928407d07&resource_id=abf529c0-d69a-82fb-edb3-2f270a52dd8b&region=string&resource_group=string&managed=true&search=string&search=string&order_by=string&desc=true&per_page=3005&page=3005&cloudflare=true&v2=true"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: provider_id
+    value: string
+  - key: resource_type
+    value: aws_ec2_transit_gateway_prefix_list_reference
+  - key: resource_type
+    value: azurerm_network_interface_backend_address_pool_association
+  - key: resource_id
+    value: dbc81e0c-0618-b0ac-0185-2fe928407d07
+  - key: resource_id
+    value: abf529c0-d69a-82fb-edb3-2f270a52dd8b
+  - key: region
+    value: string
+  - key: resource_group
+    value: string
+  - key: managed
+    value: "true"
+  - key: search
+    value: string
+  - key: search
+    value: string
+  - key: order_by
+    value: string
+    description: One of ["id", "resource_type", "region"].
+  - key: desc
+    value: "true"
+  - key: per_page
+    value: "3005"
+  - key: page
+    value: "3005"
+  - key: cloudflare
+    value: "true"
+  - key: v2
+    value: "true"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Resources.resources/examples
+order: 1000

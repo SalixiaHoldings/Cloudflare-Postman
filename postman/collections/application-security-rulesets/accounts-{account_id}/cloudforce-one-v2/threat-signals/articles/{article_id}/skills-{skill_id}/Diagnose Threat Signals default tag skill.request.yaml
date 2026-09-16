@@ -1,0 +1,25 @@
+$kind: http-request
+id: a4f4d957-447f-56a8-a62c-256fab418ebd
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: rssArticleTagDiagnostic
+  POST /accounts/{account_id}/cloudforce-one/v2/threat-signals/articles/{article_id}/skills/{skill_id}/diagnostic
+
+  Diagnose Threat Signals default tag skill.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/articles/{{article_id}}/skills/{{skill_id}}/diagnostic"
+method: POST
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Diagnose Threat Signals default tag skill.resources/examples
+order: 1000

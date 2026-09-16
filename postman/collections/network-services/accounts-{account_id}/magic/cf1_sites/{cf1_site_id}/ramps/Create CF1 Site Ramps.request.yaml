@@ -1,0 +1,41 @@
+$kind: http-request
+id: abadfa30-b085-51d7-8d22-16fd49a8ac3f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-cf1-sites-create-cf1-site-ramps
+  POST /accounts/{account_id}/magic/cf1_sites/{cf1_site_id}/ramps
+
+  Creates ramps (network connections) for a CF1 Site.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/cf1_sites/{{cf1_site_id}}/ramps"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    [
+      {
+        "source_ramp_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "type": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create CF1 Site Ramps.resources/examples
+order: 2000

@@ -1,0 +1,39 @@
+$kind: http-example
+id: 1e7b18fa-55f5-502b-a65f-a090e32af1b0
+name: Create entry failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/entries/integration"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": false,
+        "entry_id": "1db3cdaf-6fbf-e4a2-9150-ddd28ba9131e",
+        "profile_id": "f761b0da-01fc-3ce0-2716-9659e8f2c270"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

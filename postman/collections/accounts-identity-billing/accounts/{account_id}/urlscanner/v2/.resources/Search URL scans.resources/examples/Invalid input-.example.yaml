@@ -1,0 +1,52 @@
+$kind: http-example
+id: 67ae5cf8-67c1-5d23-b056-b3c57a5112e5
+name: Invalid input.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/search?size=100&q=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: size
+      value: "100"
+      description: Limit the number of objects in the response.
+    - key: q
+      value: string
+      description: Filter scans
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "string",
+        "status": 400,
+        "errors": [
+          {
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

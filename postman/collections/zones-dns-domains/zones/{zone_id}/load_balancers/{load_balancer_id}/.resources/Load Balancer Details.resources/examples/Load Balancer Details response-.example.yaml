@@ -1,0 +1,24 @@
+$kind: http-example
+id: 697ea6ee-6a61-5f24-b1b0-d9e4f3bdc4ca
+name: Load Balancer Details response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/load_balancers/{{load_balancer_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

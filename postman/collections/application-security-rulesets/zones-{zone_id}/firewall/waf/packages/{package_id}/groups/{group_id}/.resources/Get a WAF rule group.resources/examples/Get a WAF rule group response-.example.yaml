@@ -1,0 +1,22 @@
+$kind: http-example
+id: 100c753d-6fd7-50c2-8190-dd966042c63e
+name: Get a WAF rule group response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages/{{package_id}}/groups/{{group_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {}
+      }
+order: 1000

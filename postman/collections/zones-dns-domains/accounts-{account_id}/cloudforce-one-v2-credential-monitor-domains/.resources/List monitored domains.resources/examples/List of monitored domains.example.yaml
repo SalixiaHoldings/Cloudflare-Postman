@@ -1,0 +1,56 @@
+$kind: http-example
+id: ff116c41-f964-5e67-9125-750812b7fa60
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/credential-monitor/domains?page=1&per_page=100"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number
+    - key: per_page
+      value: "100"
+      description: Items per page
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "domain": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "domain": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "count": 520.3254637308419,
+          "page": 8398.662423714995,
+          "per_page": 2887.2200031764805,
+          "total_count": 6215.980735141784
+        }
+      }
+order: 1000

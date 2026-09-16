@@ -1,0 +1,40 @@
+$kind: http-request
+id: 4c21575f-89a7-5916-8464-5eac0d60c5e5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ct-alerting-update-subscription
+  PATCH /zones/{zone_id}/ct/alerting
+
+  Create or update the Certificate Transparency alerting subscription for a zone. Enables or disables email notifications when certificates are issued for the zone's domains.
+  The `enabled` field is required on every request and controls whether the subscription is active. The `emails` field is optional and, when provided, replaces the stored recipient list for the zone. When `emails` is omitted, the stored recipient list is preserved and only the enabled state is toggled. A maximum of 100 email addresses may be configured per zone.
+  Requests that omit `enabled` are rejected with error code 1008.
+  Subscribe and unsubscribe notification emails are only sent for recipients whose effective subscription state changes. Idempotent requests (no state change) send no notification email.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/ct/alerting"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "enabled": true,
+      "emails": [
+        "security@example.com",
+        "admin@example.com"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update CT Alerting Subscription.resources/examples
+order: 2000

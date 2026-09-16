@@ -1,0 +1,32 @@
+$kind: http-example
+id: 55646888-8ee2-5059-af9a-0b1286b469d6
+name: Update Zaraz workflow response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/zaraz/publish"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: Config with enabled ecommerce tracking
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

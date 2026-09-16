@@ -1,0 +1,28 @@
+$kind: http-example
+id: 22c1be68-f62b-575c-99d9-8a778c64ab0f
+name: Get Spectrum application configuration response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/apps/{{app_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,54 @@
+$kind: http-example
+id: ef139494-1ad5-5505-8150-0895102b52d4
+name: Approval details.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals/{{id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "approval": {
+          "id": 12345,
+          "rule_id": "550e8400-e29b-41d4-a716-446655440000",
+          "rule_name": "suspicious_email.yar",
+          "audit_log_id": 1,
+          "requested_by": "user@example.com",
+          "requested_at": 1679529600000,
+          "change_description": "Updated rule content",
+          "change_type": "create",
+          "proposed_changes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "status": "pending",
+          "reviewed_at": 1679529600000,
+          "rejection_reason": "Narrow the hostname match to avoid false positives.",
+          "cancelled_by": "requester@example.com",
+          "cancelled_at": 1679529600000,
+          "supersedes_approval_id": 12344,
+          "superseded_by_approval_id": 12346,
+          "revision_number": 2,
+          "commit_message": "Tighten regex to reduce false positives on legit CI workers.",
+          "reviewer_scope": "email",
+          "can_review": true,
+          "current_rule": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "compiler_warnings": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      }
+order: 1000

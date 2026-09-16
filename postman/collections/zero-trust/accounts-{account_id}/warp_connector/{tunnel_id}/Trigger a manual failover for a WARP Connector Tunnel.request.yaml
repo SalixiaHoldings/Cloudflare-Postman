@@ -1,0 +1,32 @@
+$kind: http-request
+id: ed95e2d3-3218-555d-ab55-6e90328a5fd2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-tunnel-manual-failover-warp-connector-tunnel
+  PUT /accounts/{account_id}/warp_connector/{tunnel_id}/failover
+
+  Triggers a manual failover for a specific WARP Connector Tunnel, setting the specified client as the active connector. The tunnel must be configured for high availability (HA) and the client must be linked to the tunnel.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/warp_connector/{{tunnel_id}}/failover"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "client_id": "1bedc50d-42b3-473c-b108-ff3d10c0d925"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Trigger a manual failover for a WARP Connector Tunnel.resources/examples
+order: 7000

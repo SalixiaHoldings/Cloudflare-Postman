@@ -1,0 +1,46 @@
+$kind: http-example
+id: a5ba8ebd-e74c-5ac0-9ed5-bd1339c7ace0
+name: Bad Request.
+request:
+  url: '{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators/{{indicator_id}}/relationships?search={"field":"string","op":"lt","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&search={"field":"string","op":"lt","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&expand=string&expand=string&cursor=string&pageSize=25'
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: search
+      value: '{"field":"string","op":"lt","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+    - key: search
+      value: '{"field":"string","op":"lt","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+    - key: expand
+      value: string
+    - key: expand
+      value: string
+    - key: cursor
+      value: string
+    - key: pageSize
+      value: "25"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

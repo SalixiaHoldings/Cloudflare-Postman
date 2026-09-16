@@ -1,0 +1,52 @@
+$kind: http-example
+id: 161ca4bc-0c7e-50de-b1ba-6e43e9cae819
+name: Returns the ID for the started crawl job.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/crawl?cacheTTL=5"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cacheTTL
+      value: "5"
+      description: Cache TTL default is 5s. Set to 0 to disable.
+  body:
+    type: json
+    content: |-
+      {
+        "url": "https://www.example.com/"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": "string",
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

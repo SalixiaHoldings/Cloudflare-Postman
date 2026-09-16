@@ -1,0 +1,41 @@
+$kind: http-example
+id: 0cfbe0a5-ad3c-5d79-bd3a-5267132f90b8
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/takedown-notices/{{notice_id}}/letters"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "templateId": "string",
+        "fields": {
+          "discoveryDate": "2035-49-05",
+          "domain": "string",
+          "generationDate": "9790-38-05",
+          "jurisdiction": "string",
+          "registrantEmail": "string",
+          "registrar": "string",
+          "registrarEmail": "string",
+          "resolutionByDate": "8109-15-92",
+          "senderCompany": "string",
+          "senderEmail": "string",
+          "senderName": "string",
+          "senderTitle": "string",
+          "trademarkName": "string",
+          "trademarkNumber": "string",
+          "trademarkOwner": "string"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

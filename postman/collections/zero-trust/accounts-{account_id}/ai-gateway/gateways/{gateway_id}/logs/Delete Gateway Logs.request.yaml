@@ -1,0 +1,36 @@
+$kind: http-request
+id: e99a081b-bcec-571b-8417-23f5ff49388a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-config-delete-gateway-logs
+  DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs
+
+  Deletes gateway log entries matching the specified criteria.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: '{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/logs?order_by=created_at&order_by_direction=asc&filters={"key":"duration","operator":"gt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}&filters={"key":"cached","operator":"lt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}&limit=10000'
+method: DELETE
+headers:
+  Accept: application/json
+queryParams:
+  - key: order_by
+    value: created_at
+  - key: order_by_direction
+    value: asc
+  - key: filters
+    value: '{"key":"duration","operator":"gt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}'
+  - key: filters
+    value: '{"key":"cached","operator":"lt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}'
+  - key: limit
+    value: "10000"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete Gateway Logs.resources/examples
+order: 1000

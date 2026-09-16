@@ -1,0 +1,52 @@
+$kind: http-request
+id: 3ad9ec44-3e79-5a5f-86dd-d6494e5c0f28
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-profiles-create-predefined-profile
+  POST /accounts/{account_id}/dlp/profiles/predefined
+
+  Creates a DLP predefined profile. Only supports enabling/disabling entries.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles/predefined"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "profile_id": "f6396f39-e4c1-3e5a-e062-c739c64a89ac",
+      "ai_context_enabled": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "allowed_match_count": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "confidence_threshold": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "context_awareness": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "entries": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "ocr_enabled": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create predefined profile.resources/examples
+order: 1000

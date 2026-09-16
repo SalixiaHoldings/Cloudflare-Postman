@@ -1,0 +1,34 @@
+$kind: http-example
+id: 1b03151f-6de5-5b70-a440-7740e7de6a94
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/deployment-groups/{{group_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 2000

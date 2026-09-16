@@ -1,0 +1,24 @@
+$kind: http-example
+id: 75885114-79bf-5355-8597-9793075147b9
+name: Delete SSL Configuration response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/custom_certificates/{{custom_certificate_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

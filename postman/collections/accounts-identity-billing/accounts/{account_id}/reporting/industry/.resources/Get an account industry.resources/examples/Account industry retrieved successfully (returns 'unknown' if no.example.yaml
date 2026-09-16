@@ -1,0 +1,28 @@
+$kind: http-example
+id: 5c167a1c-b388-55bb-a03e-439a34ab76d9
+name: Account industry retrieved successfully (returns 'unknown' if not set)
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/reporting/industry"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "industry": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "unlock_time": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,83 @@
+$kind: http-example
+id: 47f98ef4-d31e-5445-aa2e-bcc223be267f
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/leaked_credential_checks/summary/compromised?name=main_series&name=main_series&dateRange=7d&dateRange=7d&dateStart=1974-11-27T07:36:05.859Z&dateStart=1966-02-27T14:40:59.169Z&dateEnd=1995-10-19T15:53:05.619Z&dateEnd=1960-10-24T10:15:31.348Z&botClass=LIKELY_AUTOMATED&botClass=LIKELY_AUTOMATED&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: name
+      value: main_series
+      description: Array of names used to label the series in the response.
+    - key: name
+      value: main_series
+      description: Array of names used to label the series in the response.
+    - key: dateRange
+      value: 7d
+      description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
+    - key: dateRange
+      value: 7d
+      description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
+    - key: dateStart
+      value: 1974-11-27T07:36:05.859Z
+      description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+    - key: dateStart
+      value: 1966-02-27T14:40:59.169Z
+      description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+    - key: dateEnd
+      value: 1995-10-19T15:53:05.619Z
+      description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+    - key: dateEnd
+      value: 1960-10-24T10:15:31.348Z
+      description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+    - key: botClass
+      value: LIKELY_AUTOMATED
+      description: Filters results by bot class. Refer to [Bot classes](https://developers.cloudflare.com/radar/concepts/bot-classes/).
+    - key: botClass
+      value: LIKELY_AUTOMATED
+      description: Filters results by bot class. Refer to [Bot classes](https://developers.cloudflare.com/radar/concepts/bot-classes/).
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "summary_0": {
+            "COMPROMISED": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "CLEAN": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "meta": {
+            "dateRange": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidenceInfo": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "normalization": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "lastUpdated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "units": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

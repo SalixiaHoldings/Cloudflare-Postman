@@ -1,0 +1,79 @@
+$kind: http-request
+id: 93853334-571d-5d97-861f-b5694c7aacb3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-profiles-create-custom-profiles
+  POST /accounts/{account_id}/dlp/profiles/custom
+
+  Creates a DLP custom profile.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles/custom"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "ai_context_enabled": false,
+      "allowed_match_count": 5,
+      "confidence_threshold": "low",
+      "context_awareness": {
+        "enabled": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "skip": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "data_classes": [
+        "444f2860-b5b7-5b29-3034-27d1618d8256",
+        "fa2d1278-998a-975e-bc55-77b6797e3195"
+      ],
+      "data_tags": [
+        "db56cc01-7a12-3085-1f5e-7a76312c2db0",
+        "e3ad13f5-1b37-bb09-78bc-0bb7bd1fae3d"
+      ],
+      "description": "string",
+      "entries": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "ocr_enabled": false,
+      "sensitivity_levels": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "shared_entries": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create custom profile.resources/examples
+order: 2000

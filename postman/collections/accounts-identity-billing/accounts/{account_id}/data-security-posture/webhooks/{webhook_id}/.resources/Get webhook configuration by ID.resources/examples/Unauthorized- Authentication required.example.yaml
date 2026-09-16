@@ -1,0 +1,22 @@
+$kind: http-example
+id: 4208d471-7b54-5727-96b1-8011ebffb369
+name: "Unauthorized: Authentication required"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/{{webhook_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 3000

@@ -1,0 +1,22 @@
+$kind: http-example
+id: 36440cf1-7dd8-5938-8cd8-e4408664c6ec
+name: Get Origin TLS Compliance Modes setting response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/origin_tls_compliance_modes"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

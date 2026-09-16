@@ -1,0 +1,32 @@
+$kind: http-request
+id: 72d7f9f0-10c9-51ee-92db-29e1de4f3b1f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: agent-memory-summary
+  POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/summary
+
+  Generates a paste-ready prompt block summarizing everything stored in a memory profile.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/summary"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "sessionId": "chat-session-42"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get a profile summary.resources/examples
+order: 7000

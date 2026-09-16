@@ -28,6 +28,12 @@ deterministic normalization, schema-derived auth, stable JSON
       |
       v
 Collection v2.1 validation + exact-once accounting
+      |
+      v
+Postman CLI 1.56.3 migration + guarded collection-auth ID policy
+      |
+      v
+v3 lint + semantic equivalence + two-run byte comparison
 ```
 
 `config/partitions.json` defines independent match rules. Every non-residual rule is evaluated before ownership is assigned: one match owns the operation, zero matches use the explicit residual, and multiple matches require an exact declaration in `config/partition-overlaps.json`. Array ordering is not a conflict resolver. The generator creates a partition-specific OpenAPI view without modifying operation definitions, root security, or shared components. It then converts that view and maps every emitted request back to its upstream method/path. A converter omission, unrecognized request, or duplicate is fatal.
@@ -51,7 +57,7 @@ The generated inventory currently includes:
 - Accounts, Identity & Billing
 - Other Cloudflare Services (explicit residual)
 
-`postman/manifest.json` contains the current count and digest for each file. The residual is printed by every generation and validation run. At the pinned revision it contains only Cloudflare's `GET /signed-url` internal test route; retaining it preserves complete upstream accounting without pretending it belongs to a public product family.
+`dist/v2.1/manifest.json` contains the current count and digest for each file. The residual is printed by every generation and validation run. At the pinned revision it contains only Cloudflare's `GET /signed-url` internal test route; retaining it preserves complete upstream accounting without pretending it belongs to a public product family.
 
 ## Validation layers
 
@@ -129,4 +135,4 @@ For an opt-in local check, set `CLOUDFLARE_API_TOKEN`, plus `CLOUDFLARE_ACCOUNT_
 
 ## Generated-file policy
 
-Everything under `postman/reference/`, `postman/workflows/`, and `postman/environments/`, plus the manifest and operation-accounting file, is generated. Do not hand-edit it. Change source code, configuration, or the pinned upstream revision, run `npm run generate`, then run `npm run check`.
+Everything under `dist/v2.1/` and `postman/` is generated. See [Native Git architecture and compatibility policy](native-git.md) for dual-format layout, CLI provenance, semantic validation, and the workspace privacy boundary. Do not hand-edit it. Change source code, configuration, or the pinned upstream revision, run `npm run generate`, then run `npm run check`.

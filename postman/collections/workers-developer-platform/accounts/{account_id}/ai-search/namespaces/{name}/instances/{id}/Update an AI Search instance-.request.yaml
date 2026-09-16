@@ -1,0 +1,159 @@
+$kind: http-request
+id: d1aad0cd-6244-5a24-829f-67b16db6c34a
+name: Update an AI Search instance.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ai-search-namespace-update-instance
+  PUT /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}
+
+  Update the configuration of an AI Search instance.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "ai_gateway_id": "string",
+      "ai_search_model": "string",
+      "cache": true,
+      "cache_threshold": "close_enough",
+      "cache_ttl": 600,
+      "chunk": true,
+      "chunk_overlap": 10,
+      "chunk_size": 9291,
+      "custom_metadata": [
+        {
+          "field_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "data_type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "field_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "data_type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ],
+      "embedding_model": "string",
+      "fusion_method": "rrf",
+      "index_method": {
+        "keyword": false,
+        "vector": true
+      },
+      "indexing_options": {
+        "keyword_tokenizer": "porter",
+        "use_ocr": false
+      },
+      "max_num_results": 10,
+      "metadata": {
+        "created_from_aisearch_wizard": true,
+        "worker_domain": "string"
+      },
+      "paused": false,
+      "public_endpoint_params": {
+        "authorized_hosts": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "chat_completions_endpoint": {
+          "disabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "custom_domains": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "default_domain_enabled": true,
+        "enabled": false,
+        "mcp": {
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "disabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "rate_limit": {
+          "period_ms": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "requests": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "technique": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "search_endpoint": {
+          "disabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      },
+      "reranking": false,
+      "reranking_model": "string",
+      "retrieval_options": {
+        "boost_by": [
+          {
+            "direction": "desc",
+            "field": "timestamp"
+          }
+        ],
+        "keyword_match_mode": "or"
+      },
+      "rewrite_model": "string",
+      "rewrite_query": false,
+      "score_threshold": 0.4,
+      "source": "string",
+      "source_params": {
+        "exclude_items": [
+          "/admin/**",
+          "/private/**",
+          "**\\temp\\**"
+        ],
+        "include_items": [
+          "/blog/**",
+          "/docs/**/*.html",
+          "**\\blog\\**.html"
+        ],
+        "prefix": "string",
+        "r2_jurisdiction": "default",
+        "web_crawler": {
+          "parse_type": "sitemap"
+        }
+      },
+      "summarization": false,
+      "summarization_model": "string",
+      "sync_interval": 900,
+      "system_prompt_ai_search": "string",
+      "system_prompt_index_summarization": "string",
+      "system_prompt_rewrite_query": "string",
+      "token_id": "27f31038-426b-0b6e-7e2e-5e633740375b"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update an AI Search instance-.resources/examples
+order: 4000

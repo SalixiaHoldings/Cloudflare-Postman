@@ -1,0 +1,28 @@
+$kind: http-example
+id: 2b41a5ee-3dc7-5686-acbf-99b1ce6bd475
+name: Response body when an Application is not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

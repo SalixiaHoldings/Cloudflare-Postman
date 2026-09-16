@@ -1,0 +1,43 @@
+$kind: http-example
+id: c6a37663-53a8-5e3d-b6c4-bcdc7fc03115
+name: Patch a Zero Trust Gateway rule response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/rules/{{rule_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "description": "Block bad websites based on their host name.",
+        "enabled": true,
+        "name": "block bad websites",
+        "precedence": 1020
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

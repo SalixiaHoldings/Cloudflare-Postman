@@ -1,0 +1,48 @@
+$kind: http-example
+id: 45a5f721-ce84-53c5-8a22-5f82ee43c638
+name: Get ASN Subnets response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/asn/{{asn}}/subnets"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "asn": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "count": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "ip_count_total": 6195,
+        "page": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "per_page": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "subnets": [
+          "192.0.2.0/24",
+          "2001:DB8::/32"
+        ]
+      }
+order: 2000

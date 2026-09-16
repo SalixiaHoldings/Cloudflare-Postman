@@ -1,0 +1,29 @@
+$kind: http-example
+id: ad7a47c4-9825-55a7-b155-d8223b21d773
+name: Delete a Scan Config.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/scans/config/{{config_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {},
+        "messages": [
+          "string",
+          "string"
+        ],
+        "errors": [
+          "string",
+          "string"
+        ]
+      }
+order: 1000

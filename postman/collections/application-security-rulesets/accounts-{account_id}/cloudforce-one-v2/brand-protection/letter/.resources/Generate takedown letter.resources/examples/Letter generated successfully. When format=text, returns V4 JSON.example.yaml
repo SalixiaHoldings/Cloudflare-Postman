@@ -1,0 +1,62 @@
+$kind: http-example
+id: ed9e5e0d-7dc2-5d1a-b842-d3178f5d50ad
+name: "Letter generated successfully. When format=text, returns V4 JSON with { result: { letter: string } }. When format=pdf, returns binary with Content-Type: application/pdf."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/letter/generate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "templateId": "string",
+        "fields": {
+          "discoveryDate": "5058-34-24",
+          "domain": "string",
+          "generationDate": "3456-91-76",
+          "jurisdiction": "string",
+          "registrantEmail": "string",
+          "registrar": "string",
+          "registrarEmail": "string",
+          "resolutionByDate": "7239-00-35",
+          "senderCompany": "string",
+          "senderEmail": "string",
+          "senderName": "string",
+          "senderTitle": "string",
+          "trademarkName": "string",
+          "trademarkNumber": "string",
+          "trademarkOwner": "string"
+        },
+        "createNotice": false,
+        "format": "text",
+        "noticeParams": {
+          "domain": "string",
+          "queryId": 6365,
+          "status": "sent"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "letter": "string",
+        "letterId": 5667,
+        "notice": {
+          "id": 5487.555467989296,
+          "domain": "string",
+          "queryId": 2839.9367607198656,
+          "status": "expired",
+          "matchId": 9200.014779344201,
+          "matchType": "logo",
+          "createdAt": "string",
+          "updatedAt": "string"
+        }
+      }
+order: 1000

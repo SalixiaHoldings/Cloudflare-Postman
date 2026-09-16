@@ -1,0 +1,70 @@
+$kind: http-example
+id: 5584ab6d-a1c0-5c06-94f4-5f6749318a6b
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/agent_readiness/summary/{{dimension}}?date=2024-09-19&domainCategory=string&domainCategory=string&name=main_series&name=main_series&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: date
+      value: 2024-09-19
+      description: Filters results by the specified date.
+    - key: domainCategory
+      value: string
+      description: Filters results by domain category.
+    - key: domainCategory
+      value: string
+      description: Filters results by domain category.
+    - key: name
+      value: main_series
+      description: Array of names used to label the series in the response.
+    - key: name
+      value: main_series
+      description: Array of names used to label the series in the response.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "summary_0": {
+            "markdownNegotiation": "45000",
+            "robotsTxt": "280000"
+          },
+          "meta": {
+            "date": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "totalDomains": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "successfulDomains": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "normalization": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "lastUpdated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "units": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "domainCategories": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

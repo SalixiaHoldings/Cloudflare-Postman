@@ -1,0 +1,36 @@
+$kind: http-example
+id: 935717a2-fb43-5aaf-a416-97f9f199a85a
+name: Returns the created permission.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/permissions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "subjectType": "account",
+        "subjectId": "123",
+        "role": "read"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "subjectType": "account",
+        "subjectId": "123",
+        "role": "read",
+        "resourceType": "dataset",
+        "createdAt": "2022-04-01T00:00:00Z",
+        "updatedAt": "2022-04-01T00:00:00Z",
+        "resourceId": "08846b9f-dba9-4410-be6f-cf883b5ea8d2"
+      }
+order: 1000

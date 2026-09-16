@@ -1,0 +1,43 @@
+$kind: http-request
+id: a0e21f1c-d7a2-59f9-a8cf-356c56c64b8e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: api-shield-operations-post-labels-to-operation
+  POST /zones/{zone_id}/api_gateway/operations/{operation_id}/labels
+
+  Attaches one or more labels to a web or API operation.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations/{{operation_id}}/labels"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "managed": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "user": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Attach labels to a web or API operation.resources/examples
+order: 2000

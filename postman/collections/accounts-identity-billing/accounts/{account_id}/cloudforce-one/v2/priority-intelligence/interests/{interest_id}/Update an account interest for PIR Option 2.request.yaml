@@ -1,0 +1,32 @@
+$kind: http-request
+id: c2931ab5-7f2b-5a6b-8022-c53e732917c4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: patch_PirInterestUpdate
+  PATCH /accounts/{account_id}/cloudforce-one/v2/priority-intelligence/interests/{interest_id}
+
+  Updates a structured account interest used by Priority Intelligence Option 2 evaluations. Changing the value re-resolves the interest against the current catalog.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/interests/{{interest_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "enabled": false,
+      "value": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update an account interest for PIR Option 2.resources/examples
+order: 2000

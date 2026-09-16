@@ -1,0 +1,41 @@
+$kind: http-example
+id: 3a25c66c-4303-54e4-92bd-f954a30ee1f5
+name: Successful response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/sinkholes/{{sinkhole_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "r2_bucket": "string",
+        "r2_id": "string",
+        "r2_secret": "{{r2_secret}}"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {}
+      }
+order: 1000

@@ -1,0 +1,51 @@
+$kind: http-example
+id: 209043fe-5b1d-5816-bfe7-e3bd66a47f0d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "metadata": {
+          "description": "string",
+          "project_id": "string",
+          "tags": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "name": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "name": "string",
+          "status": "string",
+          "item_count": 6833.027040120214,
+          "created_at": "string",
+          "created_by": "string",
+          "updated_at": "string",
+          "metadata": {
+            "key_0": true,
+            "key_1": "string"
+          }
+        }
+      }
+order: 1000

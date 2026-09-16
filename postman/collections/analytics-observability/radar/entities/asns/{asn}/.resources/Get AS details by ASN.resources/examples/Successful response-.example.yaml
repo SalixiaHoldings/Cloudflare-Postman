@@ -1,0 +1,63 @@
+$kind: http-example
+id: bca8d6cb-3c52-5cb5-8738-0ee9cd640681
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/entities/asns/{{asn}}?format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "asn": {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "country": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "countryName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidenceLevel": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "related": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "asn": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "website": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "orgName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "estimatedUsers": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "aka": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

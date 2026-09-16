@@ -1,0 +1,77 @@
+$kind: http-example
+id: 5998a534-7ecb-5fb2-86e0-55e9329c1b3c
+name: List of entitlements for the zone.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/entitlements"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": [
+          {
+            "allocation": {
+              "type": "max_count",
+              "value": 3
+            },
+            "created_date": "2021-09-17T20:33:36.000000",
+            "deleted_date": "",
+            "edited_date": "2021-09-17T20:34:01.000000",
+            "feature": {
+              "feature_set": "page_rules",
+              "id": 1,
+              "key": "page_rules",
+              "name": "Page Rules"
+            },
+            "id": "page_rules"
+          },
+          {
+            "allocation": {
+              "type": "bool",
+              "value": true
+            },
+            "created_date": "2021-09-17T20:39:02.000000",
+            "deleted_date": "",
+            "edited_date": "2021-09-17T20:39:11.000000",
+            "feature": {
+              "feature_set": "argo",
+              "id": 38,
+              "key": "argo.allow_tiered_caching",
+              "name": "Argo Tiered Cache"
+            },
+            "id": "argo.allow_tiered_caching"
+          },
+          {
+            "allocation": {
+              "type": "enum_number",
+              "value": [
+                10,
+                60,
+                600,
+                3600
+              ]
+            },
+            "created_date": "2021-09-17T20:47:36.000000",
+            "deleted_date": "",
+            "edited_date": "2021-09-17T20:47:43.000000",
+            "feature": {
+              "feature_set": "rate_limiting",
+              "id": 32,
+              "key": "rate_limiting.sampling_period_secs",
+              "name": "rate_limiting.sampling_period_secs"
+            },
+            "id": "rate_limiting.sampling_period_secs"
+          }
+        ],
+        "success": true
+      }
+order: 1000

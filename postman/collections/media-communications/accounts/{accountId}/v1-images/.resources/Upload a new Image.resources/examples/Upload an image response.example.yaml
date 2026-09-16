@@ -1,0 +1,63 @@
+$kind: http-example
+id: b09ed7a5-13b5-587e-aaa8-86f5a5df90d6
+request:
+  url: "{{base_url}}/accounts/{{accountId}}/v1/images"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: creator
+        value: string
+        description: Can set the creator field with an internal user ID.
+      - type: file
+        key: file
+        src: ""
+        description: An image binary data. Only needed when type is uploading a file.
+      - type: text
+        key: id
+        value: string
+        description: Optional Image Custom ID. Up to 1024 chars. Can include any number of subpaths, and utf8 characters. Cannot start nor end with a / (forward slash). Cannot be a UUID.
+      - type: text
+        key: metadata
+        value: "{}"
+        description: User modifiable key-value store. Can use used for keeping references to another system of record for managing images.
+      - type: text
+        key: requireSignedURLs
+        value: "false"
+        description: Indicates whether the image requires a signature token for the access.
+      - type: text
+        key: url
+        value: string
+        description: A URL to fetch an image from origin. Only needed when type is uploading from a URL.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "uploaded": "1972-12-18T23:15:33.286Z",
+          "filename": "string",
+          "meta": {},
+          "requireSignedURLs": true,
+          "variants": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "creator": "string"
+        }
+      }
+order: 1000

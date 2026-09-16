@@ -1,0 +1,32 @@
+$kind: http-request
+id: 8a984257-28e1-5750-a3b1-a0ac73d31856
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-billing-check-topup-status
+  POST /accounts/{account_id}/ai-gateway/billing/topup/status
+
+  Get the payment processing status of a top-up by its invoice ID.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/topup/status"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "payment_intent_id": "in_1abc"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Check top-up status.resources/examples
+order: 5000

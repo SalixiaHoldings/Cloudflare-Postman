@@ -1,0 +1,74 @@
+$kind: http-example
+id: 564f36a4-7bf5-5fc9-8d58-83e7ec465b74
+name: Returns the requested formats information.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/accessibilityTree?cacheTTL=5"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cacheTTL
+      value: "5"
+      description: Cache TTL default is 5s. Set to 0 to disable.
+  body:
+    type: json
+    content: |-
+      {
+        "url": "https://www.example.com/"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "accessibilityTree": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "meta": {
+          "finalUrl": "string",
+          "headers": {
+            "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "redirectChain": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "status": 1717.7044739946723,
+          "title": "string"
+        },
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

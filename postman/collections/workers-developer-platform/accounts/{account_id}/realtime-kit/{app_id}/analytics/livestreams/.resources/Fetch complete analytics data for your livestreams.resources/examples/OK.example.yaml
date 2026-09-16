@@ -1,0 +1,34 @@
+$kind: http-example
+id: d8669ff5-3701-50fe-8a29-1899bebc0df6
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/analytics/livestreams/overall?start_time=3783&end_time=3783&filters=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: start_time
+      value: "3783"
+      description: Specify the start time as a Unix timestamp in seconds to access the livestream analytics.
+    - key: end_time
+      value: "3783"
+      description: Specify the end time as a Unix timestamp in seconds to access the livestream analytics.
+    - key: filters
+      value: string
+      description: Optional filters for livestream analytics.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "count": 4,
+          "total_ingest_seconds": 531,
+          "total_viewer_seconds": 116
+        },
+        "success": true
+      }
+order: 1000

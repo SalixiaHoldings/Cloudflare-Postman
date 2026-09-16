@@ -1,0 +1,34 @@
+$kind: http-example
+id: c5037d7a-5588-5242-b0e8-2b666f0f03cc
+name: Edit SSL Certificate Pack Validation Method response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ssl/verification/{{certificate_pack_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "validation_method": "txt"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "status": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "validation_method": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

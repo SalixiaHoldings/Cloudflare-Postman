@@ -1,0 +1,17 @@
+$kind: http-example
+id: 82ae3219-0668-562c-8363-399ec6bb5876
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/queries/{{query_id}}/matches/{{domain_id}}/dismiss"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

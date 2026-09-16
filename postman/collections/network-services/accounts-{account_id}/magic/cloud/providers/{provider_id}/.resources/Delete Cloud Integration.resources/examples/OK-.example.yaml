@@ -1,0 +1,24 @@
+$kind: http-example
+id: 60a88f8b-12d6-5992-8138-4b1d2b4ec294
+name: OK.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers/{{provider_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

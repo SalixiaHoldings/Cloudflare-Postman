@@ -1,0 +1,52 @@
+$kind: http-request
+id: 6dfd53ad-31a0-5f51-89f0-007f039135e3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: notification-policies-create-a-notification-policy
+  POST /accounts/{account_id}/alerting/v3/policies
+
+  Creates a new Notification policy.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/policies"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "SSL Notification Event Policy",
+      "alert_type": "universal_ssl_event_type",
+      "enabled": true,
+      "mechanisms": {
+        "email": [
+          {}
+        ],
+        "pagerduty": [
+          {}
+        ],
+        "webhooks": [
+          {}
+        ]
+      },
+      "alert_interval": "30m",
+      "description": "Something describing the policy.",
+      "filters": {
+        "slo": [
+          "99.9"
+        ]
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a Notification policy.resources/examples
+order: 2000

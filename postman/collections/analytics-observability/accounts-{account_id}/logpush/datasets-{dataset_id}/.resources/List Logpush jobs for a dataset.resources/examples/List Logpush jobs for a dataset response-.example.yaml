@@ -1,0 +1,58 @@
+$kind: http-example
+id: e0b176fe-5a26-5c3a-b96e-37c7af82a337
+name: List Logpush jobs for a dataset response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logpush/datasets/{{dataset_id}}/jobs"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": [
+          {
+            "dataset": "gateway_dns",
+            "destination_conf": "s3://mybucket/logs?region=us-west-2",
+            "enabled": false,
+            "error_message": null,
+            "filter": "{\"where\":{\"and\":[{\"key\":\"ClientRequestPath\",\"operator\":\"contains\",\"value\":\"/static\"},{\"key\":\"ClientRequestHost\",\"operator\":\"eq\",\"value\":\"example.com\"}]}}",
+            "id": 1,
+            "kind": "",
+            "last_complete": null,
+            "last_error": null,
+            "max_upload_bytes": 5000000,
+            "max_upload_interval_seconds": 30,
+            "max_upload_records": 1000,
+            "name": "example.com",
+            "output_options": {
+              "CVE-2021-44228": false,
+              "batch_prefix": "",
+              "batch_suffix": "",
+              "field_delimiter": ",",
+              "field_names": [
+                "Datetime",
+                "DstIP",
+                "SrcIP"
+              ],
+              "output_type": "ndjson",
+              "record_delimiter": "",
+              "record_prefix": "{",
+              "record_suffix": "}\n",
+              "sample_rate": 1,
+              "timestamp_format": "unixnano"
+            }
+          }
+        ],
+        "success": true
+      }
+order: 1000

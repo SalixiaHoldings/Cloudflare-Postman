@@ -1,0 +1,33 @@
+$kind: http-example
+id: 7e21c083-3a16-57a3-a38c-7b0806da409c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/routes/{{id}}/deployments"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "data": {
+          "deployments": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "page": 4548.899959772825,
+          "per_page": 2341.793046798557,
+          "order_by": "string",
+          "order_by_direction": "string"
+        }
+      }
+order: 1000

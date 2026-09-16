@@ -1,0 +1,59 @@
+$kind: http-example
+id: 385435eb-ce0e-5b9e-8e41-4f153c416b19
+name: Successfully returned availability results. Each requested domain appears in the `domains` array with its current availability status and pricing (if available).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/domain-check"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domains": [
+          "myawesomebrand.com",
+          "myawesomebrand.net",
+          "myawesomebrand.org",
+          "myawesomebrand.app",
+          "myawesomebrand.dev"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "domains": [
+            {
+              "name": "xq7mz9brand.com",
+              "pricing": {
+                "currency": "USD",
+                "registration_cost": "8.57",
+                "renewal_cost": "8.57"
+              },
+              "registrable": true,
+              "tier": "standard"
+            },
+            {
+              "name": "xq7mz9brand.net",
+              "pricing": {
+                "currency": "USD",
+                "registration_cost": "9.95",
+                "renewal_cost": "9.95"
+              },
+              "registrable": true,
+              "tier": "standard"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

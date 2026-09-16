@@ -1,0 +1,19 @@
+$kind: http-example
+id: c4f67884-bb64-506e-85a7-30eb4b65b586
+name: Dataset deleted successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/datasets/{{dataset_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

@@ -1,0 +1,43 @@
+$kind: http-example
+id: 338d41b6-d117-5551-8f4c-f222c8294a15
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/pay-per-crawl/configuration"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "bot_overrides": {
+          "key_0": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "enabled": false,
+        "price_usd_microcents": 792475476077
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": "",
+        "success": true
+      }
+order: 2000

@@ -1,0 +1,39 @@
+$kind: http-request
+id: 53a4042f-c1f7-5efe-806d-565b1398d6e0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: custom-ssl-for-a-zone-re-prioritize-ssl-certificates
+  PUT /zones/{zone_id}/custom_certificates/prioritize
+
+  If a zone has multiple SSL certificates, you can set the order in which they should be used during a request. The higher priority will break ties across overlapping 'legacy_custom' certificates.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/custom_certificates/prioritize"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "certificates": [
+        {
+          "priority": 2
+        },
+        {
+          "priority": 1
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Re-prioritize SSL Certificates.resources/examples
+order: 3000

@@ -1,0 +1,44 @@
+$kind: http-example
+id: 860f839a-8581-570d-af05-a6b7e6590959
+name: DEX Traceroute test percentiles failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}/percentiles?deviceId=string&deviceId=string&from=2023-09-20T17:00:00Z&to=2023-09-20T17:00:00Z&colo=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: deviceId
+      value: string
+      description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+    - key: deviceId
+      value: string
+      description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+    - key: from
+      value: 2023-09-20T17:00:00Z
+      description: (Required) Start time for the query in ISO (RFC3339 - ISO 8601) format.
+    - key: to
+      value: 2023-09-20T17:00:00Z
+      description: (Required) End time for the query in ISO (RFC3339 - ISO 8601) format.
+    - key: colo
+      value: string
+      description: Optionally filter result stats to a Cloudflare colo. Cannot be used in combination with deviceId param.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,26 @@
+$kind: http-example
+id: 45b79ada-885f-5e7c-ba4f-e942479ae09c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/items?cursor=string&limit=9568.553178105503&q=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: cursor
+      value: string
+      description: Opaque pagination cursor from a previous response. Omit for the first page.
+    - key: limit
+      value: "9568.553178105503"
+      description: Items per page
+    - key: q
+      value: string
+      description: Case-insensitive substring search across all columns. Matches any column containing the term. No relevance ranking.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

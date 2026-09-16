@@ -1,0 +1,41 @@
+$kind: http-example
+id: 9638a72e-8be5-5463-ae9a-b4f0587fff9f
+name: "OK: Successful HTTP request"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{storage_namespace_id}}/instances/export"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "archived": false,
+        "max_affliction_date": "2024-01-01T00:00:00Z",
+        "min_affliction_date": "2023-01-01T00:00:00Z",
+        "search": "sensitive data"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

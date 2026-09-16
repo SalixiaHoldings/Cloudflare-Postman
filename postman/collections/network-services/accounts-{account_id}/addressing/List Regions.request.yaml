@@ -1,0 +1,25 @@
+$kind: http-request
+id: 74f6c211-7a3a-5ddb-8c69-b4a257587fc4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dls-account-regional-hostnames-list-regions
+  GET /accounts/{account_id}/addressing/regional_hostnames/regions
+
+  List all Regional Services regions available for use by this account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/addressing/regional_hostnames/regions"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Regions.resources/examples
+order: 5000

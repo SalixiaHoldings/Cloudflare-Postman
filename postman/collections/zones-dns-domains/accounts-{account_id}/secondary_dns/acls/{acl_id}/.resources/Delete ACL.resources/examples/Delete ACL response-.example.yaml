@@ -1,0 +1,24 @@
+$kind: http-example
+id: 11d9fb7a-e684-52e5-bff0-a9eefe628b28
+name: Delete ACL response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/secondary_dns/acls/{{acl_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

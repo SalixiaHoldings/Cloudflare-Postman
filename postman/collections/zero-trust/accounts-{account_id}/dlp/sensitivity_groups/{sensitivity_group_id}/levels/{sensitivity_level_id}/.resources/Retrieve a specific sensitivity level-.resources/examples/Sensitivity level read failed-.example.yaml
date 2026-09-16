@@ -1,0 +1,30 @@
+$kind: http-example
+id: 6e5bd3ad-caa4-5fde-9dff-a961fa5166ea
+name: Sensitivity level read failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/sensitivity_groups/{{sensitivity_group_id}}/levels/{{sensitivity_level_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

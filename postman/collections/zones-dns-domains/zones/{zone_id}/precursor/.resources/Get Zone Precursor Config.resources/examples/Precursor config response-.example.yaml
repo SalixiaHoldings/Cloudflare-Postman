@@ -1,0 +1,22 @@
+$kind: http-example
+id: f73cbe86-fb67-5bb8-9a77-4ee5e46f1ec8
+name: Precursor config response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/precursor"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

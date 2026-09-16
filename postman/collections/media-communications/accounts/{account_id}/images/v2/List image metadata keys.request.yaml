@@ -1,0 +1,25 @@
+$kind: http-request
+id: 2cc170d8-fd2f-5e9a-8012-01506df08a8e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-list-metadata-keys
+  GET /accounts/{account_id}/images/v2/metadata/keys
+
+  Lists filterable metadata keys used by images for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v2/metadata/keys"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List image metadata keys.resources/examples
+order: 3000

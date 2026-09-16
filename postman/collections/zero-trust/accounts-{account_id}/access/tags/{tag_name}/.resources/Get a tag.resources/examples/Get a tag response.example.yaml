@@ -1,0 +1,21 @@
+$kind: http-example
+id: e6394e78-26e8-59b8-a0ac-84a9b9caf49c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/tags/{{tag_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

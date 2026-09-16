@@ -1,0 +1,40 @@
+$kind: http-request
+id: b5c2b13c-2cab-5cae-b77e-2b66dd7c73b0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudforce-one-resubmit-rule-approval
+  POST /accounts/{account_id}/cloudforce-one/rules/approvals/{id}/resubmit
+
+  Create a new pending revision from a rejected rule approval. Only the original requester may resubmit the latest revision.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals/{{id}}/resubmit"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "commit_message": "string",
+      "content": "string",
+      "description": "string",
+      "enabled": false,
+      "name": "string",
+      "namespaces": [
+        "string",
+        "string"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Revise and resubmit a rejected approval.resources/examples
+order: 3000

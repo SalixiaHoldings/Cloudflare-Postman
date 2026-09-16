@@ -1,0 +1,36 @@
+$kind: http-request
+id: 44c03312-aacd-51e4-a86b-cc666005c55b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dns-firewall-analytics-by-time
+  GET /accounts/{account_id}/dns_firewall/{dns_firewall_id}/dns_analytics/report/bytime
+
+  Retrieves a list of aggregate metrics grouped by time interval.
+
+  See [Analytics API properties](https://developers.cloudflare.com/dns/reference/analytics-api-properties/) for detailed information about the available query parameters.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dns_firewall/{{dns_firewall_id}}/dns_analytics/report/bytime?metrics=queryCount,uncachedCount&dimensions=queryType&since=2023-11-11T12:00:00Z&until=2023-11-11T13:00:00Z&limit=100&sort=+responseCode,-queryName&filters=responseCode==NOERROR,queryType==A&time_delta=hour"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  metrics: queryCount,uncachedCount
+  dimensions: queryType
+  since: 2023-11-11T12:00:00Z
+  until: 2023-11-11T13:00:00Z
+  limit: "100"
+  sort: +responseCode,-queryName
+  filters: responseCode==NOERROR,queryType==A
+  time_delta: hour
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/By Time.resources/examples
+order: 2000

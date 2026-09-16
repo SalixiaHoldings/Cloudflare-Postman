@@ -1,0 +1,24 @@
+$kind: http-example
+id: 503e54bd-6b5d-56f2-932b-b79ebf5b71f6
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Groups/{{group_id}}"
+  method: DELETE
+  headers:
+    Accept: application/scim+json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "schemas": [
+          "urn:ietf:params:scim:api:messages:2.0:Error"
+        ],
+        "status": "400",
+        "detail": "Invalid SCIM request: userName is required",
+        "scimType": "uniqueness"
+      }
+order: 2000

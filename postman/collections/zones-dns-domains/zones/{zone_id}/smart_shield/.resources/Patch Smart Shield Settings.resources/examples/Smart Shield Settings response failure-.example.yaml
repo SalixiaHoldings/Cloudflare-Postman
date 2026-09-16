@@ -1,0 +1,37 @@
+$kind: http-example
+id: 67e9e784-03d7-593b-b4dd-db4289cedf2a
+name: Smart Shield Settings response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/smart_shield"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "smart_tiered_cache": {
+          "value": "on"
+        }
+      }
+response:
+  statusCode: 502
+  statusText: Bad Gateway
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1016,
+            "message": "Unable to update smart_tiered_cache."
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

@@ -1,0 +1,46 @@
+$kind: http-example
+id: 10a28807-5dcc-5f74-a6ae-490999b12aa3
+name: Exported file.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources/export?provider_id=string&resource_type=<string>&resource_type=<string>&resource_id=<uuid>&resource_id=<uuid>&region=string&resource_group=string&search=string&search=string&order_by=string&desc=true&v2=true"
+  method: GET
+  headers:
+    Accept: application/octet-stream
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: provider_id
+      value: string
+    - key: resource_type
+      value: <string>
+    - key: resource_type
+      value: <string>
+    - key: resource_id
+      value: <uuid>
+    - key: resource_id
+      value: <uuid>
+    - key: region
+      value: string
+    - key: resource_group
+      value: string
+    - key: search
+      value: string
+    - key: search
+      value: string
+    - key: order_by
+      value: string
+      description: One of ["id", "resource_type", "region"].
+    - key: desc
+      value: "true"
+    - key: v2
+      value: "true"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Disposition: attachment; filename="exported_resources.zip"
+    Content-Type: application/octet-stream
+  body:
+    type: text
+    content: string
+order: 1000

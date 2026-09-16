@@ -1,0 +1,46 @@
+$kind: http-request
+id: 64812ccf-1368-59d3-bf7e-9b0c01965bf6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_DomainMatchList
+  GET /accounts/{account_id}/cloudforce-one/v2/brand-protection/domain/matches
+
+  Get paginated list of domain matches for one or more brand protection queries. When multiple query_ids are provided (comma-separated), matches are deduplicated across queries and each match includes a match_details array with per-match query metadata and individual dismissed state.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/domain/matches?offset=0&limit=50&query_id=string&query_id=string&include_domain_id=false&include_dismissed=string&domain_search=string&orderBy=first_seen&order=asc"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: offset
+    value: "0"
+  - key: limit
+    value: "50"
+  - key: query_id
+    value: string
+    description: "(Required) "
+  - key: query_id
+    value: string
+    description: "(Required) "
+  - key: include_domain_id
+    value: "false"
+  - key: include_dismissed
+    value: string
+  - key: domain_search
+    value: string
+  - key: orderBy
+    value: first_seen
+  - key: order
+    value: asc
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List saved query matches.resources/examples
+order: 1000

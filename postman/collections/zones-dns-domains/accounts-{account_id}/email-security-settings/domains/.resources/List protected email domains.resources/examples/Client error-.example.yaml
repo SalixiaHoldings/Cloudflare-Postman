@@ -1,0 +1,62 @@
+$kind: http-example
+id: 14d8975d-76dc-56db-b0fa-1dee49aaa0a1
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/domains?page=1&per_page=20&search=string&order=domain&direction=desc&allowed_delivery_mode=DIRECT&domain=string&domain=string&active_delivery_mode=<string>&integration_id=a1fd0d30-5e3f-2d6e-e779-03aa9887e093&status="
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      description: Current page within paginated list of results.
+    - key: per_page
+      value: "20"
+      description: The number of results per page. Maximum value is 1000.
+    - key: search
+      value: string
+      description: Search term for filtering records. Behavior may change.
+    - key: order
+      value: domain
+      description: Field to sort by.
+    - key: direction
+      value: desc
+      description: The sorting direction.
+    - key: allowed_delivery_mode
+      value: DIRECT
+      description: Delivery mode to filter by.
+    - key: domain
+      value: string
+      description: Domain names to filter by.
+    - key: domain
+      value: string
+      description: Domain names to filter by.
+    - key: active_delivery_mode
+      value: <string>
+      description: Currently active delivery mode to filter by.
+    - key: integration_id
+      value: a1fd0d30-5e3f-2d6e-e779-03aa9887e093
+      description: Integration ID to filter by.
+    - key: status
+      value: ""
+      description: Filters response to domains with the provided status.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

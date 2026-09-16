@@ -1,0 +1,51 @@
+$kind: http-example
+id: 1d753bff-38ed-5be7-9109-5126c9210118
+name: Table maintenance configuration updated successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/namespaces/{{namespace}}/tables/{{table_name}}/maintenance-configs"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "compaction": {
+          "state": "enabled",
+          "target_size_mb": "256"
+        },
+        "snapshot_expiration": {
+          "max_snapshot_age": "14d",
+          "min_snapshots_to_keep": 5,
+          "state": "enabled"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "compaction": {
+            "next_eligible_at": "2026-09-01T12:00:00Z",
+            "state": "enabled",
+            "target_size_mb": "256"
+          },
+          "interval": "1h",
+          "snapshot_expiration": {
+            "max_snapshot_age": "14d",
+            "min_snapshots_to_keep": 5,
+            "next_eligible_at": "2026-09-01T12:00:00Z",
+            "state": "enabled"
+          }
+        },
+        "success": true
+      }
+order: 1000

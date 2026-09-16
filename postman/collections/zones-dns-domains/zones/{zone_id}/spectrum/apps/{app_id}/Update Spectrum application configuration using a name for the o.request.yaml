@@ -1,0 +1,33 @@
+$kind: http-request
+id: 8c21ab0a-bd65-5ff5-a853-c7038d3a7260
+name: Update Spectrum application configuration using a name for the origin
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: spectrum-applications-update-spectrum-application-configuration-using-a-name-for-the-origin
+  PUT /zones/{zone_id}/spectrum/apps/{app_id}
+
+  Updates a previously existing application's configuration that uses a name for the origin.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/spectrum/apps/{{app_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": "<Error: Too many levels of nesting to fake this schema>"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Spectrum application configuration using a name for the o.resources/examples
+order: 3000

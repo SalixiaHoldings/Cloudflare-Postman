@@ -1,0 +1,46 @@
+$kind: http-request
+id: b3499a31-7c26-56d2-aba9-2cdda3215657
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: waiting-room-patch-event
+  PATCH /zones/{zone_id}/waiting_rooms/{waiting_room_id}/events/{event_id}
+
+  Patches a configured event for a waiting room.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/{{waiting_room_id}}/events/{{event_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "production_webinar_event",
+      "event_start_time": "2021-09-28T15:30:00Z",
+      "event_end_time": "2021-09-28T17:00:00Z",
+      "custom_page_html": "{{#waitTimeKnown}} {{waitTime}} mins {{/waitTimeKnown}} {{^waitTimeKnown}} Event is prequeueing / Queue all enabled {{/waitTimeKnown}}",
+      "description": "Production event - DO NOT MODIFY",
+      "disable_session_renewal": false,
+      "new_users_per_minute": 1838527105,
+      "prequeue_start_time": "2021-09-28T15:00:00Z",
+      "queueing_method": "random",
+      "session_duration": 4,
+      "shuffle_at_event_start": false,
+      "suspended": false,
+      "total_active_users": 652613431,
+      "turnstile_action": "infinite_queue",
+      "turnstile_mode": "off"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Patch event.resources/examples
+order: 3000

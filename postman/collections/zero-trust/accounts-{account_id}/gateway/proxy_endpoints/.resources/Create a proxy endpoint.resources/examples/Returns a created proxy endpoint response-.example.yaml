@@ -1,0 +1,36 @@
+$kind: http-example
+id: 4a144947-b9de-5bdb-b1f6-40d2957848a8
+name: Returns a created proxy endpoint response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/proxy_endpoints"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "kind": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

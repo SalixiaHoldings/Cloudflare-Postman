@@ -1,0 +1,36 @@
+$kind: http-request
+id: c753d55a-58f2-5469-bd25-163758177dbf
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-service-tokens-update-a-service-token
+  PUT /accounts/{account_id}/access/service_tokens/{service_token_id}
+
+  Updates a configured service token.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/service_tokens/{{service_token_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "client_secret_version": "{{client_secret_version}}",
+      "duration": "60m",
+      "enabled": true,
+      "name": "CI/CD token",
+      "previous_client_secret_expires_at": "{{previous_client_secret_expires_at}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a service token.resources/examples
+order: 3000

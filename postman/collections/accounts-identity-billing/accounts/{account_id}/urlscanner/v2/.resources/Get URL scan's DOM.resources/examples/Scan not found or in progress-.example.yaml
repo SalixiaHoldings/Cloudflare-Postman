@@ -1,0 +1,52 @@
+$kind: http-example
+id: b60d52f2-49e5-58b1-879c-229a3435d9a2
+name: Scan not found or in progress.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/dom/{{scan_id}}"
+  method: GET
+  headers:
+    Accept: text/plain
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "Scan is not finished yet.",
+        "status": 404,
+        "errors": [
+          {
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "task": {
+          "uuid": "string",
+          "url": "string",
+          "time": "string",
+          "status": "Queued",
+          "visibility": "public"
+        }
+      }
+order: 3000

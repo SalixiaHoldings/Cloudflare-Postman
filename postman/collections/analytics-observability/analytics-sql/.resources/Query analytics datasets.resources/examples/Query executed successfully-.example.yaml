@@ -1,0 +1,45 @@
+$kind: http-example
+id: 402792e7-1348-5836-b287-66a0437ed8a3
+name: Query executed successfully.
+request:
+  url: "{{base_url}}/analytics/sql?query=SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: query
+      value: SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10
+      description: (Required) SQL query to execute.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "key_0": 6987
+          },
+          {
+            "key_0": 2159,
+            "key_1": "string",
+            "key_2": "string"
+          }
+        ],
+        "rows": 104,
+        "statistics": {
+          "elapsed_ms": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "rows_read": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "bytes_read": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,38 @@
+$kind: http-example
+id: cb570222-c415-56c8-9bf2-575601e4568d
+name: Get all application associated with your account.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications?name=string&image=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: name
+      value: string
+      description: Filter applications by name.
+    - key: image
+      value: string
+      description: Filter applications by image.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,31 @@
+$kind: http-example
+id: 87e81ec1-e89b-5b79-b362-a22f76717d62
+name: Delete Keyless SSL Configuration response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/keyless_certificates/{{keyless_certificate_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

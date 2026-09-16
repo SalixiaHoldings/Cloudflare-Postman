@@ -1,0 +1,46 @@
+$kind: http-request
+id: 8c5ef570-7b18-5616-83e6-7c927c23ae2a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: pages-project-update-project
+  PATCH /accounts/{account_id}/pages/projects/{project_name}
+
+  Set new attributes for an existing project. Modify environment variables. To delete an environment variable, set the key to null.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/pages/projects/{{project_name}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "deployment_configs": {
+        "production": {
+          "compatibility_date": "2022-01-01T00:00:00Z",
+          "compatibility_flags": [
+            "url_standard"
+          ],
+          "env_vars": {
+            "NODE_VERSION": {
+              "value": "22"
+            },
+            "delete_this_env_var": null,
+            "secret_var": "{{secret_var}}"
+          }
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update project.resources/examples
+order: 3000

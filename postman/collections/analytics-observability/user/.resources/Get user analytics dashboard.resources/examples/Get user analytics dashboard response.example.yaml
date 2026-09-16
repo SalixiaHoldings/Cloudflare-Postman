@@ -1,0 +1,60 @@
+$kind: http-example
+id: 10402dfe-563a-5e9f-93db-647303c9856c
+request:
+  url: "{{base_url}}/user/analytics/dashboard?since=string&until=string&continuous=true"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    since: string
+    until: string
+    continuous: "true"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "query": {
+          "since": "2015-01-01T12:23:00Z",
+          "until": "2015-01-02T12:23:00Z"
+        },
+        "result": [
+          {
+            "timeseries": [
+              {
+                "bandwidth": {
+                  "all": 190290,
+                  "cached": 97717,
+                  "uncached": 92573
+                },
+                "requests": {
+                  "all": 51440
+                },
+                "since": "2015-01-01T12:23:00Z",
+                "until": "2015-01-01T13:23:00Z"
+              }
+            ],
+            "totals": {
+              "bandwidth": {
+                "all": 4567890,
+                "cached": 2345678,
+                "uncached": 2222212
+              },
+              "requests": {
+                "all": 1234567
+              },
+              "since": "2015-01-01T12:23:00Z",
+              "until": "2015-01-02T12:23:00Z"
+            },
+            "zone_id": "{{zone_id}}"
+          }
+        ],
+        "success": true
+      }
+order: 1000

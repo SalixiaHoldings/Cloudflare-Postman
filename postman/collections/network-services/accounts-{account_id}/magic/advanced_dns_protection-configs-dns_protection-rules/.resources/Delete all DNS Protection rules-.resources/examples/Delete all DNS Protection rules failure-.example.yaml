@@ -1,0 +1,28 @@
+$kind: http-example
+id: ef20ade2-58bf-56b7-abef-6e7f239b6033
+name: Delete all DNS Protection rules failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_dns_protection/configs/dns_protection/rules"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

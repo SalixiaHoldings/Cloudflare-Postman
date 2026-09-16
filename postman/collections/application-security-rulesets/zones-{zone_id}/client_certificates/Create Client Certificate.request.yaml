@@ -1,0 +1,33 @@
+$kind: http-request
+id: 5aa0dbd4-8b47-57ff-8a58-5c23659c5f9b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: client-certificate-for-a-zone-create-client-certificate
+  POST /zones/{zone_id}/client_certificates
+
+  Create a new API Shield mTLS Client Certificate.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/client_certificates"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICY....\n-----END CERTIFICATE REQUEST-----",
+      "validity_days": 3650
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Client Certificate.resources/examples
+order: 2000

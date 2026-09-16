@@ -1,0 +1,24 @@
+$kind: http-example
+id: a15842b8-772e-5aa2-8210-cebcdebdcd09
+name: Get Certificate Pack Quotas response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ssl/certificate_packs/quota"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "advanced": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

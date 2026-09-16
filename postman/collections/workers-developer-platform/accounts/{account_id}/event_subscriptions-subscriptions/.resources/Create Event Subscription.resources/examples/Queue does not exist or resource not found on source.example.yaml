@@ -1,0 +1,44 @@
+$kind: http-example
+id: 04b548aa-1546-58f7-ba99-7a48d2d52cb8
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/event_subscriptions/subscriptions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "destination": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "enabled": false,
+        "events": [
+          "string"
+        ],
+        "name": "string",
+        "source": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "success": false
+      }
+order: 3000

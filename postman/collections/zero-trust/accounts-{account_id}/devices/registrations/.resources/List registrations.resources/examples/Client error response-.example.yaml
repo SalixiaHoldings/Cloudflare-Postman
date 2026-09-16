@@ -1,0 +1,81 @@
+$kind: http-example
+id: d955a94d-4c15-53cf-802c-e4b02cad1694
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/registrations?user.id=string&user.id=string&seen_after=string&seen_before=string&status=active&per_page=7426&search=string&sort_by=last_seen_at&sort_order=asc&cursor=string&id=string&id=string&device.id=string&policy.id=11ffb86f-3f0c-4306-b4a2-e62f872b166a&include=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: user.id
+      value: string
+      description: Filter by user ID.
+    - key: user.id
+      value: string
+      description: Filter by user ID.
+    - key: seen_after
+      value: string
+      description: Filter by the last_seen timestamp - returns only registrations last seen after this timestamp.
+    - key: seen_before
+      value: string
+      description: Filter by the last_seen timestamp - returns only registrations last seen before this timestamp.
+    - key: status
+      value: active
+      description: Filter by registration status. Defaults to 'active'.
+    - key: per_page
+      value: "7426"
+      description: The maximum number of devices to return in a single response.
+    - key: search
+      value: string
+      description: Filter by registration details.
+    - key: sort_by
+      value: last_seen_at
+      description: The registration field to order results by.
+    - key: sort_order
+      value: asc
+      description: Sort direction.
+    - key: cursor
+      value: string
+      description: Opaque token indicating the starting position when requesting the next set of records. A cursor value can be obtained from the result_info.cursor field in the response.
+    - key: id
+      value: string
+      description: Filter by registration ID.
+    - key: id
+      value: string
+      description: Filter by registration ID.
+    - key: device.id
+      value: string
+      description: Filter by WARP device ID.
+    - key: policy.id
+      value: 11ffb86f-3f0c-4306-b4a2-e62f872b166a
+      description: Filter by the ID of the device settings profile assigned to the registration.
+    - key: include
+      value: string
+      description: |
+        Comma-separated list of additional information that should be included in the registration response. Supported values are: "policy".
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 2000

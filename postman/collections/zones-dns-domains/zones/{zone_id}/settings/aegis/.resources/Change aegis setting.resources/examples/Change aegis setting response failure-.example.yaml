@@ -1,0 +1,42 @@
+$kind: http-example
+id: 84dfbaa3-8b6f-5255-a2b9-aee6b754b374
+name: Change aegis setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/aegis"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": {
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "pool_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,31 @@
+$kind: http-request
+id: fe1d0a0d-e9b9-551d-93e9-a8ca8e2cae3f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getAccountsAccountIdBrandProtectionMatches
+  GET /accounts/{account_id}/brand-protection/matches
+
+  Return matches for string queries based on ID
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/brand-protection/matches?id=string&offset=6305&limit=6305&include_domain_id=false&include_dismissed=false"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  id: string
+  offset: "6305"
+  limit: "6305"
+  include_domain_id: "false"
+  include_dismissed: "false"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Read matches for string queries by ID.resources/examples
+order: 1000

@@ -1,0 +1,26 @@
+$kind: http-example
+id: 2ccde469-15eb-5f5a-8cfc-3a716f2fff67
+name: Not found.
+request:
+  url: "{{base_url}}/radar/ct/logs/{{log_slug}}?format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not Found."
+      }
+order: 2000

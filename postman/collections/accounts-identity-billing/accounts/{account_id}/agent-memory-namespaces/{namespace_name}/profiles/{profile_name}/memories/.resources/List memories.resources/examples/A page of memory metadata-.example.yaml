@@ -1,0 +1,74 @@
+$kind: http-example
+id: ba6cd52e-42cf-5894-86d9-bc9daf2e9bd4
+name: A page of memory metadata.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/memories?per_page=20&cursor=01JSGCEXAMP1E0000000000000&session_id=chat-session-42&type=fact"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    per_page: "20"
+    cursor: 01JSGCEXAMP1E0000000000000
+    session_id: chat-session-42
+    type: fact
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "summary": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "sessionId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updatedAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "summary": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "sessionId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updatedAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "count": 1,
+          "cursor": "01JSGCEXAMP1E0000000000000",
+          "per_page": 20
+        }
+      }
+order: 1000

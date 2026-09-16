@@ -1,0 +1,108 @@
+$kind: http-example
+id: d14a6c01-af00-504c-9b59-82784e3e12cf
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/search?showHistoric=false&download=string"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: showHistoric
+      value: "false"
+      description: "Include scanned images without domain metadata (historic data). Default: false (only show images with domain)"
+    - key: download
+      value: string
+      description: If true, include base64-encoded image data in the response
+  body:
+    type: json
+    content: |-
+      {
+        "image_data": "string",
+        "score_threshold": 0,
+        "top_k": 10
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "matches": [
+          {
+            "similarity_score": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "account_id": "{{account_id}}",
+            "content_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "domain": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "image_data": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "query_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "r2_path": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "similarity_threshold": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tag": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "timestamp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "url_scan_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "vector_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "similarity_score": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "account_id": "{{account_id}}",
+            "content_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "domain": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "image_data": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "query_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "r2_path": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "similarity_threshold": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tag": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "timestamp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "url_scan_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "vector_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

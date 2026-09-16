@@ -1,0 +1,40 @@
+$kind: http-request
+id: 3d5057ae-df49-5971-a40a-3fc74263aace
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: postAccountsAccountIdBrandProtectionQueries
+  POST /accounts/{account_id}/brand-protection/queries
+
+  Return a success message after creating new saved string queries
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/brand-protection/queries?id=string&tag=string&scan=true"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  id: string
+  tag: string
+  scan: "true"
+body:
+  type: json
+  content: |-
+    {
+      "max_time": "1989-01-18T21:03:11.761Z",
+      "min_time": "1957-12-05T08:49:26.921Z",
+      "scan": true,
+      "string_matches": "",
+      "tag": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create new saved string queries.resources/examples
+order: 4000

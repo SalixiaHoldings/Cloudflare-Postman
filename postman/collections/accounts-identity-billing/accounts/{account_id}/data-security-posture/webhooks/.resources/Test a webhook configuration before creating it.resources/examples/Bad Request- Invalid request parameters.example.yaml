@@ -1,0 +1,41 @@
+$kind: http-example
+id: 14111adc-8a09-5f4d-bd48-8eec912bd557
+name: "Bad Request: Invalid request parameters"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/evaluate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "destination_url": "https://example.com/webhook",
+        "authentication_type": "Bearer Auth",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer token123"
+          },
+          {
+            "key": "X-Custom-Header",
+            "value": "value"
+          }
+        ],
+        "signing_secret": "{{signing_secret}}"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 2000

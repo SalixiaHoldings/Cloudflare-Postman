@@ -1,0 +1,25 @@
+$kind: http-example
+id: 770f75fa-4a0e-520a-b9b4-9600ca51876d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/routes/{{route_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "route": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

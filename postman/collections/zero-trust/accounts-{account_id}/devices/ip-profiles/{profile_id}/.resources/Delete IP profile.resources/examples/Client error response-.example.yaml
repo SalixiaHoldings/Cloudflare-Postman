@@ -1,0 +1,34 @@
+$kind: http-example
+id: 8173a482-67b9-5a9c-86df-a403f8af3285
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/ip-profiles/{{profile_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 2000

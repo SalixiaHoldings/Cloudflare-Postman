@@ -1,0 +1,53 @@
+$kind: http-example
+id: d00f6055-5006-591e-9279-ab118b12483d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/service_tokens"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "CI/CD token",
+        "client_secret_version": "{{client_secret_version}}",
+        "duration": "60m",
+        "enabled": true,
+        "previous_client_secret_expires_at": "{{previous_client_secret_expires_at}}"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "client_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "client_secret": "{{client_secret}}",
+          "created_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "duration": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "updated_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,33 @@
+$kind: http-example
+id: b999420d-a247-51bb-9e61-2c90fa36e8d0
+name: List IPFS Universal Path Gateway Content List Entries error response (4XX).
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/web3/hostnames/{{identifier}}/ipfs_universal_path/content_list/entries"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

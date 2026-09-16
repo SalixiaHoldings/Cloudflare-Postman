@@ -1,0 +1,42 @@
+$kind: http-request
+id: 0b94bb7f-dd0c-52c3-92b7-8c4ca16a693e
+name: Upload Item.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ai-search-namespace-instance-upload-item
+  POST /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items
+
+  Uploads a file to a managed AI Search instance via multipart/form-data.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items"
+method: POST
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+body:
+  type: formdata
+  content:
+    - type: file
+      key: file
+      src: ""
+      description: (Required) The file to upload. Filename must not exceed 128 characters.
+    - type: text
+      key: metadata
+      value: string
+      description: JSON string of custom metadata key-value pairs.
+    - type: text
+      key: wait_for_completion
+      value: "false"
+      description: Wait for indexing to fully complete before responding. On RAGs with vector indexing enabled, this additionally waits for Vectorize ingestion confirmation (up to 40s) so the returned item reflects a queryable state. On timeout the item is returned in `running` state and the background alarm continues polling. Defaults to false.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Upload Item-.resources/examples
+order: 2000

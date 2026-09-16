@@ -1,0 +1,29 @@
+$kind: http-example
+id: 2ea3d2f5-0636-5aea-846e-ab5a97e72bde
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/settings"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "validation_default_mitigation_action": "block",
+        "validation_override_mitigation_action": null
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

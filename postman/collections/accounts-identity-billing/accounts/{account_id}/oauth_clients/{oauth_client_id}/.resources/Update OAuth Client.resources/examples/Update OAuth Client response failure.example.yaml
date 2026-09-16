@@ -1,0 +1,73 @@
+$kind: http-example
+id: 17d38d84-4b60-5a07-b9db-21fbabe98757
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/oauth_clients/{{oauth_client_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "allowed_cors_origins": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "client_name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "client_uri": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "grant_types": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "logo_uri": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "optional_scopes": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "policy_uri": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "post_logout_redirect_uris": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "redirect_uris": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "response_types": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "scopes": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "token_endpoint_auth_method": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "tos_uri": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "visibility": "public"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

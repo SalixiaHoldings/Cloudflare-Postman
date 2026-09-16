@@ -1,0 +1,41 @@
+$kind: http-example
+id: d73abebc-c66b-51d6-bd0a-4b12ae40c28a
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/phishguard/reports?start=2020-08-01T00:00:00Z&end=2020-09-01T00:00:00Z&from_date=1985-07-24&to_date=1990-10-26"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: start
+      value: 2020-08-01T00:00:00Z
+      description: Start of the time range (RFC3339). Takes precedence over from_date.
+    - key: end
+      value: 2020-09-01T00:00:00Z
+      description: End of the time range (RFC3339). Takes precedence over to_date.
+    - key: from_date
+      value: 1985-07-24
+      description: Deprecated, use `start` instead. Start date in YYYY-MM-DD format.
+    - key: to_date
+      value: 1990-10-26
+      description: Deprecated, use `end` instead. End date in YYYY-MM-DD format.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

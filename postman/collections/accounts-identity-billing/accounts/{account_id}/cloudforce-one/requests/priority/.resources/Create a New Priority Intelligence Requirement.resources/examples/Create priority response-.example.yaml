@@ -1,0 +1,46 @@
+$kind: http-example
+id: ce1d4a5f-e147-5a63-bcfa-b67fae96c389
+name: Create priority response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/requests/priority/new"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "labels": [
+          "DoS",
+          "CVE"
+        ],
+        "priority": 1,
+        "requirement": "DoS attacks carried out by CVEs",
+        "tlp": "green"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

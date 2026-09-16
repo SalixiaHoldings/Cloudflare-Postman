@@ -1,0 +1,22 @@
+$kind: http-example
+id: f21a4d69-d027-5d0e-a8a8-1c9265ecb943
+name: "Not Found: Policy not found"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/policies/{{policy_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 5000

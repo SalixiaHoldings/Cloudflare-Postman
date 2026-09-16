@@ -1,0 +1,39 @@
+$kind: http-example
+id: 76dffb21-89e7-516c-bb2c-677944312f3f
+name: Delete Device IP profile response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/ip-profiles/{{profile_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": "f70ff985-a4ef-4643-bbbc-4a0ed4fc8415"
+        },
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

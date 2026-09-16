@@ -1,0 +1,51 @@
+$kind: http-example
+id: 4caca0a9-6548-5bfe-ab14-108d5a8d7e37
+name: "Bad Request: Invalid request parameters"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/content/export"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "dlp_profile_information": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "dlp_profile_id": [
+          "e91a2360-da51-4fdf-9711-bcdecd462614"
+        ],
+        "integration_id": [
+          "c416bc38-75dc-425f-ae25-c37b5df5c37f"
+        ],
+        "max_affliction_date": "2024-01-01T00:00:00Z",
+        "min_affliction_date": "2023-01-01T00:00:00Z",
+        "orders": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "search": "sensitive",
+        "vendors": [
+          "GOOGLE_WORKSPACE"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

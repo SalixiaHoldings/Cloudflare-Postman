@@ -1,0 +1,55 @@
+$kind: http-example
+id: 248f6cda-4f1c-5ac8-9a58-b723f7483d9a
+name: "Scan is in progress. Check current status in `result.scan.task.status`. Possible statuses: `Queued`,`InProgress`,`InPostProcessing`,`Finished`."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}?full=false"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: full
+      value: "false"
+      description: Whether to return full report (scan summary and network log).
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "result": {
+          "scan": {
+            "task": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+order: 2000

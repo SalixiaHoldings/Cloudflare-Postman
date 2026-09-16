@@ -1,0 +1,34 @@
+$kind: http-example
+id: 7cdac2ec-0cea-5232-87cf-405fb87f31ab
+name: Get IP Overview response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/ip?ipv4=string&ipv6=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    ipv4: string
+    ipv6: string
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

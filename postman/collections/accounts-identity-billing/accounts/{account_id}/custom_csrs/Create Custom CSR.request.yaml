@@ -1,0 +1,44 @@
+$kind: http-request
+id: 7663c13d-2abe-507a-a94f-27f56138f729
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: custom-csrs-for-an-account-create-custom-csr
+  POST /accounts/{account_id}/custom_csrs
+
+  Generate a new custom Certificate Signing Request (CSR) for an account. Cloudflare generates and securely stores the private key associated with the CSR.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/custom_csrs"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "country": "US",
+      "state": "California",
+      "locality": "San Francisco",
+      "organization": "Cloudflare, Inc.",
+      "common_name": "example.com",
+      "sans": [
+        "example.com",
+        "www.example.com"
+      ],
+      "description": "CSR for example.com wildcard",
+      "key_type": "rsa2048",
+      "name": "My Custom CSR",
+      "organizational_unit": "Engineering"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Custom CSR.resources/examples
+order: 2000

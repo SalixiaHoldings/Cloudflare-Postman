@@ -1,0 +1,32 @@
+$kind: http-example
+id: dd5cb978-465a-553c-aa14-05e7b2433b7c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/service_tokens/{{service_token_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "client_secret_version": "{{client_secret_version}}",
+        "duration": "60m",
+        "enabled": true,
+        "name": "CI/CD token",
+        "previous_client_secret_expires_at": "{{previous_client_secret_expires_at}}"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

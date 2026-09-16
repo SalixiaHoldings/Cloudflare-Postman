@@ -1,0 +1,35 @@
+$kind: http-example
+id: 97aecc7f-d73b-5b28-8599-00391e7cf3b9
+name: The publication command key was reused for different intent or the target draft was already published.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/messages/{{message_id}}"
+  method: PUT
+  headers:
+    - key: Idempotency-Key
+      value: string
+      description: Client command key. Required when publishing a message for a workflow-enabled project; trimmed and limited to 255 characters.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "content": "string",
+        "publish": true,
+        "tlp": "clear",
+        "attachment_asset_ids": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 4000

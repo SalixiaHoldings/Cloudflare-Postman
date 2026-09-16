@@ -1,0 +1,37 @@
+$kind: http-example
+id: 481afdb1-f046-56b8-a312-5a72e36f320b
+request:
+  url: "{{base_url}}/memberships?account.name=Demo Account&page=1&per_page=20&order=status&direction=desc&name=Demo Account&status=accepted"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    account.name: Demo Account
+    page: "1"
+    per_page: "20"
+    order: status
+    direction: desc
+    name: Demo Account
+    status: accepted
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

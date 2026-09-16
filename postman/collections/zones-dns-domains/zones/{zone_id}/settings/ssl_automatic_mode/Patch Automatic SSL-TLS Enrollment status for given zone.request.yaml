@@ -1,0 +1,33 @@
+$kind: http-request
+id: 40c1d296-762e-5de1-aa9f-f948452a6afc
+name: Patch Automatic SSL/TLS Enrollment status for given zone
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ssl-detector-automatic-mode-patch-enrollment
+  PATCH /zones/{zone_id}/settings/ssl_automatic_mode
+
+  The automatic system is enabled when this endpoint is hit with value in the request body is set to "auto", and disabled when the request body value is set to "custom".
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/settings/ssl_automatic_mode"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": "auto"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Patch Automatic SSL-TLS Enrollment status for given zone.resources/examples
+order: 2000

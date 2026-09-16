@@ -1,0 +1,43 @@
+$kind: http-example
+id: 386ab2f0-8fc0-5114-aebd-92c6f50350b8
+name: The SQL query or its parameters are invalid.
+request:
+  url: "{{base_url}}/analytics/sql"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "query": "string",
+        "params": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "scope": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "time_range": {
+          "start": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "end": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: string
+order: 4000

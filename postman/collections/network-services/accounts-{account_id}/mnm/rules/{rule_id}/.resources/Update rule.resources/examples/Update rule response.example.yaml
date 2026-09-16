@@ -1,0 +1,46 @@
+$kind: http-example
+id: b3bcecf9-3c44-52c0-a4bd-3ca7dc22ff07
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/mnm/rules/{{rule_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "my_rule_1",
+        "prefixes": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "automatic_advertisement": true,
+        "type": "zscore",
+        "bandwidth_threshold": 1000,
+        "duration": "1m",
+        "packet_threshold": 10000,
+        "prefix_match": "exact",
+        "zscore_sensitivity": "high",
+        "zscore_target": "bits"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,54 @@
+$kind: http-example
+id: eff3adea-0520-5367-bcfc-ee6d2c5dd1ee
+name: Upload videos via direct upload URLs response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/direct_upload"
+  method: POST
+  headers:
+    Upload-Creator: creator-id_abcde12345
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "maxDurationSeconds": 19848,
+        "allowedOrigins": [
+          "example.com"
+        ],
+        "creator": "creator-id_abcde12345",
+        "expiry": "2021-01-02T02:20:00Z",
+        "meta": {
+          "name": "video12345.mp4"
+        },
+        "requireSignedURLs": true,
+        "scheduledDeletion": "2014-01-02T02:20:00Z",
+        "thumbnailTimestampPct": 0.529241,
+        "watermark": {
+          "uid": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

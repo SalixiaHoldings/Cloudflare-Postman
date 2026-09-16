@@ -1,0 +1,31 @@
+$kind: http-example
+id: fe623c85-c833-56b3-a801-cc095f215ef8
+name: Retry deployment response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pages/projects/{{project_name}}/deployments/{{deployment_id}}/retry"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

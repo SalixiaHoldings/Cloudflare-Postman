@@ -1,0 +1,32 @@
+$kind: http-request
+id: 765bb41e-85da-5d42-ad41-2cd60f6aa0e5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: MuteAllParticipants
+  POST /accounts/{account_id}/realtime/kit/{app_id}/meetings/{meeting_id}/active-session/mute-all
+
+  Mutes all participants of an active session for the given meeting ID.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/active-session/mute-all"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "allow_unmute": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Mute all participants.resources/examples
+order: 5000

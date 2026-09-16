@@ -1,0 +1,25 @@
+$kind: http-request
+id: 1f528c25-7933-52cf-8699-28f66624349a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: delete_TagCategoryDelete
+  DELETE /accounts/{account_id}/cloudforce-one/events/tag-categories/{category_uuid}
+
+  Deletes a Source-of-Truth tag category by UUID.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tag-categories/{{category_uuid}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Deletes a tag category (SoT).resources/examples
+order: 1000

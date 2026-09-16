@@ -1,0 +1,33 @@
+$kind: http-example
+id: 470cf743-4a7c-5bb8-bfcb-51c5e85dfda8
+name: Error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces?per_page=20&order=id&direction=asc&cursor=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    per_page: "20"
+    order: id
+    direction: asc
+    cursor: string
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": 1003,
+            "message": "namespace not found"
+          }
+        ],
+        "messages": []
+      }
+order: 2000

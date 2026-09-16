@@ -1,0 +1,79 @@
+$kind: http-example
+id: fa549c64-2745-5298-89dd-03ab9e55421b
+name: Credit balance retrieved.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/credit-balance"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "balance": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "has_default_payment_method": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "payment_method": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "topup_config": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "first_topup_success": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "has_more": true,
+          "page": 4084.8115435801446,
+          "per_page": 1398.2950476929545,
+          "total_count": 9116.026139818132
+        }
+      }
+order: 1000

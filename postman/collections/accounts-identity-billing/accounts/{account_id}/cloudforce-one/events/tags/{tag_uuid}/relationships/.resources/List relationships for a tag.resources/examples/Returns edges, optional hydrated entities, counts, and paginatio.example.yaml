@@ -1,0 +1,61 @@
+$kind: http-example
+id: b0503879-5157-5b63-92c6-38c5471b4194
+name: Returns edges, optional hydrated entities, counts, and pagination.
+request:
+  url: '{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/relationships?datasets=string&datasets=string&search={"field":"string","op":"lt","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&search={"field":"string","op":"not","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&expand=string&expand=string&cursor=string&pageSize=25'
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: datasets
+      value: string
+    - key: datasets
+      value: string
+    - key: search
+      value: '{"field":"string","op":"lt","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+    - key: search
+      value: '{"field":"string","op":"not","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+    - key: expand
+      value: string
+    - key: expand
+      value: string
+    - key: cursor
+      value: string
+    - key: pageSize
+      value: "25"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "counts": {},
+          "cursor": "string",
+          "entities": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "failedShardCount": 7255.6494968011975,
+          "hasMore": false,
+          "hydrationErrors": {},
+          "partialResults": false,
+          "relationships": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

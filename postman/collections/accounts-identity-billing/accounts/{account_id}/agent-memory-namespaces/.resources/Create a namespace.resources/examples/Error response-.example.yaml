@@ -1,0 +1,35 @@
+$kind: http-example
+id: 27f95f69-9064-53da-ae12-afa1ea700f82
+name: Error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "support-agent"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": 1003,
+            "message": "namespace not found"
+          }
+        ],
+        "messages": []
+      }
+order: 2000

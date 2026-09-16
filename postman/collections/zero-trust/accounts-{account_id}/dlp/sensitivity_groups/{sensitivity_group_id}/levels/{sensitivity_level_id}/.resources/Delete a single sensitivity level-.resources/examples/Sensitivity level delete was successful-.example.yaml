@@ -1,0 +1,24 @@
+$kind: http-example
+id: fb4cffdf-992d-5db4-b0b0-c6848a70355b
+name: Sensitivity level delete was successful.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/sensitivity_groups/{{sensitivity_group_id}}/levels/{{sensitivity_level_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

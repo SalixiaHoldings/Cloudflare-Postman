@@ -1,0 +1,35 @@
+$kind: http-example
+id: 449f3891-283b-50ef-bee7-0677d2e0efe4
+name: Device status over time response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/over-time?from=2023-10-11 00:00:00+00&to=2023-10-11 00:00:00+00&interval=minute&colo=SJC"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: from
+      value: 2023-10-11 00:00:00+00
+      description: (Required) Start of the time range to query. Timestamp can be provided in ISO 8601 datetime format or milliseconds since epoch.
+    - key: to
+      value: 2023-10-11 00:00:00+00
+      description: (Required) End of the time range to query. Timestamp can be provided in ISO 8601 datetime format or milliseconds since epoch.
+    - key: interval
+      value: minute
+      description: (Required) Time interval for aggregate time slots.
+    - key: colo
+      value: SJC
+      description: List of data centers to filter results.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

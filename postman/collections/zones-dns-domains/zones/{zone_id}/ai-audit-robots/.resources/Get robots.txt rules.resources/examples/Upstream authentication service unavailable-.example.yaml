@@ -1,0 +1,39 @@
+$kind: http-example
+id: 94b836c2-9886-534e-ad8b-de2a7696f90f
+name: Upstream authentication service unavailable.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ai-audit/robots?subdomain=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: subdomain
+      value: string
+      description: Optional subdomain to fetch robots.txt for. If omitted, fetches robots.txt for the zone apex domain.
+response:
+  statusCode: 503
+  statusText: Service Unavailable
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 7000

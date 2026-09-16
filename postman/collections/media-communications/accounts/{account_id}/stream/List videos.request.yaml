@@ -1,0 +1,64 @@
+$kind: http-request
+id: 3ec1ae53-21e5-57f9-b30a-916d8a06236c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: stream-videos-list-videos
+  GET /accounts/{account_id}/stream
+
+  Lists up to 1000 videos from a single request. For a specific range, refer to the optional parameters.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/stream?status=inprogress&creator=creator-id_abcde12345&type=live&asc=true&video_name=puppy.mp4&search=puppy.mp4&start=2014-01-02T02:20:00Z&end=2014-01-02T02:20:00Z&include_counts=true&id=ea95132c15732412d22c1476fa83f27a&name=string&live_input_id=string&before=1947-08-18T00:32:31.689Z&after=1947-08-18T00:32:31.689Z&limit=554"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: status
+    value: inprogress
+  - key: creator
+    value: creator-id_abcde12345
+  - key: type
+    value: live
+  - key: asc
+    value: "true"
+  - key: video_name
+    value: puppy.mp4
+  - key: search
+    value: puppy.mp4
+  - key: start
+    value: 2014-01-02T02:20:00Z
+  - key: end
+    value: 2014-01-02T02:20:00Z
+  - key: include_counts
+    value: "true"
+  - key: id
+    value: ea95132c15732412d22c1476fa83f27a
+    description: Filter by video ID(s). Can be a single ID or a comma-separated list of IDs.
+  - key: name
+    value: string
+    description: Filter by video name/UID(s). Can be a single name or a comma-separated list.
+  - key: live_input_id
+    value: string
+    description: Filter by live input ID to find videos associated with a specific live stream.
+  - key: before
+    value: 1947-08-18T00:32:31.689Z
+    description: Alias for 'end'. Returns videos created before this date/time (RFC 3339 format).
+  - key: after
+    value: 1947-08-18T00:32:31.689Z
+    description: Alias for 'start'. Returns videos created after this date/time (RFC 3339 format).
+  - key: limit
+    value: "554"
+    description: Maximum number of videos to return (default 1000, max 1000).
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List videos.resources/examples
+order: 1000

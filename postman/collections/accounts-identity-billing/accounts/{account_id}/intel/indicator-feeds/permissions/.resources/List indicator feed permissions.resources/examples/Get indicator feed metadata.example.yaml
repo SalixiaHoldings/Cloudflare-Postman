@@ -1,0 +1,47 @@
+$kind: http-example
+id: a72eac7a-6d8e-5cae-9398-30de571b3805
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/indicator-feeds/permissions/view"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          {
+            "description": "An important indicator list",
+            "id": 1,
+            "is_attributable": false,
+            "is_downloadable": false,
+            "is_public": false,
+            "name": "indicator_list_1"
+          },
+          {
+            "description": "An even more important indicator list",
+            "id": 2,
+            "is_attributable": true,
+            "is_downloadable": false,
+            "is_public": true,
+            "name": "indicator_list_2"
+          }
+        ]
+      }
+order: 1000

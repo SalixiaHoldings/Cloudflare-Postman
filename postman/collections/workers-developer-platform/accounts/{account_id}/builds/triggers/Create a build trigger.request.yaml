@@ -1,0 +1,49 @@
+$kind: http-request
+id: da8331e4-a82f-5b3e-90bb-9acbd783801b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: createTrigger
+  POST /accounts/{account_id}/builds/triggers
+
+  Create a trigger defining the repository connection, Worker tag, commands, filters, cache setting, and build token.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/builds/triggers"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "external_script_id": "dd7160bb9cef458093557736f4b9e75b",
+      "build_token_uuid": "{{build_token_uuid}}",
+      "trigger_name": "Production Deploy",
+      "build_command": "npm run build",
+      "deploy_command": "npx wrangler deploy",
+      "root_directory": "/",
+      "branch_includes": [
+        "main"
+      ],
+      "branch_excludes": [],
+      "path_includes": [
+        "*"
+      ],
+      "path_excludes": [
+        "*.md"
+      ],
+      "repo_connection_uuid": "<uuid>",
+      "build_caching_enabled": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a build trigger.resources/examples
+order: 1000

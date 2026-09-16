@@ -1,0 +1,41 @@
+$kind: http-request
+id: 1f1106d7-5f69-5344-8530-15901d6f553d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_TagCategoryCreate
+  POST /accounts/{account_id}/cloudforce-one/events/tags/categories/create
+
+  Creates a new Source-of-Truth tag category for an account.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/categories/create"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Actor",
+      "description": "string",
+      "schema": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Creates a new tag category (SoT).resources/examples
+order: 3000

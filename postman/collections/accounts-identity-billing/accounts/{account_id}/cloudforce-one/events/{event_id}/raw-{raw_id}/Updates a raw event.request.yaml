@@ -1,0 +1,34 @@
+$kind: http-request
+id: 587c2f79-cd90-582c-80c8-6c8bf65af4b0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: patch_EventRawUpdate
+  PATCH /accounts/{account_id}/cloudforce-one/events/{event_id}/raw/{raw_id}
+
+  Partially updates raw threat event data in Cloudforce One, modifying specific fields of the event.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/{{event_id}}/raw/{{raw_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "data": {},
+      "source": "example.com",
+      "tlp": "amber"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Updates a raw event.resources/examples
+order: 2000

@@ -1,0 +1,31 @@
+$kind: http-example
+id: d1312de9-ab1b-59fd-9b6a-89d0826da570
+request:
+  url: "{{base_url}}/zones/{{zone_identifier}}/custom_pages/{{identifier}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "url": "http://www.example.com",
+        "state": "default"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

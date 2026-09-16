@@ -1,0 +1,28 @@
+$kind: http-example
+id: eaab493d-9b0f-5cca-8a98-876a65654a42
+name: |
+  Service Unavailable. The query queue wait timeout expired before a processing slot became available. This occurs under heavy load when per-account or global concurrency limits are saturated. Retry the request after a brief delay.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics_engine/sql"
+  method: POST
+  headers:
+    Content-Type: text/plain
+    Accept: application/json
+  body:
+    type: text
+    content: |
+      SELECT blob1, sum(double1) as total
+      FROM my_dataset
+      WHERE timestamp > NOW() - INTERVAL '7' DAY
+      GROUP BY blob1
+      ORDER BY total DESC
+      LIMIT 100
+response:
+  statusCode: 503
+  statusText: Service Unavailable
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: Query timed out waiting in queue. The system is under heavy load. Please try again later.
+order: 7000

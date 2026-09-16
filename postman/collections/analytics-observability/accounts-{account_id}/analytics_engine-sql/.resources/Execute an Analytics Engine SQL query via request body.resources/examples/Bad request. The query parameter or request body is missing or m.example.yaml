@@ -1,0 +1,28 @@
+$kind: http-example
+id: 316036c0-8ff9-5571-babb-b0347ca0a4ca
+name: |
+  Bad request. The query parameter or request body is missing or malformed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics_engine/sql"
+  method: POST
+  headers:
+    Content-Type: text/plain
+    Accept: application/json
+  body:
+    type: text
+    content: |
+      SELECT blob1, sum(double1) as total
+      FROM my_dataset
+      WHERE timestamp > NOW() - INTERVAL '7' DAY
+      GROUP BY blob1
+      ORDER BY total DESC
+      LIMIT 100
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: Content type error
+order: 2000

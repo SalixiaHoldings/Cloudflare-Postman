@@ -1,0 +1,39 @@
+$kind: http-example
+id: 6441cbc7-67a2-55ba-85ab-0a9c9ceac422
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/expression-template/fallthrough"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "hosts": [
+          "{zone}.domain1.tld",
+          "domain2.tld"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

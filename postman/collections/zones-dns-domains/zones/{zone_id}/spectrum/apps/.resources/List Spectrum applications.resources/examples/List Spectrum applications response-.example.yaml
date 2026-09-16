@@ -1,0 +1,27 @@
+$kind: http-example
+id: efb07103-ca7b-523a-ae6c-f2027261772d
+name: List Spectrum applications response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/apps?page=1&per_page=20&direction=desc&order=protocol"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "20"
+    direction: desc
+    order: protocol
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

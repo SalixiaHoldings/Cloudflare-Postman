@@ -1,0 +1,23 @@
+$kind: http-example
+id: 5e708063-40cd-5c5e-9064-76748550922f
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/page_shield"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "result": null
+      }
+order: 2000

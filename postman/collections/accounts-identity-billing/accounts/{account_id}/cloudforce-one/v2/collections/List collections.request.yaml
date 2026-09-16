@@ -1,0 +1,32 @@
+$kind: http-request
+id: b00ce211-91af-5050-81ab-d7e7e634b926
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_CollectionList
+  GET /accounts/{account_id}/cloudforce-one/v2/collections
+
+  Retrieves all collections for an account with pagination
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections?page=3673.8264025188982&limit=9568.553178105503"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "3673.8264025188982"
+    description: Page number
+  - key: limit
+    value: "9568.553178105503"
+    description: Items per page
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List collections.resources/examples
+order: 1000

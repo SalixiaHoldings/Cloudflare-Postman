@@ -1,0 +1,28 @@
+$kind: http-example
+id: 474fa6a0-ad48-5cda-b923-e0a76efdaec8
+name: The image registry does not exist.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/registries/{{domain}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

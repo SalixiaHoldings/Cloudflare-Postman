@@ -1,0 +1,75 @@
+$kind: http-example
+id: 6c6d060f-2b07-5151-b408-1b977bff5e63
+name: Application details.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/one/applications/{{application_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "auth_methods": [
+            {
+              "display_name": "OAuth 2.0 Admin Consent",
+              "id": "oauth2",
+              "is_default": true,
+              "supported_environments": [
+                "standard",
+                "fedramp"
+              ]
+            }
+          ],
+          "category": "Productivity",
+          "description": "Monitor OneDrive, SharePoint, Teams, and Outlook.",
+          "display_name": "Microsoft",
+          "dlp_enabled": true,
+          "id": "MICROSOFT_INTERNAL",
+          "instructions": "You'll need a Microsoft 365 admin account with Global Admin or Application Admin role.",
+          "logo": "https://dash.cloudflare.com/v2/static/microsoft_internal.svg",
+          "use_cases": [
+            {
+              "base_scopes": [
+                {
+                  "display_name": "Read all users' full profiles",
+                  "scope": "User.Read.All",
+                  "severity": "high"
+                },
+                {
+                  "display_name": "Read all files",
+                  "scope": "Files.Read.All",
+                  "severity": "high"
+                }
+              ],
+              "description": "Discover and secure SaaS applications",
+              "display_name": "Cloud Access Security Broker",
+              "features": [
+                {
+                  "description": "Automatically remediate security issues",
+                  "display_name": "Auto Remediation",
+                  "id": "auto_remediation",
+                  "scopes": [
+                    {
+                      "display_name": "Read and write all files",
+                      "scope": "Files.ReadWrite.All",
+                      "severity": "critical"
+                    }
+                  ]
+                }
+              ],
+              "id": "casb"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

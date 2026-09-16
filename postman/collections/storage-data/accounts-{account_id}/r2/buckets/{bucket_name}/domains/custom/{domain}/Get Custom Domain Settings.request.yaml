@@ -1,0 +1,26 @@
+$kind: http-request
+id: 06bf9e57-a522-56a7-9325-150876701deb
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-get-custom-domain-settings
+  GET /accounts/{account_id}/r2/buckets/{bucket_name}/domains/custom/{domain}
+
+  Get the configuration for a custom domain on an existing R2 bucket.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/domains/custom/{{domain}}"
+method: GET
+headers:
+  cf-r2-jurisdiction: default
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Custom Domain Settings.resources/examples
+order: 2000

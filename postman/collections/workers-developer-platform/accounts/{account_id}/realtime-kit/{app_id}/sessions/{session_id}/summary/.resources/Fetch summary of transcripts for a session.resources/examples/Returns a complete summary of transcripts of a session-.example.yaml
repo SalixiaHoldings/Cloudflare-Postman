@@ -1,0 +1,31 @@
+$kind: http-example
+id: 7ef13c9d-e2b9-5618-b665-a8be122e3ad2
+name: Returns a complete summary of transcripts of a session.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}/summary"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "sessionId": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "summaryDownloadUrl": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "summaryDownloadUrlExpiry": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": false
+      }
+order: 1000

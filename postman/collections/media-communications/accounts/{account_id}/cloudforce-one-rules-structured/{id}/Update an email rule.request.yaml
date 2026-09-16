@@ -1,0 +1,90 @@
+$kind: http-request
+id: c5af6c74-b11a-5199-aa0f-690534564b31
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudforce-one-update-email-rule
+  PUT /accounts/{account_id}/cloudforce-one/rules/structured/{id}
+
+  Updates an existing structured email rule.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured/{{id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "condition": {
+        "type": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "operator": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "conditions": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "description": "string",
+      "enabled": true,
+      "meta": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "name": "string",
+      "status": "blocking",
+      "strings": [
+        {
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "identifier": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "match_type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "modifiers": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "identifier": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "match_type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "modifiers": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update an email rule.resources/examples
+order: 3000

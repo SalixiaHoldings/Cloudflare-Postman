@@ -1,0 +1,34 @@
+$kind: http-request
+id: 6201f7d1-ba10-5c34-bc11-f7cf82c5e03c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: api-shield-endpoint-management-retrieve-information-about-an-operation
+  GET /zones/{zone_id}/api_gateway/operations/{operation_id}
+
+  Returns a web or API operation, including its schema validation settings and requested feature data.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations/{{operation_id}}?feature=thresholds&with_schemas=false"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: feature
+    value: thresholds
+    description: Add feature(s) to the results. The feature name that is given here corresponds to the resulting feature object. Have a look at the top-level object description for more details on the specific meaning.
+  - key: with_schemas
+    value: "false"
+    description: When true, includes OpenAPI schemas (both uploaded and learned) for the operation in the response. Due to the conversion overhead, this parameter is only supported on single-operation retrieval.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get a web or API operation.resources/examples
+order: 2000

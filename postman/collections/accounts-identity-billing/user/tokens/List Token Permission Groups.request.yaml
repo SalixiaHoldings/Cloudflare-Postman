@@ -1,0 +1,36 @@
+$kind: http-request
+id: 7997b155-3d1a-5e28-813a-a4aca9869888
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: permission-groups-list-permission-groups
+  GET /user/tokens/permission_groups
+
+  Find all available permission groups for API Tokens.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/user/tokens/permission_groups?name=Account%20Settings%20Write&scope=com.cloudflare.api.account.zone"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: name
+    value: Account%20Settings%20Write
+    description: |-
+      Filter by the name of the permission group.
+      The value must be URL-encoded.
+  - key: scope
+    value: com.cloudflare.api.account.zone
+    description: |-
+      Filter by the scope of the permission group.
+      The value must be URL-encoded.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Token Permission Groups.resources/examples
+order: 3000

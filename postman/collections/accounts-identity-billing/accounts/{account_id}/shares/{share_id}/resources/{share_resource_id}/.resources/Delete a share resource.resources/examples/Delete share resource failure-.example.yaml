@@ -1,0 +1,30 @@
+$kind: http-example
+id: 15e2d35b-181e-5c51-be49-0d857c2dda68
+name: Delete share resource failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/resources/{{share_resource_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

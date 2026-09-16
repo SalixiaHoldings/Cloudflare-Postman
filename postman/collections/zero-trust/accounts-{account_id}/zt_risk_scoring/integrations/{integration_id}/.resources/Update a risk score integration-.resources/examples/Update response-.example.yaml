@@ -1,0 +1,33 @@
+$kind: http-example
+id: e16b0475-557d-5232-899e-ebfe07563ae4
+name: Update response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zt_risk_scoring/integrations/{{integration_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "tenant_url": "http://xzRnMJyJYYqWvGvMqbZojNxU.zopruhkAEOFLxOkPqF1wD",
+        "active": true,
+        "reference_id": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

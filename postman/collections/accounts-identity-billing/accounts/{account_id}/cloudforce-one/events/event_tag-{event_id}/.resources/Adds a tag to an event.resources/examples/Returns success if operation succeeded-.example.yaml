@@ -1,0 +1,33 @@
+$kind: http-example
+id: 608fe981-9599-55bc-a8c4-8efdc9c0030a
+name: Returns success if operation succeeded.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/event_tag/{{event_id}}/create"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "tags": [
+          "botnet",
+          "botnet"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "success": true
+        }
+      }
+order: 1000

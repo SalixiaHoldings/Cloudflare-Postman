@@ -1,0 +1,29 @@
+$kind: http-request
+id: 5d263f8d-690c-5182-9e04-4524331746c8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: resources-catalog-read
+  GET /accounts/{account_id}/magic/cloud/resources/{resource_id}
+
+  Read an resource from the Resource Catalog (Closed Beta).
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources/{{resource_id}}?v2=true"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  v2: "true"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Read Resource.resources/examples
+order: 4000

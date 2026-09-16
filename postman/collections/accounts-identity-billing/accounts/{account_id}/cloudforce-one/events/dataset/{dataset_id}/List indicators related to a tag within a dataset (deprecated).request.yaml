@@ -1,0 +1,44 @@
+$kind: http-request
+id: 4eb425de-2ce8-57b9-944e-c8be3f70f625
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_DatasetTagIndicatorsList
+  GET /accounts/{account_id}/cloudforce-one/events/dataset/{dataset_id}/tags/{tag_uuid}/indicators
+
+  This endpoint is deprecated. Use GET /:account_id/events/tags/:tag_uuid/indicators with the optional datasetIds query parameter instead. Returns indicators associated with the provided tag UUID within a single dataset's indicator shards, with pagination.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: '{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/tags/{{tag_uuid}}/indicators?page=2535.467583220452&pageSize=2535.467583220452&indicatorType=string&relatedEvent=string&relatedEvent=string&search={"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&search={"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "2535.467583220452"
+  - key: pageSize
+    value: "2535.467583220452"
+  - key: indicatorType
+    value: string
+  - key: relatedEvent
+    value: string
+    description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+  - key: relatedEvent
+    value: string
+    description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+  - key: search
+    value: '{"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+    description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+  - key: search
+    value: '{"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+    description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List indicators related to a tag within a dataset (deprecated).resources/examples
+order: 11000

@@ -1,0 +1,17 @@
+$kind: http-example
+id: 77e7fab8-54d1-517e-aca9-b923fcb5c73c
+name: Indicates an error in listing Sinks.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/sinks/{{sink_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

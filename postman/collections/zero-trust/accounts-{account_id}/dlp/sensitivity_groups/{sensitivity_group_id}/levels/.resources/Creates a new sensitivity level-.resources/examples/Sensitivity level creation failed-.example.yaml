@@ -1,0 +1,38 @@
+$kind: http-example
+id: c10669a4-3da9-542d-860c-78b8f531f8c3
+name: Sensitivity level creation failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/sensitivity_groups/{{sensitivity_group_id}}/levels"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "description": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

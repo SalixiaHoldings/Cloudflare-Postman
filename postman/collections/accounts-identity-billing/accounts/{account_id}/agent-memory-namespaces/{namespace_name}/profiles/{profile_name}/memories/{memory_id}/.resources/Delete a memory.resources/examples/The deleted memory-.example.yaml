@@ -1,0 +1,31 @@
+$kind: http-example
+id: 32e58ad1-b46a-5150-9177-9f45f7093ec4
+name: The deleted memory.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/memories/{{memory_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": "01JSGCEXAMP1E0000000000000",
+          "type": "fact",
+          "summary": "User prefers dark mode in the dashboard.",
+          "content": "The user said they prefer dark mode and find the light theme too bright.",
+          "sessionId": "chat-session-42",
+          "createdAt": "2025-09-21T14:30:00Z",
+          "updatedAt": "2025-09-21T14:30:00Z"
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

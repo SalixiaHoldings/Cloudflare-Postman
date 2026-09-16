@@ -1,0 +1,39 @@
+$kind: http-request
+id: 0074670b-bc65-50d0-93a9-f25b545b6234
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: d1-create-database
+  POST /accounts/{account_id}/d1/database
+
+  Returns the created D1 database.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/d1/database"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "my-database",
+      "jurisdiction": "eu",
+      "primary_location_hint": "wnam",
+      "read_replication": {
+        "mode": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create D1 Database.resources/examples
+order: 2000

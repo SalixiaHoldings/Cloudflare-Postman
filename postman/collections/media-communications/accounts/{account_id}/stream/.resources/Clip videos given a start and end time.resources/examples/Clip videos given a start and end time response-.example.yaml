@@ -1,0 +1,51 @@
+$kind: http-example
+id: 777162ff-3d9c-5b51-9c9d-eac9da7acdc6
+name: Clip videos given a start and end time response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/clip"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "clippedFromVideoUID": "023e105f4ecef8ad9ca31a8372d0c353",
+        "startTimeSeconds": 5760,
+        "endTimeSeconds": 9074,
+        "allowedOrigins": [
+          "example.com"
+        ],
+        "creator": "creator-id_abcde12345",
+        "input": "https://example.com/myvideo.mp4",
+        "meta": {
+          "name": "video12345.mp4"
+        },
+        "name": "myvideo.mp4",
+        "requireSignedURLs": true,
+        "scheduledDeletion": "2014-01-02T02:20:00Z",
+        "thumbnailTimestampPct": 0.529241,
+        "url": "https://example.com/myvideo.mp4",
+        "watermark": {
+          "uid": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

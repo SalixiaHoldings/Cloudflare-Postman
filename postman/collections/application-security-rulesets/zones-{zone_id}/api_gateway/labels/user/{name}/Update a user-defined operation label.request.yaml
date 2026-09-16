@@ -1,0 +1,37 @@
+$kind: http-request
+id: 200b1902-42d3-59e4-9050-3a2808fe1647
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: api-shield-put-user-label
+  PUT /zones/{zone_id}/api_gateway/labels/user/{name}
+
+  Replaces all editable fields on a user-defined label.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/labels/user/{{name}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "description": "All endpoints that deal with logins",
+      "metadata": {
+        "foo": "bar"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a user-defined operation label.resources/examples
+order: 4000

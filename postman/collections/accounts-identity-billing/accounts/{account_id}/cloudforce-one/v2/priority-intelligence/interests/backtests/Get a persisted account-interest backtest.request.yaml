@@ -1,0 +1,23 @@
+$kind: http-request
+id: 0699bb8c-76e9-5026-b9d9-33dda9957bf3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_PirInterestBacktestGet
+  GET /accounts/{account_id}/cloudforce-one/v2/priority-intelligence/interests/backtests/{backtest_id}
+
+  Returns a previously completed account-interest backtest by ID. The backtest must belong to this account.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/interests/backtests/{{backtest_id}}"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get a persisted account-interest backtest.resources/examples
+order: 2000

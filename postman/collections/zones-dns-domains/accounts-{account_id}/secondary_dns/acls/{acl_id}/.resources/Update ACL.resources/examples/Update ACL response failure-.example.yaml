@@ -1,0 +1,40 @@
+$kind: http-example
+id: 18b38d18-4aea-587a-a70f-5005813972a8
+name: Update ACL response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/secondary_dns/acls/{{acl_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "23ff594956f20c2a721606e94745a8aa",
+        "name": "my-acl-1",
+        "ip_range": "192.0.2.53/28"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

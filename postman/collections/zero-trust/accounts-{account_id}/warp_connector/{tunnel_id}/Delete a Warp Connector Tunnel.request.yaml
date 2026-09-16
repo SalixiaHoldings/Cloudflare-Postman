@@ -1,0 +1,25 @@
+$kind: http-request
+id: fbade818-959d-59a2-a624-8090bbd41e78
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-tunnel-delete-a-warp-connector-tunnel
+  DELETE /accounts/{account_id}/warp_connector/{tunnel_id}
+
+  Deletes a Warp Connector Tunnel from an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/warp_connector/{{tunnel_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete a Warp Connector Tunnel.resources/examples
+order: 1000

@@ -1,0 +1,42 @@
+$kind: http-example
+id: aaaf9ba0-3c26-556c-b16a-7770a0534eaf
+name: Create origin cloud region mapping response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "ip": "192.0.2.1",
+        "region": "us-east-1",
+        "vendor": "aws"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "editable": true,
+          "id": "origin_public_cloud_region",
+          "modified_on": "2026-03-01T12:00:00Z",
+          "value": {
+            "modified_on": "2026-03-01T12:00:00Z",
+            "origin-ip": "192.0.2.1",
+            "region": "us-east-1",
+            "vendor": "aws"
+          }
+        },
+        "success": true
+      }
+order: 1000

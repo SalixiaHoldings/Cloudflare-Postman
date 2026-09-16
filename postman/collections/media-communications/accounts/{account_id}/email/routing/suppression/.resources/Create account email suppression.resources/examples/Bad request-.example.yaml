@@ -1,0 +1,32 @@
+$kind: http-example
+id: 4fcc6893-d409-5c96-8a9e-7259e2db4a85
+name: Bad request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/routing/suppression"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "email": "user@example.com",
+        "expires_at": "1998-01-15T01:34:20.578Z"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          "string",
+          "string"
+        ]
+      }
+order: 2000

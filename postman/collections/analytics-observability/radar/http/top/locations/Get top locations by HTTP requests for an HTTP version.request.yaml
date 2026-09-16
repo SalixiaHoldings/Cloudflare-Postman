@@ -1,0 +1,124 @@
+$kind: http-request
+id: c95220c0-ee58-51f2-bb96-176eb1da8c88
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: radar-get-http-top-locations-by-http-version
+  GET /radar/http/top/locations/http_version/{http_version}
+
+  Retrieves the top locations, by HTTP requests, of the requested HTTP version.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/radar/http/top/locations/http_version/{{http_version}}?limit=5&name=main_series&name=main_series&dateRange=7d&dateRange=7d&dateStart=1990-07-31T02:59:38.133Z&dateStart=1929-06-14T03:10:47.996Z&dateEnd=1927-12-19T06:37:38.317Z&dateEnd=1959-05-01T07:56:39.610Z&asn=string&asn=string&location=string&location=string&continent=string&continent=string&geoId=string&geoId=string&botClass=LIKELY_AUTOMATED&botClass=LIKELY_AUTOMATED&deviceType=MOBILE&deviceType=DESKTOP&httpProtocol=HTTP&httpProtocol=HTTPS&ipVersion=IPv6&ipVersion=IPv6&os=LINUX&os=CHROMEOS&tlsVersion=TLSv1_0&tlsVersion=TLSvQUIC&browserFamily=EDGE&browserFamily=EDGE&format=JSON"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: limit
+    value: "5"
+    description: Limits the number of objects returned in the response.
+  - key: name
+    value: main_series
+    description: Array of names used to label the series in the response.
+  - key: name
+    value: main_series
+    description: Array of names used to label the series in the response.
+  - key: dateRange
+    value: 7d
+    description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
+  - key: dateRange
+    value: 7d
+    description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
+  - key: dateStart
+    value: 1990-07-31T02:59:38.133Z
+    description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: dateStart
+    value: 1929-06-14T03:10:47.996Z
+    description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: dateEnd
+    value: 1927-12-19T06:37:38.317Z
+    description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: dateEnd
+    value: 1959-05-01T07:56:39.610Z
+    description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: asn
+    value: string
+    description: Filters results by Autonomous System. Specify one or more Autonomous System Numbers (ASNs) as a comma-separated list. Prefix with `-` to exclude ASNs from results. For example, `-174, 3356` excludes results from AS174, but includes results from AS3356.
+  - key: asn
+    value: string
+    description: Filters results by Autonomous System. Specify one or more Autonomous System Numbers (ASNs) as a comma-separated list. Prefix with `-` to exclude ASNs from results. For example, `-174, 3356` excludes results from AS174, but includes results from AS3356.
+  - key: location
+    value: string
+    description: Filters results by location. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude locations from results. For example, `-US,PT` excludes results from the US, but includes results from PT.
+  - key: location
+    value: string
+    description: Filters results by location. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude locations from results. For example, `-US,PT` excludes results from the US, but includes results from PT.
+  - key: continent
+    value: string
+    description: Filters results by continent. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude continents from results. For example, `-EU,NA` excludes results from EU, but includes results from NA.
+  - key: continent
+    value: string
+    description: Filters results by continent. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude continents from results. For example, `-EU,NA` excludes results from EU, but includes results from NA.
+  - key: geoId
+    value: string
+    description: Filters results by Geolocation. Specify a comma-separated list of GeoNames IDs. Prefix with `-` to exclude geoIds from results. For example, `-2267056,360689` excludes results from the 2267056 (Lisbon), but includes results from 5128638 (New York).
+  - key: geoId
+    value: string
+    description: Filters results by Geolocation. Specify a comma-separated list of GeoNames IDs. Prefix with `-` to exclude geoIds from results. For example, `-2267056,360689` excludes results from the 2267056 (Lisbon), but includes results from 5128638 (New York).
+  - key: botClass
+    value: LIKELY_AUTOMATED
+    description: Filters results by bot class. Refer to [Bot classes](https://developers.cloudflare.com/radar/concepts/bot-classes/).
+  - key: botClass
+    value: LIKELY_AUTOMATED
+    description: Filters results by bot class. Refer to [Bot classes](https://developers.cloudflare.com/radar/concepts/bot-classes/).
+  - key: deviceType
+    value: MOBILE
+    description: Filters results by device type.
+  - key: deviceType
+    value: DESKTOP
+    description: Filters results by device type.
+  - key: httpProtocol
+    value: HTTP
+    description: Filters results by HTTP protocol (HTTP vs. HTTPS).
+  - key: httpProtocol
+    value: HTTPS
+    description: Filters results by HTTP protocol (HTTP vs. HTTPS).
+  - key: ipVersion
+    value: IPv6
+    description: Filters results by IP version (Ipv4 vs. IPv6).
+  - key: ipVersion
+    value: IPv6
+    description: Filters results by IP version (Ipv4 vs. IPv6).
+  - key: os
+    value: LINUX
+    description: Filters results by operating system.
+  - key: os
+    value: CHROMEOS
+    description: Filters results by operating system.
+  - key: tlsVersion
+    value: TLSv1_0
+    description: Filters results by TLS version.
+  - key: tlsVersion
+    value: TLSvQUIC
+    description: Filters results by TLS version.
+  - key: browserFamily
+    value: EDGE
+    description: Filters results by browser family.
+  - key: browserFamily
+    value: EDGE
+    description: Filters results by browser family.
+  - key: format
+    value: JSON
+    description: Format in which results will be returned.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get top locations by HTTP requests for an HTTP version.resources/examples
+order: 6000

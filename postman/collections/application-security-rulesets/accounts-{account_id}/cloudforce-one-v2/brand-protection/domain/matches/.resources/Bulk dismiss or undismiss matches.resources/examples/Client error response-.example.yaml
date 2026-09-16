@@ -1,0 +1,37 @@
+$kind: http-example
+id: a772ad27-a507-56f3-8d28-7d82f7640f4e
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/domain/matches/bulk-dismiss"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "action": "undismiss",
+        "match_ids": [
+          5399
+        ],
+        "matches": [
+          {
+            "query_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "domain_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

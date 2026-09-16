@@ -1,0 +1,46 @@
+$kind: http-example
+id: 648410ad-118e-58e8-a55c-45eb5076ae6b
+name: Full exemption state after the union.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/exemptions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "namespace": [
+          "^test-.*$",
+          "^test-.*$"
+        ],
+        "tag_match": [
+          "^test-.*$",
+          "^test-.*$"
+        ],
+        "worker_name": [
+          "^test-.*$",
+          "^test-.*$"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "namespace": [
+          "^test-.*$"
+        ],
+        "tag_match": [
+          "^staging-.*$"
+        ],
+        "worker_name": [
+          "^demo-.*$"
+        ]
+      }
+order: 1000

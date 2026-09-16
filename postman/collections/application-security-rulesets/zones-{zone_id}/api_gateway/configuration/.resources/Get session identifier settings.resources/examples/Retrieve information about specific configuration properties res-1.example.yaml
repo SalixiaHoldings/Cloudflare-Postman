@@ -1,0 +1,32 @@
+$kind: http-example
+id: e5420a09-9b9d-5ae5-b119-4c4eac4dc51b
+name: Retrieve information about specific configuration properties response failure
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/configuration?normalize=true"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: normalize
+      value: "true"
+      description: Ensures that the configuration is written or retrieved in normalized fashion
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

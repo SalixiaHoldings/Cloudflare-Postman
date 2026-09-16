@@ -1,0 +1,17 @@
+$kind: http-example
+id: 108e7937-59a2-5041-8952-fe00f109e307
+name: Indicates an error in listing Pipelines.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/pipelines/{{pipeline_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

@@ -1,0 +1,52 @@
+$kind: http-example
+id: d506335a-4afe-53e3-94a0-de5d1f7907ca
+name: Failed to create dataset columns.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/datasets/{{dataset_id}}/versions/{{version}}"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "header_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "num_cells": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "header_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "num_cells": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

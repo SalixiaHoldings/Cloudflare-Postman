@@ -1,0 +1,47 @@
+$kind: http-request
+id: 72311824-d6b2-57a1-b77a-936725ee0ad7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: api-shield-labels-get-labels
+  GET /zones/{zone_id}/api_gateway/labels
+
+  Returns all managed and user-defined labels available for web and API operations in the zone.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/labels?page=1&per_page=20&order=description&direction=desc&source=user&filter=login&with_mapped_resource_counts=true"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: page
+    value: "1"
+    description: Page number of paginated results.
+  - key: per_page
+    value: "20"
+    description: Maximum number of results per page.
+  - key: order
+    value: description
+  - key: direction
+    value: desc
+  - key: source
+    value: user
+    description: Filter for labels with source
+  - key: filter
+    value: login
+    description: Filter for labels where the name or description matches using substring match
+  - key: with_mapped_resource_counts
+    value: "true"
+    description: Include `mapped_resources` for each label
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List operation labels.resources/examples
+order: 1000

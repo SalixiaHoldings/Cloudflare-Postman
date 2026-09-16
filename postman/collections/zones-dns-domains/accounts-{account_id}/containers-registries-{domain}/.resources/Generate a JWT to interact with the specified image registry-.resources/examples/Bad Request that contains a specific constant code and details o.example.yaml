@@ -1,0 +1,43 @@
+$kind: http-example
+id: 0259ddf7-819d-5358-a49f-fb247dbced7d
+name: Bad Request that contains a specific constant code and details object about the error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/registries/{{domain}}/credentials"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "expiration_minutes": 3986,
+        "permissions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

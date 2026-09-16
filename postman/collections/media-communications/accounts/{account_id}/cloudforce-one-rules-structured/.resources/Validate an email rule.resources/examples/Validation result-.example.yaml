@@ -1,0 +1,52 @@
+$kind: http-example
+id: 7c3543ea-b00c-51ba-832f-9958618814ce
+name: Validation result.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured/validate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "condition": {
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "operator": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "conditions": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "description": "string",
+        "enabled": true,
+        "existing_rule_id": "550e8400-e29b-41d4-a716-446655440000",
+        "meta": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "status": "silent"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "valid": false,
+        "compiled_yara": "string",
+        "error": "string"
+      }
+order: 1000

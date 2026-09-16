@@ -1,0 +1,34 @@
+$kind: http-example
+id: ac4cf1c6-4939-52bb-b13d-820b9f8ee64d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers/{{identity_provider_id}}/scim/users?cf_resource_id=bd97ef8d-7986-43e3-9ee0-c25dda33e4b0&idp_resource_id=john_smith_01&username=John Smith&email=john.smith@example.com&name=John Smith&page=1&per_page=100"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    cf_resource_id: bd97ef8d-7986-43e3-9ee0-c25dda33e4b0
+    idp_resource_id: john_smith_01
+    username: John Smith
+    email: john.smith@example.com
+    name: John Smith
+    page: "1"
+    per_page: "100"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

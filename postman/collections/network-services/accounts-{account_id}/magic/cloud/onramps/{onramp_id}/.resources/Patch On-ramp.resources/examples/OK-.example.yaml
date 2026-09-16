@@ -1,0 +1,53 @@
+$kind: http-example
+id: fbecb5fe-97d1-5d49-8a4c-d3904e8685b6
+name: OK.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps/{{onramp_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "attached_hubs": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "attached_vpcs": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "description": "string",
+        "install_routes_in_cloud": true,
+        "install_routes_in_magic_wan": true,
+        "manage_hub_to_hub_attachments": true,
+        "manage_vpc_to_hub_attachments": false,
+        "name": "string",
+        "vpc": "ae7bcca1-5f18-23ec-3590-b434550ab24a"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

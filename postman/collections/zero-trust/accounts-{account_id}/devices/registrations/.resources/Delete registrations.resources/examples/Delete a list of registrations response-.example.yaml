@@ -1,0 +1,50 @@
+$kind: http-example
+id: c914d1d4-905a-57ea-a5a8-dd0212af4cef
+name: Delete a list of registrations response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/registrations?id=string&id=string"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: string
+      description: (Required) A list of registration IDs to delete.
+    - key: id
+      value: string
+      description: (Required) A list of registration IDs to delete.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result_info": {
+          "count": 1,
+          "cursor": "ais86dftf.asdf7ba8",
+          "per_page": 10,
+          "total_count": null
+        }
+      }
+order: 1000

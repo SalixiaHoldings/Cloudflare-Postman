@@ -1,0 +1,21 @@
+$kind: http-example
+id: b1eba664-8b1b-57fb-a4df-c6b08316500c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cni/interconnects/{{icon}}/loa?name=string"
+  method: GET
+  headers:
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: name
+      value: string
+      description: Custom name to use in the LOA instead of the account name (200 Character limit)
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

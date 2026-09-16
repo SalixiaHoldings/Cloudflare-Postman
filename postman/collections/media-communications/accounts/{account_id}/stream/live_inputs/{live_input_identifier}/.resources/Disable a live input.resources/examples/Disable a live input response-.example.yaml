@@ -1,0 +1,24 @@
+$kind: http-example
+id: 1cce3af7-7eca-5e27-b292-3085e0a225d2
+name: Disable a live input response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs/{{live_input_identifier}}/disable"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

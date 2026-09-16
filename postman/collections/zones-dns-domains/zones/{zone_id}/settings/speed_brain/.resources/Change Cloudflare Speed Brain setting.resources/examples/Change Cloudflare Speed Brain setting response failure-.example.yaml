@@ -1,0 +1,35 @@
+$kind: http-example
+id: 3d21d5c8-3356-5c30-9d84-cb1ee8cf9b47
+name: Change Cloudflare Speed Brain setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/speed_brain"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "on"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

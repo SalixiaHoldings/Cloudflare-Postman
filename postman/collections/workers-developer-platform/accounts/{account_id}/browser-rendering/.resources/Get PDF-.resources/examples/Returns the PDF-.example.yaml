@@ -1,0 +1,30 @@
+$kind: http-example
+id: 6a627bfa-62bc-5881-b26a-8784be3bde01
+name: Returns the PDF.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/pdf?cacheTTL=5"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/pdf
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cacheTTL
+      value: "5"
+      description: Cache TTL default is 5s. Set to 0 to disable.
+  body:
+    type: json
+    content: |-
+      {
+        "url": "https://www.example.com/"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/pdf
+  body:
+    type: text
+    content: string
+order: 1000

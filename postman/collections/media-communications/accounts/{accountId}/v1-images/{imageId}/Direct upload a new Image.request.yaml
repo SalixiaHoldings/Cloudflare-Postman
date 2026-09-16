@@ -1,0 +1,37 @@
+$kind: http-request
+id: 4a80e413-1911-55a9-98c6-de03db4de6dd
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: put_ImageDirectUpload
+  PUT /accounts/{accountId}/v1/images/{imageId}
+
+  Upload an image to a specific image ID.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{accountId}}/v1/images/{{imageId}}"
+method: PUT
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+body:
+  type: formdata
+  content:
+    - type: file
+      key: file
+      src: ""
+      description: An image binary data. Only needed when type is uploading a file.
+    - type: text
+      key: url
+      value: string
+      description: A URL to fetch an image from origin. Only needed when type is uploading from a URL.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Direct upload a new Image.resources/examples
+order: 4000

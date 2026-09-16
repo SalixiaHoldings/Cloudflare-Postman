@@ -1,0 +1,27 @@
+$kind: http-request
+id: 5e7aca33-36d9-5303-8a96-04e1a34e76b9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-subscription-delete-zone-subscriptions
+  DELETE /zones/{zone_id}/subscriptions
+
+  Deletes a zone's subscription. Retained for audit-log coverage. Use the singular `/zones/{zone_id}/subscription` path instead.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/subscriptions"
+method: DELETE
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete Zone Subscription.resources/examples
+order: 1000

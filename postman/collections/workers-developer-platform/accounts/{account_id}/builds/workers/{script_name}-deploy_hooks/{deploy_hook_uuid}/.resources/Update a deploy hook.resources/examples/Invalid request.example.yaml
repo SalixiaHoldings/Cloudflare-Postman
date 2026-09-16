@@ -1,0 +1,35 @@
+$kind: http-example
+id: e36ecebd-c36d-55a9-a59b-2ce708922778
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_name}}/deploy_hooks/{{deploy_hook_uuid}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "deploy_hook_name": "Production Deploy Hook",
+        "branch": "main"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12002,
+            "message": "Invalid request body"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

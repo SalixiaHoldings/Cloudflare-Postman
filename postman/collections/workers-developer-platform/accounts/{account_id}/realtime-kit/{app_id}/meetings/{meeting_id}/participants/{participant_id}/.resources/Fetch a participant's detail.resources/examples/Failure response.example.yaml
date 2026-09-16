@@ -1,0 +1,23 @@
+$kind: http-example
+id: 621183cb-8cff-5317-8777-bfa957110dbe
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/participants/{{participant_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "error": {
+          "code": 7665.609449613839,
+          "message": "string"
+        }
+      }
+order: 2000

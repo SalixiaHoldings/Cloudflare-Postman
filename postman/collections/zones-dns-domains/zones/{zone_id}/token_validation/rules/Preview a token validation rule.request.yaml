@@ -1,0 +1,82 @@
+$kind: http-request
+id: a1cbc3cd-6ee6-5348-a10c-5fa55b67a056
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: token-validation-rules-preview
+  POST /zones/{zone_id}/token_validation/rules/preview
+
+  Returns zone operations annotated as included or excluded to preview the rule's coverage before creation.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules/preview?per_page=20&page=1&state=included&state=included&host=www.example.com&host=www.example.com&hostname=www.example.com&hostname=www.example.com&method=GET&method=GET&endpoint=/api/v1/users/{var1}&endpoint=/api/v1/users/{var1}"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  - key: per_page
+    value: "20"
+    description: Maximum number of results per page.
+  - key: page
+    value: "1"
+    description: Page number of paginated results.
+  - key: state
+    value: included
+  - key: state
+    value: included
+  - key: host
+    value: www.example.com
+    description: Filter operations by host.
+  - key: host
+    value: www.example.com
+    description: Filter operations by host.
+  - key: hostname
+    value: www.example.com
+    description: Filter operations by host.
+  - key: hostname
+    value: www.example.com
+    description: Filter operations by host.
+  - key: method
+    value: GET
+    description: Filter operations by method.
+  - key: method
+    value: GET
+    description: Filter operations by method.
+  - key: endpoint
+    value: /api/v1/users/{var1}
+    description: Filter operations by endpoint. Allows substring matching.
+  - key: endpoint
+    value: /api/v1/users/{var1}
+    description: Filter operations by endpoint. Allows substring matching.
+body:
+  type: json
+  content: |-
+    {
+      "exclude": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "include": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Preview a token validation rule.resources/examples
+order: 4000

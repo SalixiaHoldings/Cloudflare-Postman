@@ -1,0 +1,44 @@
+$kind: http-example
+id: 2585bb8f-2d7a-57e5-990b-78915bd7ce01
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/indicator-feeds/{{feed_id}}/snapshot"
+  method: PUT
+  headers:
+    - key: Cf-Async-Upload
+      value: "1"
+      description: |
+        Set to the literal value `1` to enqueue the upload and receive a
+        `202` response with a polling URL. Any other value uses the legacy
+        synchronous response.
+    - key: Content-Type
+      value: multipart/form-data
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: source
+        value: "@/Users/me/test.stix2.gz"
+        description: |
+          The file to upload. Either a plain STIX2/CRDF body
+          or a gzipped one (recognised by `0x1f 0x8b` magic
+          bytes or a `.gz` filename suffix).
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

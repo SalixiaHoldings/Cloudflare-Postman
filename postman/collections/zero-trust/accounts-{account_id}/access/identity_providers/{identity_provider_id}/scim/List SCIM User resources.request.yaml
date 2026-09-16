@@ -1,0 +1,33 @@
+$kind: http-request
+id: e14801dc-aaf8-5c2a-8de0-458d2b7140f8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-identity-providers-list-scim-user-resources
+  GET /accounts/{account_id}/access/identity_providers/{identity_provider_id}/scim/users
+
+  Lists SCIM User resources synced to Cloudflare via the System for Cross-domain Identity Management (SCIM).
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers/{{identity_provider_id}}/scim/users?cf_resource_id=bd97ef8d-7986-43e3-9ee0-c25dda33e4b0&idp_resource_id=john_smith_01&username=John Smith&email=john.smith@example.com&name=John Smith&page=1&per_page=100"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  cf_resource_id: bd97ef8d-7986-43e3-9ee0-c25dda33e4b0
+  idp_resource_id: john_smith_01
+  username: John Smith
+  email: john.smith@example.com
+  name: John Smith
+  page: "1"
+  per_page: "100"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List SCIM User resources.resources/examples
+order: 2000

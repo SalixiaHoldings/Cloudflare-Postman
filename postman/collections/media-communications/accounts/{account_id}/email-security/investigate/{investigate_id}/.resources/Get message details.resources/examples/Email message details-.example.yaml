@@ -1,0 +1,37 @@
+$kind: http-example
+id: 04492f85-f76d-593b-bcbe-8185d223eef2
+name: Email message details.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}?submission=true"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: submission
+      value: "true"
+      description: |-
+        When true, search the submissions datastore only. When false or omitted, search the
+        regular datastore only.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,54 @@
+$kind: http-example
+id: 248efb62-db04-545b-8a6f-f226169c7492
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/queries?page=1&perPage=20&order=desc&orderBy=updated"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    perPage: "20"
+    order: desc
+    orderBy: updated
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

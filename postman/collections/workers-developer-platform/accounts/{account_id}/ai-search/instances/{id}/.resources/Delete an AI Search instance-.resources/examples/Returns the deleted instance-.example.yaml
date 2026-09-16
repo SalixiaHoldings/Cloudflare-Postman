@@ -1,0 +1,137 @@
+$kind: http-example
+id: 6f9170bf-8572-5b5b-8e0b-4f5534905638
+name: Returns the deleted instance.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/instances/{{id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "id": "my-ai-search",
+          "created_at": "1935-04-12T15:02:46.203Z",
+          "modified_at": "1999-04-07T23:16:39.146Z",
+          "ai_gateway_id": "string",
+          "ai_search_model": "string",
+          "cache": true,
+          "cache_threshold": "close_enough",
+          "cache_ttl": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "chunk_overlap": 10,
+          "chunk_size": 600,
+          "created_by": "string",
+          "custom_metadata": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "embedding_model": "string",
+          "enable": true,
+          "engine_version": 3,
+          "fusion_method": "rrf",
+          "hybrid_search_enabled": false,
+          "index_method": {
+            "keyword": false,
+            "vector": true
+          },
+          "indexing_options": {
+            "keyword_tokenizer": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "use_ocr": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "last_activity": "1941-11-28T14:37:19.077Z",
+          "max_num_results": 10,
+          "metadata": {
+            "created_from_aisearch_wizard": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "worker_domain": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "modified_by": "string",
+          "namespace": "v",
+          "paused": false,
+          "public_endpoint_id": "string",
+          "public_endpoint_params": {
+            "authorized_hosts": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "chat_completions_endpoint": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "custom_domains": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "default_domain_enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "mcp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rate_limit": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "search_endpoint": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "reranking": false,
+          "reranking_model": "string",
+          "retrieval_options": {
+            "boost_by": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "keyword_match_mode": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "rewrite_model": "string",
+          "rewrite_query": false,
+          "score_threshold": 0.4,
+          "source": "string",
+          "source_params": {
+            "exclude_items": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "include_items": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "prefix": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "r2_jurisdiction": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "web_crawler": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "status": "waiting",
+          "sync_interval": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "token_id": "0a42cb0c-f901-2afc-e0f0-430534dc0bc1",
+          "type": "web-crawler"
+        }
+      }
+order: 1000

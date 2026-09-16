@@ -1,0 +1,27 @@
+$kind: http-request
+id: bebe8b3c-5df4-5f2f-accf-78a631fd6bc9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-risk-score-summary-get
+  GET /accounts/{account_id}/zt_risk_scoring/summary
+
+  Gets an aggregate summary of risk scores across the account, including distribution and trends.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/zt_risk_scoring/summary"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get risk score info for all users in the account.resources/examples
+order: 3000

@@ -1,0 +1,48 @@
+$kind: http-example
+id: bfaeb415-9cbb-59e7-9a96-fafc3b2c508c
+name: List mTLS certificates response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/mtls_certificates?type=custom"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: type
+      value: custom
+      description: Filters results by certificate type. Multiple types can be comma-separated.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result_info": {
+          "count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "per_page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total_count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total_pages": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

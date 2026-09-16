@@ -1,0 +1,35 @@
+$kind: http-request
+id: f7343e87-25f5-57a0-b918-7522cc0c8427
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: artifacts_repos_fork
+  POST /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/fork
+
+  Forks a source repository into a new repository.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/fork"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "BVqR-jDP7",
+      "default_branch_only": true,
+      "description": "string",
+      "read_only": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Fork a repository.resources/examples
+order: 6000

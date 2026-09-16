@@ -1,0 +1,27 @@
+$kind: http-example
+id: 7450d1b3-7a94-5713-884c-b2f394665997
+name: List Tenant Custom Nameservers response.
+request:
+  url: "{{base_url}}/tenants/{{tenant_tag}}/custom_ns"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

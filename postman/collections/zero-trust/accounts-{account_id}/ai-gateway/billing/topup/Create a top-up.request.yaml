@@ -1,0 +1,32 @@
+$kind: http-request
+id: 2af70274-459a-5177-99f7-1ed5c9365bc2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-billing-create-topup
+  POST /accounts/{account_id}/ai-gateway/billing/topup
+
+  Create a credit top-up for the given account, charged to the account's default payment method.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/topup"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "amount": 5000
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a top-up.resources/examples
+order: 1000

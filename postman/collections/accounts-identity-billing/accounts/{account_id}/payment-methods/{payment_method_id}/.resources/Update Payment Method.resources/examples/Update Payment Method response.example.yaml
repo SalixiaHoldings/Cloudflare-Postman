@@ -1,0 +1,51 @@
+$kind: http-example
+id: 1d9f97cb-602b-564e-857d-2d0c81c17857
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/payment-methods/{{payment_method_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "address": "string",
+        "address2": "string",
+        "bank_account_type": "string",
+        "bank_code": "string",
+        "bank_country": "string",
+        "bank_name": "string",
+        "bank_routing_number": "string",
+        "cashapp_cash_tag": "string",
+        "city": "string",
+        "country": "string",
+        "default": true,
+        "device_data": "string",
+        "first_name": "string",
+        "last_name": "string",
+        "nick_name": "string",
+        "payment_account_email": "string",
+        "payment_email": "string",
+        "payment_gateway": "string",
+        "payment_nonce": "string",
+        "state": "string",
+        "type": "CREDIT_CARD",
+        "zipcode": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,34 @@
+$kind: http-request
+id: 48a7d2c5-6131-5c5d-936b-1099c338a8d0
+name: Delete multiple key-value pairs
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers-kv-namespace-delete-multiple-key-value-pairs
+  POST /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/delete
+
+  Remove multiple KV pairs from the namespace. Body should be an array of up to 10,000 keys to be removed.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}/bulk/delete"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    [
+      "My-Key",
+      "My-Key"
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete multiple key-value pairs-1.resources/examples
+order: 3000

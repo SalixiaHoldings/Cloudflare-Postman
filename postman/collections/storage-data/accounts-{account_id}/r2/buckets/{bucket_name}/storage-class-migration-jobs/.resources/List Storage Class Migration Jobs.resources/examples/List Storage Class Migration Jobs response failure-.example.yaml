@@ -1,0 +1,48 @@
+$kind: http-example
+id: 4977772b-26dc-5fe4-afc4-b67ba2e9df0a
+name: List Storage Class Migration Jobs response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/storage-class-migration-jobs?status=<string>&maxKeys=719&continuationToken=string"
+  method: GET
+  headers:
+    cf-r2-jurisdiction: default
+    Accept: application/json
+  queryParams:
+    - key: status
+      value: <string>
+      description: Restricts results to jobs with the specified status.
+    - key: maxKeys
+      value: "719"
+      description: Maximum number of jobs to return.
+    - key: continuationToken
+      value: string
+      description: Pagination token received as `nextContinuationToken` in the previous response.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": null
+      }
+order: 2000

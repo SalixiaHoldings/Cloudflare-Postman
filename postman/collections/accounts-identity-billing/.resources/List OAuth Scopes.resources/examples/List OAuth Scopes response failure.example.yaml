@@ -1,0 +1,27 @@
+$kind: http-example
+id: 351b7f9a-6020-5868-a908-52b95e7cf1e2
+request:
+  url: "{{base_url}}/oauth/scopes"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

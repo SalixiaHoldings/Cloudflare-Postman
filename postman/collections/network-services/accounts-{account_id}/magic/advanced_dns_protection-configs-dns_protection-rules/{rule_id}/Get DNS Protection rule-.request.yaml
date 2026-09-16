@@ -1,0 +1,26 @@
+$kind: http-request
+id: 313cb5ae-d83e-57c5-8875-dd3cd8a37cd7
+name: Get DNS Protection rule.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getDnsProtectionRule
+  GET /accounts/{account_id}/magic/advanced_dns_protection/configs/dns_protection/rules/{rule_id}
+
+  Get a DNS Protection rule specified by the given UUID.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_dns_protection/configs/dns_protection/rules/{{rule_id}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get DNS Protection rule-.resources/examples
+order: 2000

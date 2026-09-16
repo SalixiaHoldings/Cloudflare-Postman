@@ -1,0 +1,38 @@
+$kind: http-example
+id: 1df63547-f5a8-57ba-bb52-c023175fd940
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pay-invoice"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "invoice_id": "string",
+        "payment_method_id": "string",
+        "validate_payment_method": true
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

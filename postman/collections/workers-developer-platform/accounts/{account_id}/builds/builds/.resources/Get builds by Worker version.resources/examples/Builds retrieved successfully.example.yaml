@@ -1,0 +1,37 @@
+$kind: http-example
+id: 4478199c-3f59-52ac-8915-8f55a9fd427c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/builds?version_ids=123e4567-e89b-12d3-a456-426614174000,223e4567-e89b-12d3-a456-426614174001"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: version_ids
+      value: 123e4567-e89b-12d3-a456-426614174000,223e4567-e89b-12d3-a456-426614174001
+      description: "(Required) "
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result_info": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

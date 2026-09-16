@@ -1,0 +1,34 @@
+$kind: http-example
+id: 6a1fb216-00da-5b10-aff5-e986ac3fa4b2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/queues/{{queue_id}}/messages/preview"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "batch_size": 50
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "success": false
+      }
+order: 2000

@@ -1,0 +1,38 @@
+$kind: http-example
+id: 1e04cce6-0bc8-5e0c-85cd-c56c9ae1e58b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/ipsec_tunnels/{{ipsec_tunnel_id}}"
+  method: GET
+  headers:
+    - key: x-magic-new-hc-target
+      value: "true"
+      description: If true, the health check target in the response body will be presented using the new object format. Defaults to false.
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

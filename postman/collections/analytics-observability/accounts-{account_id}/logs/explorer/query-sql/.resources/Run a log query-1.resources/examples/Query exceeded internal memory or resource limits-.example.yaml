@@ -1,0 +1,43 @@
+$kind: http-example
+id: 280cf65a-c92c-5a26-8ff7-a2a5ef2f8ca8
+name: Query exceeded internal memory or resource limits.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logs/explorer/query/sql"
+  method: POST
+  headers:
+    Content-Type: text/plain
+    Accept: application/json
+  body:
+    type: file
+    content: {}
+response:
+  statusCode: 507
+  statusText: Insufficient Storage (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "key_0": "string",
+          "key_1": 1714.02208507061,
+          "key_2": 4576.62018481642,
+          "key_3": 675.5453837104142,
+          "key_4": true
+        },
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          "string",
+          "string"
+        ]
+      }
+order: 5000

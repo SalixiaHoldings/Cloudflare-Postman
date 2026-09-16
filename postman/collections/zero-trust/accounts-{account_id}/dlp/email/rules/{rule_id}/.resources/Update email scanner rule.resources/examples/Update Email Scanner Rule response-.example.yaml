@@ -1,0 +1,44 @@
+$kind: http-example
+id: cabdb29e-fba7-588b-a155-8b8c7898b9c2
+name: Update Email Scanner Rule response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/email/rules/{{rule_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "enabled": false,
+        "conditions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "action": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "description": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

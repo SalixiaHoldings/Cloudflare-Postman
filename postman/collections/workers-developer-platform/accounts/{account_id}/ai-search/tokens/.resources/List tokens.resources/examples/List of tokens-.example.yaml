@@ -1,0 +1,96 @@
+$kind: http-example
+id: e81ce79f-6ba9-5a90-b0b2-0d6377e1abdb
+name: List of tokens.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/tokens?page=1&per_page=20&search=my-token"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number (1-indexed).
+    - key: per_page
+      value: "20"
+      description: Number of results per page.
+    - key: search
+      value: my-token
+      description: Filter tokens whose name contains this string (case-insensitive).
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "cf_api_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modified_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_by": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "legacy": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modified_by": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "cf_api_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modified_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_by": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "legacy": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modified_by": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "page": 3283.849807921797,
+          "per_page": 9147.96128636226,
+          "count": 3791.082063689828,
+          "total_count": 5997.955251950771
+        }
+      }
+order: 1000

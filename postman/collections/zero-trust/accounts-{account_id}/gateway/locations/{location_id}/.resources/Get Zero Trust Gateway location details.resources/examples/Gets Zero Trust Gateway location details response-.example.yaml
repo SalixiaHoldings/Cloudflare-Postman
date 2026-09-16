@@ -1,0 +1,24 @@
+$kind: http-example
+id: 8ce5800d-453c-5f9e-9d54-680ea71d6f5c
+name: Gets Zero Trust Gateway location details response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/locations/{{location_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

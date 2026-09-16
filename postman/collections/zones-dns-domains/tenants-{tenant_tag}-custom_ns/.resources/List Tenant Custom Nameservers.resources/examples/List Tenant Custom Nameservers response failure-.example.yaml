@@ -1,0 +1,31 @@
+$kind: http-example
+id: 8c3ca2f0-a591-5acc-a7f7-8824f6c48fe5
+name: List Tenant Custom Nameservers response failure.
+request:
+  url: "{{base_url}}/tenants/{{tenant_tag}}/custom_ns"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

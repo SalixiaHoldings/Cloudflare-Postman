@@ -1,0 +1,53 @@
+$kind: http-example
+id: 3be6342b-fc72-5fcf-a67b-11432e667ea6
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/bgp/top/ases/prefixes?country=NZ&limit=10&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: country
+      value: NZ
+      description: Alpha-2 country code.
+    - key: limit
+      value: "10"
+      description: Maximum number of ASes to return.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "asns": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "meta": {
+            "data_time": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "query_time": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "total_peers": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

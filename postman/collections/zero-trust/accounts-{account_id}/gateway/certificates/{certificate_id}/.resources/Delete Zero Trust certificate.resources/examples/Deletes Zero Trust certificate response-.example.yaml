@@ -1,0 +1,28 @@
+$kind: http-example
+id: 43d76480-309f-530b-9ffb-8fe59e98398a
+name: Deletes Zero Trust certificate response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/certificates/{{certificate_id}}"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

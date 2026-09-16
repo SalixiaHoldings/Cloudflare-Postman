@@ -1,0 +1,69 @@
+$kind: http-example
+id: b1cc2c22-f4fe-55e4-9e9d-f945955e40c7
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/update/bulk"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "eventIds": [
+          "uuid-1",
+          "uuid-2",
+          "uuid-3"
+        ],
+        "datasetId": "9b769969-a211-466c-8ac3-cb91266a066a",
+        "updates": {
+          "attacker": "Flying Yeti",
+          "attackerCountry": "CN",
+          "category": "Domain Resolution",
+          "createdAt": "2025-12-19T00:00:00Z",
+          "event": "An attacker registered the domain domain.com",
+          "indicator": "domain2.com",
+          "indicatorType": "domain",
+          "insight": "This event indicates a potential phishing campaign",
+          "raw": {
+            "data": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tlp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "targetCountry": "US",
+          "targetIndustry": "Insurance",
+          "tlp": "amber"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

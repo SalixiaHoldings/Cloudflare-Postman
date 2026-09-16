@@ -1,0 +1,32 @@
+$kind: http-example
+id: 7c59dfa4-fa99-5beb-b6d0-c10183c9d41f
+name: List rate limits response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/rate_limits?page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    page: "1"
+    per_page: "20"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

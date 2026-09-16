@@ -1,0 +1,37 @@
+$kind: http-request
+id: 2be39bd4-f1a9-5555-88c1-b4b51455e12d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: token-validation-rules-bulk-create
+  POST /zones/{zone_id}/token_validation/rules/bulk
+
+  Creates multiple token validation rules for the zone in one request.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules/bulk"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    [
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create token validation rules.resources/examples
+order: 2000

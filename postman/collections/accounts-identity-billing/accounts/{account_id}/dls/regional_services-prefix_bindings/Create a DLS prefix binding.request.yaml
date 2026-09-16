@@ -1,0 +1,34 @@
+$kind: http-request
+id: 35c63901-2bd4-5ecc-924d-c5bc98aa0082
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: publicCreatePrefixBinding
+  POST /accounts/{account_id}/dls/regional_services/prefix_bindings
+
+  Create a DLS prefix binding
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dls/regional_services/prefix_bindings"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "prefix_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "cidr": "10.0.1.0/24",
+      "region_key": "eu"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a DLS prefix binding.resources/examples
+order: 2000

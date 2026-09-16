@@ -1,0 +1,53 @@
+$kind: http-example
+id: 799dac8d-d407-522b-8143-7236fe846f76
+name: Internal server error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/crawl/{{job_id}}?cacheTTL=5&status=disallowed&cursor=0&limit=50"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cacheTTL
+      value: "5"
+      description: Cache TTL default is 5s. Set to 0 to disable.
+    - key: status
+      value: disallowed
+      description: Filter by URL status.
+    - key: cursor
+      value: "0"
+      description: Cursor for pagination.
+    - key: limit
+      value: "50"
+      description: Limit for pagination.
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

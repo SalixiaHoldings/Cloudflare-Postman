@@ -1,0 +1,36 @@
+$kind: http-example
+id: 60dd2154-af96-569e-8693-dd977fffd26a
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/ua_rules/{{ua_rule_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "id": "de677e5818985db1285d0e80225f06e5",
+        "mode": "challenge",
+        "configuration": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "description": "Prevent multiple login failures to mitigate brute force attacks",
+        "paused": false
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

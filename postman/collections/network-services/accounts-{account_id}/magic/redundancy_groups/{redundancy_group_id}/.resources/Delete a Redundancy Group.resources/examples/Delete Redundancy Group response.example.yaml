@@ -1,0 +1,28 @@
+$kind: http-example
+id: e821bc4b-99a3-57f9-b9c3-5741d640bab2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/redundancy_groups/{{redundancy_group_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "deleted": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "deleted_redundancy_group": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

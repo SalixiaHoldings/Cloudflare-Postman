@@ -1,0 +1,26 @@
+$kind: http-example
+id: 4f2b170c-eff1-536d-9de6-a06bdd7eadaa
+name: Delete Pool response.
+request:
+  url: "{{base_url}}/user/load_balancers/pools/{{pool_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

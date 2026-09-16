@@ -1,0 +1,19 @@
+$kind: http-example
+id: 2f83fa88-5202-55cc-b352-6722cd51193d
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/datasets/{{alias}}"
+  method: GET
+  headers:
+    Accept: text/csv
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/csv
+  body:
+    type: text
+    content: string
+order: 1000

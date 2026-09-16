@@ -1,0 +1,31 @@
+$kind: http-example
+id: 3d8df61b-e03d-51fd-b6f1-e826b67f309e
+name: Hostname is valid.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/rum/site_info/validate/{{hostname}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {}
+      }
+order: 1000

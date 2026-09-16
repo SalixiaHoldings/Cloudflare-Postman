@@ -1,0 +1,25 @@
+$kind: http-example
+id: 3d705fa4-0279-5e93-ae99-5d0f144cf432
+name: Enable Content Scanning response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/content-upload-scan/enable"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result": {}
+      }
+order: 1000

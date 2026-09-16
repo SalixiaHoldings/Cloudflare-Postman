@@ -1,0 +1,32 @@
+$kind: http-example
+id: db280a91-dd6c-544e-9662-a1a99e193477
+name: List Buckets response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets?name_contains=my-bucket&start_after=my-bucket&per_page=20&order=name&direction=desc&cursor=string"
+  method: GET
+  headers:
+    cf-r2-jurisdiction: default
+    Accept: application/json
+  queryParams:
+    name_contains: my-bucket
+    start_after: my-bucket
+    per_page: "20"
+    order: name
+    direction: desc
+    cursor: string
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "buckets": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

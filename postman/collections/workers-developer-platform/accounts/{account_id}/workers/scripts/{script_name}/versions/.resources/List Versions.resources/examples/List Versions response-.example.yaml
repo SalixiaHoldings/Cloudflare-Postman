@@ -1,0 +1,43 @@
+$kind: http-example
+id: 02a11b28-949f-5c0c-8fd5-ff6f01177366
+name: List Versions response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/versions?deployable=false&page=1&per_page=6991"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: deployable
+      value: "false"
+      description: Only return versions that can be used in a deployment. Ignores pagination.
+    - key: page
+      value: "1"
+      description: Current page.
+    - key: per_page
+      value: "6991"
+      description: Items per-page.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "items": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

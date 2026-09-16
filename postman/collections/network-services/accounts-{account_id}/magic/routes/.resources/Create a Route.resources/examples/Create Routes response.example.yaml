@@ -1,0 +1,42 @@
+$kind: http-example
+id: d60af333-7ff8-5e74-b984-deac635f52ed
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/routes"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "prefix": "192.0.2.0/24",
+        "nexthop": "203.0.113.1",
+        "priority": 4332,
+        "description": "New route for new prefix 203.0.113.1",
+        "scope": {
+          "colo_names": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "colo_regions": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "weight": 8335
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

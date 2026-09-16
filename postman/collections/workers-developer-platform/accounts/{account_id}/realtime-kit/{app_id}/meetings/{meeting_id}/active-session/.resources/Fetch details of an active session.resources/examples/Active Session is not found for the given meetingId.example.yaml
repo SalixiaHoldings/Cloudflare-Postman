@@ -1,0 +1,23 @@
+$kind: http-example
+id: 6c22e903-968f-5733-b133-744063bb5002
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/active-session"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": {
+          "code": 404,
+          "message": "No active session found for meeting_id 6bf2b8be-04dd-4191-b602-1128921a306b"
+        },
+        "success": false
+      }
+order: 2000

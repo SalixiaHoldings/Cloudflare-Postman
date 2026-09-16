@@ -1,0 +1,37 @@
+$kind: http-example
+id: 0d4d86df-a83a-5c78-9a1a-bd5d6b4f3c30
+name: Update entry failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/entries/{{entry_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": false
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

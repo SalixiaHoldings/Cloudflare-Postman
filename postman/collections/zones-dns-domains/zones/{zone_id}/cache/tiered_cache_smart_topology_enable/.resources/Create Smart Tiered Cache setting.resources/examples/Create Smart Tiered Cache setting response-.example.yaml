@@ -1,0 +1,29 @@
+$kind: http-example
+id: be76ecb8-06f5-51eb-8534-38f5f9984274
+name: Create Smart Tiered Cache setting response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/tiered_cache_smart_topology_enable"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "on"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

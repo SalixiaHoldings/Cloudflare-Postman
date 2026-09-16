@@ -1,0 +1,31 @@
+$kind: http-example
+id: 2d395bc0-6bd9-5973-b86e-b520bd907cd0
+name: The requested memory.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/memories/{{memory_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": "01JSGCEXAMP1E0000000000000",
+          "type": "fact",
+          "summary": "User prefers dark mode in the dashboard.",
+          "content": "The user said they prefer dark mode and find the light theme too bright.",
+          "sessionId": "chat-session-42",
+          "createdAt": "2025-09-21T14:30:00Z",
+          "updatedAt": "2025-09-21T14:30:00Z"
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

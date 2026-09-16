@@ -1,0 +1,68 @@
+$kind: http-example
+id: 9af732f0-76ed-5b03-9679-9d79bd230a49
+name: Query executed successfully.
+request:
+  url: "{{base_url}}/analytics/sql"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "query": "string",
+        "params": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "scope": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "time_range": {
+          "start": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "end": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "key_0": "string",
+            "key_1": 1847.5187430158257,
+            "key_2": 7364.986804313958
+          },
+          {
+            "key_0": true,
+            "key_1": true
+          }
+        ],
+        "rows": 6018,
+        "statistics": {
+          "elapsed_ms": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "rows_read": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "bytes_read": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

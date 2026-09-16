@@ -1,0 +1,45 @@
+$kind: http-example
+id: 0ad9e7e8-9e9a-53a4-8c00-4dc20108c781
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/schemas/{{schema_id}}/operations?feature=thresholds&host=api.cloudflare.com&method=GET&endpoint=/api/v1&page=1&per_page=20&operation_status=new"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: feature
+      value: thresholds
+      description: Add feature(s) to the results. The feature name that is given here corresponds to the resulting feature object. Have a look at the top-level object description for more details on the specific meaning.
+    - key: host
+      value: api.cloudflare.com
+    - key: method
+      value: GET
+    - key: endpoint
+      value: /api/v1
+    - key: page
+      value: "1"
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      description: Maximum number of results per page.
+    - key: operation_status
+      value: new
+      description: Filter results by whether operations exist in Web Asset Management or not. `new` will just return operations from the schema that do not exist otherwise. `existing` will just return operations from the schema that already exist.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

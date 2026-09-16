@@ -1,0 +1,52 @@
+$kind: http-request
+id: 2c919893-98f6-5fa5-a8a9-74a79d69ac91
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: notification-policies-update-a-notification-policy
+  PUT /accounts/{account_id}/alerting/v3/policies/{policy_id}
+
+  Update a Notification policy.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/policies/{{policy_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "alert_interval": "30m",
+      "alert_type": "universal_ssl_event_type",
+      "description": "Something describing the policy.",
+      "enabled": true,
+      "filters": {
+        "slo": [
+          "99.9"
+        ]
+      },
+      "mechanisms": {
+        "email": [
+          {}
+        ],
+        "pagerduty": [
+          {}
+        ],
+        "webhooks": [
+          {}
+        ]
+      },
+      "name": "SSL Notification Event Policy"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a Notification policy.resources/examples
+order: 3000

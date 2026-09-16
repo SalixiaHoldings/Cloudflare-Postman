@@ -1,0 +1,43 @@
+$kind: http-request
+id: afb8da2b-868a-5af3-a8d2-2a32cfda05a0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: token-validation-config-create
+  POST /zones/{zone_id}/token_validation/config
+
+  Creates a JWT validation configuration for the zone.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/token_validation/config"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Example Token Validation Configuration",
+      "description": "Long description for Token Validation Configuration",
+      "token_sources": [
+        "http.request.headers[\"x-auth\"][0]",
+        "http.request.cookies[\"Authorization\"][0]"
+      ],
+      "token_type": "JWT",
+      "credentials": {
+        "keys": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a token validation configuration.resources/examples
+order: 2000

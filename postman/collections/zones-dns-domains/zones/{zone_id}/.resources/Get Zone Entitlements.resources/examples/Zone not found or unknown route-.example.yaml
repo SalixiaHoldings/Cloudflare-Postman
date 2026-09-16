@@ -1,0 +1,28 @@
+$kind: http-example
+id: be04b1eb-2ed3-58c7-8975-1b5190d682df
+name: Zone not found or unknown route.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/entitlements"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 2004,
+            "message": "failed to fetch entitlements: unknown route"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 6000

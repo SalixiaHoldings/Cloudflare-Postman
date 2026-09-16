@@ -1,0 +1,35 @@
+$kind: http-request
+id: f62727c0-f6c5-5f84-9250-85ecc991f417
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: update_integration_v2
+  PATCH /accounts/{account_id}/one/integrations/{id}
+
+  Updates an integration's name, permissions, DLP profiles, use cases, or credentials.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/one/integrations/{{id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "credentials": {
+        "access_token": "{{access_token}}",
+        "refresh_token": "{{refresh_token}}"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update integration.resources/examples
+order: 3000

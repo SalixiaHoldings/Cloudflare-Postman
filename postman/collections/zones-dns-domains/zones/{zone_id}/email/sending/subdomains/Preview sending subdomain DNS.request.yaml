@@ -1,0 +1,32 @@
+$kind: http-request
+id: 7423ac2a-3acc-5bd3-a5c3-f020f82e8d69
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email-sending-subdomains-preview-sending-subdomain
+  POST /zones/{zone_id}/email/sending/subdomains/preview
+
+  Returns the DNS records that would be created for a sending subdomain, flags which records are missing, and reports any conflicts with existing DNS records. This is a read-only dry-run — no records are created or modified. Use before or after creating a subdomain to check DNS status. A leftmost wildcard requires wildcard Email Sending to be enabled for the account and previews base-scoped DKIM and return-path records.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/preview"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "sub.example.com"
+    }
+auth:
+  type: noauth
+examples: ./.resources/Preview sending subdomain DNS.resources/examples
+order: 3000

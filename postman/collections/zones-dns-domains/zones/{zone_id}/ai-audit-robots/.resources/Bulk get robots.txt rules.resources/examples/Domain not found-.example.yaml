@@ -1,0 +1,43 @@
+$kind: http-example
+id: 83d89441-1306-54e9-8fae-f8c0dc00c984
+name: Domain not found.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ai-audit/robots/bulk"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        "example.com",
+        "blog.example.com"
+      ]
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 5000

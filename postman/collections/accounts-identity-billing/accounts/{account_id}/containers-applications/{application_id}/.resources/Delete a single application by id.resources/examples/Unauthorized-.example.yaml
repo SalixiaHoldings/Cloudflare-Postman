@@ -1,0 +1,28 @@
+$kind: http-example
+id: 541cbcb9-f03d-5015-b234-0923bbb9569a
+name: Unauthorized.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

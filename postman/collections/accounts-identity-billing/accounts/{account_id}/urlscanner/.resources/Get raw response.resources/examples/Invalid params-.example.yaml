@@ -1,0 +1,44 @@
+$kind: http-example
+id: 0525f334-1a02-5c77-aa2b-1c3ddcbd678f
+name: Invalid params.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/response/{{response_id}}"
+  method: GET
+  headers:
+    Accept: text/plain
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false
+      }
+order: 2000

@@ -1,0 +1,58 @@
+$kind: http-example
+id: 88017ade-27ce-5dd7-b08d-b546a5e22993
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/impersonation_registry/{{impersonation_registry_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "comments": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "directory_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "directory_node_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "email": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "external_directory_node_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "is_email_regex": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "provenance": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

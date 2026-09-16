@@ -1,0 +1,34 @@
+$kind: http-request
+id: 5ec2d7f5-adf2-5f9e-8e66-1ca3d7abe2ca
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: page-shield-update-settings
+  PUT /zones/{zone_id}/page_shield
+
+  Updates client-side security enablement and reporting behaviors for the zone.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/page_shield"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "enabled": true,
+      "use_cloudflare_reporting_endpoint": true,
+      "use_connection_url_path": true
+    }
+auth:
+  type: noauth
+examples: ./.resources/Update client-side security settings.resources/examples
+order: 2000

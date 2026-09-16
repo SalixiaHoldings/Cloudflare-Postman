@@ -1,0 +1,31 @@
+$kind: http-example
+id: 7552cc16-72f8-5974-ab80-dc80274381e7
+name: Delete TLS setting for hostname response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/hostnames/settings/{{setting_id}}/{{hostname}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

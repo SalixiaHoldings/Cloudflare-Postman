@@ -1,0 +1,65 @@
+$kind: http-example
+id: b850db6c-2db2-57a5-b718-59f54922dafa
+name: Returns the AI Search item chunks with text content.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items/{{item_id}}/chunks?limit=20&offset=0"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    limit: "20"
+    offset: "0"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "text": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "item": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "end_byte": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "start_byte": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "text": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "item": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "end_byte": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "start_byte": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "count": 5790,
+          "total": 3639,
+          "limit": 8635,
+          "offset": 4433
+        }
+      }
+order: 1000

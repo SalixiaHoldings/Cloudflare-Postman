@@ -1,0 +1,34 @@
+$kind: http-request
+id: 6e82ba4b-db7e-5942-beb4-e0ba0801a25b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: smart-shield-update-health-check
+  PUT /zones/{zone_id}/smart_shield/healthchecks/{healthcheck_id}
+
+  Update a configured health check.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/smart_shield/healthchecks/{{healthcheck_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "result": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Health Check.resources/examples
+order: 4000

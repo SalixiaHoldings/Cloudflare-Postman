@@ -1,0 +1,27 @@
+$kind: http-example
+id: 470f72db-3e8a-5c87-bd64-9094d9698018
+name: Download Simple PCAP response failure (client error).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pcaps/{{pcap_id}}/download"
+  method: GET
+  headers:
+    Accept: application/vnd.tcpdump.pcap
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "result": null
+      }
+order: 2000

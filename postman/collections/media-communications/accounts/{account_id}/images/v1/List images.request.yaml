@@ -1,0 +1,29 @@
+$kind: http-request
+id: a54b8153-a944-5500-a5c7-e80ae25f4020
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-list-images
+  GET /accounts/{account_id}/images/v1
+
+  List up to 100 images with one request. Use the optional parameters below to get a specific range of images.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v1?page=1&per_page=1000&creator=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  page: "1"
+  per_page: "1000"
+  creator: string
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List images.resources/examples
+order: 1000

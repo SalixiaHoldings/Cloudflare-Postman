@@ -1,0 +1,31 @@
+$kind: http-example
+id: 1870fd99-e14b-5b89-a35f-d2ce79f65ad9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/indicator-feeds"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "description": "example feed description",
+        "name": "example_feed_1"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

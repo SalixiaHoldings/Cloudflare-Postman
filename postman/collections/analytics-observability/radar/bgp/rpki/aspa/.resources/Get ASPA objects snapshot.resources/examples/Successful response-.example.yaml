@@ -1,0 +1,64 @@
+$kind: http-example
+id: 0950e37b-4575-505d-9264-47c55c9a81fb
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/bgp/rpki/aspa/snapshot?customerAsn=13335&providerAsn=174&date=2024-09-19T00:00:00Z&includeAsnInfo=true&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: customerAsn
+      value: "13335"
+      description: Filter by customer ASN (the ASN publishing the ASPA object).
+    - key: providerAsn
+      value: "174"
+      description: Filter by provider ASN (an authorized upstream provider in ASPA objects).
+    - key: date
+      value: 2024-09-19T00:00:00Z
+      description: Filters results by the specified datetime (ISO 8601).
+    - key: includeAsnInfo
+      value: "true"
+      description: Include ASN metadata (name, country) in response.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "aspaObjects": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "asnInfo": {
+            "13335": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "meta": {
+            "dataTime": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "queryTime": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "totalCount": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

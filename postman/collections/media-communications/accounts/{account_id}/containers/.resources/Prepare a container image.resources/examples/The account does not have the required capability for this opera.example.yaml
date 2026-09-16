@@ -1,0 +1,35 @@
+$kind: http-example
+id: 2428c282-b918-5f98-9fd1-be201b23fa57
+name: The account does not have the required capability for this operation.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/image-preparations"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "image": "string"
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 5000

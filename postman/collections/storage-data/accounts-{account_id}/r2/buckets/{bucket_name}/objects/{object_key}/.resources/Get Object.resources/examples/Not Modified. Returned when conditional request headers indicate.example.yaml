@@ -1,0 +1,20 @@
+$kind: http-example
+id: 5776acec-f3de-5ce3-ae1b-0140d15dccdd
+name: Not Modified. Returned when conditional request headers indicate the object has not changed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects/{{object_key}}"
+  method: GET
+  headers:
+    cf-r2-jurisdiction: default
+    If-None-Match: string
+    If-Modified-Since: string
+    Accept: application/octet-stream
+response:
+  statusCode: 304
+  statusText: Not Modified
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

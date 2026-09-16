@@ -1,0 +1,39 @@
+$kind: http-example
+id: d0035006-9f7a-5e4a-997a-8377ddfbc617
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/filters?id=372e67954025e0ba6aaa6d586b9e0b61&id=372e67954025e0ba6aaa6d586b9e0b61"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: id
+      value: 372e67954025e0ba6aaa6d586b9e0b61
+      description: "(Required) "
+    - key: id
+      value: 372e67954025e0ba6aaa6d586b9e0b61
+      description: "(Required) "
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,22 @@
+$kind: http-example
+id: e7cf1cfb-9b4a-5335-8fe4-0793e6bff806
+name: Deleted content policy.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/content_policies/{{policy_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,48 @@
+$kind: http-example
+id: a3193056-892e-526e-89f6-486ca7a60ba1
+name: Failed to create the target.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/infrastructure/targets"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "hostname": "infra-access-target",
+        "ip": {
+          "ipv4": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ipv6": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "tags": {
+          "key_0": "string"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

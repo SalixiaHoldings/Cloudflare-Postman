@@ -1,0 +1,39 @@
+$kind: http-example
+id: 18ec40d9-8061-5c1a-9f75-bc6ec3606988
+name: Update failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zt_risk_scoring/integrations/{{integration_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "tenant_url": "http://xzRnMJyJYYqWvGvMqbZojNxU.zopruhkAEOFLxOkPqF1wD",
+        "active": true,
+        "reference_id": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

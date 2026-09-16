@@ -1,0 +1,44 @@
+$kind: http-example
+id: cc8b3382-23bb-5349-ae6a-dc594b1768f0
+name: Flag or app not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/evaluate?flagKey=string&targetingKey=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: flagKey
+      value: string
+      description: (Required) The flag key to evaluate.
+    - key: targetingKey
+      value: string
+      description: Context targeting key (per OpenFeature spec); used for percentage rollout bucketing.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": null,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 5000

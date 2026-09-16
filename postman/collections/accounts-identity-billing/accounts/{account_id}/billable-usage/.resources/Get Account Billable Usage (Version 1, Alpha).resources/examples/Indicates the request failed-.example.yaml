@@ -1,0 +1,42 @@
+$kind: http-example
+id: b9e5d934-4102-524b-9f18-478736d9ffeb
+name: Indicates the request failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/billable-usage?from=2025-05-01&to=2025-05-31"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: from
+      value: 2025-05-01
+      description: Start date for the usage query (ISO 8601). The provided time range must include the subscription billing cycle anchor day, otherwise no usage data is returned. Use the info endpoint to retrieve the subscription anchor day.
+    - key: to
+      value: 2025-05-31
+      description: End date for the usage query (ISO 8601).
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 1183,
+            "message": "Invalid request parameters: Please ensure all required parameters are included and correctly formatted."
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 2000

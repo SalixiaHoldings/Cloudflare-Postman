@@ -1,0 +1,70 @@
+$kind: http-example
+id: 66c58118-9cf8-5d14-b1f3-9b359844dba4
+name: Internal Server Error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources?provider_id=string&resource_type=aws_ec2_transit_gateway_prefix_list_reference&resource_type=azurerm_network_interface_backend_address_pool_association&resource_id=dbc81e0c-0618-b0ac-0185-2fe928407d07&resource_id=abf529c0-d69a-82fb-edb3-2f270a52dd8b&region=string&resource_group=string&managed=true&search=string&search=string&order_by=string&desc=true&per_page=3005&page=3005&cloudflare=true&v2=true"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: provider_id
+      value: string
+    - key: resource_type
+      value: aws_ec2_transit_gateway_prefix_list_reference
+    - key: resource_type
+      value: azurerm_network_interface_backend_address_pool_association
+    - key: resource_id
+      value: dbc81e0c-0618-b0ac-0185-2fe928407d07
+    - key: resource_id
+      value: abf529c0-d69a-82fb-edb3-2f270a52dd8b
+    - key: region
+      value: string
+    - key: resource_group
+      value: string
+    - key: managed
+      value: "true"
+    - key: search
+      value: string
+    - key: search
+      value: string
+    - key: order_by
+      value: string
+      description: One of ["id", "resource_type", "region"].
+    - key: desc
+      value: "true"
+    - key: per_page
+      value: "3005"
+    - key: page
+      value: "3005"
+    - key: cloudflare
+      value: "true"
+    - key: v2
+      value: "true"
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": null,
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 6000

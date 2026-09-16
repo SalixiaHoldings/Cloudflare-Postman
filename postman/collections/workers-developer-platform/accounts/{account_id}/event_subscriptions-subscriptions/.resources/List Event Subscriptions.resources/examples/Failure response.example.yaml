@@ -1,0 +1,40 @@
+$kind: http-example
+id: b5b5ecb3-fa51-5a4f-acca-931f8045704a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/event_subscriptions/subscriptions?page=1&per_page=20&order=name&direction=asc"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number for pagination
+    - key: per_page
+      value: "20"
+      description: Number of items per page
+    - key: order
+      value: name
+      description: Field to sort by
+    - key: direction
+      value: asc
+      description: Sort direction
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "success": false
+      }
+order: 2000

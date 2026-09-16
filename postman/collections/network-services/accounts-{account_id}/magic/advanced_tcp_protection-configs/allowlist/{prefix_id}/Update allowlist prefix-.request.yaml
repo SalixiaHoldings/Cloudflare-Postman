@@ -1,0 +1,34 @@
+$kind: http-request
+id: cf25824c-5ccb-50ca-83dd-a4c936182378
+name: Update allowlist prefix.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: updateAllowlistPrefix
+  PATCH /accounts/{account_id}/magic/advanced_tcp_protection/configs/allowlist/{prefix_id}
+
+  Update an allowlist prefix specified by the given UUID.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/allowlist/{{prefix_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "comment": "string",
+      "enabled": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update allowlist prefix-.resources/examples
+order: 3000

@@ -1,0 +1,41 @@
+$kind: http-example
+id: 3a6e34bf-6806-56c5-bdc3-884254c575b4
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/registrations?id=string&id=string"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: string
+      description: (Required) A list of registration IDs to delete.
+    - key: id
+      value: string
+      description: (Required) A list of registration IDs to delete.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 2000

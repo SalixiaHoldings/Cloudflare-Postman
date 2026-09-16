@@ -1,0 +1,33 @@
+$kind: http-example
+id: aa40262a-eb81-5aea-85c7-d4d7a6e27d5b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/iam/permission_groups?id=6d7f2f5f5b1d4a0e9081fdc98d432fd1&name=NameOfThePermissionGroup&label=labelOfThePermissionGroup&page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    id: 6d7f2f5f5b1d4a0e9081fdc98d432fd1
+    name: NameOfThePermissionGroup
+    label: labelOfThePermissionGroup
+    page: "1"
+    per_page: "20"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

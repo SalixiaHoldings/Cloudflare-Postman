@@ -1,0 +1,49 @@
+$kind: http-request
+id: fb239694-b17d-52aa-9e2f-c890f2839f0e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: waiting-room-create-a-custom-waiting-room-page-preview
+  POST /zones/{zone_id}/waiting_rooms/preview
+
+  Creates a waiting room page preview. Upload a custom waiting room page for preview. You will receive a preview URL in the form `http://waitingrooms.dev/preview/<uuid>`. You can use the following query parameters to change the state of the preview:
+  1. `force_queue`: Boolean indicating if all users will be queued in the waiting room and no one will be let into the origin website (also known as queueAll).
+  2. `queue_is_full`: Boolean indicating if the waiting room's queue is currently full and not accepting new users at the moment.
+  3. `queueing_method`: The queueing method currently used by the waiting room.
+  	- **fifo** indicates a FIFO queue.
+  	- **random** indicates a Random queue.
+  	- **passthrough** indicates a Passthrough queue. Keep in mind that the waiting room page will only be displayed if `force_queue=true` or `event=prequeueing` — for other cases the request will pass through to the origin. For our preview, this will be a fake origin website returning \"Welcome\". 
+  	- **reject** indicates a Reject queue.
+  4. `event`: Used to preview a waiting room event.
+  	- **none** indicates no event is occurring.
+  	- **prequeueing** indicates that an event is prequeueing (between `prequeue_start_time` and `event_start_time`).
+  	- **started** indicates that an event has started (between `event_start_time` and `event_end_time`).
+  5. `shuffle_at_event_start`: Boolean indicating if the event will shuffle users in the prequeue when it starts. This can only be set to **true** if an event is active (`event` is not **none**).
+
+  For example, you can make a request to `http://waitingrooms.dev/preview/<uuid>?force_queue=false&queue_is_full=false&queueing_method=random&event=started&shuffle_at_event_start=true`
+  6. `waitTime`: Non-zero, positive integer indicating the estimated wait time in minutes. The default value is 10 minutes.
+
+  For example, you can make a request to `http://waitingrooms.dev/preview/<uuid>?waitTime=50` to configure the estimated wait time as 50 minutes.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/preview"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "custom_html": "{{#waitTimeKnown}} {{waitTime}} mins {{/waitTimeKnown}} {{^waitTimeKnown}} Queue all enabled {{/waitTimeKnown}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a custom waiting room page preview.resources/examples
+order: 6000

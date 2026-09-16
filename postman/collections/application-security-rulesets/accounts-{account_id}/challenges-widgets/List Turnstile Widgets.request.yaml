@@ -1,0 +1,46 @@
+$kind: http-request
+id: 87d3c805-be85-546c-b148-71927a2a842c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: accounts-turnstile-widgets-list
+  GET /accounts/{account_id}/challenges/widgets
+
+  Lists all turnstile widgets of an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/challenges/widgets?page=1&per_page=25&order=id&direction=asc&filter=name:my-widget"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+  - key: per_page
+    value: "25"
+  - key: order
+    value: id
+  - key: direction
+    value: asc
+  - key: filter
+    value: name:my-widget
+    description: |
+      Filter widgets by field using case-insensitive substring matching.
+      Format: `field:value`
+
+      Supported fields:
+      - `name` - Filter by widget name (e.g., `filter=name:login-form`)
+      - `sitekey` - Filter by sitekey (e.g., `filter=sitekey:0x4AAA`)
+
+      Returns 400 Bad Request if the field is unsupported or format is invalid.
+      An empty filter value returns all results.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Turnstile Widgets.resources/examples
+order: 1000

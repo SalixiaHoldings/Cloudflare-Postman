@@ -1,0 +1,34 @@
+$kind: http-example
+id: 78479ded-025e-595f-9923-a1e2a1ce7e0a
+name: List tag keys response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/tags/keys?cursor=eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cursor
+      value: eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ
+      description: Cursor for pagination.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,38 @@
+$kind: http-request
+id: 199989ea-1b23-5a27-8295-ddf79033e78b
+name: Update a saved event query
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_EventQueryUpdate
+  POST /accounts/{account_id}/cloudforce-one/events/queries/{query_id}
+
+  Update an existing saved event query by its ID
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/queries/{{query_id}}"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "alert_enabled": false,
+      "alert_rollup_enabled": true,
+      "name": "string",
+      "query_json": "string",
+      "rule_enabled": false,
+      "rule_scope": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a saved event query-1.resources/examples
+order: 4000

@@ -1,0 +1,25 @@
+$kind: http-request
+id: ffeaa627-cd97-5249-9d2a-7cef063a6285
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_DashboardRequestTypesList
+  GET /accounts/{account_id}/cloudforce-one/v2/requests/{project_type}/types
+
+  Returns request types available to dashboard (external) callers. For restricted project types (e.g. legal-response), only the allowlisted subset is returned.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/types"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List visible request types for a project (dashboard).resources/examples
+order: 6000

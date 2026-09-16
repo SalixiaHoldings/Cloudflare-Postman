@@ -1,0 +1,51 @@
+$kind: http-example
+id: 3480edde-6c7b-5cf1-91d1-fc5c08268045
+name: Create PCAP request response failure (client error).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pcaps"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "time_limit": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "packet_limit": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "type": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "system": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "filter_v1": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "offset_time": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "result": null
+      }
+order: 2000

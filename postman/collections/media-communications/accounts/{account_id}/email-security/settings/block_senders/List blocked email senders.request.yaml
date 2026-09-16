@@ -1,0 +1,47 @@
+$kind: http-request
+id: 69c56bd6-370b-5dc9-a4ce-93aa8c9d1c49
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_list_blocked_senders
+  GET /accounts/{account_id}/email-security/settings/block_senders
+
+  Returns a paginated list of blocked email sender patterns. These patterns prevent emails from matching senders from being delivered. Supports filtering by pattern type and searching across patterns.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/block_senders?page=1&per_page=20&search=string&order=pattern&direction=asc&pattern_type=EMAIL&pattern=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    description: Current page within paginated list of results.
+  - key: per_page
+    value: "20"
+    description: The number of results per page. Maximum value is 1000.
+  - key: search
+    value: string
+    description: Search term for filtering records. Behavior may change.
+  - key: order
+    value: pattern
+    description: Field to sort by.
+  - key: direction
+    value: asc
+    description: The sorting direction.
+  - key: pattern_type
+    value: EMAIL
+    description: Filter by pattern type.
+  - key: pattern
+    value: string
+    description: Filter by pattern value.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List blocked email senders.resources/examples
+order: 1000

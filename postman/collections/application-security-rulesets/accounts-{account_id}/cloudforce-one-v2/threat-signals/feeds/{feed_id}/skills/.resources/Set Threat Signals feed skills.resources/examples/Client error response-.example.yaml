@@ -1,0 +1,26 @@
+$kind: http-example
+id: 215d09ad-b3da-548d-97da-ae26b598950d
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds/{{feed_id}}/skills"
+  method: PUT
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "skill_ids": [
+          "aef6452e-8a1e-752a-036d-485b1f3a042d",
+          "2ab7e856-fe8a-adf9-ce8e-a938aae551e0"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

@@ -1,0 +1,35 @@
+$kind: http-request
+id: 8e020404-d0ea-5c70-9c75-100b949f902d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: sinkhole-config-update-sinkhole
+  PUT /accounts/{account_id}/intel/sinkholes/{sinkhole_id}
+
+  Replaces the name or R2 configuration of the specified sinkhole. This is a full replacement. All fields, including r2_secret, must be re-supplied. Omitting r2_secret overwrites the stored value with an empty string.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/intel/sinkholes/{{sinkhole_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "r2_bucket": "string",
+      "r2_id": "string",
+      "r2_secret": "{{r2_secret}}"
+    }
+auth:
+  type: noauth
+examples: ./.resources/Update a sinkhole.resources/examples
+order: 3000

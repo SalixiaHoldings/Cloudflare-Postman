@@ -1,0 +1,36 @@
+$kind: http-example
+id: b1ee4ced-13ed-5c4a-94e6-bedd8d913a54
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/teamnet/virtual_networks?id=f70ff985-a4ef-4643-bbbc-4a0ed4fc8415&name=us-east-1-vpc&is_default=false&is_default_network=true&is_deleted=false"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    id: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+    name: us-east-1-vpc
+    is_default: "false"
+    is_default_network: "true"
+    is_deleted: "false"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

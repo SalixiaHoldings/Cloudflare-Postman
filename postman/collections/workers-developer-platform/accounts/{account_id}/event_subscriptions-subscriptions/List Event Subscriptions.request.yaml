@@ -1,0 +1,40 @@
+$kind: http-request
+id: aa3f3b31-d06b-5a44-bfee-96f2a5717670
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: subscriptions-list
+  GET /accounts/{account_id}/event_subscriptions/subscriptions
+
+  Get a paginated list of event subscriptions with optional sorting and filtering
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/event_subscriptions/subscriptions?page=1&per_page=20&order=name&direction=asc"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: page
+    value: "1"
+    description: Page number for pagination
+  - key: per_page
+    value: "20"
+    description: Number of items per page
+  - key: order
+    value: name
+    description: Field to sort by
+  - key: direction
+    value: asc
+    description: Sort direction
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Event Subscriptions.resources/examples
+order: 1000

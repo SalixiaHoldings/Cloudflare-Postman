@@ -1,0 +1,38 @@
+$kind: http-example
+id: fa479bfb-fdff-5d4d-a6a0-928363343bee
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cfd_tunnel?name=blog&is_deleted=true&existed_at=2019-10-12T07%3A20%3A50.52Z&uuid=f70ff985-a4ef-4643-bbbc-4a0ed4fc8415&was_active_at=2009-11-10T23:00:00Z&was_inactive_at=2009-11-10T23:00:00Z&include_prefix=vpc1-&exclude_prefix=vpc1-&status=healthy&per_page=234.45682604098693&page=1"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    name: blog
+    is_deleted: "true"
+    existed_at: 2019-10-12T07%3A20%3A50.52Z
+    uuid: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+    was_active_at: 2009-11-10T23:00:00Z
+    was_inactive_at: 2009-11-10T23:00:00Z
+    include_prefix: vpc1-
+    exclude_prefix: vpc1-
+    status: healthy
+    per_page: "234.45682604098693"
+    page: "1"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

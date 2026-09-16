@@ -1,0 +1,62 @@
+$kind: http-example
+id: 2c608484-f105-52aa-b288-f000a9f49673
+name: Returns a session ID ready to be connected to.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser?keep_alive=60000&lab=false&targets=false&liveViewUrlExpiresInMs=300000&recording=false"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: keep_alive
+      value: "60000"
+      description: Keep-alive time in milliseconds.
+    - key: lab
+      value: "false"
+      description: Use experimental browser.
+    - key: targets
+      value: "false"
+      description: Include browser targets in response.
+    - key: liveViewUrlExpiresInMs
+      value: "300000"
+      description: How long the live view URL remains valid, in milliseconds (max 60 minutes). Only used when targets is true.
+    - key: recording
+      value: "false"
+  body:
+    type: json
+    content: |-
+      {
+        "guardrails": {
+          "allowedDomainSets": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "allowedDomains": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "sessionId": "string",
+        "webSocketDebuggerUrl": "string"
+      }
+order: 1000

@@ -1,0 +1,25 @@
+$kind: http-example
+id: 4b797e05-b73a-5001-99a8-fbc8257671a0
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/queries/{{query_id}}/matches/{{domain_id}}/dismiss"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "code": 7665,
+        "errors": {
+          "key_0": {},
+          "key_1": {}
+        },
+        "message": "string",
+        "status": "string"
+      }
+order: 1000

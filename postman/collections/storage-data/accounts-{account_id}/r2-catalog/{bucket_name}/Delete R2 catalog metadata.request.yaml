@@ -1,0 +1,32 @@
+$kind: http-request
+id: e1e848eb-e1d5-53a3-8620-23955db96752
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: delete-catalog
+  POST /accounts/{account_id}/r2-catalog/{bucket_name}/delete
+
+  Removes the catalog from the control plane without deleting R2 bucket objects.
+  Set force=true to remove catalog namespaces, tables, views, and maintenance
+  metadata. Force deletion is limited to a configured catalog object count.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/delete?force=false"
+method: POST
+headers:
+  Accept: application/json
+queryParams:
+  - key: force
+    value: "false"
+    description: Remove child metadata before deleting the catalog.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete R2 catalog metadata.resources/examples
+order: 3000

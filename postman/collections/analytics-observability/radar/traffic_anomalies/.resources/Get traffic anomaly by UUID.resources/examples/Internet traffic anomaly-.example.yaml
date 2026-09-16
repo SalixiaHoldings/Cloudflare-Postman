@@ -1,0 +1,57 @@
+$kind: http-example
+id: 16102158-636b-5ef6-8ce2-c755cc7e445e
+name: Internet traffic anomaly.
+request:
+  url: "{{base_url}}/radar/traffic_anomalies/{{uuid}}?format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "trafficAnomaly": {
+            "visibleInDataSources": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "startDate": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "endDate": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "locationDetails": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "asnDetails": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "originDetails": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

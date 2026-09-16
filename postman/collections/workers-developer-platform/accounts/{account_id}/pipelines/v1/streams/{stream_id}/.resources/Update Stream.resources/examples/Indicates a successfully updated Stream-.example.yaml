@@ -1,0 +1,64 @@
+$kind: http-example
+id: 2f649af4-3a2e-5537-80d0-eef09091f88b
+name: Indicates a successfully updated Stream.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/streams/{{stream_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "http": {
+          "enabled": true,
+          "authentication": false,
+          "cors": {}
+        },
+        "worker_binding": {
+          "enabled": true
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "01234567890123457689012345678901",
+          "name": "my_stream",
+          "version": 3,
+          "created_at": "1927-04-30T03:53:29.066Z",
+          "modified_at": "1961-07-25T16:47:28.243Z",
+          "http": {
+            "enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "authentication": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "cors": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "worker_binding": {
+            "enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "endpoint": "https://01234567890123457689012345678901.ingest.cloudflare.com/v1",
+          "format": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "schema": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

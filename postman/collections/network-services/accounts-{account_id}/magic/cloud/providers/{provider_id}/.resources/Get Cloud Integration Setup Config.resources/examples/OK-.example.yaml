@@ -1,0 +1,24 @@
+$kind: http-example
+id: 8445f8b1-9fcd-54e1-bc01-f2988628ffbd
+name: OK.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers/{{provider_id}}/initial_setup"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,44 @@
+$kind: http-example
+id: 6d4d2b70-2c33-5f1d-a942-174a88e4e376
+name: Evaluation error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/evaluate?flagKey=string&targetingKey=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: flagKey
+      value: string
+      description: (Required) The flag key to evaluate.
+    - key: targetingKey
+      value: string
+      description: Context targeting key (per OpenFeature spec); used for percentage rollout bucketing.
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": null,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 6000

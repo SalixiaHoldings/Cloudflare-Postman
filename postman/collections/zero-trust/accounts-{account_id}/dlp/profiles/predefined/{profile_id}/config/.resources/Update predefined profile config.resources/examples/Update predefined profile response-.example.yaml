@@ -1,0 +1,46 @@
+$kind: http-example
+id: 342bdfa1-877f-502a-b866-e99ef0921542
+name: Update predefined profile response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles/predefined/{{profile_id}}/config"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "ai_context_enabled": false,
+        "allowed_match_count": 5,
+        "confidence_threshold": "low",
+        "enabled_entries": [
+          "0e8cd9ed-2d9b-b973-37a5-478d723c5ee0",
+          "0b1b0c77-64e5-2ee5-6456-c0455587fc6a"
+        ],
+        "entries": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "ocr_enabled": false
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: 344017e9-0280-5547-8c5f-ffc1d7d97d17
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/apps/{{app_id}}/policies/{{policy_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

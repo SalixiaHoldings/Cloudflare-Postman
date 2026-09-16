@@ -1,0 +1,52 @@
+$kind: http-example
+id: 25d8b97f-db26-5a60-b06a-13f6290362f8
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/import"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "action": "init",
+        "etag": "string"
+      }
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "at_bookmark": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "messages": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "status": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "success": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 2000

@@ -1,0 +1,24 @@
+$kind: http-example
+id: 24dd4177-8e96-595a-9c72-2b30c018a12c
+name: Delete Health Check response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/smart_shield/healthchecks/{{healthcheck_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

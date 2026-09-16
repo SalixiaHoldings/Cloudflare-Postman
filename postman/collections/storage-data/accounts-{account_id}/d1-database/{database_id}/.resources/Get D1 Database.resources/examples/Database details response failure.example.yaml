@@ -1,0 +1,33 @@
+$kind: http-example
+id: c79a7b15-faaf-51dc-95f7-e7f37400c44d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}?fields=running_in_region,file_size"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: fields
+      value: running_in_region,file_size
+      description: |
+        Comma-separated list of fields to include in the response. When omitted,
+        all fields are returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

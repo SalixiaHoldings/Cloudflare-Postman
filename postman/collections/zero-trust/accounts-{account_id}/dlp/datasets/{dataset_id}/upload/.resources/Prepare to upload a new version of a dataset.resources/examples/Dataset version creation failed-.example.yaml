@@ -1,0 +1,30 @@
+$kind: http-example
+id: 5eb4b446-545f-5d9a-aba6-7ba6fa2b4104
+name: Dataset version creation failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/datasets/{{dataset_id}}/upload"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

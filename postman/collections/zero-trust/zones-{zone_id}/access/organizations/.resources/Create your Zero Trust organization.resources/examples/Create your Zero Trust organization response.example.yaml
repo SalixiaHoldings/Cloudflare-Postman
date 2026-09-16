@@ -1,0 +1,49 @@
+$kind: http-example
+id: 0503ed2c-56e7-518f-97fd-62cc6f468b4f
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/organizations"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Widget Corps Internal Applications",
+        "auth_domain": "test.cloudflareaccess.com",
+        "is_ui_read_only": true,
+        "login_design": {
+          "background_color": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "footer_text": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "header_text": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "logo_path": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "text_color": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "ui_read_only_toggle_reason": "Temporarily turn off the UI read only lock to make a change via the UI",
+        "user_seat_expiration_inactive_time": "720h"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

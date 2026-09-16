@@ -1,0 +1,33 @@
+$kind: http-example
+id: b2e6a7ae-dd6e-5f21-88b1-1bebe5e2e773
+name: Update CT Alerting Subscription response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ct/alerting"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true,
+        "emails": [
+          "security@example.com",
+          "admin@example.com"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

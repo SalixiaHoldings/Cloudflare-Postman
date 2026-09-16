@@ -1,0 +1,43 @@
+$kind: http-example
+id: 185a1636-8ac4-59ee-b331-279422828c2a
+name: Retrieve information about specific configuration properties response failure
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/configuration?normalize=true"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: normalize
+      value: "true"
+      description: Ensures that the configuration is written or retrieved in normalized fashion
+  body:
+    type: json
+    content: |-
+      {
+        "auth_id_characteristics": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,45 @@
+$kind: http-request
+id: a6dc89c9-fa32-5307-b8bf-0ce72d2ae423
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dns-records-for-a-zone-import-dns-records
+  POST /zones/{zone_id}/dns_records/import
+
+  You can upload your [BIND config](https://en.wikipedia.org/wiki/Zone_file "Zone file") through this endpoint. It assumes that cURL is called from a location with bind_config.txt (valid BIND config) present.
+
+  See [the documentation](https://developers.cloudflare.com/dns/manage-dns-records/how-to/import-and-export/ "Import and export records") for more information.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/dns_records/import"
+method: POST
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+body:
+  type: formdata
+  content:
+    - type: text
+      key: file
+      value: www.example.com. 300 IN  A 127.0.0.1
+      description: |
+        (Required) BIND config to import.
+
+        **Tip:** When using cURL, a file can be uploaded using `--form 'file=@bind_config.txt'`.
+    - type: text
+      key: proxied
+      value: "true"
+      description: |-
+        Whether or not proxiable records should receive the performance and security benefits of Cloudflare.
+
+        The value should be either `true` or `false`.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Import DNS Records.resources/examples
+order: 5000

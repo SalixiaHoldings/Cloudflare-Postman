@@ -1,0 +1,60 @@
+$kind: http-example
+id: 62fff601-dc40-5869-8b6c-092edc237a48
+name: Created domain.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/domains"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domain": "string",
+        "allowed_delivery_modes": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "ip_restrictions": [
+          "192.0.2.0/24",
+          "2001:db8::/32"
+        ],
+        "drop_dispositions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "regions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "folder": {
+          "x-stainless-terraform-configurability": "computed_optional",
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "integration_id": "a357b99c-647d-1af7-ac76-e2761a01da29",
+        "lookback_hops": 10,
+        "require_tls_inbound": false,
+        "require_tls_outbound": true,
+        "transport": "string"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,23 @@
+$kind: http-example
+id: 6d0b2225-0ebd-5e86-8550-e7e35894cbf3
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/interests/{{interest_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": false,
+        "value": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

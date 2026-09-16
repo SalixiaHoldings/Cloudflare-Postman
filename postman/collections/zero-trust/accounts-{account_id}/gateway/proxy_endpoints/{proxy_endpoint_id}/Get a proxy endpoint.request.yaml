@@ -1,0 +1,27 @@
+$kind: http-request
+id: 3b57f8b8-0a05-5e75-8880-78613c371e72
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-gateway-proxy-endpoints-proxy-endpoint-details
+  GET /accounts/{account_id}/gateway/proxy_endpoints/{proxy_endpoint_id}
+
+  Get a single Zero Trust Gateway proxy endpoint.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/gateway/proxy_endpoints/{{proxy_endpoint_id}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get a proxy endpoint.resources/examples
+order: 2000

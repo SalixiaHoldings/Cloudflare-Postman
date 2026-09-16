@@ -1,0 +1,37 @@
+$kind: http-request
+id: a207b511-6576-5c0b-a6cc-38bec1960da7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: put_PirUpdate
+  PUT /accounts/{account_id}/cloudforce-one/v2/priority-intelligence/{priority_id}
+
+  Updates a free-form Priority Intelligence Requirement for the authenticated account.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/{{priority_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "labels": [
+        "string",
+        "string"
+      ],
+      "priority": 2703,
+      "requirement": "string",
+      "tlp": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a priority intelligence requirement.resources/examples
+order: 3000

@@ -1,0 +1,26 @@
+$kind: http-request
+id: fd4f0d8e-f469-5e6e-9d1b-19f2029e69ae
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-get-bucket-cors-policy
+  GET /accounts/{account_id}/r2/buckets/{bucket_name}/cors
+
+  Get the CORS policy for a bucket.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/cors"
+method: GET
+headers:
+  cf-r2-jurisdiction: default
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Bucket CORS Policy.resources/examples
+order: 2000

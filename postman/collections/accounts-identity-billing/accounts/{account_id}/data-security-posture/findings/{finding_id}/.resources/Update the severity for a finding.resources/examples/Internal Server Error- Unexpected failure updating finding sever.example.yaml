@@ -1,0 +1,29 @@
+$kind: http-example
+id: 4e496254-77d3-5d92-b84c-b9285d16f564
+name: "Internal Server Error: Unexpected failure updating finding severity"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{finding_id}}/tune_finding_severity"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "new_severity": 4
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 4000

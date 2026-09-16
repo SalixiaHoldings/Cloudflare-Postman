@@ -1,0 +1,40 @@
+$kind: http-example
+id: ccd64ccf-46ec-508d-9b9e-2efe3aa52276
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cni/cnis?slot=string&tunnel_id=string&cursor=9230&limit=4653"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: slot
+      value: string
+      description: If specified, only show CNIs associated with the specified slot
+    - key: tunnel_id
+      value: string
+      description: If specified, only show cnis associated with the specified tunnel id
+    - key: cursor
+      value: "9230"
+    - key: limit
+      value: "4653"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "items": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "next": 3794
+      }
+order: 1000

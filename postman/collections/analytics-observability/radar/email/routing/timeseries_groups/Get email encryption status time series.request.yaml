@@ -1,0 +1,88 @@
+$kind: http-request
+id: 24c6e7a5-8b8a-53af-86a3-a2ff64f86979
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: radar-get-email-routing-timeseries-group-by-encrypted
+  GET /radar/email/routing/timeseries_groups/encrypted
+
+  Retrieves the distribution of emails by encryption status (encrypted vs. not-encrypted) over time.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/radar/email/routing/timeseries_groups/encrypted?aggInterval=1h&name=main_series&name=main_series&dateRange=7d&dateRange=7d&dateStart=1990-07-31T02:59:38.133Z&dateStart=1929-06-14T03:10:47.996Z&dateEnd=1927-12-19T06:37:38.317Z&dateEnd=1959-05-01T07:56:39.610Z&arc=NONE&arc=FAIL&dkim=NONE&dkim=NONE&dmarc=NONE&dmarc=PASS&spf=FAIL&spf=NONE&ipVersion=IPv6&ipVersion=IPv6&format=JSON"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: aggInterval
+    value: 1h
+    description: Aggregation interval of the results (e.g., in 15 minutes or 1 hour intervals). Refer to [Aggregation intervals](https://developers.cloudflare.com/radar/concepts/aggregation-intervals/). When omitted, the interval is auto-selected from the requested date range; finer intervals are only available for shorter ranges. If the requested interval is too granular for the date range, the request is rejected.
+  - key: name
+    value: main_series
+    description: Array of names used to label the series in the response.
+  - key: name
+    value: main_series
+    description: Array of names used to label the series in the response.
+  - key: dateRange
+    value: 7d
+    description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
+  - key: dateRange
+    value: 7d
+    description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
+  - key: dateStart
+    value: 1990-07-31T02:59:38.133Z
+    description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: dateStart
+    value: 1929-06-14T03:10:47.996Z
+    description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: dateEnd
+    value: 1927-12-19T06:37:38.317Z
+    description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: dateEnd
+    value: 1959-05-01T07:56:39.610Z
+    description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+  - key: arc
+    value: NONE
+    description: Filters results by ARC (Authenticated Received Chain) validation.
+  - key: arc
+    value: FAIL
+    description: Filters results by ARC (Authenticated Received Chain) validation.
+  - key: dkim
+    value: NONE
+    description: Filters results by DKIM (DomainKeys Identified Mail) validation status.
+  - key: dkim
+    value: NONE
+    description: Filters results by DKIM (DomainKeys Identified Mail) validation status.
+  - key: dmarc
+    value: NONE
+    description: Filters results by DMARC (Domain-based Message Authentication, Reporting and Conformance) validation status.
+  - key: dmarc
+    value: PASS
+    description: Filters results by DMARC (Domain-based Message Authentication, Reporting and Conformance) validation status.
+  - key: spf
+    value: FAIL
+    description: Filters results by SPF (Sender Policy Framework) validation status.
+  - key: spf
+    value: NONE
+    description: Filters results by SPF (Sender Policy Framework) validation status.
+  - key: ipVersion
+    value: IPv6
+    description: Filters results by IP version (Ipv4 vs. IPv6).
+  - key: ipVersion
+    value: IPv6
+    description: Filters results by IP version (Ipv4 vs. IPv6).
+  - key: format
+    value: JSON
+    description: Format in which results will be returned.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get email encryption status time series.resources/examples
+order: 4000

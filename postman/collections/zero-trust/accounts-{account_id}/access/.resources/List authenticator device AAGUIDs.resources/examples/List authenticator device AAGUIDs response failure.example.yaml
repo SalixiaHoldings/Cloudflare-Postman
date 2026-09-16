@@ -1,0 +1,27 @@
+$kind: http-example
+id: 5edeefcd-db6a-52cb-b66d-a7899c28e035
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/authenticator_device_aaguids"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

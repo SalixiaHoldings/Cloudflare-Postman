@@ -1,0 +1,45 @@
+$kind: http-example
+id: 2ee42d2e-54c4-5660-aa1d-084ad02d3a91
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/custom_pages"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "custom_html": "<html><body><h1>Access Denied</h1></body></html>",
+        "type": "identity_denied",
+        "app_count": 2928,
+        "contract_version": 3494,
+        "created_at": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "uid": "f174e90a-fafe-4643-bbbc-4a0ed4fc8415",
+        "updated_at": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

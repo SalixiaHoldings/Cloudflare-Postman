@@ -1,0 +1,55 @@
+$kind: http-example
+id: ec2b6d80-8e4a-5a5b-b28e-1064a958080b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Groups/{{group_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/scim+json
+    Accept: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "Operations": [
+          {
+            "op": "add",
+            "path": "members",
+            "value": [
+              {
+                "value": "023e105f4ecef8ad9ca31a8372d0c353"
+              }
+            ]
+          }
+        ],
+        "schemas": [
+          "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:Group"
+        ],
+        "id": "cloudflare-v1-023e105f4ecef8ad9ca31a8372d0c353",
+        "displayName": "Administrators",
+        "externalId": "idp-group-456",
+        "members": [
+          {
+            "display": "user@example.com",
+            "value": "023e105f4ecef8ad9ca31a8372d0c353"
+          }
+        ],
+        "meta": {
+          "resourceType": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

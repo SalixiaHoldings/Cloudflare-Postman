@@ -1,0 +1,64 @@
+$kind: http-example
+id: 00f8d651-4650-53be-acb3-40768351ed47
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/discovery/operations?page=1&per_page=20&host=api.cloudflare.com&method=GET&endpoint=/api/v1&direction=desc&order=method&diff=false&origin=ML&state=saved"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      description: Maximum number of results per page.
+    - key: host
+      value: api.cloudflare.com
+    - key: method
+      value: GET
+    - key: endpoint
+      value: /api/v1
+    - key: direction
+      value: desc
+    - key: order
+      value: method
+    - key: diff
+      value: "false"
+    - key: origin
+      value: ML
+      description: |
+        Filter results to only include discovery results sourced from a particular discovery engine
+          * `ML` - Discovered operations that were sourced using ML API Discovery
+          * `SessionIdentifier` - Discovered operations that were sourced using Session Identifier API Discovery
+    - key: state
+      value: saved
+      description: |
+        Filter results to only include discovery results in a particular state. States are as follows
+          * `review` - Discovered operations that are not saved into API Shield Endpoint Management
+          * `saved` - Discovered operations that are already saved into API Shield Endpoint Management
+          * `ignored` - Discovered operations that have been marked as ignored
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

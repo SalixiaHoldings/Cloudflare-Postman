@@ -1,0 +1,37 @@
+$kind: http-example
+id: 1092339e-5df5-50d6-8994-401bf0d049b9
+name: Request to purge cached content successful.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/purge_cache"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "hosts": [
+          "www.example.com",
+          "images.example.com"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,37 @@
+$kind: http-example
+id: 3581a012-b7a6-5cf0-91c5-c62d10ef0885
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/portals/{{portal_id}}/servers/{{server_id}}/effective-redirect-uri"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

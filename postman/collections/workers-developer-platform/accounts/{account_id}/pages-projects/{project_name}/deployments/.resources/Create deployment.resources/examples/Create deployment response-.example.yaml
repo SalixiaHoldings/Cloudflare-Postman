@@ -1,0 +1,97 @@
+$kind: http-example
+id: 8a8680f9-c102-5d63-8d51-80bde98b2661
+name: Create deployment response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pages/projects/{{project_name}}/deployments"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: file
+        key: _headers
+        src: ""
+        contentType: text/plain
+        description: Headers configuration file for the deployment.
+      - type: file
+        key: _redirects
+        src: ""
+        contentType: text/plain
+        description: Redirects configuration file for the deployment.
+      - type: file
+        key: _routes.json
+        src: ""
+        description: Routes configuration file defining routing rules.
+      - type: file
+        key: _worker.bundle
+        src: ""
+        description: |
+          Worker bundle file in multipart/form-data format. Mutually exclusive with `_worker.js`.
+          Cannot specify both `_worker.js` and `_worker.bundle` in the same request.
+          Maximum size: 25 MiB.
+      - type: file
+        key: _worker.js
+        src: ""
+        description: |
+          Worker JavaScript file. Mutually exclusive with `_worker.bundle`.
+          Cannot specify both `_worker.js` and `_worker.bundle` in the same request.
+      - type: text
+        key: branch
+        value: staging
+        description: The branch to build the new deployment from. The `HEAD` of the branch will be used. If omitted, the production branch will be used by default.
+      - type: text
+        key: commit_dirty
+        value: "false"
+        description: Boolean string indicating if the working directory has uncommitted changes. (This can only be one of true,false)
+      - type: text
+        key: commit_hash
+        value: a1b2c3d4e5f6
+        description: Git commit SHA associated with this deployment.
+      - type: text
+        key: commit_message
+        value: Update homepage
+        description: Git commit message associated with this deployment.
+      - type: file
+        key: functions-filepath-routing-config.json
+        src: ""
+        description: Functions routing configuration file.
+      - type: text
+        key: manifest
+        value: '{"index.html": "abc123", "style.css": "def456"}'
+        contentType: application/json
+        description: |
+          JSON string containing a manifest of files to deploy. Maps file paths to their content hashes.
+          Required for direct upload deployments. Maximum 20,000 entries.
+      - type: text
+        key: pages_build_output_dir
+        value: dist
+        description: The build output directory path.
+      - type: text
+        key: wrangler_config_hash
+        value: string
+        description: Hash of the Wrangler configuration file used for this deployment.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

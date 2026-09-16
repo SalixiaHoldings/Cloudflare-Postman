@@ -1,0 +1,43 @@
+$kind: http-request
+id: 71194673-43ea-5f00-827a-f2c6c74decc3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: worker-script-upload-worker-module
+  PUT /accounts/{account_id}/workers/scripts/{script_name}
+
+  Upload a worker module. You can find more about the multipart metadata on our docs: https://developers.cloudflare.com/workers/configuration/multipart-upload-metadata/.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}?bindings_inherit=strict"
+method: PUT
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+queryParams:
+  - key: bindings_inherit
+    value: strict
+    description: When set to "strict", the upload will fail if any `inherit` type bindings cannot be resolved against the previous version of the Worker. Without this, unresolvable inherit bindings are silently dropped.
+body:
+  type: formdata
+  content:
+    - type: text
+      key: files
+      value: '["export default {\n  async fetch(request, env, ctx) {\n    return new Response(\"Hello, world!\");\n  }\n};"]'
+      contentType: application/javascript+module, text/javascript+module, application/javascript, text/javascript, text/x-python, text/x-python-requirement, application/wasm, text/plain, application/octet-stream, application/source-map
+      description: undefined
+    - type: text
+      key: metadata
+      value: '{"compatibility_date":{},"compatibility_flags":["nodejs_compat"],"main_module":"worker.js"}'
+      contentType: application/json
+      description: undefined
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Upload Worker Module.resources/examples
+order: 3000

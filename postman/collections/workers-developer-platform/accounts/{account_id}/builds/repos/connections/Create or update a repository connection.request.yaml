@@ -1,0 +1,36 @@
+$kind: http-request
+id: f12164ec-bccf-5964-ab13-a4d5b25c5004
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: upsertRepoConnection
+  PUT /accounts/{account_id}/builds/repos/connections
+
+  Save the repository connection required by build triggers.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/builds/repos/connections"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "repo_id": "workers-sdk",
+      "repo_name": "workers-sdk",
+      "provider_type": "github",
+      "provider_account_id": "cloudflare",
+      "provider_account_name": "Cloudflare"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create or update a repository connection.resources/examples
+order: 1000

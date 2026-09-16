@@ -1,0 +1,23 @@
+$kind: http-request
+id: 85e431b4-afd0-51ed-876b-a3c0a0de4343
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: rssCuratedFeedDelete
+  DELETE /accounts/{account_id}/cloudforce-one/v2/threat-signals/curated-feeds/{curated_feed_id}
+
+  Delete curated Threat Signals feed.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/curated-feeds/{{curated_feed_id}}"
+method: DELETE
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete curated Threat Signals feed.resources/examples
+order: 1000

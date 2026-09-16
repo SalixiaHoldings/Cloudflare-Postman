@@ -1,0 +1,25 @@
+$kind: http-request
+id: 69b4ea4e-4250-53b0-a9cc-15e8b3761d45
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-commands-quota
+  GET /accounts/{account_id}/dex/commands/quota
+
+  Retrieves the current quota usage and limits for device commands within a specific account, including the time when the quota will reset
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/commands/quota"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Returns account commands usage, quota, and reset time.resources/examples
+order: 4000

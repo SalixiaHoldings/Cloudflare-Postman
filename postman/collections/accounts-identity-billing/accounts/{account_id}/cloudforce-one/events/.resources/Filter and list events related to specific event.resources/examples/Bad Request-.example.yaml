@@ -1,0 +1,59 @@
+$kind: http-example
+id: dc0d4c47-607f-5a1e-86e6-f8c24b75ada0
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/by-id/{{event_id}}/relationships?direction=both&maxDepth=2927.8329387307167&relationshipTypes=string&indicatorTypeIds=string&indicatorTypeIds=string&datasetId=string&includeParent=true&page=2535.467583220452&pageSize=2535.467583220452"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: direction
+      value: both
+      description: The direction to traverse the graph. Defaults to 'both' to search all.
+    - key: maxDepth
+      value: "2927.8329387307167"
+      description: The maximum depth to traverse. Defaults to 5.
+    - key: relationshipTypes
+      value: string
+      description: An optional array of relationship types to filter by.
+    - key: indicatorTypeIds
+      value: string
+      description: An optional array of indicator type IDs to filter the results by.
+    - key: indicatorTypeIds
+      value: string
+      description: An optional array of indicator type IDs to filter the results by.
+    - key: datasetId
+      value: string
+      description: (Required) The dataset ID to search within.
+    - key: includeParent
+      value: "true"
+      description: Whether to include the starting event in the results. Defaults to true.
+    - key: page
+      value: "2535.467583220452"
+    - key: pageSize
+      value: "2535.467583220452"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

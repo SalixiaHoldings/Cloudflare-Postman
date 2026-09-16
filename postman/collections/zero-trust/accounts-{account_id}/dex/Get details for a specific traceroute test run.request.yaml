@@ -1,0 +1,25 @@
+$kind: http-request
+id: 243d4f78-6a36-5220-99bf-b020326d1adf
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dex-endpoints-traceroute-test-result-network-path
+  GET /accounts/{account_id}/dex/traceroute-test-results/{test_result_id}/network-path
+
+  Get a breakdown of hops and performance metrics for a specific traceroute test run
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-test-results/{{test_result_id}}/network-path"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get details for a specific traceroute test run.resources/examples
+order: 8000

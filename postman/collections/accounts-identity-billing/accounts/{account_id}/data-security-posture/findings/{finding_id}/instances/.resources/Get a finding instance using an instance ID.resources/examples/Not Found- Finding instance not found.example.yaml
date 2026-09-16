@@ -1,0 +1,17 @@
+$kind: http-example
+id: d5cd0d9a-3317-57e9-8e2e-ced997d10275
+name: "Not Found: Finding instance not found"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{finding_id}}/instances/{{instance_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

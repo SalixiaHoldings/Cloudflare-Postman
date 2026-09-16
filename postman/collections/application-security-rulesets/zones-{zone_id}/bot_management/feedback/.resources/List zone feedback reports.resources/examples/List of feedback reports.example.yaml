@@ -1,0 +1,56 @@
+$kind: http-example
+id: 88c79377-cde5-5e47-b532-bcc190322371
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/bot_management/feedback"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "created_at": "2025-10-01T12:00:00Z",
+          "description": "Legitimate checkout traffic was blocked as bots",
+          "expression": "(http.host eq 'shop.example.com' and http.request.uri.path starts_with '/checkout') and cf.bot_management.score lt 5",
+          "first_request_seen_at": "2025-09-30T08:00:00Z",
+          "last_request_seen_at": "2025-09-30T09:00:00Z",
+          "requests": 1200,
+          "requests_by_attribute": {
+            "topIPs": [
+              {
+                "metric": "203.0.113.10",
+                "requests": 180
+              },
+              {
+                "metric": "203.0.113.11",
+                "requests": 150
+              }
+            ],
+            "topPaths": [
+              {
+                "metric": "/checkout",
+                "requests": 1000
+              }
+            ]
+          },
+          "requests_by_score": {
+            "1": 200,
+            "2": 300,
+            "3": 400,
+            "4": 300
+          },
+          "requests_by_score_src": {
+            "heuristics": 200,
+            "machine_learning": 1000
+          },
+          "subtype": "Spamming",
+          "type": "false_positive"
+        }
+      ]
+order: 1000

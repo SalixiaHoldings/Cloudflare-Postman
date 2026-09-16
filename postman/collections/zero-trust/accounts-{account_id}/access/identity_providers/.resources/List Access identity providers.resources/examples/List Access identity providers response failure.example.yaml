@@ -1,0 +1,31 @@
+$kind: http-example
+id: 7be204c6-f3b7-5d55-b4aa-fd99e140a9e9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers?scim_enabled=string&page=1&per_page=200"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    scim_enabled: string
+    page: "1"
+    per_page: "200"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

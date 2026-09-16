@@ -1,0 +1,110 @@
+$kind: http-request
+id: 5849f2ce-3096-5e7c-aa9c-a3acc831d26e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-list-images-v2
+  GET /accounts/{account_id}/images/v2
+
+  List up to 10000 images from CF Images, with up to 1000 results per page. Use the optional parameters below to get a specific range of images.
+  Pagination is supported via continuation_token.
+
+  **Metadata Filtering (Optional):**
+
+  You can optionally filter images by custom metadata fields using the `meta.<field>[<operator>]=<value>` syntax.
+
+  **Supported Operators:**
+  - `eq` / `eq:string` / `eq:number` / `eq:boolean` - Exact match
+  - `gt` / `gt:number` - Greater than (number only)
+  - `gte` / `gte:number` - Greater than or equal (number only)
+  - `lt` / `lt:number` - Less than (number only)
+  - `lte` / `lte:number` - Less than or equal (number only)
+  - `in` / `in:string` / `in:number` - Match any value in list (pipe-separated)
+
+  **Metadata Filter Constraints:**
+  - Maximum 5 metadata filters per request
+  - Maximum 5 levels of nesting (e.g., `meta.first.second.third.fourth.fifth`)
+  - Maximum 10 elements for list operators (`in`)
+  - Supports string, number, and boolean value types
+  - Range operators (`gt`, `gte`, `lt`, `lte`) only accept numeric values
+
+  **Filter Consistency:**
+  Filters are combined with AND logic. The system does not validate whether filter combinations are logically consistent. For example, `meta.priority[eq:number]=5&meta.priority[lte:number]=3` will return zero results because no value can satisfy both conditions simultaneously. It is the caller's responsibility to ensure filter combinations make sense.
+
+  **Examples:**
+  ```
+  # List all images
+  /images/v2
+
+  # Filter by metadata [eq]
+  /images/v2?meta.status[eq:string]=active
+
+  # Filter by metadata [in]
+  /images/v2?meta.status[in]=pending|deleted|flagged
+
+  # Filter by metadata [in:number]
+  /images/v2?meta.ratings[in:number]=4|5
+
+  # Filter by metadata range [gte:number]
+  /images/v2?meta.priority[gte:number]=1
+
+  # Filter by bounded range
+  /images/v2?meta.priority[gte:number]=1&meta.priority[lte:number]=5
+
+  # Filter by nested metadata
+  /images/v2?meta.region.name[eq]=eu-west
+
+  # Combine metadata filters with creator
+  /images/v2?meta.status[eq]=active&creator=user123
+
+  # Multiple metadata filters (AND logic)
+  /images/v2?meta.status[eq]=active&meta.priority[eq:number]=5
+  ```
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v2?continuation_token=string&per_page=1000&sort_order=desc&creator=string&meta.<field>[<operator>]=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: continuation_token
+    value: string
+  - key: per_page
+    value: "1000"
+  - key: sort_order
+    value: desc
+  - key: creator
+    value: string
+  - key: meta.<field>[<operator>]
+    value: string
+    description: |
+      Optional metadata filter(s). Multiple filters can be combined with AND logic.
+
+      **Operators:**
+      - `eq`, `eq:string`, `eq:number`, `eq:boolean` - Exact match
+      - `gt`, `gt:number` - Greater than (number only)
+      - `gte`, `gte:number` - Greater than or equal (number only)
+      - `lt`, `lt:number` - Less than (number only)
+      - `lte`, `lte:number` - Less than or equal (number only)
+      - `in`, `in:string`, `in:number` - Match any value in pipe-separated list
+
+      **Examples:**
+      - `meta.status[eq]=active`
+      - `meta.priority[eq:number]=5`
+      - `meta.enabled[eq:boolean]=true`
+      - `meta.priority[gte:number]=1`
+      - `meta.score[lt:number]=100`
+      - `meta.region[in]=us-east|us-west|eu-west`
+
+      **Note:** Filter consistency is not validated. Contradictory filters (e.g., `meta.priority[eq:number]=5&meta.priority[lte:number]=3`) will return zero results.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List images V2.resources/examples
+order: 1000

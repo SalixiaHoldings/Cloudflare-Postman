@@ -1,0 +1,37 @@
+$kind: http-request
+id: e51a2d51-c97d-5df9-9260-590bb20af9a9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: origin-ca-list-certificates
+  GET /certificates
+
+  List all existing Origin CA certificates for a given zone. You can use an Origin CA Key as your User Service Key or an API token when calling this endpoint ([see above](#requests)).
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: a9a6be7c88ff9f916ac9cabe9c7154d822c0669123eb06c55ef08159f186fd8d
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/certificates?zone_id={{zone_id}}&page=1&per_page=20&limit=10&offset=10"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: zone_id
+    value: "{{zone_id}}"
+    description: "(Required) "
+  - key: page
+    value: "1"
+  - key: per_page
+    value: "20"
+  - key: limit
+    value: "10"
+  - key: offset
+    value: "10"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Certificates.resources/examples
+order: 1000

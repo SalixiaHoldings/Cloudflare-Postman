@@ -1,0 +1,31 @@
+$kind: http-example
+id: 4a6a49d2-6fd8-580c-8f15-d249da5cd801
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dns_settings"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enforce_dns_only": false,
+        "zone_defaults": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

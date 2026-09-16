@@ -1,0 +1,39 @@
+$kind: http-request
+id: def377a5-5291-513a-8e7c-365c766f3221
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: api-shield-api-patch-discovered-operations
+  PATCH /zones/{zone_id}/api_gateway/discovery/operations
+
+  Updates the state of one or more discovered web and API operations.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/discovery/operations"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "3818d821-5901-4147-a474-f5f5aec1d54e": {
+        "state": "ignored"
+      },
+      "b17c8043-99a0-4202-b7d9-8f7cdbee02cd": {
+        "state": "review"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Edit discovered web and API operations.resources/examples
+order: 2000

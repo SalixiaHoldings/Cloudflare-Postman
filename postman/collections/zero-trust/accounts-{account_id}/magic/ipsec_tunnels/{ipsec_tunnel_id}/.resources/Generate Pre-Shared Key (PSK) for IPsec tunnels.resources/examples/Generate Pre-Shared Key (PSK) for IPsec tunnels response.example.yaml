@@ -1,0 +1,31 @@
+$kind: http-example
+id: d9124c5b-a242-5102-8469-e92a81282239
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/ipsec_tunnels/{{ipsec_tunnel_id}}/psk_generate"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "ipsec_tunnel_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "psk": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "psk_metadata": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

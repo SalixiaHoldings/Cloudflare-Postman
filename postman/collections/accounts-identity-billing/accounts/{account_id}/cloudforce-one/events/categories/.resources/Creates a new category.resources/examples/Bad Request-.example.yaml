@@ -1,0 +1,50 @@
+$kind: http-example
+id: 81955d61-e2e6-5e81-801c-730508185288
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/categories/create"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "name",
+        "killChain": 9012.652912642807,
+        "mitreAttack": [
+          "T1234",
+          "T1234"
+        ],
+        "mitreCapec": [
+          "123",
+          "123"
+        ],
+        "shortname": "shortname"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

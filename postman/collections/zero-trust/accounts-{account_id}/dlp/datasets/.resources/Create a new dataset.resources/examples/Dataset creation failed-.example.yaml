@@ -1,0 +1,41 @@
+$kind: http-example
+id: abaab862-b12c-5580-aa52-b249ed3be157
+name: Dataset creation failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/datasets"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "case_sensitive": true,
+        "description": "string",
+        "encoding_version": 2190,
+        "secret": "{{secret}}"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

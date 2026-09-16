@@ -1,0 +1,43 @@
+$kind: http-example
+id: 5278c317-262b-5cef-aaa6-1c8a732ae16d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/live_view"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "expiresInMs": 300000,
+        "guardrails": {
+          "mode": "readonly"
+        },
+        "mode": "devtools",
+        "targetId": "71"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "webSocketDebuggerUrl": "https://dCnWlXsQCL.ypmyHi0K0D5aZkPjqsH01DxvdskMOvUnu9lAAyXQKEC",
+        "devtoolsFrontendUrl": "http://HbhgQpgVZrVASApRGWwWyND.zcsyoLRB1rV2KeMcA4bkUExZXMbO",
+        "id": "string",
+        "options": {
+          "mode": "devtools",
+          "guardrails": {
+            "mode": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+order: 1000

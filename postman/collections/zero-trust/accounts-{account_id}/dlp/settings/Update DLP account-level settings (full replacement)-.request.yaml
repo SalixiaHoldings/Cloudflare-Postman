@@ -1,0 +1,40 @@
+$kind: http-request
+id: 15754b58-3af1-5f44-ab53-3ffcc8e0ef13
+name: Update DLP account-level settings (full replacement).
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-settings-update
+  PUT /accounts/{account_id}/dlp/settings
+
+  Missing fields are reset to initial (unconfigured) values.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/dlp/settings"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "ai_context_analysis": false,
+      "ocr": false,
+      "payload_logging": {
+        "x-stainless-terraform-configurability": "computed_optional",
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update DLP account-level settings (full replacement)-.resources/examples
+order: 4000

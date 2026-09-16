@@ -1,0 +1,105 @@
+$kind: http-example
+id: f044cc0b-7b18-5208-b2a7-4cc62563f8b6
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan?scan_id=04d4b2e9-c26a-56e9-4f7a-0d1dbfe68670&limit=100&next_cursor=string&date_start=1942-09-28T18:42:36.313Z&date_end=1957-06-29T04:31:55.808Z&url=https://example.com/?hello&hostname=example.com&path=/samples/subresource-integrity/&ip=1.1.1.1&hash=string&page_url=string&page_hostname=string&page_path=string&page_asn=string&page_ip=string&account_scans=false&is_malicious=true"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: scan_id
+      value: 04d4b2e9-c26a-56e9-4f7a-0d1dbfe68670
+      description: Scan UUID.
+    - key: limit
+      value: "100"
+      description: Limit the number of objects in the response.
+    - key: next_cursor
+      value: string
+      description: Pagination cursor to get the next set of results.
+    - key: date_start
+      value: 1942-09-28T18:42:36.313Z
+      description: Filter scans requested after date (inclusive).
+    - key: date_end
+      value: 1957-06-29T04:31:55.808Z
+      description: Filter scans requested before date (inclusive).
+    - key: url
+      value: https://example.com/?hello
+      description: Filter scans by URL of _any_ request made by the webpage
+    - key: hostname
+      value: example.com
+      description: Filter scans by hostname of _any_ request made by the webpage.
+    - key: path
+      value: /samples/subresource-integrity/
+      description: Filter scans by url path of _any_ request made by the webpage.
+    - key: ip
+      value: 1.1.1.1
+      description: Filter scans by IP address (IPv4 or IPv6) of _any_ request made by the webpage.
+    - key: hash
+      value: string
+      description: Filter scans by hash of any html/js/css request made by the webpage.
+    - key: page_url
+      value: string
+      description: Filter scans by submitted or scanned URL
+    - key: page_hostname
+      value: string
+      description: Filter scans by main page hostname (domain of effective URL).
+    - key: page_path
+      value: string
+      description: Filter scans by exact match of effective URL path (also supports suffix search).
+    - key: page_asn
+      value: string
+      description: Filter scans by main page Autonomous System Number (ASN).
+    - key: page_ip
+      value: string
+      description: Filter scans by  main page IP address (IPv4 or IPv6).
+    - key: account_scans
+      value: "false"
+      description: Return only scans created by account.
+    - key: is_malicious
+      value: "true"
+      description: Filter scans by malicious verdict.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "result": {
+          "tasks": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      }
+order: 1000

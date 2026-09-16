@@ -1,0 +1,18 @@
+$kind: http-example
+id: 33359698-5e8d-55be-a8cb-e71062eaa27b
+name: Return snippet content.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/snippets/{{snippet_name}}/content"
+  method: GET
+  headers:
+    Accept: multipart/form-data
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    cf-entrypoint: main.js
+    Content-Type: multipart/form-data
+  body:
+    type: text
+    content: ""
+order: 1000

@@ -1,0 +1,77 @@
+$kind: http-example
+id: 60ae5de3-66af-5e17-852b-290dc3050b8c
+name: A client error occurred.
+request:
+  url: '{{base_url}}/accounts/{{account_id}}/security-center/insights?dismissed=false&issue_class=a_record_dangling&issue_class=always_use_https_not_enabled&issue_type=compliance_violation&issue_type=email_security&product=access&product=dns&source=cloudflare&severity=low&severity=moderate&subject={"value":"<Error: Too many levels of nesting to fake this schema>"}&subject={"value":"<Error: Too many levels of nesting to fake this schema>"}&issue_class~neq=a_record_dangling&issue_class~neq=always_use_https_not_enabled&issue_type~neq=compliance_violation&issue_type~neq=email_security&product~neq=access&product~neq=dns&severity~neq=low&severity~neq=moderate&subject~neq={"value":"<Error: Too many levels of nesting to fake this schema>"}&subject~neq={"value":"<Error: Too many levels of nesting to fake this schema>"}&page=1&per_page=25'
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: dismissed
+      value: "false"
+    - key: issue_class
+      value: a_record_dangling
+    - key: issue_class
+      value: always_use_https_not_enabled
+    - key: issue_type
+      value: compliance_violation
+    - key: issue_type
+      value: email_security
+    - key: product
+      value: access
+    - key: product
+      value: dns
+    - key: source
+      value: cloudflare
+    - key: severity
+      value: low
+    - key: severity
+      value: moderate
+    - key: subject
+      value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+    - key: subject
+      value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+    - key: issue_class~neq
+      value: a_record_dangling
+    - key: issue_class~neq
+      value: always_use_https_not_enabled
+    - key: issue_type~neq
+      value: compliance_violation
+    - key: issue_type~neq
+      value: email_security
+    - key: product~neq
+      value: access
+    - key: product~neq
+      value: dns
+    - key: severity~neq
+      value: low
+    - key: severity~neq
+      value: moderate
+    - key: subject~neq
+      value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+    - key: subject~neq
+      value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+    - key: page
+      value: "1"
+    - key: per_page
+      value: "25"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

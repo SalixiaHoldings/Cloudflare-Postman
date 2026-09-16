@@ -1,0 +1,32 @@
+$kind: http-request
+id: 98672127-4e5a-5ae3-a9f1-228809e83659
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: waiting-room-patch-zone-settings
+  PATCH /zones/{zone_id}/waiting_rooms/settings
+
+  Patch zone-level Waiting Room settings.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/settings"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "search_engine_crawler_bypass": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Patch zone-level Waiting Room settings.resources/examples
+order: 2000

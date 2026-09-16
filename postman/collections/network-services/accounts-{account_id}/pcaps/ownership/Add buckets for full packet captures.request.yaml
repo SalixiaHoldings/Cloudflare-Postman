@@ -1,0 +1,32 @@
+$kind: http-request
+id: 038f4c07-8435-57fd-8852-95e2f496e277
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-pcap-collection-add-buckets-for-full-packet-captures
+  POST /accounts/{account_id}/pcaps/ownership
+
+  Adds an AWS or GCP bucket to use with full packet captures.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/pcaps/ownership"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "destination_conf": "s3://pcaps-bucket?region=us-east-1"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Add buckets for full packet captures.resources/examples
+order: 2000

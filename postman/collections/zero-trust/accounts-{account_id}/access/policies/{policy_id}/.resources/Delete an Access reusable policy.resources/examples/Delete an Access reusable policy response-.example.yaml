@@ -1,0 +1,24 @@
+$kind: http-example
+id: 000cfbfb-6f87-50e4-933a-041e4fe6c1ea
+name: Delete an Access reusable policy response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/policies/{{policy_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

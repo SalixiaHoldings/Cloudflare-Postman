@@ -1,0 +1,42 @@
+$kind: http-request
+id: 63c1dd13-1028-5999-b658-9f35dc33cdc3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zones-logs-explorer-datasets-update
+  PUT /zones/{zone_id}/logs/explorer/datasets/{dataset_id}
+
+  Updates the enabled state and/or field configuration of a zone dataset.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/logs/explorer/datasets/{{dataset_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "enabled": true,
+      "deletion_protection": false,
+      "fields": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "filter": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a zone dataset.resources/examples
+order: 3000

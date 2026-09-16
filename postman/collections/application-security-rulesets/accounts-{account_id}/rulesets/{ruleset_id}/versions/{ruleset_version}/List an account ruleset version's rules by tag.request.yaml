@@ -1,0 +1,25 @@
+$kind: http-request
+id: 31f669a1-8848-556d-99c7-a55e38b29cda
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: listAccountRulesetVersionRulesByTag
+  GET /accounts/{account_id}/rulesets/{ruleset_id}/versions/{ruleset_version}/by_tag/{rule_tag}
+
+  Fetches the rules of a managed account ruleset version for a given tag.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/rulesets/{{ruleset_id}}/versions/{{ruleset_version}}/by_tag/{{rule_tag}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List an account ruleset version's rules by tag.resources/examples
+order: 3000

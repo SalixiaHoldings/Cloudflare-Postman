@@ -1,0 +1,47 @@
+$kind: http-request
+id: 3352ce45-4f38-5c49-aed6-9f61156c5a2a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: wor-list-workflow-instances
+  GET /accounts/{account_id}/workflows/{workflow_name}/instances
+
+  Lists all instances of a workflow with their execution status.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances?page=5076.798240310978&per_page=50&cursor=string&direction=desc&status=waitingForPause&date_start=1922-11-28T14:57:39.484Z&date_end=1922-11-28T14:57:39.484Z"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: page
+    value: "5076.798240310978"
+    description: "Deprecated: use `cursor` for pagination instead."
+  - key: per_page
+    value: "50"
+  - key: cursor
+    value: string
+    description: Opaque token for cursor-based pagination. Mutually exclusive with `page`.
+  - key: direction
+    value: desc
+    description: Defines the direction for cursor-based pagination.
+  - key: status
+    value: waitingForPause
+  - key: date_start
+    value: 1922-11-28T14:57:39.484Z
+    description: Accepts ISO 8601 with no timezone offsets and in UTC.
+  - key: date_end
+    value: 1922-11-28T14:57:39.484Z
+    description: Accepts ISO 8601 with no timezone offsets and in UTC.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List of workflow instances.resources/examples
+order: 1000

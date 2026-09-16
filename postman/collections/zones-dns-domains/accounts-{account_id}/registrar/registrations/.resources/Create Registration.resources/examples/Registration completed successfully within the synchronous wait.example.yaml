@@ -1,0 +1,89 @@
+$kind: http-example
+id: b348a146-6d19-58c8-9762-0217a25b7e35
+name: |
+  Registration completed successfully within the synchronous wait window.
+  The workflow status will have `state: succeeded` and `completed: true`.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations"
+  method: POST
+  headers:
+    - key: Prefer
+      value: string
+      description: |
+        Set to `respond-async` to receive an immediate `202 Accepted` without
+        waiting for the operation to complete (RFC 7240).
+
+        The header may be combined with other preferences using standard
+        comma-separated syntax.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "auto_renew": false,
+        "contact_extensions": {
+          "ca_legal_type": "CCT"
+        },
+        "contacts": {
+          "registrant": {
+            "email": "ada@example.ca",
+            "phone": "+1.6135550100",
+            "postal_info": {
+              "address": {
+                "city": "Ottawa",
+                "country_code": "CA",
+                "postal_code": "K1A 0B1",
+                "state": true,
+                "street": "123 Queen St"
+              },
+              "name": "Ada Lovelace",
+              "organization": "Example Canada Inc"
+            }
+          }
+        },
+        "domain_name": "my-brand-example.ca",
+        "years": 1
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    - key: Preference-Applied
+      value: string
+      description: Echoed when the server honored a `Prefer` header.
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "completed": true,
+          "context": {
+            "domain_name": "example.com",
+            "registration": {
+              "auto_renew": true,
+              "created_at": "2025-10-27T10:00:00Z",
+              "domain_name": "example.com",
+              "expires_at": "2026-10-27T10:00:00Z",
+              "locked": true,
+              "privacy_mode": "redaction",
+              "status": "active"
+            }
+          },
+          "created_at": "2025-10-27T10:00:00Z",
+          "links": {
+            "resource": "/accounts/abc/registrar/registrations/example.com",
+            "self": "/accounts/abc/registrar/registrations/example.com/registration-status"
+          },
+          "state": "succeeded",
+          "updated_at": "2025-10-27T10:00:03Z"
+        },
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,54 @@
+$kind: http-example
+id: e7006451-39b0-5d31-9358-184826b1e1f6
+name: Delete Objects response failure. The bucket may not exist, the request may be invalid, or the caller may not be authorized.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects?prefix="
+  method: DELETE
+  headers:
+    - key: cf-r2-jurisdiction
+      value: default
+    - key: cf-r2-data-catalog-check
+      value: string
+      description: Set this header to reject the operation when R2 Data Catalog is enabled for the bucket.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  queryParams:
+    prefix: ""
+  body:
+    type: json
+    content: |-
+      [
+        "path/to/object-a.txt",
+        "path/to/object-b.txt"
+      ]
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": null
+      }
+order: 4000

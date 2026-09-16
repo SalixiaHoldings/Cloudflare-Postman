@@ -1,0 +1,39 @@
+$kind: http-example
+id: f07c2742-751c-5076-8050-4ba061156443
+name: OK.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers?status=true&order_by=string&desc=true&cloudflare=true"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: status
+      value: "true"
+    - key: order_by
+      value: string
+      description: One of ["updated_at", "id", "cloud_type", "name"].
+    - key: desc
+      value: "true"
+    - key: cloudflare
+      value: "true"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

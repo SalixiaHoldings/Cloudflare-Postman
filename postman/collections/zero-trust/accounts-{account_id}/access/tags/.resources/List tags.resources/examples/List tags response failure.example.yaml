@@ -1,0 +1,30 @@
+$kind: http-example
+id: ff87d906-1438-53eb-9d06-2dd7f2931c06
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/tags?page=1&per_page=50"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "50"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

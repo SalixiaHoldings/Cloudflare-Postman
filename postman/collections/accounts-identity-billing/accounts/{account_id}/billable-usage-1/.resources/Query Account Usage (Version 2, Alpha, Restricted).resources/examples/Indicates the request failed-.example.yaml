@@ -1,0 +1,65 @@
+$kind: http-example
+id: 0e666edf-8378-5d53-94d3-492ed6ba7805
+name: Indicates the request failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/billable/usage"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "FilterBy": {
+          "MetricIds": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ProductFamilyIds": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "Tags": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "GroupBy": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "TimePeriod": {
+          "From": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "To": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 1183,
+            "message": "Invalid request parameters: Please ensure all required parameters are included and correctly formatted."
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 2000

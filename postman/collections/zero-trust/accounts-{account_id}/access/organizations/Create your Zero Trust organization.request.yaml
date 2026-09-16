@@ -1,0 +1,94 @@
+$kind: http-request
+id: e86d3690-f2a0-5782-a1d4-c76276ee84c5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-organization-create-your-zero-trust-organization
+  POST /accounts/{account_id}/access/organizations
+
+  Sets up a Zero Trust organization for your account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/organizations"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Widget Corps Internal Applications",
+      "auth_domain": "test.cloudflareaccess.com",
+      "allow_authenticate_via_warp": false,
+      "auto_redirect_to_identity": false,
+      "deny_unmatched_requests": false,
+      "deny_unmatched_requests_exempted_zone_names": [
+        "example.com"
+      ],
+      "is_ui_read_only": false,
+      "login_design": {
+        "background_color": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "footer_text": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "header_text": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "logo_path": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "text_color": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "mfa_config": {
+        "allowed_authenticators": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "amr_matching_session_duration": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "required_aaguids": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "session_duration": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "mfa_piv_key_requirements": {
+        "pin_policy": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "require_fips_device": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "ssh_key_size": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "ssh_key_type": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "touch_policy": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "mfa_required_for_all_apps": false,
+      "session_duration": "24h",
+      "ui_read_only_toggle_reason": "Temporarily turn off the UI read only lock to make a change via the UI",
+      "user_seat_expiration_inactive_time": "730h",
+      "warp_auth_non_browser_401": false,
+      "warp_auth_session_duration": "24h"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create your Zero Trust organization.resources/examples
+order: 2000

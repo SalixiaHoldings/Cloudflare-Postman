@@ -1,0 +1,50 @@
+$kind: http-example
+id: 1746a1ce-a2d5-5597-ac34-6d7acdc67868
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/analytics/daywise?start_date=2022-09-01T00:00:00Z&end_date=2022-09-22T00:00:00Z"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: start_date
+      value: 2022-09-01T00:00:00Z
+      description: start date in YYYY-MM-DD format
+    - key: end_date
+      value: 2022-09-22T00:00:00Z
+      description: end date in YYYY-MM-DD format
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "recording_stats": {
+            "day_stats": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "recording_count": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "recording_minutes_consumed": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "session_stats": {
+            "day_stats": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "sessions_count": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "sessions_minutes_consumed": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

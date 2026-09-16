@@ -1,0 +1,38 @@
+$kind: http-example
+id: f9d7bd2e-8e99-5307-8ce5-fc958f56ccca
+name: Unauthorized.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/exemptions"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "namespace": [
+          "^test-.*$",
+          "^test-.*$"
+        ],
+        "tag_match": [
+          "^test-.*$",
+          "^test-.*$"
+        ],
+        "worker_name": [
+          "^test-.*$",
+          "^test-.*$"
+        ]
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 3000

@@ -1,0 +1,30 @@
+$kind: http-example
+id: 95b2c132-1896-524d-b58b-32be52d7f719
+name: "Bad Request: Invalid request parameters"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/finding_types/{{finding_type_id}}/remediation_types?integration_id=dd1b8053-e004-fefc-a9a5-f18313918cfb&cursor=string&page=2333&per_page=2333"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: integration_id
+      value: dd1b8053-e004-fefc-a9a5-f18313918cfb
+      description: Filter by an integration ID
+    - key: cursor
+      value: string
+      description: A cursor for pagination.
+    - key: page
+      value: "2333"
+      description: A page number within the paginated result set.
+    - key: per_page
+      value: "2333"
+      description: Number of results to return per page.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

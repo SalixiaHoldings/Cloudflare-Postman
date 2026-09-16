@@ -1,0 +1,67 @@
+$kind: http-example
+id: b463c17b-3950-5bdb-968f-e7d736d969fb
+name: Chrome DevTools Protocol schema.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json/protocol"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domains": [
+          {
+            "domain": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "commands": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "dependencies": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "events": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "experimental": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "types": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "domain": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "commands": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "dependencies": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "events": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "experimental": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "types": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "version": {
+          "major": "string",
+          "minor": "string"
+        }
+      }
+order: 1000

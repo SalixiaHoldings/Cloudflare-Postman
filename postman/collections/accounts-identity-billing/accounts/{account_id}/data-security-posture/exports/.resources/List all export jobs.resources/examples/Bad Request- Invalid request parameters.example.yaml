@@ -1,0 +1,27 @@
+$kind: http-example
+id: 9bc96b79-5eb8-540e-9100-bf90c08752fd
+name: "Bad Request: Invalid request parameters"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/exports?page=8161&per_page=8161&status=Success"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "8161"
+      description: A page number within the paginated result set.
+    - key: per_page
+      value: "8161"
+      description: Number of results to return per page.
+    - key: status
+      value: Success
+      description: Filter on export job's status
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

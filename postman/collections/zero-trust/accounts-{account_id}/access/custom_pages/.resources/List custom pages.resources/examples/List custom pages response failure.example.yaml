@@ -1,0 +1,30 @@
+$kind: http-example
+id: ca81c8d4-527b-5e9a-a402-6c124b6c20d0
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/custom_pages?page=1&per_page=50"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "50"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,58 @@
+$kind: http-request
+id: 7630aeec-e531-54b2-8734-0cb0a92acb17
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: create_cni
+  POST /accounts/{account_id}/cni/cnis
+
+  Creates a new Cloud Network Interconnect (CNI) for private network connectivity between
+  Cloudflare and your infrastructure. CNIs enable dedicated, high-performance network links.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/cni/cnis"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "interconnect": "string",
+      "account": "<string>",
+      "magic": {
+        "conduit_name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "description": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "mtu": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "bgp": {
+        "customer_asn": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "extra_prefixes": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "md5_key": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new CNI object.resources/examples
+order: 2000

@@ -1,0 +1,38 @@
+$kind: http-request
+id: 51378033-0d05-58bb-b260-26f8c0596f62
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ListFindingTypes
+  GET /accounts/{account_id}/data-security/posture/finding_types
+
+  List all available finding types with pagination support.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/finding_types?page=8161&per_page=8161&vendors=GOOGLE_WORKSPACE,GOOGLE_WORKSPACE&search=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "8161"
+    description: A page number within the paginated result set.
+  - key: per_page
+    value: "8161"
+    description: Number of results to return per page.
+  - key: vendors
+    value: GOOGLE_WORKSPACE,GOOGLE_WORKSPACE
+    description: Filter finding types by vendor. Supports multiple comma-separated values. Each value may be either the vendor enum (GOOGLE_WORKSPACE) or the friendly name returned by the read routes (Google Workspace).
+  - key: search
+    value: string
+    description: Filter finding types by name or ID (case-insensitive substring match).
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List all finding types.resources/examples
+order: 1000

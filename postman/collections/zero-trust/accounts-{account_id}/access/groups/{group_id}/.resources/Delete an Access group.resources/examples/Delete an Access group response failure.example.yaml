@@ -1,0 +1,27 @@
+$kind: http-example
+id: 42211b2d-2506-581c-826a-8976c440998a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/groups/{{group_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

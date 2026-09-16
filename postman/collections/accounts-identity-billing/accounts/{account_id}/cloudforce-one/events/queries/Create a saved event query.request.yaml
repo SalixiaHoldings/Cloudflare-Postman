@@ -1,0 +1,37 @@
+$kind: http-request
+id: 7ef29f63-c4fe-553e-a83e-339f96c38454
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_EventQueryCreate
+  POST /accounts/{account_id}/cloudforce-one/events/queries/create
+
+  Create a new saved event query for the account
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/queries/create"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "query_json": "string",
+      "alert_enabled": true,
+      "alert_rollup_enabled": false,
+      "rule_enabled": true,
+      "rule_scope": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a saved event query.resources/examples
+order: 2000

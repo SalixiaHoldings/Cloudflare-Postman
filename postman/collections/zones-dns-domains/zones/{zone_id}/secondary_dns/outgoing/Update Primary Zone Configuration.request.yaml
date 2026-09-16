@@ -1,0 +1,37 @@
+$kind: http-request
+id: 8245bb66-2f3f-5dfd-b9c2-1fa5cccedbae
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: secondary-dns-(-primary-zone)-update-primary-zone-configuration
+  PUT /zones/{zone_id}/secondary_dns/outgoing
+
+  Update primary zone configuration for outgoing zone transfers.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/secondary_dns/outgoing"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "id": "269d8f4853475ca241c4e730be286b20",
+      "name": "www.example.com.",
+      "peers": [
+        "23ff594956f20c2a721606e94745a8aa",
+        "00920f38ce07c2e2f4df50b1f61d4194"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Primary Zone Configuration.resources/examples
+order: 4000

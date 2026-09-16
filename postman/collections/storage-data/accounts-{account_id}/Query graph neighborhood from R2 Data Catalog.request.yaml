@@ -1,0 +1,65 @@
+$kind: http-request
+id: 0dcbf104-c316-5769-85e9-3a2616ba1077
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_EventGraph
+  GET /accounts/{account_id}/cloudforce-one/events/graph
+
+  Expands the single-level relationship neighborhood of one or more seed nodes (event, indicator, or tag) from R2 Data Catalog. Seeds use compact id format (type:uuid), e.g. "event:550e8400-...". Multi-seed requests merge and deduplicate results server-side. Hydrates neighbor entities with summary data from Durable Objects. Supports filtering by relationship type and dataset scope.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/graph?seeds=string&seeds=string&direction=string&hydration=string&limit=5863.82306413725&max_nodes=6912.621967494488&relationshipTypes=string&relationshipTypes=string&datasetIds=string&datasetIds=string&cursor=string&expand=string&expand=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: seeds
+    value: string
+    description: "Comma-separated compact seed ids (type:uuid). Example: seeds=event:550e8400-...,indicator:661fa920-... Provide 1–50 entries; omitting seeds returns 400."
+  - key: seeds
+    value: string
+    description: "Comma-separated compact seed ids (type:uuid). Example: seeds=event:550e8400-...,indicator:661fa920-... Provide 1–50 entries; omitting seeds returns 400."
+  - key: direction
+    value: string
+    description: "Edge direction relative to each seed: out (seed→neighbors), in (neighbors→seed), both (default)."
+  - key: hydration
+    value: string
+    description: "Hydration strategy for neighbor nodes when expand=nodes is set. r2_join (default): use R2 JOIN query + DO fallback. do_only: use plain R2 query + hydrate all neighbors via Durable Objects."
+  - key: limit
+    value: "5863.82306413725"
+    description: "Max neighbors per seed (default: 100, max: 1000). Values above 1000 return 400."
+  - key: max_nodes
+    value: "6912.621967494488"
+    description: "Total accumulated node cap across all seeds (default: 500, max: 1000). Values above 1000 return 400."
+  - key: relationshipTypes
+    value: string
+    description: "Comma-separated relationship types to filter by. Allowed: tagged_with, appears_in, related_to, caused_by, attributed_to."
+  - key: relationshipTypes
+    value: string
+    description: "Comma-separated relationship types to filter by. Allowed: tagged_with, appears_in, related_to, caused_by, attributed_to."
+  - key: datasetIds
+    value: string
+    description: "Comma-separated dataset UUIDs to restrict neighbor scope, or one standalone scope value: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. Intersected with access grants."
+  - key: datasetIds
+    value: string
+    description: "Comma-separated dataset UUIDs to restrict neighbor scope, or one standalone scope value: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. Intersected with access grants."
+  - key: cursor
+    value: string
+    description: Opaque pagination token. Only valid when seeds has exactly 1 entry; 400 otherwise.
+  - key: expand
+    value: string
+    description: "Comma-separated list of response sections to expand (hydrate). Allowed: `nodes`. Omitting `expand` returns identifier-only nodes."
+  - key: expand
+    value: string
+    description: "Comma-separated list of response sections to expand (hydrate). Allowed: `nodes`. Omitting `expand` returns identifier-only nodes."
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Query graph neighborhood from R2 Data Catalog.resources/examples
+order: 1000

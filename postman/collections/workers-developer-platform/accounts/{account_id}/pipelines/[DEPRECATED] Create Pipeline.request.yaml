@@ -1,0 +1,70 @@
+$kind: http-request
+id: 1c718504-527b-5b93-846c-2e21ffeb2d94
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: postV4AccountsByAccount_idPipelines_deprecated
+  POST /accounts/{account_id}/pipelines
+
+  [DEPRECATED] Create a new pipeline. Use the new /pipelines/v1/pipelines endpoint instead.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/pipelines"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "sample_pipeline",
+      "source": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "destination": {
+        "type": "r2",
+        "format": "json",
+        "batch": {
+          "max_bytes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "max_duration_s": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "max_rows": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "compression": {
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "path": {
+          "bucket": "bucket",
+          "prefix": "base"
+        },
+        "credentials": {
+          "endpoint": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "access_key_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "secret_access_key": "{{secret_access_key}}"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/[DEPRECATED] Create Pipeline.resources/examples
+order: 2000

@@ -1,0 +1,35 @@
+$kind: http-request
+id: 00f498ed-388c-58d0-90bc-b380015c738d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-presets
+  GET /accounts/{account_id}/realtime/kit/{app_id}/presets
+
+  Fetches all the presets belonging to an App.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/presets?per_page=1043.4947488829494&page_no=1043.4947488829494&search=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: per_page
+    value: "1043.4947488829494"
+    description: Number of results per page
+  - key: page_no
+    value: "1043.4947488829494"
+    description: The page number from which you want your page search results to be displayed.
+  - key: search
+    value: string
+    description: Search presets by name.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Fetch all presets.resources/examples
+order: 1000

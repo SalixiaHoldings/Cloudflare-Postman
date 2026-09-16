@@ -1,0 +1,97 @@
+$kind: http-example
+id: 2614f1b4-c835-5b58-b8fe-f194b9c7292b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/logs/access_requests?limit=25&direction=desc&since=2020-07-01T05:20:00Z&until=2020-10-01T05:20:00Z&page=1&per_page=25&email=user@example.com&email_exact=true&user_id=f757c5c3-c1b2-50f7-9126-150a099b6f7e&allowedOp=eq&country_codeOp=eq&app_typeOp=eq&app_uidOp=eq&ray_idOp=eq&emailOp=eq&idpOp=eq&non_identityOp=eq&user_idOp=eq&fields=action,allowed,app_name,country,created_at,ray_id,user_email"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: limit
+      value: "25"
+      description: The maximum number of log entries to retrieve.
+    - key: direction
+      value: desc
+      description: The chronological sorting order for the logs.
+    - key: since
+      value: 2020-07-01T05:20:00Z
+      description: The earliest event timestamp to query.
+    - key: until
+      value: 2020-10-01T05:20:00Z
+      description: The latest event timestamp to query.
+    - key: page
+      value: "1"
+    - key: per_page
+      value: "25"
+    - key: email
+      value: user@example.com
+      description: |
+        Filter by user email. Match mode is controlled by `emailOp` (preferred) or the legacy `email_exact` flag.
+        - Default (no `emailOp`, `email_exact=false` or unset): substring match — `email=@example.com` returns all events with that domain.
+        - Exact match: set `emailOp=eq` (preferred) or `email_exact=true` — e.g. `email=user@example.com&email_exact=true` returns only that user.
+        - Explicit substring match: set `emailOp=contains` (without `email_exact=true`). When both are set, `email_exact=true` takes precedence and the match is exact.
+        - Exclusion: set `emailOp=neq`. With `email_exact=true` this is an exact-value exclusion; without it, a fuzzy substring exclusion.
+    - key: email_exact
+      value: "true"
+      description: When true, `email` is matched exactly instead of substring matching.
+    - key: user_id
+      value: f757c5c3-c1b2-50f7-9126-150a099b6f7e
+      description: |
+        Deprecated. Accepted for backward compatibility but no longer applied
+        as a filter. Use `email` instead.
+    - key: allowedOp
+      value: eq
+      description: Operator for the `allowed` filter.
+    - key: country_codeOp
+      value: eq
+      description: Operator for the `country_code` filter.
+    - key: app_typeOp
+      value: eq
+      description: Operator for the `app_type` filter.
+    - key: app_uidOp
+      value: eq
+      description: Operator for the `app_uid` filter.
+    - key: ray_idOp
+      value: eq
+      description: Operator for the `ray_id` filter.
+    - key: emailOp
+      value: eq
+      description: |
+        Operator for the `email` filter.
+        `contains` performs a substring (case-sensitive) match. When `email_exact=true`
+        is also set, `email_exact` takes precedence and `contains` is ignored.
+    - key: idpOp
+      value: eq
+      description: Operator for the `idp` filter.
+    - key: non_identityOp
+      value: eq
+      description: Operator for the `non_identity` filter.
+    - key: user_idOp
+      value: eq
+      description: |
+        Deprecated. Accepted for backward compatibility but no longer applied
+        as a filter (the `user_id` parameter is itself deprecated).
+    - key: fields
+      value: action,allowed,app_name,country,created_at,ray_id,user_email
+      description: |
+        Comma-separated list of fields to include in the response.
+        When omitted, all fields are returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

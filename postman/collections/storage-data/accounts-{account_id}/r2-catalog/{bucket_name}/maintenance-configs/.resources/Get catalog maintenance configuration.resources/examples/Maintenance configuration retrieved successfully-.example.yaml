@@ -1,0 +1,36 @@
+$kind: http-example
+id: 836992d2-dd80-50fa-9d4a-876bc75ff589
+name: Maintenance configuration retrieved successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/maintenance-configs"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "credential_status": "present",
+          "maintenance_config": {
+            "compaction": {
+              "state": "enabled",
+              "target_size_mb": "128"
+            },
+            "snapshot_expiration": {
+              "max_snapshot_age": "7d",
+              "min_snapshots_to_keep": 100,
+              "state": "enabled"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

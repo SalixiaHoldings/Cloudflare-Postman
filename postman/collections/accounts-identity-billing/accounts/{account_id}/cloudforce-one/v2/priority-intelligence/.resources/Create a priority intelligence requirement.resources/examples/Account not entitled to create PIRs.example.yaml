@@ -1,0 +1,24 @@
+$kind: http-example
+id: dc72f9d9-ce4b-5809-aa4f-eeee64dc072e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence"
+  method: POST
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "requirement": "string",
+        "priority": 0,
+        "tlp": "amber"
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

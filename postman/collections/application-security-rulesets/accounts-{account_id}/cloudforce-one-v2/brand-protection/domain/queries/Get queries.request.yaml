@@ -1,0 +1,29 @@
+$kind: http-request
+id: bfd8b831-9e97-5330-8a8b-d318853baf6c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_GetDomainQueries
+  GET /accounts/{account_id}/cloudforce-one/v2/brand-protection/domain/queries
+
+  Get all saved brand protection queries for an account
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/domain/queries?id=string&page=86089&per_page=87"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  id: string
+  page: "86089"
+  per_page: "87"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get queries.resources/examples
+order: 1000

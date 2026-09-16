@@ -1,0 +1,47 @@
+$kind: http-request
+id: 8a1d0828-36ec-5582-adf0-d91e599d2218
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: api-shield-schema-validation-post-schema
+  POST /zones/{zone_id}/api_gateway/user_schemas
+
+  Uploads an OpenAPI schema that defines expected request formats for API endpoints. Deprecated; use `/zones/{zone_id}/schema_validation/schemas` instead.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas"
+method: POST
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: formdata
+  content:
+    - type: file
+      key: file
+      src: ""
+      description: (Required) Schema file bytes
+    - type: text
+      key: kind
+      value: openapi_v3
+      description: "(Required) "
+    - type: text
+      key: name
+      value: petstore schema
+      description: Name of the schema
+    - type: text
+      key: validation_enabled
+      value: "true"
+      description: Flag whether schema is enabled for validation. (This can only be one of true,false)
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Upload a legacy schema.resources/examples
+order: 2000

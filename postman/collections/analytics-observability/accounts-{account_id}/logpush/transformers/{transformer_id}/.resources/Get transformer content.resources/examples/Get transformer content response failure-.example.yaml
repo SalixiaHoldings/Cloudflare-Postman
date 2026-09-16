@@ -1,0 +1,37 @@
+$kind: http-example
+id: 69178452-c7c7-5b32-9ee7-a1cfde17a619
+name: Get transformer content response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logpush/transformers/{{transformer_id}}/content?version_id=35"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: version_id
+      value: "35"
+      description: Specific version ID to retrieve. When omitted, the latest version is returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

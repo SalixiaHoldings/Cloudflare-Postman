@@ -1,0 +1,43 @@
+$kind: http-example
+id: fcae3daa-ef9a-573f-aa66-5d840e02ce41
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/queries?id=string&download=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: string
+      description: Optional query ID to retrieve a specific logo query
+    - key: download
+      value: string
+      description: If true, include base64-encoded image data in the response
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "id": 1460,
+          "tag": "string",
+          "r2_path": "string",
+          "similarity_threshold": 9194.32147173211,
+          "uploaded_at": "string",
+          "content_type": "string",
+          "image_data": "string"
+        },
+        {
+          "id": 7504,
+          "tag": "string",
+          "r2_path": "string",
+          "similarity_threshold": 6136.012654751539,
+          "uploaded_at": "string",
+          "content_type": "string",
+          "image_data": "string"
+        }
+      ]
+order: 1000

@@ -1,0 +1,41 @@
+$kind: http-example
+id: f248ea35-bbff-5000-b3da-c644a0ccbd83
+name: "Forbidden: Insufficient permissions"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/policies/logs?since=2026-04-01T00:00:00Z&until=2026-04-08T00:00:00Z&integration_id=497f6eca-6276-4993-bfeb-53cbbbba6f08&policy_name=Auto-remediate publicly shared files&page=3954&per_page=3954"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: since
+      value: 2026-04-01T00:00:00Z
+      description: Lower bound on the log entry timestamp. Accepts ISO 8601 / RFC3339 or epoch seconds. Defaults to 7 days before `until`. The window between `since` and `until` cannot exceed 180 days.
+    - key: until
+      value: 2026-04-08T00:00:00Z
+      description: Upper bound on the log entry timestamp. Accepts ISO 8601 / RFC3339 or epoch seconds. Defaults to the current time. Must be greater than or equal to `since`.
+    - key: integration_id
+      value: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+      description: Comma-separated list of CASB integration IDs to filter by. At most 100 values, each at most 128 characters. Values outside the account's tenancy allowlist are silently ignored. When omitted, results are scoped to the full allowlist.
+    - key: policy_name
+      value: Auto-remediate publicly shared files
+      description: Comma-separated list of policy display names to filter by. At most 100 values, each at most 255 characters.
+    - key: page
+      value: "3954"
+      description: A page number within the paginated result set.
+    - key: per_page
+      value: "3954"
+      description: Number of results to return per page.
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 4000

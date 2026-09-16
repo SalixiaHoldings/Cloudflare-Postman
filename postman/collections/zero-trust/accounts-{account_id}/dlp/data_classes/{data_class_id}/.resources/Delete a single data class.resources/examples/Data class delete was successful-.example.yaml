@@ -1,0 +1,24 @@
+$kind: http-example
+id: cc92a2e0-6f4c-541b-a4c7-9a55d1da81d0
+name: Data class delete was successful.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/data_classes/{{data_class_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

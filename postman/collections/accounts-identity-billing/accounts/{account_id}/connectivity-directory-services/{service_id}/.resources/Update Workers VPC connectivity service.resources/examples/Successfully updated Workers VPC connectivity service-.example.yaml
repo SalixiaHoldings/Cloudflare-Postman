@@ -1,0 +1,39 @@
+$kind: http-example
+id: 7f4f15d5-770f-5f92-92a8-87f9eb6dd4b9
+name: Successfully updated Workers VPC connectivity service.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/connectivity/directory/services/{{service_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "host": {
+          "ipv4": "10.0.0.1",
+          "network": {
+            "tunnel_id": "0191dce4-9ab4-7fce-b660-8e5dec5172da"
+          }
+        },
+        "name": "postgres-db",
+        "tcp_port": 5432,
+        "type": "tcp"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

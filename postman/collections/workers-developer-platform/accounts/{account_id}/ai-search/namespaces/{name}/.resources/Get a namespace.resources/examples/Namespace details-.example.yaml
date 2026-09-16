@@ -1,0 +1,55 @@
+$kind: http-example
+id: cff72a2f-940c-5671-9679-c32e50db8966
+name: Namespace details.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "name": "production",
+          "created_at": "1977-06-18T07:53:21.172Z",
+          "description": "Production environment",
+          "public_endpoint_id": "string",
+          "public_endpoint_params": {
+            "authorized_hosts": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "chat_completions_endpoint": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "custom_domains": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "default_domain_enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "instances_allowed": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "mcp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rate_limit": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "search_endpoint": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+order: 1000

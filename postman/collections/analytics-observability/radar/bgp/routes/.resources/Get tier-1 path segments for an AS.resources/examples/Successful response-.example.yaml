@@ -1,0 +1,71 @@
+$kind: http-example
+id: ff18366a-d33b-5ea1-9c15-dc51acf8f9dc
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/bgp/routes/paths/{{asn}}?ipVersion=IPv4&collector=route-views3&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: ipVersion
+      value: IPv4
+      description: Address family of the observed paths. Defaults to IPv4.
+    - key: collector
+      value: route-views3
+      description: Scope to a single RouteViews collector (e.g. "route-views3"). Omit to merge across all active collectors (identical path segments are deduplicated, observation counts summed, and every contributing collector listed).
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "paths": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "collectors": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "asnInfo": {
+            "13335": {
+              "asn": 13335,
+              "country": "US",
+              "name": "Cloudflare"
+            }
+          },
+          "meta": {
+            "dataTime": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "queryTime": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "effectiveCollector": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "stale": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

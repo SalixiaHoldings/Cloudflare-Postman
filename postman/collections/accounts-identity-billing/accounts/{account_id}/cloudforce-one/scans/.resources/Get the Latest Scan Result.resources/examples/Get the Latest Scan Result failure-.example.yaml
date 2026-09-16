@@ -1,0 +1,27 @@
+$kind: http-example
+id: a7a88790-1e79-52f3-90f5-2f2aadac74e0
+name: Get the Latest Scan Result failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/scans/results/{{config_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": {
+          "code": 10433,
+          "message": "request error"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

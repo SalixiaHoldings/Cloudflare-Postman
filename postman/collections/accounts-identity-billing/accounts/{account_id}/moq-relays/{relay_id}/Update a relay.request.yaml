@@ -1,0 +1,43 @@
+$kind: http-request
+id: 3e112479-64c6-588c-9e24-c12e9eec2968
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: moq-relays-update
+  PUT /accounts/{account_id}/moq/relays/{relay_id}
+
+  Updates a relay's name and/or configuration. The relay ID goes in
+  the URL path — `PUT /accounts/{account_id}/moq/relays/{relay_id}` —
+  not the request body; there is no collection-level update endpoint.
+  This is also the only way to set a relay's config (config cannot be
+  set at create time). Partial updates: omitted fields are preserved;
+  config sub-objects replace as whole objects when present.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/moq/relays/{{relay_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "config": {
+        "upstreams": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "name": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a relay.resources/examples
+order: 3000

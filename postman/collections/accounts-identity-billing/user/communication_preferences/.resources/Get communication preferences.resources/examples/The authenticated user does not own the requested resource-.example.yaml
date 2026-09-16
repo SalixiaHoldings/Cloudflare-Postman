@@ -1,0 +1,28 @@
+$kind: http-example
+id: 00a24359-ee35-598a-9cf6-5f71cc138bb4
+name: The authenticated user does not own the requested resource.
+request:
+  url: "{{base_url}}/user/communication_preferences"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 4030,
+            "message": "Request unauthorized"
+          }
+        ],
+        "messages": [],
+        "result": [],
+        "success": false
+      }
+order: 4000

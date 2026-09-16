@@ -1,0 +1,17 @@
+$kind: http-example
+id: 6c4db8ef-f143-5446-a676-31e1366d7747
+name: Indicates an error in retrieving Stream.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/streams/{{stream_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

@@ -1,0 +1,26 @@
+$kind: http-example
+id: cd8aa4c6-2851-520d-91c4-6c3335a888f5
+name: Get URL Intelligence response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/url?url=https://example.com/path"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: url
+      value: https://example.com/path
+      description: (Required) The URL to look up.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

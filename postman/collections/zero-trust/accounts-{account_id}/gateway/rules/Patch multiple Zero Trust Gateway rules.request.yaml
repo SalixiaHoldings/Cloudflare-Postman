@@ -1,0 +1,67 @@
+$kind: http-request
+id: bc808c94-5831-522e-9422-a78094b703f4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-gateway-rules-patch-multiple-zero-trust-gateway-rules
+  PATCH /accounts/{account_id}/gateway/rules
+
+  Update select fields of multiple Zero Trust Gateway rules in a single request. This is commonly used to reorder rules by updating their precedence values. Only the fields provided for each rule are updated.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/gateway/rules"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    [
+      {
+        "id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "description": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "enabled": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "precedence": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      {
+        "id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "description": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "enabled": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "precedence": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Patch multiple Zero Trust Gateway rules.resources/examples
+order: 2000

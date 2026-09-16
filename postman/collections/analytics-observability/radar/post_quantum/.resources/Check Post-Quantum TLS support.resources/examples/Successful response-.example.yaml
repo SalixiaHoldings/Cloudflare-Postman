@@ -1,0 +1,43 @@
+$kind: http-example
+id: f0d98c0c-98a2-5826-8816-b7e00c43c8a9
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/post_quantum/tls/support?host=cloudflare.com"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: host
+      value: cloudflare.com
+      description: (Required) Hostname or IP address to test for Post-Quantum TLS support, optionally with port (defaults to 443).
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "kex": 1369.119598530233,
+          "kexName": "string",
+          "pq": false,
+          "host": "string",
+          "bugs": {
+            "splitClientHello": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "hrrFailure": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "unknownKeyshare": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

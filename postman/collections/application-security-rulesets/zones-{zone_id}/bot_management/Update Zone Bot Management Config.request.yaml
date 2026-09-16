@@ -1,0 +1,79 @@
+$kind: http-request
+id: e57379c7-98d2-595a-903c-19a32e5d7d43
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: bot-management-for-a-zone-update-config
+  PUT /zones/{zone_id}/bot_management
+
+  Updates the Bot Management configuration for a zone.
+
+  This API is used to update:
+  - **Bot Fight Mode**
+  - **Super Bot Fight Mode**
+  - **Bot Management for Enterprise**
+
+  See [Bot Plans](https://developers.cloudflare.com/bots/plans/) for more information on the different plans
+  \
+  If you recently upgraded or downgraded your plan, refer to the following examples to clean up old configurations.
+  Copy and paste the example body to remove old zone configurations based on your current plan.
+  #### Clean up configuration for Bot Fight Mode plan
+  ```json
+  {
+    "sbfm_likely_automated": "allow",
+    "sbfm_definitely_automated": "allow",
+    "sbfm_verified_bots": "allow",
+    "sbfm_static_resource_protection": false,
+    "optimize_wordpress": false,
+    "suppress_session_score": false
+  }
+  ```
+  #### Clean up configuration for SBFM Pro plan
+  ```json
+  {
+    "sbfm_likely_automated": "allow",
+    "fight_mode": false
+  }
+  ```
+  #### Clean up configuration for SBFM Biz plan
+  ```json
+  {
+    "fight_mode": false
+  }
+  ```
+  #### Clean up configuration for BM Enterprise Subscription plan
+  It is strongly recommended that you ensure you have [custom rules](https://developers.cloudflare.com/waf/custom-rules/) in place to protect your zone before disabling the SBFM rules. Without these protections, your zone is vulnerable to attacks.
+  ```json
+  {
+    "sbfm_likely_automated": "allow",
+    "sbfm_definitely_automated": "allow",
+    "sbfm_verified_bots": "allow",
+    "sbfm_static_resource_protection": false,
+    "optimize_wordpress": false,
+    "fight_mode": false
+  }
+  ```
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/bot_management"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": "<Error: Too many levels of nesting to fake this schema>"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Zone Bot Management Config.resources/examples
+order: 2000

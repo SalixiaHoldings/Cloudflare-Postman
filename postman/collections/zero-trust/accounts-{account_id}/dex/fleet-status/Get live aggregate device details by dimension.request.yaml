@@ -1,0 +1,29 @@
+$kind: http-request
+id: a21f1154-4f8c-549d-a67d-fec177ded7a5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dex-fleet-status-live
+  GET /accounts/{account_id}/dex/fleet-status/live
+
+  Get details for live (up to 60 minutes) devices using WARP.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/fleet-status/live?since_minutes=10"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: since_minutes
+    value: "10"
+    description: (Required) Number of minutes before current time.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get live aggregate device details by dimension.resources/examples
+order: 2000

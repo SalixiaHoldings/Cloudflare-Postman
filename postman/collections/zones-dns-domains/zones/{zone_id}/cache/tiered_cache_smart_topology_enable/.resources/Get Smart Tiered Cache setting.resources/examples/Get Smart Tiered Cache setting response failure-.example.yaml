@@ -1,0 +1,28 @@
+$kind: http-example
+id: a38752f1-6fb3-5185-bece-79075527f44c
+name: Get Smart Tiered Cache setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/tiered_cache_smart_topology_enable"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

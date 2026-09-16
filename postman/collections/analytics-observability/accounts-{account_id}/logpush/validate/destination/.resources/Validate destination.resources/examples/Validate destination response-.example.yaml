@@ -1,0 +1,45 @@
+$kind: http-example
+id: 5fefecaf-4c8b-55a6-a338-bddb140a3cfe
+name: Validate destination response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logpush/validate/destination"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "destination_conf": "s3://mybucket/logs?region=us-west-2"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "message": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "valid": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

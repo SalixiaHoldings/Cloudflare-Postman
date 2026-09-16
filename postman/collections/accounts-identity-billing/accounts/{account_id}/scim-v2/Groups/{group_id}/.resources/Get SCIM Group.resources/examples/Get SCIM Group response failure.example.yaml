@@ -1,0 +1,24 @@
+$kind: http-example
+id: 855d660f-934f-5c4f-b51a-cb6d428c3204
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Groups/{{group_id}}"
+  method: GET
+  headers:
+    Accept: application/scim+json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "schemas": [
+          "urn:ietf:params:scim:api:messages:2.0:Error"
+        ],
+        "status": "400",
+        "detail": "Invalid SCIM request: userName is required",
+        "scimType": "uniqueness"
+      }
+order: 2000

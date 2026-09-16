@@ -1,0 +1,44 @@
+$kind: http-example
+id: 0c00a02c-62f3-54b9-82c6-8460749421f1
+name: Unauthorized.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/evaluate?flagKey=string&targetingKey=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: flagKey
+      value: string
+      description: (Required) The flag key to evaluate.
+    - key: targetingKey
+      value: string
+      description: Context targeting key (per OpenFeature spec); used for percentage rollout bucketing.
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": null,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 3000

@@ -1,0 +1,51 @@
+$kind: http-request
+id: 36bff5aa-2e15-5934-81a9-b15d6652e409
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: registrar-domain-registration-update
+  PATCH /accounts/{account_id}/registrar/registrations/{domain_name}
+
+  Updates an existing domain registration.
+
+  By default, the server holds the connection for a bounded, server-defined
+  amount of time while the update completes. Most updates finish within this
+  window and return `200 OK` with a completed workflow status.
+
+  If the update is still processing after this synchronous wait window, the
+  server returns `202 Accepted`. Poll the URL in `links.self` to track progress.
+
+  To skip the wait and receive an immediate `202`, send `Prefer: respond-async`.
+
+  This endpoint currently supports updating `auto_renew` only.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations/{{domain_name}}"
+method: PATCH
+headers:
+  - key: Prefer
+    value: respond-async
+    description: |
+      Set to `respond-async` to receive an immediate `202 Accepted` without
+      waiting for the operation to complete (RFC 7240).
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "auto_renew": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Registration.resources/examples
+order: 2000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: 3fe30aa9-a63f-5642-9a80-724d405eda56
+name: List Certificates response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/origin_tls_client_auth/hostnames/certificates"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

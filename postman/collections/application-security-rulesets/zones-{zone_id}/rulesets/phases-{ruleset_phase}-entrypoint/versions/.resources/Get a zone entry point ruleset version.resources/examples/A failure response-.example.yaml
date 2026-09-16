@@ -1,0 +1,27 @@
+$kind: http-example
+id: b95d284b-5db3-55ce-91c1-fec526cfe1bb
+name: A failure response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/rulesets/phases/{{ruleset_phase}}/entrypoint/versions/{{ruleset_version}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": null,
+        "success": false,
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

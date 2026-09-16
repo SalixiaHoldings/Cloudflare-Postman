@@ -1,0 +1,45 @@
+$kind: http-example
+id: eb202d8e-bb9c-5c01-aef3-762a8b7329e8
+name: Bad request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/maintenance-configs"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "compaction": {
+          "state": "enabled",
+          "target_size_mb": "256"
+        },
+        "snapshot_expiration": {
+          "max_snapshot_age": "14d",
+          "min_snapshots_to_keep": 5,
+          "state": "enabled"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false
+      }
+order: 2000

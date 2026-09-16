@@ -1,0 +1,47 @@
+$kind: http-example
+id: b9bc2c2b-839b-50ef-b319-0e9613e6829a
+name: List of rules.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules?namespace=string&path=string&recursive=true&search=malicious&is_public=true&limit=50&offset=0"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: namespace
+      value: string
+      description: Selects namespaces. Repeat the parameter to select multiple namespaces (for example, namespace=foo&namespace=bar).
+    - key: path
+      value: string
+      description: Selects paths with exact-match semantics. Omit the parameter to return rules from all paths. Pass an empty string (path=) to return only rules with an empty or uncategorized path. Pass a value (for example, path=yara) to match that exact path. Repeat the parameter (for example, path=yara&path=expr) to OR-match multiple paths with SQL `IN (...)` semantics. The `recursive` flag affects only customer-account namespace selection.
+    - key: recursive
+      value: "true"
+      description: For customer accounts, true enables descendant matching for namespaces. Paths always use exact matching.
+    - key: search
+      value: malicious
+    - key: is_public
+      value: "true"
+      description: Limits rules to the specified public visibility.
+    - key: limit
+      value: "50"
+    - key: offset
+      value: "0"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "rules": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "total": 100
+      }
+order: 1000

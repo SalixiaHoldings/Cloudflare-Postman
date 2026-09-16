@@ -1,0 +1,36 @@
+$kind: http-request
+id: f43b7d0e-77ec-52dc-8403-27ca0ba7a161
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ip-address-management-dynamic-advertisement-update-prefix-dynamic-advertisement-status
+  PATCH /accounts/{account_id}/addressing/prefixes/{prefix_id}/bgp/status
+
+  Advertise or withdraw the BGP route for a prefix.
+
+  **Deprecated:** Prefer the BGP Prefixes endpoints, which additionally allow for advertising and withdrawing 
+  subnets of an IP prefix.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/addressing/prefixes/{{prefix_id}}/bgp/status"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "advertised": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Prefix Dynamic Advertisement Status.resources/examples
+order: 2000

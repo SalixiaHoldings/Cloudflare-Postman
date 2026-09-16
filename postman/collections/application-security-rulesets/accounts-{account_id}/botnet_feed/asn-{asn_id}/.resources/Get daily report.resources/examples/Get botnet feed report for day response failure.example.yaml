@@ -1,0 +1,31 @@
+$kind: http-example
+id: d2eb28e9-04e5-52f6-b5ef-d765c86cde2c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/botnet_feed/asn/{{asn_id}}/day_report?date=2014-01-01T05:20:00.12345Z"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    date: 2014-01-01T05:20:00.12345Z
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

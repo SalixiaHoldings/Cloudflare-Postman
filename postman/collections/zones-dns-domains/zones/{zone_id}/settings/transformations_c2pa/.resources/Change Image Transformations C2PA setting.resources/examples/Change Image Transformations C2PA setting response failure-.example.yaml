@@ -1,0 +1,35 @@
+$kind: http-example
+id: 182d77ce-5351-5606-b97a-be774053c14c
+name: Change Image Transformations C2PA setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/transformations_c2pa"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "on"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

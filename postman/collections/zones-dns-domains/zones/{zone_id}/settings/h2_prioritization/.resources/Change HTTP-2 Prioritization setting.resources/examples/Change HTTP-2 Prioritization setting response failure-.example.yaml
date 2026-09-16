@@ -1,0 +1,35 @@
+$kind: http-example
+id: 506864d1-dc36-5870-a53b-d88a0a5c78cc
+name: Change HTTP/2 Prioritization setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/h2_prioritization"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "on"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

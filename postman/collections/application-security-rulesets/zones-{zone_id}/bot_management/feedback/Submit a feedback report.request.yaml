@@ -1,0 +1,64 @@
+$kind: http-request
+id: 6cdf8a38-b569-5bb0-b385-c71cc8465c23
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: bot-management-zone-feedback-create
+  POST /zones/{zone_id}/bot_management/feedback
+
+  Submit a feedback report for the specified zone. Use `type` to indicate whether the report is a false positive (good traffic flagged as bot) or a false negative (bot traffic missed). Furthermore, you can also use `expression` as a wirefilter to identify the affected traffic sample.
+
+  See more accepted API fields and expression types at https://developers.cloudflare.com/bots/concepts/feedback-loop/#api-fields and https://developers.cloudflare.com/bots/concepts/feedback-loop/#expression-fields, respectively.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/bot_management/feedback"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "description": "Automated scraping missed by detections",
+      "expression": "http.host eq 'www.example.com' and http.request.uri.path starts_with '/products' and cf.bot_management.score gt 25",
+      "first_request_seen_at": "2025-09-29T00:00:00Z",
+      "last_request_seen_at": "2025-09-29T06:00:00Z",
+      "requests": 2000,
+      "requests_by_attribute": {
+        "topIPs": [
+          {
+            "metric": "203.0.113.55",
+            "requests": 400
+          }
+        ],
+        "topJA3Hashes": [
+          {
+            "metric": "ab12cd34ef56...",
+            "requests": 900
+          }
+        ]
+      },
+      "requests_by_score": {
+        "30": 800,
+        "40": 700,
+        "50": 500
+      },
+      "requests_by_score_src": {
+        "heuristics": 200,
+        "ml": 1800
+      },
+      "subtype": "Scraping",
+      "type": "false_negative"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Submit a feedback report.resources/examples
+order: 2000

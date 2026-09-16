@@ -1,0 +1,98 @@
+$kind: http-request
+id: 3768f961-0cf2-5cac-af21-d0110766f870
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: Organizations_getAccounts
+  GET /organizations/{organization_id}/accounts
+
+  Retrieve a list of accounts that belong to a specific organization. (Currently in Public Beta - see https://developers.cloudflare.com/fundamentals/organizations/)
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/organizations/{{organization_id}}/accounts?account_pubname=string&account_pubname.startsWith=string&account_pubname.endsWith=string&account_pubname.contains=string&name=string&name.startsWith=string&name.endsWith=string&name.contains=string&order_by=account_name&direction=desc&include_tags=true&include_total=true&page_token=string&page_size=473"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: account_pubname
+    value: string
+    description: |-
+      (case-insensitive) Filter the list of accounts to where the account_pubname is equal to
+      a particular string.
+  - key: account_pubname.startsWith
+    value: string
+    description: |-
+      (case-insensitive) Filter the list of accounts to where the account_pubname starts with
+      a particular string.
+  - key: account_pubname.endsWith
+    value: string
+    description: |-
+      (case-insensitive) Filter the list of accounts to where the account_pubname ends with
+      a particular string.
+  - key: account_pubname.contains
+    value: string
+    description: |-
+      (case-insensitive) Filter the list of accounts to where the account_pubname contains
+      a particular string.
+  - key: name
+    value: string
+    description: |-
+      (case-insensitive) Filter the list of accounts to where the name is equal to a
+      particular string.
+  - key: name.startsWith
+    value: string
+    description: |-
+      (case-insensitive) Filter the list of accounts to where the name starts with a
+      particular string.
+  - key: name.endsWith
+    value: string
+    description: |-
+      (case-insensitive) Filter the list of accounts to where the name ends with a particular
+      string.
+  - key: name.contains
+    value: string
+    description: |-
+      (case-insensitive) Filter the list of accounts to where the name contains a particular
+      string.
+  - key: order_by
+    value: account_name
+    description: |-
+      Field to order results by. Currently supported values: `account_name`.
+      When not specified, results are ordered by internal account ID.
+  - key: direction
+    value: desc
+    description: |-
+      Sort direction for the order_by field. Valid values: `asc`, `desc`.
+      Defaults to `asc` when order_by is specified.
+  - key: include_tags
+    value: "true"
+    description: Include Account tags from the resource tag mirror. Omit this parameter to preserve the existing Account response shape.
+  - key: include_total
+    value: "true"
+    description: |-
+      Whether to calculate and return the exact result_info.total_size for cursor
+      pagination. Defaults to true. When false, total_size is omitted. page_size and
+      include_total may change between pages; next_page_token remains the authoritative
+      continuation signal.
+      Legacy page/per_page requests always calculate total_count.
+  - key: page_token
+    value: string
+    description: |-
+      An opaque token returned from the last list response that when
+      provided will retrieve the next page.
+
+      Parameters used to filter the retrieved list must remain in subsequent
+      requests with a page token.
+  - key: page_size
+    value: "473"
+    description: The amount of items to return. Defaults to 10.
+auth:
+  type: noauth
+examples: ./.resources/Get organization accounts.resources/examples
+order: 4000

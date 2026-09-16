@@ -1,0 +1,46 @@
+$kind: http-example
+id: 8a7b54e1-42aa-55aa-bd3e-7d3348512197
+name: Browser extension configuration updated.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "config": {
+          "team_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "min_extension_version": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": true,
+        "errors": [],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

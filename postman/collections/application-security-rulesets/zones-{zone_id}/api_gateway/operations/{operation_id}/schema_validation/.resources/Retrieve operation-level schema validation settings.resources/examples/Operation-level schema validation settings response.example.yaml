@@ -1,0 +1,24 @@
+$kind: http-example
+id: 78123ce2-8367-5f78-91a0-345066e82f15
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations/{{operation_id}}/schema_validation"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "mitigation_action": "block",
+        "operation_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

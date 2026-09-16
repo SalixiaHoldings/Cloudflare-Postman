@@ -1,0 +1,44 @@
+$kind: http-request
+id: cc5eef6d-13b2-52d6-b406-9b6b62a5298f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudforce-one-list-rules
+  GET /accounts/{account_id}/cloudforce-one/rules
+
+  Returns all rules for an account with optional filtering.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules?namespace=string&path=string&recursive=true&search=malicious&is_public=true&limit=50&offset=0"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: namespace
+    value: string
+    description: Selects namespaces. Repeat the parameter to select multiple namespaces (for example, namespace=foo&namespace=bar).
+  - key: path
+    value: string
+    description: Selects paths with exact-match semantics. Omit the parameter to return rules from all paths. Pass an empty string (path=) to return only rules with an empty or uncategorized path. Pass a value (for example, path=yara) to match that exact path. Repeat the parameter (for example, path=yara&path=expr) to OR-match multiple paths with SQL `IN (...)` semantics. The `recursive` flag affects only customer-account namespace selection.
+  - key: recursive
+    value: "true"
+    description: For customer accounts, true enables descendant matching for namespaces. Paths always use exact matching.
+  - key: search
+    value: malicious
+  - key: is_public
+    value: "true"
+    description: Limits rules to the specified public visibility.
+  - key: limit
+    value: "50"
+  - key: offset
+    value: "0"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List rules.resources/examples
+order: 2000

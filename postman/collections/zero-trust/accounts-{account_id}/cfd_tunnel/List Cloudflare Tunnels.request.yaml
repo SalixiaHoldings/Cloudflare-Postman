@@ -1,0 +1,37 @@
+$kind: http-request
+id: be936210-86ed-5656-8072-e9a77260902a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-tunnel-list-cloudflare-tunnels
+  GET /accounts/{account_id}/cfd_tunnel
+
+  Lists and filters Cloudflare Tunnels in an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cfd_tunnel?name=blog&is_deleted=true&existed_at=2019-10-12T07%3A20%3A50.52Z&uuid=f70ff985-a4ef-4643-bbbc-4a0ed4fc8415&was_active_at=2009-11-10T23:00:00Z&was_inactive_at=2009-11-10T23:00:00Z&include_prefix=vpc1-&exclude_prefix=vpc1-&status=healthy&per_page=234.45682604098693&page=1"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  name: blog
+  is_deleted: "true"
+  existed_at: 2019-10-12T07%3A20%3A50.52Z
+  uuid: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+  was_active_at: 2009-11-10T23:00:00Z
+  was_inactive_at: 2009-11-10T23:00:00Z
+  include_prefix: vpc1-
+  exclude_prefix: vpc1-
+  status: healthy
+  per_page: "234.45682604098693"
+  page: "1"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Cloudflare Tunnels.resources/examples
+order: 1000

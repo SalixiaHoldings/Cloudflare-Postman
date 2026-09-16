@@ -1,0 +1,47 @@
+$kind: http-example
+id: 0fc82c10-e922-5399-87fa-265ea68361a7
+name: Object not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/models/search?per_page=100&page=1&task=Text Generation&author=&source=7160.418841522187&hide_experimental=false&search=&include_deprecated=false&format=openrouter"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "100"
+    - key: page
+      value: "1"
+    - key: task
+      value: Text Generation
+      description: Filter by Task Name.
+    - key: author
+      value: ""
+      description: Filter by Author.
+    - key: source
+      value: "7160.418841522187"
+      description: Filter by Source Id.
+    - key: hide_experimental
+      value: "false"
+      description: Filter to hide experimental models.
+    - key: search
+      value: ""
+      description: Search.
+    - key: include_deprecated
+      value: "false"
+      description: If true, include models for up to three months after their deprecation date. Defaults to false.
+    - key: format
+      value: openrouter
+      description: If set, return models in the requested marketplace format instead of the default response.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": []
+      }
+order: 2000

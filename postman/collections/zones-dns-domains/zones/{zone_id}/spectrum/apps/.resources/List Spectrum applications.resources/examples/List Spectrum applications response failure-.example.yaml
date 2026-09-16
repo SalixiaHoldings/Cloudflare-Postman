@@ -1,0 +1,33 @@
+$kind: http-example
+id: 7f337069-eeaf-5bef-9e46-2acc268696c0
+name: List Spectrum applications response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/apps?page=1&per_page=20&direction=desc&order=protocol"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "20"
+    direction: desc
+    order: protocol
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

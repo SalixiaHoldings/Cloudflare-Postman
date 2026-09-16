@@ -1,0 +1,43 @@
+$kind: http-example
+id: 18ce1e13-a6b4-5a16-8dea-872a673c3b36
+name: Missing permission to access the requested resource.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logs/explorer/query/sql"
+  method: POST
+  headers:
+    Content-Type: text/plain
+    Accept: application/json
+  body:
+    type: file
+    content: {}
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "key_0": "string",
+          "key_1": 1714.02208507061,
+          "key_2": 4576.62018481642,
+          "key_3": 675.5453837104142,
+          "key_4": true
+        },
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          "string",
+          "string"
+        ]
+      }
+order: 3000

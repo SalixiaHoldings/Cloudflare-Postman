@@ -1,0 +1,57 @@
+$kind: http-example
+id: 58bb8858-8c99-50f6-bca0-cadf47440259
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/triggers"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "external_script_id": "dd7160bb9cef458093557736f4b9e75b",
+        "build_token_uuid": "{{build_token_uuid}}",
+        "trigger_name": "Production Deploy",
+        "build_command": "npm run build",
+        "deploy_command": "npx wrangler deploy",
+        "root_directory": "/",
+        "branch_includes": [
+          "main"
+        ],
+        "branch_excludes": [],
+        "path_includes": [
+          "*"
+        ],
+        "path_excludes": [
+          "*.md"
+        ],
+        "repo_connection_uuid": "<uuid>",
+        "build_caching_enabled": false
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result_info": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

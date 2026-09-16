@@ -1,0 +1,30 @@
+$kind: http-example
+id: d1b8ab0f-402d-5e3e-bd36-049448bb16ae
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/settings"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "search_engine_crawler_bypass": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "search_engine_crawler_bypass": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

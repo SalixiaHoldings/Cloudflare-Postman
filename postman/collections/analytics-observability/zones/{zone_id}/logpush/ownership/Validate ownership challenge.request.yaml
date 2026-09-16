@@ -1,0 +1,35 @@
+$kind: http-request
+id: 6f7c993b-3888-57d1-9510-fb744431a4d2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post-zones-zone_id-logpush-ownership-validate
+  POST /zones/{zone_id}/logpush/ownership/validate
+
+  Validates ownership challenge of the destination.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/logpush/ownership/validate"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "destination_conf": "s3://mybucket/logs?region=us-west-2",
+      "ownership_challenge": "00000000000000000000"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Validate ownership challenge.resources/examples
+order: 2000

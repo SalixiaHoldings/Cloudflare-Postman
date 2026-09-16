@@ -1,0 +1,78 @@
+$kind: http-example
+id: 4dbeb8f0-bce7-5fac-822d-b9b7fd4ff37f
+name: Connect project source response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pages/projects/{{project_name}}/source"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "type": "github",
+        "config": {
+          "deployments_enabled": false,
+          "owner": "my-org",
+          "owner_id": "12345678",
+          "path_excludes": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "path_includes": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "pr_comments_enabled": false,
+          "preview_branch_excludes": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "preview_branch_includes": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "preview_deployment_setting": "none",
+          "production_branch": "main",
+          "production_deployments_enabled": false,
+          "repo_id": "12345678",
+          "repo_name": "my-repo"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

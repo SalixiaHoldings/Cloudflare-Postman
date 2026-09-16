@@ -1,0 +1,30 @@
+$kind: http-request
+id: c9253bde-f6f7-5ab1-87b6-0279c81f87d5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: scim-groups-list
+  GET /accounts/{account_id}/scim/v2/Groups
+
+  Lists SCIM Group resources for the account. Returns both system groups (backed by Cloudflare permission groups, prefixed `cloudflare-v1-`) and custom user groups. Supports filtering by `displayName` using SCIM filter syntax.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: '{{base_url}}/accounts/{{account_id}}/scim/v2/Groups?startIndex=1&count=5628&filter=displayName eq "My Group"'
+method: GET
+headers:
+  Accept: application/scim+json
+queryParams:
+  startIndex: "1"
+  count: "5628"
+  filter: displayName eq "My Group"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List SCIM Groups.resources/examples
+order: 1000

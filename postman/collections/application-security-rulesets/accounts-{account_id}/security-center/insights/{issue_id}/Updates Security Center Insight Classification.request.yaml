@@ -1,0 +1,33 @@
+$kind: http-request
+id: 8a5481b7-521d-5864-85e9-8c0b1cf093f1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: update-security-center-insight-classification
+  PATCH /accounts/{account_id}/security-center/insights/{issue_id}/classification
+
+  Updates the user classification for a Security Center insight. Valid values are 'false_positive' or 'accept_risk'. To reset, set classification to null. Cannot change directly between classification values - must reset to null first.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/security-center/insights/{{issue_id}}/classification"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "classification": "false_positive",
+      "rationale": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Updates Security Center Insight Classification.resources/examples
+order: 2000

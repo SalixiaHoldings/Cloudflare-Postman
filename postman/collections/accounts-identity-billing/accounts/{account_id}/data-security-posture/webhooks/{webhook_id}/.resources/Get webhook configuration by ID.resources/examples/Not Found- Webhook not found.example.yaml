@@ -1,0 +1,22 @@
+$kind: http-example
+id: 74e06659-c1d5-5e11-92d9-ef7523f799f8
+name: "Not Found: Webhook not found"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/{{webhook_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 5000

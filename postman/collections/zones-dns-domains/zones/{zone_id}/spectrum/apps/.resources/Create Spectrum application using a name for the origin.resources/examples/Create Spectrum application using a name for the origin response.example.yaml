@@ -1,0 +1,29 @@
+$kind: http-example
+id: 7ec166dd-49bb-5487-aa1e-5e040eaefb81
+name: Create Spectrum application using a name for the origin response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/apps"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

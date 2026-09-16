@@ -1,0 +1,43 @@
+$kind: http-example
+id: eabf099c-6060-5f1f-9749-bb20783f1a4e
+name: |-
+  The request is not authorized to submit abuse reports. Missing or
+  invalid credentials may be rejected with the standard Cloudflare API
+  authentication error. If credentials are valid, this is most commonly
+  because the account does not have the abuse-reports entitlement
+  (Enterprise accounts have it by default; other accounts must request
+  access), or because the API token is missing the
+  `Account > Abuse Reports > Edit` permission. Entitlement failures
+  return the message `Not entitled to use feature: Abuse Report API`.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/{{report_param}}"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 10000,
+            "message": "Authentication error"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

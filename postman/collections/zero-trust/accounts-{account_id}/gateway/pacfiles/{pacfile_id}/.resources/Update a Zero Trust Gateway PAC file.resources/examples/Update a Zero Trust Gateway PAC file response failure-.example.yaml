@@ -1,0 +1,42 @@
+$kind: http-example
+id: 1701fdf8-be2b-51a6-b0fc-2938c6a0b3f6
+name: Update a Zero Trust Gateway PAC file response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/pacfiles/{{pacfile_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Devops team",
+        "description": "PAC file for Devops team",
+        "contents": "function FindProxyForURL(url, host) { return \"DIRECT\"; }"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

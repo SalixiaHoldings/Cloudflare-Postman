@@ -1,0 +1,28 @@
+$kind: http-example
+id: 0000e6ab-fa3b-59c5-ad6f-9928d9f67337
+name: |
+  Too Many Requests. The account has exceeded the concurrent query limit, the global query pool is full, or a resource limit was hit (query too slow, too much memory, result too large).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics_engine/sql"
+  method: POST
+  headers:
+    Content-Type: text/plain
+    Accept: application/json
+  body:
+    type: text
+    content: |
+      SELECT blob1, sum(double1) as total
+      FROM my_dataset
+      WHERE timestamp > NOW() - INTERVAL '7' DAY
+      GROUP BY blob1
+      ORDER BY total DESC
+      LIMIT 100
+response:
+  statusCode: 429
+  statusText: Too Many Requests
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: "Resource limit: Your query requires too much memory. Try simplifying the query or narrowing the time range."
+order: 5000

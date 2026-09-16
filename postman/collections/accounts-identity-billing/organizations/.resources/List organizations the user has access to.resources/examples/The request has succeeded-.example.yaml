@@ -1,0 +1,110 @@
+$kind: http-example
+id: bb1b2d27-a5d4-539c-8ab0-fc352c5b5ee8
+name: The request has succeeded.
+request:
+  url: "{{base_url}}/organizations?id=a7b9c3d2e8f4a1b5c6d0e9f2a3b7c4d8,a7b9c3d2e8f4a1b5c6d0e9f2a3b7c4d8&name=string&name.startsWith=string&name.endsWith=string&name.contains=string&containing.account=string&containing.user=string&containing.organization=string&parent.id=a7b9c3d2e8f4a1b5c6d0e9f2a3b7c4d8&page_token=string&page_size=473"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: a7b9c3d2e8f4a1b5c6d0e9f2a3b7c4d8,a7b9c3d2e8f4a1b5c6d0e9f2a3b7c4d8
+      description: |-
+        Only return organizations with the specified IDs (ex. id=foo&id=bar). Send multiple elements
+        by repeating the query value.
+    - key: name
+      value: string
+      description: |-
+        (case-sensitive) Filter the list of organizations to where the name is equal to a
+        particular string.
+    - key: name.startsWith
+      value: string
+      description: |-
+        (case-insensitive) Filter the list of organizations to where the name starts with a
+        particular string.
+    - key: name.endsWith
+      value: string
+      description: |-
+        (case-insensitive) Filter the list of organizations to where the name ends with a particular
+        string.
+    - key: name.contains
+      value: string
+      description: |-
+        (case-insensitive) Filter the list of organizations to where the name contains a particular
+        string.
+    - key: containing.account
+      value: string
+      description: |-
+        Filter the list of organizations to the ones that contain this particular
+        account.
+    - key: containing.user
+      value: string
+      description: |-
+        Filter the list of organizations to the ones that contain this particular
+        user.
+
+        IMPORTANT: Just because an organization "contains" a user is not a
+        representation of any authorization or privilege to manage any resources
+        therein. An organization "containing" a user simply means the user is managed by
+        that organization.
+    - key: containing.organization
+      value: string
+      description: |-
+        Filter the list of organizations to the ones that contain this particular
+        organization.
+    - key: parent.id
+      value: a7b9c3d2e8f4a1b5c6d0e9f2a3b7c4d8
+      description: |-
+        Filter the list of organizations to the ones that are a sub-organization
+        of the specified organization.
+
+        "null" is a valid value to provide for this parameter. It means "where
+        an organization has no parent (i.e. it is a 'root' organization)."
+    - key: page_token
+      value: string
+      description: |-
+        An opaque token returned from the last list response that when
+        provided will retrieve the next page.
+
+        Parameters used to filter the retrieved list must remain in subsequent
+        requests with a page token.
+    - key: page_size
+      value: "473"
+      description: The amount of items to return. Defaults to 10.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result_info": {
+          "next_page_token": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total_size": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: 5994b8f3-f145-5f1f-b958-a85de31162f5
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/service_tokens/{{service_token_id}}/refresh"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

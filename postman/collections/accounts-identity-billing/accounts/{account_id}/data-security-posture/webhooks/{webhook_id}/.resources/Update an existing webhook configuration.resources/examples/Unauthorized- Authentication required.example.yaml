@@ -1,0 +1,43 @@
+$kind: http-example
+id: fb7fca2b-c31f-52e3-be55-70bfdef59683
+name: "Unauthorized: Authentication required"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/{{webhook_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "label": "Send to Slack",
+        "destination_url": "https://example.com/webhook",
+        "authentication_type": "Bearer Auth",
+        "status": "enabled",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer token123"
+          },
+          {
+            "key": "X-Custom-Header",
+            "value": "value"
+          }
+        ],
+        "signing_secret": "{{signing_secret}}"
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 3000

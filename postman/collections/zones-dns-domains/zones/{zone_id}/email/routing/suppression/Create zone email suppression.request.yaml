@@ -1,0 +1,33 @@
+$kind: http-request
+id: 7600f017-8f8e-5a9a-82f4-09bde91e04ee
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_publicNewSuppressionZoneRouting
+  POST /zones/{zone_id}/email/routing/suppression
+
+  Creates a new email suppression for the specified zone.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/email/routing/suppression"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "email": "user@example.com",
+      "expires_at": "1983-11-15T06:34:51.565Z"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create zone email suppression.resources/examples
+order: 2000

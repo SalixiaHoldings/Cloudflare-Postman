@@ -1,0 +1,32 @@
+$kind: http-example
+id: 9f0f080c-96e8-544e-a21d-97aee8f4fc7a
+request:
+  url: "{{base_url}}/zones/{{zone_identifier}}/custom_pages/assets"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "my_custom_error_page",
+        "description": "Custom 500 error page",
+        "url": "https://example.com/error.html"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,29 @@
+$kind: http-example
+id: 7ea39fa1-9e4c-58ef-8a73-a90b025fc62f
+name: Threat Signals response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds"
+  method: POST
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "category": "string",
+        "curated_feed_id": "704bb250-9478-5469-dffa-687ff5179183",
+        "display_name": "string",
+        "enabled": true,
+        "poll_interval_s": 300,
+        "title": "string",
+        "url": "https://RPrPJSfzFRUYbxcTOSDdrCXIr.dkpvIeKhzD7OH5fH-YnMHUoDZ4tbJq66VFGTftp9JcupeMMYdn"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

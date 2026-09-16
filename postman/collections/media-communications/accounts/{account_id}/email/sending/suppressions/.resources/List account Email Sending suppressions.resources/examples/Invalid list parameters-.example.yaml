@@ -1,0 +1,40 @@
+$kind: http-example
+id: 837228ab-9d91-5f61-b4c8-c459683567f6
+name: Invalid list parameters.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions?per_page=100&cursor=eyJ0IjozLCJwIjoxMjMsImMiOiJjM2RjNWYwYjM0YTE0ZmY4ZTFiM2VjMDQ4OTVlMWIyMiJ9&email=user@example.com&search=billing@&reason=hard_bounce"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    per_page: "100"
+    cursor: eyJ0IjozLCJwIjoxMjMsImMiOiJjM2RjNWYwYjM0YTE0ZmY4ZTFiM2VjMDQ4OTVlMWIyMiJ9
+    email: user@example.com
+    search: billing@
+    reason: hard_bounce
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+order: 2000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: a9d8a621-33a7-5000-8e7a-cfc2da4317ce
+name: List ACLs response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/secondary_dns/acls"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

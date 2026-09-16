@@ -1,0 +1,38 @@
+$kind: http-example
+id: 2413b018-ef59-55a0-9c4f-828ebcb042fa
+name: Forbidden.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/exemptions"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "namespace": [
+          "^test-.*$",
+          "^test-.*$"
+        ],
+        "tag_match": [
+          "^test-.*$",
+          "^test-.*$"
+        ],
+        "worker_name": [
+          "^test-.*$",
+          "^test-.*$"
+        ]
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 4000

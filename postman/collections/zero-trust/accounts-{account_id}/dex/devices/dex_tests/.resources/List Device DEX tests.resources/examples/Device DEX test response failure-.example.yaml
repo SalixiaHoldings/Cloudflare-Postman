@@ -1,0 +1,43 @@
+$kind: http-example
+id: 479493ff-8158-5b40-aac6-ca803444d485
+name: Device DEX test response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/devices/dex_tests?page=1&per_page=10&testName=string&kind=traceroute"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number of paginated results.
+    - key: per_page
+      value: "10"
+      description: Number of results per page.
+    - key: testName
+      value: string
+      description: Filter by test name.
+    - key: kind
+      value: traceroute
+      description: Filter by test type.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: 73b368e9-3523-597b-aa2e-587463333a5a
+name: Set Global WARP override state response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/resilience/disconnect"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "disconnect": false,
+        "justification": "Turning off WARP for testing purposes."
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

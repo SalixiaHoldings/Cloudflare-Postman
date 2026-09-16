@@ -1,0 +1,34 @@
+$kind: http-example
+id: 7e19e4da-dc13-52ce-94ba-a7a98ba31b84
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/idp_federation_grants"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "idp_id": "a79de439-0e7f-4ebb-8a02-222222222222"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

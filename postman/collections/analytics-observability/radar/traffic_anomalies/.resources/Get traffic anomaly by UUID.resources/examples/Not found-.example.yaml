@@ -1,0 +1,26 @@
+$kind: http-example
+id: 63304d3a-b15e-5254-8c89-1c6773314fc4
+name: Not found.
+request:
+  url: "{{base_url}}/radar/traffic_anomalies/{{uuid}}?format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not Found."
+      }
+order: 2000

@@ -1,0 +1,49 @@
+$kind: http-example
+id: 3729da12-c373-5183-9ca1-d8bbd9d28de8
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/event_subscriptions/subscriptions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "destination": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "enabled": false,
+        "events": [
+          "string"
+        ],
+        "name": "string",
+        "source": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

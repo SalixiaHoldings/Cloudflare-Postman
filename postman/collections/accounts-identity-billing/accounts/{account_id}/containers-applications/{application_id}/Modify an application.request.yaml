@@ -1,0 +1,56 @@
+$kind: http-request
+id: d651d779-e49d-57e0-8069-94fe59273151
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: modifyApplication
+  PATCH /accounts/{account_id}/containers/applications/{application_id}
+
+  Modifies a single application by id. Durable Object-managed application settings are
+  published to runtime metadata without creating deployments or rollouts. Top-level
+  `observability` for these applications supports only `logs.enabled`.
+  The supported fields depend on the existing
+  application's scheduling policy. For scheduler-backed applications, changes that
+  replace instance deployment configuration, including the image, require a rollout.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "configuration": {
+        "authorized_keys": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "constraints": {
+        "jurisdiction": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "regions": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "max_instances": 3126,
+      "observability": {
+        "description": "Top-level application observability settings. Scheduler-backed applications\nhot-reload these settings across existing instances. An existing Durable\nObject-managed application accepts only `logs.enabled` and publishes these settings\nto runtime metadata without creating deployments or rollouts.\n",
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "rollout_active_grace_period": 0
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Modify an application.resources/examples
+order: 3000

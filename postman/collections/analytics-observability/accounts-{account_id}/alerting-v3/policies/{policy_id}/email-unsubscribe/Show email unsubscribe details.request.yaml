@@ -1,0 +1,30 @@
+$kind: http-request
+id: 2fa9704d-61e9-5120-9a5f-68d8ea03a81c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: notification-policies-show-email-unsubscribe-details
+  GET /accounts/{account_id}/alerting/v3/policies/{policy_id}/email/unsubscribe
+
+  Shows details for unsubscribing an email address from a notification policy.
+
+  Authentication support: anonymous
+  Auth declaration SHA-256: 8dfbba720fdd82808c2cd99b03691e2680337173fcd32f3f374d1837e44905ea
+  Upstream security (operation; OR alternatives, AND within each object): []
+  Selected requirement: null
+  Upstream permits an unauthenticated request; collection Bearer inheritance is disabled.
+url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/policies/{{policy_id}}/email/unsubscribe?email=UD0@SKsKwYZsDkWLWIs.fi&token=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: email
+    value: UD0@SKsKwYZsDkWLWIs.fi
+    description: "(Required) "
+  - key: token
+    value: string
+    description: "(Required) "
+auth:
+  type: noauth
+examples: ./.resources/Show email unsubscribe details.resources/examples
+order: 1000

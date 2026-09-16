@@ -1,0 +1,30 @@
+$kind: http-example
+id: ca0fa762-fdb8-53f4-be50-b7e4e33245db
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/logos?tag=string&match_type=string&threshold=3078.528684563935"
+  method: POST
+  headers:
+    Content-Type: application/x-www-form-urlencoded
+    Accept: application/json
+  queryParams:
+    tag: string
+    match_type: string
+    threshold: "3078.528684563935"
+  body:
+    type: urlencoded
+    content:
+      image: string
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 9733,
+        "tag": "string",
+        "upload_path": "string"
+      }
+order: 1000

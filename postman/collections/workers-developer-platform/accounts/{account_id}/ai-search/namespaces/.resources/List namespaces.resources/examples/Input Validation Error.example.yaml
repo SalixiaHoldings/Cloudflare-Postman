@@ -1,0 +1,53 @@
+$kind: http-example
+id: 4a89b67b-01a2-5ac3-a1e8-3a242cfdf1a8
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces?page=1&per_page=20&search=prod"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number (1-indexed).
+    - key: per_page
+      value: "20"
+      description: Number of results per page.
+    - key: search
+      value: prod
+      description: Filter namespaces whose name or description contains this string (case-insensitive).
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "path": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "path": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

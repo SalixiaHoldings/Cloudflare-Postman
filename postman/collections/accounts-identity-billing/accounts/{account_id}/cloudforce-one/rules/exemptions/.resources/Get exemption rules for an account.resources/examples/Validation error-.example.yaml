@@ -1,0 +1,20 @@
+$kind: http-example
+id: 96e8ce53-a6df-5ac9-992d-5e76e5e41ff4
+name: Validation error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/exemptions"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 2000

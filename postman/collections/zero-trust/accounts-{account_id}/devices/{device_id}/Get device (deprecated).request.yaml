@@ -1,0 +1,32 @@
+$kind: http-request
+id: df3fdd4f-daa4-577e-bd3b-50387f9f7e90
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: devices-device-details
+  GET /accounts/{account_id}/devices/{device_id}
+
+  Fetches a single WARP device. Not supported when [multi-user mode](https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/deployment/mdm-deployment/windows-multiuser/) is enabled for the account.
+
+  **Deprecated**: please use one of the following endpoints instead:
+  - GET /accounts/{account_id}/devices/physical-devices/{device_id}
+  - GET /accounts/{account_id}/devices/registrations/{registration_id}
+
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/devices/{{device_id}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get device (deprecated).resources/examples
+order: 1000

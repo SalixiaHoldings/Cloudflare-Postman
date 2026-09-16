@@ -1,0 +1,38 @@
+$kind: http-example
+id: db452c51-ee26-5c7e-ae7c-b919406794c2
+name: Defines the list WAF rule groups response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages/{{package_id}}/groups?mode=on&page=1&per_page=50&order=mode&direction=desc&match=all&name=Project Honey Pot&rules_count=10"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    mode: on
+    page: "1"
+    per_page: "50"
+    order: mode
+    direction: desc
+    match: all
+    name: Project Honey Pot
+    rules_count: "10"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

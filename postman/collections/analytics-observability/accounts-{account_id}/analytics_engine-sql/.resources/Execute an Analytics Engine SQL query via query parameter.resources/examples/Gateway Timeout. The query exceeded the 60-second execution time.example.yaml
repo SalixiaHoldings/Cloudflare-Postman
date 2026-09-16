@@ -1,0 +1,22 @@
+$kind: http-example
+id: b9954fd4-acae-56c2-ae9f-244f4790f0cb
+name: |
+  Gateway Timeout. The query exceeded the 60-second execution timeout. Simplify the query, narrow the time range, or add more restrictive filters to reduce execution time.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics_engine/sql?query=SELECT blob1, count() FROM my_dataset WHERE timestamp > NOW() - INTERVAL '1' DAY GROUP BY blob1 ORDER BY count() DESC LIMIT 10"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: query
+      value: SELECT blob1, count() FROM my_dataset WHERE timestamp > NOW() - INTERVAL '1' DAY GROUP BY blob1 ORDER BY count() DESC LIMIT 10
+      description: (Required) Supply a SQL query to run against your Analytics Engine datasets. Use only SELECT statements. The service validates the query against a restricted SQL grammar before execution.
+response:
+  statusCode: 504
+  statusText: Gateway Timeout
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: Gateway Timeout
+order: 8000

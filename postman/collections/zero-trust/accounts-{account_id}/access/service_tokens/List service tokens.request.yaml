@@ -1,0 +1,30 @@
+$kind: http-request
+id: f8bfaa60-2281-5099-94e0-a8dac4bfcdb2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-service-tokens-list-service-tokens
+  GET /accounts/{account_id}/access/service_tokens
+
+  Lists all service tokens.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/service_tokens?name=string&search=string&page=1&per_page=1000"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  name: string
+  search: string
+  page: "1"
+  per_page: "1000"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List service tokens.resources/examples
+order: 1000

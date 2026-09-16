@@ -1,0 +1,31 @@
+$kind: http-example
+id: df8fcd61-a3e6-563b-804d-69e3644634ce
+name: List Pools response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/load_balancers/pools?monitor=string"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    monitor: string
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

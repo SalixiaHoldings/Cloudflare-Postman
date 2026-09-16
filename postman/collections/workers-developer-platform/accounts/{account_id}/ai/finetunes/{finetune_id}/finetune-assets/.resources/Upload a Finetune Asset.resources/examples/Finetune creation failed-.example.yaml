@@ -1,0 +1,33 @@
+$kind: http-example
+id: b3c312c1-3bc8-539e-9f7b-3d004115a84c
+name: Finetune creation failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/finetunes/{{finetune_id}}/finetune-assets"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: file_name
+        value: string
+        description: (Required) Name of the file (adapter_config.json or adapter_model.safetensors).
+      - type: file
+        key: file
+        src: ""
+        description: (Required) File to upload.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": []
+      }
+order: 2000

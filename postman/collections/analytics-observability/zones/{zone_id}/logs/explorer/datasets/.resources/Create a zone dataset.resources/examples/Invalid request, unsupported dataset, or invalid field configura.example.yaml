@@ -1,0 +1,52 @@
+$kind: http-example
+id: f3c89132-86be-5fb3-a6c5-1ff101540a24
+name: Invalid request, unsupported dataset, or invalid field configuration.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/logs/explorer/datasets"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "dataset": "string",
+        "fields": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "filter": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "key_0": 6349,
+          "key_1": 4224.232907872647
+        },
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          "string",
+          "string"
+        ]
+      }
+order: 2000

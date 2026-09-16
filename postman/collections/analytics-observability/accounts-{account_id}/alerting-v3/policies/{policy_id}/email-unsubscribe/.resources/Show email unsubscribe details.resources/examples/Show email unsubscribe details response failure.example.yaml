@@ -1,0 +1,33 @@
+$kind: http-example
+id: 9287ee1d-6a84-58c8-9410-cee53f1c8c64
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/policies/{{policy_id}}/email/unsubscribe?email=UD0@SKsKwYZsDkWLWIs.fi&token=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: email
+      value: UD0@SKsKwYZsDkWLWIs.fi
+      description: "(Required) "
+    - key: token
+      value: string
+      description: "(Required) "
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": []
+      }
+order: 2000

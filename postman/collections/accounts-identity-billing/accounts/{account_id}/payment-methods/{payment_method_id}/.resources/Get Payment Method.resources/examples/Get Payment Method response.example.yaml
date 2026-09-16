@@ -1,0 +1,23 @@
+$kind: http-example
+id: acfc7a52-9173-5b8b-a71d-66505f11d75b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/payment-methods/{{payment_method_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,31 @@
+$kind: http-example
+id: 015965c0-e2be-50c4-8ba0-a9718a1d92d4
+name: Delete Primary Zone Configuration response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/secondary_dns/outgoing"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,31 @@
+$kind: http-example
+id: 2293d4c1-c16a-5cfc-bd1c-49a952e5418b
+name: Successful response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/sinkholes/{{sinkhole_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {}
+      }
+order: 1000

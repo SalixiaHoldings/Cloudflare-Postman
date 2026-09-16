@@ -1,0 +1,33 @@
+$kind: http-example
+id: 752c744a-eeb4-5b18-b353-9f58f3870a39
+name: The request is malformed.
+request:
+  url: "{{base_url}}/analytics/sql?query=SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: query
+      value: SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10
+      description: (Required) SQL query to execute.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "code": 1192,
+        "message": "string",
+        "error_chain": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 2000

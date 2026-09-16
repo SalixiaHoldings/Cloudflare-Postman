@@ -1,0 +1,38 @@
+$kind: http-request
+id: 21baf449-84ba-5818-a411-ebe2b8b5e06e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: audit-logs-get-account-audit-logs
+  GET /accounts/{account_id}/audit_logs
+
+  Gets a list of audit logs for an account. Can be filtered by who made the change, on which zone, and the timeframe of the change.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/audit_logs?id=f174be97-19b1-40d6-954d-70cd5fbd52db&export=true&action.type=add&actor.ip=17.168.228.63&actor.email=alice@example.com&since=2019-04-30&before=2019-04-30&zone.name=example.com&direction=desc&per_page=25&page=50&hide_user_logs=false"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  id: f174be97-19b1-40d6-954d-70cd5fbd52db
+  export: "true"
+  action.type: add
+  actor.ip: 17.168.228.63
+  actor.email: alice@example.com
+  since: 2019-04-30
+  before: 2019-04-30
+  zone.name: example.com
+  direction: desc
+  per_page: "25"
+  page: "50"
+  hide_user_logs: "false"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get account audit logs.resources/examples
+order: 5000

@@ -1,0 +1,37 @@
+$kind: http-request
+id: 5496dfbc-83a1-5caa-83de-43da473d387b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: wor-get-workflow-instance-step
+  GET /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/step
+
+  Retrieves the full, untruncated output for a specific step on a workflow instance. Returns a flat status-shaped JSON body with step `status` ('running' | 'waiting' | 'complete' | 'errored'), `error` (nullable), and `output` (the step value, or null while running/waiting/errored). When the step returned a ReadableStream from step.do, the response is served as 'application/octet-stream' with the raw bytes as the body instead of JSON. A `status='running'` response with non-null `error` indicates the step is currently retrying after a prior attempt failed.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/step?name=string&type=step&attempt=6430122057924608"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: name
+    value: string
+    description: (Required) Exact step name from the instance logs response, including the generated counter suffix.
+  - key: type
+    value: step
+    description: (Required) Step type to disambiguate step.do and waitForEvent entries that share the same name.
+  - key: attempt
+    value: "6430122057924608"
+    description: Specific attempt number to retrieve output or error for.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get full step output from instance.resources/examples
+order: 5000

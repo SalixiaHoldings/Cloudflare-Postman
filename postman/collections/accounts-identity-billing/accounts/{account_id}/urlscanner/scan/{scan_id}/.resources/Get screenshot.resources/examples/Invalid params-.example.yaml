@@ -1,0 +1,48 @@
+$kind: http-example
+id: 7b51c76b-a6e2-5879-8659-9bf428b072a7
+name: Invalid params.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}/screenshot?resolution=desktop"
+  method: GET
+  headers:
+    Accept: image/png
+  queryParams:
+    - key: resolution
+      value: desktop
+      description: Target device type.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false
+      }
+order: 3000

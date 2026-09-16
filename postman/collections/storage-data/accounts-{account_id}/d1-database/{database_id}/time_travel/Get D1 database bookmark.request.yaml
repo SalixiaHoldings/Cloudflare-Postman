@@ -1,0 +1,31 @@
+$kind: http-request
+id: b69db5c2-a8df-595b-9349-9cf459d65a6e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: d1-time-travel-get-bookmark
+  GET /accounts/{account_id}/d1/database/{database_id}/time_travel/bookmark
+
+  Retrieves the current bookmark, or the nearest bookmark at or before a provided timestamp.
+  Bookmarks can be used with the restore endpoint to revert the database to a previous point in time.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/time_travel/bookmark?timestamp=2024-01-15T12:00:00Z"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: timestamp
+    value: 2024-01-15T12:00:00Z
+    description: An optional ISO 8601 timestamp. If provided, returns the nearest available bookmark at or before this timestamp. If omitted, returns the current bookmark.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get D1 database bookmark.resources/examples
+order: 1000

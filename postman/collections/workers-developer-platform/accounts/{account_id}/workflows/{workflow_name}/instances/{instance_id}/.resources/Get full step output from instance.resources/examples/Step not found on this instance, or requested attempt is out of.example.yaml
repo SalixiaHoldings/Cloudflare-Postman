@@ -1,0 +1,55 @@
+$kind: http-example
+id: 99b13a0c-fb77-5e78-8244-6c55dd5e8984
+name: Step not found on this instance, or requested attempt is out of range.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/step?name=string&type=step&attempt=6430122057924608"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: name
+      value: string
+      description: (Required) Exact step name from the instance logs response, including the generated counter suffix.
+    - key: type
+      value: step
+      description: (Required) Step type to disambiguate step.do and waitForEvent entries that share the same name.
+    - key: attempt
+      value: "6430122057924608"
+      description: Specific attempt number to retrieve output or error for.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "messages": [
+          "string",
+          "string"
+        ],
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": null
+      }
+order: 3000

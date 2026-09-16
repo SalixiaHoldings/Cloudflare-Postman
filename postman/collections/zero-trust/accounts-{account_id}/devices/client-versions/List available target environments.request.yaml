@@ -1,0 +1,25 @@
+$kind: http-request
+id: f335d6bc-6f5b-57b1-bc43-367c0184db02
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: list-client-target-environments
+  GET /accounts/{account_id}/devices/client-versions/target-environments
+
+  Retrieves a list of all available target environments with their display names. This endpoint is in Beta.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/devices/client-versions/target-environments"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List available target environments.resources/examples
+order: 2000

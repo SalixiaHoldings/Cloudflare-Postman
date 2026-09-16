@@ -1,0 +1,29 @@
+$kind: http-example
+id: 150d1a92-244e-5b83-878f-8be2013350e3
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/auth/dmarc-reports"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true,
+        "skip_wizard": false
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

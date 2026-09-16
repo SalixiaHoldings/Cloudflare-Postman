@@ -1,0 +1,24 @@
+$kind: http-example
+id: 00de92e4-be00-54eb-86b1-3f0857f1efac
+name: Blob bytes.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/blob/{{hash}}"
+  method: GET
+  headers:
+    Accept: application/octet-stream
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    - key: cache-control
+      value: string
+      description: Immutable object cache policy.
+    - key: content-length
+      value: "8161"
+      description: Size of the response body in bytes.
+    - key: Content-Type
+      value: application/octet-stream
+  body:
+    type: text
+    content: string
+order: 1000

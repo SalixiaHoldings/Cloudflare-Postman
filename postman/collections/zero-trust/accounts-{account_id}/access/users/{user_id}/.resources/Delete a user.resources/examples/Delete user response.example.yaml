@@ -1,0 +1,19 @@
+$kind: http-example
+id: e3bece14-b79a-5042-8aab-75f9262bf00f
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/users/{{user_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {}
+      }
+order: 1000

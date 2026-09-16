@@ -1,0 +1,32 @@
+$kind: http-request
+id: 2576daad-e9cc-5c10-b1f0-1f33c98543f4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_GetLogoQueries
+  GET /accounts/{account_id}/cloudforce-one/v2/brand-protection/logo/queries
+
+  Get all saved brand protection logo queries for an account. Optionally specify id to get a single query. Set download=true to include base64-encoded image data.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/queries?id=string&download=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: id
+    value: string
+    description: Optional query ID to retrieve a specific logo query
+  - key: download
+    value: string
+    description: If true, include base64-encoded image data in the response
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get logo queries.resources/examples
+order: 1000

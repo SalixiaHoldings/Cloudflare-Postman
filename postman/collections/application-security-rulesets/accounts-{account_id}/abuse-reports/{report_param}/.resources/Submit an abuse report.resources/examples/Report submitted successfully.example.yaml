@@ -1,0 +1,32 @@
+$kind: http-example
+id: debf228c-62ff-5b39-93ab-5c9cdd967323
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/{{report_param}}"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "request": {
+          "act": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "result": "string",
+        "abuse_rand": "string"
+      }
+order: 1000

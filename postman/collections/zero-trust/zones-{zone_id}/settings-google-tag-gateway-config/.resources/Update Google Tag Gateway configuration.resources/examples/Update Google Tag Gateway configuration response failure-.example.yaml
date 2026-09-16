@@ -1,0 +1,39 @@
+$kind: http-example
+id: 1b3480a2-6ff2-53f0-b5d8-e78782d5c635
+name: Update Google Tag Gateway configuration response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/google-tag-gateway/config"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true,
+        "endpoint": "/metrics",
+        "hideOriginalIp": true,
+        "measurementId": "GTM-P2F3N47Q",
+        "setUpTag": true
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,34 @@
+$kind: http-example
+id: 979762f4-9728-5cea-b1ae-8707208f2740
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/gre_tunnels/{{gre_tunnel_id}}"
+  method: DELETE
+  headers:
+    - key: x-magic-new-hc-target
+      value: "true"
+      description: If true, the health check target in the response body will be presented using the new object format. Defaults to false.
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "deleted": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "deleted_gre_tunnel": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

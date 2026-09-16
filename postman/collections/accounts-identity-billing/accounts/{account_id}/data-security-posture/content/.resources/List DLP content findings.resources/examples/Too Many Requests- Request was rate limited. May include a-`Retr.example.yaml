@@ -1,0 +1,59 @@
+$kind: http-example
+id: b4497565-4462-518f-b785-8535d4496bac
+name: |-
+  Too Many Requests: Request was rate limited. May include a
+  `Retry-After` header.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/content?direction=desc&dlp_profile_id=8c0c0e25-bbd0-8390-eae7-333b0eaa1638&integration_id=8c0c0e25-bbd0-8390-eae7-333b0eaa1638&max_affliction_date=1984-09-29T01:09:30.463Z&min_affliction_date=1984-09-29T01:09:30.463Z&order=dlp_profile_count&page=8161&per_page=8161&search=string&vendor=GOOGLE_WORKSPACE"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: direction
+      value: desc
+      description: Direction to order results.
+    - key: dlp_profile_id
+      value: 8c0c0e25-bbd0-8390-eae7-333b0eaa1638
+      description: Filter by an DLP profile ID
+    - key: integration_id
+      value: 8c0c0e25-bbd0-8390-eae7-333b0eaa1638
+      description: Filter by an integration ID
+    - key: max_affliction_date
+      value: 1984-09-29T01:09:30.463Z
+      description: Filter to view findings that occurred on or before the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
+    - key: min_affliction_date
+      value: 1984-09-29T01:09:30.463Z
+      description: Filter to view findings that occurred on or after the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
+    - key: order
+      value: dlp_profile_count
+      description: Which field to use when ordering content assets.
+    - key: page
+      value: "8161"
+      description: A page number within the paginated result set.
+    - key: per_page
+      value: "8161"
+      description: Number of results to return per page.
+    - key: search
+      value: string
+      description: A search term.
+    - key: vendor
+      value: GOOGLE_WORKSPACE
+      description: Filter by vendor
+response:
+  statusCode: 429
+  statusText: Too Many Requests
+  headers:
+    - key: Retry-After
+      value: string
+      description: Optional. Indicates how many seconds to wait before retrying.
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 3000

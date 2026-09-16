@@ -1,0 +1,41 @@
+$kind: http-example
+id: 56cee3d5-df0f-5335-972f-0c0f2861d40f
+name: Update an Existing Scan Config failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/scans/config/{{config_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "frequency": 7,
+        "ips": [
+          "1.1.1.1",
+          "2606:4700:4700::1111"
+        ],
+        "ports": [
+          "default"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": {
+          "code": 10433,
+          "message": "request error"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,50 @@
+$kind: http-example
+id: 732f14e8-0d22-50c9-9248-7da054c9fcc0
+name: Update Email Scanner Rule failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/email/rules/{{rule_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "enabled": false,
+        "conditions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "action": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "description": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

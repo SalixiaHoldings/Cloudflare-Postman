@@ -1,0 +1,40 @@
+$kind: http-request
+id: 8d4dfacd-4f8d-50dd-bd0d-7e777c69c783
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_PirInterestEvaluationCreate
+  POST /accounts/{account_id}/cloudforce-one/v2/priority-intelligence/interests/evaluations
+
+  Compares the trailing event-date window with the preceding window. Results are precision-gated to enabled account interests. Late ingestion can cause an older event to appear in a later evaluation, so results describe changes in event-dated intelligence rather than exact adversary-activity timing.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/interests/evaluations"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "as_of": "1967-10-02T21:55:51.002Z",
+      "candidate_limit": 49,
+      "dataset_ids": [
+        "string"
+      ],
+      "emerging_min_current_count": 49701,
+      "established_min_absolute_delta": 86241,
+      "established_min_prior_count": 46216,
+      "established_min_relative_delta": 8.084613014943898,
+      "window_days": 7
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Evaluate recent event-dated changes for account interests.resources/examples
+order: 1000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: 49d88c36-c945-5a01-9ffc-ae454539f7ab
+name: Bad request.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/routing/suppression"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "email": "user@example.com",
+        "expires_at": "1983-11-15T06:34:51.565Z"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          "string",
+          "string"
+        ]
+      }
+order: 2000

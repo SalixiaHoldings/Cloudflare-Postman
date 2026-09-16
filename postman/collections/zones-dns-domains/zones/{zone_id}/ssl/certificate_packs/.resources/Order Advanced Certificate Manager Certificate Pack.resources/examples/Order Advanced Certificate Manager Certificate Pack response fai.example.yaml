@@ -1,0 +1,47 @@
+$kind: http-example
+id: dff1e21c-ffa4-5b06-b8d9-4931e545cee7
+name: Order Advanced Certificate Manager Certificate Pack response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ssl/certificate_packs/order"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "type": "advanced",
+        "hosts": [
+          "example.com",
+          "*.example.com",
+          "www.example.com"
+        ],
+        "validation_method": "txt",
+        "validity_days": 30,
+        "certificate_authority": "lets_encrypt",
+        "cloudflare_branding": false
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

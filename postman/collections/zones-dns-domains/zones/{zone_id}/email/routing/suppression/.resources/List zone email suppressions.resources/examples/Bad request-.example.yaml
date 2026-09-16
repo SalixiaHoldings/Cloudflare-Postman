@@ -1,0 +1,29 @@
+$kind: http-example
+id: b4b75707-8fa6-527a-bcfc-7b5d29013ac4
+name: Bad request.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/routing/suppression?page=1&per_page=100&order=created_at&direction=desc"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "100"
+    order: created_at
+    direction: desc
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          "string",
+          "string"
+        ]
+      }
+order: 2000

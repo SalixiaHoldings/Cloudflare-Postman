@@ -1,0 +1,40 @@
+$kind: http-example
+id: 846de54d-fddf-507a-bbdc-871b7c48a6cc
+name: Indicates SQL validation success.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/validate_sql"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "sql": "insert into sink select * from source;"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "tables": {
+            "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "key_1": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "graph": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

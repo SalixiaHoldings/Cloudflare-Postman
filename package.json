@@ -28,7 +28,8 @@
     "check": "npm run lint && npm test && npm run generate:check && npm run validate",
     "upstream:check": "node scripts/upstream-update.mjs --check",
     "upstream:update": "node scripts/upstream-update.mjs --apply",
-    "smoke:live": "node scripts/smoke-live.mjs"
+    "smoke:live": "node scripts/smoke-live.mjs",
+    "scan:release": "node scripts/scan-release.mjs"
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "13.0.0",
@@ -36,6 +37,7 @@
     "ajv-draft-04": "1.0.0",
     "ajv-formats": "3.0.1",
     "openapi-to-postmanv2": "6.3.3",
+    "postman-cli": "1.56.3",
     "yaml": "2.9.0"
   }
 }

@@ -1,0 +1,25 @@
+$kind: http-request
+id: d34529a7-c8a2-578d-957a-edd7818b0223
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: user-api-tokens-token-details
+  GET /user/tokens/{token_id}
+
+  Get information about a specific token.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/user/tokens/{{token_id}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Token Details.resources/examples
+order: 2000

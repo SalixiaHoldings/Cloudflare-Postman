@@ -1,0 +1,21 @@
+$kind: http-example
+id: ef75e427-7f43-56fd-aa5b-8f80a075aaca
+name: The query exhausted available resources.
+request:
+  url: "{{base_url}}/analytics/sql?query=SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: query
+      value: SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10
+      description: (Required) SQL query to execute.
+response:
+  statusCode: 507
+  statusText: Insufficient Storage (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: string
+order: 9000

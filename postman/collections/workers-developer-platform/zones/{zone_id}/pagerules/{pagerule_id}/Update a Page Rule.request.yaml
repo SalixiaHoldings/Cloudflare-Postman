@@ -1,0 +1,47 @@
+$kind: http-request
+id: cc2dffb5-d771-58b3-be50-1a6759ca2dc8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: page-rules-update-a-page-rule
+  PUT /zones/{zone_id}/pagerules/{pagerule_id}
+
+  Replaces the configuration of an existing Page Rule. The configuration of the updated Page Rule will exactly match the data passed in the API request.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/pagerules/{{pagerule_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "targets": [
+        {
+          "constraint": {
+            "operator": "matches",
+            "value": "*example.com/images/*"
+          },
+          "target": "url"
+        }
+      ],
+      "actions": [
+        {
+          "value": "on"
+        }
+      ],
+      "priority": 1,
+      "status": "active"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a Page Rule.resources/examples
+order: 4000

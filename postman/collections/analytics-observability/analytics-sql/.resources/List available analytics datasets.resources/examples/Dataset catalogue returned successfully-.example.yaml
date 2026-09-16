@@ -1,0 +1,38 @@
+$kind: http-example
+id: d4ee9e65-2789-5b13-b8d7-2b949430254f
+name: Dataset catalogue returned successfully.
+request:
+  url: "{{base_url}}/analytics/sql/introspection?account_tag=0123456789abcdef0123456789abcdef&include_columns=false&dataset_name=events.httpRequests"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: account_tag
+      value: 0123456789abcdef0123456789abcdef
+      description: (Required) Account whose available analytics datasets are returned.
+    - key: include_columns
+      value: "false"
+      description: Include column metadata for each returned dataset.
+    - key: dataset_name
+      value: events.httpRequests
+      description: |
+        Return only the dataset with this exact name. An empty value does not filter the catalogue. An unknown name returns a successful response with an empty `datasets` array.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "datasets": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

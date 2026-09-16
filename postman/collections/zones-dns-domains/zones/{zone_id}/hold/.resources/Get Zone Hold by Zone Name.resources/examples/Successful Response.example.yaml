@@ -1,0 +1,21 @@
+$kind: http-example
+id: 23c6fb93-efc7-5a32-a158-95b21f849aae
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/hold/{{zone_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "hold": true,
+        "hold_after": "2023-01-31T15:56:36Z",
+        "include_subdomains": false
+      }
+order: 1000

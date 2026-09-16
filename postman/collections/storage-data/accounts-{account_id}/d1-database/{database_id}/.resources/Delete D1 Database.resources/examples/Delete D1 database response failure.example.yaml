@@ -1,0 +1,27 @@
+$kind: http-example
+id: 40fd2758-377d-5895-a2e4-16976e1941d2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

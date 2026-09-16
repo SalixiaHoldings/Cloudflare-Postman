@@ -1,0 +1,36 @@
+$kind: http-example
+id: 7dcf1978-5c89-5a3b-bf99-677c3812a37f
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/logs/{{id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "feedback": 0.20898664416745305,
+        "metadata": {
+          "key_0": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "key_1": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "score": 12.562805134803057
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {}
+      }
+order: 1000

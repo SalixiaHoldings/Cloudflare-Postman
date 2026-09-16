@@ -1,0 +1,29 @@
+$kind: http-example
+id: a7519379-1cd2-5295-a849-487a9c6f309b
+name: |
+  Authentication failed or the caller does not have Account Analytics Read permission on the specified account.
+request:
+  url: "{{base_url}}/analytics/sql/introspection?account_tag=0123456789abcdef0123456789abcdef&include_columns=false&dataset_name=events.httpRequests"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: account_tag
+      value: 0123456789abcdef0123456789abcdef
+      description: (Required) Account whose available analytics datasets are returned.
+    - key: include_columns
+      value: "false"
+      description: Include column metadata for each returned dataset.
+    - key: dataset_name
+      value: events.httpRequests
+      description: |
+        Return only the dataset with this exact name. An empty value does not filter the catalogue. An unknown name returns a successful response with an empty `datasets` array.
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: Authorization error
+order: 3000

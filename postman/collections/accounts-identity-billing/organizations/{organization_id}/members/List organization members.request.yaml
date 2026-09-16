@@ -1,0 +1,55 @@
+$kind: http-request
+id: e09033b9-b94e-5b66-b463-d05a3a4d11b1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: Members_list
+  GET /organizations/{organization_id}/members
+
+  List memberships for an Organization. (Currently in Public Beta - see https://developers.cloudflare.com/fundamentals/organizations/)
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/organizations/{{organization_id}}/members?status=pending&status=active&user.email=string&user.email.contains=string&user.email.startsWith=string&user.email.endsWith=string&page_token=string&page_size=473"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: status
+    value: pending
+    description: Filter the list of memberships by membership status.
+  - key: status
+    value: active
+    description: Filter the list of memberships by membership status.
+  - key: user.email
+    value: string
+    description: Filter the list of memberships for a specific email.
+  - key: user.email.contains
+    value: string
+    description: Filter the list of memberships for a specific email that contains a substring.
+  - key: user.email.startsWith
+    value: string
+    description: Filter the list of memberships for a specific email that starts with a substring.
+  - key: user.email.endsWith
+    value: string
+    description: Filter the list of memberships for a specific email that ends with a substring.
+  - key: page_token
+    value: string
+    description: |-
+      An opaque token returned from the last list response that when
+      provided will retrieve the next page.
+
+      Parameters used to filter the retrieved list must remain in subsequent
+      requests with a page token.
+  - key: page_size
+    value: "473"
+    description: The amount of items to return. Defaults to 10.
+auth:
+  type: noauth
+examples: ./.resources/List organization members.resources/examples
+order: 1000

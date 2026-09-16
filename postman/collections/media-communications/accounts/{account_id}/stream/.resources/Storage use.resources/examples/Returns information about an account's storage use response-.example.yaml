@@ -1,0 +1,37 @@
+$kind: http-example
+id: 6744206b-5c7b-52a2-b018-918891e4b707
+name: Returns information about an account's storage use response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/storage-usage?creator=creator-id_abcde12345"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    creator: creator-id_abcde12345
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "creator": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "totalStorageMinutes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "totalStorageMinutesLimit": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "videoCount": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

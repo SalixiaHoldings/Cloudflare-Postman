@@ -1,0 +1,35 @@
+$kind: http-request
+id: 7718a86e-eed8-5ffa-976c-108f7b9a3b1b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: add-audio-track
+  POST /accounts/{account_id}/stream/{identifier}/audio/copy
+
+  Adds an additional audio track to a video using the provided audio track URL.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/audio/copy"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "label": "director commentary",
+      "url": "https://www.examplestorage.com/audio_file.mp3"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Add audio tracks to a video.resources/examples
+order: 2000

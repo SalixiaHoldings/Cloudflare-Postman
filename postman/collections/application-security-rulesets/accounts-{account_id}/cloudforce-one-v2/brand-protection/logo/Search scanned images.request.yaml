@@ -1,0 +1,41 @@
+$kind: http-request
+id: 036818e4-9df6-5548-89f6-6b629827fb63
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_SearchLogoSimilarity
+  POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/logo/search
+
+  Submit an image and find the n closest matches from the scanned images index without creating any match records. Returns similarity scores and metadata for each match.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/search?showHistoric=false&download=string"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  - key: showHistoric
+    value: "false"
+    description: "Include scanned images without domain metadata (historic data). Default: false (only show images with domain)"
+  - key: download
+    value: string
+    description: If true, include base64-encoded image data in the response
+body:
+  type: json
+  content: |-
+    {
+      "image_data": "string",
+      "score_threshold": 0,
+      "top_k": 10
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Search scanned images.resources/examples
+order: 3000

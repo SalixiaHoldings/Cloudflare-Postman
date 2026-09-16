@@ -1,0 +1,86 @@
+$kind: http-example
+id: 4394db0e-8b72-5db0-9b43-ac3ca3ac6643
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/create"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "date": "2022-04-01T00:00:00Z",
+        "category": "Domain Resolution",
+        "event": "An attacker registered the domain domain.com",
+        "tlp": "amber",
+        "raw": {
+          "data": {
+            "key_0": 8319
+          },
+          "source": "example.com",
+          "tlp": "amber"
+        },
+        "accountId": 123456,
+        "attacker": "Flying Yeti",
+        "attackerCountry": "CN",
+        "datasetId": "durableObjectName",
+        "indicator": "domain.com",
+        "indicatorType": "domain",
+        "indicators": [
+          {
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "indicatorType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "indicatorType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "insight": "This domain was likely registered for phishing purposes",
+        "source": {
+          "system": "threat-signals",
+          "resourceType": "article",
+          "resourceId": "293e0996-821e-9353-ea0c-9fb6592eb7ce"
+        },
+        "tags": [
+          "malware",
+          "malware"
+        ],
+        "targetCountry": "US",
+        "targetIndustry": "Agriculture"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

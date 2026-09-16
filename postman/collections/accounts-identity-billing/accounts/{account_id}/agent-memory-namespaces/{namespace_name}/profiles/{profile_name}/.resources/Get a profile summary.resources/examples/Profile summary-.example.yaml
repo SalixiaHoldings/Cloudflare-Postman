@@ -1,0 +1,32 @@
+$kind: http-example
+id: b5543fb8-b9ba-530b-b606-7864b877ec7f
+name: Profile summary.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/summary"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "sessionId": "chat-session-42"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "summary": "Profile context as of 2 January 2025.\n🔴 (fact) Prefers dark mode\n🟡 (task) Finish onboarding"
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

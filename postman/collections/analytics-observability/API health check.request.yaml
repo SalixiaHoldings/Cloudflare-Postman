@@ -1,0 +1,27 @@
+$kind: http-request
+id: 7cb3e617-33a1-5e33-81a9-0593ef9ba8b3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: monolithHealthCheck
+  GET /api/v4/health
+
+  Returns the operational health status of the Cloudflare API monolith.
+  This is an internal infrastructure health check endpoint and is not
+  intended for customer use. It is permanently exempt from SDK and public
+  docs generation (see x-fern-ignore). Ref: APIOPS-12957.
+
+
+  Authentication support: anonymous
+  Auth declaration SHA-256: 8dfbba720fdd82808c2cd99b03691e2680337173fcd32f3f374d1837e44905ea
+  Upstream security (operation; OR alternatives, AND within each object): []
+  Selected requirement: null
+  Upstream permits an unauthenticated request; collection Bearer inheritance is disabled.
+url: "{{base_url}}/api/v4/health"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: noauth
+examples: ./.resources/API health check.resources/examples
+order: 3000

@@ -1,0 +1,44 @@
+$kind: http-request
+id: 24164a38-7619-5ef8-8496-3af8c8d0a043
+name: Update/publish a message for an RFI request
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: put_MessageUpdate
+  PUT /accounts/{account_id}/cloudforce-one/v2/requests/{project_type}/{request_id}/messages/{message_id}
+
+  Updates an existing message, typically to publish a draft by setting publish=true. Workflow-enabled publication requires Idempotency-Key and atomically records message activity and any policy transition.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/messages/{{message_id}}"
+method: PUT
+headers:
+  - key: Idempotency-Key
+    value: string
+    description: Client command key. Required when publishing a message for a workflow-enabled project; trimmed and limited to 255 characters.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "content": "string",
+      "publish": true,
+      "tlp": "clear",
+      "attachment_asset_ids": [
+        "string",
+        "string"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update-publish a message for an RFI request.resources/examples
+order: 2000

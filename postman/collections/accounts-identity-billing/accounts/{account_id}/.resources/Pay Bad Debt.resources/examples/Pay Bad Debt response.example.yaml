@@ -1,0 +1,30 @@
+$kind: http-example
+id: 17c8c052-b514-5ff3-abd4-4401e9dae881
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pay-bad-debt"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "payment_method_id": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "client_secret": "{{client_secret}}"
+        }
+      }
+order: 1000

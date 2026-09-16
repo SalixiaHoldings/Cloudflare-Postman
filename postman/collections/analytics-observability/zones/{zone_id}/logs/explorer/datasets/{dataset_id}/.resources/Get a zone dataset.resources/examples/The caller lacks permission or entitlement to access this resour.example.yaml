@@ -1,0 +1,36 @@
+$kind: http-example
+id: 5a4dfdf8-444c-5393-b49e-40f81854a615
+name: The caller lacks permission or entitlement to access this resource.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/logs/explorer/datasets/{{dataset_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "key_0": 6349,
+          "key_1": 4224.232907872647
+        },
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          "string",
+          "string"
+        ]
+      }
+order: 3000

@@ -1,0 +1,60 @@
+$kind: http-example
+id: 087859a2-f798-5431-85ab-e8ff7508d170
+name: Return the group.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/-/groups/{{group_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "name": "loudforce-subscribers",
+        "description": "Cloudforce subscribers",
+        "createdAt": "2022-04-01T00:00:00Z",
+        "updatedAt": "2022-04-01T00:00:00Z",
+        "members": [
+          {
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "accountId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "accountTag": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updatedAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "accountId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "accountTag": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updatedAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: adcddacc-0b10-59df-ba0e-8f029d44cd4c
+name: Returns whether the relationship was deleted.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/relationships/{{rel_uuid}}?datasetId=string"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: datasetId
+      value: string
+      description: (Required) Dataset UUID containing the relationship.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "deleted": false
+        },
+        "success": true
+      }
+order: 1000

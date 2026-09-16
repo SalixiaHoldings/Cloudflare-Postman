@@ -1,0 +1,31 @@
+$kind: http-example
+id: 0c174b7b-2ad9-554d-a510-4000a583ce39
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/indicator-feeds/permissions/remove"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "account_tag": "823f45f16fd2f7e21e1e054aga4d2859",
+        "feed_id": 1
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

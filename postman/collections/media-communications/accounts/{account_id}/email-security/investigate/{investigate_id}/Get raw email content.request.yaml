@@ -1,0 +1,25 @@
+$kind: http-request
+id: 8feda548-e6a9-5cc0-9ef7-6b8a92a3b6df
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_get_message_raw
+  GET /accounts/{account_id}/email-security/investigate/{investigate_id}/raw
+
+  Returns the raw eml of any non-benign message.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}/raw"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get raw email content.resources/examples
+order: 6000

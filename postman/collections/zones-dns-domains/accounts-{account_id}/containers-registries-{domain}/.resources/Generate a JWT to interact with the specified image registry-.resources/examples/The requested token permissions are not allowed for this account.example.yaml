@@ -1,0 +1,43 @@
+$kind: http-example
+id: 2ccb345f-6338-5cf8-902c-307fcb498264
+name: The requested token permissions are not allowed for this account.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/registries/{{domain}}/credentials"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "expiration_minutes": 3986,
+        "permissions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

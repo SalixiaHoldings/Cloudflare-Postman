@@ -1,0 +1,38 @@
+$kind: http-request
+id: fa69d455-abdf-54b7-ad71-acdda6527d76
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: secondary-dns-(-secondary-zone)-create-secondary-zone-configuration
+  POST /zones/{zone_id}/secondary_dns/incoming
+
+  Create secondary zone configuration for incoming zone transfers.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/secondary_dns/incoming"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "id": "269d8f4853475ca241c4e730be286b20",
+      "name": "www.example.com.",
+      "peers": [
+        "23ff594956f20c2a721606e94745a8aa",
+        "00920f38ce07c2e2f4df50b1f61d4194"
+      ],
+      "auto_refresh_seconds": 86400
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Secondary Zone Configuration.resources/examples
+order: 3000

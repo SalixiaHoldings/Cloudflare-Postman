@@ -1,0 +1,27 @@
+$kind: http-example
+id: 61f3564e-5a37-52ae-b4d4-e7d46d36b701
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/queues/{{queue_id}}/consumers"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "success": false
+      }
+order: 2000

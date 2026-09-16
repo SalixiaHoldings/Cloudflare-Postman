@@ -1,0 +1,35 @@
+$kind: http-request
+id: 4b275a34-30be-5d46-97bc-5d58defb6ed6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: rssFeedUpdate
+  PATCH /accounts/{account_id}/cloudforce-one/v2/threat-signals/feeds/{feed_id}
+
+  Update Threat Signals feed.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds/{{feed_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "category": "string",
+      "display_name": "string",
+      "enabled": true,
+      "poll_interval_s": 1028,
+      "title": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Threat Signals feed.resources/examples
+order: 2000

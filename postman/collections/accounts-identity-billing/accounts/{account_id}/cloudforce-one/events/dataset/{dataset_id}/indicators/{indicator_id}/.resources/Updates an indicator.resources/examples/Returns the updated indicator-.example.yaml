@@ -1,0 +1,115 @@
+$kind: http-example
+id: 58605976-1dbc-53be-8078-2a175c47186b
+name: Returns the updated indicator.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators/{{indicator_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "indicatorType": "domain",
+        "relatedEvents": [
+          {
+            "datasetId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "eventId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "datasetId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "eventId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "tlp": "RED",
+        "value": "updated-domain.com"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "indicatorType": "domain",
+        "value": "malicious-domain.com",
+        "createdAt": "2022-04-01T00:00:00Z",
+        "updatedAt": "2022-04-01T00:00:00Z",
+        "datasetId": "dataset-uuid-123",
+        "relatedEvents": [
+          {
+            "datasetId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "eventId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "eventDate": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "datasetId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "eventId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "eventDate": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "categoryId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "categoryName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "categoryId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "categoryName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "tlp": "AMBER"
+      }
+order: 1000

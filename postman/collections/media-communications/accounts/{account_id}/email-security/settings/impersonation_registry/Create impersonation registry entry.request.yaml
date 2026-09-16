@@ -1,0 +1,55 @@
+$kind: http-request
+id: de3dab06-f9b5-5a6b-a566-a185f905f654
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_create_impersonation_registry
+  POST /accounts/{account_id}/email-security/settings/impersonation_registry
+
+  Creates a new entry in the impersonation registry to protect against impersonation. Emails attempting to impersonate this identity will be flagged. Supports regex patterns for flexible email matching.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/impersonation_registry"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "email": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "is_email_regex": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "comments": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "directory_id": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "directory_node_id": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "external_directory_node_id": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "provenance": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create impersonation registry entry.resources/examples
+order: 2000

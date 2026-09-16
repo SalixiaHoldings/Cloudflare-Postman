@@ -1,0 +1,37 @@
+$kind: http-example
+id: 480abdc0-6db6-53c4-b939-3a5d349204dc
+name: List of container instances.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/instances?per_page=69&page_token=string&state=not-active&name_prefix=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "69"
+      description: Maximum number of instances to return per page. Defaults to all.
+    - key: page_token
+      value: string
+      description: Opaque token from a previous response to retrieve the next page.
+    - key: state
+      value: not-active
+      description: |
+        Filters instances by lifecycle state. `active` includes provisioning, running, and stopping instances; `not-active` includes stopped and failed instances. When omitted, all instances are returned.
+    - key: name_prefix
+      value: string
+      description: |
+        Filter instances by a case-sensitive name prefix, falling back to the actor ID when no name is known. Keep the same prefix when using a page token.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

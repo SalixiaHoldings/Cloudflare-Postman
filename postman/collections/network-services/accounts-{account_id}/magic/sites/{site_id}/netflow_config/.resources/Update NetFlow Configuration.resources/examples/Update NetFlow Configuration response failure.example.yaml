@@ -1,0 +1,40 @@
+$kind: http-example
+id: a3a43e16-8055-5a6e-8928-5f5b341ccf57
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/netflow_config"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "active_timeout": 30,
+        "collector_ip": "162.159.65.1",
+        "collector_port": 2055,
+        "inactive_timeout": 15,
+        "sampling_rate": 100
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

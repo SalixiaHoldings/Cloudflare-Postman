@@ -1,0 +1,29 @@
+$kind: http-example
+id: 5b1f8471-873b-5b5f-9184-b11f3e3b7f24
+request:
+  url: "{{base_url}}/zones/{{zone_identifier}}/custom_pages/assets/{{asset_name}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

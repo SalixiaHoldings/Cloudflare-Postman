@@ -1,0 +1,22 @@
+$kind: http-example
+id: 91d5e1e2-817a-5481-b067-58cd328ddf9e
+name: Success response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/rules/{{rule_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

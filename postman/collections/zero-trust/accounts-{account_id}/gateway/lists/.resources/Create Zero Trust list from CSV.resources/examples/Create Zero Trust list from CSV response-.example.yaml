@@ -1,0 +1,32 @@
+$kind: http-example
+id: 31165232-6865-5159-97b8-f7401c4cfc41
+name: Create Zero Trust list from CSV response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/lists/upload"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: formdata
+    content:
+      - type: file
+        key: file
+        src: ""
+        description: (Required) The CSV file containing list items. Must be `text/csv` or `text/plain` and cannot exceed 2 MB.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

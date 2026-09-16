@@ -1,0 +1,39 @@
+$kind: http-example
+id: 77ad79d3-edb4-5d97-9f5f-e2a0ef455b31
+name: Deletes deployment group response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/deployment-groups/{{group_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": "550e8400-e29b-41d4-a716-446655440000"
+        },
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

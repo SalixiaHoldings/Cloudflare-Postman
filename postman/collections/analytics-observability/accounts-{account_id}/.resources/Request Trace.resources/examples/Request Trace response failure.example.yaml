@@ -1,0 +1,58 @@
+$kind: http-example
+id: eb7be288-b71e-5fce-ae99-d07359f02d04
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/request-tracer/trace"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "body": {
+          "base64": "c29tZV9yZXF1ZXN0X2JvZHk="
+        },
+        "context": {
+          "geoloc": {
+            "city": "London"
+          },
+          "skip_challenge": true
+        },
+        "cookies": {
+          "cookie_name_1": "cookie_value_1",
+          "cookie_name_2": "cookie_value_2"
+        },
+        "headers": {
+          "header_name_1": "header_value_1",
+          "header_name_2": "header_value_2"
+        },
+        "method": "PUT",
+        "protocol": "HTTP/1.1",
+        "url": "https://some.zone/some_path"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

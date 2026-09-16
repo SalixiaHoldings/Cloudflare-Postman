@@ -1,0 +1,22 @@
+$kind: http-example
+id: 460ea8eb-0b24-5c02-b65b-5fbaa541a0b0
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/items/{{item_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "deleted": true
+        }
+      }
+order: 1000

@@ -1,0 +1,35 @@
+$kind: http-example
+id: 7c3397da-7d65-5b4c-bb5e-abe3aad7d75d
+name: "Error 21001: Request body too large."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/moq/relays"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Production Live Stream"
+      }
+response:
+  statusCode: 413
+  statusText: Request Entity Too Large
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 21007,
+            "message": "A MoQ relay with this ID was not found."
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 4000

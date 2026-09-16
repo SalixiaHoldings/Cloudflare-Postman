@@ -1,0 +1,39 @@
+$kind: http-example
+id: f76e9f53-fb1a-579e-8845-878f21a533d8
+name: List Certificates response.
+request:
+  url: "{{base_url}}/certificates?zone_id={{zone_id}}&page=1&per_page=20&limit=10&offset=10"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: zone_id
+      value: "{{zone_id}}"
+      description: "(Required) "
+    - key: page
+      value: "1"
+    - key: per_page
+      value: "20"
+    - key: limit
+      value: "10"
+    - key: offset
+      value: "10"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

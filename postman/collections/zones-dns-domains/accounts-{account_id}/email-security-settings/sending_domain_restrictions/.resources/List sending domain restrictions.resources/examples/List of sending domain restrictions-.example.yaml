@@ -1,0 +1,38 @@
+$kind: http-example
+id: 4ba7c252-6676-555a-a074-812645b3b2de
+name: List of sending domain restrictions.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/sending_domain_restrictions?page=1&per_page=20&search=string&order=domain&direction=desc"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      description: Current page within paginated list of results.
+    - key: per_page
+      value: "20"
+      description: The number of results per page. Maximum value is 1000.
+    - key: search
+      value: string
+      description: Search term for filtering records. Behavior may change.
+    - key: order
+      value: domain
+      description: Field to sort by.
+    - key: direction
+      value: desc
+      description: The sorting direction.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

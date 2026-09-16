@@ -1,0 +1,25 @@
+$kind: http-request
+id: 42a57971-0180-5651-a202-41be154838c8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getZoneSnippetContent
+  GET /zones/{zone_id}/snippets/{snippet_name}/content
+
+  Fetches the content of a snippet belonging to the zone.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/snippets/{{snippet_name}}/content"
+method: GET
+headers:
+  Accept: multipart/form-data
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get a zone snippet content.resources/examples
+order: 4000

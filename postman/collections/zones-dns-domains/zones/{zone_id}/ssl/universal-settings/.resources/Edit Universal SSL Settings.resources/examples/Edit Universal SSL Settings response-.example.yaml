@@ -1,0 +1,29 @@
+$kind: http-example
+id: 11b6cc81-849a-5930-bd3a-1e3f30fdb7e9
+name: Edit Universal SSL Settings response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ssl/universal/settings"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

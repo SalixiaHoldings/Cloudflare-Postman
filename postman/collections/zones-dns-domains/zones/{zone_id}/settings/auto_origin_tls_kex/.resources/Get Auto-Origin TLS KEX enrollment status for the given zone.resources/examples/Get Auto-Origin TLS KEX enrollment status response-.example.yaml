@@ -1,0 +1,27 @@
+$kind: http-example
+id: fbb89131-eede-513f-97de-18bf261bc275
+name: Get Auto-Origin TLS KEX enrollment status response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/auto_origin_tls_kex"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "enabled": false,
+          "id": "auto_origin_tls_kex",
+          "modified_on": "2014-01-01T05:20:00.12345Z"
+        },
+        "success": true
+      }
+order: 1000

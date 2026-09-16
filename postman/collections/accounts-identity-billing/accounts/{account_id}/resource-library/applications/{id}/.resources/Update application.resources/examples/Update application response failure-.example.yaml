@@ -1,0 +1,50 @@
+$kind: http-example
+id: fe9ab82f-039c-585b-a007-334836ae3a89
+name: Update application response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/resource-library/applications/{{id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "hostnames": [
+          "example.com",
+          "foo.com"
+        ],
+        "ip_subnets": [
+          "192.168.1.0/24",
+          "10.0.0.0/8"
+        ],
+        "port_protocols": [
+          "tcp/80",
+          "tcp/443"
+        ],
+        "support_domains": [
+          "example.com",
+          "foo.com"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

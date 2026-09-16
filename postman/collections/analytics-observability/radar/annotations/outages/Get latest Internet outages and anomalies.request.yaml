@@ -1,0 +1,88 @@
+$kind: http-request
+id: 2dbf9f4d-9201-55cc-849a-dadf74564682
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: radar-get-annotations-outages
+  GET /radar/annotations/outages
+
+  Retrieves the latest Internet outages and anomalies.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/radar/annotations/outages?limit=5&offset=3789&dateRange=7d&dateStart=2023-09-01T11:41:33.782Z&dateEnd=2023-09-01T11:41:33.782Z&dataSource=ALL&outageType=NETWORK&outageCause=BLOCKING&tags=HAS_MATCHING_ANSWER&tags=PUBLIC_KEY_ALGORITHM&query=portugal&asn=174&location=US&geoId=3190509&origin=amazon-us-east-1&tld=com&ca=string&log=string&bot=gptbot&format=JSON"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: limit
+    value: "5"
+    description: Limits the number of objects returned in the response.
+  - key: offset
+    value: "3789"
+    description: Skips the specified number of objects before fetching the results.
+  - key: dateRange
+    value: 7d
+    description: "Filters results by a relative date range ending at the current time. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`), e.g. `7d`. Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `3dcontrol` covers days -10 to -7, `7dcontrol` covers days -14 to -7, `28dcontrol` covers days -56 to -28, and `10dcontrol` covers days -24 to -14). Mutually exclusive with `dateStart`/`dateEnd`."
+  - key: dateStart
+    value: 2023-09-01T11:41:33.782Z
+    description: Start of the date range (inclusive). Alternative to `dateRange`; provide together with `dateEnd`.
+  - key: dateEnd
+    value: 2023-09-01T11:41:33.782Z
+    description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`.
+  - key: dataSource
+    value: ALL
+    description: Filters results by data source.
+  - key: outageType
+    value: NETWORK
+    description: Filters results by outage type.
+  - key: outageCause
+    value: BLOCKING
+    description: Filters results by outage cause.
+  - key: tags
+    value: HAS_MATCHING_ANSWER
+    description: Filters results by annotation tag. Matches annotations carrying at least one of the given tags.
+  - key: tags
+    value: PUBLIC_KEY_ALGORITHM
+    description: Filters results by annotation tag. Matches annotations carrying at least one of the given tags.
+  - key: query
+    value: portugal
+    description: Filters results by a free-text match on the annotation description, id, or linked entities (location, ASN, origin).
+  - key: asn
+    value: "174"
+    description: Filters results by Autonomous System. Specify a single Autonomous System Number (ASN) as integer.
+  - key: location
+    value: US
+    description: Filters results by location. Specify an alpha-2 location code.
+  - key: geoId
+    value: "3190509"
+    description: Filters results by geolocation. Refer to [GeoNames](https://download.geonames.org/export/dump/readme.txt).
+  - key: origin
+    value: amazon-us-east-1
+    description: Filters results by origin.
+  - key: tld
+    value: com
+    description: Filters results by top-level domain.
+  - key: ca
+    value: string
+    description: Filters results by certificate authority.
+  - key: log
+    value: string
+    description: Filters results by certificate log.
+  - key: bot
+    value: gptbot
+    description: Filters results by bot.
+  - key: format
+    value: JSON
+    description: Format in which results will be returned.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get latest Internet outages and anomalies.resources/examples
+order: 1000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: f019d7ff-3dd6-503b-923b-6d5da1d24507
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/migrations/{{migration_id}}/lifecycle/abort"
+  method: PATCH
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

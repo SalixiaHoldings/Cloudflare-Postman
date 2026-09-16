@@ -1,0 +1,39 @@
+$kind: http-example
+id: 6df5f229-5a03-576c-87f8-fafa487a2777
+name: Report submitted with an error
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/{{report_param}}"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "request": {
+          "act": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "result": "string",
+        "msg": "string",
+        "err_code": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "error_code": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 4000

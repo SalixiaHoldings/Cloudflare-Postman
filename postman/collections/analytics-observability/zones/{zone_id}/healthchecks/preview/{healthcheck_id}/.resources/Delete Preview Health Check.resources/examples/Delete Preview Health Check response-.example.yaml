@@ -1,0 +1,28 @@
+$kind: http-example
+id: 61f68d68-a17e-5229-8301-388ade18e183
+name: Delete Preview Health Check response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/healthchecks/preview/{{healthcheck_id}}"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

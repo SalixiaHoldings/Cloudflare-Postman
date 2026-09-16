@@ -1,0 +1,36 @@
+$kind: http-request
+id: 09de9b94-bcf5-5bf9-844a-6e472bf1aadc
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: Accounts_modifyAccountProfile
+  PUT /accounts/{account_id}/profile
+
+  Updates the profile information for a Cloudflare account. Allows modification of account-level settings and organizational details. Requires Account Settings Write permission.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/profile"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "business_name": "string",
+      "business_email": "string",
+      "business_phone": "string",
+      "business_address": "string",
+      "external_metadata": "string"
+    }
+auth:
+  type: noauth
+examples: ./.resources/Modify account profile.resources/examples
+order: 2000

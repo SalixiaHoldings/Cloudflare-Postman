@@ -1,0 +1,37 @@
+$kind: http-example
+id: bb97afd7-3d07-566b-be85-1109ecd29bb0
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/evaluation-types?page=1&per_page=20&order_by=mandatory&order_by_direction=desc"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "20"
+    order_by: mandatory
+    order_by_direction: desc
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

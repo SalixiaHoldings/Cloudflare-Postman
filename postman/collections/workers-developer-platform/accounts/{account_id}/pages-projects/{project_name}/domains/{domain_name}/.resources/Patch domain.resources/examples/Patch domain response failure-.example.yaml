@@ -1,0 +1,28 @@
+$kind: http-example
+id: d90957de-452e-5a8e-8c2a-8963b2f8dd3b
+name: Patch domain response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pages/projects/{{project_name}}/domains/{{domain_name}}"
+  method: PATCH
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

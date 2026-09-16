@@ -1,0 +1,61 @@
+$kind: http-example
+id: 1763b6c6-c90c-5eb5-99b9-83d35abd14e5
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/{{waiting_room_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "production_webinar",
+        "host": "shop.example.com",
+        "new_users_per_minute": 1748845531,
+        "total_active_users": 2026187473,
+        "additional_routes": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "cookie_attributes": {
+          "samesite": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "secure": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "cookie_suffix": "abcd",
+        "custom_page_html": "{{#waitTimeKnown}} {{waitTime}} mins {{/waitTimeKnown}} {{^waitTimeKnown}} Queue all enabled {{/waitTimeKnown}}",
+        "default_template_language": "es-ES",
+        "description": "Production - DO NOT MODIFY",
+        "disable_session_renewal": false,
+        "json_response_enabled": false,
+        "path": "/shop/checkout",
+        "queue_all": true,
+        "queueing_method": "fifo",
+        "queueing_status_code": 202,
+        "session_duration": 5,
+        "suspended": false,
+        "turnstile_action": "log",
+        "turnstile_mode": "invisible"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

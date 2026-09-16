@@ -1,0 +1,41 @@
+$kind: http-example
+id: a7c2bece-4126-5c76-b301-dee76cd6851b
+name: Create Zero Trust list from CSV response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/lists/upload"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: formdata
+    content:
+      - type: file
+        key: file
+        src: ""
+        description: (Required) The CSV file containing list items. Must be `text/csv` or `text/plain` and cannot exceed 2 MB.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: 95789f41-d18b-5e3e-bd7a-c5048fe3244b
+name: Stop full PCAP response failure (server error).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pcaps/{{pcap_id}}/stop"
+  method: PUT
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "result": null
+      }
+order: 3000

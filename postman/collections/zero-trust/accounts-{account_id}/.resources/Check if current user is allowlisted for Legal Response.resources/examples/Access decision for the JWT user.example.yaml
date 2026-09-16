@@ -1,0 +1,30 @@
+$kind: http-example
+id: ac5cd1d4-f226-579f-a3fe-97c7708566a1
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/legal-response/access-check"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "allowed": false
+        },
+        "errors": [
+          "string",
+          "string"
+        ],
+        "messages": [
+          "string",
+          "string"
+        ]
+      }
+order: 1000

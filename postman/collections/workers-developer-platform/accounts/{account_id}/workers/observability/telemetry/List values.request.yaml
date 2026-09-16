@@ -1,0 +1,49 @@
+$kind: http-request
+id: 24f389b9-33eb-5f7b-b486-12349678ada0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: telemetry.values.list
+  POST /accounts/{account_id}/workers/observability/telemetry/values
+
+  List unique values found in your events.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/telemetry/values"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "timeframe": {
+        "to": 3741.539663169533,
+        "from": 3681.3215957954526
+      },
+      "key": "string",
+      "type": "boolean",
+      "datasets": [
+        "string",
+        "string"
+      ],
+      "limit": 50,
+      "needle": {
+        "value": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "isRegex": true,
+        "matchCase": false
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List values.resources/examples
+order: 4000

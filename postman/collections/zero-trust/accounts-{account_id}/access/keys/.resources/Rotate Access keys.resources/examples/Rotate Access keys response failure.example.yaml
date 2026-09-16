@@ -1,0 +1,27 @@
+$kind: http-example
+id: 42fa23c8-797a-529a-a0c8-2e8f4ee88f94
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/keys/rotate"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

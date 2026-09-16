@@ -1,0 +1,19 @@
+$kind: http-example
+id: b5cb560a-f255-5ade-b8b2-ecbfbc209d2f
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds/poll?feed_id=9b51c2d8-bda3-70f7-65a8-85a4a505bfdf"
+  method: POST
+  headers:
+    Accept: application/json
+  queryParams:
+    feed_id: 9b51c2d8-bda3-70f7-65a8-85a4a505bfdf
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

@@ -1,0 +1,41 @@
+$kind: http-request
+id: 2971b650-1a51-56a5-859d-aacf25011eae
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_PirInterestBacktestCreate
+  POST /accounts/{account_id}/cloudforce-one/v2/priority-intelligence/interests/backtests
+
+  Uses bounded full-span top-N candidates and daily event-date buckets. Results are conservative rather than an exact historical replay.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/interests/backtests"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "as_of": "1941-03-23T16:51:10.984Z",
+      "backtest_days": 30,
+      "candidate_limit": 90,
+      "dataset_ids": [
+        "string"
+      ],
+      "emerging_min_current_count": 93193,
+      "established_min_absolute_delta": 3633,
+      "established_min_prior_count": 11664,
+      "established_min_relative_delta": 3.5830680280923843,
+      "window_days": 7
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Backtest account-interest change detection.resources/examples
+order: 1000

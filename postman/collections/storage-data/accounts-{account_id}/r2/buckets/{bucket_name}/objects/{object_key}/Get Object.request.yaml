@@ -1,0 +1,31 @@
+$kind: http-request
+id: a1b495aa-71e4-50e5-8494-b0f2120fca8b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-get-object
+  GET /accounts/{account_id}/r2/buckets/{bucket_name}/objects/{object_key}
+
+  Retrieves an object from an R2 bucket. Returns the object body along with metadata headers.
+
+  For most workloads, we recommend using R2's [S3-compatible API](https://developers.cloudflare.com/r2/api/s3/api/) or a [Worker with an R2 binding](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/) instead.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects/{{object_key}}"
+method: GET
+headers:
+  cf-r2-jurisdiction: default
+  If-None-Match: string
+  If-Modified-Since: string
+  Accept: application/octet-stream
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Object.resources/examples
+order: 2000

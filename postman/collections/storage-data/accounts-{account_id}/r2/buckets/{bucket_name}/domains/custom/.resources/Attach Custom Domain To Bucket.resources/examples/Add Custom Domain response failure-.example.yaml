@@ -1,0 +1,47 @@
+$kind: http-example
+id: e3959b6b-e145-57b2-8510-cd55fb9413e5
+name: Add Custom Domain response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/domains/custom"
+  method: POST
+  headers:
+    cf-r2-jurisdiction: default
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domain": "prefix.example-domain.com",
+        "enabled": true,
+        "zoneId": "36ca64a6d92827b8a6b90be344bb1bfd"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": null
+      }
+order: 2000

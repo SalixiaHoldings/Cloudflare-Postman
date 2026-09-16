@@ -1,0 +1,28 @@
+$kind: http-request
+id: c1c0f173-9234-5616-ad30-d7798329c0b8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ai-search-instance-list-job-logs
+  GET /accounts/{account_id}/ai-search/instances/{id}/jobs/{job_id}/logs
+
+  Lists log entries for an AI Search indexing job.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-search/instances/{{id}}/jobs/{{job_id}}/logs?page=1&per_page=20"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  page: "1"
+  per_page: "20"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Job Logs.resources/examples
+order: 3000

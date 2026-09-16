@@ -1,0 +1,45 @@
+$kind: http-request
+id: 155c5f49-040d-51bd-a882-9826bc1dd96a
+name: List AI Search instances.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ai-search-list-instances
+  GET /accounts/{account_id}/ai-search/instances
+
+  List all AI Search instances in the account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-search/instances?page=1&per_page=20&search=string&namespace=9v2v&order_by=created_at&order_by_direction=desc"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    description: Page number (1-indexed).
+  - key: per_page
+    value: "20"
+    description: Number of results per page.
+  - key: search
+    value: string
+    description: Filter instances whose id contains this string (case-insensitive).
+  - key: namespace
+    value: 9v2v
+    description: Filter by namespace.
+  - key: order_by
+    value: created_at
+    description: Field to order results by.
+  - key: order_by_direction
+    value: desc
+    description: Order direction.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List AI Search instances-.resources/examples
+order: 1000

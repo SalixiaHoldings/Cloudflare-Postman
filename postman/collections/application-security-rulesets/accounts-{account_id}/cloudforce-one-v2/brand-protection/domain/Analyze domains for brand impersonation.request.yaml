@@ -1,0 +1,32 @@
+$kind: http-request
+id: 9f431cfd-d809-5950-8bb1-bc3f9b3fa3fd
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_DomainTrial
+  POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/domain/trial
+
+  Uses AI to scan all domains in the lookback table and identify potential phishing or impersonation attempts against the given brand string.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/domain/trial"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "brand": "U 921ahn_"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Analyze domains for brand impersonation.resources/examples
+order: 3000

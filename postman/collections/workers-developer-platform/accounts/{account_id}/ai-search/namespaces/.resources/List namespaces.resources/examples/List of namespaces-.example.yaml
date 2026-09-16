@@ -1,0 +1,72 @@
+$kind: http-example
+id: 74cb5efb-ddb0-5469-8e8e-7fe40d05187d
+name: List of namespaces.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces?page=1&per_page=20&search=prod"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      description: Page number (1-indexed).
+    - key: per_page
+      value: "20"
+      description: Number of results per page.
+    - key: search
+      value: prod
+      description: Filter namespaces whose name or description contains this string (case-insensitive).
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": [
+          {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "public_endpoint_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "public_endpoint_params": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "public_endpoint_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "public_endpoint_params": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "page": 9251.081452239305,
+          "per_page": 5087.5031552277505,
+          "count": 5090.030306018889,
+          "total_count": 726.7627282999456
+        }
+      }
+order: 1000

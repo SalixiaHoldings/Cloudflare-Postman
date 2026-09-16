@@ -1,0 +1,44 @@
+$kind: http-example
+id: 76cba12d-5775-57f4-ab12-a4b9c30aca8d
+name: Create request response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/requests/new"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "content": "What regions were most effected by the recent DoS?",
+        "priority": "routine",
+        "request_type": "Victomology",
+        "summary": "DoS attack",
+        "tlp": "red"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

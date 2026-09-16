@@ -1,0 +1,20 @@
+$kind: http-example
+id: f118debe-0c82-5572-9879-dacfedeb99bd
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/url/{{provider}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": "string"
+      }
+order: 1000

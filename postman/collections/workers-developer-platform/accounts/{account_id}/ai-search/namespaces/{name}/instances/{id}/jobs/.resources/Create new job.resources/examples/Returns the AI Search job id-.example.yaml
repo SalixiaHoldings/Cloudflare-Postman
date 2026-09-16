@@ -1,0 +1,36 @@
+$kind: http-example
+id: de0d5263-08f0-5356-b19f-a4265ecbf04e
+name: Returns the AI Search job id.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/jobs"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "description": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "source": "schedule",
+          "description": "string",
+          "end_reason": "string",
+          "ended_at": "string",
+          "last_seen_at": "string",
+          "started_at": "string"
+        }
+      }
+order: 1000

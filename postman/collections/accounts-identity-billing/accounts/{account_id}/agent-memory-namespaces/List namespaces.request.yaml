@@ -1,0 +1,30 @@
+$kind: http-request
+id: ef7b3c15-5a95-52ad-984c-6ffa6cf593e6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: agent-memory-namespace-list
+  GET /accounts/{account_id}/agent-memory/namespaces
+
+  Lists all namespaces for the given account. Results are paginated.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces?per_page=20&order=id&direction=asc&cursor=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  per_page: "20"
+  order: id
+  direction: asc
+  cursor: string
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List namespaces.resources/examples
+order: 1000

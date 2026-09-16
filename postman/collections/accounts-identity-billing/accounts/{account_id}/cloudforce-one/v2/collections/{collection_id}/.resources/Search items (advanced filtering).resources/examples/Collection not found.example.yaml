@@ -1,0 +1,40 @@
+$kind: http-example
+id: 1732215c-547a-5176-accf-cfea78633c97
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/search"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "cursor": "string",
+        "filter": {
+          "field": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "op": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "limit": 20,
+        "q": "string",
+        "sort": {
+          "field": "string",
+          "order": "asc"
+        }
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

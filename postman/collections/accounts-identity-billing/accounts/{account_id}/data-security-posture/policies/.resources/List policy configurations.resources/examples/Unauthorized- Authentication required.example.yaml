@@ -1,0 +1,26 @@
+$kind: http-example
+id: 7f44309d-224c-57a1-b841-8565781c4f5b
+name: "Unauthorized: Authentication required"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/policies?cursor=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: cursor
+      value: string
+      description: Cursor for pagination. Obtained from the `result_info.cursor` field of a previous response.
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 3000

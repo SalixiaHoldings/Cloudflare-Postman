@@ -1,0 +1,27 @@
+$kind: http-example
+id: ad44f1ef-ce1f-5624-b0ab-9b24cc971f2f
+name: Return a failure response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/snippets/{{snippet_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": null,
+        "success": false,
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 3000

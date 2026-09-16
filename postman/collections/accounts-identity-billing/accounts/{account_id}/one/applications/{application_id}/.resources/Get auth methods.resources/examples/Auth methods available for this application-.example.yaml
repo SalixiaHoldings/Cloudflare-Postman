@@ -1,0 +1,60 @@
+$kind: http-example
+id: e4ac50ab-436e-5631-b415-886998f02cfb
+name: Auth methods available for this application.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/one/applications/{{application_id}}/auth-methods?page=8161&page_size=8161"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "8161"
+      description: A page number within the paginated result set.
+    - key: page_size
+      value: "8161"
+      description: Number of results to return per page.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": [
+          {
+            "display_name": "API Key",
+            "human_interaction_required": false,
+            "id": "api_key",
+            "instructions": {
+              "markdown": "## Getting your API Key\n\n1. Log in to your admin console\n2. Navigate to Settings > API\n3. Generate a new API key"
+            },
+            "payload_example": {
+              "api_key": "{{api_key}}"
+            },
+            "payload_schema": {
+              "properties": {
+                "api_key": "{{api_key}}"
+              },
+              "required": [
+                "api_key"
+              ],
+              "type": "object"
+            },
+            "redirect_url": null
+          }
+        ],
+        "result_info": {
+          "count": 1,
+          "next": null,
+          "page": 1,
+          "per_page": 10,
+          "previous": null,
+          "total_count": 1
+        },
+        "success": true
+      }
+order: 1000

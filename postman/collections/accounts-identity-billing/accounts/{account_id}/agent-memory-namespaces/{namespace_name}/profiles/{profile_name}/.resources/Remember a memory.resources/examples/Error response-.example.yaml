@@ -1,0 +1,36 @@
+$kind: http-example
+id: fae90559-0c39-578d-a66c-40fd8ff2e47f
+name: Error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/remember"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "content": "I prefer dark mode in the dashboard.",
+        "sessionId": "chat-session-42"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": 1003,
+            "message": "namespace not found"
+          }
+        ],
+        "messages": []
+      }
+order: 2000

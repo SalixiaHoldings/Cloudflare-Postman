@@ -1,0 +1,25 @@
+$kind: http-request
+id: 4ea8ec38-4cb9-5cbd-a2f3-555ad234673d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: custom-pages-for-a-zone-get-a-custom-page
+  GET /zones/{zone_identifier}/custom_pages/{identifier}
+
+  Fetches the details of a custom page.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_identifier}}/custom_pages/{{identifier}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: noauth
+examples: ./.resources/Get a custom page.resources/examples
+order: 1000

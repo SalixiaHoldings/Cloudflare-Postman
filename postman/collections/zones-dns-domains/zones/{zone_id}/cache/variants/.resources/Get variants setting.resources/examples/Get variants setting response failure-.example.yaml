@@ -1,0 +1,28 @@
+$kind: http-example
+id: ea82114e-0224-506d-8e4a-0db97b0a2a13
+name: Get variants setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/variants"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

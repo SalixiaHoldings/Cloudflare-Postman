@@ -1,0 +1,36 @@
+$kind: http-request
+id: 43903a9a-3c39-5799-8810-2d10751dd5a7
+name: Change HTTP/2 Prioritization setting
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-settings-change-h2-prioritization-setting
+  PATCH /zones/{zone_id}/settings/h2_prioritization
+
+  HTTP/2 Prioritization controls the order in which assets are delivered to browsers.
+  Cloudflare's HTTP/2 Prioritization overrides the default browser prioritization order,
+  improving the loading performance of web pages.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/settings/h2_prioritization"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": "on"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Change HTTP-2 Prioritization setting.resources/examples
+order: 2000

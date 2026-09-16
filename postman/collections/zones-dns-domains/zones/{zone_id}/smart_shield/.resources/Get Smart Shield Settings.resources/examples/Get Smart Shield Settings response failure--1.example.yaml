@@ -1,0 +1,44 @@
+$kind: http-example
+id: 3d6a8563-779e-528e-9b16-d98d90d79e55
+name: Get Smart Shield Settings response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/smart_shield"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 502
+  statusText: Bad Gateway
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1016,
+            "message": "Unable to retrieve smart_tiered_cache."
+          },
+          {
+            "code": 1016,
+            "message": "Unable to retrieve cache_reserve."
+          },
+          {
+            "code": 1016,
+            "message": "Unable to retrieve smart_routing."
+          },
+          {
+            "code": 1016,
+            "message": "Unable to retrieve regional_tiered_cache."
+          },
+          {
+            "code": 1016,
+            "message": "Unable to retrieve healthchecks_count."
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

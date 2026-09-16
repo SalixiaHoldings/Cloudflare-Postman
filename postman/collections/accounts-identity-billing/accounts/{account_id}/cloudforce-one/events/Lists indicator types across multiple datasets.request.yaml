@@ -1,0 +1,32 @@
+$kind: http-request
+id: ebc8620f-0dd0-5259-8725-45669e63aadb
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_IndicatorTypesList
+  GET /accounts/{account_id}/cloudforce-one/events/indicator-types
+
+  Lists indicator types across multiple datasets
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/indicator-types?datasetIds=string&datasetIds=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: datasetIds
+    value: string
+    description: "Dataset UUIDs to query, or one standalone scope value: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, queries all accessible datasets."
+  - key: datasetIds
+    value: string
+    description: "Dataset UUIDs to query, or one standalone scope value: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, queries all accessible datasets."
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Lists indicator types across multiple datasets.resources/examples
+order: 14000

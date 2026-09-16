@@ -1,0 +1,70 @@
+$kind: http-request
+id: dbecef13-c6f0-590d-9f16-0a36d2fd6912
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-gre-tunnels-update-gre-tunnel
+  PUT /accounts/{account_id}/magic/gre_tunnels/{gre_tunnel_id}
+
+  Updates a specific GRE tunnel. Use `?validate_only=true` as an optional query parameter to only run validation without persisting changes.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/gre_tunnels/{{gre_tunnel_id}}"
+method: PUT
+headers:
+  - key: x-magic-new-hc-target
+    value: "true"
+    description: If true, the health check target in the request and response bodies will be presented using the new object format. Defaults to false.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+  - key: X-Auth-Email
+    value: "{{api_email}}"
+  - key: X-Auth-Key
+    value: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "customer_gre_endpoint": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "cloudflare_gre_endpoint": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "interface_address": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "automatic_return_routing": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "description": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "health_check": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "interface_address6": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "mtu": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "ttl": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update GRE Tunnel.resources/examples
+order: 3000

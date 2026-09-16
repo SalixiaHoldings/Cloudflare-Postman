@@ -1,0 +1,82 @@
+$kind: http-example
+id: 4e9daa25-87a7-5097-b30c-f4b396770e6e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cni/cnis/{{cni}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "id": "4d7a8f69-64a1-8a11-66f9-5beed84b7a47",
+        "interconnect": "string",
+        "account": "<string>",
+        "p2p_ip": "192.168.3.4/31",
+        "cust_ip": "192.168.3.4/31",
+        "magic": {
+          "conduit_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "mtu": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "bgp": {
+          "customer_asn": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "extra_prefixes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "md5_key": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "bgp_mode": "advertise_only"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "4d7a8f69-64a1-8a11-66f9-5beed84b7a47",
+        "interconnect": "string",
+        "account": "<string>",
+        "p2p_ip": "192.168.3.4/31",
+        "cust_ip": "192.168.3.4/31",
+        "magic": {
+          "conduit_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "mtu": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "bgp": {
+          "customer_asn": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "extra_prefixes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "md5_key": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "bgp_mode": "advertise_only"
+      }
+order: 1000

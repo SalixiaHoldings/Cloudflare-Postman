@@ -1,0 +1,60 @@
+$kind: http-example
+id: 9fa3d2bb-9ba5-5700-9656-e5063c6ea856
+name: Script trigger declarations.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/triggers/{{script_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": {
+          "script_name": "string",
+          "triggers": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 2656.8693201988935,
+          "count": 5704.893006477505,
+          "total_count": 582.5065425597131,
+          "cursor": "string",
+          "page": 5130.230700597167,
+          "total_pages": 9276.817634236068
+        }
+      }
+order: 1000

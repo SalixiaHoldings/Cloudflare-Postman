@@ -1,0 +1,38 @@
+$kind: http-example
+id: ef25c59b-4a12-546a-8808-06205d58db91
+name: Restart Validation for Advanced Certificate Manager Certificate Pack response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ssl/certificate_packs/{{certificate_pack_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "cloudflare_branding": false
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

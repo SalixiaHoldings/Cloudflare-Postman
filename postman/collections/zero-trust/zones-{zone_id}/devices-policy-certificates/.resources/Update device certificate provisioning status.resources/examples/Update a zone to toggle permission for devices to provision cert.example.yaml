@@ -1,0 +1,31 @@
+$kind: http-example
+id: c60196a3-15d1-5efa-95d0-bd93d76bfef6
+name: Update a zone to toggle permission for devices to provision certificates response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/devices/policy/certificates"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

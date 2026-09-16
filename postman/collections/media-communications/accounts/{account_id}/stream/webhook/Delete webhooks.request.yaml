@@ -1,0 +1,27 @@
+$kind: http-request
+id: 1d339dcd-a159-5022-8373-e0241892a0aa
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: stream-webhook-delete-webhooks
+  DELETE /accounts/{account_id}/stream/webhook
+
+  Deletes the on-demand video webhook.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/stream/webhook"
+method: DELETE
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete webhooks.resources/examples
+order: 1000

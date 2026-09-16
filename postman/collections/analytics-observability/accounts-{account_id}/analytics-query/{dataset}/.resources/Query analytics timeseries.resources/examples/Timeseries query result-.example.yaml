@@ -1,0 +1,67 @@
+$kind: http-example
+id: 6e3c32eb-214c-5785-93fd-6e3060cda0a1
+name: Timeseries query result.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics/query/{{dataset}}/timeseries"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "filters": [
+          {
+            "name": "allowed",
+            "op": "eq",
+            "values": [
+              true
+            ]
+          }
+        ],
+        "from": "2024-11-01T00:00:00Z",
+        "groupBy": [
+          "country",
+          "allowed"
+        ],
+        "resolution": "day",
+        "stats": [
+          "attemptsTotal"
+        ],
+        "to": "2024-11-08T00:00:00Z"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [
+          {
+            "code": 1000,
+            "message": "API in beta: expect breaking changes."
+          }
+        ],
+        "result": {
+          "resolution": "hour",
+          "slots": [
+            {
+              "appName": "Slack",
+              "bytesTotal": 1048576,
+              "time_bucket": "2024-11-05T00:00:00Z"
+            },
+            {
+              "appName": "Slack",
+              "bytesTotal": 2097152,
+              "time_bucket": "2024-11-05T01:00:00Z"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

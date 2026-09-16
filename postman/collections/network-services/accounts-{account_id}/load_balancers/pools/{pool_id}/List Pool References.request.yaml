@@ -1,0 +1,27 @@
+$kind: http-request
+id: 8002e5bf-ea6c-5b45-96c5-28f54b15228a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: account-load-balancer-pools-list-pool-references
+  GET /accounts/{account_id}/load_balancers/pools/{pool_id}/references
+
+  Get the list of resources that reference the provided pool.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/load_balancers/pools/{{pool_id}}/references"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Pool References.resources/examples
+order: 7000

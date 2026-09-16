@@ -1,0 +1,42 @@
+$kind: http-example
+id: 4a15fdcd-9204-57ed-93a7-da5c7bc2313b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/warp_connector?name=blog&is_deleted=true&existed_at=2019-10-12T07%3A20%3A50.52Z&uuid=f70ff985-a4ef-4643-bbbc-4a0ed4fc8415&was_active_at=2009-11-10T23:00:00Z&was_inactive_at=2009-11-10T23:00:00Z&include_prefix=vpc1-&exclude_prefix=vpc1-&status=healthy&per_page=<number>&page=1"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    name: blog
+    is_deleted: "true"
+    existed_at: 2019-10-12T07%3A20%3A50.52Z
+    uuid: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+    was_active_at: 2009-11-10T23:00:00Z
+    was_inactive_at: 2009-11-10T23:00:00Z
+    include_prefix: vpc1-
+    exclude_prefix: vpc1-
+    status: healthy
+    per_page: <number>
+    page: "1"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

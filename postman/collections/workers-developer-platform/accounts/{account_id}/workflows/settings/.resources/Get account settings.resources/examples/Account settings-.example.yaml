@@ -1,0 +1,59 @@
+$kind: http-example
+id: aef99b70-e854-58fc-83a3-2eb4f0b53635
+name: Account settings.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/settings"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": {
+          "default_retention": {
+            "error_retention": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "success_retention": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 5587.444296106696,
+          "count": 1844.9191027320921,
+          "total_count": 2620.9809305146337,
+          "cursor": "string",
+          "page": 219.51340604573488,
+          "total_pages": 6775.579818058759
+        }
+      }
+order: 1000

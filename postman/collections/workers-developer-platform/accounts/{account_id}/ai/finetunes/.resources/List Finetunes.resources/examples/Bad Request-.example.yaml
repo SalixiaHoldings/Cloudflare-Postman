@@ -1,0 +1,33 @@
+$kind: http-example
+id: 8b11fb88-c2ed-54a0-8ed7-da6b29d85243
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/finetunes"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

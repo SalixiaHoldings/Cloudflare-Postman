@@ -1,0 +1,38 @@
+$kind: http-request
+id: 45388545-9338-5e74-bfce-92fb5832e4b0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: schema-validation-list-schemas-paginated
+  GET /zones/{zone_id}/schema_validation/schemas
+
+  Lists all OpenAPI schemas uploaded to API Security.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/schema_validation/schemas?page=1&per_page=20&omit_source=false&validation_enabled=false"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    description: Page number of paginated results.
+  - key: per_page
+    value: "20"
+    description: Maximum number of results per page.
+  - key: omit_source
+    value: "false"
+    description: Omit the source-files of schemas and only retrieve their meta-data.
+  - key: validation_enabled
+    value: "false"
+    description: Filter for enabled schemas
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List all uploaded schemas.resources/examples
+order: 1000

@@ -1,0 +1,25 @@
+$kind: http-request
+id: 09a040fd-2369-5871-a594-0b91ebc40e02
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: worker-script-get-settings
+  GET /accounts/{account_id}/workers/scripts/{script_name}/settings
+
+  Get metadata and config, such as bindings or usage model.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/settings"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Settings.resources/examples
+order: 1000

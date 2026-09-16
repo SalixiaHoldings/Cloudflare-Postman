@@ -1,0 +1,48 @@
+$kind: http-example
+id: c3fffed6-49ff-5aa3-8432-f6cbf36684d2
+name: |
+  Empty Bucket conflict. Event notification rules are still configured (error code
+  10034), or the Data Catalog check was requested and R2 Data Catalog is enabled for
+  the bucket (error code 10081). Remove the conflicting configuration before retrying.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects?prefix="
+  method: DELETE
+  headers:
+    - key: cf-r2-jurisdiction
+      value: default
+    - key: cf-r2-data-catalog-check
+      value: string
+      description: Set this header to reject the operation when R2 Data Catalog is enabled for the bucket.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  queryParams:
+    prefix: ""
+  body:
+    type: json
+    content: |-
+      [
+        "path/to/object-a.txt",
+        "path/to/object-b.txt"
+      ]
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 10034,
+            "message": "Remove all event notification rules from bucket (example-bucket) before emptying it (account 023e105f4ecef8ad9ca31a8372d0c353)."
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

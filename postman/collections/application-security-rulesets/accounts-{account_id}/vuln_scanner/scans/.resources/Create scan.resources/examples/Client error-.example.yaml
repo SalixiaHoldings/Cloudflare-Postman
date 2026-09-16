@@ -1,0 +1,46 @@
+$kind: http-example
+id: 07ee6167-47cb-5d6a-8357-b06d70db70a2
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vuln_scanner/scans"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "target_environment_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "scan_type": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "open_api": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "credential_sets": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

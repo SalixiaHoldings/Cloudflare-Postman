@@ -1,0 +1,40 @@
+$kind: http-example
+id: cbce5776-a615-52c6-a61c-769910e7e7cb
+name: Endpoint Health Check failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/diagnostics/endpoint-healthchecks/{{id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "check_type": "icmp",
+        "endpoint": "203.0.113.1",
+        "name": "My Endpoint"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

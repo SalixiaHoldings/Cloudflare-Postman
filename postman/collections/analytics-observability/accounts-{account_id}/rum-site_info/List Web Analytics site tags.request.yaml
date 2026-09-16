@@ -1,0 +1,32 @@
+$kind: http-request
+id: 854d7e40-1867-5a8c-a63f-0468f2962b7b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: web-analytics-list-site-tags
+  GET /accounts/{account_id}/rum/site_info/site_tag/list
+
+  Returns all site tags for an account as an array of site tag strings. This endpoint returns all results without pagination.
+
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/rum/site_info/site_tag/list?all=false"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: all
+    value: "false"
+    description: When true, includes sites that are disabled or paused.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Web Analytics site tags.resources/examples
+order: 3000

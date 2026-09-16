@@ -1,0 +1,22 @@
+$kind: http-example
+id: a8bad738-6fa1-5213-8b1c-3e6241f8e6f2
+name: "Forbidden: Insufficient permissions"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{finding_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 4000

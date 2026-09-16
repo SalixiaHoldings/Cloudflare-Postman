@@ -1,0 +1,29 @@
+$kind: http-example
+id: 774d41f0-7fb3-5f88-ae25-a8d914bb7394
+name: Update a WAF rule group response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages/{{package_id}}/groups/{{group_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "mode": "on"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {}
+      }
+order: 1000

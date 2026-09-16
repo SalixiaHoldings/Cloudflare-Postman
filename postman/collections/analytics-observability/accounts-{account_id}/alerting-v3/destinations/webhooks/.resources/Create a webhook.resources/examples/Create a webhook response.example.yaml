@@ -1,0 +1,32 @@
+$kind: http-example
+id: 772da234-0695-528b-a270-21a13538a0ea
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/destinations/webhooks"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Slack Webhook",
+        "url": "https://hooks.slack.com/services/Ds3fdBFbV/456464Gdd",
+        "secret": "{{secret}}"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

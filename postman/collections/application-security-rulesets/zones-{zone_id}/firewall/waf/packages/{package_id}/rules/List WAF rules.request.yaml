@@ -1,0 +1,39 @@
+$kind: http-request
+id: cf859b21-2afa-5355-8ff8-5414a90d49ae
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: waf-rules-list-waf-rules
+  GET /zones/{zone_id}/firewall/waf/packages/{package_id}/rules
+
+  Fetches WAF rules in a WAF package.
+
+  **Note:** Applies only to the [previous version of WAF managed rules](https://developers.cloudflare.com/support/firewall/managed-rules-web-application-firewall-waf/understanding-waf-managed-rules-web-application-firewall/).
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages/{{package_id}}/rules?mode=CHL&group_id=de677e5818985db1285d0e80225f06e5&page=1&per_page=50&order=description&direction=desc&match=all&description=SQL injection prevention for SELECT statements&priority=string"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  mode: CHL
+  group_id: de677e5818985db1285d0e80225f06e5
+  page: "1"
+  per_page: "50"
+  order: description
+  direction: desc
+  match: all
+  description: SQL injection prevention for SELECT statements
+  priority: string
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List WAF rules.resources/examples
+order: 1000

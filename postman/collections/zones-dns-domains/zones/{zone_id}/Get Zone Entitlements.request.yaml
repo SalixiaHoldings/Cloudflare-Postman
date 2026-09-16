@@ -1,0 +1,26 @@
+$kind: http-request
+id: 36ab77bc-edc8-5665-9655-380d66e8391d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: entitlements-get-zone-entitlements
+  GET /zones/{zone_id}/entitlements
+
+  Returns the list of entitlements (features and their allocations) for a given zone. Each entitlement describes a product feature the zone is permitted to use and the allocation value (boolean, count, range, enum, or string) that governs its behaviour.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/entitlements"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Zone Entitlements.resources/examples
+order: 23000

@@ -1,0 +1,25 @@
+$kind: http-request
+id: 8405cd1e-eea3-52ff-8b93-4de63cb03655
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_DashboardAssetDownload
+  GET /accounts/{account_id}/cloudforce-one/v2/requests/{project_type}/{request_id}/assets/{asset_id}/download
+
+  Download a file asset from R2 storage. Customer can only download from their own account.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/assets/{{asset_id}}/download"
+method: GET
+headers:
+  Accept: application/octet-stream
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Download asset (Customer).resources/examples
+order: 3000

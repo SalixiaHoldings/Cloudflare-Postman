@@ -1,0 +1,47 @@
+$kind: http-request
+id: 24d33fda-47f8-545b-a11e-212a8268a559
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-variants-create-a-variant
+  POST /accounts/{account_id}/images/v1/variants
+
+  Create a CF Images variant that allows you to resize images for different use cases.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v1/variants"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "id": "y",
+      "options": {
+        "fit": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "metadata": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "width": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "height": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "neverRequireSignedURLs": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a variant.resources/examples
+order: 2000

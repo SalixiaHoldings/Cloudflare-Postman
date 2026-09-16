@@ -1,0 +1,42 @@
+$kind: http-example
+id: 57ad0a9a-c1d1-574c-abfa-bb656ac843cd
+name: Batch operation results.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/sending_domain_restrictions/batch"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "deletes": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "deletes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

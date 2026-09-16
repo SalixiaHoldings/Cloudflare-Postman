@@ -1,0 +1,28 @@
+$kind: http-example
+id: 10f9ccf1-46a8-5626-9fb1-adfa638543d9
+name: Bad request — invalid zone identifier or object type.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/entitlements"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 2005,
+            "message": "failed to fetch entitlements: invalid object type"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

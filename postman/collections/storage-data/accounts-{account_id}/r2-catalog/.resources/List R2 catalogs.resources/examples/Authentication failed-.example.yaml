@@ -1,0 +1,30 @@
+$kind: http-example
+id: bbc06e88-60e9-5225-94a3-c143d2320037
+name: Authentication failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false
+      }
+order: 3000

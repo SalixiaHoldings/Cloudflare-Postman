@@ -1,0 +1,43 @@
+$kind: http-example
+id: 514fedef-83ec-5222-8216-b815703971aa
+name: List Certificates response failure.
+request:
+  url: "{{base_url}}/certificates?zone_id={{zone_id}}&page=1&per_page=20&limit=10&offset=10"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: zone_id
+      value: "{{zone_id}}"
+      description: "(Required) "
+    - key: page
+      value: "1"
+    - key: per_page
+      value: "20"
+    - key: limit
+      value: "10"
+    - key: offset
+      value: "10"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,35 @@
+$kind: http-example
+id: 3d3798ce-5e73-5922-b6bc-f3ed78e3b7e6
+name: Create custom prompt topic response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/custom_prompt_topics"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "enabled": true,
+        "topic": "string",
+        "description": "string",
+        "profile_id": "ffa163db-0e8b-989c-05b1-81ecfc5ab1fb"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

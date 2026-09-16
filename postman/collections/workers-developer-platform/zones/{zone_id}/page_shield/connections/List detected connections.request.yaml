@@ -1,0 +1,38 @@
+$kind: http-request
+id: 5ac03812-3c75-5a3d-9e9a-257d936fb4a8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: page-shield-list-connections
+  GET /zones/{zone_id}/page_shield/connections
+
+  Lists outbound connections made by webpages in the zone.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/page_shield/connections?exclude_urls=blog.cloudflare.com,www.example&urls=blog.cloudflare.com,www.example&hosts=blog.cloudflare.com,www.example*,*cloudflare.com&page=string&per_page=100&order_by=first_seen_at&direction=asc&prioritize_malicious=true&exclude_cdn_cgi=true&status=active,inactive&page_url=example.com/page,*/checkout,example.com/*,*checkout*&export=csv"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  exclude_urls: blog.cloudflare.com,www.example
+  urls: blog.cloudflare.com,www.example
+  hosts: blog.cloudflare.com,www.example*,*cloudflare.com
+  page: string
+  per_page: "100"
+  order_by: first_seen_at
+  direction: asc
+  prioritize_malicious: "true"
+  exclude_cdn_cgi: "true"
+  status: active,inactive
+  page_url: example.com/page,*/checkout,example.com/*,*checkout*
+  export: csv
+auth:
+  type: noauth
+examples: ./.resources/List detected connections.resources/examples
+order: 1000

@@ -1,0 +1,26 @@
+$kind: http-request
+id: 0c12766e-8cf1-5d9c-8c80-c28404563567
+name: Delete all allowlist prefixes.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: deleteAllowlistPrefixesForAccount
+  DELETE /accounts/{account_id}/magic/advanced_tcp_protection/configs/allowlist
+
+  Delete all allowlist prefixes for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/allowlist"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete all allowlist prefixes-.resources/examples
+order: 1000

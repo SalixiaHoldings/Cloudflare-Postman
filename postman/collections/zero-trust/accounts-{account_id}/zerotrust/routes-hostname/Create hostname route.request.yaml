@@ -1,0 +1,34 @@
+$kind: http-request
+id: 5da80fd4-feb8-5401-9378-1de7a2471ee6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-networks-route-hostname-create
+  POST /accounts/{account_id}/zerotrust/routes/hostname
+
+  Create a hostname route.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/zerotrust/routes/hostname"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "comment": "example comment",
+      "hostname": "office-1.local",
+      "tunnel_id": "f70ff985-a4ef-4643-bbbc-4a0ed4fc8415"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create hostname route.resources/examples
+order: 2000

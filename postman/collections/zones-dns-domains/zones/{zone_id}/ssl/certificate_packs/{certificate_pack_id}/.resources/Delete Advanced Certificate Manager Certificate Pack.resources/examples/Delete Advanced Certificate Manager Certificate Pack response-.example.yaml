@@ -1,0 +1,24 @@
+$kind: http-example
+id: 4a3d176b-f713-5c87-ab52-90aafdee5f1a
+name: Delete Advanced Certificate Manager Certificate Pack response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ssl/certificate_packs/{{certificate_pack_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

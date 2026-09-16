@@ -1,0 +1,30 @@
+$kind: http-example
+id: ab9f69aa-f25d-5ae2-b344-ec1bd0d0e10a
+name: Delete watermark profiles response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/watermarks/{{identifier}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

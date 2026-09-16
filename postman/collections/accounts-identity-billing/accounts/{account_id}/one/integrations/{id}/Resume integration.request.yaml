@@ -1,0 +1,25 @@
+$kind: http-request
+id: cfc35fa1-f409-5e63-b79a-afefd1fecde8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: resume_integration_v2
+  POST /accounts/{account_id}/one/integrations/{id}/resume
+
+  Resumes a paused integration, restarting crawlers.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/one/integrations/{{id}}/resume"
+method: POST
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Resume integration.resources/examples
+order: 5000

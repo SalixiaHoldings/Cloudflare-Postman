@@ -1,0 +1,29 @@
+$kind: http-example
+id: 7f1e745a-dd54-58a6-b1fe-099e59432c4c
+name: Another approval is already pending for this rule.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/{{id}}"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "commit_message": "Rule superseded by yara/workers/tighter-panel.yar."
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "An approval is already pending for this rule.",
+        "code": "approval_pending",
+        "approval_id": 12345
+      }
+order: 6000

@@ -1,0 +1,25 @@
+$kind: http-example
+id: ee54cdb9-a15c-5b17-98a1-353705fe3246
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/subscriptions"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "subscription_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

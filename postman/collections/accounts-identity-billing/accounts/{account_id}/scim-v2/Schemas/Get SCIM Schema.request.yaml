@@ -1,0 +1,26 @@
+$kind: http-request
+id: 8ea52058-83c7-56f2-97db-7821049cc5da
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: scim-schemas-get
+  GET /accounts/{account_id}/scim/v2/Schemas/{schema_id}
+
+  Returns a single SCIM schema definition by schema URI ID (RFC 7643 Section 7). Valid IDs are `urn:ietf:params:scim:schemas:core:2.0:User` and `urn:ietf:params:scim:schemas:core:2.0:Group`.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Schemas/{{schema_id}}"
+method: GET
+headers:
+  Accept: application/scim+json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get SCIM Schema.resources/examples
+order: 2000

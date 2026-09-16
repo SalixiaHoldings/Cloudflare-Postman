@@ -1,0 +1,44 @@
+$kind: http-example
+id: ff7cb1bf-54d1-5704-b72b-d9101184c03a
+name: Initiate video uploads using TUS response. Returns a 201 Created status with Location header for TUS uploads.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream?direct_user=true"
+  method: POST
+  headers:
+    - key: Tus-Resumable
+      value: 1.0.0
+      description: "(Required) "
+    - key: Upload-Creator
+      value: creator-id_abcde12345
+    - key: Upload-Length
+      value: "5898"
+      description: "(Required) "
+    - key: Upload-Metadata
+      value: name aGVsbG8gd29ybGQ=, requiresignedurls, allowedorigins ZXhhbXBsZS5jb20sdGVzdC5jb20=
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+  queryParams:
+    direct_user: "true"
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    - key: Location
+      value: string
+      description: The URL where the upload should be sent.
+    - key: Stream-Media-ID
+      value: string
+      description: The unique identifier for the video being uploaded.
+    - key: Tus-Resumable
+      value: 1.0.0
+      description: The TUS protocol version.
+    - key: Content-Type
+      value: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

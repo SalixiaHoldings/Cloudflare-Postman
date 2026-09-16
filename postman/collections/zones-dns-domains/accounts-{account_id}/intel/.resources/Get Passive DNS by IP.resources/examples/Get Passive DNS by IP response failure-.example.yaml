@@ -1,0 +1,37 @@
+$kind: http-example
+id: bdddef7f-7eb9-58b7-87ab-fe6dbb565899
+name: Get Passive DNS by IP response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/dns?end=2021-04-30&start=2021-04-01&ipv4=string&page=1&per_page=20"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    end: 2021-04-30
+    start: 2021-04-01
+    ipv4: string
+    page: "1"
+    per_page: "20"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

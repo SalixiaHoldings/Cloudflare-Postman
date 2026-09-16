@@ -1,0 +1,32 @@
+$kind: http-request
+id: 74ef7a04-33ad-543f-8a81-c2152a97fbc3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-level-zero-trust-organization-revoke-all-access-tokens-for-a-user
+  POST /zones/{zone_id}/access/organizations/revoke_user
+
+  Revokes a user's access across all applications.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/access/organizations/revoke_user"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "email": "test@example.com"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Revoke all Access tokens for a user.resources/examples
+order: 4000

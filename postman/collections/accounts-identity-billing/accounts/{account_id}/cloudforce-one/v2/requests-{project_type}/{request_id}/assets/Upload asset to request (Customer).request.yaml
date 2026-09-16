@@ -1,0 +1,45 @@
+$kind: http-request
+id: 6c7ed04d-204b-533c-9279-602a3c41d365
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_DashboardAssetUpload
+  POST /accounts/{account_id}/cloudforce-one/v2/requests/{project_type}/{request_id}/assets/upload
+
+  Upload a file asset to R2 storage and associate it with a request. Customer can only upload to their own account.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/assets/upload"
+method: POST
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+body:
+  type: formdata
+  content:
+    - type: text
+      key: description
+      value: string
+      description: Optional description of the asset
+    - type: file
+      key: file
+      src: ""
+      description: The file to upload (can also use 'source')
+    - type: text
+      key: metadata
+      value: string
+      description: Optional JSON string of key-value pairs (e.g., '{"key1":"value1"}')
+    - type: file
+      key: source
+      src: ""
+      description: The file to upload (can also use 'file')
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Upload asset to request (Customer).resources/examples
+order: 2000

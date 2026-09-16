@@ -1,0 +1,36 @@
+$kind: http-request
+id: 7052668d-d68b-5104-820d-ca31160381d2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: put_TakedownNoticeUpdate
+  PUT /accounts/{account_id}/cloudforce-one/v2/brand-protection/takedown-notices/{notice_id}
+
+  Update a takedown notice (e.g. change status to sent, resolved, etc.).
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/takedown-notices/{{notice_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "domain": "string",
+      "matchId": 5127,
+      "matchType": "domain",
+      "queryId": 561,
+      "status": "draft"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update takedown notice.resources/examples
+order: 3000

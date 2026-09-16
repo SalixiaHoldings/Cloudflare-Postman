@@ -1,0 +1,39 @@
+$kind: http-request
+id: 3e97c40f-678a-5d08-9d0d-252cc7b6f666
+name: List all TCP Flow Protection rules.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: listTcpFlowProtectionRulesForAccount
+  GET /accounts/{account_id}/magic/advanced_tcp_protection/configs/tcp_flow_protection/rules
+
+  List all TCP Flow Protection rules for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/tcp_flow_protection/rules?page=1033&per_page=1033&order=string&direction=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1033"
+    description: The page number for pagination. Defaults to 1.
+  - key: per_page
+    value: "1033"
+    description: The number of items per page. Must be between 10 and 1000. Defaults to 25.
+  - key: order
+    value: string
+    description: The field to order by. Defaults to 'prefix'.
+  - key: direction
+    value: string
+    description: The direction of ordering (ASC or DESC). Defaults to 'ASC'.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List all TCP Flow Protection rules-.resources/examples
+order: 2000

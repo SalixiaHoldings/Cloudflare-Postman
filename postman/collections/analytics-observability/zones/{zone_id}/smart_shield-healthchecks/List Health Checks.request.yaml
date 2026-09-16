@@ -1,0 +1,32 @@
+$kind: http-request
+id: 261e05a6-551a-5e7d-89e5-fde0b4ba1327
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: smart-shield-list-health-checks
+  GET /zones/{zone_id}/smart_shield/healthchecks
+
+  List configured health checks.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/smart_shield/healthchecks?page=1&per_page=25"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    description: Page number of paginated results.
+  - key: per_page
+    value: "25"
+    description: Maximum number of results per page. Must be a multiple of 5.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Health Checks.resources/examples
+order: 1000

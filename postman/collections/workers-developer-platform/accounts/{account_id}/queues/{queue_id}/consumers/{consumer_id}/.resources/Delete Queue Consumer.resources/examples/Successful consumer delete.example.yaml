@@ -1,0 +1,27 @@
+$kind: http-example
+id: eacfa2cf-bfdb-57fa-b57a-5ddc2c64a809
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/queues/{{queue_id}}/consumers/{{consumer_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "success": true
+      }
+order: 1000

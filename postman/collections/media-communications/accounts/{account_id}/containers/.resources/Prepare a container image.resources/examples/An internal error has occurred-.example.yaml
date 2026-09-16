@@ -1,0 +1,35 @@
+$kind: http-example
+id: 6e54285a-387e-5fbe-8ecf-164d7f782d14
+name: An internal error has occurred.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/image-preparations"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "image": "string"
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 6000

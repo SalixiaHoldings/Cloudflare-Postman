@@ -1,0 +1,42 @@
+$kind: http-request
+id: d138d96a-c678-5cb5-b8d7-edbf4cc7a5c3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: patch_LegacyCategoryUpdate
+  PATCH /accounts/{account_id}/cloudforce-one/events/categories/{category_id}
+
+  Deprecated; use PATCH /events/event-categories/by-id/{category_id}. Available through 2026-11-28.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/categories/{{category_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "killChain": 5317.767192609608,
+      "mitreAttack": [
+        "T1234",
+        "T1234"
+      ],
+      "mitreCapec": [
+        "123",
+        "123"
+      ],
+      "name": "name",
+      "shortname": "shortname"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Updates a category.resources/examples
+order: 3000

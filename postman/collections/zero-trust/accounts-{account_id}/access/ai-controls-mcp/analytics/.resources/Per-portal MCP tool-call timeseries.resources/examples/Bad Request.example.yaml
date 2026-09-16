@@ -1,0 +1,42 @@
+$kind: http-example
+id: b9d57bf0-8f3f-519c-95e0-77c0c70f8615
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/analytics/portals/{{portal_id}}/tool-calls/timeseries?granularity=daily&aggregate=false&tz=utc&days=56"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: granularity
+      value: daily
+    - key: aggregate
+      value: "false"
+    - key: tz
+      value: utc
+    - key: days
+      value: "56"
+      description: Daily trailing-window size; defaults to 7 and is ignored for monthly
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

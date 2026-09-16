@@ -1,0 +1,46 @@
+$kind: http-example
+id: 1a645a7c-2590-5aa0-af73-bb61ac6b23aa
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/ip-profiles"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "IPv4 Cloudflare Source IPs",
+        "subnet_id": "b70ff985-a4ef-4643-bbbc-4a0ed4fc8415",
+        "precedence": 100,
+        "match": "identity.email == \"test@cloudflare.com\"",
+        "description": "example comment",
+        "enabled": true
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 2000

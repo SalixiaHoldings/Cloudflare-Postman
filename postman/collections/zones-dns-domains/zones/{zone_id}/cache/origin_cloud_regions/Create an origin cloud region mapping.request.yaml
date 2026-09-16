@@ -1,0 +1,34 @@
+$kind: http-request
+id: a5ef4ee3-17a0-560c-979d-481be24d1d5c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: origin-cloud-regions-create
+  POST /zones/{zone_id}/cache/origin_cloud_regions
+
+  Adds a single IP-to-cloud-region mapping for the zone. The IP must be a valid IPv4 or IPv6 address and is normalized to canonical form before storage (RFC 5952 for IPv6). Returns 400 (code 1145) if a mapping for that IP already exists — use PATCH to update an existing entry. The vendor and region are validated against the list from `GET /zones/{zone_id}/cache/origin_cloud_regions/supported_regions`.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "ip": "192.0.2.1",
+      "region": "us-east-1",
+      "vendor": "aws"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create an origin cloud region mapping.resources/examples
+order: 3000

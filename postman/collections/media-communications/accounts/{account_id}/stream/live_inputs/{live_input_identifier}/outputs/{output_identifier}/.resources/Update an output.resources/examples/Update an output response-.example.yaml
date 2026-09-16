@@ -1,0 +1,31 @@
+$kind: http-example
+id: 6ffe9691-9985-52b5-8b85-953da4633f14
+name: Update an output response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs/{{live_input_identifier}}/outputs/{{output_identifier}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

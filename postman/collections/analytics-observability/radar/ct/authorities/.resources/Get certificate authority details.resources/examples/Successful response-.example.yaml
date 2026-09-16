@@ -1,0 +1,84 @@
+$kind: http-example
+id: e9ef1db3-45f1-5fb2-98e7-a12736e7a670
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/ct/authorities/{{ca_slug}}?format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "certificateAuthority": {
+            "sha256Fingerprint": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "owner": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "parentName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "parentSha256Fingerprint": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "certificateRecordType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "country": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "countryName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "chromeStatus": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "appleStatus": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "microsoftStatus": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "mozillaStatus": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "revocationStatus": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "validFrom": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "validTo": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "authorityKeyIdentifier": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "subjectKeyIdentifier": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "related": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

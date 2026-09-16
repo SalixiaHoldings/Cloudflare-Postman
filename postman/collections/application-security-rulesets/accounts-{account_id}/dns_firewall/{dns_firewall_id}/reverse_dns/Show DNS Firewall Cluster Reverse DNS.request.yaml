@@ -1,0 +1,25 @@
+$kind: http-request
+id: 1f57aebe-2313-513d-a360-ac1817fd06db
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dns-firewall-show-dns-firewall-cluster-reverse-dns
+  GET /accounts/{account_id}/dns_firewall/{dns_firewall_id}/reverse_dns
+
+  Show reverse DNS configuration (PTR records) for a DNS Firewall cluster
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dns_firewall/{{dns_firewall_id}}/reverse_dns"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Show DNS Firewall Cluster Reverse DNS.resources/examples
+order: 1000

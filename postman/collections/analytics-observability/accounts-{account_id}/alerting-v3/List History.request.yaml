@@ -1,0 +1,30 @@
+$kind: http-request
+id: fcfd680d-7ecb-55d5-a9af-1f8caf6bbd8f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: notification-history-list-history
+  GET /accounts/{account_id}/alerting/v3/history
+
+  Gets a list of history records for notifications sent to an account. The records are displayed for last `x` number of days based on the zone plan (free = 30, pro = 30, biz = 30, ent = 90).
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/history?per_page=25&before=2022-05-20T20:29:58.679897Z&page=1&since=2022-05-19T20:29:58.679897Z"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  per_page: "25"
+  before: 2022-05-20T20:29:58.679897Z
+  page: "1"
+  since: 2022-05-19T20:29:58.679897Z
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List History.resources/examples
+order: 3000

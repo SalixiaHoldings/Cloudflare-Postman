@@ -1,0 +1,46 @@
+$kind: http-example
+id: 22856359-2e55-5eb4-9b19-ee5f2591399d
+name: Failure response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/speed_api/pages/{{url}}/trend?region=us-central1&deviceType=DESKTOP&start=2014-01-01T05:20:00.12345Z&end=2014-01-01T05:20:00.12345Z&tz=America/Chicago&metrics=performanceScore,ttfb,fcp,si,lcp,tti,tbt,cls"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: region
+      value: us-central1
+      description: "(Required) "
+    - key: deviceType
+      value: DESKTOP
+      description: "(Required) "
+    - key: start
+      value: 2014-01-01T05:20:00.12345Z
+      description: "(Required) "
+    - key: end
+      value: 2014-01-01T05:20:00.12345Z
+    - key: tz
+      value: America/Chicago
+      description: (Required) The timezone of the start and end timestamps.
+    - key: metrics
+      value: performanceScore,ttfb,fcp,si,lcp,tti,tbt,cls
+      description: (Required) A comma-separated list of metrics to include in the results.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

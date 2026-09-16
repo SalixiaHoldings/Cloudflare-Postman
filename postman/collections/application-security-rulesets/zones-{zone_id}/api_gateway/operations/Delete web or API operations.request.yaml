@@ -1,0 +1,39 @@
+$kind: http-request
+id: ceeec978-1b07-5cae-9544-f18661b36e8e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: api-shield-endpoint-management-delete-multiple-operations
+  DELETE /zones/{zone_id}/api_gateway/operations
+
+  Deletes multiple web or API operations from endpoint management in one request.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations"
+method: DELETE
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    [
+      {
+        "operation_id": "b17c8043-99a0-4202-b7d9-8f7cdbee02cd"
+      },
+      {
+        "operation_id": "3818d821-5901-4147-a474-f5f5aec1d54e"
+      }
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete web or API operations.resources/examples
+order: 1000

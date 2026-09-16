@@ -1,0 +1,37 @@
+$kind: http-request
+id: 0746272d-145d-5aef-9193-8ca3590d1eac
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: secondary-dns-(-peer)-update-peer
+  PUT /accounts/{account_id}/secondary_dns/peers/{peer_id}
+
+  Modify Peer.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/secondary_dns/peers/{{peer_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "id": "23ff594956f20c2a721606e94745a8aa",
+      "name": "my-peer-1",
+      "ip": "192.0.2.53",
+      "ixfr_enable": false,
+      "port": 53,
+      "tsig_id": "69cd1e104af3e6ed3cb344f263fd0d5a"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Peer.resources/examples
+order: 3000

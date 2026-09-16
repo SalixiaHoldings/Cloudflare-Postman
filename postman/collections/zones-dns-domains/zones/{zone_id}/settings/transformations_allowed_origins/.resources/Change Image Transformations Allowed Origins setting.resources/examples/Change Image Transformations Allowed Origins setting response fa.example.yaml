@@ -1,0 +1,35 @@
+$kind: http-example
+id: 42de0231-f88e-5c4a-80bd-979b0025f211
+name: Change Image Transformations Allowed Origins setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/transformations_allowed_origins"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "example.com,cdn.example.com"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

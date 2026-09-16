@@ -1,0 +1,38 @@
+$kind: http-request
+id: 72e95964-4a8a-572e-8848-782e4e20147f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dex-device-status-over-time
+  GET /accounts/{account_id}/dex/devices/{device_id}/fleet-status/over-time
+
+  Get time-bucketed status metrics for a specific device.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/over-time?from=2023-10-11 00:00:00+00&to=2023-10-11 00:00:00+00&interval=minute&colo=SJC"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: from
+    value: 2023-10-11 00:00:00+00
+    description: (Required) Start of the time range to query. Timestamp can be provided in ISO 8601 datetime format or milliseconds since epoch.
+  - key: to
+    value: 2023-10-11 00:00:00+00
+    description: (Required) End of the time range to query. Timestamp can be provided in ISO 8601 datetime format or milliseconds since epoch.
+  - key: interval
+    value: minute
+    description: (Required) Time interval for aggregate time slots.
+  - key: colo
+    value: SJC
+    description: List of data centers to filter results.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get the status over time for a device.resources/examples
+order: 2000

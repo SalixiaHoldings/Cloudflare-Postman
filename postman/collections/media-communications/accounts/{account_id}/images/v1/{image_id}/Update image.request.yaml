@@ -1,0 +1,34 @@
+$kind: http-request
+id: cf0a6b07-5a87-5e62-8c6b-135ecf47cea7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-update-image
+  PATCH /accounts/{account_id}/images/v1/{image_id}
+
+  Update a CF Images image's metadata, creator, or access control. On access control change, all copies of the image are purged from cache.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v1/{{image_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "creator": "string",
+      "metadata": {},
+      "requireSignedURLs": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update image.resources/examples
+order: 3000

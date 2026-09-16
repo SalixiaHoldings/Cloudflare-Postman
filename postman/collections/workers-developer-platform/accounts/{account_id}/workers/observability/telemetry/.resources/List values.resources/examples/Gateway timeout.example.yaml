@@ -1,0 +1,73 @@
+$kind: http-example
+id: fa404d63-87a8-5af2-9851-8b8fc7822c47
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/telemetry/values"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "timeframe": {
+          "to": 3741.539663169533,
+          "from": 3681.3215957954526
+        },
+        "key": "string",
+        "type": "boolean",
+        "datasets": [
+          "string",
+          "string"
+        ],
+        "limit": 50,
+        "needle": {
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "isRegex": true,
+          "matchCase": false
+        }
+      }
+response:
+  statusCode: 504
+  statusText: Gateway Timeout
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 7000

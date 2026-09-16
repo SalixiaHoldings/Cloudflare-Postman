@@ -1,0 +1,50 @@
+$kind: http-example
+id: c6437bdb-d145-5ccf-9651-d3e310c056a0
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/entities/asns/{{asn}}/rel?asn2=8856&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: asn2
+      value: "8856"
+      description: Retrieves the AS relationship of ASN2 with respect to the given ASN.
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "rels": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "meta": {
+            "data_time": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "query_time": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "total_peers": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

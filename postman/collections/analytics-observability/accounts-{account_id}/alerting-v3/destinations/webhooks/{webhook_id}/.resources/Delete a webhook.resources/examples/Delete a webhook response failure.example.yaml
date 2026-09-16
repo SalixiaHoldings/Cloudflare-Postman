@@ -1,0 +1,27 @@
+$kind: http-example
+id: a38fd98b-9551-5da4-9176-8e0cbb47e60a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/destinations/webhooks/{{webhook_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

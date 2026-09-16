@@ -1,0 +1,22 @@
+$kind: http-example
+id: 5271de93-8953-5bc7-ab47-3c810c6e414a
+name: Return WebVTT caption or subtitle response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/captions/{{language}}/vtt"
+  method: GET
+  headers:
+    Accept: text/vtt
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/vtt
+  body:
+    type: text
+    content: |
+      'WEBVTT
+       00:00:00.000 --> 00:00:02.480
+       This is example response'
+order: 1000

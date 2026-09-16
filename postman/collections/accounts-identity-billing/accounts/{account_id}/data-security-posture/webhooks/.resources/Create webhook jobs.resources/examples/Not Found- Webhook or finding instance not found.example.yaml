@@ -1,0 +1,36 @@
+$kind: http-example
+id: 132ea0b6-9506-54f2-8390-4c7849165960
+name: "Not Found: Webhook or finding instance not found"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/jobs"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "webhook_ids": [
+          "550e8400-e29b-41d4-a716-446655440000",
+          "660e8400-e29b-41d4-a716-446655440001"
+        ],
+        "finding_instance_ids": [
+          "770e8400-e29b-41d4-a716-446655440002",
+          "660e8400-e29b-41d4-a716-446655440001"
+        ]
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 5000

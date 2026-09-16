@@ -1,0 +1,37 @@
+$kind: http-request
+id: 6ca44f89-7bf7-59b9-843f-4e8e43b924cf
+name: Create TCP Flow Protection rule.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: createTcpFlowProtectionRule
+  POST /accounts/{account_id}/magic/advanced_tcp_protection/configs/tcp_flow_protection/rules
+
+  Create a TCP Flow Protection rule for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/tcp_flow_protection/rules"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "scope": "string",
+      "name": "string",
+      "mode": "string",
+      "rate_sensitivity": "string",
+      "burst_sensitivity": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create TCP Flow Protection rule-.resources/examples
+order: 3000

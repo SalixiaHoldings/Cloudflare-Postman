@@ -1,0 +1,75 @@
+$kind: http-request
+id: 02a1914a-6378-58c1-a17c-1e80bd5871c9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dns-records-for-a-zone-batch-dns-records
+  POST /zones/{zone_id}/dns_records/batch
+
+  Send a Batch of DNS Record API calls to be executed together.
+
+  Notes:
+  - Although Cloudflare will execute the batched operations in a single database transaction, Cloudflare's distributed KV store must treat each record change as a single key-value pair. This means that the propagation of changes is not atomic. See [the documentation](https://developers.cloudflare.com/dns/manage-dns-records/how-to/batch-record-changes/ "Batch DNS records") for more information.
+  - The operations you specify within the /batch request body are always executed in the following order:
+
+      - Deletes
+      - Patches
+      - Puts
+      - Posts
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/dns_records/batch?include_shadow_metadata=true"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  include_shadow_metadata: "true"
+body:
+  type: json
+  content: |-
+    {
+      "deletes": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "patches": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "posts": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "puts": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Batch DNS Records.resources/examples
+order: 3000

@@ -1,0 +1,59 @@
+$kind: http-example
+id: 74592d14-2ced-5a54-81be-a0e821607ac0
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/{{report_id}}/emails?page=6305&per_page=6305"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "6305"
+      description: Page number to retrieve (default 1)
+    - key: per_page
+      value: "6305"
+      description: Number of emails per page (default 20, max 100)
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {
+          "emails": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "result_info": {
+          "page": 569.6085374802351,
+          "per_page": 4066.885735373944,
+          "count": 9164.117698092014,
+          "total_count": 623.6305157653987,
+          "total_pages": 3774.2212624289095
+        }
+      }
+order: 1000

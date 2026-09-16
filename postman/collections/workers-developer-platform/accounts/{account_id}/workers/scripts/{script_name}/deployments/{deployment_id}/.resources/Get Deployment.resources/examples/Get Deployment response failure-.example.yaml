@@ -1,0 +1,28 @@
+$kind: http-example
+id: 62e32d1b-39bd-5c3d-8629-2603dc770dbf
+name: Get Deployment response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/deployments/{{deployment_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

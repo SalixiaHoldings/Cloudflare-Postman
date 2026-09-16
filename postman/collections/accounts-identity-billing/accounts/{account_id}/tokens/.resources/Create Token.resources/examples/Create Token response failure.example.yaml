@@ -1,0 +1,49 @@
+$kind: http-example
+id: 9a8ff82a-734a-5d79-b338-1dd09d8da4c8
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/tokens"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "readonly token",
+        "policies": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "condition": {
+          "request_ip": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "expires_on": "2020-01-01T00:00:00Z",
+        "not_before": "2018-07-01T05:20:00Z"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

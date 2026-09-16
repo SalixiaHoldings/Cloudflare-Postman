@@ -1,0 +1,39 @@
+$kind: http-example
+id: 80ebd532-96ba-5fc2-9611-d0e81bf8488f
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/subscriptions/cancel-downgrade"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "subscription_ids": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

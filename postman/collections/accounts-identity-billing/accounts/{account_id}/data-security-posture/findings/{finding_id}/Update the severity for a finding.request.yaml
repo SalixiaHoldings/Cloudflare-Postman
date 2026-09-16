@@ -1,0 +1,33 @@
+$kind: http-request
+id: 91212a74-0ba8-59e3-96bf-e383fdf62960
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ChangeFindingSeverity
+  POST /accounts/{account_id}/data-security/posture/findings/{finding_id}/tune_finding_severity
+
+  Update the severity of a Finding.
+  This will update the `severity_override` field on the Finding payload with the new severity value.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{finding_id}}/tune_finding_severity"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "new_severity": 4
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update the severity for a finding.resources/examples
+order: 4000

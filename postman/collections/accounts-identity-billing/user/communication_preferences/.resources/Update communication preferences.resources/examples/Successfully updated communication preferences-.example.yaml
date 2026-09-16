@@ -1,0 +1,58 @@
+$kind: http-example
+id: 13bb865b-aec6-59d4-a082-6a202946fa6e
+name: Successfully updated communication preferences.
+request:
+  url: "{{base_url}}/user/communication_preferences"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "language-locale": "es-ES",
+        "preferences": {
+          "marketing": {
+            "subscribed": true
+          },
+          "product_news": {
+            "subscribed": true
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "created_on": "2024-09-01T16:00:00Z",
+          "email": {
+            "hard_bounce": false,
+            "verified": true
+          },
+          "language-locale": "es-ES",
+          "preferences": {
+            "marketing": {
+              "created_on": "2024-01-15T10:30:00Z",
+              "subscribed": false,
+              "updated_on": "2024-09-01T16:00:00Z"
+            },
+            "product_news": {
+              "created_on": "2024-01-15T10:30:00Z",
+              "subscribed": true,
+              "updated_on": "2024-09-01T16:00:00Z"
+            }
+          },
+          "updated_on": "2024-09-01T16:00:00Z"
+        },
+        "success": true
+      }
+order: 1000

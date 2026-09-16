@@ -1,0 +1,28 @@
+$kind: http-example
+id: 565f9ce7-8173-5738-ac0e-21b49c641dda
+name: |
+  Forbidden. Authentication failed, the account does not have access to Analytics Engine, or the provided token does not have the required permissions. This service returns 403 for all authentication and authorization failures (missing token, invalid token, audience mismatch, account mismatch, or insufficient entitlements).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics_engine/sql"
+  method: POST
+  headers:
+    Content-Type: text/plain
+    Accept: application/json
+  body:
+    type: text
+    content: |
+      SELECT blob1, sum(double1) as total
+      FROM my_dataset
+      WHERE timestamp > NOW() - INTERVAL '7' DAY
+      GROUP BY blob1
+      ORDER BY total DESC
+      LIMIT 100
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: Authorization error
+order: 3000

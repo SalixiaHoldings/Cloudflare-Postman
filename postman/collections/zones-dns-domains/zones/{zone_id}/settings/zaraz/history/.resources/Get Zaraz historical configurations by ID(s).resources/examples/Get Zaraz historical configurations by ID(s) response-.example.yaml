@@ -1,0 +1,111 @@
+$kind: http-example
+id: 35486b0c-c8a8-52f2-a7ba-832ba101f288
+name: Get Zaraz historical configurations by ID(s) response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/zaraz/history/configs?ids=12345,23456"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: ids
+      value: 12345,23456
+      description: (Required) Comma separated list of Zaraz configuration IDs.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "12345": {
+            "config": {
+              "consent": {
+                "cookieName": "zaraz-consent",
+                "customIntroDisclaimerDismissed": true,
+                "enabled": false
+              },
+              "dataLayer": true,
+              "debugKey": "my-debug-key",
+              "settings": {
+                "autoInjectScript": true
+              },
+              "tools": {
+                "aJvt": {
+                  "component": "facebook-pixel",
+                  "defaultFields": {
+                    "testKey": "TEST123456"
+                  },
+                  "enabled": true,
+                  "name": "Facebook Pixel",
+                  "neoEvents": [
+                    {
+                      "actionType": "pageview",
+                      "blockingTriggers": [],
+                      "data": {
+                        "__zaraz_setting_name": "Page view",
+                        "ev": "PageView"
+                      },
+                      "firingTriggers": [
+                        "Pageview"
+                      ]
+                    }
+                  ],
+                  "permissions": [
+                    "access_client_kv"
+                  ],
+                  "settings": {
+                    "accessToken": "{{accesstoken}}",
+                    "ecommerce": true,
+                    "property": "12345"
+                  },
+                  "type": "component"
+                }
+              },
+              "triggers": {
+                "ktBn": {
+                  "Pageview": {
+                    "clientRules": [],
+                    "description": "All page loads",
+                    "excludeRules": [],
+                    "loadRules": [
+                      {
+                        "match": "{{ client.__zarazTrack }}",
+                        "op": "EQUALS",
+                        "value": "Pageview"
+                      }
+                    ],
+                    "name": "Pageview",
+                    "system": "pageload"
+                  }
+                }
+              },
+              "variables": {
+                "Autd": {
+                  "name": "ip",
+                  "type": "string",
+                  "value": "{{ system.device.ip }}"
+                }
+              },
+              "zarazVersion": 43
+            },
+            "createdAt": "2023-02-23T05:05:55.155273Z",
+            "id": 12345,
+            "updatedAt": "2023-02-23T05:05:55.155273Z",
+            "userId": "278d0d0g123cd8e49d45ea64f12faa37"
+          },
+          "23456": null
+        }
+      }
+order: 1000

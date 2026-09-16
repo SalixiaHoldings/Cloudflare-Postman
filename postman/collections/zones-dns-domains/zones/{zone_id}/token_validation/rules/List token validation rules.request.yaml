@@ -1,0 +1,51 @@
+$kind: http-request
+id: 82816bd1-7ab9-58f8-823a-b9257025e7d9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: token-validation-rules-list
+  GET /zones/{zone_id}/token_validation/rules
+
+  Lists token validation rules for the zone, with filters for configuration, action, state, ID, and host.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules?per_page=20&page=1&token_configuration=f0963ed4-f3a1-4599-8a61-9e5658c865e0,3aad66bb-059d-4b3d-87e1-cdf4d406f412&action=log&enabled=true&id=4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7&rule_id=4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7&host=www.example.com&hostname=www.example.com"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: per_page
+    value: "20"
+    description: Maximum number of results per page.
+  - key: page
+    value: "1"
+    description: Page number of paginated results.
+  - key: token_configuration
+    value: f0963ed4-f3a1-4599-8a61-9e5658c865e0,3aad66bb-059d-4b3d-87e1-cdf4d406f412
+    description: Select rules using any of these token configurations.
+  - key: action
+    value: log
+  - key: enabled
+    value: "true"
+  - key: id
+    value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+    description: Select rules with these IDs.
+  - key: rule_id
+    value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+    description: Select rules with these IDs.
+  - key: host
+    value: www.example.com
+    description: Select rules with this host in `include`.
+  - key: hostname
+    value: www.example.com
+    description: Select rules with this host in `include`.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List token validation rules.resources/examples
+order: 1000

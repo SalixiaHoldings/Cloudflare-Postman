@@ -1,0 +1,46 @@
+$kind: http-request
+id: bb0ed42e-3550-56a6-be3d-74007ec51200
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_EventListGet
+  GET /accounts/{account_id}/cloudforce-one/events
+
+  Use `datasetId=all` or `datasetId=*` for the legacy all-datasets scope, `datasetId=analytics` for datasets with `isAnalytics=true`, or `datasetId=operational` for datasets with `isAnalytics=false` (limited to 50). Scope values must be used alone. When `datasetId` is unspecified, events are listed from the default Cloudforce One Threat Events dataset. To list existing datasets, use the [`List Datasets`](https://developers.cloudflare.com/api/resources/cloudforce_one/subresources/threat_events/subresources/datasets/methods/list/) endpoint.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events?cursor=eyJ2ZXJzaW9uIjoxLCJwb3NpdGlvbiI6eyJkYXRlIjoiMjAyNC0wMS0xMlQxMDowMDowMFoiLCJ1dWlkIjoiYWJjMTIzIn19&page=4232.7669891528785&pageSize=5203.161835670471&orderBy=string&order=desc&datasetId=string&datasetId=string&forceRefresh=true&format=json&cache=from-graph"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: cursor
+    value: eyJ2ZXJzaW9uIjoxLCJwb3NpdGlvbiI6eyJkYXRlIjoiMjAyNC0wMS0xMlQxMDowMDowMFoiLCJ1dWlkIjoiYWJjMTIzIn19
+  - key: page
+    value: "4232.7669891528785"
+  - key: pageSize
+    value: "5203.161835670471"
+  - key: orderBy
+    value: string
+  - key: order
+    value: desc
+  - key: datasetId
+    value: string
+  - key: datasetId
+    value: string
+  - key: forceRefresh
+    value: "true"
+  - key: format
+    value: json
+  - key: cache
+    value: from-graph
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Filter and list events.resources/examples
+order: 1000

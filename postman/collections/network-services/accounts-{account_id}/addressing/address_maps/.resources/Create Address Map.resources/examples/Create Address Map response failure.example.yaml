@@ -1,0 +1,47 @@
+$kind: http-example
+id: 49b36288-14bc-512c-8519-0cff409236a7
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/addressing/address_maps"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "description": "My Ecommerce zones",
+        "enabled": true,
+        "ips": [
+          "192.0.2.1"
+        ],
+        "memberships": [
+          {
+            "identifier": "023e105f4ecef8ad9ca31a8372d0c353",
+            "kind": "zone"
+          }
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

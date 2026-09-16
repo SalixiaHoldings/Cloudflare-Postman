@@ -1,0 +1,32 @@
+$kind: http-request
+id: a8f4b937-28e9-5b84-ba7a-fbbe7d6070a8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: token-validation-config-list
+  GET /zones/{zone_id}/token_validation/config
+
+  Lists the JWT validation configurations defined for the zone.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/token_validation/config?page=1&per_page=20"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    description: Page number of paginated results.
+  - key: per_page
+    value: "20"
+    description: Maximum number of results per page.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List token validation configurations.resources/examples
+order: 1000

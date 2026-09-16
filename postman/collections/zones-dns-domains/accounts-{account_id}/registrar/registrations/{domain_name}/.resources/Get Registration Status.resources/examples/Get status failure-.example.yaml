@@ -1,0 +1,28 @@
+$kind: http-example
+id: 814a0179-0fd3-58cc-af86-a88a5e4adddf
+name: Get status failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations/{{domain_name}}/registration-status"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 10000,
+            "message": "No workflow found for example.com"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

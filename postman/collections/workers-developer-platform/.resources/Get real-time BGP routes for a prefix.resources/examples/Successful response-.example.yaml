@@ -1,0 +1,55 @@
+$kind: http-example
+id: fdbdd711-02ab-54d0-a642-9f832ebf9d6b
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/bgp/routes/realtime?prefix=1.1.1.0/24&format=JSON"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: prefix
+      value: 1.1.1.0/24
+    - key: format
+      value: JSON
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "routes": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "meta": {
+            "collectors": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "asn_info": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "prefix_origins": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "data_time": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "query_time": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,48 @@
+$kind: http-example
+id: f54f4c0e-c2e0-5a3a-9eb9-731af03f6a01
+name: The query exceeded a resource or request-rate limit.
+request:
+  url: "{{base_url}}/analytics/sql"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "query": "string",
+        "params": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "scope": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "time_range": {
+          "start": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "end": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 429
+  statusText: Too Many Requests
+  headers:
+    - key: Retry-After
+      value: "8226"
+      description: |
+        Seconds to wait before retrying. Present when the account request rate limit is exceeded; omitted for query resource limits.
+    - key: Content-Type
+      value: text/plain
+  body:
+    type: text
+    content: string
+order: 5000

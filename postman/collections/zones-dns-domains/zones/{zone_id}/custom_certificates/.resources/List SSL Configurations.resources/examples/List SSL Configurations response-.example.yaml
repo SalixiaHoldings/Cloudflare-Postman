@@ -1,0 +1,32 @@
+$kind: http-example
+id: 3f1a2e54-f64b-532d-ac97-33ce2b6084a1
+name: List SSL Configurations response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/custom_certificates?page=1&per_page=20&match=all&status=active"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    page: "1"
+    per_page: "20"
+    match: all
+    status: active
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

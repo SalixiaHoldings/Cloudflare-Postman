@@ -1,0 +1,32 @@
+$kind: http-example
+id: e0717fa8-cfde-53e0-8386-ceb928560eb6
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vectorize/v2/indexes"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "example-index",
+        "config": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "description": "This is my example index."
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

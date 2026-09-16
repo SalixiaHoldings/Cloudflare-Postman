@@ -1,0 +1,21 @@
+$kind: http-example
+id: 3255724d-240e-5bce-946c-7c481b078352
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cni/interconnects/{{icon}}/loa?name=string"
+  method: GET
+  headers:
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: name
+      value: string
+      description: Custom name to use in the LOA instead of the account name (200 Character limit)
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 4000

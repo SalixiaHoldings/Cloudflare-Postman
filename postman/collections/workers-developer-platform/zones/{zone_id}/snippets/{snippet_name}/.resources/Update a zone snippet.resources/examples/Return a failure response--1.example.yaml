@@ -1,0 +1,39 @@
+$kind: http-example
+id: da33be12-9e12-5f3b-b9ec-1eafa349a17a
+name: Return a failure response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/snippets/{{snippet_name}}"
+  method: PUT
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: metadata
+        value: '{"main_module":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+        description: (Required) Provide metadata about the snippet.
+      - type: text
+        key: files
+        value: '[{"value":"<Error: Too many levels of nesting to fake this schema>"}]'
+        description: "(Required) "
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": null,
+        "success": false,
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 3000

@@ -1,0 +1,30 @@
+$kind: http-example
+id: b1e02731-4cdc-5766-acfb-f34ce9b0a7eb
+request:
+  url: '{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/logs?order_by=created_at&order_by_direction=asc&filters={"key":"duration","operator":"gt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}&filters={"key":"cached","operator":"lt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}&limit=10000'
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: order_by
+      value: created_at
+    - key: order_by_direction
+      value: asc
+    - key: filters
+      value: '{"key":"duration","operator":"gt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}'
+    - key: filters
+      value: '{"key":"cached","operator":"lt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}'
+    - key: limit
+      value: "10000"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true
+      }
+order: 1000

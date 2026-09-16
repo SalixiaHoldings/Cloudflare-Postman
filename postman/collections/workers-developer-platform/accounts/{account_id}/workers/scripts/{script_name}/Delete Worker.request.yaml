@@ -1,0 +1,29 @@
+$kind: http-request
+id: 69445a80-dfda-54ae-acc9-136ce8fbd3bc
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: worker-script-delete-worker
+  DELETE /accounts/{account_id}/workers/scripts/{script_name}
+
+  Delete your worker. This call has no response body on a successful delete.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}?force=true"
+method: DELETE
+headers:
+  Accept: application/json
+queryParams:
+  - key: force
+    value: "true"
+    description: If set to true, delete will not be stopped by associated service binding, durable object, or other binding. Any of these associated bindings/durable objects will be deleted along with the script.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete Worker.resources/examples
+order: 1000

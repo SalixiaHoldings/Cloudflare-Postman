@@ -1,0 +1,86 @@
+$kind: http-request
+id: 783da2c7-3350-5316-b58f-a3e8ed96da12
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: account-load-balancer-pools-patch-pool
+  PATCH /accounts/{account_id}/load_balancers/pools/{pool_id}
+
+  Apply changes to an existing pool, overwriting the supplied properties.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/load_balancers/pools/{{pool_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "check_regions": [
+        "WEU",
+        "ENAM"
+      ],
+      "description": "Primary data center - Provider XYZ",
+      "disabled_at": "1947-10-07T21:20:59.793Z",
+      "enabled": false,
+      "health_sources": [
+        "regional",
+        "global"
+      ],
+      "latitude": 2822.2389868460596,
+      "load_shedding": {
+        "default_percent": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "default_policy": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "session_percent": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "session_policy": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "longitude": 3800.6762135773897,
+      "minimum_origins": 1,
+      "monitor": "string",
+      "monitor_group": "string",
+      "name": "primary-dc-1",
+      "notification_email": "someone@example.com,sometwo@example.com",
+      "notification_filter": {
+        "origin": {
+          "disable": true
+        },
+        "pool": {
+          "healthy": false
+        }
+      },
+      "origin_steering": {
+        "policy": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "origins": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Patch Pool.resources/examples
+order: 3000

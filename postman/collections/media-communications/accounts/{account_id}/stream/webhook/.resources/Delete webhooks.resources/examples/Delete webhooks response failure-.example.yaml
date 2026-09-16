@@ -1,0 +1,30 @@
+$kind: http-example
+id: 2a6cd998-44e1-5f73-bf67-3b8cd415f1d6
+name: Delete webhooks response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/webhook"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

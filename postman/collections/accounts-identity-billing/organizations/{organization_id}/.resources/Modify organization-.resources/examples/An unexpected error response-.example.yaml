@@ -1,0 +1,68 @@
+$kind: http-example
+id: 7eb87335-545a-58eb-a5a5-2928952f40cd
+name: An unexpected error response.
+request:
+  url: "{{base_url}}/organizations/{{organization_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "parent": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "profile": {
+          "business_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "business_email": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "business_phone": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "business_address": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "external_metadata": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 2000

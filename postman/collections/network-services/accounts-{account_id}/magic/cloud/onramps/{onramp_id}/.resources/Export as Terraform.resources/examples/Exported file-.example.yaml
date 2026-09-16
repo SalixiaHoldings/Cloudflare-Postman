@@ -1,0 +1,20 @@
+$kind: http-example
+id: 2edbccfd-df81-50e9-85c3-9a4fa971dba1
+name: Exported file.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps/{{onramp_id}}/export"
+  method: POST
+  headers:
+    Accept: application/zip
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Disposition: attachment; filename="exported-file.zip"
+    Content-Type: application/zip
+  body:
+    type: text
+    content: string
+order: 1000

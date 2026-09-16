@@ -1,0 +1,32 @@
+$kind: http-request
+id: 0a1d954f-03f5-5119-9989-2db9d35d30ea
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: update-security-center-account-state
+  PUT /accounts/{account_id}/security-center/state
+
+  Updates account-level Security Center state. Currently supports enabling or disabling scans for the account. Returns the account's state after the update.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/security-center/state"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "scans_enabled": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Updates Account State.resources/examples
+order: 2000

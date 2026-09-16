@@ -1,0 +1,33 @@
+$kind: http-example
+id: bb6342d6-ed5a-55bb-a73b-23737d46b1b3
+name: OK.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/prebuilt-policies?destination_type=ZERO_TRUST_LIST"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: destination_type
+      value: ZERO_TRUST_LIST
+      description: Specify type of destination, omit to return all.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

@@ -1,0 +1,41 @@
+$kind: http-example
+id: 44800414-5223-5e26-bf0b-8f2dc52429fd
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/discovery/operations"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "3818d821-5901-4147-a474-f5f5aec1d54e": {
+          "state": "ignored"
+        },
+        "b17c8043-99a0-4202-b7d9-8f7cdbee02cd": {
+          "state": "review"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

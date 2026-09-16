@@ -1,0 +1,24 @@
+$kind: http-example
+id: ebd538cd-6d0d-5a5e-958c-39d25fa66e39
+name: Get the default device settings profile response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/policy"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

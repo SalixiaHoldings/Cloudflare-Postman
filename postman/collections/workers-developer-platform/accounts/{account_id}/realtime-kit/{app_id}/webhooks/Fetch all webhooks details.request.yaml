@@ -1,0 +1,25 @@
+$kind: http-request
+id: b13d7087-4301-5a59-8bd3-733a06497639
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getAllWebhooks
+  GET /accounts/{account_id}/realtime/kit/{app_id}/webhooks
+
+  Returns details of all webhooks for an App.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/webhooks"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Fetch all webhooks details.resources/examples
+order: 1000

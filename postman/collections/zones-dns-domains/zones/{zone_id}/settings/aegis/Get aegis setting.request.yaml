@@ -1,0 +1,25 @@
+$kind: http-request
+id: c2c20954-dad6-5d86-a88e-aa067dff39bc
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-cache-settings-get-aegis-setting
+  GET /zones/{zone_id}/settings/aegis
+
+  Aegis provides dedicated egress IPs (from Cloudflare to your origin) for your layer 7 WAF and CDN services. The egress IPs are reserved exclusively for your account so that you can increase your origin security by only allowing traffic from a small list of IP addresses.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/settings/aegis"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get aegis setting.resources/examples
+order: 1000
