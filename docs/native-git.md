@@ -20,9 +20,11 @@ Each v3 collection uses the official migration layout: a collection-level `.reso
 
 ## Local Mode usage
 
-Clone the repository, open the repository root in Postman v12+ desktop, switch to **Local View**, and select the generated template environment. Configure credentials and resource selectors only in a private local copy. Import users can instead select the JSON files in `dist/v2.1/`; see the [README](../README.md).
+Clone the repository, open the repository root in Postman v12+ desktop, switch to **Local View**, and select the generated template environment. Enter credentials and resource selectors only as **local Values** in the Postman app. Do not **Share** sensitive values or populate Shared values. Postman documents local values as private to your app instance; Shared values are the values intended for collaboration/synchronization. The tracked YAML template must remain empty. Import users can instead select the JSON files in `dist/v2.1/`; see the [README](../README.md).
 
-Local Mode requires no Postman Cloud connection or push. Cloud workspace binding is optional. Postman may create `.postman/resources.yaml` when a workspace is bound; the entire `.postman/` directory is ignored and must never be committed. Do not commit populated environments, workspace IDs, cloud resource IDs, API keys, or local application state. Local deterministic entity UUIDs in generated YAML are not cloud workspace bindings.
+Local Mode requires no Postman Cloud connection or push. Cloud workspace binding is optional. Postman may create `.postman/resources.yaml` when a workspace is bound; the entire `.postman/` directory is ignored and must never be committed. After setting a harmless local test value, `git status` should remain clean. If a sensitive value appears in a tracked-file diff, stop and remove it before committing. Do not commit populated environments, workspace IDs, cloud resource IDs, API keys, or local application state. Local deterministic entity UUIDs in generated YAML are not cloud workspace bindings.
+
+Postman variable guidance: [local values are private by default](https://learning.postman.com/latest-v-12/docs/use/send-requests/variables/define-variables), while [Shared values are explicitly synchronized](https://learning.postman.com/latest-v-12/docs/use/send-requests/variables/share-variables). Postman's Native Git guidance likewise says to keep local environment values in the app while committing Shared values to Git.
 
 ## Toolchain and generation
 
@@ -52,6 +54,6 @@ The manifest records the schema commit/digest, converter and CLI toolchain, comp
 
 ## Desktop acceptance boundary
 
-CLI lint proves format validity, not desktop behavior. In Postman v12+ desktop, open this repository root in Local View without a cloud binding; confirm all ten reference collections, the three-request bootstrap, and template environment appear, and no **Upgrade files** warning appears. Inspect auth/variables and bootstrap scripts without sending requests. This final UI acceptance check requires a human desktop session.
+CLI lint proves format validity, not desktop behavior. In Postman v12+ desktop, open this repository root in Local View without a cloud binding; confirm all ten reference collections, the three-request bootstrap, and template environment appear, and no **Upgrade files** warning appears. Inspect auth/variables and bootstrap scripts without sending requests. Set one harmless local Value and confirm `git status` remains clean. This final UI acceptance check requires a human desktop session.
 
 For public-release secret/PII review, install checksum-verified Gitleaks 8.30.1 and run `npm run generate:check`, then `GITLEAKS_BIN=/path/to/gitleaks npm run scan:release`. The scan covers all YAML, including hidden example resources. It reports generated auth fingerprints, exact pinned-upstream examples (including encoded samples), and seeded AI Search UUID fixtures already reproduced in v2 separately; any unexplained candidate fails. Email candidates must occur in the verified upstream source or match a reproduced v2 fixture for an upstream email-format query parameter without an example. No Gitleaks rules are globally disabled, and reports containing candidate values are temporary and removed. Existing local-path and empty-template checks remain part of `npm run validate`.
