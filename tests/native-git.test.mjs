@@ -1,9 +1,11 @@
+import { spawnSync } from 'node:child_process';
+import { ROOT } from '../src/constants.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {mkdtemp,mkdir,writeFile,readFile,rm,symlink} from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
-import {normalizeAuthId,inspectAuthId,assertUnstableAuthIds,assertSemanticEquivalence,environmentYaml} from '../src/native-git.mjs';
+import {normalizeAuthId,inspectAuthId,assertUnstableAuthIds,assertSemanticEquivalence,environmentYaml,globalsYaml,assertEmptyGlobals,assertNativeEntityDirectories,treeManifest} from '../src/native-git.mjs';
 import {deterministicUuid} from '../src/identity.mjs';
 import YAML from 'yaml';
 import {createTemplateEnvironment} from '../src/chaining.mjs';
@@ -60,4 +62,46 @@ test('semantic validation rejects modified operation paths, names, auth, scripts
     await writeFile(file,YAML.stringify({...request,...patch}));await assert.rejects(assertSemanticEquivalence(collection,root));
   }
   await rm(file);await assert.rejects(assertSemanticEquivalence(collection,root));
+});
+
+test('empty Globals is exact and deterministic in independent trees', async t => {
+  const roots = await Promise.all([fixture(t), fixture(t)]);
+  for (const root of roots) {
+    await mkdir(path.join(root, 'globals'));
+    await writeFile(path.join(root, 'globals/workspace.globals.yaml'), globalsYaml());
+  }
+  assert.equal(globalsYaml(), 'name: Globals\nvalues: []\n');
+  assert.doesNotThrow(() => assertEmptyGlobals(globalsYaml()));
+  assert.deepEqual(await treeManifest(roots[0]), await treeManifest(roots[1]));
+});
+
+test('any global variable, value, or changed globals structure fails', () => {
+  for (const values of [[{ key: 'synthetic', value: '' }], [{ key: 'synthetic', value: 'example' }], ['example'], { synthetic: '' }, null]) {
+    assert.throws(() => assertEmptyGlobals(YAML.stringify({ name: 'Globals', values })), /explicit review/u);
+  }
+  assert.throws(() => assertEmptyGlobals('name: Globals\nvalues: []\nvalue: example\n'));
+});
+
+test('Native Git permits exactly the three expected entity directories', async t => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'native-entities-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  for (const name of ['collections', 'environments', 'globals']) await mkdir(path.join(root, name));
+  await assertNativeEntityDirectories(root);
+  await mkdir(path.join(root, 'unexpected'));
+  await assert.rejects(assertNativeEntityDirectories(root));
+  await rm(path.join(root, 'unexpected'), { recursive: true });
+  await rm(path.join(root, 'globals'), { recursive: true });
+  await assert.rejects(assertNativeEntityDirectories(root));
+  await writeFile(path.join(root, 'globals'), '');
+  await assert.rejects(assertNativeEntityDirectories(root));
+});
+
+test('generated globals are not ignored, while workspace bindings remain ignored', () => {
+  for (const file of ['postman/globals/', 'postman/globals/workspace.globals.yaml']) {
+    const result = spawnSync('git', ['check-ignore', '--no-index', file], { cwd: ROOT });
+    assert.equal(result.status, 1, 'Generated Globals must be tracked, not ignored.');
+  }
+  for (const file of ['.postman/', '.postman/resources.yaml']) {
+    assert.equal(spawnSync('git', ['check-ignore', '--no-index', file], { cwd: ROOT }).status, 0);
+  }
 });

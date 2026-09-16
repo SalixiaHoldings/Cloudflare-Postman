@@ -26,6 +26,8 @@ Keep populated environments local/private. Do not commit them or export them pub
 
 Local Mode does **not** require connecting or pushing to Postman Cloud. A cloud workspace binding is optional; its `.postman/resources.yaml` stays local and ignored. After adding a local test value, `git status` should remain clean; stop before committing if Postman wrote a sensitive value into a tracked file. See [Native Git usage and generation](docs/native-git.md).
 
+An empty **Globals** entity is intentionally generated because Local View materializes it. This project uses collection/environment variables and defines no shared workspace globals. Keep credentials only in Postman’s local **Value** fields; never **Share** sensitive global or environment values.
+
 ## Which collection should I import?
 
 Files below are in `dist/v2.1/reference/` and end in `.postman_collection.json`.

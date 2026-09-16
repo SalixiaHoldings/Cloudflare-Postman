@@ -9,11 +9,12 @@ import YAML from 'yaml';
 import { ROOT } from '../src/constants.mjs';
 import { fetchPinnedSchema } from '../src/upstream.mjs';
 import { listOperations } from '../src/openapi.mjs';
-import { filesUnder } from '../src/native-git.mjs';
+import { filesUnder, assertEmptyGlobals, GLOBALS_FILE } from '../src/native-git.mjs';
 
 const execute = promisify(execFile);
 const scanner = process.env.GITLEAKS_BIN || 'gitleaks';
 assert.equal((await execute(scanner,['version'])).stdout.trim(),'8.30.1','Use pinned Gitleaks 8.30.1.');
+assertEmptyGlobals(await readFile(path.join(ROOT, 'postman', GLOBALS_FILE), 'utf8'));
 const temporary = await mkdtemp(path.join(os.tmpdir(),'cloudflare-release-scan-'));
 try {
   const report = path.join(temporary,'findings.json');

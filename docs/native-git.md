@@ -14,6 +14,7 @@ dist/v2.1/
 postman/
   collections/               eleven v3 collection directories
   environments/              empty YAML template
+  globals/                   generated empty workspace.globals.yaml
 ```
 
 Each v3 collection uses the official migration layout: a collection-level `.resources/definition.yaml`, folder definitions, request YAML, and response-example resources. No v2.1 JSON or generator metadata is placed in the Native Git tree. Cloudflare notices in the root license/third-party notices and generated collection descriptions apply to both representations.
@@ -25,6 +26,19 @@ Clone the repository, open the repository root in Postman v12+ desktop, switch t
 Local Mode requires no Postman Cloud connection or push. Cloud workspace binding is optional. Postman may create `.postman/resources.yaml` when a workspace is bound; the entire `.postman/` directory is ignored and must never be committed. After setting a harmless local test value, `git status` should remain clean. If a sensitive value appears in a tracked-file diff, stop and remove it before committing. Do not commit populated environments, workspace IDs, cloud resource IDs, API keys, or local application state. Local deterministic entity UUIDs in generated YAML are not cloud workspace bindings.
 
 Postman variable guidance: [local values are private by default](https://learning.postman.com/latest-v-12/docs/use/send-requests/variables/define-variables), while [Shared values are explicitly synchronized](https://learning.postman.com/latest-v-12/docs/use/send-requests/variables/share-variables). Postman's Native Git guidance likewise says to keep local environment values in the app while committing Shared values to Git.
+
+## Empty Globals entity
+
+Postman Local View materializes `postman/globals/workspace.globals.yaml`. It is a legitimate generated Native Git entity, unlike the ignored `.postman/resources.yaml` workspace/cloud binding. Do not ignore `postman/globals/` or hand-edit its generated contents:
+
+```yaml
+name: Globals
+values: []
+```
+
+The project uses collection/environment variables and intentionally defines no shared workspace globals. Generation owns this single model; validation rejects any added variable or value, even an empty-valued variable. Credentials belong only in Postman’s local **Value** fields. Never **Share** sensitive global or environment values.
+
+Both independent generation runs include Globals in file/byte comparisons and the Native Git root digest. The manifest records its path and SHA-256. Pinned CLI 1.56.3 runs `postman globals lint postman/globals/workspace.globals.yaml --fail-severity warning`, requiring zero errors/warnings ([official globals commands](https://learning.postman.com/latest-v-12/docs/postman-cli/postman-cli-globals)). Release and local-path scans include the file. Only `collections/`, `environments/`, and `globals/` are permitted at the Native Git root.
 
 ## Toolchain and generation
 
@@ -54,6 +68,6 @@ The manifest records the schema commit/digest, converter and CLI toolchain, comp
 
 ## Desktop acceptance boundary
 
-CLI lint proves format validity, not desktop behavior. In Postman v12+ desktop, open this repository root in Local View without a cloud binding; confirm all ten reference collections, the three-request bootstrap, and template environment appear, and no **Upgrade files** warning appears. Inspect auth/variables and bootstrap scripts without sending requests. Set one harmless local Value and confirm `git status` remains clean. This final UI acceptance check requires a human desktop session.
+CLI lint proves format validity, not desktop behavior. In Postman v12+ desktop, open this repository root in Local View without a cloud binding; confirm all ten reference collections, the three-request bootstrap, and template environment plus empty Globals appear, and no **Upgrade files** warning appears. Inspect auth/variables and bootstrap scripts without sending requests. Set one harmless local Value and confirm `git status` remains clean. Confirm opening Local View no longer creates an untracked Globals file. This final UI acceptance check requires a human desktop session.
 
 For public-release secret/PII review, install checksum-verified Gitleaks 8.30.1 and run `npm run generate:check`, then `GITLEAKS_BIN=/path/to/gitleaks npm run scan:release`. The scan covers all YAML, including hidden example resources. It reports generated auth fingerprints, exact pinned-upstream examples (including encoded samples), and seeded AI Search UUID fixtures already reproduced in v2 separately; any unexplained candidate fails. Email candidates must occur in the verified upstream source or match a reproduced v2 fixture for an upstream email-format query parameter without an example. No Gitleaks rules are globally disabled, and reports containing candidate values are temporary and removed. Existing local-path and empty-template checks remain part of `npm run validate`.

@@ -158,6 +158,23 @@ export function environmentYaml() {
   return '# GENERATED FILE — DO NOT EDIT.\n' + YAML.stringify({ id: environment.id, name: environment.name, values: environment.values });
 }
 
+export const GLOBALS_FILE = 'globals/workspace.globals.yaml';
+
+export function globalsYaml() {
+  return YAML.stringify({ name: 'Globals', values: [] });
+}
+
+export function assertEmptyGlobals(source) {
+  assert.ok(source === globalsYaml(), 'Globals must remain exactly empty; changes require explicit review.');
+}
+
+export async function assertNativeEntityDirectories(root) {
+  const entries = await readdir(root, { withFileTypes: true });
+  assert.deepEqual(entries.map(entry => entry.name).sort(), ['collections', 'environments', 'globals'],
+    'Unexpected Native Git top-level entities.');
+  assert.ok(entries.every(entry => entry.isDirectory()), 'Native Git entities must be directories.');
+}
+
 export async function generateNative(root) {
   const toolchain = await assertCli();
   const v2Root = path.join(root,'dist','v2.1');
@@ -192,10 +209,19 @@ export async function generateNative(root) {
       await mkdir(path.dirname(destination),{recursive:true});await writeFile(destination,environmentYaml());
       await lintNative('environment',destination);
     }
+    for (const nativeRoot of [path.join(root,'postman'), second]) {
+      const destination = path.join(nativeRoot, GLOBALS_FILE);
+      await mkdir(path.dirname(destination), { recursive: true });
+      await writeFile(destination, globalsYaml());
+      assertEmptyGlobals(await readFile(destination, 'utf8'));
+      await lintNative('globals', destination);
+      await assertNativeEntityDirectories(nativeRoot);
+    }
     assert.deepEqual(await treeManifest(path.join(root,'postman')),await treeManifest(second),'Full v3 distribution differs.');
     manifest.toolchain = toolchain;
     manifest.nativeGit = { compatibilityPolicyVersion:POLICY_VERSION, cliVersion:toolchain.postmanCli.version,
       collections, environment:{file:environment,sha256:sha256(environmentYaml())},
+      globals:{file:GLOBALS_FILE,sha256:sha256(globalsYaml())},
       sha256:(await treeManifest(path.join(root,'postman'))).sha256 };
     await writeJson(path.join(v2Root,'manifest.json'),manifest);
   } finally { await rm(second,{recursive:true,force:true}); }
@@ -209,6 +235,11 @@ export async function validateNative(root, manifest, upstreamPaths) {
   const expected = [...manifest.partitions,{id:'bootstrap',...manifest.workflow}];
   assert.deepEqual(manifest.nativeGit.collections.map(c=>c.id),expected.map(c=>c.id),'Missing/duplicate collections.');
   const nativeRoot = path.join(root,'postman');
+  await assertNativeEntityDirectories(nativeRoot);
+  assertEmptyGlobals(await readFile(path.join(nativeRoot, GLOBALS_FILE), 'utf8'));
+  assert.equal(manifest.nativeGit.globals.file, GLOBALS_FILE);
+  assert.equal(manifest.nativeGit.globals.sha256, sha256(globalsYaml()));
+  await lintNative('globals', path.join(nativeRoot, GLOBALS_FILE));
   assert.deepEqual((await readdir(path.join(nativeRoot,'collections'))).sort(),expected.map(c=>c.id).sort());
   for (const entry of expected) {
     const record = manifest.nativeGit.collections.find(c=>c.id===entry.id);
@@ -230,7 +261,7 @@ export async function validateNative(root, manifest, upstreamPaths) {
   assert.equal(manifest.nativeGit.environment.sha256,sha256(environmentYaml()));
   await lintNative('environment',environment);
   const tree = await treeManifest(nativeRoot);
-  const expectedFiles = [...manifest.nativeGit.collections.flatMap(c=>c.files.map(f=>`${c.directory}/${f.file}`)),manifest.nativeGit.environment.file].sort();
+  const expectedFiles = [...manifest.nativeGit.collections.flatMap(c=>c.files.map(f=>`${c.directory}/${f.file}`)),manifest.nativeGit.environment.file,manifest.nativeGit.globals.file].sort();
   assert.deepEqual(tree.files.map(f=>f.file).sort(),expectedFiles,'Unexpected Native Git files.');
   assert.equal(tree.sha256,manifest.nativeGit.sha256);
   for (const {file} of tree.files) {
@@ -247,5 +278,5 @@ export async function validateNative(root, manifest, upstreamPaths) {
   const {stdout: tracked} = await execute('git',['ls-files','.postman'],{cwd:ROOT});
   assert.equal(tracked.trim(),'','Postman workspace state must never be tracked.');
   await execute('git',['check-ignore','.postman/resources.yaml'],{cwd:ROOT});
-  console.log('v3: all collection/environment lint, semantic equivalence, hashes and public-safety checks passed.');
+  console.log('v3: all collection/environment/globals lint, semantic equivalence, hashes and public-safety checks passed.');
 }
