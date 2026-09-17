@@ -1,0 +1,30 @@
+$kind: http-example
+id: 6b486cbc-efb1-52c9-af3f-1c74a77bc115
+name: Delete share excluded recipient failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/excluded-recipients/{{excluded_recipient_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 3000

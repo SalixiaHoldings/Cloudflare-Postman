@@ -1,0 +1,43 @@
+$kind: http-example
+id: 66d370be-f96c-5e6d-ae8b-4690d18bb4a4
+name: Invalid suppression input.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "email": "user@example.com",
+        "expires_at": "2027-01-01T00:00:00Z",
+        "note": "Imported from CRM"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+order: 2000

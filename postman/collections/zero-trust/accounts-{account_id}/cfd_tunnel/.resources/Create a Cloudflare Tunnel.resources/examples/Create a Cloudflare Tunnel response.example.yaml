@@ -1,0 +1,39 @@
+$kind: http-example
+id: 5d04c57d-d888-5a26-819e-001bac391b2a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cfd_tunnel"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "blog",
+        "config_src": "cloudflare",
+        "tunnel_secret": "{{tunnel_secret}}"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

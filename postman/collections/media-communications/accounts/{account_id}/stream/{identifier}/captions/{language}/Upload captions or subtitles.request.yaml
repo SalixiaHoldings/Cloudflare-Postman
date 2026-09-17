@@ -1,0 +1,35 @@
+$kind: http-request
+id: 2ccdbc86-8ffd-5b77-a4e8-0f5b2f747ab2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: stream-subtitles/-captions-upload-captions-or-subtitles
+  PUT /accounts/{account_id}/stream/{identifier}/captions/{language}
+
+  Uploads the caption or subtitle file to the endpoint for a specific BCP47 language. One caption or subtitle file per language is allowed.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/captions/{{language}}"
+method: PUT
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: formdata
+  content:
+    - type: text
+      key: file
+      value: "@/Users/kyle/Desktop/tr.vtt"
+      description: (Required) The WebVTT file containing the caption or subtitle content.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Upload captions or subtitles.resources/examples
+order: 3000

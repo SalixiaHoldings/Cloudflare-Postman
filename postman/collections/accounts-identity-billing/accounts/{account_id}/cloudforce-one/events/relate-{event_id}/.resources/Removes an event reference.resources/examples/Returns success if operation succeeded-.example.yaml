@@ -1,0 +1,33 @@
+$kind: http-example
+id: 456bd119-8880-5e11-8047-b407d6354278
+name: Returns success if operation succeeded.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/relate/{{event_id}}"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "events": [
+          "88888888-4444-4444-4444-121212121212",
+          "88888888-4444-4444-4444-121212121212"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "success": true
+        }
+      }
+order: 1000

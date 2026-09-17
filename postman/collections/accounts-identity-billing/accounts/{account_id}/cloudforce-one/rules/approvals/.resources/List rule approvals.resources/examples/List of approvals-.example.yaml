@@ -1,0 +1,173 @@
+$kind: http-example
+id: ae7da79a-cbce-52d9-9c54-52177f339f27
+name: List of approvals.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: status
+      value: pending
+      disabled: true
+      description: Selects approval statuses. Repeat the parameter to OR-match statuses (for example, status=pending&status=rejected). Use status=all alone to disable status filtering.
+    - key: latest_only
+      value: "true"
+      disabled: true
+      description: When true, returns the newest revision in each approval chain.
+    - key: limit
+      value: "50"
+      disabled: true
+    - key: offset
+      value: "0"
+      disabled: true
+    - key: reviewer_scope
+      value: email
+      disabled: true
+      description: Limits approvals to the specified reviewer scope.
+    - key: change_type
+      value: create
+      disabled: true
+      description: Limits approvals to the specified mutation type.
+    - key: rule_id
+      value: 128fbd7e-4e46-69ab-dbf7-8f9b58783f49
+      disabled: true
+      description: Filter approvals by rule ID.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "approvals": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rule_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rule_name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "audit_log_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "requested_by": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "requested_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "change_description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "change_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "proposed_changes": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "reviewed_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rejection_reason": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "cancelled_by": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "cancelled_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "supersedes_approval_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "superseded_by_approval_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "revision_number": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "commit_message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "reviewer_scope": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "can_review": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rule_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rule_name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "audit_log_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "requested_by": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "requested_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "change_description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "change_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "proposed_changes": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "reviewed_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rejection_reason": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "cancelled_by": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "cancelled_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "supersedes_approval_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "superseded_by_approval_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "revision_number": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "commit_message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "reviewer_scope": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "can_review": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "total": 10
+      }
+order: 1000

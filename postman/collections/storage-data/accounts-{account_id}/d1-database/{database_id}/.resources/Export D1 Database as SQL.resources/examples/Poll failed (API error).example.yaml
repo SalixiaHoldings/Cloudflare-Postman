@@ -1,0 +1,47 @@
+$kind: http-example
+id: 421574e7-31bd-5dc0-adf4-2dde3ccebaf7
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/export"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "output_format": "polling",
+        "current_bookmark": "string",
+        "dump_options": {
+          "no_data": false,
+          "no_schema": false,
+          "tables": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

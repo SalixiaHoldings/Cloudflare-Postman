@@ -1,0 +1,43 @@
+$kind: http-example
+id: 39decba9-3f5e-5f9f-9a73-7a5f4b91c8a9
+name: Suppression conflicts with this operation.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "email": "user@example.com",
+        "expires_at": "2027-01-01T00:00:00Z",
+        "note": "Imported from CRM"
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+order: 5000

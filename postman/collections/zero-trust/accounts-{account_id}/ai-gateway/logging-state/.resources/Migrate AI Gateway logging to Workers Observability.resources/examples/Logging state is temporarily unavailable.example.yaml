@@ -1,0 +1,38 @@
+$kind: http-example
+id: e27c2a19-77a4-5ffb-a3fa-8f3232cc86c2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/logging-state"
+  method: PATCH
+  headers:
+    Accept: application/json
+response:
+  statusCode: 503
+  statusText: Service Unavailable
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {},
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

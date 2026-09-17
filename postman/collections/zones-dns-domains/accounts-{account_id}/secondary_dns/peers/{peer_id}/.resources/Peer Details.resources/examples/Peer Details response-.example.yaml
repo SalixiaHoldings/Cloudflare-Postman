@@ -1,0 +1,22 @@
+$kind: http-example
+id: 2006ddf2-8687-5241-b8a4-4e2a2ecbe6ce
+name: Peer Details response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/secondary_dns/peers/{{peer_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,35 @@
+$kind: http-example
+id: 5dffb8eb-a2f3-581b-9425-6a93acd48ad5
+name: Change Regional Tiered Cache setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/regional_tiered_cache"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "off"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

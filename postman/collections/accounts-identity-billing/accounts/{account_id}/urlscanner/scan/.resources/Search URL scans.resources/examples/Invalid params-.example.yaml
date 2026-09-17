@@ -1,0 +1,113 @@
+$kind: http-example
+id: 39b02b1e-1c81-522e-8f1b-5fcbc089f9e5
+name: Invalid params.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: scan_id
+      value: b24973dc-8712-dcba-29fd-70228dd82a9a
+      disabled: true
+      description: Scan UUID.
+    - key: limit
+      value: "100"
+      disabled: true
+      description: Limit the number of objects in the response.
+    - key: next_cursor
+      value: string
+      disabled: true
+      description: Pagination cursor to get the next set of results.
+    - key: date_start
+      value: 1949-12-03T07:30:36.210Z
+      disabled: true
+      description: Filter scans requested after date (inclusive).
+    - key: date_end
+      value: 1961-10-20T05:02:27.188Z
+      disabled: true
+      description: Filter scans requested before date (inclusive).
+    - key: url
+      value: https://example.com/?hello
+      disabled: true
+      description: Filter scans by URL of _any_ request made by the webpage
+    - key: hostname
+      value: example.com
+      disabled: true
+      description: Filter scans by hostname of _any_ request made by the webpage.
+    - key: path
+      value: /samples/subresource-integrity/
+      disabled: true
+      description: Filter scans by url path of _any_ request made by the webpage.
+    - key: ip
+      value: 1.1.1.1
+      disabled: true
+      description: Filter scans by IP address (IPv4 or IPv6) of _any_ request made by the webpage.
+    - key: hash
+      value: string
+      disabled: true
+      description: Filter scans by hash of any html/js/css request made by the webpage.
+    - key: page_url
+      value: string
+      disabled: true
+      description: Filter scans by submitted or scanned URL
+    - key: page_hostname
+      value: string
+      disabled: true
+      description: Filter scans by main page hostname (domain of effective URL).
+    - key: page_path
+      value: string
+      disabled: true
+      description: Filter scans by exact match of effective URL path (also supports suffix search).
+    - key: page_asn
+      value: string
+      disabled: true
+      description: Filter scans by main page Autonomous System Number (ASN).
+    - key: page_ip
+      value: string
+      disabled: true
+      description: Filter scans by  main page IP address (IPv4 or IPv6).
+    - key: account_scans
+      value: "false"
+      disabled: true
+      description: Return only scans created by account.
+    - key: is_malicious
+      value: "false"
+      disabled: true
+      description: Filter scans by malicious verdict.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false
+      }
+order: 2000

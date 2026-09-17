@@ -1,0 +1,35 @@
+$kind: http-example
+id: b01443b6-bcac-58c1-9077-c09c8ad0f3ea
+request:
+  url: "{{base_url}}/accounts/{{accountId}}/v1/images/{{imageId}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "uploaded": "1972-12-18T23:15:33.286Z",
+          "filename": "string",
+          "meta": {},
+          "requireSignedURLs": true,
+          "variants": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "creator": "string"
+        }
+      }
+order: 1000

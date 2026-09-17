@@ -1,0 +1,41 @@
+$kind: http-example
+id: 88ae35f2-b36b-5a71-9097-2760f1a97667
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cfd_tunnel/{{tunnel_id}}/configurations"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "config": {
+          "ingress": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "originRequest": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,50 @@
+$kind: http-example
+id: e0217505-63d6-59af-8258-618e58826507
+name: Browser extension inventory response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config/inventories/{{registration_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "account_id": "{{account_id}}",
+          "registration_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "installed_extensions": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "observed_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "created_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "updated_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "physical_device_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": true,
+        "errors": [],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

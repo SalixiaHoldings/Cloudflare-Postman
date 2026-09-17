@@ -1,0 +1,42 @@
+$kind: http-example
+id: 44d834f5-1188-5774-929b-173abe0459f0
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/recipients"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "account_id": "{{account_id}}",
+          "organization_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "recipient_account_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "account_id": "{{account_id}}",
+          "organization_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "recipient_account_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+response:
+  statusCode: 204
+  statusText: No Content
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

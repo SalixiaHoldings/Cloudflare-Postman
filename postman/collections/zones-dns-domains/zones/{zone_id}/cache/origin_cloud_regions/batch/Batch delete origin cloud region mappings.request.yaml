@@ -1,0 +1,33 @@
+$kind: http-request
+id: f31b8773-6b1b-593d-bfbf-1811b8119989
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: origin-cloud-regions-batch-delete
+  DELETE /zones/{zone_id}/cache/origin_cloud_regions/batch
+
+  Removes up to 100 IP-to-cloud-region mappings in a single request. Each IP is validated independently — successfully deleted items are returned in the `succeeded` array and IPs that could not be found or are invalid are returned in the `failed` array.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions/batch"
+method: DELETE
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    [
+      "192.0.2.1",
+      "2001:db8::1"
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Batch delete origin cloud region mappings.resources/examples
+order: 1000

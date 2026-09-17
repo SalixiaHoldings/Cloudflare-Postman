@@ -1,0 +1,82 @@
+$kind: http-example
+id: 8966592d-54c2-55b9-bd8b-ae3e91165256
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/history"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "25"
+      disabled: true
+    - key: before
+      value: 2022-05-20T20:29:58.679897Z
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: since
+      value: 2022-05-19T20:29:58.679897Z
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "alert_body": {
+              "data": {
+                "custom_csr_id": "",
+                "expires_on": null,
+                "hosts": [],
+                "issuer": "",
+                "method": "txt",
+                "serial_number": "",
+                "settings": null,
+                "signature": "",
+                "status": "",
+                "type": "",
+                "uploaded_on": null,
+                "validation_errors": [],
+                "validation_records": [
+                  {
+                    "cname": "",
+                    "cname_target": "",
+                    "emails": [],
+                    "http_body": "",
+                    "http_url": "",
+                    "txt_name": "_acme-challenge.example.com",
+                    "txt_value": "11111111111"
+                  }
+                ]
+              },
+              "metadata": {
+                "account": null,
+                "event": {
+                  "created_at": null,
+                  "type": "ssl.certificate.validation.failed"
+                },
+                "zone": {}
+              }
+            },
+            "alert_type": "universal_ssl_event_type",
+            "description": "Universal Certificate validation status, issuance, renewal, and expiration notices.",
+            "mechanism": "test@example.com",
+            "mechanism_type": "email",
+            "name": "SSL Notification Event Policy",
+            "policy_id": "35040955-3102-4710-938c-0f4eaf736e25",
+            "sent": "2021-10-08T17:52:17.571336Z"
+          }
+        ],
+        "result_info": {
+          "count": 1,
+          "page": 1,
+          "per_page": 20
+        }
+      }
+order: 1000

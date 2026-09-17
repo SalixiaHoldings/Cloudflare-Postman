@@ -1,0 +1,44 @@
+$kind: http-request
+id: 8d749bc5-edae-52d9-8f4c-8ae3717ab28c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-cf1-sites-create-cf1-sites
+  POST /accounts/{account_id}/magic/cf1_sites
+
+  Creates new CF1 Sites for an account. Each site must have a unique name within the account.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/cf1_sites"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    [
+      {
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "description": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "location": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create CF1 Sites.resources/examples
+order: 2000

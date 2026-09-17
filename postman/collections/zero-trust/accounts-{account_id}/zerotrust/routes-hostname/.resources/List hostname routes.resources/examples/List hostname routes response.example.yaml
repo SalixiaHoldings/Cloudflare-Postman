@@ -1,0 +1,53 @@
+$kind: http-example
+id: 8e3e11bf-0408-5b2c-a44b-22258be46211
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zerotrust/routes/hostname"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+      disabled: true
+    - key: hostname
+      value: office-1.local
+      disabled: true
+      description: If set, only list hostname routes that contain a substring of the given value, the filter is case-insensitive.
+    - key: tunnel_id
+      value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+      disabled: true
+      description: If set, only list hostname routes that point to a specific tunnel.
+    - key: comment
+      value: example%20comment
+      disabled: true
+    - key: existed_at
+      value: 2019-10-12T07%3A20%3A50.52Z
+      disabled: true
+    - key: is_deleted
+      value: "true"
+      disabled: true
+    - key: per_page
+      value: <number>
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

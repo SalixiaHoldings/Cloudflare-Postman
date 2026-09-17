@@ -1,0 +1,36 @@
+$kind: http-request
+id: f0c69220-3231-54e8-90ed-1ecee2746744
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: registrar-domain-registration-get-update-status
+  GET /accounts/{account_id}/registrar/registrations/{domain_name}/update-status
+
+  Returns the current status of a domain update workflow.
+
+  Use this endpoint to poll for completion when the PATCH response
+  returned `202 Accepted`. The URL is provided in the `links.self`
+  field of the workflow status response.
+
+  Poll this endpoint until the workflow reaches a terminal state or a
+  state that requires user attention.
+
+  Use increasing backoff between polls. When the workflow remains blocked
+  on a third party, use a longer polling interval and do not poll indefinitely.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations/{{domain_name}}/update-status"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Update Status.resources/examples
+order: 4000

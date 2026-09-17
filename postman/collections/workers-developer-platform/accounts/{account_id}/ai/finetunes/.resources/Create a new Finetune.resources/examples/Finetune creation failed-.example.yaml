@@ -1,0 +1,31 @@
+$kind: http-example
+id: 3bf6f23c-242e-5eac-b3e3-01afe54a0d95
+name: Finetune creation failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/finetunes"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "model": "string",
+        "name": "string",
+        "description": "string",
+        "public": false
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "success": false
+      }
+order: 2000

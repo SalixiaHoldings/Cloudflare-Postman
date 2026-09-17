@@ -1,0 +1,43 @@
+$kind: http-example
+id: 05497116-a628-5fc3-b7fe-368230f85241
+name: List Client Certificates Response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/client_certificates"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: status
+      value: all
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: limit
+      value: "10"
+      disabled: true
+    - key: offset
+      value: "10"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

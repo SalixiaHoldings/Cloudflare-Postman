@@ -1,0 +1,45 @@
+$kind: http-example
+id: 4f2c9a27-bf35-533d-b168-d3cff2864113
+name: Update Dex test response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/devices/dex_tests/{{dex_test_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "HTTP dash health check",
+        "interval": "30m",
+        "enabled": true,
+        "data": {
+          "host": "https://dash.cloudflare.com",
+          "kind": "http",
+          "method": "GET"
+        },
+        "description": "Checks the dash endpoint every 30 minutes",
+        "target_policies": {
+          "x-stainless-terraform-configurability": "computed_optional",
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "targeted": false,
+        "test_id": "372e67954025e0ba6aaa6d586b9e0b59"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,41 @@
+$kind: http-request
+id: a7cc76ce-dee9-50bf-9f53-cde68f9518a6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: client-certificate-for-a-zone-list-client-certificates
+  GET /zones/{zone_id}/client_certificates
+
+  List all of your Zone's API Shield mTLS Client Certificates by Status and/or using Pagination.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/client_certificates"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: status
+    value: all
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: limit
+    value: "10"
+    disabled: true
+  - key: offset
+    value: "10"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Client Certificates.resources/examples
+order: 1000

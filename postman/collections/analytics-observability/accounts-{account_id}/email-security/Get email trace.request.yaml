@@ -1,0 +1,25 @@
+$kind: http-request
+id: 1527ebbe-bf4e-57fc-84d7-cb797a3b6531
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_get_message_trace
+  GET /accounts/{account_id}/email-security/investigate/{investigate_id}/trace
+
+  Retrieves delivery and processing trace information for an email message. Shows the delivery path, retraction history, and move operations performed on the message. Useful for debugging delivery issues.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}/trace"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get email trace.resources/examples
+order: 2000

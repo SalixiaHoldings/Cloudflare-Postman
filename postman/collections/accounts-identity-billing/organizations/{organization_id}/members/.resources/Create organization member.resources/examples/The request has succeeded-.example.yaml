@@ -1,0 +1,65 @@
+$kind: http-example
+id: 15f8d1fb-0004-5628-8e95-8d219c9db0d1
+name: The request has succeeded.
+request:
+  url: "{{base_url}}/organizations/{{organization_id}}/members"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "member": {
+          "user": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "status": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "status": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "user": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "meta": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "create_time": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "update_time": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

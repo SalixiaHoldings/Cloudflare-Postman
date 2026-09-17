@@ -1,0 +1,35 @@
+$kind: http-example
+id: 8f8f7b39-c2c7-5f2d-a1e6-bc976866ded6
+name: Validate buckets for full packet captures response failure (server error).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pcaps/ownership/validate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "destination_conf": "s3://pcaps-bucket?region=us-east-1",
+        "ownership_challenge": "ownership-challenge-9883874ecac311ec8475433579a6bf5f.txt"
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "result": null
+      }
+order: 3000

@@ -1,0 +1,33 @@
+$kind: http-request
+id: 5378762b-55e5-5146-8d0b-86fee2e5be22
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: worker-script-patch-settings
+  PATCH /accounts/{account_id}/workers/scripts/{script_name}/settings
+
+  Patch metadata or config, such as bindings or usage model.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/settings"
+method: PATCH
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+body:
+  type: formdata
+  content:
+    - type: text
+      key: settings
+      value: '{"annotations":{"value":"<Error: Too many levels of nesting to fake this schema>"},"bindings":{"value":"<Error: Too many levels of nesting to fake this schema>"},"cache_options":{"value":"<Error: Too many levels of nesting to fake this schema>"},"compatibility_date":{"value":"<Error: Too many levels of nesting to fake this schema>"},"compatibility_flags":{"value":"<Error: Too many levels of nesting to fake this schema>"},"exports":{"value":"<Error: Too many levels of nesting to fake this schema>"},"exports_reconciliation":{"value":"<Error: Too many levels of nesting to fake this schema>"},"limits":{"value":"<Error: Too many levels of nesting to fake this schema>"},"logpush":{"value":"<Error: Too many levels of nesting to fake this schema>"},"migrations":{"value":"<Error: Too many levels of nesting to fake this schema>"},"observability":{"value":"<Error: Too many levels of nesting to fake this schema>"},"placement":{"value":"<Error: Too many levels of nesting to fake this schema>"},"tags":{"value":"<Error: Too many levels of nesting to fake this schema>"},"tail_consumers":{"value":"<Error: Too many levels of nesting to fake this schema>"},"usage_model":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+      contentType: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Patch Settings.resources/examples
+order: 2000

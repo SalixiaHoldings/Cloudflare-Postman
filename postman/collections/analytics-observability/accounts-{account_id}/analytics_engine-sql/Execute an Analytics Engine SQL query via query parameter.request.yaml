@@ -1,0 +1,29 @@
+$kind: http-request
+id: 7cc6f675-3f6f-5ec0-9143-d0416fb5c5ef
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: analytics-engine-sql-query-get
+  GET /accounts/{account_id}/analytics_engine/sql
+
+  Executes a SQL query against Workers Analytics Engine data. Pass the SQL query as a query parameter. The response uses newline-delimited JSON (NDJSON) by default, or a single JSON object when the query includes a FORMAT JSON clause. Use the POST method for longer queries that may exceed URL length limits.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/analytics_engine/sql?query=SELECT blob1, count() FROM my_dataset WHERE timestamp > NOW() - INTERVAL '1' DAY GROUP BY blob1 ORDER BY count() DESC LIMIT 10"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: query
+    value: SELECT blob1, count() FROM my_dataset WHERE timestamp > NOW() - INTERVAL '1' DAY GROUP BY blob1 ORDER BY count() DESC LIMIT 10
+    description: (Required) Supply a SQL query to run against your Analytics Engine datasets. Use only SELECT statements. The service validates the query against a restricted SQL grammar before execution.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Execute an Analytics Engine SQL query via query parameter.resources/examples
+order: 1000

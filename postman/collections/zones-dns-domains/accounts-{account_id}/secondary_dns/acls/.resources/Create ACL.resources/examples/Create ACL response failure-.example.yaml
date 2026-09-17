@@ -1,0 +1,39 @@
+$kind: http-example
+id: 0664b8d0-2d7b-5997-9b1f-a887f4aed842
+name: Create ACL response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/secondary_dns/acls"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "my-acl-1",
+        "ip_range": "192.0.2.53/28"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,29 @@
+$kind: http-example
+id: 71c8b5ed-9757-5108-89b0-ab367505b552
+name: No Configuration Found response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/event_notifications/r2/{{bucket_name}}/configuration/queues/{{queue_id}}"
+  method: GET
+  headers:
+    cf-r2-jurisdiction: default
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 11015,
+            "message": "workers.api.error.no_configs_found_for_bucket"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

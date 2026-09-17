@@ -1,0 +1,24 @@
+$kind: http-example
+id: 53a8c5aa-05ef-52ad-9f56-451a5acfbf8d
+name: Data tag category template read was successful.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/data_tag_category_templates/{{template_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

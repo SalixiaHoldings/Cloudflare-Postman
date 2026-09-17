@@ -1,0 +1,26 @@
+$kind: http-example
+id: c042b811-1cf6-5f23-9bb1-0d819118daf8
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/apps/{{app_id}}/user_policy_checks"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "app_state": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "user_identity": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

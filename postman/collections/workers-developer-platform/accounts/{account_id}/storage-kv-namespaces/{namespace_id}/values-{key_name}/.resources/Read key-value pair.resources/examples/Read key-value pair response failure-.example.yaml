@@ -1,0 +1,28 @@
+$kind: http-example
+id: 759a9a90-6c1e-57c6-9896-af9c707ea91f
+name: Read key-value pair response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}/values/{{key_name}}"
+  method: GET
+  headers:
+    Accept: application/octet-stream
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

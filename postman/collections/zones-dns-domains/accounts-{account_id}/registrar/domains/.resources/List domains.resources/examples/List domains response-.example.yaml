@@ -1,0 +1,29 @@
+$kind: http-example
+id: ff01924d-c499-504f-903e-5ec397c8fb13
+name: List domains response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/domains"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

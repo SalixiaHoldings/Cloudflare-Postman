@@ -1,0 +1,32 @@
+$kind: http-request
+id: 0b17a3d6-1826-597e-a8d9-cbb3479014b0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: unrevoke-registrations
+  POST /accounts/{account_id}/devices/registrations/unrevoke
+
+  Unrevokes a list of WARP registrations.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/devices/registrations/unrevoke?id=string&id=string"
+method: POST
+headers:
+  Accept: application/json
+queryParams:
+  - key: id
+    value: string
+    description: (Required) A list of registration IDs to unrevoke.
+  - key: id
+    value: string
+    description: (Required) A list of registration IDs to unrevoke.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Unrevoke registrations.resources/examples
+order: 4000

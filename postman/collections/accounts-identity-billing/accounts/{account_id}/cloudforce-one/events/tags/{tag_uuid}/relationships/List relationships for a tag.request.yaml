@@ -1,0 +1,50 @@
+$kind: http-request
+id: 17e84584-43b9-5088-a35c-24e415cba377
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_TagRelationshipsList
+  GET /accounts/{account_id}/cloudforce-one/events/tags/{tag_uuid}/relationships
+
+  Returns sparse relationship edges. Optionally hydrate related entities via `expand`. Fans out across all accessible indicator dataset shards. Analytics datasets do not expose tag associations, so the analytics scope returns an empty result.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/relationships"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: datasets
+    value: string
+    disabled: true
+  - key: datasets
+    value: string
+    disabled: true
+  - key: search
+    value: '{"field":"string","op":"startsWith","value":"string"}'
+    disabled: true
+  - key: search
+    value: '{"field":"string","op":"not","value":"string"}'
+    disabled: true
+  - key: expand
+    value: string
+    disabled: true
+  - key: expand
+    value: string
+    disabled: true
+  - key: cursor
+    value: string
+    disabled: true
+  - key: pageSize
+    value: "25"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List relationships for a tag.resources/examples
+order: 1000

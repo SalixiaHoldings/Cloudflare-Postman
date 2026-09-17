@@ -1,0 +1,24 @@
+$kind: http-example
+id: 3f5a016b-70ab-568a-91cb-f471495e74c4
+name: Delete predefined entry response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/entries/predefined/{{entry_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

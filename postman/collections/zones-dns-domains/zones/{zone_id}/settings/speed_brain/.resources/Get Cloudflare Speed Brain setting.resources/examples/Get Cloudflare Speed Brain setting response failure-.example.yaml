@@ -1,0 +1,28 @@
+$kind: http-example
+id: 055a4e24-6406-5fb5-bdff-8ae2084c80ad
+name: Get Cloudflare Speed Brain setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/speed_brain"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

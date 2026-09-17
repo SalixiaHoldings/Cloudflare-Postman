@@ -1,0 +1,42 @@
+$kind: http-request
+id: a9e8db75-c861-56fa-a1bc-4275396e1ecc
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_apps
+  GET /accounts/{account_id}/realtime/kit/apps
+
+  Fetch all apps for your account
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/apps"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page_no
+    value: "1"
+    disabled: true
+    description: The page number from which you want your page search results to be displayed.
+  - key: per_page
+    value: "20"
+    disabled: true
+    description: Number of results per page.
+  - key: search
+    value: string
+    disabled: true
+    description: Search string that matches apps by name.
+  - key: sort_order
+    value: DESC
+    disabled: true
+    description: Sort order for apps by creation time.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Fetch all apps.resources/examples
+order: 1000

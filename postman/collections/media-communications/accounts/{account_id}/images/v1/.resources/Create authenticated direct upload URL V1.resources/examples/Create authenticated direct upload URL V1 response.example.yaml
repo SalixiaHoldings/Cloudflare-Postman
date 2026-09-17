@@ -1,0 +1,33 @@
+$kind: http-example
+id: 5d35c69b-d14d-521c-a6e8-4483960a9a0e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v1/direct_upload"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "expiry": "2021-01-02T02:20:00Z"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "uploadURL": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

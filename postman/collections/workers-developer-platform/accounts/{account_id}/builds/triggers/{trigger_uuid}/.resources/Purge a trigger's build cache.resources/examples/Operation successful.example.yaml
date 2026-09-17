@@ -1,0 +1,22 @@
+$kind: http-example
+id: a8e368f7-4d23-5b4f-afb8-06e975c7b041
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/triggers/{{trigger_uuid}}/purge_build_cache"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": null,
+        "success": true
+      }
+order: 1000

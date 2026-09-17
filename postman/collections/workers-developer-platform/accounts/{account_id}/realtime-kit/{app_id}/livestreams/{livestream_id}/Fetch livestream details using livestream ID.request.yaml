@@ -1,0 +1,34 @@
+$kind: http-request
+id: 83df68b7-9b19-5ef2-bcc4-aaa3fe82f09a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-v2-livestream-session-livestream-id
+  GET /accounts/{account_id}/realtime/kit/{app_id}/livestreams/{livestream_id}
+
+  Returns details of a livestream with sessions for the given livestream ID. Retreive the livestream ID using the `Start livestreaming a meeting` API.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/livestreams/{{livestream_id}}"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page_no
+    value: "2212"
+    disabled: true
+    description: The page number from which you want your page search results to be displayed.
+  - key: per_page
+    value: "2212"
+    disabled: true
+    description: Number of results per page.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Fetch livestream details using livestream ID.resources/examples
+order: 1000

@@ -1,0 +1,29 @@
+$kind: http-example
+id: 4eddf637-f3b3-5385-acf8-fcbc09e3b383
+name: Change Regional Tiered Cache setting response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/regional_tiered_cache"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "off"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

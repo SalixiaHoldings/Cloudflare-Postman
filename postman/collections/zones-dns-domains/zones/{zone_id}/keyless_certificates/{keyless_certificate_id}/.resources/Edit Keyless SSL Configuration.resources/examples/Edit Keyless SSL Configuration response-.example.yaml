@@ -1,0 +1,40 @@
+$kind: http-example
+id: aadfc119-0b20-5e4d-9ed5-8a64ed1fb54c
+name: Edit Keyless SSL Configuration response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/keyless_certificates/{{keyless_certificate_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": false,
+        "host": "example.com",
+        "name": "example.com Keyless SSL",
+        "port": 24008,
+        "tunnel": {
+          "private_ip": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "vnet_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

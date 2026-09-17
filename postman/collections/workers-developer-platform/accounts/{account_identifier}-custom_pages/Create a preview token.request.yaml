@@ -1,0 +1,34 @@
+$kind: http-request
+id: 7d64a24a-b5ab-5453-b4e5-02a13f3395aa
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: custom-pages-for-an-account-create-preview-token
+  POST /accounts/{account_identifier}/custom_pages/preview_tokens
+
+  Creates a signed JWT token used to preview custom pages before they are published.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_identifier}}/custom_pages/preview_tokens"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "act": "preview",
+      "target": "block:waf",
+      "url": "https://example.com/error.html"
+    }
+auth:
+  type: noauth
+examples: ./.resources/Create a preview token.resources/examples
+order: 2000

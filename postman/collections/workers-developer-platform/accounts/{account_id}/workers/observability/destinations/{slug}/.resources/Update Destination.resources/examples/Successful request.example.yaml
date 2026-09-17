@@ -1,0 +1,92 @@
+$kind: http-example
+id: 81443322-1807-5926-a84c-293552075107
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/destinations/{{slug}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true,
+        "configuration": {
+          "type": "logpush",
+          "url": "string",
+          "headers": {
+            "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "key_1": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": {
+          "slug": "string",
+          "name": "phpk9p5b",
+          "enabled": true,
+          "configuration": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "logpushDataset": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "logpushJob": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "destination_conf": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "url": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "scripts": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      }
+order: 1000

@@ -1,0 +1,49 @@
+$kind: http-example
+id: 41f18cba-ed9e-58f1-aec6-bdf40b25e1d5
+name: Edit video details response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "allowedOrigins": [
+          "example.com"
+        ],
+        "creator": "creator-id_abcde12345",
+        "maxDurationSeconds": 13662,
+        "meta": {
+          "name": "video12345.mp4"
+        },
+        "publicDetails": {
+          "channel_link": "string",
+          "logo": "string",
+          "share_link": "string",
+          "title": "string"
+        },
+        "requireSignedURLs": true,
+        "scheduledDeletion": "2014-01-02T02:20:00Z",
+        "thumbnailTimestampPct": 0.529241,
+        "uid": "ea95132c15732412d22c1476fa83f27a",
+        "uploadExpiry": "2014-01-02T02:20:00Z"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

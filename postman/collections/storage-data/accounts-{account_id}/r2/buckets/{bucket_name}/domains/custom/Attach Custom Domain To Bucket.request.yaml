@@ -1,0 +1,35 @@
+$kind: http-request
+id: a78f05c4-a8c1-5fd5-81c7-c4ce661544fa
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-add-custom-domain
+  POST /accounts/{account_id}/r2/buckets/{bucket_name}/domains/custom
+
+  Register a new custom domain for an existing R2 bucket.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/domains/custom"
+method: POST
+headers:
+  cf-r2-jurisdiction: default
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "domain": "prefix.example-domain.com",
+      "enabled": true,
+      "zoneId": "36ca64a6d92827b8a6b90be344bb1bfd"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Attach Custom Domain To Bucket.resources/examples
+order: 2000

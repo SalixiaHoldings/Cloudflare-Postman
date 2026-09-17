@@ -1,0 +1,44 @@
+$kind: http-example
+id: ce7bd081-4dcd-51fa-ba2a-4dc1e87e3425
+name: List all SYN Protection rules response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/syn_protection/rules"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "7134"
+      disabled: true
+      description: The page number for pagination. Defaults to 1.
+    - key: per_page
+      value: "7134"
+      disabled: true
+      description: The number of items per page. Must be between 10 and 1000. Defaults to 25.
+    - key: order
+      value: string
+      disabled: true
+      description: The field to order by. Defaults to 'prefix'.
+    - key: direction
+      value: string
+      disabled: true
+      description: The direction of ordering (ASC or DESC). Defaults to 'ASC'.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

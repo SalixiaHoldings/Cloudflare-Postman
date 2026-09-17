@@ -1,0 +1,29 @@
+$kind: http-example
+id: da8c6bc1-b038-52ab-8005-740cc5e4e4c4
+name: List existing Content Scanning custom expressions response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/content-upload-scan/payloads"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

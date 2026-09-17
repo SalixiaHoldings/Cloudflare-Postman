@@ -1,0 +1,49 @@
+$kind: http-example
+id: f3a798cd-74da-50a1-a292-374ad89fafbf
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}/livestream-sessions"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "204.77698417380452"
+      disabled: true
+      description: Number of results per page.
+    - key: page_no
+      value: "204.77698417380452"
+      disabled: true
+      description: The page number from which you want your page search results to be displayed.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "data": [
+            {
+              "created_at": "2023-07-15T07:08:40.742Z",
+              "err_message": null,
+              "id": "cf55a850-c3fd-46b5-b5d2-25b3b9aa1686",
+              "ingest_seconds": 118,
+              "invoked_time": null,
+              "livestream_id": "b60ef3da-fbbb-441b-9168-8235b0035123",
+              "started_time": "2023-07-15T07:08:39Z",
+              "stopped_time": "2023-07-15T07:10:45Z",
+              "updated_at": "2023-07-15T07:11:47.274Z",
+              "viewer_seconds": 116.11599994199997
+            }
+          ],
+          "paging": {
+            "end_offset": 1,
+            "start_offset": 1,
+            "total_count": 1
+          }
+        },
+        "success": true
+      }
+order: 1000

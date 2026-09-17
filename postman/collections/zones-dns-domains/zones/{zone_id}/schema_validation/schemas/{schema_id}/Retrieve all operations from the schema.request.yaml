@@ -1,0 +1,51 @@
+$kind: http-request
+id: 37332d90-b6fa-57bf-8c2e-80d3c8b1233f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: schema-validation-extract-operations-from-schema
+  GET /zones/{zone_id}/schema_validation/schemas/{schema_id}/operations
+
+  Retrieves all operations from the schema. Operations that already exist in API Shield Endpoint Management will be returned as full operations.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/schema_validation/schemas/{{schema_id}}/operations"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: feature
+    value: thresholds
+    disabled: true
+    description: Add feature(s) to the results. The feature name that is given here corresponds to the resulting feature object. Have a look at the top-level object description for more details on the specific meaning.
+  - key: host
+    value: api.cloudflare.com
+    disabled: true
+  - key: method
+    value: GET
+    disabled: true
+  - key: endpoint
+    value: /api/v1
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+    description: Page number of paginated results.
+  - key: per_page
+    value: "20"
+    disabled: true
+    description: Maximum number of results per page.
+  - key: operation_status
+    value: new
+    disabled: true
+    description: Filter results by whether operations exist in Web Asset Management or not. `new` will just return operations from the schema that do not exist otherwise. `existing` will just return operations from the schema that already exist.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Retrieve all operations from the schema.resources/examples
+order: 4000

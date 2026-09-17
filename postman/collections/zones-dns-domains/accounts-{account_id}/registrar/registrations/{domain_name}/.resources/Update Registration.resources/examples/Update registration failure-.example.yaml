@@ -1,0 +1,42 @@
+$kind: http-example
+id: af1a2ccb-23ca-5221-9624-13f8d2388708
+name: Update registration failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations/{{domain_name}}"
+  method: PATCH
+  headers:
+    - key: Prefer
+      value: respond-async
+      description: |
+        Set to `respond-async` to receive an immediate `202 Accepted` without
+        waiting for the operation to complete (RFC 7240).
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "auto_renew": false
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 10000,
+            "message": "Domain not found"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

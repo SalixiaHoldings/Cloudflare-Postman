@@ -1,0 +1,136 @@
+$kind: http-example
+id: 0b71b2a5-064e-5731-9984-9c350eb21e38
+name: List of workflow instances.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "2557.454902787227"
+      disabled: true
+      description: "Deprecated: use `cursor` for pagination instead."
+    - key: per_page
+      value: "50"
+      disabled: true
+    - key: cursor
+      value: string
+      disabled: true
+      description: Opaque token for cursor-based pagination. Mutually exclusive with `page`.
+    - key: direction
+      value: asc
+      disabled: true
+      description: Defines the direction for cursor-based pagination.
+    - key: status
+      value: waitingForPause
+      disabled: true
+    - key: date_start
+      value: 1925-07-26T17:47:35.721Z
+      disabled: true
+      description: Accepts ISO 8601 with no timezone offsets and in UTC.
+    - key: date_end
+      value: 1925-07-26T17:47:35.721Z
+      disabled: true
+      description: Accepts ISO 8601 with no timezone offsets and in UTC.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_on": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modified_on": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "started_on": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "ended_on": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "workflow_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "version_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "trigger_source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_on": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modified_on": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "started_on": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "ended_on": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "workflow_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "version_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "trigger_source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 1608.7279468774796,
+          "count": 1314.5118695683777,
+          "total_count": 2388.4654184803367,
+          "cursor": "string",
+          "page": 5436.664323788136,
+          "total_pages": 6544.969850219786
+        }
+      }
+order: 1000

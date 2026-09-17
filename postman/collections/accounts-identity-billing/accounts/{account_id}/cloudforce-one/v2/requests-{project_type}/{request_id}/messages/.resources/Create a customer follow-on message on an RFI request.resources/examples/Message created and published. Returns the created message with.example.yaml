@@ -1,0 +1,101 @@
+$kind: http-example
+id: 1dc2fb96-5c74-559c-880a-ea94dff6591f
+name: Message created and published. Returns the created message with its embedded attachments[], filtered to the dashboard's visible origins.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/messages/new"
+  method: POST
+  headers:
+    - key: Idempotency-Key
+      value: string
+      description: Client command key. Required when publishing a message for a workflow-enabled project; trimmed and limited to 255 characters.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "content": "string",
+        "attachment_asset_ids": [
+          "string",
+          "string"
+        ],
+        "author_id": "string",
+        "author_name": "string",
+        "publish": false,
+        "tlp": "red"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 5563,
+        "content": "string",
+        "created": "string",
+        "updated": "string",
+        "published": "string",
+        "tlp": "amber-strict",
+        "is_cloudflare_team": true,
+        "is_published": true,
+        "attachments": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "fileName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "fileSize": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "contentType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "state": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "origin": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "is_cloudflare_team": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "downloadable": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "fileName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "fileSize": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "contentType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "state": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "origin": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "is_cloudflare_team": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "downloadable": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

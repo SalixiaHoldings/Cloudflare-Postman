@@ -1,0 +1,39 @@
+$kind: http-example
+id: 21eeb0a6-ea08-586f-97c1-7ff015815065
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/labels/user/{{name}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "description": "All endpoints that deal with logins",
+        "metadata": {
+          "foo": "bar"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,47 @@
+$kind: http-request
+id: 8bfddb82-9f4b-5d60-83af-5a73be8b201c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: account-api-tokens-create-token
+  POST /accounts/{account_id}/tokens
+
+  Create a new Account Owned API token.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/tokens"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "readonly token",
+      "policies": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "condition": {
+        "request_ip": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "expires_on": "2020-01-01T00:00:00Z",
+      "not_before": "2018-07-01T05:20:00Z"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Token.resources/examples
+order: 2000

@@ -1,0 +1,37 @@
+$kind: http-example
+id: 209026ad-79fa-53e3-b8bd-76927f71852b
+name: WebSocket connection established successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser"
+  method: GET
+  headers:
+    - key: cf-brapi-guardrails
+      value: eyJhbGxvd2VkRG9tYWlucyI6WyIqLmV4YW1wbGUuY29tIl19
+      description: Optional base64url-encoded JSON session guardrails (allowedDomains and allowedDomainSets)
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+  queryParams:
+    - key: keep_alive
+      value: "60000"
+      disabled: true
+      description: Keep-alive time in ms (only valid when acquiring new session).
+    - key: lab
+      value: "false"
+      disabled: true
+      description: Use experimental browser.
+    - key: recording
+      value: "false"
+      disabled: true
+response:
+  statusCode: 101
+  statusText: Switching Protocols
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

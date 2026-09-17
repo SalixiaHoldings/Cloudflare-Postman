@@ -1,0 +1,19 @@
+$kind: http-example
+id: 05a18d28-c6ac-5de8-86ff-55c2dbd58a2f
+name: Session not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/session/{{session_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

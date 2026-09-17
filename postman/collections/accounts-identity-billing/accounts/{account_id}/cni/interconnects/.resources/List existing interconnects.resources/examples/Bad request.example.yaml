@@ -1,0 +1,33 @@
+$kind: http-example
+id: 3f440a61-d5c1-5149-8a55-0472a87fb104
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cni/interconnects"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: site
+      value: string
+      disabled: true
+      description: If specified, only show interconnects located at the given site
+    - key: type
+      value: string
+      disabled: true
+      description: If specified, only show interconnects of the given type
+    - key: cursor
+      value: "4690"
+      disabled: true
+    - key: limit
+      value: "5193"
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

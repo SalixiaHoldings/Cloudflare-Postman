@@ -1,0 +1,56 @@
+$kind: http-request
+id: bb0ed42e-3550-56a6-be3d-74007ec51200
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_EventListGet
+  GET /accounts/{account_id}/cloudforce-one/events
+
+  Use `datasetId=all` or `datasetId=*` for the legacy all-datasets scope, `datasetId=analytics` for datasets with `isAnalytics=true`, or `datasetId=operational` for datasets with `isAnalytics=false` (limited to 50). Scope values must be used alone. When `datasetId` is unspecified, events are listed from the default Cloudforce One Threat Events dataset. To list existing datasets, use the [`List Datasets`](https://developers.cloudflare.com/api/resources/cloudforce_one/subresources/threat_events/subresources/datasets/methods/list/) endpoint.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: cursor
+    value: eyJ2ZXJzaW9uIjoxLCJwb3NpdGlvbiI6eyJkYXRlIjoiMjAyNC0wMS0xMlQxMDowMDowMFoiLCJ1dWlkIjoiYWJjMTIzIn19
+    disabled: true
+  - key: page
+    value: "2087.707163300365"
+    disabled: true
+  - key: pageSize
+    value: "7948.784169275314"
+    disabled: true
+  - key: orderBy
+    value: string
+    disabled: true
+  - key: order
+    value: asc
+    disabled: true
+  - key: datasetId
+    value: string
+    disabled: true
+  - key: datasetId
+    value: string
+    disabled: true
+  - key: forceRefresh
+    value: "true"
+    disabled: true
+  - key: format
+    value: json
+    disabled: true
+  - key: cache
+    value: from-graph
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Filter and list events.resources/examples
+order: 1000

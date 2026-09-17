@@ -1,0 +1,59 @@
+$kind: http-request
+id: 990bcb61-ce43-554a-89e2-12ac5f958f6d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: CreateContentExport
+  POST /accounts/{account_id}/data-security/posture/content/export
+
+  Creates a CSV export for content and accepts optional filters in the payload.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/content/export"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "dlp_profile_information": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "dlp_profile_id": [
+        "e91a2360-da51-4fdf-9711-bcdecd462614"
+      ],
+      "integration_id": [
+        "c416bc38-75dc-425f-ae25-c37b5df5c37f"
+      ],
+      "max_affliction_date": "2024-01-01T00:00:00Z",
+      "min_affliction_date": "2023-01-01T00:00:00Z",
+      "orders": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "search": "sensitive",
+      "vendors": [
+        "GOOGLE_WORKSPACE"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a content export.resources/examples
+order: 2000

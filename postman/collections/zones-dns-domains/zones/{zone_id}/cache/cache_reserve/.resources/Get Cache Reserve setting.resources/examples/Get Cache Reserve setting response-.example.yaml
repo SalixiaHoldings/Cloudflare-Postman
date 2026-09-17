@@ -1,0 +1,27 @@
+$kind: http-example
+id: 3daed90f-fec6-5fba-904f-c43a854bd547
+name: Get Cache Reserve setting response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/cache_reserve"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "editable": true,
+          "id": "cache_reserve",
+          "value": "off"
+        },
+        "success": true
+      }
+order: 1000

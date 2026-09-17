@@ -1,0 +1,46 @@
+$kind: http-request
+id: af8df658-d860-5225-9300-3bd689d0d464
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-zones-zone_id-logs-received
+  GET /zones/{zone_id}/logs/received
+
+  The `/received` api route allows customers to retrieve their edge HTTP logs. The basic access pattern is "give me all the logs for zone Z for minute M", where the minute M refers to the time records were received at Cloudflare's central data center. `start` is inclusive, and `end` is exclusive. Because of that, to get all data, at minutely cadence, starting at 10AM, the proper values are: `start=2018-05-20T10:00:00Z&end=2018-05-20T10:01:00Z`, then `start=2018-05-20T10:01:00Z&end=2018-05-20T10:02:00Z` and so on; the overlap will be handled properly.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/logs/received?end=string"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: start
+    value: string
+    disabled: true
+  - key: end
+    value: string
+    description: "(Required) "
+  - key: fields
+    value: ClientIP,RayID,EdgeStartTimestamp
+    disabled: true
+  - key: sample
+    value: "0.1"
+    disabled: true
+  - key: count
+    value: "7105"
+    disabled: true
+  - key: timestamps
+    value: unixnano
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get logs received.resources/examples
+order: 1000

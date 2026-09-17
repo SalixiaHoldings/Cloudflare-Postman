@@ -1,0 +1,26 @@
+$kind: http-example
+id: dca19e30-d5c8-5cfb-97aa-b3c213040f1a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/columns/{{column_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "position": 5625.7606646977365,
+        "required": false,
+        "type": "number"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

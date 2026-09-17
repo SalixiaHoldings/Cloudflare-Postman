@@ -1,0 +1,67 @@
+$kind: http-example
+id: 83689e99-bab2-589e-bc3d-578ee6a604cb
+name: Indicates an error updating pipeline.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/{{pipeline_name}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "sample_pipeline",
+        "source": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "destination": {
+          "type": "r2",
+          "format": "json",
+          "batch": {
+            "max_bytes": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "max_duration_s": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "max_rows": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "compression": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "path": {
+            "bucket": "bucket",
+            "prefix": "base"
+          },
+          "credentials": {
+            "endpoint": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "access_key_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "secret_access_key": "{{secret_access_key}}"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "results": {},
+        "errors": []
+      }
+order: 2000

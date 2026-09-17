@@ -1,0 +1,81 @@
+$kind: http-example
+id: a08fe868-9c6e-5786-b2a7-06a8776bb6d0
+name: List of setup flows.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/one/applications/{{application_id}}/setup-flows"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: auth_method
+      value: string
+      disabled: true
+      description: Filter by auth method id. Get available ids from GET /v2/applications.
+    - key: environment
+      value: fedramp
+      disabled: true
+      description: Filter by environment.
+    - key: page
+      value: "1209"
+      disabled: true
+      description: A page number within the paginated result set.
+    - key: page_size
+      value: "1209"
+      disabled: true
+      description: Number of results to return per page.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": [
+          {
+            "auth_config": {
+              "authorization_url": "https://login.microsoftonline.com/common/adminconsent",
+              "client_id": "abc123-def456",
+              "requires_pkce": false,
+              "scopes": [
+                "https://graph.microsoft.com/.default"
+              ],
+              "url_placeholders": []
+            },
+            "default": true,
+            "description": "Connect to Microsoft using OAuth 2.0 Admin Consent.",
+            "id": "microsoft_internal_oauth2",
+            "name": "Microsoft (OAuth 2.0 Admin Consent)",
+            "steps": [
+              {
+                "component_id": "common/name_integration",
+                "parameters": null,
+                "type": "component"
+              },
+              {
+                "description": "Click the button to be redirected to the vendor and grant access.",
+                "dynamic_content": null,
+                "title": "Authorize Application",
+                "type": "oauth_redirect"
+              }
+            ],
+            "supported_environments": [
+              "standard",
+              "fedramp"
+            ]
+          }
+        ],
+        "result_info": {
+          "count": 1,
+          "next": null,
+          "page": 1,
+          "per_page": 10,
+          "previous": null,
+          "total_count": 1
+        },
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,49 @@
+$kind: http-request
+id: e7f399fe-3110-5ef9-8162-562bfddedbdf
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_ItemSearch
+  POST /accounts/{account_id}/cloudforce-one/v2/collections/{collection_id}/search
+
+  Search collection items with advanced filtering. Supports operators (eq, neq, gt, lt, gte, lte, contains, is_empty, is_not_empty) and AND/OR logic for complex queries.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/search"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "cursor": "string",
+      "filter": {
+        "field": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "op": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "value": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "limit": 20,
+      "q": "string",
+      "sort": {
+        "field": "string",
+        "order": "asc"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Search items (advanced filtering).resources/examples
+order: 7000

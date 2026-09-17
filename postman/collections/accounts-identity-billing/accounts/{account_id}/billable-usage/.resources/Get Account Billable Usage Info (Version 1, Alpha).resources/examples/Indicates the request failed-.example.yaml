@@ -1,0 +1,35 @@
+$kind: http-example
+id: 40089829-2987-5ba2-aedb-65ef293a5c4c
+name: Indicates the request failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/billable-usage/info"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 1183,
+            "message": "Invalid request parameters: Please ensure all required parameters are included and correctly formatted."
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 2000

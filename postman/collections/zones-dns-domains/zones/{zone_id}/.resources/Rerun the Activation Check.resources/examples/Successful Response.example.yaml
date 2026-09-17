@@ -1,0 +1,23 @@
+$kind: http-example
+id: cfd3834a-dbdd-5402-a5fc-be802575954c
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/activation_check"
+  method: PUT
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

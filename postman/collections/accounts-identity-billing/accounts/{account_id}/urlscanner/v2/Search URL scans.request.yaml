@@ -1,0 +1,34 @@
+$kind: http-request
+id: fbd2e314-779e-5001-bcd5-baae678b6e2e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: urlscanner-search-scans-v2
+  GET /accounts/{account_id}/urlscanner/v2/search
+
+  Use a subset of ElasticSearch Query syntax to filter scans. Some example queries:<br/> <br/>- 'path:"/bundles/jquery.js"': Searches for scans who requested resources with the given path.<br/>- 'page.asn:AS24940 AND hash:xxx': Websites hosted in AS24940 where a resource with the given hash was downloaded.<br/>- 'page.domain:microsoft* AND verdicts.malicious:true AND NOT page.domain:microsoft.com': malicious scans whose hostname starts with "microsoft".<br/>- 'apikey:me AND date:[2025-01 TO 2025-02]': my scans from 2025 January to 2025 February.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/search"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: size
+    value: "100"
+    disabled: true
+    description: Limit the number of objects in the response.
+  - key: q
+    value: string
+    disabled: true
+    description: Filter scans
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Search URL scans.resources/examples
+order: 8000

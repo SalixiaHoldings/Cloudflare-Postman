@@ -1,0 +1,30 @@
+$kind: http-example
+id: 7c394f55-d524-5c04-9bdc-5ada0a47345b
+name: Created URL ignore pattern.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/url_ignore_patterns"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "pattern": "https://example\\.com/.*",
+        "comments": "Trusted internal redirect service"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

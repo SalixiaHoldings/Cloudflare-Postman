@@ -1,0 +1,54 @@
+$kind: http-request
+id: 78d02043-4c83-52e3-afbc-4a7c7f65e89c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: fetch_all_livestreams
+  GET /accounts/{account_id}/realtime/kit/{app_id}/livestreams
+
+  Returns details of livestreams associated with the given App ID. It includes livestreams created by your App and RealtimeKit meetings that are livestreamed by your App. If you only want details of livestreams created by your App and not RealtimeKit meetings, you can use the `exclude_meetings` query parameter.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/livestreams"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: exclude_meetings
+    value: "false"
+    disabled: true
+    description: Exclude the RealtimeKit meetings that are livestreamed.
+  - key: per_page
+    value: "2212"
+    disabled: true
+    description: Number of results per page.
+  - key: page_no
+    value: "2212"
+    disabled: true
+    description: The page number from which you want your page search results to be displayed.
+  - key: status
+    value: ERRORED
+    disabled: true
+    description: Specifies the status of the operation.
+  - key: start_time
+    value: 1925-07-26T17:47:35.721Z
+    disabled: true
+    description: Specify the start time range in ISO format to access the live stream.
+  - key: end_time
+    value: 1925-07-26T17:47:35.721Z
+    disabled: true
+    description: Specify the end time range in ISO format to access the live stream.
+  - key: sort_order
+    value: DSC
+    disabled: true
+    description: Specifies the sorting order for the results.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Fetch all livestreams.resources/examples
+order: 1000

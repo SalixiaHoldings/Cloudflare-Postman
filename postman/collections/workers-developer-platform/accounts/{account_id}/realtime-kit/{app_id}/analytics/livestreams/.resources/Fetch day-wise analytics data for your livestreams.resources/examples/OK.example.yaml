@@ -1,0 +1,40 @@
+$kind: http-example
+id: 18abcae8-348c-59e9-8b96-43b42e3aa4e7
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/analytics/livestreams/daywise"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: start_time
+      value: "4321"
+      disabled: true
+      description: Specify the start time as a Unix timestamp in seconds to access the livestream analytics.
+    - key: end_time
+      value: "4321"
+      disabled: true
+      description: Specify the end time as a Unix timestamp in seconds to access the livestream analytics.
+    - key: filters
+      value: string
+      disabled: true
+      description: Optional filters for livestream analytics.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "count": 4,
+            "date": "2023-07-15T00:00:00Z",
+            "total_ingest_seconds": 531,
+            "total_viewer_seconds": 116
+          }
+        ],
+        "success": true
+      }
+order: 1000

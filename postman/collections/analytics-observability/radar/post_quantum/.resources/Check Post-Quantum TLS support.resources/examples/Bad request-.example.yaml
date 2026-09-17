@@ -1,0 +1,39 @@
+$kind: http-example
+id: 428225e5-a552-5239-ac0f-afe7269cbd1a
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/post_quantum/tls/support?host=cloudflare.com"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: host
+      value: cloudflare.com
+      description: (Required) Hostname or IP address to test for Post-Quantum TLS support, optionally with port (defaults to 443).
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

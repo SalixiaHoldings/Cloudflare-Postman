@@ -1,0 +1,35 @@
+$kind: http-example
+id: 58c520eb-6adf-5196-b425-abdfa5730201
+name: Failure to get list of Workers for Platforms namespaces.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "my-dispatch-namespace"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

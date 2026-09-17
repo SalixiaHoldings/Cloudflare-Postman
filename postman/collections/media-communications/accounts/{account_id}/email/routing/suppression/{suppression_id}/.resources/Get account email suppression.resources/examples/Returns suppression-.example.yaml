@@ -1,0 +1,26 @@
+$kind: http-example
+id: 5a7da0d6-5d94-5ee5-9dc4-38eadcd52e05
+name: Returns suppression.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/routing/suppression/{{suppression_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": "d3f0f7cb-e6b7-2ad4-909a-52fb1bb1c4b2",
+          "email": "user@example.com",
+          "reason": "hard_bounce",
+          "created_at": "1999-02-06T17:49:34.469Z",
+          "expires_at": "1937-12-16T12:57:45.385Z"
+        }
+      }
+order: 1000

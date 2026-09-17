@@ -1,0 +1,47 @@
+$kind: http-example
+id: ae92ae61-a2c5-5efb-9e68-ec031e32613d
+name: "OK: Successful HTTP request"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/remediations/jobs/export"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "integration_id": [
+          "55d7337e-1d0a-49fc-9826-925ba40df035"
+        ],
+        "max_updated_at": "2025-01-01T00:00:00Z",
+        "min_updated_at": "2024-01-01T00:00:00Z",
+        "search": "public access",
+        "status": [
+          "pending",
+          "completed"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

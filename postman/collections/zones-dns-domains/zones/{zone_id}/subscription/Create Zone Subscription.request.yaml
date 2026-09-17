@@ -1,0 +1,84 @@
+$kind: http-request
+id: 41791921-c810-5c71-9274-f29172c89a58
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-subscription-create-zone-subscription
+  POST /zones/{zone_id}/subscription
+
+  Create a zone subscription, either plan or add-ons.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/subscription"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "app": {
+        "install_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "component_values": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "currency": "USD",
+      "current_period_end": "2014-03-31T12:20:00Z",
+      "current_period_start": "2014-05-11T12:20:00Z",
+      "frequency": "monthly",
+      "id": "506e3185e9c882d175a2d0cb0093d9f2",
+      "price": 20,
+      "rate_plan": {
+        "currency": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "externally_managed": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "is_contract": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "public_name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "scope": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "sets": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "state": "Paid",
+      "zone": {
+        "id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Zone Subscription.resources/examples
+order: 3000

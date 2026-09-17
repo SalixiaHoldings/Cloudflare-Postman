@@ -1,0 +1,34 @@
+$kind: http-example
+id: dec00264-8583-5943-a4ca-0616c78fdc1b
+request:
+  url: "{{base_url}}/accounts"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "type": "string",
+        "unit": {
+          "id": "f267e341f3dd4697bd3b9f71dd96247f"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

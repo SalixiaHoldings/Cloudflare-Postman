@@ -1,0 +1,38 @@
+$kind: http-request
+id: e68be77e-73aa-59ec-b8e0-297a70b0dc91
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: filters-update-a-filter
+  PUT /zones/{zone_id}/filters/{filter_id}
+
+  Updates an existing filter.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/filters/{{filter_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "description": "Restrict access from these browsers on this address range.",
+      "expression": "(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.addr ne 172.16.22.155",
+      "id": "372e67954025e0ba6aaa6d586b9e0b61",
+      "paused": false,
+      "ref": "FIL-100"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a filter.resources/examples
+order: 3000

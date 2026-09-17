@@ -1,0 +1,43 @@
+$kind: http-request
+id: a3eef4cb-a1c9-5fc7-bbb1-7df1c7795829
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: worker-script-environment-patch-settings
+  PATCH /accounts/{account_id}/workers/services/{service_name}/environments/{environment_name}/settings
+
+  Patch script metadata, such as bindings.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/services/{{service_name}}/environments/{{environment_name}}/settings"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "errors": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "messages": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "result": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "success": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Patch Script Settings.resources/examples
+order: 2000

@@ -1,0 +1,25 @@
+$kind: http-request
+id: 45268db7-1f7f-5291-ba91-65ec29ebe9d8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: per-hostname-authenticated-origin-pull-get-the-hostname-status-for-client-authentication
+  GET /zones/{zone_id}/origin_tls_client_auth/hostnames/{hostname}
+
+  Retrieves the client certificate authentication status for a specific hostname, showing whether authenticated origin pulls are enabled.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/origin_tls_client_auth/hostnames/{{hostname}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get the Hostname Status for Client Authentication.resources/examples
+order: 4000

@@ -1,0 +1,58 @@
+$kind: http-example
+id: 358f9c22-8580-5d17-b6fe-c57ab6ec8c6d
+name: Instance not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/subscribe"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cursor
+      value: "2212"
+      disabled: true
+      description: Last event ID already received.
+    - key: filter
+      value: rollback_attempt_errored
+      disabled: true
+      description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
+    - key: filter
+      value: rollback_started
+      disabled: true
+      description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "messages": [
+          "string",
+          "string"
+        ],
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": null
+      }
+order: 3000

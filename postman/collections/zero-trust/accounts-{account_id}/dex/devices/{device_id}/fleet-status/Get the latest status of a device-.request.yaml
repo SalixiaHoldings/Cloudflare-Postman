@@ -1,0 +1,38 @@
+$kind: http-request
+id: 8c8bad9f-c0bf-5805-9694-ccec363b1fed
+name: Get the latest status of a device.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: devices-live-status
+  GET /accounts/{account_id}/dex/devices/{device_id}/fleet-status/live
+
+  Get the latest status of a device given device_id from the device_state table.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/live?since_minutes=10"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: since_minutes
+    value: "10"
+    description: (Required) Number of minutes before current time.
+  - key: time_now
+    value: 2023-10-11T00:00:00Z
+    disabled: true
+    description: Current time in ISO format.
+  - key: colo
+    value: SJC
+    disabled: true
+    description: List of data centers to filter results.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get the latest status of a device-.resources/examples
+order: 1000

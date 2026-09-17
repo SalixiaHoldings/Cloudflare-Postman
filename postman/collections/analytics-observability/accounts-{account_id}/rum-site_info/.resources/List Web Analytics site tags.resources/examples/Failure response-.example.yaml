@@ -1,0 +1,35 @@
+$kind: http-example
+id: bdb8cde0-a0d0-58f6-843c-5feec56f237d
+name: Failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/rum/site_info/site_tag/list"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: all
+      value: "false"
+      disabled: true
+      description: When true, includes sites that are disabled or paused.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

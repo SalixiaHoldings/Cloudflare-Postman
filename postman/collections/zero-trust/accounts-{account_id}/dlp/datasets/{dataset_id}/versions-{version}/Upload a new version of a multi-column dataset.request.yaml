@@ -1,0 +1,32 @@
+$kind: http-request
+id: 1539c36b-6568-59f2-8e3d-c00eb5382efd
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-datasets-upload-dataset-column
+  POST /accounts/{account_id}/dlp/datasets/{dataset_id}/versions/{version}/entries/{entry_id}
+
+  This is used for multi-column EDMv2 datasets. The EDMv2 format can only be
+  created in the Cloudflare dashboard.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/dlp/datasets/{{dataset_id}}/versions/{{version}}/entries/{{entry_id}}"
+method: POST
+headers:
+  Content-Type: application/octet-stream
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: file
+  content: {}
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Upload a new version of a multi-column dataset.resources/examples
+order: 2000

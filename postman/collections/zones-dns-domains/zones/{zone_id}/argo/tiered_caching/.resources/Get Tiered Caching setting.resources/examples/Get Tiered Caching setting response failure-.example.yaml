@@ -1,0 +1,28 @@
+$kind: http-example
+id: d8c517ca-90aa-53cc-9e35-1c953620c6ff
+name: Get Tiered Caching setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/argo/tiered_caching"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

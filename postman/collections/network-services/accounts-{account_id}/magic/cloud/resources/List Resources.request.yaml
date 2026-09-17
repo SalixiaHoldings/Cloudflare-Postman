@@ -1,0 +1,77 @@
+$kind: http-request
+id: 6f70b998-eb95-51c2-9af7-cecb5bc19cbe
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: resources-catalog-list
+  GET /accounts/{account_id}/magic/cloud/resources
+
+  List resources in the Resource Catalog (Closed Beta).
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: provider_id
+    value: string
+    disabled: true
+  - key: resource_type
+    value: azurerm_virtual_network
+    disabled: true
+  - key: resource_type
+    value: azurerm_route_table
+    disabled: true
+  - key: resource_id
+    value: 23d8f623-e88e-afe3-d5ac-2f587c9db2f8
+    disabled: true
+  - key: resource_id
+    value: b65a6897-f8ed-1cf2-ab9c-4f742b3c1534
+    disabled: true
+  - key: region
+    value: string
+    disabled: true
+  - key: resource_group
+    value: string
+    disabled: true
+  - key: managed
+    value: "true"
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
+  - key: order_by
+    value: string
+    disabled: true
+    description: One of ["id", "resource_type", "region"].
+  - key: desc
+    value: "true"
+    disabled: true
+  - key: per_page
+    value: "2977"
+    disabled: true
+  - key: page
+    value: "2977"
+    disabled: true
+  - key: cloudflare
+    value: "true"
+    disabled: true
+  - key: v2
+    value: "true"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Resources.resources/examples
+order: 1000

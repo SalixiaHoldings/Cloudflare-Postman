@@ -1,0 +1,47 @@
+$kind: http-request
+id: eeb53fd9-ca3f-5977-a376-35f683d56f35
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: create_integration_v2
+  POST /accounts/{account_id}/one/integrations
+
+  Creates a new integration for the specified application. Integration creation with OAuth is not supported by API at the moment. For other auth methods, use `GET /v2/applications/{application_id}/credential-guide` to see the required credential structure and example payloads for each vendor.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/one/integrations"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "application": "GOOGLE_WORKSPACE",
+      "auth_method": "service_account",
+      "credentials": {
+        "admin_email": "admin@corp.com"
+      },
+      "dlp_profiles": [
+        "e91a2360-da51-4fdf-9711-bcdecd462614"
+      ],
+      "name": "My Google Workspace",
+      "permissions": [
+        "https://www.googleapis.com/auth/drive.readonly"
+      ],
+      "use_cases": [
+        "casb",
+        "ces"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create integration.resources/examples
+order: 2000

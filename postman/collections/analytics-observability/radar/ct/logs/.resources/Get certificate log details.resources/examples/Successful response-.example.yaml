@@ -1,0 +1,76 @@
+$kind: http-example
+id: 6f944633-f479-5220-9d3e-2173e638d5cf
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/ct/logs/{{log_slug}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "certificateLog": {
+            "slug": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "operator": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "api": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "state": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "stateTimestamp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "startInclusive": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "endExclusive": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "url": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "performance": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "avgThroughput": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "submittedCertCount": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "submittableCertCount": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "lastUpdate": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "related": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,33 @@
+$kind: http-request
+id: cba8de72-529f-55f8-9f98-96d51dc1ed83
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_BinDBPost
+  POST /accounts/{account_id}/cloudforce-one/binary
+
+  Uploads a binary file to Cloudforce One's binary database for malware analysis and threat intelligence correlation.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/binary"
+method: POST
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+body:
+  type: formdata
+  content:
+    - type: file
+      key: file
+      src: ""
+      description: (Required) The binary file content to upload.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Posts a file to Binary Storage.resources/examples
+order: 1000

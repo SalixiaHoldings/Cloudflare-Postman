@@ -1,0 +1,28 @@
+$kind: http-example
+id: 60b46736-e52e-5e59-9b5c-d51f3492429c
+name: DEX traceroute test result network path failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-test-results/{{test_result_id}}/network-path"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

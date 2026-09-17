@@ -1,0 +1,22 @@
+$kind: http-example
+id: e96be5da-2896-5284-8311-eecde9187ada
+name: Get Fallback Origin for Custom Hostnames response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/custom_hostnames/fallback_origin"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

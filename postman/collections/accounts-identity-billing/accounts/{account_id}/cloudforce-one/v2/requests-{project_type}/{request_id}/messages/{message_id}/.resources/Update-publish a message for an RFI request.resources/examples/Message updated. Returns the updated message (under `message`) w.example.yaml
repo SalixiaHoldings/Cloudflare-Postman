@@ -1,0 +1,55 @@
+$kind: http-example
+id: e88582ed-3d1e-5cad-9415-7626560a9870
+name: Message updated. Returns the updated message (under `message`) with its embedded attachments[], filtered to the dashboard's visible origins.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/messages/{{message_id}}"
+  method: PUT
+  headers:
+    - key: Idempotency-Key
+      value: string
+      description: Client command key. Required when publishing a message for a workflow-enabled project; trimmed and limited to 255 characters.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "content": "string",
+        "publish": true,
+        "tlp": "clear",
+        "attachment_asset_ids": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": {
+          "id": 9692,
+          "content": "string",
+          "created": "string",
+          "updated": "string",
+          "published": "string",
+          "tlp": "green",
+          "is_cloudflare_team": false,
+          "is_published": true,
+          "attachments": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      }
+order: 1000

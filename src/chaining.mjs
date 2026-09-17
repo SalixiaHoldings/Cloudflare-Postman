@@ -257,7 +257,9 @@ export function createTemplateEnvironment() {
       { key: 'account_id', value: '', type: 'default', enabled: true },
       { key: 'account_name', value: '', type: 'default', enabled: true },
       { key: 'zone_id', value: '', type: 'default', enabled: true },
-      { key: 'zone_name', value: '', type: 'default', enabled: true }
+      { key: 'zone_name', value: '', type: 'default', enabled: true },
+      { key: 'tenant_id', value: '', type: 'default', enabled: true },
+      { key: 'organization_id', value: '', type: 'default', enabled: true }
     ],
     _postman_variable_scope: 'environment',
     _postman_exported_using: '@salixiaholdings/cloudflare-postman (generated)',

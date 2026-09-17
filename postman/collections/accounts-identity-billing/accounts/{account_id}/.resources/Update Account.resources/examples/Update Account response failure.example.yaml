@@ -1,0 +1,50 @@
+$kind: http-example
+id: 6446871e-29ec-5ae2-bd3b-35e1e2f44fca
+request:
+  url: "{{base_url}}/accounts/{{account_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "type": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "managed_by": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "settings": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

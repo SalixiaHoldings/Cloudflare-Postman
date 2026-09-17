@@ -1,0 +1,137 @@
+$kind: http-example
+id: d2370493-99c5-5ebe-90dd-435fd57321ae
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "activeDuration": "string",
+        "actorCategory": "string",
+        "aliasGroupNames": [
+          "string",
+          "string"
+        ],
+        "aliasGroupNamesInternal": [
+          "string",
+          "string"
+        ],
+        "aliases": [
+          {
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidence": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tlp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidence": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tlp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "attributionOrganization": "string",
+        "categoryUuid": "12345678-1234-1234-1234-1234567890ab",
+        "confidence": 8,
+        "dateOfDiscovery": "7493-58-21",
+        "description": "string",
+        "externalReferenceLinks": [
+          "string",
+          "string"
+        ],
+        "externalReferences": [
+          {
+            "url": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "url": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "internalAliases": [
+          {
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidence": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tlp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidence": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tlp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "internalDescription": "string",
+        "lastSeen": "string",
+        "motive": "string",
+        "opsecLevel": "string",
+        "originCountryISO": "string",
+        "priority": 7941.287693101913,
+        "properties": {
+          "key_0": "string",
+          "key_1": 7001.120906788856
+        },
+        "sophisticationLevel": "string",
+        "tlp": "amber",
+        "value": "APT28"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: ed00bcd2-b768-57e8-9e6b-b03cefde6c5f
+name: File uploaded successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/document_fingerprints/{{document_fingerprint_id}}"
+  method: PUT
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: formdata
+    content:
+      - type: file
+        key: file
+        src: ""
+        description: "(Required) "
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

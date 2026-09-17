@@ -1,0 +1,22 @@
+$kind: http-example
+id: 19881a49-2166-5460-a364-5f77e0539952
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/settings/schema_validation"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "validation_default_mitigation_action": "block",
+        "validation_override_mitigation_action": null
+      }
+order: 1000

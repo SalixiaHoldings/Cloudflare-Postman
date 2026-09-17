@@ -1,0 +1,37 @@
+$kind: http-request
+id: 5f7a4260-2557-538e-a96e-3942d16f8876
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-billing-get-usage-history
+  GET /accounts/{account_id}/ai-gateway/billing/usage-history
+
+  Retrieve aggregated usage meter event summaries for the given time range.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/usage-history?value_grouping_window=day"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: value_grouping_window
+    value: day
+    description: (Required) Grouping window for usage data.
+  - key: start_time
+    value: "1700000000000"
+    disabled: true
+    description: Start time as Unix timestamp in milliseconds.
+  - key: end_time
+    value: "1700086400000"
+    disabled: true
+    description: End time as Unix timestamp in milliseconds.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get usage history.resources/examples
+order: 6000

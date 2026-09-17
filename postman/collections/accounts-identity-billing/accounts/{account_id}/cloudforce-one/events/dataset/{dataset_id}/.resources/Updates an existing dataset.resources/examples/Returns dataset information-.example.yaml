@@ -1,0 +1,31 @@
+$kind: http-example
+id: 9e24f1a4-a817-5d46-9926-4bb2570de565
+name: Returns dataset information.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "isPublic": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "name": "friendly dataset name",
+        "isPublic": true,
+        "isAnalytics": true
+      }
+order: 1000

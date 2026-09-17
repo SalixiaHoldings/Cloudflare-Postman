@@ -1,0 +1,17 @@
+$kind: http-example
+id: c9ef8182-5eb8-556a-ab6b-db09a3aee192
+name: "Asset not found or not downloadable: deleted, revoked, never shared, its origin is outside the dashboard visibility policy, or (for an attachment) its parent message is unpublished or deleted."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/assets/{{asset_id}}/download"
+  method: GET
+  headers:
+    Accept: application/octet-stream
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

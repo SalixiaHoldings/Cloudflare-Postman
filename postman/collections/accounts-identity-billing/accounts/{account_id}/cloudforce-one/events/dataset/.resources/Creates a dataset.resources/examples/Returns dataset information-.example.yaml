@@ -1,0 +1,31 @@
+$kind: http-example
+id: 6ae175f2-523d-5454-858a-3891ea3844e4
+name: Returns dataset information.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/create"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "isPublic": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "name": "friendly dataset name",
+        "isPublic": true,
+        "isAnalytics": true
+      }
+order: 1000

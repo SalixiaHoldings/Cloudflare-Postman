@@ -1,0 +1,35 @@
+$kind: http-request
+id: 2030e709-9d8e-5297-b575-7637c2d1199a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zones-0-hold-post
+  POST /zones/{zone_id}/hold
+
+  Enforce a zone hold on the zone, blocking the creation and activation of zones with this zone's hostname.
+  Zone holds cannot be enabled on CDN-only zones.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/hold"
+method: POST
+headers:
+  Accept: application/json
+queryParams:
+  - key: include_subdomains
+    value: "true"
+    disabled: true
+    description: |-
+      If provided, the zone hold will extend to block any subdomain of the given zone, as well
+      as SSL4SaaS Custom Hostnames. For example, a zone hold on a zone with the hostname
+      'example.com' and include_subdomains=true will block 'example.com',
+      'staging.example.com', 'api.staging.example.com', etc.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Zone Hold.resources/examples
+order: 4000

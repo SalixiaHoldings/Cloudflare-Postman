@@ -1,0 +1,54 @@
+$kind: http-example
+id: 6cfec6c6-835e-5acb-8a93-aaf909ddc48a
+name: Bulk import result.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions/bulk"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "items": [
+          {
+            "email": "user@example.com"
+          },
+          {
+            "email": "other@example.com",
+            "expires_at": "2027-01-01T00:00:00Z",
+            "note": "Imported from CRM"
+          }
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "success": true,
+        "result": {
+          "processed": 2,
+          "deduplicated": 1,
+          "errors": 0,
+          "invalid": 1,
+          "skipped": 0,
+          "total": 4,
+          "items": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      }
+order: 1000

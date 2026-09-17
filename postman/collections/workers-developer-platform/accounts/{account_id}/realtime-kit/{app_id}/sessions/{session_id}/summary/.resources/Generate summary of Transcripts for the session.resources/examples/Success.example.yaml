@@ -1,0 +1,23 @@
+$kind: http-example
+id: 5f9a6af2-07af-5a75-ba15-93d7a60bcef2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}/summary"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "session_id": "8cfde7dd-b3ca-0576-1223-e2bac1d2366b",
+          "status": "string"
+        },
+        "success": false
+      }
+order: 1000

@@ -1,0 +1,26 @@
+$kind: http-request
+id: 45d1d156-1fed-51f4-a2aa-5a5a4430f8a0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: scim-resource-types-get
+  GET /accounts/{account_id}/scim/v2/ResourceTypes/{resource_type_id}
+
+  Returns a single SCIM resource type by ID (RFC 7643 Section 6). Valid IDs are `User` and `Group`.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/scim/v2/ResourceTypes/{{resource_type_id}}"
+method: GET
+headers:
+  Accept: application/scim+json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get SCIM Resource Type.resources/examples
+order: 2000

@@ -1,0 +1,44 @@
+$kind: http-example
+id: 7848a536-19e6-5615-98de-6b06fcb2eb9d
+name: "Forbidden: Insufficient permissions"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/policies"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "display_name": "Auto-remediate public files",
+        "enabled": true,
+        "applies_to_all_integrations": false,
+        "finding_type_id": "5a7d9e2f-1b3c-4d5e-8f6a-7b8c9d0e1f2a",
+        "actions": {
+          "remediation_types": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "webhook_configs": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "description": "Automatically remove public access from files when detected",
+        "integration_ids": [
+          "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+        ]
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 4000

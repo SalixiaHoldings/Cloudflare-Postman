@@ -1,0 +1,86 @@
+$kind: http-example
+id: a01d3e5a-2045-520e-b17b-24fd818313f7
+name: Scan has finished. It may or may not have been successful.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: full
+      value: "false"
+      disabled: true
+      description: Whether to return full report (scan summary and network log).
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "result": {
+          "scan": {
+            "task": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "meta": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "page": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "geo": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "certificates": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "performance": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "verdicts": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "asns": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "domains": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "ips": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "links": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+order: 1000

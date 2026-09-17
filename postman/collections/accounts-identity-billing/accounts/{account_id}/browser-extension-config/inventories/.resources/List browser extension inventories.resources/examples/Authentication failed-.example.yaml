@@ -1,0 +1,43 @@
+$kind: http-example
+id: 3e21bdcb-16ad-562c-b766-6f9e82698813
+name: Authentication failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config/inventories"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: cursor
+      value: string
+      disabled: true
+      description: Opaque cursor from a previous response to fetch the next page.
+    - key: per_page
+      value: "50"
+      disabled: true
+      description: Number of results per page (default 50, max 200).
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 2000

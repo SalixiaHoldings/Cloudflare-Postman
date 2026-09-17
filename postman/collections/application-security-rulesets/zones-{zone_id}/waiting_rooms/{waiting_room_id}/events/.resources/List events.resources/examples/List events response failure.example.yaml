@@ -1,0 +1,39 @@
+$kind: http-example
+id: 63a0c73e-f687-50ef-80b9-cfa9713c98e7
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/{{waiting_room_id}}/events"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number of paginated results.
+    - key: per_page
+      value: "25"
+      disabled: true
+      description: Maximum number of results per page. Must be a multiple of 5.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

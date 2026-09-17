@@ -1,0 +1,24 @@
+$kind: http-example
+id: 6b1c7364-9e67-55d1-a09f-956cc2fcb7ff
+name: Generate captions or subtitles response for a provided language.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/captions/{{language}}/generate"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

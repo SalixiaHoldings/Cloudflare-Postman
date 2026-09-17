@@ -1,0 +1,33 @@
+$kind: http-request
+id: 1787a4b7-dffd-53d6-b3c0-7ca80ef763be
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-tunnel-update-a-warp-connector-tunnel
+  PATCH /accounts/{account_id}/warp_connector/{tunnel_id}
+
+  Updates an existing Warp Connector Tunnel.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/warp_connector/{{tunnel_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "blog",
+      "tunnel_secret": "{{tunnel_secret}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a Warp Connector Tunnel.resources/examples
+order: 3000

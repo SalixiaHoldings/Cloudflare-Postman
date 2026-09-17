@@ -1,0 +1,41 @@
+$kind: http-example
+id: 53def980-8564-5797-8ba9-44c068980a99
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "operation_id": "b17c8043-99a0-4202-b7d9-8f7cdbee02cd"
+        },
+        {
+          "operation_id": "3818d821-5901-4147-a474-f5f5aec1d54e"
+        }
+      ]
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

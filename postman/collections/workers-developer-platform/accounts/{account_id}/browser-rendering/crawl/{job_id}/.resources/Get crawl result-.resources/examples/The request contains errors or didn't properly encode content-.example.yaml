@@ -1,0 +1,57 @@
+$kind: http-example
+id: a68cf98f-a315-5f6a-9787-78c07667fa3f
+name: The request contains errors or didn't properly encode content.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/crawl/{{job_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cacheTTL
+      value: "5"
+      disabled: true
+      description: Cache TTL default is 5s. Set to 0 to disable.
+    - key: status
+      value: disallowed
+      disabled: true
+      description: Filter by URL status.
+    - key: cursor
+      value: "0"
+      disabled: true
+      description: Cursor for pagination.
+    - key: limit
+      value: "50"
+      disabled: true
+      description: Limit for pagination.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

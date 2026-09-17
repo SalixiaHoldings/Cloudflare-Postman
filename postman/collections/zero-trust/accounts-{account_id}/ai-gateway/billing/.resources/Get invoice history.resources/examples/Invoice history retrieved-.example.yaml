@@ -1,0 +1,75 @@
+$kind: http-example
+id: 8143bcbe-0557-54b1-8bf1-1c5cad806581
+name: Invoice history retrieved.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/invoice-history"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: type
+      value: all
+      disabled: true
+      description: "Filter invoice type: auto, manual, or all."
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "invoices": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "pagination": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "has_more": false,
+          "page": 1426.9519434310496,
+          "per_page": 2587.2175162658095,
+          "total_count": 7503.231437876821
+        }
+      }
+order: 1000

@@ -1,0 +1,29 @@
+$kind: http-example
+id: 45b8c217-5334-5f59-bb1b-e6f4b48ff9bc
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/iam/user_groups/{{user_group_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

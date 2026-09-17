@@ -1,0 +1,25 @@
+$kind: http-request
+id: 5e61de04-7923-5dd9-9d26-33b0662b0b78
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-networks-subnet-get-initial-resolved-ip
+  GET /accounts/{account_id}/zerotrust/subnets/initial_resolved_ip/{address_family}
+
+  Returns the account's default Initial Resolved IP Subnet for the given address family.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/zerotrust/subnets/initial_resolved_ip/{{address_family}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Initial Resolved IP Subnet.resources/examples
+order: 1000

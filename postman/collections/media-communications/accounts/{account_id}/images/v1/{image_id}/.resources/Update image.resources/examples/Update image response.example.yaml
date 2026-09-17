@@ -1,0 +1,30 @@
+$kind: http-example
+id: 5b564a86-441d-526e-a522-6eba6ba5eb84
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v1/{{image_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "creator": "string",
+        "metadata": {},
+        "requireSignedURLs": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

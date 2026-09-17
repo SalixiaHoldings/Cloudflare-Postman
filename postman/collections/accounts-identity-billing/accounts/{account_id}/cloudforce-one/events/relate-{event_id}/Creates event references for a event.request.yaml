@@ -1,0 +1,35 @@
+$kind: http-request
+id: 284bb3c8-2cac-5be3-81b1-3fd66bfcb4c1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_EventReferenceCreate
+  POST /accounts/{account_id}/cloudforce-one/events/relate/{event_id}/create
+
+  Creates event references for a event
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/relate/{{event_id}}/create"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "events": [
+        "88888888-4444-4444-4444-121212121212",
+        "88888888-4444-4444-4444-121212121212"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Creates event references for a event.resources/examples
+order: 2000

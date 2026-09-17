@@ -1,0 +1,35 @@
+$kind: http-example
+id: d7963f45-5af2-5e48-bbcf-c14b0464b228
+name: Validation error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals/{{id}}/resubmit"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "commit_message": "string",
+        "content": "string",
+        "description": "string",
+        "enabled": false,
+        "name": "string",
+        "namespaces": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 2000

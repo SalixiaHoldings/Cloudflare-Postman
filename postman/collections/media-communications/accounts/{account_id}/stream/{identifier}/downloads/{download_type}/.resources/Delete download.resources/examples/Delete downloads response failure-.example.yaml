@@ -1,0 +1,30 @@
+$kind: http-example
+id: 2c6dab9e-6058-56d1-b652-9d6872beb43b
+name: Delete downloads response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/downloads/{{download_type}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

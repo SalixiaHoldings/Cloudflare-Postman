@@ -1,0 +1,36 @@
+$kind: http-example
+id: bfecdf2b-f43a-53d7-b21b-5ecd5892ff20
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/tokens"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "build_token_name": "My Build Token",
+        "build_token_secret": "{{build_token_secret}}",
+        "cloudflare_token_id": "cf-token-123"
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12005,
+            "message": "Missing token from authorization header"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

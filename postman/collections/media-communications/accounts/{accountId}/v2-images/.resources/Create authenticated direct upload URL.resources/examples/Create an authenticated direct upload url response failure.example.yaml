@@ -1,0 +1,40 @@
+$kind: http-example
+id: e12ce489-69b4-5b51-9183-66a6f2c308a7
+request:
+  url: "{{base_url}}/accounts/{{accountId}}/v2/images/direct_upload"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: expiry
+        value: string
+        description: "The date after which the upload will not be accepted. Minimum: Now + 2 minutes."
+      - type: text
+        key: id
+        value: string
+        description: Optional Image Custom ID. Up to 1024 chars. Can include any number of subpaths, and utf8 characters. Cannot start nor end with a / (forward slash). Cannot be a UUID.
+      - type: text
+        key: metadata
+        value: "{}"
+        description: User modifiable key-value store. Can use used for keeping references to another system of record for managing images.
+      - type: text
+        key: requireSignedURLs
+        value: "false"
+        description: Indicates whether the image requires a signature token for the access.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "error": "string"
+      }
+order: 2000

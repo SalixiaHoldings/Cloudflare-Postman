@@ -1,0 +1,39 @@
+$kind: http-example
+id: b8c32725-43f6-5fdc-acc5-8cb35d49e376
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/query"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "sql": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "params": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,33 @@
+$kind: http-example
+id: ab23fd59-972c-52aa-a848-071e13f0b12c
+name: New Email Scanner Account Mapping response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/email/account_mapping"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "auth_requirements": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

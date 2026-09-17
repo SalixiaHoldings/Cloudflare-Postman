@@ -1,0 +1,64 @@
+$kind: http-request
+id: 82816bd1-7ab9-58f8-823a-b9257025e7d9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: token-validation-rules-list
+  GET /zones/{zone_id}/token_validation/rules
+
+  Lists token validation rules for the zone, with filters for configuration, action, state, ID, and host.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: per_page
+    value: "20"
+    disabled: true
+    description: Maximum number of results per page.
+  - key: page
+    value: "1"
+    disabled: true
+    description: Page number of paginated results.
+  - key: token_configuration
+    value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+    disabled: true
+    description: Select rules using any of these token configurations.
+  - key: token_configuration
+    value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+    disabled: true
+    description: Select rules using any of these token configurations.
+  - key: action
+    value: log
+    disabled: true
+  - key: enabled
+    value: "true"
+    disabled: true
+  - key: id
+    value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+    disabled: true
+    description: Select rules with these IDs.
+  - key: rule_id
+    value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+    disabled: true
+    description: Select rules with these IDs.
+  - key: host
+    value: www.example.com
+    disabled: true
+    description: Select rules with this host in `include`.
+  - key: hostname
+    value: www.example.com
+    disabled: true
+    description: Select rules with this host in `include`.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List token validation rules.resources/examples
+order: 1000

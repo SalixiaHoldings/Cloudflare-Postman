@@ -1,0 +1,45 @@
+$kind: http-example
+id: a625d8df-9e16-56cc-a464-62e8b344b459
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/relationships/create"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "parentId": "3095c3d5-b756-71d0-c990-4fc981042d96",
+        "childIds": [
+          "be9cd6d8-4caf-9fc9-b88c-859b0b14afb3"
+        ],
+        "relationshipType": "related_to",
+        "datasetId": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

@@ -1,0 +1,25 @@
+$kind: http-request
+id: 7464172c-5b73-5136-8ab2-549e5d27e886
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getLive
+  GET /live
+
+  Return a success message after running liveness checks
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/live"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Run liveness checks.resources/examples
+order: 3000

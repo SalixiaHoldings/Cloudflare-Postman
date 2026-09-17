@@ -1,0 +1,45 @@
+$kind: http-request
+id: ac5c5997-e17c-5955-883b-b867ec513375
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-sites-update-site
+  PUT /accounts/{account_id}/magic/sites/{site_id}
+
+  Update a specific Site.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "connector_id": "ac60d3d0435248289d446cedd870bcf4",
+      "description": "string",
+      "location": {
+        "lat": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "lon": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "name": "site_1",
+      "secondary_connector_id": "8d67040d3835dbcf46ce29da440dc482"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Site.resources/examples
+order: 4000

@@ -1,0 +1,22 @@
+$kind: http-example
+id: 4dce6ad8-7c22-562f-b02b-7e30b17eb23b
+name: Get Hyperdrive Response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/hyperdrive/configs/{{hyperdrive_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,33 @@
+$kind: http-example
+id: 7e1cd7ad-c03a-5cd6-8575-b17b426daae2
+name: Update a Zero Trust Gateway PAC file response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/pacfiles/{{pacfile_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Devops team",
+        "description": "PAC file for Devops team",
+        "contents": "function FindProxyForURL(url, host) { return \"DIRECT\"; }"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

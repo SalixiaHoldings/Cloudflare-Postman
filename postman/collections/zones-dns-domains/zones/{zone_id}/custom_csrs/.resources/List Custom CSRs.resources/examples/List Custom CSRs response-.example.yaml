@@ -1,0 +1,34 @@
+$kind: http-example
+id: 97c9eaa9-d662-59cd-a974-f8aa8c85f553
+name: List Custom CSRs response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/custom_csrs"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

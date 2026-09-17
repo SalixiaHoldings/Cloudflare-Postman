@@ -1,0 +1,67 @@
+$kind: http-example
+id: 35948beb-ad4b-5461-8836-59946aee22df
+name: List Zero Trust lists response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/lists"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: type
+      value: SERIAL
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+      description: |-
+        Case-insensitive substring match on the list name or description. When
+        combined with `filter`, both must match (logical AND).
+    - key: order_by
+      value: name
+      disabled: true
+      description: |-
+        Field to sort the returned lists by. When omitted, results are ordered by
+        `created_at` in ascending order (i.e. creation order) for backwards
+        compatibility. Supported values:
+          * `name` — sort alphabetically by list name.
+          * `created_at` — sort by creation time; defaults to descending unless `direction` is set.
+          * `updated_at` — sort by last-modified time; defaults to descending unless `direction` is set.
+          * `item_count` — sort by number of items in the list.
+    - key: direction
+      value: desc
+      disabled: true
+      description: |-
+        Sort direction. Applies to the field named in `order_by`; when `order_by`
+        is omitted it applies to the default `created_at` ordering. When
+        `direction` is omitted the default is field-specific: explicitly choosing
+        `created_at` or `updated_at` defaults to descending (newest first); `name`
+        and `item_count` default to ascending; and the default `created_at`
+        ordering used when `order_by` is omitted is ascending (for backwards
+        compatibility).
+          * `asc` — ascending.
+          * `desc` — descending.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,40 @@
+$kind: http-request
+id: d8e7c5f4-8895-556c-83dd-a0c646b46a3d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-organization-revoke-all-access-tokens-for-a-user
+  POST /accounts/{account_id}/access/organizations/revoke_user
+
+  Revokes a user's access across all applications.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/organizations/revoke_user"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  - key: devices
+    value: "true"
+    disabled: true
+    description: When set to `true`, all devices associated with the user will be revoked.
+body:
+  type: json
+  content: |-
+    {
+      "email": "test@example.com",
+      "devices": true,
+      "user_uid": "699d98642c564d2e855e9661899b7252",
+      "warp_session_reauth": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Revoke all Access tokens for a user.resources/examples
+order: 5000

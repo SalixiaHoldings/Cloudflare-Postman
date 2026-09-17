@@ -1,0 +1,63 @@
+$kind: http-example
+id: a422753e-769f-5cb7-8280-750ae2d49e1d
+name: Item uploaded successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: file
+        key: file
+        src: ""
+        description: (Required) The file to upload. Filename must not exceed 128 characters.
+      - type: text
+        key: metadata
+        value: string
+        description: JSON string of custom metadata key-value pairs.
+      - type: text
+        key: wait_for_completion
+        value: "false"
+        description: Wait for indexing to fully complete before responding. On RAGs with vector indexing enabled, this additionally waits for Vectorize ingestion confirmation (up to 40s) so the returned item reflects a queryable state. On timeout the item is returned in `running` state and the background alarm continues polling. Defaults to false.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "id": "string",
+          "key": "string",
+          "status": "outdated",
+          "next_action": null,
+          "checksum": "string",
+          "namespace": "string",
+          "chunks_count": 6524,
+          "file_size": 6678.668563254178,
+          "metadata": {
+            "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "source_id": "string",
+          "last_seen_at": "1946-12-24T11:15:59.986Z",
+          "created_at": "1958-05-06T18:07:55.857Z",
+          "error": "string",
+          "warnings": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      }
+order: 1000

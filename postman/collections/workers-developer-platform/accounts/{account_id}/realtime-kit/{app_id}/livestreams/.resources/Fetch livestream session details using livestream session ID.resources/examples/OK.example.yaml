@@ -1,0 +1,31 @@
+$kind: http-example
+id: b6d28063-0395-5967-af87-2ca94e01b1c2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/livestreams/sessions/{{livestream-session-id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "created_at": "2023-07-15T07:08:40.742Z",
+          "err_message": null,
+          "id": "cf55a850-c3fd-46b5-b5d2-25b3b9aa1686",
+          "ingest_seconds": 60,
+          "invoked_time": null,
+          "livestream_id": "b60ef3da-fbbb-441b-9168-8235b0035248",
+          "started_time": "2023-07-15T07:08:39Z",
+          "stopped_time": null,
+          "updated_at": "2023-07-15T07:08:40.742Z",
+          "viewer_seconds": 60
+        },
+        "success": true
+      }
+order: 1000

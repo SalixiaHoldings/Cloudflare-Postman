@@ -1,0 +1,27 @@
+$kind: http-example
+id: aa94b47e-59a5-5ea4-a08a-9cfa0271d771
+name: List mTLS certificate associations response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/mtls_certificates/{{mtls_certificate_id}}/associations"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

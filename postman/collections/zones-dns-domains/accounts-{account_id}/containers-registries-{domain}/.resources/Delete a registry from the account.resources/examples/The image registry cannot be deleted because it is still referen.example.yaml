@@ -1,0 +1,28 @@
+$kind: http-example
+id: 757136fd-6f0a-528f-a300-5b0bb28edb9a
+name: The image registry cannot be deleted because it is still referenced by applications on the account.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/registries/{{domain}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 4000

@@ -1,0 +1,28 @@
+$kind: http-example
+id: 01d3f2dc-52bc-5f83-b12e-496ed8a051ce
+name: "Error 21007: Relay not found."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/moq/relays/{{relay_id}}/tokens"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 21007,
+            "message": "A MoQ relay with this ID was not found."
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 3000

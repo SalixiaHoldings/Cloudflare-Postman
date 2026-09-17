@@ -1,0 +1,45 @@
+$kind: http-example
+id: a8de80d2-8979-5dbd-ad89-105d92130cda
+name: Returns the created config.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/scans/config"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "ips": [
+          "1.1.1.1",
+          "2606:4700:4700::1111"
+        ],
+        "frequency": 7,
+        "ports": [
+          "default"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

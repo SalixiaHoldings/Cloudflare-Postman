@@ -1,0 +1,43 @@
+$kind: http-example
+id: 07307655-4947-5eb4-a166-668d75562709
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/{{waiting_room_id}}/rules/{{rule_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "action": "bypass_waiting_room",
+        "expression": "ip.src in {10.20.30.40}",
+        "description": "allow all traffic from 10.20.30.40",
+        "enabled": true,
+        "position": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,25 @@
+$kind: http-request
+id: fa2ca901-281c-528b-bd4f-df329fd6f277
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-networks-subnet-get-warp
+  GET /accounts/{account_id}/zerotrust/subnets/warp/{subnet_id}
+
+  Get a WARP IP assignment subnet.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/zerotrust/subnets/warp/{{subnet_id}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get WARP IP subnet.resources/examples
+order: 2000

@@ -1,0 +1,36 @@
+$kind: http-example
+id: da6e1268-bf20-5a94-a045-d313ce4f3742
+name: Create a Namespace response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "title": "My Own Namespace",
+        "jurisdiction": "eu"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

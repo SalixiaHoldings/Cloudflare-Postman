@@ -1,0 +1,53 @@
+$kind: http-example
+id: 0c47c74a-d8e4-528a-977e-e13ac7a37edd
+name: Deletes a Workflow.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": {
+          "success": true,
+          "status": "ok"
+        },
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 6213.720976375043,
+          "count": 7993.737105280161,
+          "total_count": 373.2314077205956,
+          "cursor": "string",
+          "page": 1144.6016607806087,
+          "total_pages": 1988.089680671692
+        }
+      }
+order: 1000

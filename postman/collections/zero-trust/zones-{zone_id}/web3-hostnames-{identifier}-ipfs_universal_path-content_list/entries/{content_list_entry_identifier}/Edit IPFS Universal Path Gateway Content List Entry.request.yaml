@@ -1,0 +1,36 @@
+$kind: http-request
+id: 2169fc83-b2da-56e6-8228-77062f6797af
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: web3-hostname-edit-ipfs-universal-path-gateway-content-list-entry
+  PUT /zones/{zone_id}/web3/hostnames/{identifier}/ipfs_universal_path/content_list/entries/{content_list_entry_identifier}
+
+  Edit IPFS Universal Path Gateway Content List Entry
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/web3/hostnames/{{identifier}}/ipfs_universal_path/content_list/entries/{{content_list_entry_identifier}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "type": "cid",
+      "content": "QmPZ9gcCEpqKTo6aq61g2nXGUhM4iCL3ewB6LDXZCtioEB",
+      "description": "this is my content list entry"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Edit IPFS Universal Path Gateway Content List Entry.resources/examples
+order: 3000

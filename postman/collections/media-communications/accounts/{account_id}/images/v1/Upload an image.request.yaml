@@ -1,0 +1,56 @@
+$kind: http-request
+id: 80dbcc52-9ff1-5596-b31c-063fb8400da2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-upload-an-image-via-url
+  POST /accounts/{account_id}/images/v1
+
+  Upload an image to CF Images. Images up to 10 Megabytes can be uploaded using a
+  single HTTP POST (multipart/form-data) request by sending an image file or
+  passing a URL accessible to the API.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v1"
+method: POST
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+body:
+  type: formdata
+  content:
+    - type: text
+      key: creator
+      value: string
+      description: Can set the creator field with an internal user ID.
+    - type: file
+      key: file
+      src: ""
+      description: An image binary data. Only needed when type is uploading a file.
+    - type: text
+      key: id
+      value: string
+      description: An optional custom unique identifier for your image.
+    - type: text
+      key: metadata
+      value: "{}"
+      description: User modifiable key-value store. Can use used for keeping references to another system of record for managing images.
+    - type: text
+      key: requireSignedURLs
+      value: "true"
+      description: Indicates whether the image requires a signature token for the access.
+    - type: text
+      key: url
+      value: https://example.com/path/to/logo.png
+      description: A URL to fetch an image from origin. Only needed when type is uploading from a URL.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Upload an image.resources/examples
+order: 2000

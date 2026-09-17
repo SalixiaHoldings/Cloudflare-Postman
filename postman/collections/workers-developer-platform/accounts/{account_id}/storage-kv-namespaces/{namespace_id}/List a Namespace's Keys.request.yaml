@@ -1,0 +1,35 @@
+$kind: http-request
+id: 363e0e33-fa2d-509f-a9ca-155bb750d19c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers-kv-namespace-list-a-namespace'-s-keys
+  GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/keys
+
+  Lists a namespace's keys.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}/keys"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: limit
+    value: "1000"
+    disabled: true
+  - key: prefix
+    value: My-Prefix
+    disabled: true
+  - key: cursor
+    value: 6Ck1la0VxJ0djhidm1MdX2FyDGxLKVeeHZZmORS_8XeSuhz9SjIJRaSa2lnsF01tQOHrfTGAP3R5X1Kv5iVUuMbNKhWNAXHOl6ePB0TUL8nw
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List a Namespace's Keys.resources/examples
+order: 5000

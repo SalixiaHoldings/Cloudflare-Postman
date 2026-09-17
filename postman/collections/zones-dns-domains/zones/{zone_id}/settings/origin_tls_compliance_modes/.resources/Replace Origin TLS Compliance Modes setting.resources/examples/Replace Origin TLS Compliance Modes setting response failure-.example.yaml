@@ -1,0 +1,38 @@
+$kind: http-example
+id: c95f95aa-43d6-5fbf-a6c0-34e25e4ea7e0
+name: Replace Origin TLS Compliance Modes setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/origin_tls_compliance_modes"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": [
+          "fips",
+          "pqh"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,34 @@
+$kind: http-request
+id: a313f392-9f49-51cb-9d8e-2789d1a5eadb
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: edit_participant
+  PATCH /accounts/{account_id}/realtime/kit/{app_id}/meetings/{meeting_id}/participants/{participant_id}
+
+  Updates a participant's details for the given meeting and participant ID.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/participants/{{participant_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Jane Doe",
+      "picture": "http://jhDhrLRleHfLhBNYEZRimbgOOYfRrWi.kxZ",
+      "preset_name": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Edit a participant's detail.resources/examples
+order: 3000

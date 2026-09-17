@@ -1,0 +1,31 @@
+$kind: http-example
+id: 4886e3c5-45e9-5716-b500-31833f3a05a5
+name: Delete mTLS certificate response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/mtls_certificates/{{mtls_certificate_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

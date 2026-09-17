@@ -1,0 +1,48 @@
+$kind: http-example
+id: fb6178e6-5ef0-56aa-988e-f4fdb2c289e4
+name: Error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/ingest"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "role": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "content": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "timestamp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "sessionId": "chat-session-42"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": 1003,
+            "message": "namespace not found"
+          }
+        ],
+        "messages": []
+      }
+order: 2000

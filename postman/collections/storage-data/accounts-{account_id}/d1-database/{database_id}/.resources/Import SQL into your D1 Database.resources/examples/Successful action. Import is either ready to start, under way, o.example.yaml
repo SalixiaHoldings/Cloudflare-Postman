@@ -1,0 +1,65 @@
+$kind: http-example
+id: 6a903e63-be1b-5b1b-828a-3bf548c70983
+name: Successful action. Import is either ready to start, under way, or finished (succeeded or failed).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/import"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "action": "init",
+        "etag": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "at_bookmark": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "error": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "filename": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "messages": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "result": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "status": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "success": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "upload_url": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

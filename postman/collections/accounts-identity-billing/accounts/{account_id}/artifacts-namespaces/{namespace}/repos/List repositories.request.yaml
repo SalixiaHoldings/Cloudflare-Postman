@@ -1,0 +1,41 @@
+$kind: http-request
+id: c7f3e8e9-3c44-504c-81c5-7c03a05e3430
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: artifacts_repos_list
+  GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos
+
+  Lists repositories in a namespace.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: limit
+    value: "50"
+    disabled: true
+  - key: cursor
+    value: string
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
+  - key: sort
+    value: created_at
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List repositories.resources/examples
+order: 1000

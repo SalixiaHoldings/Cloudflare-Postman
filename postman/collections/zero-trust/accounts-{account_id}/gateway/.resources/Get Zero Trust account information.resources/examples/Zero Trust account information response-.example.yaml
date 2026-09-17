@@ -1,0 +1,32 @@
+$kind: http-example
+id: 7f437260-2172-57e9-bab2-aa427b839a70
+name: Zero Trust account information response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "gateway_tag": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "provider_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

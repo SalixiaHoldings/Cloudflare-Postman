@@ -1,0 +1,45 @@
+$kind: http-example
+id: b470e483-d5a4-59fe-b25d-48eb1b954ead
+name: Zero Trust account configuration response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/configuration/custom_certificate"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "binding_status": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "updated_at": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

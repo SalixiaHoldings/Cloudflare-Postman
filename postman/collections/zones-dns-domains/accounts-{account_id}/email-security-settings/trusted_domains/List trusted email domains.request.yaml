@@ -1,0 +1,57 @@
+$kind: http-request
+id: 64d03a53-9797-5214-8f3a-4c5310df1558
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_list_trusted_domains
+  GET /accounts/{account_id}/email-security/settings/trusted_domains
+
+  Returns a paginated list of trusted domain patterns. Trusted domains prevent false positives for recently registered domains and lookalike domain detections. Patterns can use regular expressions for flexible matching.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/trusted_domains"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+    description: Current page within paginated list of results.
+  - key: per_page
+    value: "20"
+    disabled: true
+    description: The number of results per page. Maximum value is 1000.
+  - key: search
+    value: string
+    disabled: true
+    description: Search term for filtering records. Behavior may change.
+  - key: order
+    value: created_at
+    disabled: true
+    description: Field to sort by.
+  - key: direction
+    value: asc
+    disabled: true
+    description: The sorting direction.
+  - key: is_recent
+    value: "false"
+    disabled: true
+    description: Filter to show only recently registered domains that are trusted to prevent triggering Suspicious or Malicious dispositions.
+  - key: is_similarity
+    value: "true"
+    disabled: true
+    description: Filter to show only proximity domains (partner or approved domains with similar spelling to connected domains) that prevent Spoof dispositions.
+  - key: pattern
+    value: string
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List trusted email domains.resources/examples
+order: 1000

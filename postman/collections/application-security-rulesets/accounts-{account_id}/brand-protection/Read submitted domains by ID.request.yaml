@@ -1,0 +1,25 @@
+$kind: http-request
+id: b0054125-6d3e-5990-b447-743bde5588c7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getAccountsAccountIdBrandProtectionDomainInfo
+  GET /accounts/{account_id}/brand-protection/domain-info
+
+  Return submitted domains based on ID
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/brand-protection/domain-info"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Read submitted domains by ID.resources/examples
+order: 4000

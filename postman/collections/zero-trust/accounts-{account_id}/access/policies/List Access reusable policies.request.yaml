@@ -1,0 +1,32 @@
+$kind: http-request
+id: 675acc47-fe49-521e-bc68-4535ee932a07
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-policies-list-access-reusable-policies
+  GET /accounts/{account_id}/access/policies
+
+  Lists Access reusable policies.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/policies"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "100"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Access reusable policies.resources/examples
+order: 1000

@@ -1,0 +1,59 @@
+$kind: http-request
+id: e54e68c1-56ff-50b5-852f-3314de7e69a8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudforce-one-update-pending-email-rule-approval
+  PUT /accounts/{account_id}/cloudforce-one/rules/structured/approvals/{id}
+
+  Validate, compile, and replace the proposed structured email rule on a pending approval. Only the original requester may update it.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured/approvals/{{id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  - key: module
+    value: eml
+    disabled: true
+    description: Structured rule module.
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "condition": {
+        "type": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "operator": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "conditions": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "description": "string",
+      "enabled": true,
+      "meta": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "status": "silent"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a pending structured email rule approval.resources/examples
+order: 1000

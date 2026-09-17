@@ -1,0 +1,64 @@
+$kind: http-example
+id: 6164d20c-80dc-5a62-b1d8-9bed16103338
+name: Workflow Name not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/batch"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "instance_id": "9SjURg",
+          "instance_retention": {
+            "error_retention": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "success_retention": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "location_hint": "oc",
+          "params": "string"
+        }
+      ]
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "messages": [
+          "string",
+          "string"
+        ],
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": null
+      }
+order: 3000

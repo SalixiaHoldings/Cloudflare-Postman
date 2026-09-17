@@ -1,0 +1,35 @@
+$kind: http-example
+id: f79e8239-8c8e-5766-8e74-973b9a79405f
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/{{waiting_room_id}}/status"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "estimated_queued_users": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "estimated_total_active_users": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "event_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "max_estimated_time_minutes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "status": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

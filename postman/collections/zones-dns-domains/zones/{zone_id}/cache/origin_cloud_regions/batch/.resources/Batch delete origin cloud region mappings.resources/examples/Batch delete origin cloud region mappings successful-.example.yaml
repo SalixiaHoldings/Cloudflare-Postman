@@ -1,0 +1,50 @@
+$kind: http-example
+id: de419660-acf2-5e73-a183-7461e97404d9
+name: Batch delete origin cloud region mappings successful.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions/batch"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        "192.0.2.1",
+        "2001:db8::1"
+      ]
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "editable": true,
+          "id": "origin_public_cloud_region",
+          "modified_on": "2026-03-01T12:00:00Z",
+          "value": {
+            "failed": [],
+            "succeeded": [
+              {
+                "origin-ip": "192.0.2.1",
+                "region": "us-east-1",
+                "vendor": "aws"
+              },
+              {
+                "origin-ip": "2001:db8::1",
+                "region": "us-central1",
+                "vendor": "gcp"
+              }
+            ]
+          }
+        },
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,38 @@
+$kind: http-example
+id: 6147c991-8372-5635-b62a-8069f022a44e
+name: Upload captions or subtitles response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/captions/{{language}}"
+  method: PUT
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: file
+        value: "@/Users/kyle/Desktop/tr.vtt"
+        description: (Required) The WebVTT file containing the caption or subtitle content.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

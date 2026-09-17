@@ -1,0 +1,36 @@
+$kind: http-request
+id: 28934cde-fc3c-5029-a72e-615c5760d0a0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: artifacts_repos_log_get
+  GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/log
+
+  Returns commit metadata walking backwards from a ref, branch, tag, or HEAD.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/log"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: ref
+    value: string
+    disabled: true
+    description: Git ref, branch, tag, or commit hash. Defaults to HEAD.
+  - key: limit
+    value: "674"
+    disabled: true
+  - key: offset
+    value: "3167"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Read commit history.resources/examples
+order: 4000

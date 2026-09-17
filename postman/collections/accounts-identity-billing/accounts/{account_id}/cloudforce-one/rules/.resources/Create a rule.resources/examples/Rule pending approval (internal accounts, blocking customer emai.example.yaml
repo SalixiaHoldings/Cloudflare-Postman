@@ -1,0 +1,50 @@
+$kind: http-example
+id: 9a55325c-ade4-5be7-bff4-b5ee902bcd0e
+name: Rule pending approval (internal accounts, blocking customer email rules, and customer email rules with compiler warnings).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "block-malicious-workers",
+        "path": "yara/workers",
+        "content": "rule example { condition: true }",
+        "actions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "commit_message": "Add worker rule to catch bpb-panel variants.",
+        "description": "Detects malicious proxy workers",
+        "enabled": true,
+        "is_public": false,
+        "meta": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "approval_id": 1,
+        "message": "Rule creation pending approval"
+      }
+order: 2000

@@ -1,0 +1,41 @@
+$kind: http-request
+id: 9193a981-2eb7-56f8-953a-09cae81f0de3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-ipsec-tunnels-update-multiple-ipsec-tunnels
+  PUT /accounts/{account_id}/magic/ipsec_tunnels
+
+  Update multiple IPsec tunnels associated with an account. Use `?validate_only=true` as an optional query parameter to only run validation without persisting changes.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/ipsec_tunnels"
+method: PUT
+headers:
+  - key: x-magic-new-hc-target
+    value: "true"
+    description: If true, the health check target in the request and response bodies will be presented using the new object format. Defaults to false.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+  - key: X-Auth-Email
+    value: "{{api_email}}"
+  - key: X-Auth-Key
+    value: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "id": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update multiple IPsec tunnels.resources/examples
+order: 3000

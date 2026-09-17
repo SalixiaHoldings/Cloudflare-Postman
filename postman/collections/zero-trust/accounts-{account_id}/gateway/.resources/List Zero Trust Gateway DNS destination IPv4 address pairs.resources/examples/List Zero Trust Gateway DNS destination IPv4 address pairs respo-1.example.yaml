@@ -1,0 +1,33 @@
+$kind: http-example
+id: 23f6bde9-51c1-5702-b477-3daf14d27f08
+name: List Zero Trust Gateway DNS destination IPv4 address pairs response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/dns_destination_ips"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

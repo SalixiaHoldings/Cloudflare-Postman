@@ -1,0 +1,41 @@
+$kind: http-example
+id: 31986a2a-1d96-555d-ae55-4c4375094c8c
+name: Add Custom Domain response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/domains/custom"
+  method: POST
+  headers:
+    cf-r2-jurisdiction: default
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domain": "prefix.example-domain.com",
+        "enabled": true,
+        "zoneId": "36ca64a6d92827b8a6b90be344bb1bfd"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

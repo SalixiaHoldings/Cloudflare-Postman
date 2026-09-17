@@ -1,0 +1,279 @@
+$kind: http-example
+id: faaed513-5306-5972-8b5d-8f6f1b4fd868
+name: Returns a paginated list of tags.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "3075.6446719169617"
+      disabled: true
+    - key: pageSize
+      value: "3075.6446719169617"
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+      description: Free-text substring match on tag value AND custom-field properties. Searches case-insensitively inside both `Tag.value` and the serialized `Tag.properties` JSON blob (keys, values, and annotation metadata like confidence/tlp are all searchable). Same serialized-text tradeoff as `aliasGroupNames` — substrings can cross JSON boundaries.
+    - key: categoryUuid
+      value: string
+      disabled: true
+    - key: filters
+      value: '{"field":"value","op":"in","value":"APT28"}'
+      disabled: true
+      description: "Structured filters as a JSON array of {field, op, value} objects. Searchable fields: uuid, value, categoryName, description, dateOfDiscovery, tlp, confidence, actorCategory, motive, attributionOrganization, originCountryISO, aliases, externalReferences, opsecLevel, sophisticationLevel, activeDuration, priority, lastSeen, aliasGroupNames. Operators: equals, not, contains, startsWith, endsWith, gt, lt, gte, lte, like, in, find. Use 'in' for bulk OR within a single field, e.g. filters=[{\"field\":\"originCountryISO\",\"op\":\"in\",\"value\":[\"IR\",\"CN\"]}]. Multiple entries are AND-joined. Max 10 entries per request, max 100 values per 'in'. Per-field notes: `uuid` accepts only 'equals' and 'in' (other operators throw ValidationError) — matched against the canonical lowercase storage but callers may pass either case (the server lowercases before comparison); index-backed by the column's UNIQUE constraint and intended for batched UUID → tag resolution. `originCountryISO` uses its B-tree index for equals/not/in. `priority` uses its B-tree index for numeric comparisons. Other string columns (`actorCategory`, `motive`, etc.) are case-insensitive and unindexed; current catalog size makes this a non-issue. `endsWith` and `aliasGroupNames` contains/like are leading-wildcard scans and slow on large result sets. `aliasGroupNames` matches on the JSON-encoded text, so substrings can cross alias boundaries (a search for \"apt28\" will also match \"apt280\" if both appear in the same tag's alias list)."
+    - key: filters
+      value: '{"field":"value","op":"in","value":"APT28"}'
+      disabled: true
+      description: "Structured filters as a JSON array of {field, op, value} objects. Searchable fields: uuid, value, categoryName, description, dateOfDiscovery, tlp, confidence, actorCategory, motive, attributionOrganization, originCountryISO, aliases, externalReferences, opsecLevel, sophisticationLevel, activeDuration, priority, lastSeen, aliasGroupNames. Operators: equals, not, contains, startsWith, endsWith, gt, lt, gte, lte, like, in, find. Use 'in' for bulk OR within a single field, e.g. filters=[{\"field\":\"originCountryISO\",\"op\":\"in\",\"value\":[\"IR\",\"CN\"]}]. Multiple entries are AND-joined. Max 10 entries per request, max 100 values per 'in'. Per-field notes: `uuid` accepts only 'equals' and 'in' (other operators throw ValidationError) — matched against the canonical lowercase storage but callers may pass either case (the server lowercases before comparison); index-backed by the column's UNIQUE constraint and intended for batched UUID → tag resolution. `originCountryISO` uses its B-tree index for equals/not/in. `priority` uses its B-tree index for numeric comparisons. Other string columns (`actorCategory`, `motive`, etc.) are case-insensitive and unindexed; current catalog size makes this a non-issue. `endsWith` and `aliasGroupNames` contains/like are leading-wildcard scans and slow on large result sets. `aliasGroupNames` matches on the JSON-encoded text, so substrings can cross alias boundaries (a search for \"apt28\" will also match \"apt280\" if both appear in the same tag's alias list)."
+    - key: cache
+      value: from-graph
+      disabled: true
+      description: Cache strategy. 'from-graph' serves results from the graph-node KV cache when all requested UUIDs are cached; falls back to normal path on partial/zero hit.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "tags": [
+          {
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "activeDuration": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "activeDuration_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "actorCategory": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "actorCategory_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "aliasGroupNames": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "aliasGroupNamesInternal": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "aliases": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "attributionOrganization": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "attributionOrganization_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "categoryName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "categoryUuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidence": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "dateOfDiscovery": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "externalReferenceLinks": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "externalReferences": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "externalReferences_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "internalAliases": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "internalDescription": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "lastSeen": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "motive": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "motive_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "opsecLevel": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "opsecLevel_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "originCountryISO": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "originCountryISO_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "priority": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "priority_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "properties": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "sophisticationLevel": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "sophisticationLevel_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tlp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updatedAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "version": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "activeDuration": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "activeDuration_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "actorCategory": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "actorCategory_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "aliasGroupNames": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "aliasGroupNamesInternal": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "aliases": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "attributionOrganization": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "attributionOrganization_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "categoryName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "categoryUuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidence": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "dateOfDiscovery": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "externalReferenceLinks": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "externalReferences": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "externalReferences_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "internalAliases": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "internalDescription": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "lastSeen": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "motive": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "motive_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "opsecLevel": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "opsecLevel_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "originCountryISO": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "originCountryISO_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "priority": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "priority_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "properties": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "sophisticationLevel": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "sophisticationLevel_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tlp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updatedAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "version": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "pagination": {
+          "page": 1695.978685747832,
+          "pageSize": 1922.0961281098425,
+          "totalCount": 1692.8176069632173,
+          "totalPages": 3621.369272004813
+        }
+      }
+order: 1000

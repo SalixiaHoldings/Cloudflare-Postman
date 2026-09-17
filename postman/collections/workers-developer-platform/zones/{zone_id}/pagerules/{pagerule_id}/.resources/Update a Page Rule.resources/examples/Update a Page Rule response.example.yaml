@@ -1,0 +1,43 @@
+$kind: http-example
+id: 397bdddd-0771-557a-a740-c3ff1e4be591
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/pagerules/{{pagerule_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "targets": [
+          {
+            "constraint": {
+              "operator": "matches",
+              "value": "*example.com/images/*"
+            },
+            "target": "url"
+          }
+        ],
+        "actions": [
+          {
+            "value": "on"
+          }
+        ],
+        "priority": 1,
+        "status": "active"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

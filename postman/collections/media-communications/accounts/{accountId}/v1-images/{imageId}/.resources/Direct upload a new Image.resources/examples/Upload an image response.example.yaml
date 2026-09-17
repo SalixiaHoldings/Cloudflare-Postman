@@ -1,0 +1,47 @@
+$kind: http-example
+id: f3090d8b-482c-580b-9e44-93aefb1a7ce5
+request:
+  url: "{{base_url}}/accounts/{{accountId}}/v1/images/{{imageId}}"
+  method: PUT
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: file
+        key: file
+        src: ""
+        description: An image binary data. Only needed when type is uploading a file.
+      - type: text
+        key: url
+        value: string
+        description: A URL to fetch an image from origin. Only needed when type is uploading from a URL.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "uploaded": "1972-12-18T23:15:33.286Z",
+          "filename": "string",
+          "meta": {},
+          "requireSignedURLs": true,
+          "variants": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "creator": "string"
+        }
+      }
+order: 1000

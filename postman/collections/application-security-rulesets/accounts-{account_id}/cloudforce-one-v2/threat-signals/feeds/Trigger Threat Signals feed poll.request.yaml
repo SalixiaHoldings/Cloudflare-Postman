@@ -1,0 +1,29 @@
+$kind: http-request
+id: 9982dc87-a234-5201-a66d-6d3833c54b46
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: rssFeedPoll
+  POST /accounts/{account_id}/cloudforce-one/v2/threat-signals/feeds/poll
+
+  Trigger Threat Signals feed poll.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds/poll"
+method: POST
+headers:
+  Accept: application/json
+queryParams:
+  - key: feed_id
+    value: 802af697-2580-5653-8bc6-33a481906932
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Trigger Threat Signals feed poll.resources/examples
+order: 3000

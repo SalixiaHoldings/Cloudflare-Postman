@@ -1,0 +1,31 @@
+$kind: http-request
+id: 16e27b22-7846-5174-8370-010f042ef762
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-device
+  GET /accounts/{account_id}/devices/physical-devices/{device_id}
+
+  Fetches a single WARP device.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/devices/physical-devices/{{device_id}}"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: include
+    value: string
+    disabled: true
+    description: |
+      Comma-separated list of additional information that should be included in the device response. Supported values are: "last_seen_registration.policy".
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get device.resources/examples
+order: 2000

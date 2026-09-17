@@ -1,0 +1,34 @@
+$kind: http-request
+id: 238bda1f-ae88-52d7-b4cf-b28190c706fa
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: waiting-room-list-events
+  GET /zones/{zone_id}/waiting_rooms/{waiting_room_id}/events
+
+  Lists events for a waiting room.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/{{waiting_room_id}}/events"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+    description: Page number of paginated results.
+  - key: per_page
+    value: "25"
+    disabled: true
+    description: Maximum number of results per page. Must be a multiple of 5.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List events.resources/examples
+order: 1000

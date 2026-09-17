@@ -1,0 +1,41 @@
+$kind: http-example
+id: 6cbe017b-a1f7-5936-b87c-f32a04f0b2b3
+name: Validate ownership challenge response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logpush/ownership/validate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "destination_conf": "s3://mybucket/logs?region=us-west-2",
+        "ownership_challenge": "00000000000000000000"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,55 @@
+$kind: http-example
+id: 46d6ad54-4d60-5fb4-ba16-719be5d66078
+name: Success response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/tests/overview"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: colo
+      value: SJC
+      disabled: true
+      description: Optionally filter result stats to a Cloudflare colo. Cannot be used in combination with deviceId param.
+    - key: testName
+      value: string
+      disabled: true
+      description: Optionally filter results by test name.
+    - key: deviceId
+      value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
+      description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+    - key: deviceId
+      value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
+      description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+    - key: registration_id
+      value: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+      disabled: true
+      description: Optionally filter results to a specific device registration. Must be used in combination with a single deviceId.
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number of paginated results
+    - key: per_page
+      value: "10"
+      disabled: true
+      description: Number of items per page
+    - key: kind
+      value: traceroute
+      disabled: true
+      description: Filter by test type.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,96 @@
+$kind: http-example
+id: 5129dae9-75a1-5e2a-972e-875f59e95fb9
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules/preview"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: Maximum number of results per page.
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number of paginated results.
+    - key: state
+      value: included
+      disabled: true
+    - key: state
+      value: included
+      disabled: true
+    - key: host
+      value: www.example.com
+      disabled: true
+      description: Filter operations by host.
+    - key: host
+      value: www.example.com
+      disabled: true
+      description: Filter operations by host.
+    - key: hostname
+      value: www.example.com
+      disabled: true
+      description: Filter operations by host.
+    - key: hostname
+      value: www.example.com
+      disabled: true
+      description: Filter operations by host.
+    - key: method
+      value: GET
+      disabled: true
+      description: Filter operations by method.
+    - key: method
+      value: GET
+      disabled: true
+      description: Filter operations by method.
+    - key: endpoint
+      value: /api/v1/users/{var1}
+      disabled: true
+      description: Filter operations by endpoint. Allows substring matching.
+    - key: endpoint
+      value: /api/v1/users/{var1}
+      disabled: true
+      description: Filter operations by endpoint. Allows substring matching.
+  body:
+    type: json
+    content: |-
+      {
+        "exclude": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "include": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

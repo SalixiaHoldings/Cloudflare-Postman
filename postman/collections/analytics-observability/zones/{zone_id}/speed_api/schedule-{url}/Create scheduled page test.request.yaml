@@ -1,0 +1,33 @@
+$kind: http-request
+id: 33d1a564-efa7-5130-90c9-f6663be82eea
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: speed-create-scheduled-test
+  POST /zones/{zone_id}/speed_api/schedule/{url}
+
+  Creates a scheduled test for a page.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/speed_api/schedule/{{url}}"
+method: POST
+headers:
+  Accept: application/json
+queryParams:
+  - key: region
+    value: us-central1
+    disabled: true
+  - key: frequency
+    value: DAILY
+    disabled: true
+    description: The frequency of the scheduled test. Defaults to WEEKLY for free plans, DAILY for paid plans.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create scheduled page test.resources/examples
+order: 3000

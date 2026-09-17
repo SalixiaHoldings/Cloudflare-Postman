@@ -1,0 +1,24 @@
+$kind: http-example
+id: 1c0a99f7-ac0d-5ed2-a9bb-f455a8ec7e70
+name: Payload log settings.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/payload_log"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

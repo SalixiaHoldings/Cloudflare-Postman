@@ -1,0 +1,36 @@
+$kind: http-request
+id: ae97ba84-0fb6-5ab9-9dc2-b26ae228a07d
+name: Uploads a new version for a document fingerprint.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-document-fingerprints-upload
+  PUT /accounts/{account_id}/dlp/document_fingerprints/{document_fingerprint_id}
+
+  Uploads a new document to create or update a fingerprint. The document structure is analyzed to enable detection of similar documents.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/dlp/document_fingerprints/{{document_fingerprint_id}}"
+method: PUT
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: formdata
+  content:
+    - type: file
+      key: file
+      src: ""
+      description: "(Required) "
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Uploads a new version for a document fingerprint-.resources/examples
+order: 4000

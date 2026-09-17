@@ -1,0 +1,65 @@
+$kind: http-example
+id: 54d7b297-2695-541e-8dba-a17169ec0c16
+name: "Scan request denied: rate limited."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/scan"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "url": "https://www.example.com",
+        "agentReadiness": true,
+        "country": "RW",
+        "customHeaders": {
+          "key_0": "string",
+          "key_1": "string"
+        },
+        "customagent": "string",
+        "referer": "string",
+        "screenshotsResolutions": [
+          "desktop"
+        ],
+        "visibility": "Public"
+      }
+response:
+  statusCode: 429
+  statusText: Too Many Requests
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "string",
+        "status": 429,
+        "errors": [
+          {
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "description": "string"
+      }
+order: 4000

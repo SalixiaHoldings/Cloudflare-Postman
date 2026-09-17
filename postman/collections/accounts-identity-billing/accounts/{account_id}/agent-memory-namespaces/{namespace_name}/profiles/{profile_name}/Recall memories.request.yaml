@@ -1,0 +1,35 @@
+$kind: http-request
+id: 3d84f84c-ec6d-57ab-bfac-c5fcee3089da
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: agent-memory-recall
+  POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/recall
+
+  Retrieves memories relevant to the query and returns a synthesized answer.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/recall"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "query": "What are my UI preferences?",
+      "referenceDate": "2025-09-21T00:00:00Z",
+      "responseLength": "short",
+      "thinkingLevel": "medium"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Recall memories.resources/examples
+order: 4000

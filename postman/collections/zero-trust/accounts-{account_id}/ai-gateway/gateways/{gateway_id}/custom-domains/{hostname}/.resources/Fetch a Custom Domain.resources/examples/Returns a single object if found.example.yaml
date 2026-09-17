@@ -1,0 +1,27 @@
+$kind: http-example
+id: 0b9ab014-b9a3-53a8-85ec-68fa1942455e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/custom-domains/{{hostname}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "hostname": "ai.acme.com",
+          "gateway_id": "my-gateway",
+          "ssl_hostname_id": "string",
+          "status": "blocked",
+          "created_at": 1717459200000,
+          "modified_at": 1717459200000
+        }
+      }
+order: 1000

@@ -1,0 +1,32 @@
+$kind: http-request
+id: 81b87855-0b63-55ed-b635-19eebccaa78c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: telemetry.live-tail.heartbeat.get
+  POST /accounts/{account_id}/workers/observability/telemetry/live-tail/heartbeat
+
+  Notify live tail that user is still eligible to receive live events.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/telemetry/live-tail/heartbeat"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "scriptId": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Live tail heartbeat.resources/examples
+order: 2000

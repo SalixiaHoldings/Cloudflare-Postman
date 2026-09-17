@@ -1,0 +1,70 @@
+$kind: http-request
+id: 0820ea11-537f-552e-a3cd-20bbcff4aea9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-delete-objects
+  DELETE /accounts/{account_id}/r2/buckets/{bucket_name}/objects
+
+  Deletes objects from an R2 bucket. Three modes are supported:
+
+  1. **Delete by list** (default): Provide a JSON array of object keys in the request body.
+     All listed objects are deleted; per-key errors are reported in the response.
+  2. **Delete by prefix**: Provide a non-empty `prefix` query parameter and no request body
+     to delete every object whose key begins with that prefix.
+  3. **Empty bucket**: Provide the `prefix` query parameter with an empty value (`?prefix=`)
+     and no request body to delete all objects in the bucket.
+
+  Prefix and empty-bucket requests return a job descriptor. Small jobs can finish
+  synchronously and return `COMPLETED`; larger jobs continue in the background. Poll the
+  returned `id` with the Get Bucket Job endpoint. Objects uploaded after a background job
+  starts are not deleted by that job. Abort active multipart uploads before submitting the
+  request; a synchronously completed job does not abort them. Avoid writing objects or
+  starting multipart uploads while a bucket-emptying job is in progress.
+
+  Each repeated or concurrent request creates a distinct job. The number of active jobs is
+  limited per bucket; wait for an existing job to finish before retrying a request rejected
+  with HTTP 429.
+
+  A bucket cannot be emptied while event notifications are configured. Remove the event
+  notification rules and retry requests rejected with HTTP 409 / error code 10034. To
+  protect a bucket with R2 Data Catalog enabled, send the `cf-r2-data-catalog-check` header;
+  a conflict is returned with HTTP 409 / error code 10081.
+
+  For most workloads, we recommend using R2's [S3-compatible API](https://developers.cloudflare.com/r2/api/s3/api/) or a [Worker with an R2 binding](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/) instead.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects"
+method: DELETE
+headers:
+  - key: cf-r2-jurisdiction
+    value: default
+  - key: cf-r2-data-catalog-check
+    value: string
+    description: Set this header to reject the operation when R2 Data Catalog is enabled for the bucket.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+queryParams:
+  - key: prefix
+    value: ""
+    disabled: true
+body:
+  type: json
+  content: |-
+    [
+      "path/to/object-a.txt",
+      "path/to/object-b.txt"
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete Objects or Empty a Bucket.resources/examples
+order: 1000

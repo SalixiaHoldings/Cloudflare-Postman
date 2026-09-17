@@ -1,0 +1,50 @@
+$kind: http-example
+id: aa8dbeb7-106f-5029-a1b2-2da6b195d07a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/wans"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "physport": 1,
+        "name": "string",
+        "priority": 7530,
+        "static_addressing": {
+          "address": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "gateway_address": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "secondary_address": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "vlan_tag": 42
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

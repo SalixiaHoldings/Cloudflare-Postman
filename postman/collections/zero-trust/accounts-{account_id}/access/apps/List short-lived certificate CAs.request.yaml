@@ -1,0 +1,32 @@
+$kind: http-request
+id: fac011b6-01cf-597f-8cef-e46c8085b260
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-short-lived-certificate-c-as-list-short-lived-certificate-c-as
+  GET /accounts/{account_id}/access/apps/ca
+
+  Lists short-lived certificate CAs and their public keys.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/apps/ca"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "100"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List short-lived certificate CAs.resources/examples
+order: 3000

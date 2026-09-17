@@ -1,0 +1,30 @@
+$kind: http-example
+id: 0fab91df-4682-5209-bb19-7324fed9d371
+request:
+  url: "{{base_url}}/zones/{{zone_identifier}}/custom_pages/{{identifier}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "created_on": "2014-01-01T05:20:00.12345Z",
+        "description": "Basic Challenge",
+        "id": "basic_challenge",
+        "modified_on": "2014-01-01T05:20:00.12345Z",
+        "preview_target": "block:basic-sec-captcha",
+        "required_tokens": [
+          "::CAPTCHA_BOX::"
+        ],
+        "state": "default",
+        "url": "http://www.example.com"
+      }
+order: 1000

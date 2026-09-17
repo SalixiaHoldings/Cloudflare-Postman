@@ -1,0 +1,25 @@
+$kind: http-request
+id: 50b232d9-ec5a-5187-8212-4491543f8f7b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_get_trusted_domain
+  GET /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}
+
+  Retrieves details for a specific trusted domain pattern including its pattern value, whether it uses regex matching, and which detection types it affects.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/trusted_domains/{{trusted_domain_id}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get a trusted email domain.resources/examples
+order: 2000

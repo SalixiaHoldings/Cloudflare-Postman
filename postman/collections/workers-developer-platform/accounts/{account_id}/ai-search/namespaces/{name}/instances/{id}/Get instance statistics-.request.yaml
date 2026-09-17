@@ -1,0 +1,26 @@
+$kind: http-request
+id: 1e671b9e-6865-52da-ad8e-27d9b7e4a5b5
+name: Get instance statistics.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ai-search-namespace-stats
+  GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/stats
+
+  Retrieve usage and indexing statistics for an AI Search instance.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/stats"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get instance statistics-.resources/examples
+order: 10000

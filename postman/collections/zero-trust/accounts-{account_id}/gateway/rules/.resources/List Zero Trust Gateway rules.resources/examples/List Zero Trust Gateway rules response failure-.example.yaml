@@ -1,0 +1,51 @@
+$kind: http-example
+id: 821c49e5-9030-5d97-8136-9a9450347d73
+name: List Zero Trust Gateway rules response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/rules"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: search
+      value: string
+      disabled: true
+      description: Case-insensitive substring search across rule name and description.
+    - key: order_by
+      value: precedence
+      disabled: true
+      description: |-
+        Field to sort the returned rules by. Supported values are `name`,
+        `created_at`, `updated_at`, and `precedence`.
+    - key: direction
+      value: desc
+      disabled: true
+      description: |-
+        Sort direction. When `order_by` is omitted, this controls the direction
+        of the existing precedence ordering. Shared rules remain first in either
+        direction. Accepted values are `asc` and `desc`.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

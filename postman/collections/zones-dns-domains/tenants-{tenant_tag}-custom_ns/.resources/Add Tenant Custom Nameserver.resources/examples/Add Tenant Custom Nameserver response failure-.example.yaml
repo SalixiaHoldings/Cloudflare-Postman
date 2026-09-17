@@ -1,0 +1,39 @@
+$kind: http-example
+id: d53291e6-c0ea-5ab1-9ff0-df698abd743a
+name: Add Tenant Custom Nameserver response failure.
+request:
+  url: "{{base_url}}/tenants/{{tenant_tag}}/custom_ns"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "ns_name": "ns1.example.com",
+        "ns_set": 1
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,62 @@
+$kind: http-request
+id: 7f3a65ce-679f-5e5d-9f8a-d935190824cd
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: audit-logs-get-user-audit-logs
+  GET /user/audit_logs
+
+  Gets a list of audit logs for a user account. Can be filtered by who made the change, on which zone, and the timeframe of the change.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/user/audit_logs"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: id
+    value: f174be97-19b1-40d6-954d-70cd5fbd52db
+    disabled: true
+  - key: export
+    value: "true"
+    disabled: true
+  - key: action.type
+    value: add
+    disabled: true
+  - key: actor.ip
+    value: 17.168.228.63
+    disabled: true
+  - key: actor.email
+    value: alice@example.com
+    disabled: true
+  - key: since
+    value: 2019-04-30
+    disabled: true
+  - key: before
+    value: 2019-04-30
+    disabled: true
+  - key: zone.name
+    value: example.com
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
+  - key: per_page
+    value: "25"
+    disabled: true
+  - key: page
+    value: "50"
+    disabled: true
+  - key: hide_user_logs
+    value: "false"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get user audit logs.resources/examples
+order: 2000

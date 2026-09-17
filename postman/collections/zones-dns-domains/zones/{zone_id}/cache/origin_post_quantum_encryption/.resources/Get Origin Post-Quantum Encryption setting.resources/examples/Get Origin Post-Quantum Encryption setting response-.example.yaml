@@ -1,0 +1,22 @@
+$kind: http-example
+id: 6ada779d-47e1-5ba3-a295-2aca3ca7e295
+name: Get Origin Post-Quantum Encryption setting response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_post_quantum_encryption"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

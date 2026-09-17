@@ -1,0 +1,38 @@
+$kind: http-example
+id: 9efd81b5-22e5-58b5-ad19-554fb989f9ee
+name: Enable or Disable Total TLS response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/acm/total_tls"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true,
+        "certificate_authority": "google"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "certificate_authority": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "validity_period": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

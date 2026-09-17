@@ -1,0 +1,66 @@
+$kind: http-request
+id: b3e1fb9d-594f-5277-b5cd-ecc1d5e12a15
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ListContentAssets
+  GET /accounts/{account_id}/data-security/posture/content
+
+  List DLP content findings
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/content"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: direction
+    value: asc
+    disabled: true
+    description: Direction to order results.
+  - key: dlp_profile_id
+    value: 4fb84af0-1366-6f4c-4ccd-23e81a789cb9
+    disabled: true
+    description: Filter by an DLP profile ID
+  - key: integration_id
+    value: 4fb84af0-1366-6f4c-4ccd-23e81a789cb9
+    disabled: true
+    description: Filter by an integration ID
+  - key: max_affliction_date
+    value: 1947-03-20T01:57:00.324Z
+    disabled: true
+    description: Filter to view findings that occurred on or before the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
+  - key: min_affliction_date
+    value: 1947-03-20T01:57:00.324Z
+    disabled: true
+    description: Filter to view findings that occurred on or after the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
+  - key: order
+    value: integration_name
+    disabled: true
+    description: Which field to use when ordering content assets.
+  - key: page
+    value: "1209"
+    disabled: true
+    description: A page number within the paginated result set.
+  - key: per_page
+    value: "1209"
+    disabled: true
+    description: Number of results to return per page.
+  - key: search
+    value: string
+    disabled: true
+    description: A search term.
+  - key: vendor
+    value: GOOGLE_WORKSPACE
+    disabled: true
+    description: Filter by vendor
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List DLP content findings.resources/examples
+order: 1000

@@ -1,0 +1,20 @@
+$kind: http-example
+id: 5294ef7f-bdfc-5841-9eec-ec1fc53812c9
+name: Invalid approval detail request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals/{{id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 2000

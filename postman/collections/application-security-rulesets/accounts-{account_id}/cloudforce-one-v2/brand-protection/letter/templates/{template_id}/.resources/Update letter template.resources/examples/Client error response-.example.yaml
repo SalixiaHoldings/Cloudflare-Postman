@@ -1,0 +1,27 @@
+$kind: http-example
+id: fd5673d1-7b7b-5a9d-9ffb-d46914390fbd
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/letter/templates/{{template_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "body": "string",
+        "category": "string",
+        "description": "string",
+        "name": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

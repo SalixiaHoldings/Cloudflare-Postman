@@ -1,0 +1,26 @@
+$kind: http-example
+id: 6d80efd9-b9a3-5df8-b437-931807802aaf
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/participants/{{participant_id}}/token"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "token": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

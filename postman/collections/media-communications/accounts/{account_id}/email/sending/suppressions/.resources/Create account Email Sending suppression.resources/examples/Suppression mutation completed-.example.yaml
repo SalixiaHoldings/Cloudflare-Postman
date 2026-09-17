@@ -1,0 +1,34 @@
+$kind: http-example
+id: 3b4011f1-aea3-5415-8a00-d9630ee09250
+name: Suppression mutation completed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "email": "user@example.com",
+        "expires_at": "2027-01-01T00:00:00Z",
+        "note": "Imported from CRM"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "success": true,
+        "result": {
+          "id": "396a5436-d4b0-42a6-b3fc-48e8fa522321"
+        }
+      }
+order: 1000

@@ -1,0 +1,69 @@
+$kind: http-example
+id: d4aef906-f717-5c04-992a-b16778f25f09
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/scim/v2/ServiceProviderConfig"
+  method: GET
+  headers:
+    Accept: application/scim+json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig"
+        ],
+        "patch": {
+          "supported": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "bulk": {
+          "supported": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "maxOperations": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "maxPayloadSize": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "filter": {
+          "supported": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "maxResults": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "changePassword": {
+          "supported": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "sort": {
+          "supported": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "etag": {
+          "supported": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "authenticationSchemes": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "documentationUri": "https://developers.cloudflare.com/fundamentals/account/account-security/scim-setup/"
+      }
+order: 1000

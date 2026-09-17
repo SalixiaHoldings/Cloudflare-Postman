@@ -1,0 +1,59 @@
+$kind: http-example
+id: b51092e2-7c79-5755-a5cb-25e89c0949d3
+name: Upload videos via direct upload URLs response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/direct_upload"
+  method: POST
+  headers:
+    Upload-Creator: creator-id_abcde12345
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "maxDurationSeconds": 19848,
+        "allowedOrigins": [
+          "example.com"
+        ],
+        "creator": "creator-id_abcde12345",
+        "expiry": "2021-01-02T02:20:00Z",
+        "meta": {
+          "name": "video12345.mp4"
+        },
+        "requireSignedURLs": true,
+        "scheduledDeletion": "2014-01-02T02:20:00Z",
+        "thumbnailTimestampPct": 0.529241,
+        "watermark": {
+          "uid": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "scheduledDeletion": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "uid": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "uploadURL": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "watermark": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,45 @@
+$kind: http-example
+id: 344479e0-208a-53d0-ab30-9a6fe66e129e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/bgp/filter_profiles"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Allowed On-Prem Imports",
+        "match_action": "allow",
+        "targets": [
+          "10.0.0.0/8{8,32}",
+          "10.0.0.0/8{8,32}"
+        ],
+        "description": "Allowed corporate subnets from on-premises"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,46 @@
+$kind: http-request
+id: 106804d0-4c8e-5112-b4d0-64e6358847e8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_list_sending_domain_restrictions
+  GET /accounts/{account_id}/email-security/settings/sending_domain_restrictions
+
+  Returns a paginated list of sending domain restrictions. These restrictions enforce TLS requirements for emails from specific domains. Mail without TLS from restricted domains will be dropped unless the subdomain is in the exclude list. Supports sorting and searching.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/sending_domain_restrictions"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+    description: Current page within paginated list of results.
+  - key: per_page
+    value: "20"
+    disabled: true
+    description: The number of results per page. Maximum value is 1000.
+  - key: search
+    value: string
+    disabled: true
+    description: Search term for filtering records. Behavior may change.
+  - key: order
+    value: domain
+    disabled: true
+    description: Field to sort by.
+  - key: direction
+    value: asc
+    disabled: true
+    description: The sorting direction.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List sending domain restrictions.resources/examples
+order: 1000

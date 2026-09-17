@@ -1,0 +1,44 @@
+$kind: http-example
+id: fda61927-6843-5598-a268-95fe7986c1b2
+name: List share excluded recipients response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/excluded-recipients"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "2"
+      disabled: true
+      description: |-
+        Page number. Defaults to `1` when `per_page` is supplied without
+        `page`. May be omitted entirely along with `per_page` to receive a
+        non-paginated response.
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: |-
+        Number of objects to return per page. Defaults to `20` when `page`
+        is supplied without `per_page`. May be omitted entirely along with
+        `page` to receive a non-paginated response.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

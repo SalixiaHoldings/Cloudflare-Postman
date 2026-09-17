@@ -1,0 +1,37 @@
+$kind: http-example
+id: 6dfa446f-1e9c-5c93-acda-6fb5508f68b5
+name: Bad request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/namespaces/{{namespace}}/tables/{{table_name}}/maintenance-runs"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page_size
+      value: "9"
+      disabled: true
+    - key: page_token
+      value: string
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false
+      }
+order: 2000

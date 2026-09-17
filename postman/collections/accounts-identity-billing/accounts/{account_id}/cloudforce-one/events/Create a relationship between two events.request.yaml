@@ -1,0 +1,37 @@
+$kind: http-request
+id: 81bdec19-5778-578f-90d7-78c4a7164e67
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_CreateEventRelationship
+  POST /accounts/{account_id}/cloudforce-one/events/relationships/create
+
+  Creates a directed relationship between two events. The relationship is from parent to child with a specified type.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/relationships/create"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "parentId": "3095c3d5-b756-71d0-c990-4fc981042d96",
+      "childIds": [
+        "be9cd6d8-4caf-9fc9-b88c-859b0b14afb3"
+      ],
+      "relationshipType": "related_to",
+      "datasetId": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a relationship between two events.resources/examples
+order: 20000

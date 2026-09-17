@@ -1,0 +1,55 @@
+$kind: http-example
+id: c4c55898-222a-56f3-9cbf-d546f7f182a0
+name: "Error 10005: Invalid cursor, pagination, or sort parameter."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/moq/relays"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: created_before
+      value: 2026-03-27T15:00:00Z
+      disabled: true
+      description: |
+        Cursor for pagination. Returns relays created strictly before this
+        RFC 3339 timestamp (typically the `created` value of the first item
+        on the current page, to fetch the previous page).
+    - key: created_after
+      value: 2026-03-27T15:00:00Z
+      disabled: true
+      description: |
+        Cursor for pagination. Returns relays created strictly after this
+        RFC 3339 timestamp (typically the `created` value of the last item
+        on the current page, to fetch the next page).
+    - key: per_page
+      value: "50"
+      disabled: true
+      description: |
+        Maximum number of relays to return per page. Values above the maximum are
+        clamped to it rather than rejected.
+    - key: asc
+      value: "false"
+      disabled: true
+      description: |
+        Sort order by `created`. When true, results are returned oldest-first
+        (ascending); otherwise newest-first (descending, the default).
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 21007,
+            "message": "A MoQ relay with this ID was not found."
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

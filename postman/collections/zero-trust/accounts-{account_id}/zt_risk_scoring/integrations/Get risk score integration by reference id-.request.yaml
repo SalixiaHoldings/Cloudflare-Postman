@@ -1,0 +1,28 @@
+$kind: http-request
+id: 1941d90a-ddae-5c44-959e-7439545310d9
+name: Get risk score integration by reference id.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-zt-risk-score-integration-get-by-reference-id
+  GET /accounts/{account_id}/zt_risk_scoring/integrations/reference_id/{reference_id}
+
+  Retrieves a Zero Trust risk score integration using its external reference ID.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/zt_risk_scoring/integrations/reference_id/{{reference_id}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get risk score integration by reference id-.resources/examples
+order: 3000

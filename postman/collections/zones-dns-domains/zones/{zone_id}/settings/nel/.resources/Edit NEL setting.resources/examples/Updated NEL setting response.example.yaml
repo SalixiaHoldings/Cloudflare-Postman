@@ -1,0 +1,38 @@
+$kind: http-example
+id: b51bf290-6fd0-5bc3-93a3-381daf273d5a
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/nel"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": {
+          "enabled": false
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "editable": true,
+          "id": "nel",
+          "modified_on": "2024-01-15T10:30:00Z",
+          "value": {
+            "enabled": true
+          }
+        },
+        "success": true
+      }
+order: 1000

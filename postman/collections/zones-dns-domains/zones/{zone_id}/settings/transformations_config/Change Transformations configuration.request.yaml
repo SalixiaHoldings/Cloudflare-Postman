@@ -1,0 +1,45 @@
+$kind: http-request
+id: 47926e08-0054-5d67-b6ac-fc436b2f9ef7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-settings-change-transformations-config
+  PATCH /zones/{zone_id}/settings/transformations_config
+
+  Updates one or more fields of the combined Transformations configuration for a zone.
+  Omitted fields are left unchanged. The response always returns the full current state
+  of all three sub-settings.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/settings/transformations_config"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": {
+        "allowed_origins": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "c2pa": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "transformations": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Change Transformations configuration.resources/examples
+order: 2000

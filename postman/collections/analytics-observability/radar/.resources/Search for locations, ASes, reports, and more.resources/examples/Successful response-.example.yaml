@@ -1,0 +1,64 @@
+$kind: http-example
+id: 94bde64d-3aa0-59a6-b0d0-dbfa25697d4d
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/search/global?query=United"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: limit
+      value: "5"
+      disabled: true
+      description: Limits the number of objects returned in the response.
+    - key: limitPerGroup
+      value: "955.4245183244348"
+      disabled: true
+      description: Limits the number of objects per search category.
+    - key: query
+      value: United
+      description: (Required) String used to perform the search operation.
+    - key: include
+      value: NOTEBOOKS
+      disabled: true
+      description: Search types included in results.
+    - key: include
+      value: INDUSTRIES
+      disabled: true
+      description: Search types included in results.
+    - key: exclude
+      value: ORIGINS
+      disabled: true
+      description: Search types excluded from results.
+    - key: exclude
+      value: TLDS
+      disabled: true
+      description: Search types excluded from results.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "search": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

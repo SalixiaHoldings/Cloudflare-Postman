@@ -1,0 +1,68 @@
+$kind: http-example
+id: 04df9df2-cc08-529e-9c8f-6bcba428ef8d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/instances"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number (1-indexed).
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: Number of results per page.
+    - key: search
+      value: string
+      disabled: true
+      description: Filter instances whose id contains this string (case-insensitive).
+    - key: namespace
+      value: i
+      disabled: true
+      description: Filter by namespace.
+    - key: order_by
+      value: created_at
+      disabled: true
+      description: Field to order results by.
+    - key: order_by_direction
+      value: desc
+      disabled: true
+      description: Order direction.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "path": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "path": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

@@ -1,0 +1,38 @@
+$kind: http-request
+id: 6dead3f0-5ff3-570f-88ba-b5388122b56f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: worker-versions-list-versions
+  GET /accounts/{account_id}/workers/scripts/{script_name}/versions
+
+  List of Worker Versions. The first version in the list is the latest version.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/versions"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: deployable
+    value: "false"
+    disabled: true
+    description: Only return versions that can be used in a deployment. Ignores pagination.
+  - key: page
+    value: "1"
+    disabled: true
+    description: Current page.
+  - key: per_page
+    value: "2212"
+    disabled: true
+    description: Items per-page.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Versions.resources/examples
+order: 1000

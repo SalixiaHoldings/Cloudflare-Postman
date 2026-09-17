@@ -1,0 +1,82 @@
+$kind: http-example
+id: af3ed60c-bd42-564b-81fb-0faa748fb8f1
+name: Update custom profile failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles/custom/{{profile_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "ai_context_enabled": false,
+        "allowed_match_count": 2523,
+        "confidence_threshold": "low",
+        "context_awareness": {
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "skip": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "data_classes": [
+          "dc8b45cb-897b-4359-6486-6124cfc4bcb8",
+          "90ff14eb-811a-809a-8e8a-57387df75d7f"
+        ],
+        "data_tags": [
+          "2c6d9311-5260-e362-2500-2b4e7c56ccc2",
+          "70f62821-ddab-dec9-7a0e-f1a34daa4ffb"
+        ],
+        "description": "string",
+        "entries": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "ocr_enabled": false,
+        "sensitivity_levels": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "shared_entries": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,34 @@
+$kind: http-request
+id: caea6939-8633-52a4-b916-572591a14567
+name: Connect to a specific Chrome DevTools page.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: brapi-get_DevtoolsPage
+  GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/page/{target_id}
+
+  Establishes a WebSocket connection to a specific Chrome DevTools target or page.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/page/{{target_id}}"
+method: GET
+headers:
+  - key: cf-brapi-guardrails
+    value: eyJtb2RlIjoicmVhZG9ubHkifQ
+    description: Optional base64url-encoded JSON connection guardrails (mode)
+  - key: Accept
+    value: application/json
+  - key: X-Auth-Email
+    value: "{{api_email}}"
+  - key: X-Auth-Key
+    value: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Connect to a specific Chrome DevTools page-.resources/examples
+order: 5000

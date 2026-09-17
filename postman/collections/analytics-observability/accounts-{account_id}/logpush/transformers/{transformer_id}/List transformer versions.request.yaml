@@ -1,0 +1,32 @@
+$kind: http-request
+id: 8a83b62a-0b73-5d94-a791-75e8d0174203
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-accounts-account_id-logpush-transformers-transformer_id-versions
+  GET /accounts/{account_id}/logpush/transformers/{transformer_id}/versions
+
+  Returns version metadata for a transformer, newest first. Each version corresponds to a SQL query update.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/logpush/transformers/{{transformer_id}}/versions"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: limit
+    value: "10"
+    disabled: true
+    description: Maximum number of versions to return.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List transformer versions.resources/examples
+order: 5000

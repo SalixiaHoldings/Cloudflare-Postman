@@ -1,0 +1,56 @@
+$kind: http-request
+id: 7956e7c2-2e9f-5dc8-bb44-435e3b75a30e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: spectrum-analytics-(-by-time)-get-analytics-by-time
+  GET /zones/{zone_id}/spectrum/analytics/events/bytime
+
+  Retrieves a list of aggregate metrics grouped by time interval.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/spectrum/analytics/events/bytime?time_delta=minute"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: dimensions
+    value: event
+    disabled: true
+  - key: dimensions
+    value: appID
+    disabled: true
+  - key: sort
+    value: +count
+    disabled: true
+  - key: sort
+    value: -bytesIngress
+    disabled: true
+  - key: until
+    value: 2014-01-01T05:20:00.12345Z
+    disabled: true
+  - key: metrics
+    value: count
+    disabled: true
+  - key: metrics
+    value: bytesIngress
+    disabled: true
+  - key: filters
+    value: event==disconnect%20AND%20coloName!=SFO
+    disabled: true
+  - key: since
+    value: 2014-01-01T05:20:00.12345Z
+    disabled: true
+  - key: time_delta
+    value: minute
+    description: "(Required) "
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get analytics by time.resources/examples
+order: 1000

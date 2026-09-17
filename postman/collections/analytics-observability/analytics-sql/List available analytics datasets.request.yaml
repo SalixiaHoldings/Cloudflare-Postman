@@ -1,0 +1,39 @@
+$kind: http-request
+id: 3829d793-2a5f-5204-8ced-3b1de852643e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: sql-api-introspection
+  GET /analytics/sql/introspection
+
+  Returns the analytics dataset catalogue. By default, the response contains dataset names and descriptions. Set `include_columns` to include each dataset's column names, descriptions, and data types. The caller must have Account Analytics Read permission on the account identified by `account_tag`. The account tag authorizes the request; it does not filter the catalogue, which is the same for every authorized account.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/analytics/sql/introspection?account_tag=0123456789abcdef0123456789abcdef"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: account_tag
+    value: 0123456789abcdef0123456789abcdef
+    description: (Required) Account whose available analytics datasets are returned.
+  - key: include_columns
+    value: "false"
+    disabled: true
+    description: Include column metadata for each returned dataset.
+  - key: dataset_name
+    value: events.httpRequests
+    disabled: true
+    description: |
+      Return only the dataset with this exact name. An empty value does not filter the catalogue. An unknown name returns a successful response with an empty `datasets` array.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List available analytics datasets.resources/examples
+order: 3000

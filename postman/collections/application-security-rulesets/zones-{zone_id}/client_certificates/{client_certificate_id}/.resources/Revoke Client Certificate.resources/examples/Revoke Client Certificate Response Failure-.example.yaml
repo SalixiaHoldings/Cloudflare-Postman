@@ -1,0 +1,28 @@
+$kind: http-example
+id: cfb7c3b4-d2ba-54f2-bf12-56ca5afccb7d
+name: Revoke Client Certificate Response Failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/client_certificates/{{client_certificate_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

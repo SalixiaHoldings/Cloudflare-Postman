@@ -1,0 +1,33 @@
+$kind: http-request
+id: a32a21c5-5a78-5953-9cb7-f1a0fe82d3e3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-ipsec-tunnels-list-ipsec-tunnel-details
+  GET /accounts/{account_id}/magic/ipsec_tunnels/{ipsec_tunnel_id}
+
+  Lists details for a specific IPsec tunnel.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/ipsec_tunnels/{{ipsec_tunnel_id}}"
+method: GET
+headers:
+  - key: x-magic-new-hc-target
+    value: "true"
+    description: If true, the health check target in the response body will be presented using the new object format. Defaults to false.
+  - key: Accept
+    value: application/json
+  - key: X-Auth-Email
+    value: "{{api_email}}"
+  - key: X-Auth-Key
+    value: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List IPsec tunnel details.resources/examples
+order: 2000

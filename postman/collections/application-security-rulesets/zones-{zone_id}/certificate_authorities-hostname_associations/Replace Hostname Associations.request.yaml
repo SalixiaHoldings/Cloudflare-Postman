@@ -1,0 +1,40 @@
+$kind: http-request
+id: f93865ef-2a93-5059-a469-a90bb3b905c6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: client-certificate-for-a-zone-put-hostname-associations
+  PUT /zones/{zone_id}/certificate_authorities/hostname_associations
+
+  Replace Hostname Associations.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/certificate_authorities/hostname_associations"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "hostnames": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "mtls_certificate_id": "stringstringstringstringstringstring"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Replace Hostname Associations.resources/examples
+order: 2000

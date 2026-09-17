@@ -1,0 +1,34 @@
+$kind: http-request
+id: cc563c53-b3ce-562f-aed8-13168eba7614
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: origin-cloud-regions-v2-list
+  GET /zones/{zone_id}/origin/cloud_regions
+
+  Returns all IP-to-cloud-region mappings configured for the zone with pagination support. Each mapping tells Cloudflare which cloud vendor and region hosts the origin at that IP, enabling the edge to route via the nearest Tiered Cache upper-tier co-located with that cloud provider. Returns an empty array when no mappings exist.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+    description: Page number of paginated results.
+  - key: per_page
+    value: "20"
+    disabled: true
+    description: Number of items per page.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List origin cloud region mappings.resources/examples
+order: 1000

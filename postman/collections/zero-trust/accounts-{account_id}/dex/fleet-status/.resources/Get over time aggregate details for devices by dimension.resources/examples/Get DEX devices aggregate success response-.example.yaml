@@ -1,0 +1,39 @@
+$kind: http-example
+id: 8d42b4be-d589-51db-ae15-42eda4dc5894
+name: Get DEX devices aggregate success response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/fleet-status/over-time?to=2023-10-11 00:00:00+00&from=2023-10-11 00:00:00+00"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: to
+      value: 2023-10-11 00:00:00+00
+      description: (Required) End of the time range to query. Timestamp can be provided in ISO 8601 datetime format or milliseconds since epoch.
+    - key: from
+      value: 2023-10-11 00:00:00+00
+      description: (Required) Start of the time range to query. Timestamp can be provided in ISO 8601 datetime format or milliseconds since epoch.
+    - key: colo
+      value: SJC
+      disabled: true
+      description: Cloudflare colo airport code.
+    - key: device_id
+      value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
+      description: Device-specific ID, given as UUID.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "deviceStats": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

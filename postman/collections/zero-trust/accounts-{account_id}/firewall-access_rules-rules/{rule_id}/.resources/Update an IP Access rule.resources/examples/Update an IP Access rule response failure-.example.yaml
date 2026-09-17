@@ -1,0 +1,52 @@
+$kind: http-example
+id: 5b3e30e1-7287-5a63-9065-0d7b7c307490
+name: Update an IP Access rule response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/firewall/access_rules/rules/{{rule_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "configuration": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "mode": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "notes": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "allowed_modes": 8764.66596731916
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,77 @@
+$kind: http-example
+id: e8acddc6-b46f-5524-afb7-3674f3edfbc3
+name: Returns suppressed emails.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/routing/suppression"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "100"
+      disabled: true
+    - key: order
+      value: created_at
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "page": 0,
+        "per_page": 100,
+        "total": 1,
+        "result": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "email": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "reason": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "expires_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "zones": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "email": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "reason": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "expires_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "zones": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

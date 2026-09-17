@@ -1,0 +1,27 @@
+$kind: http-example
+id: a15a1bfa-8c09-5a32-86d8-7230c9249138
+name: Start Cache Reserve Clear response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/smart_shield/cache_reserve_clear"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "id": "cache_reserve_clear",
+          "start_ts": "2023-10-02T10:00:00.12345Z",
+          "state": "In-progress"
+        },
+        "success": true
+      }
+order: 1000

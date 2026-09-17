@@ -1,0 +1,25 @@
+$kind: http-example
+id: 6498f2b7-bc09-5fc2-a3fa-b26d8545cb45
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/lockdowns/{{lock_downs_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

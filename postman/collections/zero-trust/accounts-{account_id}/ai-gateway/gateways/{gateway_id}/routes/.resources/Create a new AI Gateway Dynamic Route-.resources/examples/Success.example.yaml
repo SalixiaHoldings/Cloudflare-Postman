@@ -1,0 +1,77 @@
+$kind: http-example
+id: 9d3d10a7-51d0-5833-9608-638ccc2a78a6
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/routes"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "elements": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "id": "string",
+          "name": "string",
+          "elements": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "created_at": "1939-06-21T07:21:09.453Z",
+          "modified_at": "1963-11-10T04:04:56.250Z",
+          "gateway_id": "string",
+          "version": {
+            "version_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "data": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "active": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "is_valid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "deployment": {
+            "deployment_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "version_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "created_at": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+order: 1000

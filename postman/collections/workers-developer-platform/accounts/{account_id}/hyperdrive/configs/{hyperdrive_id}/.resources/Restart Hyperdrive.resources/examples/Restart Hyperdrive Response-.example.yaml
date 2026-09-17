@@ -1,0 +1,22 @@
+$kind: http-example
+id: 2f537a26-a7bd-5829-b9c1-8c8d11a9ce4a
+name: Restart Hyperdrive Response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/hyperdrive/configs/{{hyperdrive_id}}/restart"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

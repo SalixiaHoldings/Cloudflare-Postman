@@ -1,0 +1,38 @@
+$kind: http-example
+id: ec209015-48fd-542f-8a82-529d4248888f
+name: Table maintenance configuration retrieved successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/namespaces/{{namespace}}/tables/{{table_name}}/maintenance-configs"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "maintenance_config": {
+            "compaction": {
+              "next_eligible_at": "2026-09-01T12:00:00Z",
+              "state": "enabled",
+              "target_size_mb": "128"
+            },
+            "interval": "1h",
+            "snapshot_expiration": {
+              "max_snapshot_age": "7d",
+              "min_snapshots_to_keep": 100,
+              "next_eligible_at": "2026-09-01T12:00:00Z",
+              "state": "enabled"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,35 @@
+$kind: http-example
+id: c0554983-453c-564a-916e-c118d7e191a1
+name: Namespace created.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "support-agent"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": "01JSGCEXAMP1E0000000000000",
+          "name": "support-agent",
+          "created_at": "2025-09-21T14:30:00Z",
+          "updated_at": "2025-09-21T14:30:00Z"
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

@@ -1,0 +1,31 @@
+$kind: http-example
+id: 57950350-f8e2-593c-86ec-f31831b56440
+name: Registration details.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/registrations/{{domain_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "auto_renew": true,
+          "created_at": "2025-01-15T10:00:00Z",
+          "domain_name": "example.com",
+          "expires_at": "2026-01-15T10:00:00Z",
+          "locked": true,
+          "privacy_mode": "redaction",
+          "status": "active"
+        },
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,54 @@
+$kind: http-example
+id: 378f1fd3-cea2-5424-95e2-c11eff5dc3b0
+name: Browser extension inventories response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config/inventories"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: cursor
+      value: string
+      disabled: true
+      description: Opaque cursor from a previous response to fetch the next page.
+    - key: per_page
+      value: "50"
+      disabled: true
+      description: Number of results per page (default 50, max 200).
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result_info": {
+          "per_page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "cursor": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": true,
+        "errors": [],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

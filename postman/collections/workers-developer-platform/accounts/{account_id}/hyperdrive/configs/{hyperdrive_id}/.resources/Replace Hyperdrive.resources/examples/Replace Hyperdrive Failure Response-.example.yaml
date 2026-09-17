@@ -1,0 +1,54 @@
+$kind: http-example
+id: 389aeb22-16a6-5144-9479-8e0873b44a88
+name: Replace Hyperdrive Failure Response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/hyperdrive/configs/{{hyperdrive_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "023e105f4ecef8ad9ca31a8372d0c353",
+        "name": "example-hyperdrive",
+        "origin": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "caching": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "mtls": {
+          "ca_certificate_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "mtls_certificate_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "sslmode": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "origin_connection_limit": 60
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

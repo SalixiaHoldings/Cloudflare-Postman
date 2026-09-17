@@ -1,0 +1,24 @@
+$kind: http-example
+id: abf2621a-212e-56bf-9f9d-98f592a0250b
+name: Delete priority response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/requests/priority/{{priority_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

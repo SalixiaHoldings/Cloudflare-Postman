@@ -1,0 +1,27 @@
+$kind: http-example
+id: 89f713cb-3c9f-5e28-a942-82904f2ad223
+name: Revoke Certificate response.
+request:
+  url: "{{base_url}}/certificates/{{certificate_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "revoked_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,60 @@
+$kind: http-example
+id: 98676d9c-03e1-5337-a161-2636c2421ec1
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/custom-providers/costs/{{id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "cost_in": 5644.867669325322,
+        "cost_out": 421.6822679154575,
+        "cost_type": "tokens",
+        "enable": false,
+        "model": "string",
+        "model_rule": "equals",
+        "token_pricing": {
+          "input_audio_tokens": 6933.114938437939,
+          "input_cache_creation_tokens": 5148.757223505527,
+          "input_cached_tokens": 666.7215144261718,
+          "input_image_count": 5686.406148597598,
+          "input_image_tokens": 5987.695681396872,
+          "input_text_tokens": 7431.142064742744,
+          "input_tokens": 1107.3984950780869,
+          "input_video_tokens": 937.004720326513,
+          "output_image_count": 2634.454669896513,
+          "output_reasoning_tokens": 1032.7048343606293,
+          "output_tokens": 3693.5570696368814,
+          "total_tokens": 455.9372807852924
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "account_provider_id": "1a9da4c8-8a99-6ee0-028b-6e0bee51727e",
+          "model": "string",
+          "id": "a4d5cea6-925a-15e8-5918-972285207910",
+          "created_at": "1940-03-24T15:11:33.068Z",
+          "modified_at": "1964-09-10T02:42:45.923Z",
+          "changed_by": "manual",
+          "cost_in": 1529.1765029542148,
+          "cost_out": 2380.657836329192,
+          "cost_type": "tokens",
+          "enable": true,
+          "model_rule": "equals",
+          "token_pricing": "string",
+          "weight": 4666
+        }
+      }
+order: 1000

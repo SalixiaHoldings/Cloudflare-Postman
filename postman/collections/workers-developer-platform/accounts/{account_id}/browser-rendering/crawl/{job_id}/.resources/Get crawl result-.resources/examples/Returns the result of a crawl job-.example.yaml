@@ -1,0 +1,74 @@
+$kind: http-example
+id: 573369f4-b2c4-55fe-83f5-a395889985eb
+name: Returns the result of a crawl job.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/crawl/{{job_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cacheTTL
+      value: "5"
+      disabled: true
+      description: Cache TTL default is 5s. Set to 0 to disable.
+    - key: status
+      value: disallowed
+      disabled: true
+      description: Filter by URL status.
+    - key: cursor
+      value: "0"
+      disabled: true
+      description: Cursor for pagination.
+    - key: limit
+      value: "50"
+      disabled: true
+      description: Limit for pagination.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "status": "string",
+          "browserSecondsUsed": 4599.659261293709,
+          "total": 447.52585235983133,
+          "finished": 2554.0371239185333,
+          "skipped": 5135.546771343797,
+          "records": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "cursor": "string"
+        },
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

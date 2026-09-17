@@ -1,0 +1,40 @@
+$kind: http-example
+id: 9dd2bf83-04ed-5718-991c-f578defb6f52
+name: "Error 21009: Token limit reached (a relay may hold at most 10 tokens)."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/moq/relays/{{relay_id}}/tokens"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "operations": [
+          "publish",
+          "subscribe"
+        ],
+        "expires": "2027-03-27T15:00:00Z",
+        "label": "primary-encoder"
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 21007,
+            "message": "A MoQ relay with this ID was not found."
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 4000

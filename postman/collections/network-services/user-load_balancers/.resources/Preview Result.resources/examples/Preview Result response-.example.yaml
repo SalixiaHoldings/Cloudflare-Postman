@@ -1,0 +1,24 @@
+$kind: http-example
+id: 5c945793-12e5-59ae-b3d1-c218431b429e
+name: Preview Result response.
+request:
+  url: "{{base_url}}/user/load_balancers/preview/{{preview_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

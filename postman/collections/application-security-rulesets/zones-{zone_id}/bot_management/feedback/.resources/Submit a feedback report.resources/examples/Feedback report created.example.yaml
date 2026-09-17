@@ -1,0 +1,52 @@
+$kind: http-example
+id: edd48cad-ed27-591f-9cfe-3c74c0228f26
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/bot_management/feedback"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "description": "Automated scraping missed by detections",
+        "expression": "http.host eq 'www.example.com' and http.request.uri.path starts_with '/products' and cf.bot_management.score gt 25",
+        "first_request_seen_at": "2025-09-29T00:00:00Z",
+        "last_request_seen_at": "2025-09-29T06:00:00Z",
+        "requests": 2000,
+        "requests_by_attribute": {
+          "topIPs": [
+            {
+              "metric": "203.0.113.55",
+              "requests": 400
+            }
+          ],
+          "topJA3Hashes": [
+            {
+              "metric": "ab12cd34ef56...",
+              "requests": 900
+            }
+          ]
+        },
+        "requests_by_score": {
+          "30": 800,
+          "40": 700,
+          "50": 500
+        },
+        "requests_by_score_src": {
+          "heuristics": 200,
+          "ml": 1800
+        },
+        "subtype": "Scraping",
+        "type": "false_negative"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

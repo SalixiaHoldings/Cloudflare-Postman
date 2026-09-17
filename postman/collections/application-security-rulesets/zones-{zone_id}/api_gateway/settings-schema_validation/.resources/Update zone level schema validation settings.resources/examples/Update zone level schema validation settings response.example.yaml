@@ -1,0 +1,30 @@
+$kind: http-example
+id: b52763c5-6d33-5dcc-8f34-1cb06d09c869
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/settings/schema_validation"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "validation_default_mitigation_action": "block",
+        "validation_override_mitigation_action": "none"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "validation_default_mitigation_action": "block",
+        "validation_override_mitigation_action": null
+      }
+order: 1000

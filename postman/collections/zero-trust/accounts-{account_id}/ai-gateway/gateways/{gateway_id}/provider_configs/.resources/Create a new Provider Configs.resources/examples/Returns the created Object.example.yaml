@@ -1,0 +1,44 @@
+$kind: http-example
+id: f7bb5697-cc0f-59dc-8e99-1c56b49b1e4a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/provider_configs"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "provider_slug": "string",
+        "default_config": false,
+        "alias": "string",
+        "rate_limit": 5496.566148940474,
+        "rate_limit_period": 60,
+        "secret": "{{secret}}",
+        "secret_id": "{{secret_id}}"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "provider_slug": "string",
+          "secret_preview": "{{secret_preview}}",
+          "default_config": true,
+          "gateway_id": "my-gateway",
+          "modified_at": "1967-01-25T13:12:09.950Z",
+          "alias": "string",
+          "secret_id": "{{secret_id}}",
+          "rate_limit": 1778.567167930305,
+          "rate_limit_period": 60
+        }
+      }
+order: 1000

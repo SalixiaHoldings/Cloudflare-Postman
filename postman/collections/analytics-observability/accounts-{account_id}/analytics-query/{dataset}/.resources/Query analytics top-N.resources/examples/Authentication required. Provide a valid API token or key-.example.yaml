@@ -1,0 +1,47 @@
+$kind: http-example
+id: c0014011-d7e9-5c3a-840a-84f549b0995f
+name: Authentication required. Provide a valid API token or key.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics/query/{{dataset}}/top-n"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "filters": [],
+        "from": "2024-11-05T00:00:00Z",
+        "groupBy": [
+          "appName",
+          "appCategory"
+        ],
+        "n": 10,
+        "orderBy": "bytesTotal",
+        "stats": [
+          "bytesTotal",
+          "requestsTotal"
+        ],
+        "to": "2024-11-06T00:00:00Z"
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 11003,
+            "message": "art.api.resource.insufficient_permissions"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

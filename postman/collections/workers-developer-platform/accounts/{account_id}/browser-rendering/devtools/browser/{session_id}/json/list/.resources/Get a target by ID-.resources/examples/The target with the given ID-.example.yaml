@@ -1,0 +1,28 @@
+$kind: http-example
+id: d4152626-f16c-5c14-aea4-f3664ab9db25
+name: The target with the given ID.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json/list/{{target_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "string",
+        "type": "string",
+        "url": "string",
+        "description": "string",
+        "devtoolsFrontendUrl": "string",
+        "title": "string",
+        "webSocketDebuggerUrl": "string"
+      }
+order: 1000

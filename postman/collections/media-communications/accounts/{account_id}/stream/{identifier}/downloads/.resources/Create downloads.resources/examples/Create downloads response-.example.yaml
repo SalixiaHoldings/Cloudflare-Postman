@@ -1,0 +1,24 @@
+$kind: http-example
+id: c4fca073-9c56-5d29-a71f-1d3cf5b8d1f5
+name: Create downloads response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/downloads"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

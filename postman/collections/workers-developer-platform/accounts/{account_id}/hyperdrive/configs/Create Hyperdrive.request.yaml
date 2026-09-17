@@ -1,0 +1,51 @@
+$kind: http-request
+id: 5d91e419-f350-5b70-a3c8-da1d9618127a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: create-hyperdrive
+  POST /accounts/{account_id}/hyperdrive/configs
+
+  Creates and returns a new Hyperdrive configuration.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/hyperdrive/configs"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "id": "023e105f4ecef8ad9ca31a8372d0c353",
+      "name": "example-hyperdrive",
+      "origin": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "caching": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "mtls": {
+        "ca_certificate_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "mtls_certificate_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "sslmode": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "origin_connection_limit": 60
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Hyperdrive.resources/examples
+order: 2000

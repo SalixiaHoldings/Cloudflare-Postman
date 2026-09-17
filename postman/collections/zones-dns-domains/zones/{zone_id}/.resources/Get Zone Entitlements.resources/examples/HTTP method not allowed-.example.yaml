@@ -1,0 +1,28 @@
+$kind: http-example
+id: ab132914-5da2-5f06-a0c9-34dde91d0619
+name: HTTP method not allowed.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/entitlements"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 405
+  statusText: Method Not Allowed
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 2001,
+            "message": "failed to fetch entitlements: method not allowed"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 7000

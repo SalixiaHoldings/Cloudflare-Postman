@@ -1,0 +1,85 @@
+$kind: http-example
+id: 1f2d9389-2a6d-52bb-a101-6f7802933a16
+name: List Custom Hostnames response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/custom_hostnames"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: hostname
+      value: app.example.com
+      disabled: true
+    - key: hostname.exact
+      value: app.example.com
+      disabled: true
+    - key: hostname.startsWith
+      value: app
+      disabled: true
+    - key: hostname.contain
+      value: example.com
+      disabled: true
+    - key: id
+      value: 0d89c70d-ad9f-4843-b99f-6cc0252067e9
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: order
+      value: ssl
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: ssl_status
+      value: active
+      disabled: true
+    - key: hostname_status
+      value: provisioned
+      disabled: true
+    - key: certificate_authority
+      value: google
+      disabled: true
+    - key: wildcard
+      value: "false"
+      disabled: true
+    - key: custom_origin_server
+      value: origin2.example.com
+      disabled: true
+    - key: ssl
+      value: "0"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result_info": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

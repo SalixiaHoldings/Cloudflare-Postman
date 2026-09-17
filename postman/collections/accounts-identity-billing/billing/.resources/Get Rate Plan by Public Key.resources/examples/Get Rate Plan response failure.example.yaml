@@ -1,0 +1,27 @@
+$kind: http-example
+id: d93b5d98-2542-5c8d-965e-0f5ca53b557d
+request:
+  url: "{{base_url}}/billing/rate_plans/{{public_key}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

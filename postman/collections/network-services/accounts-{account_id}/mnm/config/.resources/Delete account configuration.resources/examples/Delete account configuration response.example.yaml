@@ -1,0 +1,27 @@
+$kind: http-example
+id: 9ba7439e-27a8-5b5c-802a-f918f15eef81
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/mnm/config"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

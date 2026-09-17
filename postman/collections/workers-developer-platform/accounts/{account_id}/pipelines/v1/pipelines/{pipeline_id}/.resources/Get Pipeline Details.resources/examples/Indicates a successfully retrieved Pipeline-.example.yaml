@@ -1,0 +1,37 @@
+$kind: http-example
+id: 1647d740-5e4e-5a1a-be7f-c6d29b3d3e7c
+name: Indicates a successfully retrieved Pipeline.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/pipelines/{{pipeline_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "01234567890123457689012345678901",
+          "name": "my_pipeline",
+          "created_at": "string",
+          "modified_at": "string",
+          "sql": "insert into sink select * from source;",
+          "status": "string",
+          "tables": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "failure_reason": "string"
+        }
+      }
+order: 1000

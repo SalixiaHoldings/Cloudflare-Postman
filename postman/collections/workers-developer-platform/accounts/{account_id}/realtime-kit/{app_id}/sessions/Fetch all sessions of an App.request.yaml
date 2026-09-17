@@ -1,0 +1,62 @@
+$kind: http-request
+id: 04c83de5-55a2-51db-97b8-e52c3df7267a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: GetSessions
+  GET /accounts/{account_id}/realtime/kit/{app_id}/sessions
+
+  Returns details of all sessions of an App.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page_no
+    value: "4342.341406736523"
+    disabled: true
+    description: The page number from which you want your page search results to be displayed.
+  - key: per_page
+    value: "4342.341406736523"
+    disabled: true
+    description: Number of results per page
+  - key: sort_by
+    value: createdAt
+    disabled: true
+  - key: sort_order
+    value: ASC
+    disabled: true
+  - key: start_time
+    value: 1925-07-26T17:47:35.721Z
+    disabled: true
+    description: The start time range for which you want to retrieve the meetings. The time must be specified in ISO format.
+  - key: end_time
+    value: 1925-07-26T17:47:35.721Z
+    disabled: true
+    description: The end time range for which you want to retrieve the meetings. The time must be specified in ISO format.
+  - key: participants
+    value: 1:10
+    disabled: true
+  - key: status
+    value: ENDED
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
+    description: Search string that matches sessions based on meeting title, meeting ID, and session ID
+  - key: associated_id
+    value: 1a0e9cf2-ae97-9863-a7d4-8bc8db3254ba
+    disabled: true
+    description: ID of the meeting that sessions should be associated with
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Fetch all sessions of an App.resources/examples
+order: 1000

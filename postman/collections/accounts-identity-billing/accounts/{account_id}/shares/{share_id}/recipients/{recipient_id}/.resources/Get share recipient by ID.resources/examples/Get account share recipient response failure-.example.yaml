@@ -1,0 +1,35 @@
+$kind: http-example
+id: b88562aa-1595-515f-ae15-2544426c78f7
+name: Get account share recipient response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/recipients/{{recipient_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: include_resources
+      value: "true"
+      disabled: true
+      description: Include resources in the response.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

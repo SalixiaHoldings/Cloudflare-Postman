@@ -1,0 +1,59 @@
+$kind: http-request
+id: 7e4b957e-a65e-546c-8545-81eb1369f3b0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_TagIndicatorsList
+  GET /accounts/{account_id}/cloudforce-one/events/tags/{tag_uuid}/indicators
+
+  Returns indicators associated with the provided tag UUID, with pagination. By default fans out across every indicator dataset the account can read; pass datasetIds to scope to UUIDs, analytics datasets, or operational datasets. Analytics datasets do not expose tag associations, so the analytics scope returns an empty result.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/indicators"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: datasetIds
+    value: string
+    disabled: true
+    description: "Dataset UUIDs to scope to (repeat the param for multiple), or one standalone scope: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. Analytics datasets do not expose tag associations, so 'analytics' returns an empty result. Omit to search all readable datasets."
+  - key: datasetIds
+    value: string
+    disabled: true
+    description: "Dataset UUIDs to scope to (repeat the param for multiple), or one standalone scope: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. Analytics datasets do not expose tag associations, so 'analytics' returns an empty result. Omit to search all readable datasets."
+  - key: page
+    value: "3075.6446719169617"
+    disabled: true
+  - key: pageSize
+    value: "3075.6446719169617"
+    disabled: true
+  - key: indicatorType
+    value: string
+    disabled: true
+  - key: relatedEvent
+    value: string
+    disabled: true
+    description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+  - key: relatedEvent
+    value: string
+    disabled: true
+    description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+  - key: search
+    value: '{"field":"value","op":"contains","value":"malicious"}'
+    disabled: true
+    description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+  - key: search
+    value: '{"field":"value","op":"contains","value":"malicious"}'
+    disabled: true
+    description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List indicators related to a tag.resources/examples
+order: 4000

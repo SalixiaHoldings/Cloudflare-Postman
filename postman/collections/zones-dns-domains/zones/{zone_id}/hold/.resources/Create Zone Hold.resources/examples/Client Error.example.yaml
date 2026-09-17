@@ -1,0 +1,39 @@
+$kind: http-example
+id: 689b70ec-050f-514e-9e7d-fb09e50392d1
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/hold"
+  method: POST
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: include_subdomains
+      value: "true"
+      disabled: true
+      description: |-
+        If provided, the zone hold will extend to block any subdomain of the given zone, as well
+        as SSL4SaaS Custom Hostnames. For example, a zone hold on a zone with the hostname
+        'example.com' and include_subdomains=true will block 'example.com',
+        'staging.example.com', 'api.staging.example.com', etc.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

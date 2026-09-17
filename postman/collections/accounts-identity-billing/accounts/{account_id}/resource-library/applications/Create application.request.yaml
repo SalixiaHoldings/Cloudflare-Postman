@@ -1,0 +1,50 @@
+$kind: http-request
+id: f5ad3ac0-7329-5d8b-9674-e2668dd89b73
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: createResourceLibraryApplication
+  POST /accounts/{account_id}/resource-library/applications
+
+  Create a custom application for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/resource-library/applications"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "HR",
+      "human_id": "HR",
+      "category_id": 12,
+      "hostnames": [
+        "example.com",
+        "foo.com"
+      ],
+      "ip_subnets": [
+        "192.168.1.0/24",
+        "10.0.0.0/8"
+      ],
+      "port_protocols": [
+        "tcp/80",
+        "tcp/443"
+      ],
+      "support_domains": [
+        "example.com",
+        "foo.com"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create application.resources/examples
+order: 2000

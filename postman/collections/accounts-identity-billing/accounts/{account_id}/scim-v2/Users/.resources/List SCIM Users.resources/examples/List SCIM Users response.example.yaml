@@ -1,0 +1,42 @@
+$kind: http-example
+id: 81fcbba3-ad89-57af-ba3f-abfa4ea3299e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Users"
+  method: GET
+  headers:
+    Accept: application/scim+json
+  queryParams:
+    - key: startIndex
+      value: "1"
+      disabled: true
+    - key: count
+      value: "1182"
+      disabled: true
+    - key: filter
+      value: userName eq "user@example.com"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "schemas": [
+          "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+        ],
+        "totalResults": 3,
+        "Resources": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "itemsPerPage": 3,
+        "startIndex": 1
+      }
+order: 1000

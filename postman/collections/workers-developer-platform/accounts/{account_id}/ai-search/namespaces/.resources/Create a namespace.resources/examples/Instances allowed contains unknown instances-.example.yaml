@@ -1,0 +1,96 @@
+$kind: http-example
+id: 102add6e-9250-55b6-b9a7-4a8c3280bb80
+name: Instances allowed contains unknown instances.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "ruu6g2hoo3mdwc4r7pmw5u8jfcmz",
+        "description": "Production environment",
+        "public_endpoint_params": {
+          "authorized_hosts": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "chat_completions_endpoint": {
+            "disabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "custom_domains": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "default_domain_enabled": true,
+          "enabled": false,
+          "instances_allowed": [
+            "docs",
+            "blog"
+          ],
+          "mcp": {
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "disabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "rate_limit": {
+            "period_ms": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "requests": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "technique": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "search_endpoint": {
+            "disabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

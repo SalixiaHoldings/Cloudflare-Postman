@@ -1,0 +1,50 @@
+$kind: http-example
+id: c96c5080-a4cb-563a-8bf6-c6f49c03b0a6
+name: "OK: Webhook jobs successfully created"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/jobs"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "webhook_ids": [
+          "550e8400-e29b-41d4-a716-446655440000",
+          "660e8400-e29b-41d4-a716-446655440001"
+        ],
+        "finding_instance_ids": [
+          "770e8400-e29b-41d4-a716-446655440002",
+          "660e8400-e29b-41d4-a716-446655440001"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "created": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "failed": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

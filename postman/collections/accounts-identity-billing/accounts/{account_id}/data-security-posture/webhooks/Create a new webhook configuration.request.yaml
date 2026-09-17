@@ -1,0 +1,45 @@
+$kind: http-request
+id: c780e504-48ee-5677-8b91-caebe37f4a9a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: CreateWebhook
+  POST /accounts/{account_id}/data-security/posture/webhooks
+
+  Creates a new webhook configuration for sending finding notifications to external endpoints.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "label": "Send to Slack",
+      "destination_url": "https://example.com/webhook",
+      "authentication_type": "Bearer Auth",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer token123"
+        },
+        {
+          "key": "X-Custom-Header",
+          "value": "value"
+        }
+      ],
+      "signing_secret": "{{signing_secret}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new webhook configuration.resources/examples
+order: 2000

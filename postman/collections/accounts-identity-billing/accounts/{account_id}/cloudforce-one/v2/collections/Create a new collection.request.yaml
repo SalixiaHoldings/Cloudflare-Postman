@@ -1,0 +1,53 @@
+$kind: http-request
+id: 06eb59ad-d90b-5f63-a798-f44c66afa227
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_CollectionCreate
+  POST /accounts/{account_id}/cloudforce-one/v2/collections
+
+  Creates a collection with four patterns: schema-only (empty collection), rows-only (inferred schema), schema+rows (validated data), or file upload (CSV/JSON/JSONL)
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections"
+method: POST
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+body:
+  type: formdata
+  content:
+    - type: text
+      key: name
+      value: string
+      description: (Required) Collection name (alphanumeric with underscores)
+    - type: file
+      key: file
+      src: ""
+      description: (Required) File to upload (CSV, JSON, or JSONL)
+    - type: text
+      key: description
+      value: string
+      description: Optional description
+    - type: text
+      key: metadata
+      value: string
+      description: Optional custom metadata as JSON object (e.g., '{"key":"value"}')
+    - type: text
+      key: project_id
+      value: string
+      description: Optional project ID
+    - type: text
+      key: tags
+      value: string
+      description: Optional tags as JSON array (e.g., '["tag1","tag2"]')
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new collection.resources/examples
+order: 2000

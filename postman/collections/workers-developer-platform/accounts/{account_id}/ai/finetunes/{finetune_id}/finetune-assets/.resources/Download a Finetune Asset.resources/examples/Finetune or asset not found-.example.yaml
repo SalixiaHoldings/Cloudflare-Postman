@@ -1,0 +1,21 @@
+$kind: http-example
+id: 8812ac46-f60e-5657-9f82-cdc0f7ce1511
+name: Finetune or asset not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/finetunes/{{finetune_id}}/finetune-assets/{{file_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": []
+      }
+order: 2000

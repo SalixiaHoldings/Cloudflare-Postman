@@ -1,0 +1,26 @@
+$kind: http-example
+id: 07d9d438-b858-57a6-a7f7-fbed6c069025
+request:
+  url: "{{base_url}}/ips"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: networks
+      value: string
+      disabled: true
+      description: Specified as `jdcloud` to list IPs used by JD Cloud data centers.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

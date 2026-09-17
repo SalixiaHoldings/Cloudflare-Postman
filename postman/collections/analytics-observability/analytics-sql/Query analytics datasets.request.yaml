@@ -1,0 +1,30 @@
+$kind: http-request
+id: 817caecd-5560-5738-a9a2-bd2b6f92be11
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: sql-api-query-get
+  GET /analytics/sql
+
+  Executes a SQL query against the analytics datasets available to the caller. SQL placeholders can be bound with query parameters named `param_<name>`, such as `param_status=404` for `$status`.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/analytics/sql?query=SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: query
+    value: SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10
+    description: (Required) SQL query to execute.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Query analytics datasets.resources/examples
+order: 1000

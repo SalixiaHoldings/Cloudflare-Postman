@@ -1,0 +1,21 @@
+$kind: http-example
+id: f9a6af0b-1319-5f6b-b081-0431f61782c1
+request:
+  url: "{{base_url}}/user/organizations/{{organization_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "023e105f4ecef8ad9ca31a8372d0c353"
+      }
+order: 1000

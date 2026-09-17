@@ -1,0 +1,50 @@
+$kind: http-example
+id: 9d8a539e-0ef3-5a8e-bc28-a13f5963b192
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/addressing/loa_documents"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: loa_document
+        value: "@document.pdf"
+        description: (Required) LOA document to upload.
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "account_id": "{{account_id}}",
+          "auto_generated": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "created": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "filename": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "size_bytes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "verified": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "verified_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

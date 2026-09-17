@@ -1,0 +1,40 @@
+$kind: http-example
+id: 3f678b29-f2fb-5dbf-903b-4f5a8dfb05f1
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/entities/asns/{{asn}}/as_set"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

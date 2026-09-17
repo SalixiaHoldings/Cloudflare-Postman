@@ -1,0 +1,20 @@
+$kind: http-example
+id: 21209e6f-c4bd-57d7-acac-69cc0307a9b2
+name: Delete authenticator response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/users/{{user_id}}/mfa_authenticators/{{authenticator_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {}
+      }
+order: 1000

@@ -1,0 +1,28 @@
+$kind: http-example
+id: 40abdbd4-03d1-5c1d-87ea-b008522cbc1e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/sources/{{source_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "my-renamed-bucket"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

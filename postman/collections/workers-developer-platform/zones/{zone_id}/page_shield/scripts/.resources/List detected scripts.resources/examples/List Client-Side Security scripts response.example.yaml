@@ -1,0 +1,68 @@
+$kind: http-example
+id: 44ae07db-319c-58e9-be52-7f340682b321
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/page_shield/scripts"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: exclude_urls
+      value: blog.cloudflare.com,www.example
+      disabled: true
+    - key: urls
+      value: blog.cloudflare.com,www.example
+      disabled: true
+    - key: hosts
+      value: blog.cloudflare.com,www.example*,*cloudflare.com
+      disabled: true
+    - key: page
+      value: string
+      disabled: true
+    - key: per_page
+      value: "100"
+      disabled: true
+    - key: order_by
+      value: first_seen_at
+      disabled: true
+    - key: direction
+      value: asc
+      disabled: true
+    - key: prioritize_malicious
+      value: "true"
+      disabled: true
+    - key: exclude_cdn_cgi
+      value: "true"
+      disabled: true
+    - key: exclude_duplicates
+      value: "true"
+      disabled: true
+    - key: status
+      value: active,inactive
+      disabled: true
+    - key: page_url
+      value: example.com/page,*/checkout,example.com/*,*checkout*
+      disabled: true
+    - key: export
+      value: csv
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

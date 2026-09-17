@@ -1,0 +1,25 @@
+$kind: http-request
+id: 80db8457-5cd2-5933-be8f-78ce0cb1d16f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: page-shield-list-policies
+  GET /zones/{zone_id}/page_shield/policies
+
+  Lists content security rules configured for the zone.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/page_shield/policies"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: noauth
+examples: ./.resources/List content security rules.resources/examples
+order: 1000

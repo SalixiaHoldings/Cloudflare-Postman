@@ -1,0 +1,70 @@
+$kind: http-example
+id: 0f513122-b419-5dd0-ab83-0e69693c450e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/custom-providers/costs"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "account_provider_id": "50677331-2cce-0086-89a6-e4cb7fde3641",
+        "model": "string",
+        "cost_in": 4073.4015055932105,
+        "cost_out": 9490.239622537047,
+        "cost_type": "tokens",
+        "enable": false,
+        "model_rule": "equals",
+        "token_pricing": {
+          "input_audio_tokens": 3530.0906910561025,
+          "input_cache_creation_tokens": 1377.9579754918814,
+          "input_cached_tokens": 1554.974967148155,
+          "input_image_count": 6282.470333389938,
+          "input_image_tokens": 3242.5541803240776,
+          "input_text_tokens": 9029.611870646477,
+          "input_tokens": 2947.20443431288,
+          "input_video_tokens": 2627.8741471469402,
+          "output_image_count": 8013.910420704633,
+          "output_reasoning_tokens": 3566.2379604764283,
+          "output_tokens": 2136.0437548719347,
+          "total_tokens": 6249.206725042313
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "path": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "path": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

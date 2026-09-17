@@ -1,0 +1,104 @@
+$kind: http-example
+id: bc2b6b6c-e7a2-510d-9b74-e01950200adf
+name: Batch create workflow instances. Body is a JSON list that contain all payloads and ids that are passed into the new instance as the event payload.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/batch"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "instance_id": "9SjURg",
+          "instance_retention": {
+            "error_retention": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "success_retention": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "location_hint": "oc",
+          "params": "string"
+        }
+      ]
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "workflow_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "version_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "trigger_source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "workflow_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "version_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "trigger_source": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 1217.3442682251334,
+          "count": 2893.230232875794,
+          "total_count": 8881.416788790375,
+          "cursor": "string",
+          "page": 3834.3367003835738,
+          "total_pages": 567.3608626239002
+        }
+      }
+order: 1000

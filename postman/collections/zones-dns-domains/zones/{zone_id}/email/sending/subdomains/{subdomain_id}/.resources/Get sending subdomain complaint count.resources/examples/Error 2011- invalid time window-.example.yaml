@@ -1,0 +1,26 @@
+$kind: http-example
+id: 83db4895-762d-5d32-9e32-fd768fd72b7e
+name: "Error 2011: invalid time window."
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/{{subdomain_id}}/reputation/complaints?start_at=1938-09-25T03:26:37.294Z&end_at=1938-09-25T03:26:37.294Z"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: start_at
+      value: 1938-09-25T03:26:37.294Z
+      description: "(Required) "
+    - key: end_at
+      value: 1938-09-25T03:26:37.294Z
+      description: "(Required) "
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 4000

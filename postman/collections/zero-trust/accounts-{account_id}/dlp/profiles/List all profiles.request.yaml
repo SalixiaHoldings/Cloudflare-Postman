@@ -1,0 +1,32 @@
+$kind: http-request
+id: f50e0089-32d5-5cb1-a0c4-fa57c961c94a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-profiles-list-all-profiles
+  GET /accounts/{account_id}/dlp/profiles
+
+  Lists all DLP profiles in an account.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: all
+    value: "true"
+    disabled: true
+    description: Return all profiles, including those that current account does not have access to.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List all profiles.resources/examples
+order: 1000

@@ -1,0 +1,28 @@
+$kind: http-example
+id: 425c30c1-00ec-5e9b-9ac4-f91ed49f3a1a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/reporting/policies"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 2000

@@ -1,0 +1,17 @@
+$kind: http-example
+id: ec3a89bd-3b82-550a-a560-77eae5aa8890
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/takedown-notices/{{notice_id}}/letters/{{letter_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

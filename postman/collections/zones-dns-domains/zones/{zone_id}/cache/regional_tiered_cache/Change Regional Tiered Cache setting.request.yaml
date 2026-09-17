@@ -1,0 +1,32 @@
+$kind: http-request
+id: c887b79e-1c18-53c7-aa7c-078f0bbe99f4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-cache-settings-change-regional-tiered-cache-setting
+  PATCH /zones/{zone_id}/cache/regional_tiered_cache
+
+  Instructs Cloudflare to check a regional hub data center on the way to your upper tier. This can help improve performance for smart and custom tiered cache topologies.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/cache/regional_tiered_cache"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": "off"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Change Regional Tiered Cache setting.resources/examples
+order: 2000

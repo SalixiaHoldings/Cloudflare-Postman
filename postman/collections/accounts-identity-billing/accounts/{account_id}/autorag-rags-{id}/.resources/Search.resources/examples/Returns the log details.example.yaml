@@ -1,0 +1,60 @@
+$kind: http-example
+id: 4e5c9753-0825-54c0-845a-0414a6264678
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/autorag/rags/{{id}}/search"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "query": "string",
+        "filters": {
+          "key": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "max_num_results": 10,
+        "ranking_options": {},
+        "reranking": {
+          "enabled": false,
+          "model": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "rewrite_query": false
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "search_query": "string",
+          "data": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "has_more": false,
+          "next_page": "string",
+          "object": "string"
+        }
+      }
+order: 1000

@@ -1,0 +1,65 @@
+$kind: http-request
+id: a939eaef-ca30-558b-80ea-ee583ed7dc77
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: resources-catalog-export
+  GET /accounts/{account_id}/magic/cloud/resources/export
+
+  Export resources in the Resource Catalog as a JSON file (Closed Beta).
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources/export"
+method: GET
+headers:
+  Accept: application/octet-stream
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: provider_id
+    value: string
+    disabled: true
+  - key: resource_type
+    value: <string>
+    disabled: true
+  - key: resource_type
+    value: <string>
+    disabled: true
+  - key: resource_id
+    value: <uuid>
+    disabled: true
+  - key: resource_id
+    value: <uuid>
+    disabled: true
+  - key: region
+    value: string
+    disabled: true
+  - key: resource_group
+    value: string
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
+  - key: order_by
+    value: string
+    disabled: true
+    description: One of ["id", "resource_type", "region"].
+  - key: desc
+    value: "true"
+    disabled: true
+  - key: v2
+    value: "true"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Export Resources.resources/examples
+order: 2000

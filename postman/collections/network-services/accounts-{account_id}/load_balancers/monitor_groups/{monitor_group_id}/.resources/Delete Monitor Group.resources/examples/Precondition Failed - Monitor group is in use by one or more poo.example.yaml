@@ -1,0 +1,33 @@
+$kind: http-example
+id: b02cd75a-68c9-526b-ac83-bdf7d0dfe724
+name: Precondition Failed - Monitor group is in use by one or more pools
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/load_balancers/monitor_groups/{{monitor_group_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 412
+  statusText: Precondition Failed
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

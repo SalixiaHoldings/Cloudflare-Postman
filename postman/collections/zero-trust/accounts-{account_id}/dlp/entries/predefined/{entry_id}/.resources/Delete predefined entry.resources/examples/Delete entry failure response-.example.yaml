@@ -1,0 +1,30 @@
+$kind: http-example
+id: edfda5cd-df37-56c7-ab07-737618f2a816
+name: Delete entry failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/entries/predefined/{{entry_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

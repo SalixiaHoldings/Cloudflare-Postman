@@ -1,0 +1,65 @@
+$kind: http-example
+id: 50a542a2-e4ae-523b-a8eb-54c7d32753ad
+name: "Scan request denied: hostname was recently scanned."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/scan"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "url": "https://www.example.com",
+        "agentReadiness": true,
+        "country": "RW",
+        "customHeaders": {
+          "key_0": "string",
+          "key_1": "string"
+        },
+        "customagent": "string",
+        "referer": "string",
+        "screenshotsResolutions": [
+          "desktop"
+        ],
+        "visibility": "Public"
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "Scan prevented ...",
+        "status": 409,
+        "errors": [
+          {
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "description": "Scan request denied: hostname was recently scanned"
+      }
+order: 3000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: ca759f6a-0646-59d2-8103-b881a54c9416
+name: Failure response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/speed_api/schedule/{{url}}"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: region
+      value: us-central1
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

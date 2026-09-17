@@ -1,0 +1,28 @@
+$kind: http-example
+id: 8ee6a6bd-6781-5851-82db-8b68ed8d6ec0
+name: "Error 21006: Unexpected server error."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/moq/relays/{{relay_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 21007,
+            "message": "A MoQ relay with this ID was not found."
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 4000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: bea4ae7e-97ab-5954-95c7-a176c238927c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/addressing/loa_documents/{{loa_document_id}}/download"
+  method: GET
+  headers:
+    Accept: application/pdf
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

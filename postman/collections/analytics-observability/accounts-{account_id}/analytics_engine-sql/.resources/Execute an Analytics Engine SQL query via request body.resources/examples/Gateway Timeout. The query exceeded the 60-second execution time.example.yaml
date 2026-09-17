@@ -1,0 +1,28 @@
+$kind: http-example
+id: 5239d3e6-5344-5e00-a86c-df39258a9682
+name: |
+  Gateway Timeout. The query exceeded the 60-second execution timeout. Simplify the query, narrow the time range, or add more restrictive filters to reduce execution time.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics_engine/sql"
+  method: POST
+  headers:
+    Content-Type: text/plain
+    Accept: application/json
+  body:
+    type: text
+    content: |
+      SELECT blob1, sum(double1) as total
+      FROM my_dataset
+      WHERE timestamp > NOW() - INTERVAL '7' DAY
+      GROUP BY blob1
+      ORDER BY total DESC
+      LIMIT 100
+response:
+  statusCode: 504
+  statusText: Gateway Timeout
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: Gateway Timeout
+order: 8000

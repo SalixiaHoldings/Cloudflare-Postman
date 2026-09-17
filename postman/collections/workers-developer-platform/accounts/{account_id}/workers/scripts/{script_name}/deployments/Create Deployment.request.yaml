@@ -1,0 +1,58 @@
+$kind: http-request
+id: 890d5bec-4dc6-5490-84b6-78421ff45f7d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: worker-deployments-create-deployment
+  POST /accounts/{account_id}/workers/scripts/{script_name}/deployments
+
+  Deployments configure how [Worker Versions](https://developers.cloudflare.com/api/operations/worker-versions-list-versions) are deployed to traffic. A deployment can consist of one or two versions of a Worker.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/deployments"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  - key: force
+    value: "true"
+    disabled: true
+    description: If set to true, the deployment will be created even if normally blocked by something such rolling back to an older version when a secret has changed.
+body:
+  type: json
+  content: |-
+    {
+      "strategy": "percentage",
+      "versions": [
+        {
+          "version_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "percentage": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "version_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "percentage": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ],
+      "annotations": {
+        "workers/message": "Deploy bug fix."
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Deployment.resources/examples
+order: 2000

@@ -1,0 +1,25 @@
+$kind: http-request
+id: 06ecfa44-2169-525e-a84f-665f81694793
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: accounts-logs-explorer-datasets-get
+  GET /accounts/{account_id}/logs/explorer/datasets/{dataset_id}
+
+  Retrieve a single Log Explorer dataset by ID for the account.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/logs/explorer/datasets/{{dataset_id}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get an account dataset.resources/examples
+order: 2000

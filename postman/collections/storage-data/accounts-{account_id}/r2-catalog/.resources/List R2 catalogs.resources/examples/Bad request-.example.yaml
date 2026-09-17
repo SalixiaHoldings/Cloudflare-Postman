@@ -1,0 +1,30 @@
+$kind: http-example
+id: 065f3977-7304-5e2b-b9e1-e4bbf6bbf52c
+name: Bad request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false
+      }
+order: 2000

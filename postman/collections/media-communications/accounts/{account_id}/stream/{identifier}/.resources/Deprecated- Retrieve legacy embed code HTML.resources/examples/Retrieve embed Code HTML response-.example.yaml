@@ -1,0 +1,19 @@
+$kind: http-example
+id: d486fd79-5f3c-524a-b07f-5ac2a1bc34a3
+name: Retrieve embed Code HTML response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/embed"
+  method: GET
+  headers:
+    Accept: text/html
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/html
+  body:
+    type: text
+    content: <stream id="ea95132c15732412d22c1476fa83f27a"></stream><script data-cfasync="false" defer type="text/javascript" src="https://embed.cloudflarestream.com/embed/we4g.fla9.latest.js"></script>
+order: 1000

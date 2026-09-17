@@ -1,0 +1,68 @@
+$kind: http-request
+id: 03656475-14a2-5dc5-b2e3-605e5a0188e9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_update_domain
+  PATCH /accounts/{account_id}/email-security/settings/domains/{domain_id}
+
+  Updates configuration for a protected email domain. Only provided fields will be modified. Changes affect delivery mode, security settings, and regional processing.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/domains/{{domain_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "allowed_delivery_modes": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "drop_dispositions": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "folder": {
+        "x-stainless-terraform-configurability": "computed_optional",
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "integration_id": "303f325c-f5c9-ed94-324e-783262157860",
+      "ip_restrictions": [
+        "192.0.2.0/24",
+        "2001:db8::/32"
+      ],
+      "lookback_hops": 12,
+      "regions": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "require_tls_inbound": false,
+      "require_tls_outbound": true,
+      "transport": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update an email domain.resources/examples
+order: 3000

@@ -1,0 +1,32 @@
+$kind: http-request
+id: 775826cc-eb9a-5a20-a806-02ee7b762379
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: usage.get
+  GET /accounts/{account_id}/workers/observability/usage
+
+  Event counts broken down by dataset and service, bucketed by day, for up to 90 days. The top-level events field is the sum of all breakdown counts.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/usage?from=string&to=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: from
+    value: string
+    description: (Required) Unix timestamp in milliseconds for the start of the range.
+  - key: to
+    value: string
+    description: (Required) Unix timestamp in milliseconds for the end of the range.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get event count.resources/examples
+order: 6000

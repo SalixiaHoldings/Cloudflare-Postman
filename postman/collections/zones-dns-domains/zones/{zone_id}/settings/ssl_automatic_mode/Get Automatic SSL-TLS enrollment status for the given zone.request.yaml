@@ -1,0 +1,26 @@
+$kind: http-request
+id: 6880018c-04fe-5ef7-8b25-124171cbc94d
+name: Get Automatic SSL/TLS enrollment status for the given zone
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ssl-detector-automatic-mode-get-enrollment
+  GET /zones/{zone_id}/settings/ssl_automatic_mode
+
+  If the system is enabled, the response will include next_scheduled_scan, representing the next time this zone will be scanned and the zone's ssl/tls encryption mode is potentially upgraded by the system. If the system is disabled, next_scheduled_scan will not be present in the response body.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/settings/ssl_automatic_mode"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Automatic SSL-TLS enrollment status for the given zone.resources/examples
+order: 1000

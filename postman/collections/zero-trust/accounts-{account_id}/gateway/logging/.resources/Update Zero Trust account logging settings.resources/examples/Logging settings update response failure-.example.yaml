@@ -1,0 +1,51 @@
+$kind: http-example
+id: ded8b8c2-008d-51da-b2a5-98e91085881e
+name: Logging settings update response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/logging"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "redact_pii": true,
+        "settings_by_rule_type": {
+          "dns": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "http": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "l4": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

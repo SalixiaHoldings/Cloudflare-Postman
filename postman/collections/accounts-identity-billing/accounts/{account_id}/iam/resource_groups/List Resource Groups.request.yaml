@@ -1,0 +1,32 @@
+$kind: http-request
+id: 311e7b2b-a1fd-50be-86d0-233021f59dee
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: account-resource-group-list
+  GET /accounts/{account_id}/iam/resource_groups
+
+  List all the resource groups for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/iam/resource_groups"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: id
+    value: 023e105f4ecef8ad9ca31a8372d0c353
+    disabled: true
+  - key: name
+    value: NameOfTheResourceGroup
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Resource Groups.resources/examples
+order: 1000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: 2756dd0d-44a0-5d04-9198-3a1358690610
+name: A failure response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/url_normalization"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": null,
+        "success": false,
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

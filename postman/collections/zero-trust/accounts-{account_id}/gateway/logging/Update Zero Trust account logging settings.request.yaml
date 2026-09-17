@@ -1,0 +1,45 @@
+$kind: http-request
+id: f89df1cf-0872-58c6-9821-8310d30ff1b7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-accounts-update-logging-settings-for-the-zero-trust-account
+  PUT /accounts/{account_id}/gateway/logging
+
+  Update logging settings for the current Zero Trust account.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/gateway/logging"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "redact_pii": true,
+      "settings_by_rule_type": {
+        "dns": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "http": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "l4": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Zero Trust account logging settings.resources/examples
+order: 2000

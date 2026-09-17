@@ -1,0 +1,28 @@
+$kind: http-example
+id: a57e0ff0-ae93-5e8e-ab92-6efdb944d292
+name: The image registry cannot be deleted.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/registries/{{domain}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

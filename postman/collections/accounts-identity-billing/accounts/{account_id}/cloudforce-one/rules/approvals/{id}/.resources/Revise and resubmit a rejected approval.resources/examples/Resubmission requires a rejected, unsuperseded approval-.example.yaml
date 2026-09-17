@@ -1,0 +1,35 @@
+$kind: http-example
+id: b98dbf9e-be85-59f6-b47d-eac3173b50dd
+name: Resubmission requires a rejected, unsuperseded approval.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals/{{id}}/resubmit"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "commit_message": "string",
+        "content": "string",
+        "description": "string",
+        "enabled": false,
+        "name": "string",
+        "namespaces": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 5000

@@ -1,0 +1,41 @@
+$kind: http-request
+id: 8470c683-9625-5002-8abc-9fd918a4f86f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-put-object
+  PUT /accounts/{account_id}/r2/buckets/{bucket_name}/objects/{object_key}
+
+  Uploads an object to an R2 bucket. The object body is provided as the request body. Returns metadata about the uploaded object.
+
+  The maximum upload size for this endpoint is 300 MB. For most workloads, we recommend using R2's [S3-compatible API](https://developers.cloudflare.com/r2/api/s3/api/) or a [Worker with an R2 binding](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/) instead.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects/{{object_key}}"
+method: PUT
+headers:
+  - key: cf-r2-jurisdiction
+    value: default
+  - key: Content-Length
+    value: "1081"
+  - key: cf-r2-storage-class
+    value: Standard
+    description: Storage class for this object. Overrides the bucket default.
+  - key: Content-Type
+    value: application/octet-stream
+  - key: Accept
+    value: application/json
+body:
+  type: file
+  content: {}
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Upload Object.resources/examples
+order: 3000

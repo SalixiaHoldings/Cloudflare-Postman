@@ -1,0 +1,28 @@
+$kind: http-example
+id: b2d0cb6d-793b-5f2e-8e4c-84326cf74d76
+name: List supported cloud vendors and regions failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions/supported_regions"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

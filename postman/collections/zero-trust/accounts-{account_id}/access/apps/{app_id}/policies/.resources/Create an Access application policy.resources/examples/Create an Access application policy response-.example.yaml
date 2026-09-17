@@ -1,0 +1,29 @@
+$kind: http-example
+id: 24a5da70-d733-567a-b95b-89c0a96bd1b8
+name: Create an Access application policy response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/apps/{{app_id}}/policies"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

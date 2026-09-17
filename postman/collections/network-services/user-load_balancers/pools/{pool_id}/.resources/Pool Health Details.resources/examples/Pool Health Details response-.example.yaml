@@ -1,0 +1,39 @@
+$kind: http-example
+id: 8eb3bb00-599b-5fb1-848a-dab1b1c807e5
+name: Pool Health Details response.
+request:
+  url: "{{base_url}}/user/load_balancers/pools/{{pool_id}}/health"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "pool_id": "17b5962d775c646f3f9725cbc7a53df4",
+          "pop_health": {
+            "Amsterdam, NL": {
+              "healthy": true,
+              "origins": [
+                {
+                  "2001:DB8::5": {
+                    "failure_reason": "No failures",
+                    "healthy": true,
+                    "response_code": 401,
+                    "rtt": "12.1ms"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+order: 1000

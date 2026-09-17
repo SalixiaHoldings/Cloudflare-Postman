@@ -1,0 +1,50 @@
+$kind: http-request
+id: f96551e9-f64d-5e09-ac2b-134577fa14b7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-applications-list-access-applications
+  GET /accounts/{account_id}/access/apps
+
+  Lists all Access applications in an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/apps"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: name
+    value: string
+    disabled: true
+  - key: domain
+    value: string
+    disabled: true
+  - key: aud
+    value: string
+    disabled: true
+  - key: target_attributes
+    value: string
+    disabled: true
+  - key: exact
+    value: "true"
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "1000"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Access applications.resources/examples
+order: 1000

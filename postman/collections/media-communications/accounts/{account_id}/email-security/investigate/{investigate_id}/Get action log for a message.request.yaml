@@ -1,0 +1,25 @@
+$kind: http-request
+id: 7e7e449e-a28f-5644-b844-7b228c505570
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_get_message_action_log
+  GET /accounts/{account_id}/email-security/investigate/{investigate_id}/action_log
+
+  Returns the list of post-delivery actions (moves, quarantine releases, previews, etc.) that have been applied to a specific email message.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}/action_log"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get action log for a message.resources/examples
+order: 2000

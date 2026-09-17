@@ -1,0 +1,32 @@
+$kind: http-example
+id: 3f92e72f-6e0c-53df-b74f-bcbd62a06f7c
+name: Indicates the error trying to list pipelines.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: search
+      value: string
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "25"
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "results": {},
+        "errors": []
+      }
+order: 2000

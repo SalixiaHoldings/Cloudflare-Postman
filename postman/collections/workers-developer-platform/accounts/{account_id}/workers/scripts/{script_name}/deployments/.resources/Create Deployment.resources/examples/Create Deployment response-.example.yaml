@@ -1,0 +1,64 @@
+$kind: http-example
+id: 9e307227-5d79-565c-a124-c46d5f1a28f0
+name: Create Deployment response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/deployments"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: force
+      value: "true"
+      disabled: true
+      description: If set to true, the deployment will be created even if normally blocked by something such rolling back to an older version when a secret has changed.
+  body:
+    type: json
+    content: |-
+      {
+        "strategy": "percentage",
+        "versions": [
+          {
+            "version_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "percentage": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "version_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "percentage": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "annotations": {
+          "workers/message": "Deploy bug fix."
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

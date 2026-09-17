@@ -1,0 +1,40 @@
+$kind: http-example
+id: fa6ecb23-b617-51c1-bf2d-01f5b061fdee
+name: Preview transformer response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logpush/transformers/preview"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "sql": "SELECT ClientIP, RayID FROM http_requests",
+        "input": {
+          "ClientIP": "198.51.100.1",
+          "ClientRequestHost": "example.com",
+          "EdgeStartTimestamp": 1722513600000000000,
+          "RayID": "abcdef1234567890"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "ClientIP": "198.51.100.1",
+            "RayID": "abcdef1234567890"
+          }
+        ]
+      }
+order: 1000

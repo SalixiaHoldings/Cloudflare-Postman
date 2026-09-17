@@ -1,0 +1,28 @@
+$kind: http-example
+id: 43be2bcc-cc56-5947-85ae-70086386a78c
+name: A client error occurred.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/security-center/insights/scans"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,30 @@
+$kind: http-example
+id: 9d1b04ff-b77d-50bd-9ea3-2de5fb07a5fd
+name: Forbidden.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false
+      }
+order: 4000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: 3cdb1d08-2838-53af-a362-1faba0e716bc
+name: List Regions response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/load_balancers/regions"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: subdivision_code
+      value: CA
+      disabled: true
+    - key: subdivision_code_a2
+      value: CA
+      disabled: true
+    - key: country_code_a2
+      value: US
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {}
+      }
+order: 1000

@@ -1,0 +1,140 @@
+$kind: http-example
+id: 0263b653-13c3-5f50-8d8c-2940bc35d8aa
+name: Returns a paginated list of known Actors. Non-CFONE callers receive the public projection documented by this schema.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/categories/actors"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "3075.6446719169617"
+      disabled: true
+    - key: pageSize
+      value: "3075.6446719169617"
+      disabled: true
+    - key: value
+      value: string
+      disabled: true
+      description: Free-text substring match on actor name (Tag.value).
+    - key: filters
+      value: '{"field":"value","op":"in","value":"APT28"}'
+      disabled: true
+      description: "Structured filters as a JSON array of {field, op, value} objects. Same shape as the events search API. Common use: filter actors by country with filters=[{\"field\":\"originCountryISO\",\"op\":\"in\",\"value\":[\"IR\",\"CN\"]}]. Country values may be passed as alpha-2, alpha-3, name, or alias (e.g. \"iran\"). Max 10 entries per request, max 100 values per 'in'. Non-CFONE callers may only filter on fields that are also public-readable (`value`, `categoryName`, `aliasGroupNames`, `originCountryISO`); filtering on a redacted field returns 400. Performance notes: `originCountryISO` uses its B-tree index for equals/in. `endsWith` and `aliasGroupNames` contains/like are leading-wildcard scans and slow on large result sets. `aliasGroupNames` matches on JSON-encoded text, so substrings can cross alias boundaries (\"apt28\" also matches \"apt280\" when both appear in the same tag's alias list)."
+    - key: filters
+      value: '{"field":"value","op":"in","value":"APT28"}'
+      disabled: true
+      description: "Structured filters as a JSON array of {field, op, value} objects. Same shape as the events search API. Common use: filter actors by country with filters=[{\"field\":\"originCountryISO\",\"op\":\"in\",\"value\":[\"IR\",\"CN\"]}]. Country values may be passed as alpha-2, alpha-3, name, or alias (e.g. \"iran\"). Max 10 entries per request, max 100 values per 'in'. Non-CFONE callers may only filter on fields that are also public-readable (`value`, `categoryName`, `aliasGroupNames`, `originCountryISO`); filtering on a redacted field returns 400. Performance notes: `originCountryISO` uses its B-tree index for equals/in. `endsWith` and `aliasGroupNames` contains/like are leading-wildcard scans and slow on large result sets. `aliasGroupNames` matches on JSON-encoded text, so substrings can cross alias boundaries (\"apt28\" also matches \"apt280\" when both appear in the same tag's alias list)."
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "tags": [
+          {
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "aliasGroupNames": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "aliases": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "categoryName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "categoryUuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidence": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "dateOfDiscovery": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "externalReferences": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "externalReferences_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "originCountryISO": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "originCountryISO_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "properties": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tlp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "uuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "value": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "aliasGroupNames": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "aliases": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "categoryName": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "categoryUuid": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidence": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "dateOfDiscovery": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "externalReferences": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "externalReferences_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "originCountryISO": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "originCountryISO_annotated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "properties": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tlp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "pagination": {
+          "page": 7137.9383420571685,
+          "pageSize": 3754.622843116522,
+          "totalCount": 8216.437203809619,
+          "totalPages": 712.0559201575816
+        }
+      }
+order: 1000

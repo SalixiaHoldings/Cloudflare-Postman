@@ -1,0 +1,58 @@
+$kind: http-request
+id: 65acac9b-2610-5108-a43d-3165fca5e204
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: share-recipients-update
+  PUT /accounts/{account_id}/shares/{share_id}/recipients
+
+  Replaces the full recipient list for an account-targeted share. The
+  server computes the diff between the current and desired recipients:
+  new accounts are added, accounts no longer in the list are marked for
+  disassociation, and unchanged accounts are left as-is.
+
+  Returns an error if the share targets an organization
+  (`target_type=organization`); org-targeted shares derive their
+  recipients dynamically from org membership and cannot be modified
+  through this endpoint.
+
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/recipients"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    [
+      {
+        "account_id": "{{account_id}}",
+        "organization_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "recipient_account_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      {
+        "account_id": "{{account_id}}",
+        "organization_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "recipient_account_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    ]
+auth:
+  type: noauth
+examples: ./.resources/Update a share's recipients.resources/examples
+order: 3000

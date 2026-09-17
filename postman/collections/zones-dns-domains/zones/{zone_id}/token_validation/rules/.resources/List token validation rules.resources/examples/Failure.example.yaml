@@ -1,0 +1,66 @@
+$kind: http-example
+id: e2d8d372-2464-5a77-833e-c8389fee3052
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: Maximum number of results per page.
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number of paginated results.
+    - key: token_configuration
+      value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+      disabled: true
+      description: Select rules using any of these token configurations.
+    - key: token_configuration
+      value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+      disabled: true
+      description: Select rules using any of these token configurations.
+    - key: action
+      value: log
+      disabled: true
+    - key: enabled
+      value: "true"
+      disabled: true
+    - key: id
+      value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+      disabled: true
+      description: Select rules with these IDs.
+    - key: rule_id
+      value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+      disabled: true
+      description: Select rules with these IDs.
+    - key: host
+      value: www.example.com
+      disabled: true
+      description: Select rules with this host in `include`.
+    - key: hostname
+      value: www.example.com
+      disabled: true
+      description: Select rules with this host in `include`.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

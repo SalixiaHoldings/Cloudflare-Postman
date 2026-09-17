@@ -1,0 +1,22 @@
+$kind: http-example
+id: 30bca313-8019-501d-bb60-6900334ab879
+name: "Internal Server Error: Unexpected failure resetting finding severity"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{finding_id}}/reset_finding_severity"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 4000

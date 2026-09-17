@@ -1,0 +1,61 @@
+$kind: http-example
+id: 2c07a99b-b8de-50b9-94aa-45303606425a
+name: Upload Worker Module response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}"
+  method: PUT
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  queryParams:
+    - key: bindings_inherit
+      value: strict
+      disabled: true
+      description: When set to "strict", the upload will fail if any `inherit` type bindings cannot be resolved against the previous version of the Worker. Without this, unresolvable inherit bindings are silently dropped.
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: files
+        value: '["export default {\n  async fetch(request, env, ctx) {\n    return new Response(\"Hello, world!\");\n  }\n};"]'
+        contentType: application/javascript+module, text/javascript+module, application/javascript, text/javascript, text/x-python, text/x-python-requirement, application/wasm, text/plain, application/octet-stream, application/source-map
+        description: undefined
+      - type: text
+        key: metadata
+        value: '{"compatibility_date":{},"compatibility_flags":["nodejs_compat"],"main_module":"worker.js"}'
+        contentType: application/json
+        description: undefined
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "created_on": "2022-05-05T05:15:11.602148Z",
+          "etag": "777f24a43bef5f69174aa69ceaf1dea67968d510a31d1vw3e49d34a0187c06d1",
+          "handlers": [
+            "fetch"
+          ],
+          "logpush": false,
+          "modified_on": "2022-05-20T19:02:56.446492Z",
+          "placement": {
+            "mode": "smart"
+          },
+          "startup_time_ms": 10,
+          "tail_consumers": [
+            {
+              "environment": "production",
+              "service": "my-log-consumer"
+            }
+          ],
+          "usage_model": "standard"
+        },
+        "success": true
+      }
+order: 1000

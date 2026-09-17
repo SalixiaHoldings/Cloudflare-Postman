@@ -1,0 +1,34 @@
+$kind: http-request
+id: 13287ea7-5eed-5584-b74c-482dc2bd0401
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: firewall-rules-get-a-firewall-rule
+  GET /zones/{zone_id}/firewall/rules/{rule_id}
+
+  **This endpoint has been deprecated and returns 410 Gone. Please use the [Rulesets API](https://developers.cloudflare.com/ruleset-engine/) instead.**
+
+  Fetches the details of a firewall rule.
+
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/firewall/rules/{{rule_id}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: id
+    value: 372e67954025e0ba6aaa6d586b9e0b60
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get a firewall rule.resources/examples
+order: 2000

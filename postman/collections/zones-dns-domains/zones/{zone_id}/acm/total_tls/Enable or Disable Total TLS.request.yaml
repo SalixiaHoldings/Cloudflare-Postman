@@ -1,0 +1,33 @@
+$kind: http-request
+id: 81d1a3cf-8668-529a-a03c-82b8f2b48f15
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: total-tls-enable-or-disable-total-tls
+  POST /zones/{zone_id}/acm/total_tls
+
+  Set Total TLS Settings or disable the feature for a Zone.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/acm/total_tls"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "enabled": true,
+      "certificate_authority": "google"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Enable or Disable Total TLS.resources/examples
+order: 2000

@@ -1,0 +1,53 @@
+$kind: http-example
+id: a974c8c1-266f-5c0e-8f43-fd8722955099
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/token_validation/config/{{config_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "description": "Long description for Token Validation Configuration",
+        "title": "Example Token Validation Configuration",
+        "token_sources": [
+          "http.request.headers[\"x-auth\"][0]",
+          "http.request.cookies[\"Authorization\"][0]"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "title": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "token_sources": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

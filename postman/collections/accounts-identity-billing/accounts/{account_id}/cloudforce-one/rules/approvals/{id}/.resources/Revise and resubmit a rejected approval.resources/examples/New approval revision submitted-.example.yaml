@@ -1,0 +1,39 @@
+$kind: http-example
+id: 2713c058-3829-53a5-abdb-d231f8c70dfa
+name: New approval revision submitted.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals/{{id}}/resubmit"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "commit_message": "string",
+        "content": "string",
+        "description": "string",
+        "enabled": false,
+        "name": "string",
+        "namespaces": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "string",
+        "approval_id": 5937.612925190479,
+        "supersedes_approval_id": 9406.12553851679,
+        "revision_number": 3425,
+        "requires_approval": true
+      }
+order: 1000

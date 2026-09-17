@@ -1,0 +1,27 @@
+$kind: http-example
+id: 0cb791e4-fe58-5eb5-a389-b959fe155ff3
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/domain/queries"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: string
+      disabled: true
+    - key: page
+      value: "669205"
+      disabled: true
+    - key: per_page
+      value: "66"
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

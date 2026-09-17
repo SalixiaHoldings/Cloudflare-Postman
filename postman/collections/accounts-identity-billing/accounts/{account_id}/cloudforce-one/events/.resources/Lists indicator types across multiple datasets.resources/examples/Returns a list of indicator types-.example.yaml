@@ -1,0 +1,32 @@
+$kind: http-example
+id: ad42ffed-b149-5711-9eb7-f36a0503bfb1
+name: Returns a list of indicator types.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/indicator-types"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: datasetIds
+      value: string
+      disabled: true
+      description: "Dataset UUIDs to query, or one standalone scope value: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, queries all accessible datasets."
+    - key: datasetIds
+      value: string
+      disabled: true
+      description: "Dataset UUIDs to query, or one standalone scope value: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, queries all accessible datasets."
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+order: 1000

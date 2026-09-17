@@ -1,0 +1,36 @@
+$kind: http-example
+id: 6d780828-461b-5026-a2e4-4971c4340d28
+name: Update a device posture integration response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/posture/integration/{{integration_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "config": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "interval": "10m",
+        "name": "My Workspace One Integration",
+        "type": "workspace_one"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,42 @@
+$kind: http-request
+id: 4a0f95ae-f7b6-5b00-82c8-4d7ea95cd1c7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_ImageList
+  GET /accounts/{accountId}/v1/images
+
+  List images for an account.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{accountId}}/v1/images"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: per_page
+    value: "1000"
+    disabled: true
+    description: Number of items per page
+  - key: continuation_token
+    value: string
+    disabled: true
+    description: Continuation token for a next page. List images V2 returns continuation_token
+  - key: creator
+    value: string
+    disabled: true
+    description: Internal user ID set within the creator field. Setting to empty string will return images where creator field is not set
+  - key: sort_order
+    value: desc
+    disabled: true
+    description: Sorting order by upload time
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get a list of images.resources/examples
+order: 1000

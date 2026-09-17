@@ -1,0 +1,41 @@
+$kind: http-request
+id: 67dfc5df-a6e8-56d6-956b-539a4ca41956
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: worker-assets-upload
+  POST /accounts/{account_id}/workers/assets/upload
+
+  Upload assets ahead of creating a Worker version.  To learn more about the direct uploads of assets, see https://developers.cloudflare.com/workers/static-assets/direct-upload/.
+
+  Authentication support: manual-unresolved
+  Auth declaration SHA-256: 9ea62d7be4ad6b4345cd6908544c75061634487369024a670ae496f421f2aa11
+  Upstream security (operation; OR alternatives, AND within each object): [{"assets_jwt":[]}]
+  Selected requirement: null
+  BLOCKED: upstream security scheme is undefined or unsupported. No Bearer assumption is made. Consult upstream documentation, configure authentication on a local copy, then explicitly remove its pre-request guard.
+url: "{{base_url}}/accounts/{{account_id}}/workers/assets/upload?base64=true"
+method: POST
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+queryParams:
+  - key: base64
+    value: "true"
+    description: "(Required) "
+body:
+  type: formdata
+  content:
+    - type: text
+      key: key_0
+      value: string
+auth:
+  type: noauth
+scripts:
+  - type: beforeRequest
+    code: |-
+      console.error('BLOCKED: upstream authentication cannot be generated safely. Read the request authentication notice and configure a local copy explicitly.');
+      pm.execution.setNextRequest(null);
+      pm.execution.skipRequest();
+    language: text/javascript
+examples: ./.resources/Upload Assets.resources/examples
+order: 2000

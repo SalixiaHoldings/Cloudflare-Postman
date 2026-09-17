@@ -1,0 +1,32 @@
+$kind: http-request
+id: f557c029-a43d-5a6d-b168-d2ca7ff47d37
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dls-zone-regional-hostnames-patch
+  PATCH /zones/{zone_id}/addressing/regional_hostnames/{hostname}
+
+  Update the configuration for a specific Regional Hostname. Only the region_key of a hostname is mutable.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/addressing/regional_hostnames/{{hostname}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "region_key": "ca"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Regional Hostname.resources/examples
+order: 3000

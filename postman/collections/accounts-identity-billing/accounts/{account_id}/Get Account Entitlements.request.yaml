@@ -1,0 +1,26 @@
+$kind: http-request
+id: c5be0083-0c76-572d-8dfa-5c5ac675bb38
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: entitlements-get-account-entitlements
+  GET /accounts/{account_id}/entitlements
+
+  Returns the list of entitlements (features and their allocations) for a given account. Each entitlement describes a product feature the account is permitted to use and the allocation value (boolean, count, range, enum, or string) that governs its behaviour.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/entitlements"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Account Entitlements.resources/examples
+order: 20000

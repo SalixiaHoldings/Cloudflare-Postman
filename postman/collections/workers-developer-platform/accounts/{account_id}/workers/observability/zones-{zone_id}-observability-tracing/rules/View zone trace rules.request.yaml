@@ -1,0 +1,25 @@
+$kind: http-request
+id: ecb3fd86-dccb-5d3a-9033-6262d5234808
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone.observability.tracing.rules.get
+  GET /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/rules
+
+  Retrieve the ordered sampling overrides for a zone's managed Cloudflare Traces ruleset.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/zones/{{zone_id}}/observability/tracing/rules"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/View zone trace rules.resources/examples
+order: 1000

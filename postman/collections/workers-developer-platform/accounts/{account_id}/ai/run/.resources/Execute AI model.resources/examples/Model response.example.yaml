@@ -1,0 +1,33 @@
+$kind: http-example
+id: 6b03517e-8d1b-53b4-9ce0-50e4b06ffa06
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/run/{{model_name}}"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "text": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

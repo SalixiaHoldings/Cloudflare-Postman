@@ -1,0 +1,28 @@
+$kind: http-example
+id: 8cbd5f79-22bd-5a74-9ed4-a9be54778a55
+name: Get registration failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/registrations/{{domain_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 10000,
+            "message": "Domain not found"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

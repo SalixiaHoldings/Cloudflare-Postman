@@ -1,0 +1,38 @@
+$kind: http-example
+id: 4eb67b25-b14f-5ca6-8db7-641eee5b0c08
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/provider_configs/{{id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "secret": "{{secret}}"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "provider_slug": "string",
+          "secret_preview": "{{secret_preview}}",
+          "default_config": true,
+          "gateway_id": "my-gateway",
+          "modified_at": "1967-01-25T13:12:09.950Z",
+          "alias": "string",
+          "secret_id": "{{secret_id}}",
+          "rate_limit": 1778.567167930305,
+          "rate_limit_period": 60
+        }
+      }
+order: 1000

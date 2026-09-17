@@ -1,0 +1,58 @@
+$kind: http-example
+id: 6cc40cc3-7b0d-5b11-894e-585de9bfdb1d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v1"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: creator
+        value: string
+        description: Can set the creator field with an internal user ID.
+      - type: file
+        key: file
+        src: ""
+        description: An image binary data. Only needed when type is uploading a file.
+      - type: text
+        key: id
+        value: string
+        description: An optional custom unique identifier for your image.
+      - type: text
+        key: metadata
+        value: "{}"
+        description: User modifiable key-value store. Can use used for keeping references to another system of record for managing images.
+      - type: text
+        key: requireSignedURLs
+        value: "true"
+        description: Indicates whether the image requires a signature token for the access.
+      - type: text
+        key: url
+        value: https://example.com/path/to/logo.png
+        description: A URL to fetch an image from origin. Only needed when type is uploading from a URL.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,42 @@
+$kind: http-example
+id: 999573fd-d1c6-5772-89e9-f32dfed8ef29
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/routes/{{id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Route Name"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "route": {
+          "id": "string",
+          "name": "string",
+          "elements": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "created_at": "1958-10-12T09:55:30.412Z",
+          "modified_at": "1982-04-13T21:51:51.542Z",
+          "account_tag": "string",
+          "gateway_id": "string"
+        }
+      }
+order: 2000

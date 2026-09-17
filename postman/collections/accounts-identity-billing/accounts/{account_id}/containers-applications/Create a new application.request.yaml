@@ -1,0 +1,69 @@
+$kind: http-request
+id: 050211f7-9dda-5930-a367-a2bd22841092
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: createApplication
+  POST /accounts/{account_id}/containers/applications
+
+  Create a Containers application.
+
+  Use `scheduling_policy: "default"` for a scheduler-backed application. The
+  Containers scheduler maintains the requested instance count and manages
+  deployment configuration, placement, scaling, versions, and rollouts.
+
+  Use `scheduling_policy: "durable_object"` for a Durable Object-managed
+  application. Each Durable Object creates and manages the lifecycle of its
+  container instance. Supply `name`, `scheduling_policy`, and `durable_objects`,
+  with optional top-level `observability` settings. Deployment configuration,
+  scaling, constraints, versions, and rollouts do not apply.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/containers/applications"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "scheduling_policy": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "instances": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "max_instances": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "configuration": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "constraints": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "durable_objects": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "observability": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "rollout_active_grace_period": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new application.resources/examples
+order: 2000

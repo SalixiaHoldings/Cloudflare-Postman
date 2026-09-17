@@ -1,0 +1,32 @@
+$kind: http-request
+id: b57099c7-9afb-5be7-b66a-b62301d80e89
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ssl-verification-edit-ssl-certificate-pack-validation-method
+  PATCH /zones/{zone_id}/ssl/verification/{certificate_pack_id}
+
+  Edit SSL validation method for a certificate pack. A PATCH request will request an immediate validation check on any certificate, and return the updated status. If a validation method is provided, the validation will be immediately attempted using that method.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/ssl/verification/{{certificate_pack_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "validation_method": "txt"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Edit SSL Certificate Pack Validation Method.resources/examples
+order: 2000

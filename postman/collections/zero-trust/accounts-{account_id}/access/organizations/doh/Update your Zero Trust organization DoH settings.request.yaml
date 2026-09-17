@@ -1,0 +1,33 @@
+$kind: http-request
+id: b6d8e981-e7b0-59b5-a275-a83db4c98249
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-organization-update-your-zero-trust-organization-doh-settings
+  PUT /accounts/{account_id}/access/organizations/doh
+
+  Updates the DoH settings for your Zero Trust organization.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/organizations/doh"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "doh_jwt_duration": "800h",
+      "service_token_id": "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update your Zero Trust organization DoH settings.resources/examples
+order: 2000

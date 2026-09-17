@@ -1,0 +1,52 @@
+$kind: http-request
+id: a1f460c8-9e72-5563-90ab-822d893ab3c5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: list-tables
+  GET /accounts/{account_id}/r2-catalog/{bucket_name}/namespaces/{namespace}/tables
+
+  Returns a list of tables in the specified namespace within an R2 catalog.
+  Supports pagination for efficient traversal of large table collections.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/namespaces/{{namespace}}/tables"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page_token
+    value: MSYxNzU5NzU2MTI4NTU2Njk2JjAxOTliOWEzLTkxMmUtN2ZhMS05YzllLTg5MTAxMGQzYTg0MQ
+    disabled: true
+    description: |
+      Opaque pagination token from a previous response.
+      Use this to fetch the next page of results.
+  - key: page_size
+    value: "100"
+    disabled: true
+    description: |
+      Maximum number of tables to return per page.
+      Defaults to 100, maximum 1000.
+  - key: return_uuids
+    value: "true"
+    disabled: true
+    description: |
+      Whether to include table UUIDs in the response.
+      Set to true to receive the table_uuids array.
+  - key: return_details
+    value: "true"
+    disabled: true
+    description: |
+      Whether to include additional metadata (timestamps, locations).
+      When true, response includes created_at, updated_at, metadata_locations, and locations arrays.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List tables in namespace.resources/examples
+order: 1000

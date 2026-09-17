@@ -1,0 +1,31 @@
+$kind: http-example
+id: bec5c077-7ad2-5b7e-a43b-44b0d35bfd7b
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/takedown-notices/lookup"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domains": [
+          "string"
+        ],
+        "queryId": 6617,
+        "queryIds": [
+          3319,
+          1775
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

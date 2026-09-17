@@ -1,0 +1,24 @@
+$kind: http-example
+id: 10ee21dd-9ca4-5ec3-aa2c-d2c54dff9990
+name: Get entry response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/entries/{{entry_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

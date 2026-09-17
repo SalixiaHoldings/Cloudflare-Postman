@@ -1,0 +1,31 @@
+$kind: http-example
+id: 6ef76963-3fe7-5bde-a473-4fb2cce090a0
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logs/audit/product_categories"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

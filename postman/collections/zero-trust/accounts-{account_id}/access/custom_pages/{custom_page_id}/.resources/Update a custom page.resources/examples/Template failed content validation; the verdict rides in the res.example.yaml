@@ -1,0 +1,40 @@
+$kind: http-example
+id: 915f745e-75a5-5745-a817-2fd4b5b7dae9
+name: Template failed content validation; the verdict rides in the result.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/custom_pages/{{custom_page_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "custom_html": "<html><body><h1>Access Denied</h1></body></html>",
+        "type": "identity_denied",
+        "app_count": 2928,
+        "contract_version": 3494,
+        "created_at": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "uid": "f174e90a-fafe-4643-bbbc-4a0ed4fc8415",
+        "updated_at": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

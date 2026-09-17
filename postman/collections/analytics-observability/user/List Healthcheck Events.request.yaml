@@ -1,0 +1,49 @@
+$kind: http-request
+id: 816e8d95-350d-5a97-b866-84cfa6f24b93
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: load-balancer-healthcheck-events-list-healthcheck-events
+  GET /user/load_balancing_analytics/events
+
+  List origin health changes.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/user/load_balancing_analytics/events"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: until
+    value: 2016-11-11T13:00:00Z
+    disabled: true
+  - key: pool_name
+    value: primary-dc
+    disabled: true
+  - key: origin_healthy
+    value: "true"
+    disabled: true
+  - key: pool_id
+    value: 17b5962d775c646f3f9725cbc7a53df4
+    disabled: true
+  - key: since
+    value: 2016-11-11T12:00:00Z
+    disabled: true
+  - key: origin_name
+    value: primary-dc-1
+    disabled: true
+  - key: pool_healthy
+    value: "true"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Healthcheck Events.resources/examples
+order: 3000

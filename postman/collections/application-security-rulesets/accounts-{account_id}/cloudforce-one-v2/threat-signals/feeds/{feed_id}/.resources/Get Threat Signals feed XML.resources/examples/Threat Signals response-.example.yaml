@@ -1,0 +1,19 @@
+$kind: http-example
+id: 989b83e4-1a6f-5bab-a6a2-4a454866894a
+name: Threat Signals response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds/{{feed_id}}/raw"
+  method: GET
+  queryParams:
+    - key: format
+      value: xml
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

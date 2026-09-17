@@ -1,0 +1,35 @@
+$kind: http-example
+id: 44f10ae3-0ba0-50b8-afea-e06f59a08b75
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/auth/dmarc-reports"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true,
+        "skip_wizard": false
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

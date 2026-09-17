@@ -1,0 +1,91 @@
+$kind: http-request
+id: 1efb6898-d5b4-5edc-a57f-aff88e8a04c8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_investigate
+  GET /accounts/{account_id}/email-security/investigate
+
+  Returns information for each email that matches the search parameter(s).
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: start
+    value: 2022-06-25T14:30:00Z
+    disabled: true
+    description: The beginning of the search date range. Defaults to `now - 30 days`. Must not be in the future.
+  - key: end
+    value: 2022-07-25T14:30:00Z
+    disabled: true
+    description: The end of the search date range. Defaults to `now`.
+  - key: query
+    value: bob jones
+    disabled: true
+    description: Space-delimited search term. Case-insensitive.
+  - key: detections_only
+    value: "true"
+    disabled: true
+    description: Whether to include only detections in search results.
+  - key: final_disposition
+    value: SPAM
+    disabled: true
+    description: Dispositions to filter by.
+  - key: metric
+    value: string
+    disabled: true
+  - key: message_action
+    value: PREVIEW
+    disabled: true
+    description: Message actions to filter by.
+  - key: recipient
+    value: me@example.com
+    disabled: true
+  - key: sender
+    value: noreply@example.com
+    disabled: true
+  - key: smtp_helo_ip
+    value: 192.0.2.1
+    disabled: true
+    description: Matches messages whose SMTP HELO server IP address equals this value.
+  - key: alert_id
+    value: string
+    disabled: true
+  - key: domain
+    value: example.com
+    disabled: true
+    description: Sender domains to filter by.
+  - key: message_id
+    value: string
+    disabled: true
+  - key: subject
+    value: string
+    disabled: true
+  - key: delivery_status
+    value: moved
+    disabled: true
+    description: Delivery status to filter by.
+  - key: cursor
+    value: string
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+    description: The number of results per page. Maximum value is 1000.
+  - key: page
+    value: "1"
+    disabled: true
+    description: "Deprecated: Use cursor pagination instead. End of life: November 1, 2026."
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Search email messages.resources/examples
+order: 1000

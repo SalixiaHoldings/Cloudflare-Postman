@@ -1,0 +1,37 @@
+$kind: http-request
+id: 979fb57c-f8be-58d1-89d8-5f2a7d49d622
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-create-authenticated-direct-upload-url-v-1
+  POST /accounts/{account_id}/images/v1/direct_upload
+
+  Direct uploads allow users to upload images without API keys. A common use
+  case are web apps, client-side applications, or mobile devices where users
+  upload content directly to Cloudflare Images. This method creates a one-time
+  upload URL. Use the V2 endpoint for additional features such as custom IDs and
+  metadata.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v1/direct_upload"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "expiry": "2021-01-02T02:20:00Z"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create authenticated direct upload URL V1.resources/examples
+order: 3000

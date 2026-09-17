@@ -1,0 +1,27 @@
+$kind: http-request
+id: 89a5c948-5088-56ef-b0c7-710b91a0311b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: delete-zones-zone_id-logpush-jobs-job_id
+  DELETE /zones/{zone_id}/logpush/jobs/{job_id}
+
+  Deletes a Logpush job.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/logpush/jobs/{{job_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete Logpush job.resources/examples
+order: 1000

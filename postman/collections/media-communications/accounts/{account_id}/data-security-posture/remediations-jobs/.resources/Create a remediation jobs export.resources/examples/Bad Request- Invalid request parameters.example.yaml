@@ -1,0 +1,33 @@
+$kind: http-example
+id: 63422b1f-e08b-518b-8c16-d46b91a9b3ed
+name: "Bad Request: Invalid request parameters"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/remediations/jobs/export"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "integration_id": [
+          "55d7337e-1d0a-49fc-9826-925ba40df035"
+        ],
+        "max_updated_at": "2025-01-01T00:00:00Z",
+        "min_updated_at": "2024-01-01T00:00:00Z",
+        "search": "public access",
+        "status": [
+          "pending",
+          "completed"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

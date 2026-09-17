@@ -1,0 +1,44 @@
+$kind: http-example
+id: 227315fe-44dd-58bb-aef9-cf193792c5e0
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/repos/connections"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "repo_id": "workers-sdk",
+        "repo_name": "workers-sdk",
+        "provider_type": "github",
+        "provider_account_id": "cloudflare",
+        "provider_account_name": "Cloudflare"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result_info": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

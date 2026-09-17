@@ -1,0 +1,29 @@
+$kind: http-example
+id: 04230469-ed5c-598a-be8d-21ea59af88f7
+name: List all profiles response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: all
+      value: "true"
+      disabled: true
+      description: Return all profiles, including those that current account does not have access to.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

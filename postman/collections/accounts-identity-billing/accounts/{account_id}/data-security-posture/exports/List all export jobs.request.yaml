@@ -1,0 +1,38 @@
+$kind: http-request
+id: 940c6e0d-2af6-5326-b3f5-a2052e736ff4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ListExportJobs
+  GET /accounts/{account_id}/data-security/posture/exports
+
+  List all export jobs for a given requestor's organization
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/exports"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1209"
+    disabled: true
+    description: A page number within the paginated result set.
+  - key: per_page
+    value: "1209"
+    disabled: true
+    description: Number of results to return per page.
+  - key: status
+    value: Success
+    disabled: true
+    description: Filter on export job's status
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List all export jobs.resources/examples
+order: 1000

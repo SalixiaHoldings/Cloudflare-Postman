@@ -1,0 +1,26 @@
+$kind: http-example
+id: 52695779-deaa-5795-bc3c-a36842a6153b
+name: The query exceeded a resource or request-rate limit.
+request:
+  url: "{{base_url}}/analytics/sql?query=SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: query
+      value: SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10
+      description: (Required) SQL query to execute.
+response:
+  statusCode: 429
+  statusText: Too Many Requests
+  headers:
+    - key: Retry-After
+      value: "8226"
+      description: |
+        Seconds to wait before retrying. Present when the account request rate limit is exceeded; omitted for query resource limits.
+    - key: Content-Type
+      value: text/plain
+  body:
+    type: text
+    content: string
+order: 5000

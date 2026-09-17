@@ -1,0 +1,23 @@
+$kind: http-example
+id: a76d5dd4-f562-5510-b9c4-3d7d0c3d939a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/groups/{{group_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

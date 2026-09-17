@@ -1,0 +1,20 @@
+$kind: http-example
+id: 54bf9746-84b7-56e8-bffd-c5393c8e8045
+name: Delete Custom Origin Trust Store response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/acm/custom_trust_store/{{custom_origin_trust_store_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Could not resolve allOf schema"
+      }
+order: 2000

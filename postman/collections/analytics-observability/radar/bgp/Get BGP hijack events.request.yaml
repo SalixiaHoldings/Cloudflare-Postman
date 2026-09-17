@@ -1,0 +1,91 @@
+$kind: http-request
+id: 7df37728-1ad1-5960-bf46-225d41421d8b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: radar-get-bgp-hijacks-events
+  GET /radar/bgp/hijacks/events
+
+  Retrieves the BGP hijack events.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/radar/bgp/hijacks/events"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+    description: Current page number, starting from 1.
+  - key: per_page
+    value: "50"
+    disabled: true
+    description: Number of entries per page.
+  - key: eventId
+    value: "250"
+    disabled: true
+    description: The unique identifier of a event.
+  - key: hijackerAsn
+    value: "1875"
+    disabled: true
+    description: The potential hijacker AS of a BGP hijack event.
+  - key: victimAsn
+    value: "2755"
+    disabled: true
+    description: The potential victim AS of a BGP hijack event.
+  - key: involvedAsn
+    value: "8970"
+    disabled: true
+    description: The potential hijacker or victim AS of a BGP hijack event.
+  - key: involvedCountry
+    value: PT
+    disabled: true
+    description: The country code of the potential hijacker or victim AS of a BGP hijack event.
+  - key: prefix
+    value: 1.1.1.0/24
+    disabled: true
+  - key: minConfidence
+    value: "9810"
+    disabled: true
+    description: Filters events by minimum confidence score (1-4 low, 5-7 mid, 8+ high).
+  - key: maxConfidence
+    value: "5663"
+    disabled: true
+    description: Filters events by maximum confidence score (1-4 low, 5-7 mid, 8+ high).
+  - key: dateRange
+    value: 7d
+    disabled: true
+    description: "Filters results by a relative date range ending at the current time. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`), e.g. `7d`. Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `3dcontrol` covers days -10 to -7, `7dcontrol` covers days -14 to -7, `28dcontrol` covers days -56 to -28, and `10dcontrol` covers days -24 to -14). Mutually exclusive with `dateStart`/`dateEnd`."
+  - key: dateStart
+    value: 2023-09-01T11:41:33.782Z
+    disabled: true
+    description: Start of the date range (inclusive). Alternative to `dateRange`; provide together with `dateEnd`.
+  - key: dateEnd
+    value: 2023-09-01T11:41:33.782Z
+    disabled: true
+    description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`.
+  - key: sortBy
+    value: TIME
+    disabled: true
+    description: Sorts results by the specified field.
+  - key: sortOrder
+    value: ASC
+    disabled: true
+    description: Sort order.
+  - key: format
+    value: CSV
+    disabled: true
+    description: Format in which results will be returned.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get BGP hijack events.resources/examples
+order: 1000

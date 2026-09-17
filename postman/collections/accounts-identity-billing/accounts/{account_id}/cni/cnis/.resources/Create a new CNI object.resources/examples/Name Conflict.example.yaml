@@ -1,0 +1,48 @@
+$kind: http-example
+id: 0dd5c610-17b4-5e0f-b757-2c14b25fe384
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cni/cnis"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "interconnect": "string",
+        "account": "<string>",
+        "magic": {
+          "conduit_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "description": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "mtu": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "bgp": {
+          "customer_asn": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "extra_prefixes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "md5_key": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

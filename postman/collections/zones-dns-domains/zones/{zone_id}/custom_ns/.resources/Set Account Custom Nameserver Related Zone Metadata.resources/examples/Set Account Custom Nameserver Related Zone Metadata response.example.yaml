@@ -1,0 +1,24 @@
+$kind: http-example
+id: e01d6d69-4490-5162-a87b-b1b8e07bb7e8
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/custom_ns"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true,
+        "ns_set": 1
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: "{}"
+order: 1000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: 003bb5ee-f19d-54ea-ae01-0ddc3f99adc7
+name: Returns the created group member.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/-/groups/{{group_id}}/members"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "accountId": "123",
+        "accountTag": "5e785ae7a11e4c3c8df4bce13f1b9c02"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "accountId": "123",
+        "accountTag": "5e785ae7a11e4c3c8df4bce13f1b9c02",
+        "createdAt": "2022-04-01T00:00:00Z",
+        "updatedAt": "2022-04-01T00:00:00Z"
+      }
+order: 1000

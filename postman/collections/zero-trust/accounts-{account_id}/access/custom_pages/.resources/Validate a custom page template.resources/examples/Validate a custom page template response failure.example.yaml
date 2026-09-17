@@ -1,0 +1,36 @@
+$kind: http-example
+id: bf520d18-03aa-51ad-99b7-53e942e8279e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/custom_pages/validate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "type": "forbidden",
+        "template": "string",
+        "version": 1988
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

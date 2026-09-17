@@ -1,0 +1,37 @@
+$kind: http-example
+id: 175081e2-34d2-5302-8386-76354ad2dfab
+name: Update domain response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/domains/{{domain_name}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "auto_renew": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "locked": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "privacy": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {}
+      }
+order: 1000

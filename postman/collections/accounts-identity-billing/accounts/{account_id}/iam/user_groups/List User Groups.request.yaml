@@ -1,0 +1,45 @@
+$kind: http-request
+id: 0f180898-1aed-5dd4-8e16-4503d4939daa
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: account-user-group-list
+  GET /accounts/{account_id}/iam/user_groups
+
+  List all the user groups for an account.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: c8102118da1d18a5f2fdc8977da715b1529f7ca2284b3fb76dce7bf00b5f8fdb
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/iam/user_groups"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: id
+    value: 023e105f4ecef8ad9ca31a8372d0c353
+    disabled: true
+    description: ID of the user group to be fetched.
+  - key: name
+    value: NameOfTheUserGroup
+    disabled: true
+  - key: fuzzyName
+    value: Foo
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "100"
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
+auth:
+  type: noauth
+examples: ./.resources/List User Groups.resources/examples
+order: 1000

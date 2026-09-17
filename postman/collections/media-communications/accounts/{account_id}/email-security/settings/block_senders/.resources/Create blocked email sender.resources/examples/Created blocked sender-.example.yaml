@@ -1,0 +1,26 @@
+$kind: http-example
+id: b4f78045-1d94-5470-8a40-e3c41c036d28
+name: Created blocked sender.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/block_senders"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "null"
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

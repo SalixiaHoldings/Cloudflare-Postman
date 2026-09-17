@@ -1,0 +1,36 @@
+$kind: http-request
+id: 7917773e-a0be-5e38-87d6-1694a68dec2b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: tags-get
+  GET /accounts/{account_id}/tags
+
+  Retrieves tags for a specific account-level resource.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/tags?resource_id=023e105f4ecef8ad9ca31a8372d0c353&resource_type=worker"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: resource_id
+    value: 023e105f4ecef8ad9ca31a8372d0c353
+    description: (Required) The ID of the resource to retrieve tags for.
+  - key: resource_type
+    value: worker
+    description: (Required) The type of the resource.
+  - key: worker_id
+    value: 3f72a691-44b3-4c11-8642-c18a88ddaa5e
+    disabled: true
+    description: Worker identifier. Required for worker_version resources.
+auth:
+  type: noauth
+examples: ./.resources/Get tags for an account-level resource.resources/examples
+order: 2000

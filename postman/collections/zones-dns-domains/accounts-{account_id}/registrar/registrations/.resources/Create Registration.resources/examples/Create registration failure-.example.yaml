@@ -1,0 +1,70 @@
+$kind: http-example
+id: c6d872ca-ba35-56df-93f8-2a1a6187f20e
+name: Create registration failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations"
+  method: POST
+  headers:
+    - key: Prefer
+      value: string
+      description: |
+        Set to `respond-async` to receive an immediate `202 Accepted` without
+        waiting for the operation to complete (RFC 7240).
+
+        The header may be combined with other preferences using standard
+        comma-separated syntax.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "auto_renew": false,
+        "contact_extensions": {
+          "ca_legal_type": "CCT"
+        },
+        "contacts": {
+          "registrant": {
+            "email": "ada@example.ca",
+            "phone": "+1.6135550100",
+            "postal_info": {
+              "address": {
+                "city": "Ottawa",
+                "country_code": "CA",
+                "postal_code": "K1A 0B1",
+                "state": true,
+                "street": "123 Queen St"
+              },
+              "name": "Ada Lovelace",
+              "organization": "Example Canada Inc"
+            }
+          }
+        },
+        "domain_name": "my-brand-example.ca",
+        "years": 1
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 10000,
+            "message": "Domain limit reached: you cannot register more than 500 domains.",
+            "source": {
+              "pointer": "/domain_name"
+            }
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

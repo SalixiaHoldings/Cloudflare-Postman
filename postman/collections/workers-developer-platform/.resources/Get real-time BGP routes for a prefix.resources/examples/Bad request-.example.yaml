@@ -1,0 +1,43 @@
+$kind: http-example
+id: 5797ad95-6315-5275-ba77-b9031b3bef21
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/bgp/routes/realtime"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: prefix
+      value: 1.1.1.0/24
+      disabled: true
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

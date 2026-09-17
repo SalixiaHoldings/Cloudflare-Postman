@@ -1,0 +1,52 @@
+$kind: http-request
+id: 31a012de-7609-5e49-9f17-3ecb6c0a23fa
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-networks-route-hostname-list
+  GET /accounts/{account_id}/zerotrust/routes/hostname
+
+  Lists and filters hostname routes in an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/zerotrust/routes/hostname"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: id
+    value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+    disabled: true
+  - key: hostname
+    value: office-1.local
+    disabled: true
+    description: If set, only list hostname routes that contain a substring of the given value, the filter is case-insensitive.
+  - key: tunnel_id
+    value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+    disabled: true
+    description: If set, only list hostname routes that point to a specific tunnel.
+  - key: comment
+    value: example%20comment
+    disabled: true
+  - key: existed_at
+    value: 2019-10-12T07%3A20%3A50.52Z
+    disabled: true
+  - key: is_deleted
+    value: "true"
+    disabled: true
+  - key: per_page
+    value: <number>
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List hostname routes.resources/examples
+order: 1000

@@ -1,0 +1,22 @@
+$kind: http-example
+id: a4c55a73-8fa6-5b20-9ccb-8e3c17bffe59
+name: Impersonation registry entry details.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/impersonation_registry/{{impersonation_registry_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

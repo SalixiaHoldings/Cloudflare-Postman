@@ -1,0 +1,47 @@
+$kind: http-request
+id: 64d55f6a-cd5b-5b2a-8370-63f6c09e4554
+name: List all TCP Flow Protection filters.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: listTcpFlowProtectionFiltersForAccount
+  GET /accounts/{account_id}/magic/advanced_tcp_protection/configs/tcp_flow_protection/filters
+
+  List all TCP Flow Protection filters for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/tcp_flow_protection/filters"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: mode
+    value: string
+    disabled: true
+    description: "The mode of the filters to get. Optional. Valid values: 'enabled', 'disabled', 'monitoring'."
+  - key: page
+    value: "7134"
+    disabled: true
+    description: The page number for pagination. Defaults to 1.
+  - key: per_page
+    value: "7134"
+    disabled: true
+    description: The number of items per page. Must be between 10 and 1000. Defaults to 25.
+  - key: order
+    value: string
+    disabled: true
+    description: The field to order by. Defaults to 'prefix'.
+  - key: direction
+    value: string
+    disabled: true
+    description: The direction of ordering (ASC or DESC). Defaults to 'ASC'.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List all TCP Flow Protection filters-.resources/examples
+order: 2000

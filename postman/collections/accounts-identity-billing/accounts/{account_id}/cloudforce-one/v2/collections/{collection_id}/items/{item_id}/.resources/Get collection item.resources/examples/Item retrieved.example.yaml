@@ -1,0 +1,29 @@
+$kind: http-example
+id: 8fad4656-9607-5c32-95e4-48bfbc4c7718
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/items/{{item_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "data": {
+            "key_0": 7689.408655278385,
+            "key_1": 2088,
+            "key_2": 3163
+          },
+          "created_at": "string",
+          "updated_at": "string"
+        }
+      }
+order: 1000

@@ -1,0 +1,39 @@
+$kind: http-request
+id: 12f81be4-45fb-5df8-9bc5-4a8c9d795784
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-tunnel-configuration-put-configuration
+  PUT /accounts/{account_id}/cfd_tunnel/{tunnel_id}/configurations
+
+  Replaces the configuration for a remotely managed Cloudflare Tunnel, including its ingress rules and origin request settings.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cfd_tunnel/{{tunnel_id}}/configurations"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "config": {
+        "ingress": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "originRequest": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Tunnel configuration.resources/examples
+order: 2000

@@ -1,0 +1,91 @@
+$kind: http-request
+id: 3bf468d5-a32a-5dc1-af3e-73478e82773b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_create_bulk_job
+  POST /accounts/{account_id}/email-security/investigate/bulk
+
+  Creates a new bulk action job to move or release messages that match the provided search parameters.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/bulk"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "action": "MOVE",
+      "search_params": {
+        "action_log": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "alert_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "delivery_status": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "detections_only": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "domain": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "end": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "exact_subject": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "final_disposition": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "message_action": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "message_id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "metric": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "query": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "recipient": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "sender": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "smtp_helo_ip": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "start": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "subject": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "submissions": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "comment": "string",
+      "destination": "RecoverableItemsDeletions",
+      "expected_disposition": "SPOOF"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a bulk action job.resources/examples
+order: 2000

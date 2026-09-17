@@ -1,0 +1,43 @@
+$kind: http-example
+id: 659682a7-0840-52ae-88b0-b063c64bfe5b
+name: Bad request (invalid domains, exceeds 25-domain limit, or domain not in zone).
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ai-audit/robots/bulk"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        "example.com",
+        "blog.example.com"
+      ]
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 2000

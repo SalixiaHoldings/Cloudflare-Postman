@@ -1,0 +1,28 @@
+$kind: http-example
+id: f1acdd63-a95d-53f1-9e57-a8b3ca692f4b
+name: Delete variants setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/variants"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

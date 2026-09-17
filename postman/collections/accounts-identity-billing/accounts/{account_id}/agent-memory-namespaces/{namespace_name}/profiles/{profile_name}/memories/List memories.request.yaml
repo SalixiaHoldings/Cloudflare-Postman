@@ -1,0 +1,38 @@
+$kind: http-request
+id: 881432ad-d0bc-5276-894c-00055a911dd3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: agent-memory-memory-list
+  GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories
+
+  List memories stored in a profile.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/memories"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: cursor
+    value: 01JSGCEXAMP1E0000000000000
+    disabled: true
+  - key: session_id
+    value: chat-session-42
+    disabled: true
+  - key: type
+    value: fact
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List memories.resources/examples
+order: 1000

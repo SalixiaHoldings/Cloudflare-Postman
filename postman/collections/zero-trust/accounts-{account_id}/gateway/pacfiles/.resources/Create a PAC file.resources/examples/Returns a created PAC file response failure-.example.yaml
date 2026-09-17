@@ -1,0 +1,43 @@
+$kind: http-example
+id: 47506ef5-070f-5522-8a8b-482e79212beb
+name: Returns a created PAC file response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/pacfiles"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Devops team",
+        "contents": "function FindProxyForURL(url, host) { return \"DIRECT\"; }",
+        "description": "PAC file for Devops team",
+        "slug": "pac_devops"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

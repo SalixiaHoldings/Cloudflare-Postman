@@ -1,0 +1,21 @@
+$kind: http-example
+id: 94ff1461-b330-52c7-832b-8a97b914b56d
+name: Token deleted.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/tokens/{{id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {}
+      }
+order: 1000

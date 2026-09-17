@@ -1,0 +1,45 @@
+$kind: http-example
+id: b858888d-acca-5616-9918-2e67533dcb1c
+name: List live inputs response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: include_counts
+      value: "true"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "liveInputs": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "range": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

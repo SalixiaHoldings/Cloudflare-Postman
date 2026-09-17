@@ -1,0 +1,53 @@
+$kind: http-example
+id: 8f6d3e9b-cd4e-5d4d-b10d-2c1baa4b70d5
+name: Create application response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/resource-library/applications"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "HR",
+        "human_id": "HR",
+        "category_id": 12,
+        "hostnames": [
+          "example.com",
+          "foo.com"
+        ],
+        "ip_subnets": [
+          "192.168.1.0/24",
+          "10.0.0.0/8"
+        ],
+        "port_protocols": [
+          "tcp/80",
+          "tcp/443"
+        ],
+        "support_domains": [
+          "example.com",
+          "foo.com"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,30 @@
+$kind: http-example
+id: 3a5f7f84-1649-5b54-b945-5314038f39e0
+name: Store deleted.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/secrets_store/stores/{{store_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: force
+      value: "false"
+      disabled: true
+      description: |
+        When true, cascade-deletes all secrets in the store before deleting the store itself.
+        Required when deleting a non-empty store. Without this parameter, attempting to
+        delete a non-empty store returns 409.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {}
+      }
+order: 1000

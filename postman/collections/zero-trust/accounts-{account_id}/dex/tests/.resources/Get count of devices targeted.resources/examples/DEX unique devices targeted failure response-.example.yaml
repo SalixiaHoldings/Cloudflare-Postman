@@ -1,0 +1,41 @@
+$kind: http-example
+id: 4769411a-ddd8-5bea-beff-71a52600fdb7
+name: DEX unique devices targeted failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/tests/unique-devices"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: testName
+      value: string
+      disabled: true
+      description: Optionally filter results by test name.
+    - key: deviceId
+      value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
+      description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+    - key: deviceId
+      value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
+      description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,53 @@
+$kind: http-request
+id: 3989c2c2-af27-5131-b60e-ccbec4f88338
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: stream-live-inputs-create-a-live-input
+  POST /accounts/{account_id}/stream/live_inputs
+
+  Creates a live input, and returns credentials that you or your users can use to stream live video to Cloudflare Stream.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs"
+method: POST
+headers:
+  - key: Idempotency-Key
+    value: string
+    description: Prevents duplicate live inputs from being created when retrying this request. The key is scoped to the account, may contain up to 255 bytes, and expires six hours after the live input is created. Reusing a key for a deleted input before expiry returns a 409 Conflict response.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+  - key: X-Auth-Email
+    value: "{{api_email}}"
+  - key: X-Auth-Key
+    value: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "defaultCreator": "string",
+      "deleteRecordingAfterDays": 45,
+      "enabled": true,
+      "meta": {
+        "name": "test stream 1"
+      },
+      "preferLowLatency": true,
+      "recording": {
+        "hideLiveViewerCount": false,
+        "mode": "off",
+        "requireSignedURLs": false,
+        "timeoutSeconds": 0
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a live input.resources/examples
+order: 2000

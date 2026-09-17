@@ -1,0 +1,27 @@
+$kind: http-example
+id: b73abb26-071c-5994-8499-e94b0420c88f
+name: The request was successful.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/security-center/insights/{{issue_id}}/dismiss"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "dismiss": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+order: 1000

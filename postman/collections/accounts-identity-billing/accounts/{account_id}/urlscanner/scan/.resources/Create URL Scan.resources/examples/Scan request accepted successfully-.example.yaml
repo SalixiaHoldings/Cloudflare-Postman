@@ -1,0 +1,66 @@
+$kind: http-example
+id: 1e55275e-3ba9-53ce-a823-87e02973671f
+name: Scan request accepted successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "url": "https://www.example.com",
+        "country": "CI",
+        "customHeaders": {
+          "key_0": "string",
+          "key_1": "string"
+        },
+        "screenshotsResolutions": [
+          "desktop"
+        ],
+        "visibility": "Public"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "result": {
+          "visibility": "public",
+          "uuid": "110f99d2-1c19-c35d-671c-4428f41e9edf",
+          "url": "string",
+          "time": "1962-04-09T12:40:33.079Z"
+        }
+      }
+order: 1000

@@ -1,0 +1,60 @@
+$kind: http-request
+id: b1cb14db-2841-54af-ae45-0dd2a146f275
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers-ai-post-run-generic
+  POST /accounts/{account_id}/ai/run
+
+  Execute an AI model by specifying the model name in the request body.
+
+  This endpoint provides a generic interface for running AI models where the model name is part of the request payload rather than the URL path. It supports all AI Gateway features including caching, custom headers, and request options.
+
+  Model-specific inputs available in [Cloudflare Docs](https://developers.cloudflare.com/workers-ai/models/).
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai/run"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "model": "openai/gpt-5.5",
+      "input": {
+        "prompt": "Tell me a joke"
+      },
+      "options": {
+        "extraHeaders": {
+          "key_0": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "key_1": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "gateway": {
+          "cacheTtl": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "skipCache": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Execute AI Model (Generic).resources/examples
+order: 1000

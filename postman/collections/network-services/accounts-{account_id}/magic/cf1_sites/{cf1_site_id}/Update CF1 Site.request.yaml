@@ -1,0 +1,46 @@
+$kind: http-request
+id: 18fb23d0-8660-542a-a3f5-502d5f60e1ac
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-cf1-sites-update-cf1-site
+  PATCH /accounts/{account_id}/magic/cf1_sites/{cf1_site_id}
+
+  Partially updates a specific CF1 Site for an account. Only the fields included in the request body are modified; omitted fields retain their existing values.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/cf1_sites/{{cf1_site_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "description": "Launch Pad 34",
+      "location": {
+        "lat": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "long": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "name": "Pad 34"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update CF1 Site.resources/examples
+order: 3000

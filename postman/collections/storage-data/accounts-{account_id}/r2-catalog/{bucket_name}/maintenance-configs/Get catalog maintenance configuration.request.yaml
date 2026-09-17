@@ -1,0 +1,27 @@
+$kind: http-request
+id: 22f388a2-23e3-5726-a7be-1bd18b4cb698
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-maintenance-config
+  GET /accounts/{account_id}/r2-catalog/{bucket_name}/maintenance-configs
+
+  Retrieve the maintenance configuration for a specific catalog,
+  including compaction settings and credential status.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/maintenance-configs"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get catalog maintenance configuration.resources/examples
+order: 1000

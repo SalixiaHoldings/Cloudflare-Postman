@@ -1,0 +1,30 @@
+$kind: http-request
+id: f64b243f-5626-5fc0-9e94-7024253164f9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: rssSkillList
+  GET /accounts/{account_id}/cloudforce-one/v2/threat-signals/skills
+
+  List Threat Signals skills.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/skills"
+method: GET
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Threat Signals skills.resources/examples
+order: 1000

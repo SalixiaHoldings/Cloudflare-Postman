@@ -1,0 +1,33 @@
+$kind: http-request
+id: 1959b6ad-a65d-50fc-8c1b-ee106a667dc9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: namespace-worker-patch-namespace
+  PATCH /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}
+
+  Patch a Workers for Platforms namespace. Omitted fields are left unchanged.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "my-dispatch-namespace",
+      "trusted_workers": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Patch dispatch namespace.resources/examples
+order: 3000

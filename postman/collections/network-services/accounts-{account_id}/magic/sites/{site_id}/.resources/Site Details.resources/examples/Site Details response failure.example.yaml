@@ -1,0 +1,35 @@
+$kind: http-example
+id: 2bb53d59-1949-5886-a897-7ca1a9125787
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}"
+  method: GET
+  headers:
+    - key: x-magic-new-hc-target
+      value: "true"
+      description: If true, the health check target in the response body will be presented using the new object format. Defaults to false.
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

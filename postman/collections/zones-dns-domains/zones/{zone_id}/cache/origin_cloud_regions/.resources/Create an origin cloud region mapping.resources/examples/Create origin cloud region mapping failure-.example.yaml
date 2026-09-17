@@ -1,0 +1,37 @@
+$kind: http-example
+id: 1605da0d-9b50-5134-9558-7efa7db459a1
+name: Create origin cloud region mapping failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "ip": "192.0.2.1",
+        "region": "us-east-1",
+        "vendor": "aws"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1145,
+            "message": "Unable to create new origin_public_cloud_region setting. The zone setting already exists."
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

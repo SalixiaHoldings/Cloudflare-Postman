@@ -1,0 +1,46 @@
+$kind: http-example
+id: 83997cca-5808-5dd5-8df5-b32b071a82ca
+name: Update an Access application policy response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/apps/{{app_id}}/policies/{{policy_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "decision": "allow",
+        "include": [
+          {
+            "everyone": {}
+          }
+        ],
+        "mfa_config": {
+          "allowed_authenticators": [
+            "ssh_fido2_key"
+          ]
+        },
+        "name": "Allow SSH users with a FIDO2 key"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

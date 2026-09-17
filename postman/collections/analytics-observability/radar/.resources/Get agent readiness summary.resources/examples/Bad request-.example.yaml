@@ -1,0 +1,60 @@
+$kind: http-example
+id: c6476f34-4259-56f0-8e06-d77cbbca38a7
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/agent_readiness/summary/{{dimension}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: date
+      value: 2024-09-19
+      disabled: true
+      description: Filters results by the specified date.
+    - key: domainCategory
+      value: string
+      disabled: true
+      description: Filters results by domain category.
+    - key: domainCategory
+      value: string
+      disabled: true
+      description: Filters results by domain category.
+    - key: name
+      value: main_series
+      disabled: true
+      description: Array of names used to label the series in the response.
+    - key: name
+      value: main_series
+      disabled: true
+      description: Array of names used to label the series in the response.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

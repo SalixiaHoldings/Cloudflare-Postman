@@ -1,0 +1,33 @@
+$kind: http-request
+id: 38685930-ac9d-5c26-b006-ff75b7590079
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-level-access-applications-patch-update-access-application-settings
+  PATCH /zones/{zone_id}/access/apps/{app_id}/settings
+
+  Updates application settings.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/access/apps/{{app_id}}/settings"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "allow_iframe": true,
+      "skip_interstitial": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update application settings.resources/examples
+order: 1000

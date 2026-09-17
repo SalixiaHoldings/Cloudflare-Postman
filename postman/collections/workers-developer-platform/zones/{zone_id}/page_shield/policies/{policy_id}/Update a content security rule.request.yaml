@@ -1,0 +1,36 @@
+$kind: http-request
+id: d5791ef4-8883-5935-9abb-6e99d5743c2e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: page-shield-update-policy
+  PUT /zones/{zone_id}/page_shield/policies/{policy_id}
+
+  Updates the description, action, expression, enabled state, and policy value for a content security rule.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/page_shield/policies/{{policy_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "action": "allow",
+      "description": "Checkout page CSP policy",
+      "enabled": true,
+      "expression": "ends_with(http.request.uri.path, \"/checkout\")",
+      "value": "script-src 'none';"
+    }
+auth:
+  type: noauth
+examples: ./.resources/Update a content security rule.resources/examples
+order: 3000

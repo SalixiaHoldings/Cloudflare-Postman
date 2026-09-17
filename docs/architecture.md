@@ -2,9 +2,9 @@
 
 ## Trust boundary
 
-Cloudflare's `cloudflare/api-schemas` repository is the sole API-definition authority. `schema-lock.json` pins a commit-specific `openapi.json` URL, byte size, SHA-256 digest, and the matching upstream license. Generation refuses content that does not match the lock.
+Cloudflare's `cloudflare/api-schemas` repository is the sole API-definition authority. `schema-lock.json` pins the exact `openapi.json` revision, byte size, SHA-256 digest, and upstream license. Generation refuses content that does not match the lock.
 
-The upstream OpenAPI document is cached but not committed as a separately maintained schema. There are no silent schema patches. A validator deviation must be an exact, revision-bound entry in `config/upstream-validation-exceptions.json`; changed diagnostics fail closed.
+The upstream schema is not silently patched. Strict-validation deviations must be exact, revision-bound entries in `config/upstream-validation-exceptions.json`; changed diagnostics fail closed.
 
 ## Generation flow
 
@@ -12,33 +12,50 @@ The upstream OpenAPI document is cached but not committed as a separately mainta
 schema-lock.json
       |
       v
-fetch and verify official OpenAPI bytes
+fetch + verify pinned Cloudflare OpenAPI
       |
       v
-enumerate method + path operations
+enumerate method/path operations
       |
       v
-all-match classification + explicit overlap ownership
+classify into product partitions + explicit overlap ownership
       |
-      v
-openapi-to-postmanv2 6.3.3 conversion per partition
-      |
-      v
-deterministic normalization, schema-derived auth, stable JSON
-      |
-      v
-Collection v2.1 validation + exact-once accounting
+      +-------------------------------+
+      |                               |
+      v                               v
+primary converter                 isolated secondary converter
+(existing settings)              enableOptionalParameters=false
+      |                           optimizeConversion=false
+      |                           stackLimit=50
+      |                               |
+      |                               v
+      |                           official query rows only
+      |                               |
+      +---------------+---------------+
+                      v
+query-only projection + deterministic normalization
+                      |
+                      v
+v2.1 validation + exact-once accounting
+                      |
+                      v
+Postman CLI 1.56.3 migration
+                      |
+                      v
+v3 lint + semantic equivalence + two-run byte comparison
 ```
 
-`config/partitions.json` defines independent match rules. Every non-residual rule is evaluated before ownership is assigned: one match owns the operation, zero matches use the explicit residual, and multiple matches require an exact declaration in `config/partition-overlaps.json`. Array ordering is not a conflict resolver. The generator creates a partition-specific OpenAPI view without modifying operation definitions, root security, or shared components. It then converts that view and maps every emitted request back to its upstream method/path. A converter omission, unrecognized request, or duplicate is fatal.
+The primary conversion remains authoritative for collection structure, bodies, headers, auth, names, descriptions, scripts, IDs, and response examples. The secondary converter runs in a separate Node process and returns only query rows. No secondary body/header/auth/example structure crosses that boundary. See [query policy](query-policy.md).
 
-Overlap declarations are grouped by the sorted matching partition IDs and contain an explicit owner/reason and an exact method/path allowlist. At this pin, 54 declarations cover 2,496 overlapping operations. Broad account/zone paths and shared product words explain the large overlap surface. A newly overlapping operation is rejected even if its matching partition set already has a group. Changed match sets, invalid owners, duplicate declarations, empty groups, removed operations, or no-longer-overlapping entries fail closed. All declarations must be used. Generation/validation print counts, while accounting records every match and overlap-group ID per operation. Update declarations deliberately during upstream review; the scheduled updater cannot grant itself new precedence.
+`config/partitions.json` defines independent match rules. Every non-residual rule is evaluated before ownership is assigned: one match owns the operation, zero matches use the explicit residual, and multiple matches require an exact declaration in `config/partition-overlaps.json`. Array ordering is not a conflict resolver.
 
-Postman's `Tags` folder strategy duplicates multi-tag operations. The project therefore uses the converter's `Paths` strategy, while product navigation is supplied by the top-level modular partitions. Core account and zone identifiers are normalized to variables in generated request URLs and JSON bodies. Stable SHA-derived IDs, seeded schema examples, a fixed conversion clock, sorted JSON object keys, fixed metadata, and commit-specific provenance remove random or time-dependent output.
+At the pinned revision, 54 declarations cover 2,496 overlapping operations. New or changed overlap sets, invalid owners, stale declarations, or newly ambiguous operations fail validation.
+
+Postman's `Tags` folder strategy duplicates multi-tag operations, so the project uses `Paths`. Product navigation is provided by the top-level modular partitions. Stable SHA-derived IDs, seeded examples, a fixed conversion clock, sorted JSON keys, fixed metadata, and commit-specific provenance remove nondeterministic output.
 
 ## Partitions
 
-The generated inventory currently includes:
+The generated inventory contains:
 
 - Zero Trust
 - Workers & Developer Platform
@@ -51,82 +68,93 @@ The generated inventory currently includes:
 - Accounts, Identity & Billing
 - Other Cloudflare Services (explicit residual)
 
-`postman/manifest.json` contains the current count and digest for each file. The residual is printed by every generation and validation run. At the pinned revision it contains only Cloudflare's `GET /signed-url` internal test route; retaining it preserves complete upstream accounting without pretending it belongs to a public product family.
+`dist/v2.1/manifest.json` records current counts and digests. The residual currently contains only Cloudflare's `GET /signed-url` internal test route so upstream accounting remains complete.
 
 ## Validation layers
 
-`npm run check` runs all of the following:
+`npm run check` runs:
 
-1. Node.js syntax checks for repository JavaScript.
-2. Node fixture tests for classifier behavior, duplicate rejection, deterministic serialization, converter coverage, variable/auth contracts, account/zone chaining, and GitHub Actions safety.
-3. A full generation into an isolated temporary directory followed by byte comparison with committed artifacts.
-4. Pinned upstream OpenAPI validation. Only the exact revision-bound exceptions in `config/upstream-validation-exceptions.json` are accepted.
-5. Postman validation against the SHA-256-pinned official Collection v2.1 JSON Schema.
-6. Manifest and artifact digest validation.
-7. A second independent method/path traversal proving every upstream operation appears once and only once.
-8. Recomputed upstream auth inventories/fingerprints, literal request auth configuration, empty credential/identifier templates, and generic local-filesystem-path detection. Illustrative paths already present in the verified public upstream schema are permitted by exact match; new local paths fail. Public-safety checks do not embed private names. Legacy auth is checked structurally, not forbidden as text.
-9. Recomputed partition overlaps/owners and rejection of every undeclared or stale overlap.
+1. Node.js syntax checks.
+2. Fixture/regression tests.
+3. Full deterministic regeneration and byte comparison.
+4. Strict pinned OpenAPI validation with only revision-bound exceptions.
+5. Postman Collection v2.1 schema validation.
+6. Manifest/artifact digest validation.
+7. Independent exact-once operation traversal.
+8. Authentication metadata and generated request-auth validation.
+9. Partition overlap/ownership recomputation.
+10. Query-contract validation against the pinned schema, including required/optional state, exact known omissions, identifier substitution, raw URLs, and secondary warning fingerprints.
+11. v3 migration/lint, semantic equivalence, environment/Globals checks, and two-run file/byte comparison.
+12. Public-safety checks for populated credentials/identifiers, local filesystem paths, and unexplained release-scan candidates.
+
+The current pin validates **3,522/3,522 operations**, 2,496 declared overlaps, three upstream OpenAPI exceptions, and 47 primary converter warnings.
 
 ## Authentication contract
 
-The exact [pinned Cloudflare source](https://github.com/cloudflare/api-schemas/blob/1cf9b4dcf3241bef73d3300b045cb01543cc7a5f/openapi.json), not website prose or converter defaults, determines each request's auth. The [OpenAPI 3.0.3 security requirement rules](https://spec.openapis.org/oas/v3.0.3.html#security-requirement-object) make separate array entries OR alternatives and multiple keys inside one object an AND requirement. Operation-level `security` overrides root security; an empty array disables auth; an empty object permits anonymous access.
+The pinned Cloudflare OpenAPI `security` declaration determines each request's auth. Separate security-array entries are OR alternatives; multiple schemes inside one object form an AND requirement. Operation-level `security` overrides root security; an empty array disables auth; an empty object permits anonymous access.
 
-`src/auth.mjs` builds a deterministic contract for every operation. Accounting stores the declaration source, exact effective requirement array (including order and duplicate alternatives), referenced scheme definitions (`null` when missing), their SHA-256, selected requirement index, category, standalone-token support, and manual-configuration flag. The manifest includes global/per-partition category counts. Validation recomputes this from the pinned input and compares the entire metadata object and generated auth/headers/notices/guards; editing an upstream root declaration or scheme definition is detectable even when the operation body is unchanged. The upstream drift summary also treats inherited auth changes as operation changes.
+`src/auth.mjs` builds a deterministic contract for every operation. Selection prefers a standalone `api_token` Bearer alternative, then anonymous access, then the supported alternative requiring the fewest credential schemes. Current categories are:
 
-Selection prefers a standalone `api_token` HTTP Bearer alternative, then anonymous access, then the supported alternative requiring the fewest credential schemes (canonical JSON breaks ties). This leaves 568 `bearer-only`, 1,576 `bearer-alternative`, 253 `legacy-only`, 1,114 `multi-scheme-or-other`, 7 `anonymous`, and 4 `manual-unresolved` operations. All 3,522 still appear exactly once. The current multi-scheme group literally requires `api_token` AND `api_email` AND `api_key`; no evidence-backed exception establishes that this is erroneous metadata, so it is not rewritten as OR or silently relaxed to Bearer alone.
+- 568 bearer-only
+- 1,576 bearer-alternative
+- 253 legacy-only
+- 1,114 multi-scheme-or-other
+- 7 anonymous
+- 4 manual-unresolved
 
-Collections retain Bearer as their default, but each request explicitly declares its selected auth. Where tokens are an alternative, legacy headers are removed. Legacy-only requests override inheritance with No Auth and supply empty-variable email/key headers; combined requirements use Bearer plus the required headers. Every request includes a human-readable policy notice and the auth declaration fingerprint. Configure any genuinely required legacy values only in a private local environment. No real credential or identifier is generated.
+Collections inherit Bearer by default, but each request explicitly applies its selected requirement. Legacy-only requests override inheritance with No Auth plus `X-Auth-Email` / `X-Auth-Key` variable headers. Combined requirements retain all required schemes.
 
-Four operations reference absent scheme definitions: `POST /accounts/{account_id}/workers/assets/upload` (`assets_jwt`), and `POST /pages/assets/check-missing`, `/pages/assets/upload`, `/pages/assets/upsert-hashes` (`pages_upload_token`). Their upstream descriptions refer to upload JWTs, not the normal API token. Because the actual scheme definitions are absent, generation does not guess their wire format: requests are present, explicitly marked `manual-unresolved`, and blocked by `pm.execution.skipRequest()` with a console diagnostic and null next-request target. Use a current Postman runner supporting this pre-request API. To use one, consult its upstream documentation, configure the appropriate auth in a local copy, and explicitly remove that request's generated pre-request guard. Do not run the entire reference collection as a workflow. No deployment/upload orchestration is introduced.
+The four `manual-unresolved` operations reference absent upstream auth-scheme definitions for upload JWT/token flows. They remain represented but are blocked by a generated pre-request guard instead of guessing a wire format.
 
-The account-list declaration is legacy-only in this exact revision, consistent with the current [Cloudflare account-list reference](https://developers.cloudflare.com/api/resources/accounts/methods/list/). Both the reference request and bootstrap account step preserve it. There are no auth compatibility overrides in this revision; live Bearer acceptance for these declarations has not been established by this project.
+Credentials are never generated. `base_url` is intentionally public/tracked; API keys/tokens, authentication email values, and real account/zone/tenant/organization identifiers must remain local and must never be Shared or committed.
 
-## Paginated Postman bootstrap
+## Paginated account/zone bootstrap
 
-The three-request GET-only workflow uses [Postman's collection-run request routing](https://learning.postman.com/docs/tests-and-scripts/running-collections/building-workflows/) to repeat account/zone list requests by the runtime's current `pm.info.requestId`. Forward transitions use unique request names rather than export-time IDs, which may change on import; the fixture runner deliberately reassigns IDs to test this. `page` advances only after validating the response. Run-local variables hold counters, selector snapshots, and accumulated resource IDs/names; they are initialized by the first token-verification request and cleared after completion/failure. No paging state is persisted into the exported environment.
+`dist/v2.1/workflows/bootstrap.postman_collection.json` is a three-request GET-only workflow that verifies a token and resolves account/zone IDs. It uses Postman's collection-run request routing and must be run from the first request as a collection; individual **Send** requests do not follow `setNextRequest`.
 
-Each resource list is bounded to 1,000 pages at `per_page=50`. The response must have the expected page, page size, valid/stable total pages and optional total count, no duplicate IDs, no empty intermediate page, and a matching final total count when supplied. Totals changing during enumeration fail with a retry instruction. Cloudflare listings are not transactional snapshots: changes preserving the same totals cannot always be detected. Selection waits for the whole set, then applies ID-first or exact case-sensitive name matching; without selectors exactly one resource must exist. Any HTTP/JSON/envelope/pagination/selection failure sets the next request to null before throwing. Only successfully resolved IDs are persisted.
+Account/zone enumeration is bounded to 1,000 pages at `per_page=50`. The scripts validate pagination metadata, reject repeated pages/IDs and ambiguous selectors, and persist only successfully resolved IDs. Fixture tests cover multi-page data, ambiguity, malformed responses, duplicate IDs, and loop bounds.
 
-Run the full workflow from the first request with Collection Runner, Postman CLI, or Newman; individual Send does not follow `setNextRequest`. The fixture harness executes the emitted pre-request/post-response scripts and routing against 51-resource/two-page sets for both accounts and zones, cross-page duplicate names, empty/missing results, repeated pages/IDs, malformed metadata, and the loop cap. Live Postman execution has not been performed with credentials. The existing Node smoke probe remains a token-only live compatibility probe and may fail on `/accounts`; unlike the generated reference/workflow, it is not a declaration of the schema's supported auth modes.
+The pinned account-list operation is legacy-only; token verification and zone listing use token-supported auth. Users who do not want to provide legacy credentials can set account/zone IDs manually.
 
-## Converter limitation
+## Converter and query limitations
 
-`openapi-to-postmanv2` 6.3.3 is the current established converter selected for Phase 1. Its package description and output target Collection v2.x, and upstream Collection v3 support remains unresolved. The converter sometimes reports recoverable example-generation warnings for complex Cloudflare request/response schemas (deep nesting, incompatible `allOf` types, or pattern shapes). Warnings are counted in the generated manifest. They do not permit a missing operation, duplicate operation, invalid collection, or checksum mismatch.
+`openapi-to-postmanv2@6.3.3` remains the pinned v2 converter. The primary pass reports 47 recoverable example-generation warnings at this schema revision. Missing operations, duplicates, invalid collections, or checksum drift are never accepted as warnings.
 
-The converter is a build-only dependency and processes the exact pinned Cloudflare schema. Deterministic overrides keep its `js-yaml`, `yaml`, and `uuid` dependencies on fixed releases. The existing `openapi-to-postmanv2` override now pins `js-yaml@4.3.2`, patching [GHSA-2883-xcg3-v3hh / CVE-2026-84375](https://github.com/advisories/GHSA-2883-xcg3-v3hh). npm deduplicates this dependency to `node_modules/js-yaml`; the converter resolves that patched version. Regeneration with the patch leaves the Postman artifacts byte-identical to the schema-sync baseline.
+The isolated secondary query pass uses supported converter options that correctly preserve required/optional query state but exposes 539 deeper schema diagnostics. Those diagnostics are stored separately, normalized, fingerprinted, and revision-bound; they do not replace the 47-warning primary baseline.
 
-After the patch, `npm audit --json` reports three high-severity affected packages from one remaining advisory: [Faker `helpers.fake` code execution, GHSA-qxc2-j82w-r537](https://github.com/advisories/GHSA-qxc2-j82w-r537). The dependency path is `openapi-to-postmanv2 → postman-collection → @faker-js/faker@5.5.3`; the findings cover Faker and both dependent packages. This pipeline does not call `helpers.fake`. Generation verifies the official JSON bytes by SHA-256, parses them with `JSON.parse`, and passes a JSON object to the converter. Build dependencies are not shipped inside the generated Postman artifacts.
+The official converter omits five exact optional array query contracts. They are documented and fingerprinted in [query-policy.md](query-policy.md); no local serializer fabricates them.
 
-The Faker advisory remains an accepted limitation for this pinned-input build. Forcing a new major Faker API into the legacy Postman SDK is not an accepted fix. Do not run forced audit fixes or relax the input boundary; reassess before accepting arbitrary inputs or exposing conversion as a service.
+The converter build dependency is pinned and processes only checksum-verified upstream JSON. `js-yaml@4.3.2` is forced through the dependency override to address its patched advisory. The remaining Faker-derived npm audit finding is accepted for this pinned build-only path; the pipeline does not call `helpers.fake` and does not accept arbitrary untrusted schema input.
 
-At the pinned revision, the converter reports 47 recoverable example warnings. The upstream OpenAPI document also has three lowercase `4xx` response-range keys rejected by strict validation. Their exact revision-bound diagnostics are isolated in `config/upstream-validation-exceptions.json`; any new or missing diagnostic fails validation, and the upstream schema is not patched.
+## Native Git / Local View
+
+Portable v2.1 JSON remains under `dist/v2.1/`. Native Git v3 YAML lives under `postman/` and is generated with pinned Postman CLI 1.56.3. See [Native Git usage and compatibility policy](native-git.md).
+
+The v3 migrator currently emits unstable collection-level auth UUIDs. A narrow compatibility policy normalizes only that single metadata UUID after proving it occurs exactly once at the expected field. Any additional migration instability fails.
+
+The generated environment intentionally shares/tracks only the public `base_url`. Credential and resource-selector fields remain committed empty; users set them only as local Postman Values.
 
 ## Automation
 
 ### Pull-request validation
 
-`.github/workflows/validate.yml` has read-only repository permission, receives no Cloudflare secret, and runs the complete offline/fixture validation on Node.js 24. External GitHub actions are pinned by full commit SHA.
+`.github/workflows/validate.yml` has read-only repository permission, receives no Cloudflare secret, and runs the complete offline validation on Node.js 24. External GitHub actions are pinned by full commit SHA.
 
 ### Daily upstream drift
 
-`.github/workflows/upstream-drift.yml` resolves Cloudflare's current `main` commit, compares operation fingerprints, updates the provenance lock, regenerates, validates, and writes `upstream-change-summary.md`. It pushes only `automation/cloudflare-schema-update` and creates or updates a PR. It deliberately never merges.
-
-The workflow needs repository `contents: write` and `pull-requests: write` permission. If organization policy prevents GitHub Actions from creating pull requests, an administrator must enable that capability or maintainers can run `npm run upstream:update` and open the generated review branch manually.
+`.github/workflows/upstream-drift.yml` resolves Cloudflare's current `main` revision, updates the provenance lock, regenerates both formats, validates them, and creates/updates a review PR. It never auto-merges.
 
 ### Protected read-only smoke test
 
-`.github/workflows/live-smoke.yml` runs only on a schedule or manual dispatch in the canonical repository. It is not triggered by pull requests. It skips cleanly until `CLOUDFLARE_READ_TOKEN` is configured, then treats authentication, envelope, pagination, and chaining failures as job failures.
+`.github/workflows/live-smoke.yml` runs only on schedule/manual dispatch in the canonical repository. It skips until `CLOUDFLARE_READ_TOKEN` is configured and is not exposed to pull requests.
 
-Optional repository secrets are:
-
-- `CLOUDFLARE_READ_TOKEN` (required to enable the job)
-- `CLOUDFLARE_TEST_ACCOUNT_ID` or `CLOUDFLARE_TEST_ACCOUNT_NAME`
-- `CLOUDFLARE_TEST_ZONE_ID` or `CLOUDFLARE_TEST_ZONE_NAME`
-
-Use narrowly scoped credentials for maintainer-controlled non-production test resources, with only the read permissions needed to verify the selected account and zone. No Postman API key is required.
-
-For an opt-in local check, set `CLOUDFLARE_API_TOKEN`, plus `CLOUDFLARE_ACCOUNT_ID`/`CLOUDFLARE_ACCOUNT_NAME` and `CLOUDFLARE_ZONE_ID`/`CLOUDFLARE_ZONE_NAME` as needed, then run `npm run smoke:live`. Keep values private; never commit populated environments or live response logs.
+Optional test selectors are supplied only through repository secrets or local environment variables. Never commit populated environments or live response logs.
 
 ## Generated-file policy
 
-Everything under `postman/reference/`, `postman/workflows/`, and `postman/environments/`, plus the manifest and operation-accounting file, is generated. Do not hand-edit it. Change source code, configuration, or the pinned upstream revision, run `npm run generate`, then run `npm run check`.
+Everything under `dist/v2.1/` and `postman/` is generated. Do not hand-edit generated artifacts. Change source/configuration or the pinned upstream revision, then run:
+
+```sh
+npm run generate
+npm run check
+```

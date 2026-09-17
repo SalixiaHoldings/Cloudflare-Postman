@@ -1,0 +1,82 @@
+$kind: http-example
+id: 31ddeb2e-f738-5dba-9414-237407822617
+request:
+  url: "{{base_url}}/user/tokens/permission_groups"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: name
+      value: Account%20Settings%20Write
+      disabled: true
+      description: |-
+        Filter by the name of the permission group.
+        The value must be URL-encoded.
+    - key: scope
+      value: com.cloudflare.api.account.zone
+      disabled: true
+      description: |-
+        Filter by the scope of the permission group.
+        The value must be URL-encoded.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "category": "account_and_billing",
+            "name": "Billing Read",
+            "scopes": [
+              "com.cloudflare.api.account"
+            ]
+          },
+          {
+            "category": "network_services",
+            "name": "Load Balancing: Monitors and Pools Read",
+            "scopes": [
+              "com.cloudflare.api.account"
+            ]
+          },
+          {
+            "category": "network_services",
+            "name": "Load Balancing: Monitors and Pools Write",
+            "scopes": [
+              "com.cloudflare.api.account"
+            ]
+          },
+          {
+            "category": "developer_platform",
+            "name": "Workers KV Storage Read",
+            "scopes": [
+              "com.cloudflare.api.account"
+            ]
+          },
+          {
+            "category": "developer_platform",
+            "name": "Workers KV Storage Write",
+            "scopes": [
+              "com.cloudflare.api.account"
+            ]
+          },
+          {
+            "category": "developer_platform",
+            "name": "Workers Scripts Read",
+            "scopes": [
+              "com.cloudflare.api.account"
+            ]
+          },
+          {
+            "category": "developer_platform",
+            "name": "Workers Scripts Write",
+            "scopes": [
+              "com.cloudflare.api.account"
+            ]
+          }
+        ]
+      }
+order: 1000

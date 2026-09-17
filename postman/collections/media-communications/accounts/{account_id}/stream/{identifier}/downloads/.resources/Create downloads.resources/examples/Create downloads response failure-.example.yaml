@@ -1,0 +1,30 @@
+$kind: http-example
+id: f7e8aa04-511b-5ee9-996c-976da349ad08
+name: Create downloads response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/downloads"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

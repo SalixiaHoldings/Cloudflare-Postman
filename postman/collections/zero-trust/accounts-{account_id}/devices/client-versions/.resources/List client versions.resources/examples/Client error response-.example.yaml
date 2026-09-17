@@ -1,0 +1,49 @@
+$kind: http-example
+id: b2fc06d2-cfdb-592a-a82c-7cf42816dd57
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/client-versions?target_environment=string&release_track=beta"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: target_environment
+      value: string
+      description: (Required) The target environment for the client version (e.g., windows, macos).
+    - key: release_track
+      value: beta
+      description: (Required) The release track (ga for General Availability, beta for Beta releases).
+    - key: page
+      value: "1"
+      disabled: true
+      description: The page number to return.
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: The maximum number of versions to return per page.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 2000

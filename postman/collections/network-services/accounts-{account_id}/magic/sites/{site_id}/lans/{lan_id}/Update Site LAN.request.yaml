@@ -1,0 +1,69 @@
+$kind: http-request
+id: 31217b8f-40ba-51ff-a450-358f1c92b17a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-site-lans-update-lan
+  PUT /accounts/{account_id}/magic/sites/{site_id}/lans/{lan_id}
+
+  Update a specific Site LAN.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/lans/{{lan_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "bond_id": 2,
+      "is_breakout": true,
+      "is_prioritized": true,
+      "name": "string",
+      "nat": {
+        "static_prefix": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "physport": 1,
+      "routed_subnets": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "static_addressing": {
+        "address": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "dhcp_relay": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "dhcp_server": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "secondary_address": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "virtual_address": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "vlan_tag": 42
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Site LAN.resources/examples
+order: 4000

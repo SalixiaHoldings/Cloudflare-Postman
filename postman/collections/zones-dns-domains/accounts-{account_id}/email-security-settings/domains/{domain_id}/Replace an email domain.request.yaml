@@ -1,0 +1,62 @@
+$kind: http-request
+id: e4562eac-3cd1-5a98-9b15-dd49119232c5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_replace_domain
+  PUT /accounts/{account_id}/email-security/settings/domains/{domain_id}
+
+  Replaces all mutable fields of a protected email domain in a single atomic operation. Unlike PATCH, all non-computed fields are required.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/domains/{{domain_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "allowed_delivery_modes": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "ip_restrictions": [
+        "192.0.2.0/24",
+        "2001:db8::/32"
+      ],
+      "drop_dispositions": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "regions": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "folder": {
+        "x-stainless-terraform-configurability": "computed_optional",
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "integration_id": "6ee71dff-4009-12ee-fd8e-597106511910",
+      "lookback_hops": 10,
+      "require_tls_inbound": false,
+      "require_tls_outbound": true,
+      "transport": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Replace an email domain.resources/examples
+order: 4000

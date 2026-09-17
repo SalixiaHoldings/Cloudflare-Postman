@@ -1,0 +1,29 @@
+$kind: http-example
+id: daefcf4a-d4b3-52d7-a834-0b29c84583e2
+name: Get the Split Tunnel include list for a device settings profile response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/policy/{{policy_id}}/include"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

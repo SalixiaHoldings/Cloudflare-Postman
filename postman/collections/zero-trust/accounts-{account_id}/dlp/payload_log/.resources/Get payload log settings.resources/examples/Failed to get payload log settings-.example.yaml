@@ -1,0 +1,30 @@
+$kind: http-example
+id: 3beeb99a-14cf-5f71-b95a-c034a5e45a37
+name: Failed to get payload log settings.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/payload_log"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

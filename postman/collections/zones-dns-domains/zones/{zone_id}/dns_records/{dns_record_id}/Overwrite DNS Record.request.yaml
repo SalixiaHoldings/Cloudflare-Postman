@@ -1,0 +1,43 @@
+$kind: http-request
+id: 7e829268-991f-5b63-a798-a391a6f29991
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dns-records-for-a-zone-update-dns-record
+  PUT /zones/{zone_id}/dns_records/{dns_record_id}
+
+  Overwrite an existing DNS record.
+
+  Notes:
+  - A/AAAA records cannot exist on the same name as CNAME records.
+  - NS records cannot exist on the same name as any other record type.
+  - Domain names are always represented in Punycode, even if Unicode
+    characters were used when creating the record.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/dns_records/{{dns_record_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  - key: include_shadow_metadata
+    value: "true"
+    disabled: true
+body:
+  type: json
+  content: |-
+    {
+      "value": "<Error: Too many levels of nesting to fake this schema>"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Overwrite DNS Record.resources/examples
+order: 4000

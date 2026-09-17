@@ -1,0 +1,39 @@
+$kind: http-example
+id: 84cca8ff-569e-55ad-af01-a71511059223
+name: List tag values response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/tags/values/{{tag_key}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: type
+      value: zone
+      disabled: true
+      description: Filter by resource type.
+    - key: cursor
+      value: eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ
+      disabled: true
+      description: Cursor for pagination.
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

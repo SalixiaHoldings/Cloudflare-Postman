@@ -1,0 +1,33 @@
+$kind: http-example
+id: e557a1a0-7d43-51ea-a6cc-80605a7baeef
+name: Flag evaluation result.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/evaluate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "flagKey": "uQ6I2g-",
+        "context": {}
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "flagKey": "string",
+        "variant": "string",
+        "reason": "DEFAULT",
+        "value": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

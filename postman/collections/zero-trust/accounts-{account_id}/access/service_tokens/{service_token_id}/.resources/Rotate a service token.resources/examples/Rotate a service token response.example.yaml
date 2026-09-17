@@ -1,0 +1,49 @@
+$kind: http-example
+id: b9139ec9-dccf-53ee-8de6-dec27d7f4d35
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/service_tokens/{{service_token_id}}/rotate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "previous_client_secret_expires_at": "{{previous_client_secret_expires_at}}"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "client_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "client_secret": "{{client_secret}}",
+          "created_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "duration": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "updated_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

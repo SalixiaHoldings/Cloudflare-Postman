@@ -1,0 +1,27 @@
+$kind: http-example
+id: 36102a8d-0adc-53a7-aee9-63ebe074bb8a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/apps/{{app_id}}/settings"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "allow_iframe": true,
+        "skip_interstitial": true
+      }
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+order: 1000

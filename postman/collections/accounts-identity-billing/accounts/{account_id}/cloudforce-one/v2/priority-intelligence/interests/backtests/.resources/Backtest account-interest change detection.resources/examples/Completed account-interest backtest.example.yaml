@@ -1,0 +1,32 @@
+$kind: http-example
+id: f74a9bc7-f9c6-5e33-8384-2cdf9e4ee3a8
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/interests/backtests"
+  method: POST
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "as_of": "1941-03-23T16:51:10.984Z",
+        "backtest_days": 30,
+        "candidate_limit": 90,
+        "dataset_ids": [
+          "string"
+        ],
+        "emerging_min_current_count": 93193,
+        "established_min_absolute_delta": 3633,
+        "established_min_prior_count": 11664,
+        "established_min_relative_delta": 3.5830680280923843,
+        "window_days": 7
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

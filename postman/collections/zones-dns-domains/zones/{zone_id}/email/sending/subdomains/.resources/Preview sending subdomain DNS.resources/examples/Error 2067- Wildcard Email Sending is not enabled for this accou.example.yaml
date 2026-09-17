@@ -1,0 +1,26 @@
+$kind: http-example
+id: 20faa709-5e7d-5ee2-b4ac-c9840efb98f2
+name: "Error 2067: Wildcard Email Sending is not enabled for this account."
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/preview"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "sub.example.com"
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

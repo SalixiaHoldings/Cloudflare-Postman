@@ -1,0 +1,29 @@
+$kind: http-example
+id: b9771655-8ec1-5b58-804b-2911fc5f2d2f
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds"
+  method: POST
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "category": "string",
+        "curated_feed_id": "704bb250-9478-5469-dffa-687ff5179183",
+        "display_name": "string",
+        "enabled": true,
+        "poll_interval_s": 300,
+        "title": "string",
+        "url": "https://RPrPJSfzFRUYbxcTOSDdrCXIr.dkpvIeKhzD7OH5fH-YnMHUoDZ4tbJq66VFGTftp9JcupeMMYdn"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

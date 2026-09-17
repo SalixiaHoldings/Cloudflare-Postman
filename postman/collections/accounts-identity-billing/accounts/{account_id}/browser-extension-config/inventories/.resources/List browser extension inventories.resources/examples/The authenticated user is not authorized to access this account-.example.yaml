@@ -1,0 +1,43 @@
+$kind: http-example
+id: 81e09640-790d-5192-acb8-0a40c7f84bdc
+name: The authenticated user is not authorized to access this account.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config/inventories"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: cursor
+      value: string
+      disabled: true
+      description: Opaque cursor from a previous response to fetch the next page.
+    - key: per_page
+      value: "50"
+      disabled: true
+      description: Number of results per page (default 50, max 200).
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 3000

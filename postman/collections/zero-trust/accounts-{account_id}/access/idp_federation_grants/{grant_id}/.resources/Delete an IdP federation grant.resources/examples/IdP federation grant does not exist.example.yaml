@@ -1,0 +1,27 @@
+$kind: http-example
+id: 5f7bb335-5224-56ee-b6f9-1b2a777f01bb
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/idp_federation_grants/{{grant_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

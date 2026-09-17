@@ -1,0 +1,27 @@
+$kind: http-example
+id: 12724a37-8d8f-51aa-915b-a9178913d010
+name: List packet capture requests response failure (client error).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pcaps"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "result": null
+      }
+order: 2000

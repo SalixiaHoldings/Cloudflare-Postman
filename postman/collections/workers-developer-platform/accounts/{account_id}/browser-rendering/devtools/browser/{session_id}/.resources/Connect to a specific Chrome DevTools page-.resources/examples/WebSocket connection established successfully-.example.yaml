@@ -1,0 +1,25 @@
+$kind: http-example
+id: 824cd1ab-b51c-570d-b767-701cc91ab059
+name: WebSocket connection established successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/page/{{target_id}}"
+  method: GET
+  headers:
+    - key: cf-brapi-guardrails
+      value: eyJtb2RlIjoicmVhZG9ubHkifQ
+      description: Optional base64url-encoded JSON connection guardrails (mode)
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+response:
+  statusCode: 101
+  statusText: Switching Protocols
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

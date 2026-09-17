@@ -1,0 +1,21 @@
+$kind: http-example
+id: a7cfcb77-112d-5861-8ff9-310bb57b5d78
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/logs/jit_requests/{{knock_request_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

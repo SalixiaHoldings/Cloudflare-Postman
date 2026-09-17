@@ -1,0 +1,69 @@
+$kind: http-example
+id: e4658763-46d4-51f6-8a39-a63864a7fb95
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/search"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: size
+      value: "100"
+      disabled: true
+      description: Limit the number of objects in the response.
+    - key: q
+      value: string
+      disabled: true
+      description: Filter scans
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "results": [
+          {
+            "task": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "stats": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "page": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "verdicts": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "result": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "task": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "stats": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "page": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "verdicts": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "result": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

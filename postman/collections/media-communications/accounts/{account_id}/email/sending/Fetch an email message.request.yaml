@@ -1,0 +1,27 @@
+$kind: http-request
+id: c76c89f2-46db-5f73-b8af-1970402ad27a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email-sending-get-email-message
+  GET /accounts/{account_id}/email/sending/messages/{message_id}
+
+  Returns the raw RFC 5322 MIME message for the given account and message id.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/email/sending/messages/{{message_id}}"
+method: GET
+headers:
+  Accept: message/rfc822
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Fetch an email message.resources/examples
+order: 2000

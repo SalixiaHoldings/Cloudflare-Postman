@@ -1,0 +1,31 @@
+$kind: http-example
+id: 2dac5e02-cf1b-50a6-bfe7-7d5fac427111
+name: Delete Hostname Client Certificate response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/origin_tls_client_auth/hostnames/certificates/{{certificate_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

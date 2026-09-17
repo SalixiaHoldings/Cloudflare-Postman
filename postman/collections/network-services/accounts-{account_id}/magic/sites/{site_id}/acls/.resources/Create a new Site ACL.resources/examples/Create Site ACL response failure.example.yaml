@@ -1,0 +1,77 @@
+$kind: http-example
+id: fca35879-033a-550d-b48c-df72994053ce
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/acls"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "PIN Pad - Cash Register",
+        "lan_1": {
+          "lan_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "lan_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "port_ranges": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ports": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "subnets": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "lan_2": {
+          "lan_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "lan_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "port_ranges": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ports": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "subnets": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "description": "Allows local traffic between PIN pads and cash register.",
+        "forward_locally": false,
+        "protocols": [
+          "tcp",
+          "udp"
+        ],
+        "unidirectional": true
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,24 @@
+$kind: http-example
+id: 445f22a4-e5f4-5a84-9530-5e4f90c486d0
+name: Delete request asset response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/requests/{{request_id}}/asset/{{asset_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

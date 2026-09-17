@@ -1,0 +1,48 @@
+$kind: http-example
+id: 42611346-3ae8-59b1-a3f5-78ff0bca7a18
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/relationships/{{rel_uuid}}?datasetId=string"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: datasetId
+      value: string
+      description: (Required) Dataset UUID containing the relationship.
+  body:
+    type: json
+    content: |-
+      {
+        "confidence": 47,
+        "metadata": {
+          "key_0": "string"
+        },
+        "type": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

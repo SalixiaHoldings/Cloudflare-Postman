@@ -1,0 +1,39 @@
+$kind: http-request
+id: 0d4ccba8-d1c0-51a4-ab48-108bb51d9ecf
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-environment-purge
+  POST /zones/{zone_id}/environments/{environment_id}/purge_cache
+
+  Purge cached content scoped to a specific environment. Supports the same purge types as the zone-level endpoint (purge everything, by URL, by tag, host, or prefix).
+
+  ### Availability and limits
+  Please refer to [purge cache availability and limits documentation page](https://developers.cloudflare.com/cache/how-to/purge-cache/#availability-and-limits).
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/environments/{{environment_id}}/purge_cache"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "hosts": [
+        "www.example.com",
+        "images.example.com"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Purge Cached Content by Environment.resources/examples
+order: 2000

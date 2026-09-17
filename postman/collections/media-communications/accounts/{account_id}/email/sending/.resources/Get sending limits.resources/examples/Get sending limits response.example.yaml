@@ -1,0 +1,23 @@
+$kind: http-example
+id: e3f3f328-dd16-5043-b2e1-dbd9b65becfd
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/limits"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,51 @@
+$kind: http-example
+id: df29e428-1130-5db7-a0fa-34f83d507f17
+name: Data class update failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/data_classes/{{data_class_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "data_tags": [
+          "7a4a68ae-f386-3200-22f8-345c3ec900cf",
+          "83672d8d-cb62-4745-72b5-af7d27f4d407"
+        ],
+        "description": "string",
+        "expression": "string",
+        "name": "string",
+        "sensitivity_levels": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

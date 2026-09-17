@@ -1,0 +1,35 @@
+$kind: http-example
+id: d283f8bc-3702-5e3b-be5b-80f23bcf2e8f
+name: Get projects response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pages/projects"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "10"
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

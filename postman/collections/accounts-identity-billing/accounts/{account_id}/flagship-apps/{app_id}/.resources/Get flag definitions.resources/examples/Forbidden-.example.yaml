@@ -1,0 +1,25 @@
+$kind: http-example
+id: 007629ca-553c-513a-a758-6f99faaa5a1b
+name: Forbidden.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/definitions"
+  method: GET
+  headers:
+    - key: If-None-Match
+      value: string
+      description: Previously returned ETag, or `*`.
+    - key: Accept
+      value: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "error": "string"
+      }
+order: 4000

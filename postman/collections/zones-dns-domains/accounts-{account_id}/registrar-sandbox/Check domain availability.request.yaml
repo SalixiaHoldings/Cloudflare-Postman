@@ -1,0 +1,82 @@
+$kind: http-request
+id: ac7245ac-4d0b-5291-abc4-4ce3d4be51c7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: sandbox-registrar-domain-discovery-check
+  POST /accounts/{account_id}/registrar-sandbox/domain-check
+
+  Performs real-time, authoritative availability checks directly against domain
+  registries. Use this endpoint to verify a domain is available before attempting
+  registration via `POST /registrations`.
+
+  **Important:** Unlike the Search endpoint, these results are authoritative and
+  reflect current registry status. Always check availability immediately before
+  registration as domain status can change rapidly.
+
+  **Note:** This endpoint uses POST to accept a list of domains in the request
+  body. It is a read-only operation — it does not create, modify, or reserve
+  any domains.
+
+  ### Extension support
+
+  Only domains on extensions supported for programmatic registration by this API
+  can be registered. If you check a domain on an unsupported extension, the response
+  will include `registrable: false` with a `reason` field explaining why:
+
+  - `extension_not_supported_via_api` — Cloudflare Registrar supports this extension
+    in the dashboard, but it is not yet available for programmatic registration via
+    this API. Register via `https://dash.cloudflare.com/{account_id}/domains/registrations` instead.
+  - `extension_not_supported` — This extension is not supported by Cloudflare
+    Registrar.
+  - `extension_disallows_registration` — The extension's registry has temporarily
+    or permanently frozen new registrations. No registrar can register domains on
+    this extension at this time.
+  - `domain_premium` — The domain is premium priced. Premium registration is not
+    currently supported by this API.
+  - `domain_unavailable` — The domain is already registered, reserved, or otherwise
+    not available for registration on a supported extension.
+
+  The `reason` field is only present when `registrable` is `false`.
+
+  ### Behavior
+  - Maximum 20 domains per request
+  - Pricing is only returned for domains where `registrable: true`
+  - Results are not cached; each request queries the registry
+
+  ### Workflow
+  1. Call this endpoint with domains the user wants to register.
+  2. For each domain where `registrable: true`, present pricing to the user.
+  3. If `tier: premium`, note that premium registration is not currently
+     supported by this API and do not proceed to `POST /registrations`.
+  4. Proceed to `POST /registrations` only for supported non-premium domains.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/domain-check"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "domains": [
+        "myawesomebrand.com",
+        "myawesomebrand.net",
+        "myawesomebrand.org",
+        "myawesomebrand.app",
+        "myawesomebrand.dev"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Check domain availability.resources/examples
+order: 1000

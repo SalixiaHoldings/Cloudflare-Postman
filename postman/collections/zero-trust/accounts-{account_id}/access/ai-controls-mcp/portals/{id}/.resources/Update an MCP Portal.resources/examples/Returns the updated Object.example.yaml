@@ -1,0 +1,88 @@
+$kind: http-example
+id: 4779e765-1a87-522b-a7bb-51735338b74a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/portals/{{id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "allow_code_mode": true,
+        "code_mode": "opt_in",
+        "description": "This is my custom MCP Portal",
+        "hostname": "example.com",
+        "name": "My MCP Portal",
+        "secure_web_gateway": false,
+        "servers": [
+          {
+            "server_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "default_disabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "on_behalf": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updated_prompts": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updated_tools": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "server_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "default_disabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "on_behalf": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updated_prompts": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "updated_tools": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "id": "my-mcp-portal",
+          "name": "My MCP Portal",
+          "hostname": "example.com",
+          "servers": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "allow_code_mode": true,
+          "code_mode": "opt_in",
+          "created_at": "1979-11-27T23:10:39.574Z",
+          "created_by": "string",
+          "description": "This is my custom MCP Portal",
+          "modified_at": "1938-12-28T12:02:15.871Z",
+          "modified_by": "string",
+          "secure_web_gateway": false
+        }
+      }
+order: 1000

@@ -1,0 +1,32 @@
+$kind: http-request
+id: 222e94e4-47ee-5784-854a-4b2620935d4d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: d1-get-database
+  GET /accounts/{account_id}/d1/database/{database_id}
+
+  Returns the specified D1 database.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: fields
+    value: version,jurisdiction
+    disabled: true
+    description: |
+      Comma-separated list of fields to include in the response. When omitted,
+      all fields are returned.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get D1 Database.resources/examples
+order: 2000

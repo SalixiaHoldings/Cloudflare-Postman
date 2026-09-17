@@ -1,0 +1,43 @@
+$kind: http-example
+id: 1cebe56f-b890-5a91-93ff-1aa585716ddc
+name: Authentication failed or the caller is not authorized.
+request:
+  url: "{{base_url}}/analytics/sql"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "query": "string",
+        "params": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "scope": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "time_range": {
+          "start": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "end": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: Authorization error
+order: 3000

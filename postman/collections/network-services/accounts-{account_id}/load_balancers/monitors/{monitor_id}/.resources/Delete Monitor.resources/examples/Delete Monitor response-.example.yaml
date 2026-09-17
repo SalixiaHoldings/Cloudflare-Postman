@@ -1,0 +1,26 @@
+$kind: http-example
+id: 56ba1730-b423-5974-8447-90d363562bde
+name: Delete Monitor response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/load_balancers/monitors/{{monitor_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

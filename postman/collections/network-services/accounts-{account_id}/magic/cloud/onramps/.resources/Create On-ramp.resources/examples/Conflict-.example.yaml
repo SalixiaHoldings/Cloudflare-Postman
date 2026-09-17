@@ -1,0 +1,73 @@
+$kind: http-example
+id: 6ca9f45b-5f8e-52d7-9414-4e9782f225cb
+name: Conflict.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps"
+  method: POST
+  headers:
+    forwarded: string
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "type": "OnrampTypeSingle",
+        "cloud_type": "GOOGLE",
+        "install_routes_in_cloud": true,
+        "install_routes_in_magic_wan": true,
+        "dynamic_routing": true,
+        "adopted_hub_id": "45aaf23c-377b-7097-c12c-a2dd1147ec55",
+        "attached_hubs": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "attached_vpcs": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "cloud_asn": 7833,
+        "description": "string",
+        "hub_provider_id": "903254a9-4fbc-35f9-a0db-3f8fac29fdee",
+        "manage_hub_to_hub_attachments": false,
+        "manage_vpc_to_hub_attachments": true,
+        "region": "string",
+        "vpc": "1aa57e36-a120-d1b7-ecbd-917879607ebc"
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": null,
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 5000

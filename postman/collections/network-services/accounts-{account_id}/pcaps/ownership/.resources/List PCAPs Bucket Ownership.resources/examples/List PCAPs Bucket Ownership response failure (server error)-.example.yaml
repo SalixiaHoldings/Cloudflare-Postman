@@ -1,0 +1,27 @@
+$kind: http-example
+id: ef546de0-e63c-5ba9-b1c8-bbfec9bd2ee6
+name: List PCAPs Bucket Ownership response failure (server error).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pcaps/ownership"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "result": null
+      }
+order: 3000

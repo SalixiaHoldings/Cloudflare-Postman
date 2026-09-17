@@ -1,0 +1,25 @@
+$kind: http-request
+id: 84a93d04-93f4-5018-a390-df9500bb13b2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudforce-one-cancel-rule-approval
+  POST /accounts/{account_id}/cloudforce-one/rules/approvals/{id}/cancel
+
+  Cancel a pending rule approval. Only its original requester may cancel it.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals/{{id}}/cancel"
+method: POST
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Cancel a pending approval.resources/examples
+order: 2000

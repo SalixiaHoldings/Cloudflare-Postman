@@ -1,0 +1,27 @@
+$kind: http-request
+id: 1eb7d50a-84af-59f6-9ceb-efa2c653b1e4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_get_domain_verification
+  GET /accounts/{account_id}/email-security/settings/domains/{domain_id}/verification
+
+  Returns the DNS TXT record information when the domain ownership isn't
+  verified through Cloudflare zone ownership or CASB integration.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/domains/{{domain_id}}/verification"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get domain verification details.resources/examples
+order: 5000

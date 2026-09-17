@@ -1,4 +1,8 @@
+import { createQueryConverter } from './query-process.mjs';
+import assert from 'node:assert/strict';
+import { IDENTIFIER_VARIABLES, warningRecord, assertQueryContract, assertOmissions } from './query-policy.mjs';
 import { createHash } from 'node:crypto';
+import { deterministicUuid } from './identity.mjs';
 import { createRequire } from 'node:module';
 import { format } from 'node:util';
 import { DEFAULT_BASE_URL } from './constants.mjs';
@@ -8,16 +12,7 @@ const require = createRequire(import.meta.url);
 const converter = require('openapi-to-postmanv2');
 const schemaFaker = require('openapi-to-postmanv2/assets/json-schema-faker.js');
 
-function deterministicUuid(seed) {
-  const digest = createHash('sha256').update(seed).digest('hex').slice(0, 32).split('');
-  digest[12] = '5';
-  digest[16] = ['8', '9', 'a', 'b'][Number.parseInt(digest[16], 16) % 4];
-  return `${digest.slice(0, 8).join('')}-${digest.slice(8, 12).join('')}-${digest
-    .slice(12, 16)
-    .join('')}-${digest.slice(16, 20).join('')}-${digest.slice(20).join('')}`;
-}
-
-function convert(schema) {
+export function convert(schema, overrides = {}) {
   return new Promise((resolve, reject) => {
     const warnings = [];
     const originalWarn = console.warn;
@@ -70,7 +65,8 @@ function convert(schema) {
           requestNameSource: 'Fallback',
           requestParametersResolution: 'Example',
           exampleParametersResolution: 'Example',
-          schemaFaker: false
+          schemaFaker: false,
+          ...overrides
         },
         (error, result) => {
           restoreConsole();
@@ -108,7 +104,7 @@ function requestPath(request) {
     .replace(/:([^/]+)/gu, '{$1}');
 }
 
-function makeRawUrl(apiPath, query) {
+export function makeRawUrl(apiPath, query) {
   const pathWithVariables = apiPath.replace(/\{([^}]+)\}/gu, '{{$1}}');
   const queryString = (query ?? [])
     .filter((entry) => entry && entry.disabled !== true)
@@ -148,7 +144,7 @@ function sanitizeJsonString(value) {
 
 function sanitizeRequestIdentifiers(request) {
   for (const query of request.url?.query ?? []) {
-    query.value = coreIdentifierVariable(query.key) ?? query.value;
+    query.value = IDENTIFIER_VARIABLES[query.key] ?? query.value;
   }
   if (typeof request.body?.raw === 'string') {
     request.body.raw = sanitizeJsonString(request.body.raw);
@@ -175,7 +171,7 @@ function normalizeUuidIds(value, seed, breadcrumb = []) {
   }
 }
 
-function normalizeCollection(collection, { partition, operations, commit, schemaSha256 }) {
+function normalizeCollection(collection, { partition, operations, commit, schemaSha256 }, secondary) {
   const expected = new Map(operations.map((operation) => [operation.key, operation]));
   const represented = new Set();
 
@@ -205,6 +201,9 @@ function normalizeCollection(collection, { partition, operations, commit, schema
         `GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: ${operation.operationId}\n${key}` +
         (originalDescription ? `\n\n${originalDescription}` : '');
       applyAuthentication(item, operation.authSupport);
+      const projected = secondary.get(key);
+      assert.ok(projected, `Missing secondary query: ${key}`);
+      projectQueryRows(item.request, projected);
       sanitizeRequestIdentifiers(item.request);
       if (typeof item.request.url === 'string') {
         item.request.url = { raw: makeRawUrl(apiPath), host: ['{{base_url}}'], path: [] };
@@ -254,7 +253,62 @@ function normalizeCollection(collection, { partition, operations, commit, schema
   return { collection, represented: [...represented] };
 }
 
+export function projectQueryRows(primary, secondary) {
+  assert.ok(primary.url && typeof primary.url === 'object' && secondary.url && typeof secondary.url === 'object', 'Expected structured query projection URLs.');
+  if (Object.hasOwn(secondary.url, 'query')) primary.url.query = structuredClone(secondary.url.query);
+  else delete primary.url.query;
+}
+
+export function indexOperations(collection, operations) {
+  const expected = new Set(operations.map(o => o.key));
+  assert.equal(expected.size, operations.length, 'Duplicate expected operation identity.');
+  const indexed = new Map();
+  function visit(items) {
+    for (const item of items ?? []) {
+      if (item.item) { visit(item.item); continue; }
+      if (!item.request) continue;
+      const key = `${String(item.request.method).toUpperCase()} ${requestPath(item.request)}`;
+      assert.ok(expected.has(key) && !indexed.has(key), `Unexpected/duplicate conversion operation: ${key}`);
+      assert.ok(item.request.url && typeof item.request.url === 'object', 'Expected structured converter URL.');
+      indexed.set(key, item.request);
+    }
+  }
+  visit(collection.item);
+  assert.equal(indexed.size, expected.size, 'Missing conversion operation.');
+  return indexed;
+}
+
 export async function generateCollection(schema, context) {
+  // Independent full inputs: converter mutation must not leak between passes.
+  const secondaryInput = structuredClone(schema);
+  const contractOperations = context.operations.map(o => ({ ...o, operation: structuredClone(o.operation) }));
   const converted = await convert(schema);
-  return { ...normalizeCollection(converted.collection, context), warnings: converted.warnings };
+  indexOperations(converted.collection, context.operations);
+  let secondary = context.secondaryResult;
+  if (!secondary) {
+    const worker = createQueryConverter();
+    try { secondary = await worker.convert(secondaryInput, context.operations); }
+    finally { await worker.close(); }
+  }
+  const expected = new Set(context.operations.map(o => o.key));
+  const indexed = new Map();
+  for (const row of secondary.queries) {
+    assert.ok(expected.has(row.key) && !indexed.has(row.key), 'Unexpected/duplicate secondary identity.');
+    indexed.set(row.key, { url: row.query === undefined ? {} : { query: row.query } });
+  }
+  assert.equal(indexed.size, expected.size, 'Missing secondary identity.');
+  const diagnostics = warningRecord(secondary.warnings);
+  if (context.queryPolicy) assert.deepEqual(diagnostics, context.queryPolicy.partitions[context.partition.id],
+    'Secondary warning fingerprint changed; explicit review required.');
+  const omissions = [];
+  let enabled = 0, disabled = 0;
+  for (const operation of contractOperations) {
+    const result = assertQueryContract(indexed.get(operation.key), secondaryInput, operation);
+    omissions.push(...result.omissions); enabled += result.enabled; disabled += result.disabled;
+  }
+  const keys = new Set(context.operations.map(o => o.key));
+  assertOmissions(omissions, (context.queryPolicy?.omissions ?? []).filter(o => keys.has(o.operation)));
+  const normalized = normalizeCollection(converted.collection, context, indexed);
+  return { ...normalized, warnings: converted.warnings,
+    queryProjection: { enabled, disabled, omissions, secondaryWarnings: diagnostics } };
 }

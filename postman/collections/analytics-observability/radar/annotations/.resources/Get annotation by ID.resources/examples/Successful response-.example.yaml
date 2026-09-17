@@ -1,0 +1,85 @@
+$kind: http-example
+id: e608e74c-c8b0-5189-94dd-262ae067b13d
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/annotations/{{id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "annotation": {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "dataSource": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "scope": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "startDate": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "endDate": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "asns": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "asnsDetails": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "locations": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "geoIds": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "entities": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "locationsDetails": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "origins": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "originsDetails": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "eventType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "tags": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "linkedUrl": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "outage": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

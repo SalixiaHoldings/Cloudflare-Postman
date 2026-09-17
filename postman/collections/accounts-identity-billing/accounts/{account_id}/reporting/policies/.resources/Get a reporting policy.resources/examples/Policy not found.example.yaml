@@ -1,0 +1,28 @@
+$kind: http-example
+id: 6ea92637-2934-5c2e-a264-8fd519f83a4f
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/reporting/policies/{{policy_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 2000

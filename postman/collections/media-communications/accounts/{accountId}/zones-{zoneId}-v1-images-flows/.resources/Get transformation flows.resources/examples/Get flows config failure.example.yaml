@@ -1,0 +1,20 @@
+$kind: http-example
+id: c90d08bc-a0ea-57c9-bc75-6426cc4d7ad8
+request:
+  url: "{{base_url}}/accounts/{{accountId}}/zones/{{zoneId}}/v1/images/flows"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "error": {}
+      }
+order: 2000

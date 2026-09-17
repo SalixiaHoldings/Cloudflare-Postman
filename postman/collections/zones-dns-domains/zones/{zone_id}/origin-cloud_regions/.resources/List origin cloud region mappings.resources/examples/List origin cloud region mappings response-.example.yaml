@@ -1,0 +1,39 @@
+$kind: http-example
+id: c559d7b0-b03b-54e7-a51a-0a4863098062
+name: List origin cloud region mappings response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: Number of items per page.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "result_info": {
+          "count": 0,
+          "page": 1,
+          "per_page": 20,
+          "total_count": 0,
+          "total_pages": 0
+        },
+        "success": true
+      }
+order: 1000

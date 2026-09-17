@@ -1,0 +1,25 @@
+$kind: http-request
+id: 2cd174d8-1e99-5dd5-9714-439a54d4c866
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: postAccountsAccountIdBrandProtectionBrands
+  POST /accounts/{account_id}/brand-protection/brands
+
+  Return new brands
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/brand-protection/brands"
+method: POST
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create new brands.resources/examples
+order: 3000

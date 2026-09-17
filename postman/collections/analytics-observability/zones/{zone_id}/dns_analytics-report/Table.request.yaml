@@ -1,0 +1,49 @@
+$kind: http-request
+id: 61e96d24-7d8d-5c49-91df-e3a10211a14b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dns-analytics-table
+  GET /zones/{zone_id}/dns_analytics/report
+
+  Retrieves a list of summarised aggregate metrics over a given time period.
+
+  See [Analytics API properties](https://developers.cloudflare.com/dns/reference/analytics-api-properties/) for detailed information about the available query parameters.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/dns_analytics/report"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: metrics
+    value: queryCount,uncachedCount
+    disabled: true
+  - key: dimensions
+    value: queryType
+    disabled: true
+  - key: since
+    value: 2023-11-11T12:00:00Z
+    disabled: true
+  - key: until
+    value: 2023-11-11T13:00:00Z
+    disabled: true
+  - key: limit
+    value: "100"
+    disabled: true
+  - key: sort
+    value: +responseCode,-queryName
+    disabled: true
+  - key: filters
+    value: responseCode==NOERROR,queryType==A
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Table.resources/examples
+order: 1000

@@ -1,0 +1,40 @@
+$kind: http-example
+id: b2a4cd5f-f376-5a61-834f-34159117b9f6
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds"
+  method: GET
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: limit
+      value: "99"
+      disabled: true
+    - key: sort
+      value: -created_at
+      disabled: true
+    - key: category
+      value: string
+      disabled: true
+    - key: source_type
+      value: custom
+      disabled: true
+    - key: enabled
+      value: "true"
+      disabled: true
+    - key: status
+      value: string
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

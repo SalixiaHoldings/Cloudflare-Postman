@@ -1,0 +1,29 @@
+$kind: http-request
+id: fe909b40-1d2e-5312-b766-9675261ca589
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-tunnel-clean-up-cloudflare-tunnel-connections
+  DELETE /accounts/{account_id}/cfd_tunnel/{tunnel_id}/connections
+
+  Removes a connection (aka Cloudflare Tunnel Connector) from a Cloudflare Tunnel independently of its current state. If no connector id (client_id) is provided all connectors will be removed. We recommend running this command after rotating tokens.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cfd_tunnel/{{tunnel_id}}/connections"
+method: DELETE
+headers:
+  Accept: application/json
+queryParams:
+  - key: client_id
+    value: 1bedc50d-42b3-473c-b108-ff3d10c0d925
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Clean up Cloudflare Tunnel connections.resources/examples
+order: 1000

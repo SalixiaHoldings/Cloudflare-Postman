@@ -1,0 +1,31 @@
+$kind: http-example
+id: f1add005-9283-58f9-898a-97c34f2f8f52
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/queries"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "tag": "string",
+        "image_data": "strin",
+        "similarity_threshold": 0.6605934964027256,
+        "search_lookback": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "message": "string",
+        "query_id": 3023
+      }
+order: 1000

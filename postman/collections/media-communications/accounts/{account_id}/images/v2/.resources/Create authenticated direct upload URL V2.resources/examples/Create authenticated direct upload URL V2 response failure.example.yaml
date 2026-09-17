@@ -1,0 +1,54 @@
+$kind: http-example
+id: e4d870c9-cb5d-55f1-ae2b-8cb90d9e5009
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v2/direct_upload"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: creator
+        value: string
+        description: Can set the creator field with an internal user ID.
+      - type: text
+        key: expiry
+        value: 2021-01-02T02:20:00Z
+        description: "The date after which the upload will not be accepted. Minimum: Now + 2 minutes. Maximum: Now + 6 hours."
+      - type: text
+        key: id
+        value: this/is/my-customid
+        description: Optional Image Custom ID. Up to 1024 chars. Can include any number of subpaths, and utf8 characters. Cannot start nor end with a / (forward slash). Cannot be a UUID.
+      - type: text
+        key: metadata
+        value: "{}"
+        description: User modifiable key-value store. Can be used for keeping references to another system of record, for managing images.
+      - type: text
+        key: requireSignedURLs
+        value: "true"
+        description: Indicates whether the image requires a signature token to be accessed.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

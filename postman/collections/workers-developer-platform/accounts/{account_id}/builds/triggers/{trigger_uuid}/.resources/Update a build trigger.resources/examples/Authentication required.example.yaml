@@ -1,0 +1,48 @@
+$kind: http-example
+id: 009fec5c-8ce1-5c71-a7d1-9276587bc0e5
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/triggers/{{trigger_uuid}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "branch_includes": [
+          "main"
+        ],
+        "build_caching_enabled": false,
+        "build_command": "npm run build",
+        "build_token_uuid": "{{build_token_uuid}}",
+        "deploy_command": "npx wrangler deploy",
+        "path_excludes": [
+          "*.md"
+        ],
+        "path_includes": [
+          "*"
+        ],
+        "root_directory": "/",
+        "trigger_name": "Production Deploy"
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12005,
+            "message": "Missing token from authorization header"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

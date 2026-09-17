@@ -1,0 +1,49 @@
+$kind: http-example
+id: f238da85-f242-5c78-bd38-a4b9fd413227
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/iam/user_groups"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: id
+      value: 023e105f4ecef8ad9ca31a8372d0c353
+      disabled: true
+      description: ID of the user group to be fetched.
+    - key: name
+      value: NameOfTheUserGroup
+      disabled: true
+    - key: fuzzyName
+      value: Foo
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "100"
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

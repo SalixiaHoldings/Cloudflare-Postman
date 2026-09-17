@@ -1,0 +1,39 @@
+$kind: http-request
+id: 3723ec30-a639-5f3d-8f20-7de7925eda8e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: mcp-portals-api-portal-tool-call-timeseries
+  GET /accounts/{account_id}/access/ai-controls/mcp/analytics/portals/{portal_id}/tool-calls/timeseries
+
+  Returns daily or monthly tool-call counts for a portal.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/analytics/portals/{{portal_id}}/tool-calls/timeseries"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: granularity
+    value: daily
+    disabled: true
+  - key: aggregate
+    value: "false"
+    disabled: true
+  - key: tz
+    value: utc
+    disabled: true
+  - key: days
+    value: "56"
+    disabled: true
+    description: Daily trailing-window size; defaults to 7 and is ignored for monthly
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Per-portal MCP tool-call timeseries.resources/examples
+order: 1000

@@ -1,0 +1,35 @@
+$kind: http-example
+id: dbdcd2d5-dfb2-5372-a3d8-af80b6994cff
+name: Not authorized to resubmit this approval.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals/{{id}}/resubmit"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "commit_message": "string",
+        "content": "string",
+        "description": "string",
+        "enabled": false,
+        "name": "string",
+        "namespaces": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 3000

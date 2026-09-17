@@ -1,0 +1,31 @@
+$kind: http-example
+id: 2c0701d3-2046-59db-94ce-23e54c71a584
+name: Delete Fallback Origin for Custom Hostnames response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/custom_hostnames/fallback_origin"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

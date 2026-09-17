@@ -1,0 +1,17 @@
+$kind: http-example
+id: c5a4525e-d6cf-5f22-b565-c5c7ed7c92ff
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/takedown-notices/{{notice_id}}/letters/{{letter_id}}/pdf"
+  method: GET
+  headers:
+    Accept: application/pdf
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

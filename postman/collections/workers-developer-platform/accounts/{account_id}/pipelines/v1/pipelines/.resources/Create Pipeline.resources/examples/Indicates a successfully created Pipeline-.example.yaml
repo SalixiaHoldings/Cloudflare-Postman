@@ -1,0 +1,36 @@
+$kind: http-example
+id: 1a9a0eb6-efd7-59d3-8e54-c46eeb9dbc26
+name: Indicates a successfully created Pipeline.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/pipelines"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "my_pipeline",
+        "sql": "insert into sink select * from source;"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "01234567890123457689012345678901",
+          "name": "my_pipeline",
+          "created_at": "string",
+          "modified_at": "string",
+          "sql": "insert into sink select * from source;",
+          "status": "string"
+        }
+      }
+order: 1000

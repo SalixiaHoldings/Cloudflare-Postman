@@ -1,0 +1,26 @@
+$kind: http-example
+id: 36017f96-573e-57da-a9ba-40d647521601
+name: Returns a list of authors.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/authors/search"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": [],
+        "errors": [],
+        "messages": [
+          "string",
+          "string"
+        ]
+      }
+order: 1000

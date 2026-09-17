@@ -1,0 +1,27 @@
+$kind: http-example
+id: 2c4eed80-796e-54f3-a74e-7d94c9fafd3f
+name: A snippet rules response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/snippets/snippet_rules"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": true,
+        "errors": [],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

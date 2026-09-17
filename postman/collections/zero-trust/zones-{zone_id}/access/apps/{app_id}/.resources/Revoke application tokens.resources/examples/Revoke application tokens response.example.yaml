@@ -1,0 +1,20 @@
+$kind: http-example
+id: 16e5ade2-dd3a-5b98-8996-64d58e1dbe0c
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/apps/{{app_id}}/revoke_tokens"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true
+      }
+order: 1000

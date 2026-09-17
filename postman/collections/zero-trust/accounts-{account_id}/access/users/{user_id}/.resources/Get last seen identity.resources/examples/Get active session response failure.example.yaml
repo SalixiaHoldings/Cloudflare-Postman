@@ -1,0 +1,27 @@
+$kind: http-example
+id: 32ddf590-e997-5462-9f35-cec552255a90
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/users/{{user_id}}/last_seen_identity"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

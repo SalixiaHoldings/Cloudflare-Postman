@@ -1,0 +1,39 @@
+$kind: http-example
+id: 6ab1fe1b-1bad-513e-928d-6556833282a2
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vuln_scanner/target_environments/{{target_environment_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "description": "Main production environment",
+        "name": "Production Zone",
+        "target": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

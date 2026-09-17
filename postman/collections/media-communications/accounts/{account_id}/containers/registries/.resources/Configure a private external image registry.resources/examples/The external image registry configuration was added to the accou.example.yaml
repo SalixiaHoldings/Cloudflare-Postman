@@ -1,0 +1,51 @@
+$kind: http-example
+id: 74ec90ab-d76a-5e9a-87fa-27937f9bba9b
+name: The external image registry configuration was added to the account.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/registries"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domain": "docker.io",
+        "auth": {
+          "public_credential": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "private_credential": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "kind": {
+          "description": "Registry provider. This must match `domain`: `DockerHub` for `docker.io`,\n`ECR` for AWS ECR, or `GAR` for Google Artifact Registry.\n",
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "is_public": false
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

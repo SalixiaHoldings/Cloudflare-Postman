@@ -1,0 +1,39 @@
+$kind: http-example
+id: 59df72c0-4ab3-5e40-8271-7d298c365ed1
+name: Successful response with parsed robots.txt rules keyed by hostname.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ai-audit/robots/bulk"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        "example.com",
+        "blog.example.com"
+      ]
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

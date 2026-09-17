@@ -1,0 +1,32 @@
+$kind: http-example
+id: e69dd6d1-8fdd-5a30-9971-ae86df28c69a
+name: Successful response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vuln_scanner/scans/{{scan_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result_info": {}
+      }
+order: 1000

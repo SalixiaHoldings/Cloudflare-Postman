@@ -1,0 +1,48 @@
+$kind: http-example
+id: a0919e2a-ca0d-5b5a-9fa8-37245efbf62a
+name: Returns the updated tag category.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tag-categories/{{category_uuid}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "description": "string",
+        "name": "string",
+        "schema": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "name": "Actor",
+        "createdAt": "string",
+        "description": "string",
+        "schema": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "updatedAt": "string"
+      }
+order: 1000

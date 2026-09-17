@@ -1,0 +1,60 @@
+$kind: http-example
+id: de7caa88-03c8-5406-a9a7-870c24091467
+name: Top-N query result.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics/query/{{dataset}}/top-n"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "filters": [],
+        "from": "2024-11-05T00:00:00Z",
+        "groupBy": [
+          "appName",
+          "appCategory"
+        ],
+        "n": 10,
+        "orderBy": "bytesTotal",
+        "stats": [
+          "bytesTotal",
+          "requestsTotal"
+        ],
+        "to": "2024-11-06T00:00:00Z"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [
+          {
+            "code": 1000,
+            "message": "API in beta: expect breaking changes."
+          }
+        ],
+        "result": [
+          {
+            "appCategory": "Collaboration",
+            "appName": "Slack",
+            "bytesTotal": 10485760,
+            "requestsTotal": 1024
+          },
+          {
+            "appCategory": "File Storage",
+            "appName": "Dropbox",
+            "bytesTotal": 5242880,
+            "requestsTotal": 512
+          }
+        ],
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,48 @@
+$kind: http-request
+id: e55024e3-c716-5b6b-84ad-d03d85fbbffc
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: radar-get-bgp-rpki-aspa-snapshot
+  GET /radar/bgp/rpki/aspa/snapshot
+
+  Retrieves current or historical ASPA (Autonomous System Provider Authorization) objects. ASPA objects define which ASNs are authorized upstream providers for a customer ASN.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/radar/bgp/rpki/aspa/snapshot"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: customerAsn
+    value: "13335"
+    disabled: true
+    description: Filter by customer ASN (the ASN publishing the ASPA object).
+  - key: providerAsn
+    value: "174"
+    disabled: true
+    description: Filter by provider ASN (an authorized upstream provider in ASPA objects).
+  - key: date
+    value: 2024-09-19T00:00:00Z
+    disabled: true
+    description: Filters results by the specified datetime (ISO 8601).
+  - key: includeAsnInfo
+    value: "true"
+    disabled: true
+    description: Include ASN metadata (name, country) in response.
+  - key: format
+    value: CSV
+    disabled: true
+    description: Format in which results will be returned.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get ASPA objects snapshot.resources/examples
+order: 2000

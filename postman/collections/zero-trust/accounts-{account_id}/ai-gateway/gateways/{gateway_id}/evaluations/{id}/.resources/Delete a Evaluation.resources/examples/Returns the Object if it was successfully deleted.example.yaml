@@ -1,0 +1,44 @@
+$kind: http-example
+id: 69cd0dc7-6a19-588f-932e-95fc1c17472e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/evaluations/{{id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "gateway_id": "my-gateway",
+          "name": "string",
+          "created_at": "1942-08-21T04:24:19.386Z",
+          "modified_at": "1983-10-10T12:25:46.671Z",
+          "datasets": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "results": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "processed": false,
+          "total_logs": 2915.22981133312
+        }
+      }
+order: 1000

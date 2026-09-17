@@ -1,0 +1,72 @@
+$kind: http-request
+id: baa7b1e0-eed5-5a37-982c-50d6dfaffc75
+name: Get a browser session ID.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: brapi-post_DevtoolsAcquire
+  POST /accounts/{account_id}/browser-rendering/devtools/browser
+
+  Acquires a browser and returns its session ID and websocket URL. Optionally accepts a JSON body with session guardrails to restrict outbound HTTP/S traffic.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: keep_alive
+    value: "60000"
+    disabled: true
+    description: Keep-alive time in milliseconds.
+  - key: lab
+    value: "false"
+    disabled: true
+    description: Use experimental browser.
+  - key: targets
+    value: "false"
+    disabled: true
+    description: Include browser targets in response.
+  - key: liveViewUrlExpiresInMs
+    value: "300000"
+    disabled: true
+    description: How long the live view URL remains valid, in milliseconds (max 60 minutes). Only used when targets is true.
+  - key: recording
+    value: "false"
+    disabled: true
+body:
+  type: json
+  content: |-
+    {
+      "guardrails": {
+        "allowedDomainSets": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "allowedDomains": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get a browser session ID-.resources/examples
+order: 2000

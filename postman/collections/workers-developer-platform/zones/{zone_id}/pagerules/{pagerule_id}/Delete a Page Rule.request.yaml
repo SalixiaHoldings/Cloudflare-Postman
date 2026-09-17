@@ -1,0 +1,25 @@
+$kind: http-request
+id: 6c81d8dc-73d9-5b0b-a897-8c3164141e34
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: page-rules-delete-a-page-rule
+  DELETE /zones/{zone_id}/pagerules/{pagerule_id}
+
+  Deletes an existing Page Rule.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/pagerules/{{pagerule_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete a Page Rule.resources/examples
+order: 1000

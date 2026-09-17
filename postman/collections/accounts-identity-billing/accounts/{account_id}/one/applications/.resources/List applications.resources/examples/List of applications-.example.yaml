@@ -1,0 +1,90 @@
+$kind: http-example
+id: 3a051b82-59fb-5a24-8d9e-f60e4ff8fd79
+name: List of applications.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/one/applications"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: environment
+      value: string
+      disabled: true
+      description: Filter by supported environment (standard, fedramp).
+    - key: page
+      value: "1209"
+      disabled: true
+      description: A page number within the paginated result set.
+    - key: page_size
+      value: "1209"
+      disabled: true
+      description: Number of results to return per page.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": [
+          {
+            "auth_methods": [
+              {
+                "display_name": "OAuth 2.0 Admin Consent",
+                "id": "oauth2_standard"
+              }
+            ],
+            "category": "Productivity",
+            "description": "Monitor OneDrive, SharePoint, Teams, and Outlook.",
+            "display_name": "Microsoft",
+            "dlp_enabled": true,
+            "id": "MICROSOFT_INTERNAL",
+            "logo": "https://dash.cloudflare.com/v2/static/microsoft_internal.svg",
+            "permissions": [
+              {
+                "display_name": "Read all users' full profiles",
+                "scope": "User.Read.All",
+                "severity": "high"
+              },
+              {
+                "display_name": "Read all files",
+                "scope": "Files.Read.All",
+                "severity": "high"
+              },
+              {
+                "display_name": "Read and write mail",
+                "scope": "Mail.ReadWrite",
+                "severity": "critical"
+              }
+            ],
+            "supported_environments": [
+              "standard",
+              "fedramp"
+            ],
+            "use_cases": [
+              {
+                "display_name": "Cloud Access Security Broker",
+                "id": "casb"
+              },
+              {
+                "display_name": "Cloud Email Security",
+                "id": "ces"
+              }
+            ]
+          }
+        ],
+        "result_info": {
+          "count": 1,
+          "next": null,
+          "page": 1,
+          "per_page": 10,
+          "previous": null,
+          "total_count": 1
+        },
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,40 @@
+$kind: http-example
+id: b4e8fc7b-3fd4-58da-a623-3c9617cd5785
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/logos"
+  method: POST
+  headers:
+    Content-Type: application/x-www-form-urlencoded
+    Accept: application/json
+  queryParams:
+    - key: tag
+      value: string
+      disabled: true
+    - key: match_type
+      value: string
+      disabled: true
+    - key: threshold
+      value: "7564.619842451066"
+      disabled: true
+  body:
+    type: urlencoded
+    content:
+      image: string
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "code": 7665,
+        "errors": {
+          "key_0": {},
+          "key_1": {}
+        },
+        "message": "string",
+        "status": "string"
+      }
+order: 2000

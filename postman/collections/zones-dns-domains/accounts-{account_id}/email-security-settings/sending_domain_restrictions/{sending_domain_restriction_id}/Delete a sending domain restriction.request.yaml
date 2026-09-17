@@ -1,0 +1,25 @@
+$kind: http-request
+id: f81a49f7-5cd7-53f3-bdd4-733cd1288fee
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_delete_sending_domain_restriction
+  DELETE /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}
+
+  Removes a sending domain restriction. After deletion, TLS will no longer be enforced for emails from this domain.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/sending_domain_restrictions/{{sending_domain_restriction_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete a sending domain restriction.resources/examples
+order: 1000

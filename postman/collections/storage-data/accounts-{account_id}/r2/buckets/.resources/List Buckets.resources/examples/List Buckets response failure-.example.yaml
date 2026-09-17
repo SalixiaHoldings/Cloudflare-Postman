@@ -1,0 +1,57 @@
+$kind: http-example
+id: 727ce872-0498-58f6-b4bb-136f8ddad3d4
+name: List Buckets response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets"
+  method: GET
+  headers:
+    cf-r2-jurisdiction: default
+    Accept: application/json
+  queryParams:
+    - key: name_contains
+      value: my-bucket
+      disabled: true
+    - key: start_after
+      value: my-bucket
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: order
+      value: name
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: cursor
+      value: string
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": null
+      }
+order: 2000

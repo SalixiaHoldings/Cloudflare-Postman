@@ -1,0 +1,37 @@
+$kind: http-example
+id: c1653419-725e-5d4d-8ff4-e4762f549f4b
+name: Invalid request body, missing/invalid publication command key, or one or more attachment_asset_ids are invalid (not on this request, deleted, or already attached to another message).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/messages/new"
+  method: POST
+  headers:
+    - key: Idempotency-Key
+      value: string
+      description: Client command key. Required when publishing a message for a workflow-enabled project; trimmed and limited to 255 characters.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "content": "string",
+        "attachment_asset_ids": [
+          "string",
+          "string"
+        ],
+        "author_id": "string",
+        "author_name": "string",
+        "publish": false,
+        "tlp": "red"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

@@ -1,0 +1,32 @@
+$kind: http-request
+id: 40dad9e0-a6ce-5685-a570-60d2a34831f7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: RequestReview
+  POST /accounts/{account_id}/abuse-reports/{report_id}/mitigations/appeal
+
+  Request a review for mitigations on an account. Repeating a request for a mitigation with an unresolved appeal is idempotent and returns that mitigation in the in-review state.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/{{report_id}}/mitigations/appeal"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "appeals": 6400
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Request review on mitigations.resources/examples
+order: 2000

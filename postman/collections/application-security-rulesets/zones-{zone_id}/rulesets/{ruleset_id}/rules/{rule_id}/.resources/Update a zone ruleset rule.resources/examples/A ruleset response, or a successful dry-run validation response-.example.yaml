@@ -1,0 +1,41 @@
+$kind: http-example
+id: cd4ad588-76b8-5baa-ac80-a190721414b5
+name: A ruleset response, or a successful dry-run validation response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/rulesets/{{ruleset_id}}/rules/{{rule_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: dry_run
+      value: "false"
+      disabled: true
+      description: "Validates the request without persisting changes when set to `true`. Responses that normally return 200 return `result: null`; endpoints that normally return 204 continue to return 204."
+  body:
+    type: json
+    content: |-
+      {
+        "position": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": true,
+        "errors": [],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

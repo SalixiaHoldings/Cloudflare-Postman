@@ -1,9 +1,13 @@
-import { mkdtemp, mkdir, readFile, rm } from 'node:fs/promises';
+import { createQueryConverter } from './query-process.mjs';
+import queryPolicy from '../config/query-projection.json' with { type: 'json' };
+import { assertQueryRevision } from './query-policy.mjs';
+import { generateNative } from './native-git.mjs';
+import { cp, mkdtemp, mkdir, readFile, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { POSTMAN_DIR, ROOT } from './constants.mjs';
+import { V2_DIR, ROOT } from './constants.mjs';
 import { createBootstrapCollection, createTemplateEnvironment } from './chaining.mjs';
-import { sha256, stableJson, writeJson } from './io.mjs';
+import { readJson, sha256, stableJson, writeJson } from './io.mjs';
 import { listOperations, subsetSchema } from './openapi.mjs';
 import { classifyOperations, loadPartitionConfig } from './partition.mjs';
 import { generateCollection } from './postman.mjs';
@@ -21,8 +25,9 @@ async function cleanGeneratedDirectories(outputRoot) {
   }
 }
 
-export async function generateAll({ outputRoot = POSTMAN_DIR, schemaPath, schemaLock } = {}) {
+async function generateV2({ outputRoot = V2_DIR, schemaPath, schemaLock } = {}) {
   const pinned = schemaPath && schemaLock ? { destination: schemaPath, lock: schemaLock } : await fetchPinnedSchema();
+  assertQueryRevision(queryPolicy, pinned.lock, (await readJson(path.join(ROOT, 'package.json'))).devDependencies['openapi-to-postmanv2']);
   const schema = JSON.parse(await readFile(pinned.destination, 'utf8'));
   const operations = listOperations(schema);
   const config = await loadPartitionConfig();
@@ -30,11 +35,17 @@ export async function generateAll({ outputRoot = POSTMAN_DIR, schemaPath, schema
   await cleanGeneratedDirectories(outputRoot);
 
   const manifestPartitions = [];
+  const queryConverter = createQueryConverter();
+  let secondaryResults;
+  try { secondaryResults = await queryConverter.convertAll(structuredClone(schema), config.partitions, assignments); }
+  finally { await queryConverter.close(); }
   for (const partition of config.partitions) {
     const partitionOperations = assignments.get(partition.id);
     const partitionSchema = subsetSchema(schema, partition, partitionOperations);
-    const { collection, represented, warnings } = await generateCollection(partitionSchema, {
+    const { collection, represented, warnings, queryProjection } = await generateCollection(partitionSchema, {
       partition,
+      queryPolicy,
+      secondaryResult: secondaryResults.get(partition.id),
       operations: partitionOperations,
       commit: pinned.lock.commit,
       schemaSha256: pinned.lock.schema.sha256
@@ -49,6 +60,7 @@ export async function generateAll({ outputRoot = POSTMAN_DIR, schemaPath, schema
       operationCount: represented.length,
       residual: partition.residual === true,
       converterWarningCount: warnings.length,
+      queryProjection,
       authentication: authenticationCounts(partitionOperations),
       sha256: sha256(serialized)
     });
@@ -159,19 +171,31 @@ async function compareGenerated(actualRoot, expectedRoot) {
   return differences;
 }
 
-export async function verifyGenerated() {
-  const temporaryRoot = await mkdtemp(path.join(os.tmpdir(), 'cloudflare-postman-generate-'));
-  const generatedRoot = path.join(temporaryRoot, 'postman');
+export async function generateAll({ outputRoot = ROOT, schemaPath, schemaLock } = {}) {
+  const temporary = await mkdtemp(path.join(os.tmpdir(), 'cloudflare-dual-'));
   try {
-    const result = await generateAll({ outputRoot: generatedRoot });
-    const differences = await compareGenerated(POSTMAN_DIR, generatedRoot);
-    if (differences.length) {
-      throw new Error(`Generated artifacts are stale or non-deterministic:\n${differences.join('\n')}`);
+    const v2Root = path.join(temporary, 'dist', 'v2.1');
+    const result = await generateV2({ outputRoot: v2Root, schemaPath, schemaLock });
+    await generateNative(temporary);
+    for (const directory of ['dist', 'postman']) {
+      await rm(path.join(outputRoot, directory), { recursive: true, force: true });
+      await cp(path.join(temporary, directory), path.join(outputRoot, directory), { recursive: true });
     }
     return result;
-  } finally {
-    await rm(temporaryRoot, { recursive: true, force: true });
-  }
+  } finally { await rm(temporary, { recursive: true, force: true }); }
+}
+
+export async function verifyGenerated() {
+  const temporaryRoot = await mkdtemp(path.join(os.tmpdir(), 'cloudflare-postman-check-'));
+  try {
+    const result = await generateAll({ outputRoot: temporaryRoot });
+    const differences = [];
+    for (const directory of ['dist', 'postman']) {
+      differences.push(...await compareGenerated(path.join(ROOT, directory), path.join(temporaryRoot, directory)));
+    }
+    if (differences.length) throw new Error('Generated artifacts are stale or non-deterministic:\n' + differences.join('\n'));
+    return result;
+  } finally { await rm(temporaryRoot, { recursive: true, force: true }); }
 }
 
 export function formatGenerationSummary(result) {

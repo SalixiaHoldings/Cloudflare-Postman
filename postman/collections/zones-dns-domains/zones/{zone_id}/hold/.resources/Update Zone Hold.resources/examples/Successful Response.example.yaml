@@ -1,0 +1,37 @@
+$kind: http-example
+id: 90c4dbb8-1361-509b-a66a-7b6367da34b2
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/hold"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "hold_after": "2023-01-31T15:56:36Z",
+        "include_subdomains": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "hold": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "hold_after": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "include_subdomains": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

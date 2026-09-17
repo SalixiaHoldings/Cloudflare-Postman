@@ -1,0 +1,33 @@
+$kind: http-request
+id: 41e0f400-0615-5db0-a83b-cc04fbcf3654
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-accounts-patch-connectivity-settings
+  PATCH /accounts/{account_id}/zerotrust/connectivity_settings
+
+  Updates the Zero Trust Connectivity Settings for the given account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/zerotrust/connectivity_settings"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "icmp_proxy_enabled": true,
+      "offramp_warp_enabled": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Updates the Zero Trust Connectivity Settings.resources/examples
+order: 2000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: 66488079-2458-546e-bd80-e6a28cb66cb2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/sso_connectors/{{sso_connector_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

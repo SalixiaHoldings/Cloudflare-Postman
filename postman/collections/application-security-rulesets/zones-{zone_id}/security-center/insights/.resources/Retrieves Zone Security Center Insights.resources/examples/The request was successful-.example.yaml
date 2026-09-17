@@ -1,0 +1,104 @@
+$kind: http-example
+id: 847309aa-c5aa-5191-aa4c-21d3fdd540f1
+name: The request was successful.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/security-center/insights"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: dismissed
+      value: "false"
+      disabled: true
+    - key: issue_class
+      value: a_record_dangling
+      disabled: true
+    - key: issue_class
+      value: always_use_https_not_enabled
+      disabled: true
+    - key: issue_type
+      value: compliance_violation
+      disabled: true
+    - key: issue_type
+      value: email_security
+      disabled: true
+    - key: product
+      value: access
+      disabled: true
+    - key: product
+      value: dns
+      disabled: true
+    - key: source
+      value: cloudflare
+      disabled: true
+    - key: severity
+      value: low
+      disabled: true
+    - key: severity
+      value: moderate
+      disabled: true
+    - key: subject
+      value: example.com
+      disabled: true
+    - key: subject
+      value: example.com
+      disabled: true
+    - key: issue_class~neq
+      value: a_record_dangling
+      disabled: true
+    - key: issue_class~neq
+      value: always_use_https_not_enabled
+      disabled: true
+    - key: issue_type~neq
+      value: compliance_violation
+      disabled: true
+    - key: issue_type~neq
+      value: email_security
+      disabled: true
+    - key: product~neq
+      value: access
+      disabled: true
+    - key: product~neq
+      value: dns
+      disabled: true
+    - key: severity~neq
+      value: low
+      disabled: true
+    - key: severity~neq
+      value: moderate
+      disabled: true
+    - key: subject~neq
+      value: example.com
+      disabled: true
+    - key: subject~neq
+      value: example.com
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "25"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

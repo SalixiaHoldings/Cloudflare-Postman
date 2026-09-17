@@ -1,0 +1,36 @@
+$kind: http-example
+id: 44106e6d-6534-5584-8460-3bca22415101
+name: A dataset of this type already exists for this account or zone.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logs/explorer/datasets/{{dataset_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "key_0": 6349,
+          "key_1": 4224.232907872647
+        },
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          "string",
+          "string"
+        ]
+      }
+order: 5000

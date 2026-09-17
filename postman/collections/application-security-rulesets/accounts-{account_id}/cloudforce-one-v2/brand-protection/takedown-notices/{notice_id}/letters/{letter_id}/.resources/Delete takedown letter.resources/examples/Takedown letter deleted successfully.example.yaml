@@ -1,0 +1,20 @@
+$kind: http-example
+id: fe6aaa56-9164-55e3-9f4e-4e02d8b9db6c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/takedown-notices/{{notice_id}}/letters/{{letter_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "message": "string"
+      }
+order: 1000

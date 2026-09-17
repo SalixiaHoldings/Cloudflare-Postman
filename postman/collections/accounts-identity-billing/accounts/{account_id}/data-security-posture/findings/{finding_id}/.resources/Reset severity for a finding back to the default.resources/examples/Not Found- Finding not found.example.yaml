@@ -1,0 +1,17 @@
+$kind: http-example
+id: 07edfabc-0a16-5b00-b37d-81b5d6bdf818
+name: "Not Found: Finding not found"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{finding_id}}/reset_finding_severity"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

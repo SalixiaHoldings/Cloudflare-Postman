@@ -1,0 +1,27 @@
+$kind: http-request
+id: c63a0abd-3962-58af-875f-ba8bbfb00878
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: mconn-connector-telemetry-snapshots-get
+  GET /accounts/{account_id}/magic/connectors/{connector_id}/telemetry/snapshots/{snapshot_t}
+
+  Gets Magic WAN Connector Telemetry Snapshot
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/connectors/{{connector_id}}/telemetry/snapshots/{{snapshot_t}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Snapshot.resources/examples
+order: 3000

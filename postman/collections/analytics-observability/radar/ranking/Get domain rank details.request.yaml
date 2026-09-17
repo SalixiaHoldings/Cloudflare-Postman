@@ -1,0 +1,60 @@
+$kind: http-request
+id: a691f7d8-c762-5ce6-83a4-877ff646157d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: radar-get-ranking-domain-details
+  GET /radar/ranking/domain/{domain}
+
+  Retrieves domain rank details. Cloudflare provides an ordered rank for the top 100 domains, but for the remainder it only provides ranking buckets like top 200 thousand, top one million, etc.. These are available through Radar datasets endpoints.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/radar/ranking/domain/{{domain}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: limit
+    value: "5"
+    disabled: true
+    description: Limits the number of objects returned in the response.
+  - key: rankingType
+    value: POPULAR
+    disabled: true
+    description: The ranking type.
+  - key: name
+    value: main_series
+    disabled: true
+    description: Array of names used to label the series in the response.
+  - key: name
+    value: main_series
+    disabled: true
+    description: Array of names used to label the series in the response.
+  - key: includeTopLocations
+    value: "true"
+    disabled: true
+    description: Includes top locations in the response.
+  - key: date
+    value: 1993-08-29
+    disabled: true
+    description: Filters results by the specified array of dates.
+  - key: date
+    value: 1988-07-19
+    disabled: true
+    description: Filters results by the specified array of dates.
+  - key: format
+    value: CSV
+    disabled: true
+    description: Format in which results will be returned.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get domain rank details.resources/examples
+order: 1000

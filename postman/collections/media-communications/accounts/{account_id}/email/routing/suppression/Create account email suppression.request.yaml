@@ -1,0 +1,33 @@
+$kind: http-request
+id: b2b08730-9e21-5fd5-86a5-1cc4398c3132
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_publicNewSuppressionRouting
+  POST /accounts/{account_id}/email/routing/suppression
+
+  Creates a new email suppression for the specified account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email/routing/suppression"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "email": "user@example.com",
+      "expires_at": "1998-01-15T01:34:20.578Z"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create account email suppression.resources/examples
+order: 2000

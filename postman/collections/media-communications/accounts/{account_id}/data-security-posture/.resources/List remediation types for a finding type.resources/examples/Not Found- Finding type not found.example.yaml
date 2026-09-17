@@ -1,0 +1,34 @@
+$kind: http-example
+id: 3cd31511-a7f6-5895-bc61-d68ff13fff5e
+name: "Not Found: Finding type not found"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/finding_types/{{finding_type_id}}/remediation_types"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: integration_id
+      value: 2fb1bb1c-2780-2c2f-f793-3f3e46718f78
+      disabled: true
+      description: Filter by an integration ID
+    - key: cursor
+      value: string
+      disabled: true
+      description: A cursor for pagination.
+    - key: page
+      value: "4239"
+      disabled: true
+      description: A page number within the paginated result set.
+    - key: per_page
+      value: "4239"
+      disabled: true
+      description: Number of results to return per page.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

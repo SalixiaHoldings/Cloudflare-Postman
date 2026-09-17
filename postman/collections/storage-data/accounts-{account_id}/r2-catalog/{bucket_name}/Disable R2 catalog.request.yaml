@@ -1,0 +1,28 @@
+$kind: http-request
+id: 33efb845-1320-5dab-88d2-cb2f4c75a40f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: disable-catalog
+  POST /accounts/{account_id}/r2-catalog/{bucket_name}/disable
+
+  Disable an R2 bucket as a catalog. This operation deactivates the catalog
+  but preserves existing metadata and data files. The catalog can be
+  re-enabled later.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/disable"
+method: POST
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Disable R2 catalog.resources/examples
+order: 4000

@@ -1,0 +1,52 @@
+$kind: http-request
+id: 8eeb425e-ff8a-52ee-a1d9-4c4e02254cf3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: stream-videos-update-video-details
+  POST /accounts/{account_id}/stream/{identifier}
+
+  Edit details for a single video.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "allowedOrigins": [
+        "example.com"
+      ],
+      "creator": "creator-id_abcde12345",
+      "maxDurationSeconds": 13662,
+      "meta": {
+        "name": "video12345.mp4"
+      },
+      "publicDetails": {
+        "channel_link": "string",
+        "logo": "string",
+        "share_link": "string",
+        "title": "string"
+      },
+      "requireSignedURLs": true,
+      "scheduledDeletion": "2014-01-02T02:20:00Z",
+      "thumbnailTimestampPct": 0.529241,
+      "uid": "ea95132c15732412d22c1476fa83f27a",
+      "uploadExpiry": "2014-01-02T02:20:00Z"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Edit video details.resources/examples
+order: 3000

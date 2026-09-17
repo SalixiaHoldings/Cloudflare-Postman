@@ -1,0 +1,30 @@
+$kind: http-example
+id: 0bb8f553-1dfe-5052-885f-eb4e143f0bc0
+name: Not found.
+request:
+  url: "{{base_url}}/radar/entities/ip?ip=8.8.8.8"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: ip
+      value: 8.8.8.8
+      description: (Required) IP address.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not Found."
+      }
+order: 2000

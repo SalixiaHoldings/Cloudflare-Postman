@@ -1,0 +1,44 @@
+$kind: http-example
+id: 80110b71-459b-57b3-b143-64c816e50b0e
+name: Get tags for single resource response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/tags?resource_id=023e105f4ecef8ad9ca31a8372d0c353&resource_type=worker"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: resource_id
+      value: 023e105f4ecef8ad9ca31a8372d0c353
+      description: (Required) The ID of the resource to retrieve tags for.
+    - key: resource_type
+      value: worker
+      description: (Required) The type of the resource.
+    - key: worker_id
+      value: 3f72a691-44b3-4c11-8642-c18a88ddaa5e
+      disabled: true
+      description: Worker identifier. Required for worker_version resources.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

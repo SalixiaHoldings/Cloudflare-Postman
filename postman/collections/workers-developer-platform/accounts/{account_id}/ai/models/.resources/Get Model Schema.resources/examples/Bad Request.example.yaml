@@ -1,0 +1,36 @@
+$kind: http-example
+id: b041bbee-b550-5c53-adea-93513c54f9e1
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/models/schema?model=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: model
+      value: string
+      description: (Required) Model Name
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

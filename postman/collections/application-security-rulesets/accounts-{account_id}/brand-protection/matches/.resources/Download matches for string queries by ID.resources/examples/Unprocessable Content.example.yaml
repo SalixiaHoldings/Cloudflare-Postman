@@ -1,0 +1,41 @@
+$kind: http-example
+id: 3a9f0302-568d-529d-bf99-e6fd71f1ec6a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/matches/download"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: string
+      disabled: true
+    - key: offset
+      value: "6305"
+      disabled: true
+    - key: limit
+      value: "6305"
+      disabled: true
+    - key: include_domain_id
+      value: "true"
+      disabled: true
+    - key: include_dismissed
+      value: "true"
+      disabled: true
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "code": 7665,
+        "errors": {
+          "key_0": {},
+          "key_1": {}
+        },
+        "message": "string",
+        "status": "string"
+      }
+order: 2000

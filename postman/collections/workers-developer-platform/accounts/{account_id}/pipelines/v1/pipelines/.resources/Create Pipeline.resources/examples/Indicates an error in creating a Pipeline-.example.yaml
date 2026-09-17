@@ -1,0 +1,25 @@
+$kind: http-example
+id: 826e65ff-a855-5a98-b665-bfba73aae96f
+name: Indicates an error in creating a Pipeline.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/pipelines"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "my_pipeline",
+        "sql": "insert into sink select * from source;"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

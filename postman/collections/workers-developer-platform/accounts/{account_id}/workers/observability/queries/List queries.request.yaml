@@ -1,0 +1,38 @@
+$kind: http-request
+id: 3599bd92-9a6c-56c9-9676-f77471134370
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: queries.list
+  GET /accounts/{account_id}/workers/observability/queries
+
+  List saved queries.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/queries"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+  - key: perPage
+    value: "20"
+    disabled: true
+  - key: order
+    value: desc
+    disabled: true
+  - key: orderBy
+    value: updated
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List queries.resources/examples
+order: 1000

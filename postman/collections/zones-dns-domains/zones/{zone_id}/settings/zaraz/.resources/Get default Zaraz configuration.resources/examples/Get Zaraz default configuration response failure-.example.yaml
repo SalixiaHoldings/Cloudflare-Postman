@@ -1,0 +1,28 @@
+$kind: http-example
+id: d2d02cfe-a471-514a-8db7-1e648bc5e127
+name: Get Zaraz default configuration response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/zaraz/default"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

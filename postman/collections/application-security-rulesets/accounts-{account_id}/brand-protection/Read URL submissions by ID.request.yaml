@@ -1,0 +1,25 @@
+$kind: http-request
+id: 58fa09a3-c3c0-5cb7-af9a-3c42508a6ad3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getAccountsAccountIdBrandProtectionSubmissionInfo
+  GET /accounts/{account_id}/brand-protection/submission-info
+
+  Return URL submissions based on ID
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/brand-protection/submission-info"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Read URL submissions by ID.resources/examples
+order: 13000

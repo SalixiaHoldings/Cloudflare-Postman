@@ -1,0 +1,48 @@
+$kind: http-example
+id: aa28aac6-d4d4-5dba-9ff6-c6bda0ef675f
+name: Update device settings for a Zero Trust account response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/settings"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "disable_for_time": 824.3705495260656,
+        "external_emergency_signal_enabled": true,
+        "external_emergency_signal_fingerprint": "abcd1234567890abcd1234567890abcd1234567890abcd1234567890abcd1234",
+        "external_emergency_signal_interval": "5m",
+        "external_emergency_signal_url": "https://192.0.2.1/signal",
+        "gateway_proxy_enabled": true,
+        "gateway_udp_proxy_enabled": true,
+        "root_certificate_installation_enabled": true,
+        "use_zt_virtual_ip": true
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

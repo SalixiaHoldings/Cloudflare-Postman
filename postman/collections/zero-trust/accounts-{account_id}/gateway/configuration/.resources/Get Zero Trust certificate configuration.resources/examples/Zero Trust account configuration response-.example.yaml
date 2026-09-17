@@ -1,0 +1,25 @@
+$kind: http-example
+id: 072a98d8-0de2-5db7-801d-a0366823f81c
+name: Zero Trust account configuration response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/configuration/custom_certificate"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true,
+        "binding_status": "pending_deployment",
+        "id": "d1b364c5-1311-466e-a194-f0e943e0799f",
+        "updated_at": "1986-02-25T16:35:25.870Z"
+      }
+order: 1000

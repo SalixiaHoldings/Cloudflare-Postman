@@ -1,0 +1,48 @@
+$kind: http-request
+id: 5360a8de-d637-5aca-886e-81018a5456a3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-site-wans-update-wan
+  PUT /accounts/{account_id}/magic/sites/{site_id}/wans/{wan_id}
+
+  Update a specific Site WAN.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/wans/{{wan_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "physport": 1,
+      "priority": 2731,
+      "static_addressing": {
+        "address": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "gateway_address": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "secondary_address": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "vlan_tag": 42
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Site WAN.resources/examples
+order: 4000

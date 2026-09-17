@@ -1,0 +1,22 @@
+$kind: http-example
+id: 16c17e83-1acb-5086-a9ed-ee67e1234568
+name: Delete Deployment response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/deployments/{{deployment_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

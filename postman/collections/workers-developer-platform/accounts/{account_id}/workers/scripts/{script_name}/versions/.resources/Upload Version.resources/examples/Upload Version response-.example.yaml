@@ -1,0 +1,50 @@
+$kind: http-example
+id: af8afd86-2ed8-58ad-9a6f-1e121ce8407f
+name: Upload Version response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/versions"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  queryParams:
+    - key: bindings_inherit
+      value: strict
+      disabled: true
+      description: When set to "strict", the upload will fail if any `inherit` type bindings cannot be resolved against the previous version of the Worker. Without this, unresolvable inherit bindings are silently dropped.
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: metadata
+        value: '{"main_module":"worker.js","annotations":{"workers/alias":{"value":"<Error: Too many levels of nesting to fake this schema>"},"workers/commit_sha":{"value":"<Error: Too many levels of nesting to fake this schema>"},"workers/message":{"value":"<Error: Too many levels of nesting to fake this schema>"},"workers/pull_request_number":{"value":"<Error: Too many levels of nesting to fake this schema>"},"workers/pull_request_title":{"value":"<Error: Too many levels of nesting to fake this schema>"},"workers/pull_request_url":{"value":"<Error: Too many levels of nesting to fake this schema>"},"workers/repository_url":{"value":"<Error: Too many levels of nesting to fake this schema>"},"workers/tag":{"value":"<Error: Too many levels of nesting to fake this schema>"}},"bindings":{"value":"<Error: Too many levels of nesting to fake this schema>"},"cache_options":{"value":"<Error: Too many levels of nesting to fake this schema>"},"compatibility_date":{"value":"<Error: Too many levels of nesting to fake this schema>"},"compatibility_flags":{"value":"<Error: Too many levels of nesting to fake this schema>"},"exports":{"value":"<Error: Too many levels of nesting to fake this schema>"},"keep_bindings":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}],"package_dependencies":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}],"usage_model":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+        contentType: application/json
+        description: (Required) JSON-encoded metadata about the uploaded parts and Worker configuration.
+      - type: text
+        key: files
+        value: '["string","string"]'
+        contentType: application/javascript+module, text/javascript+module, application/javascript, text/javascript, `text/x-python`, text/x-python-requirement, application/wasm, text/plain, application/octet-stream, application/source-map
+        description: "An array of modules (often JavaScript files) comprising a Worker script. At least one module must be present and referenced in the metadata as `main_module` or `body_part` by filename.<br/>Possible Content-Type(s) are: `application/javascript+module`, `text/javascript+module`, `application/javascript`, `text/javascript`, `text/x-python`, `text/x-python-requirement`, `application/wasm`, `text/plain`, `application/octet-stream`, `application/source-map`."
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,43 @@
+$kind: http-example
+id: fe261cc2-68ce-57ea-91aa-96d590896c8d
+name: Internal server error.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ai-audit/robots/bulk"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        "example.com",
+        "blog.example.com"
+      ]
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 7000

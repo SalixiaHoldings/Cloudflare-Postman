@@ -1,0 +1,112 @@
+$kind: http-example
+id: 36ffb539-3ec3-5947-b1ba-86ff288d85d7
+name: Submitted abuse reports listed successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/submitted"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page of submitted reports to return.
+    - key: per_page
+      value: "100"
+      disabled: true
+      description: Number of submitted reports per page.
+    - key: sort
+      value: cdate,desc
+      disabled: true
+      description: A property and direction to sort by (id, cdate, domain, type, status).
+    - key: id
+      value: string
+      disabled: true
+      description: Filter by report code.
+    - key: domain
+      value: string
+      disabled: true
+      description: Filter by reported domain. This parameter can be specified multiple times.
+    - key: domain
+      value: string
+      disabled: true
+      description: Filter by reported domain. This parameter can be specified multiple times.
+    - key: created_before
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
+      description: Return reports submitted before this time.
+    - key: created_after
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
+      description: Return reports submitted after this time.
+    - key: status
+      value: submitted
+      disabled: true
+      description: Filter by submitter-facing status. This parameter can be specified multiple times.
+    - key: status
+      value: accepted
+      disabled: true
+      description: Filter by submitter-facing status. This parameter can be specified multiple times.
+    - key: type
+      value: <string>
+      disabled: true
+      description: Filter by report type. This parameter can be specified multiple times.
+    - key: type
+      value: <string>
+      disabled: true
+      description: Filter by report type. This parameter can be specified multiple times.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "reports": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result_info": {
+          "page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "per_page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total_count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total_pages": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

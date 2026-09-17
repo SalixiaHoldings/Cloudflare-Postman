@@ -1,0 +1,26 @@
+$kind: http-request
+id: 500da356-5937-5593-97ef-864c10bb07c9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ListWebhooks
+  GET /accounts/{account_id}/data-security/posture/webhooks
+
+  Retrieves all webhook configurations for the authenticated account.
+  Returns an array of webhook configurations that can be used to send finding notifications.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List webhook configurations.resources/examples
+order: 1000

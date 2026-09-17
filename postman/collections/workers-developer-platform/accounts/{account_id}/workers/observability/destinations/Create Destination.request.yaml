@@ -1,0 +1,46 @@
+$kind: http-request
+id: 61de1c53-acd3-5bac-972a-f7c9eb0dbf49
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: destination.create
+  POST /accounts/{account_id}/workers/observability/destinations
+
+  Create a new Workers Observability Telemetry Destination.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/destinations"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "icnt5j1",
+      "enabled": true,
+      "configuration": {
+        "type": "logpush",
+        "logpushDataset": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "url": "string",
+        "headers": {
+          "key_0": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      },
+      "skipPreflightCheck": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Destination.resources/examples
+order: 2000

@@ -1,0 +1,57 @@
+$kind: http-request
+id: 39c0204a-457d-5e35-bc45-c6632b0a3360
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: firewall-rules-update-a-firewall-rule
+  PUT /zones/{zone_id}/firewall/rules/{rule_id}
+
+  **This endpoint has been deprecated and returns 410 Gone. Please use the [Rulesets API](https://developers.cloudflare.com/ruleset-engine/) instead.**
+
+  Updates an existing firewall rule.
+
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/firewall/rules/{{rule_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "id": "de677e5818985db1285d0e80225f06e5",
+      "filter": {
+        "description": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "expression": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "id": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "paused": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "ref": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "action": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a firewall rule.resources/examples
+order: 4000

@@ -1,0 +1,41 @@
+$kind: http-request
+id: 1a157a46-2fa8-5698-9bef-d6065105441f
+name: Run a log query
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zones-logs-explorer-query-post
+  POST /zones/{zone_id}/logs/explorer/query/sql
+
+  Run a SQL query against zone-level datasets.
+
+  Timestamp fields are RFC3339 strings. Filter with:
+    WHERE {timestamp_field} >= now() - INTERVAL '30' DAY
+    WHERE {timestamp_field} >= '2026-04-01T00:00:00Z'
+    WHERE {timestamp_field} BETWEEN '2026-04-01T00:00:00Z' AND '2026-04-30T23:59:59Z'
+
+  List configured zone datasets to see enabled zone-level datasets.
+  List available zone datasets to inspect their schemas and timestamp fields.
+
+  For more information about the datasets, and the meaning of each field, check out https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/logs/explorer/query/sql"
+method: POST
+headers:
+  Content-Type: text/plain
+  Accept: application/json
+body:
+  type: file
+  content: {}
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Run a log query-1.resources/examples
+order: 2000

@@ -1,0 +1,60 @@
+$kind: http-example
+id: d7d053eb-5d25-5935-a365-e72f3c10754c
+name: Batch terminate instances of a workflow, via a async job. Body is a JSON list that contain the ids of the instances to terminate.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/batch/terminate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      [
+        "-1e7b79aa0d12597f946254c6fbe3287a39c8cfb665f0e3863211c501dd27f3f0"
+      ]
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": {
+          "status": "already_running",
+          "instancesTerminated": 7336.358448956162
+        },
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 1700.4187824204564,
+          "count": 1433.0514008179307,
+          "total_count": 5896.509869489819,
+          "cursor": "string",
+          "page": 9387.405109591782,
+          "total_pages": 5573.484022170305
+        }
+      }
+order: 1000

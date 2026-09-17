@@ -1,0 +1,32 @@
+$kind: http-example
+id: e5931870-fb9e-51db-afa6-29081a1ed397
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/addressing/prefixes/{{prefix_id}}/bgp/prefixes/{{bgp_prefix_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "asn_prepend_count": 2,
+        "auto_advertise_withdraw": true,
+        "on_demand": {
+          "advertised": false
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

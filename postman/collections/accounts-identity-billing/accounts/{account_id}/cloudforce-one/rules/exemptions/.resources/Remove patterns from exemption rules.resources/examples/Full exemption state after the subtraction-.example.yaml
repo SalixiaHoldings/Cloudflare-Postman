@@ -1,0 +1,46 @@
+$kind: http-example
+id: 373826eb-3ce4-58f8-841c-279d83509bd8
+name: Full exemption state after the subtraction.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/exemptions"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "namespace": [
+          "^test-.*$",
+          "^test-.*$"
+        ],
+        "tag_match": [
+          "^test-.*$",
+          "^test-.*$"
+        ],
+        "worker_name": [
+          "^test-.*$",
+          "^test-.*$"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "namespace": [
+          "^test-.*$"
+        ],
+        "tag_match": [
+          "^staging-.*$"
+        ],
+        "worker_name": [
+          "^demo-.*$"
+        ]
+      }
+order: 1000

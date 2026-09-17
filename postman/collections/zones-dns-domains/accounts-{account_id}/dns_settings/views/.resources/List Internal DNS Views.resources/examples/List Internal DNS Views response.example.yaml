@@ -1,0 +1,63 @@
+$kind: http-example
+id: 2e95edb6-e5ec-5078-a822-60dbfc020318
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dns_settings/views"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: name
+      value: my view
+      disabled: true
+    - key: name.exact
+      value: my view
+      disabled: true
+    - key: name.contains
+      value: view
+      disabled: true
+    - key: name.startswith
+      value: my
+      disabled: true
+    - key: name.endswith
+      value: ew
+      disabled: true
+    - key: zone_id
+      value: "{{zone_id}}"
+      disabled: true
+    - key: zone_name
+      value: www.example.com
+      disabled: true
+    - key: match
+      value: any
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "5"
+      disabled: true
+    - key: order
+      value: type
+      disabled: true
+    - key: direction
+      value: asc
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

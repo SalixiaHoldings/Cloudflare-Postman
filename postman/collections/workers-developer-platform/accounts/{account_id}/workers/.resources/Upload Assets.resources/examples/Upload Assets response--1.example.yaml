@@ -1,0 +1,40 @@
+$kind: http-example
+id: 44fb8efc-9912-540c-962e-ca6b8e75b79e
+name: Upload Assets response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/assets/upload?base64=true"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  queryParams:
+    - key: base64
+      value: "true"
+      description: "(Required) "
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: key_0
+        value: string
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": null
+      }
+order: 2000

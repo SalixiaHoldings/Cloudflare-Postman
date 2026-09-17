@@ -1,0 +1,28 @@
+$kind: http-example
+id: 18c645b7-f1ed-556d-a05b-1cb16b2ca631
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/idp_federation_grants"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "idp_id": "a79de439-0e7f-4ebb-8a02-222222222222"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

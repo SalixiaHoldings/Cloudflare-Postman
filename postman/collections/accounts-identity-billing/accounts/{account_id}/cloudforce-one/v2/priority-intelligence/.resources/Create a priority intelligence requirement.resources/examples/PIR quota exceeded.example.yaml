@@ -1,0 +1,24 @@
+$kind: http-example
+id: e0c6b487-d8c7-5fd0-982f-e2db4ae75ffd
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence"
+  method: POST
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "requirement": "string",
+        "priority": 0,
+        "tlp": "amber"
+      }
+response:
+  statusCode: 429
+  statusText: Too Many Requests
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

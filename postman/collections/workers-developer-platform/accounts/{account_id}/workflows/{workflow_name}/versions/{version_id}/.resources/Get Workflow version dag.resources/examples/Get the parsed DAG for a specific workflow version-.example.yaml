@@ -1,0 +1,57 @@
+$kind: http-example
+id: fef8f84b-b0ab-5849-b98b-476788d51494
+name: Get the parsed DAG for a specific workflow version.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/versions/{{version_id}}/dag"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": {
+          "created_on": "1983-02-26T09:12:14.758Z",
+          "modified_on": "1956-06-28T01:10:07.363Z",
+          "id": "57adf661-5147-7ac2-beaf-e52a1fb7204e",
+          "workflow_id": "4dc0b8ed-9d4e-36fc-ccf9-d8cf19035abb",
+          "class_name": "string",
+          "dag": {}
+        },
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 7852.829287294298,
+          "count": 8706.884384155273,
+          "total_count": 2900.481033138931,
+          "cursor": "string",
+          "page": 321.96609769016504,
+          "total_pages": 3633.9805531315506
+        }
+      }
+order: 1000

@@ -1,0 +1,34 @@
+$kind: http-example
+id: e1fc0d1c-0f67-56d8-b62d-36b3a27d8b44
+name: Change Origin Max HTTP Version setting response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/origin_max_http_version"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "2"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "editable": true,
+          "id": "origin_max_http_version",
+          "value": "2"
+        },
+        "success": true
+      }
+order: 1000

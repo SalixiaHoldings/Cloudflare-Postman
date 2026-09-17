@@ -1,0 +1,52 @@
+$kind: http-example
+id: 2e4cfb20-11c0-526b-bc71-2b3d542f2bae
+name: A page of profiles.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: cursor
+      value: eyJ2IjoxLCJuIjoibXktcHJvZmlsZSJ9
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "createdAt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result_info": {
+          "count": 1,
+          "cursor": "eyJ2IjoxLCJuIjoibXktcHJvZmlsZSJ9",
+          "per_page": 20
+        }
+      }
+order: 1000

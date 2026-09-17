@@ -1,0 +1,37 @@
+$kind: http-example
+id: d0326610-3687-5f62-a29e-d61d940ce8c2
+name: OK.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers/{{provider_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "aws_arn": "string",
+        "azure_subscription_id": "string",
+        "azure_tenant_id": "string",
+        "description": "string",
+        "friendly_name": "string",
+        "gcp_project_id": "string",
+        "gcp_service_account_email": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

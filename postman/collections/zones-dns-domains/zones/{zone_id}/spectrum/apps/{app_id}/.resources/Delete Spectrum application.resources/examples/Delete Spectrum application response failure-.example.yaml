@@ -1,0 +1,28 @@
+$kind: http-example
+id: 97a1a9be-e698-54d8-8164-5121dcd53e15
+name: Delete Spectrum application response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/apps/{{app_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

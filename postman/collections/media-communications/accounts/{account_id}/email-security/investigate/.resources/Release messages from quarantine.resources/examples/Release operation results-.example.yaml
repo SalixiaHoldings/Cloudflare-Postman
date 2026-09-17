@@ -1,0 +1,44 @@
+$kind: http-example
+id: 9c4d8da9-edd3-528c-8d65-21e777e18c4c
+name: Release operation results.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/release"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        "4Njp3P0STMz2c02Q-2024-01-05T10:00:00-12345678",
+        "4Njp3P0STMz2c02Q-2024-01-05T10:00:00-12345678"
+      ]
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

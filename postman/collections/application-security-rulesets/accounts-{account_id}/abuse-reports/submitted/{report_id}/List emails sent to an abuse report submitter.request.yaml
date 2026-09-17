@@ -1,0 +1,34 @@
+$kind: http-request
+id: 897c7753-ae60-5703-a231-dc925a83da10
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ListSubmittedAbuseReportEmails
+  GET /accounts/{account_id}/abuse-reports/submitted/{report_id}/emails
+
+  List successful emails sent to the submitter of a report submitted by the account. Does not include emails sent to customers or hosts.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/submitted/{{report_id}}/emails"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "6305"
+    disabled: true
+    description: Page number to retrieve (default 1).
+  - key: per_page
+    value: "6305"
+    disabled: true
+    description: Number of emails per page (default 20, max 100).
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List emails sent to an abuse report submitter.resources/examples
+order: 2000

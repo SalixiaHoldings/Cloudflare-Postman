@@ -1,0 +1,55 @@
+$kind: http-request
+id: f6d6aaf1-3d97-53d2-9eca-bb5f1869f6c5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: api-shield-endpoint-management-retrieve-information-about-all-operations-on-a-zone
+  GET /zones/{zone_id}/api_gateway/operations
+
+  Lists web and API operations tracked for the zone, including each operation's method, path, and feature configuration.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+    description: Page number of paginated results.
+  - key: per_page
+    value: "20"
+    disabled: true
+    description: Maximum number of results per page.
+  - key: order
+    value: method
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
+  - key: host
+    value: api.cloudflare.com
+    disabled: true
+  - key: method
+    value: GET
+    disabled: true
+  - key: endpoint
+    value: /api/v1
+    disabled: true
+  - key: feature
+    value: thresholds
+    disabled: true
+    description: Add feature(s) to the results. The feature name that is given here corresponds to the resulting feature object. Have a look at the top-level object description for more details on the specific meaning.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List web and API operations.resources/examples
+order: 2000

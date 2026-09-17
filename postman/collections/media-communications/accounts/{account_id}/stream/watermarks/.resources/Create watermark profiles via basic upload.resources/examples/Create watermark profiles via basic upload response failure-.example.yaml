@@ -1,0 +1,53 @@
+$kind: http-example
+id: 10c4a571-2606-58fd-b167-1980ef3988fb
+name: Create watermark profiles via basic upload response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/watermarks"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: file
+        value: "@/Users/rchen/Downloads/watermark.png"
+        description: (Required) The image file to upload.
+      - type: text
+        key: name
+        value: Marketing Videos
+      - type: text
+        key: opacity
+        value: "0.75"
+      - type: text
+        key: padding
+        value: "0.1"
+      - type: text
+        key: position
+        value: center
+      - type: text
+        key: scale
+        value: "0.1"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

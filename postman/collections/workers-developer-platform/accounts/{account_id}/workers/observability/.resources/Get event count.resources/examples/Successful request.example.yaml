@@ -1,0 +1,61 @@
+$kind: http-example
+id: 165fa5ad-8c3d-5984-89bc-58c890679093
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/usage?from=string&to=string"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: from
+      value: string
+      description: (Required) Unix timestamp in milliseconds for the start of the range.
+    - key: to
+      value: string
+      description: (Required) Unix timestamp in milliseconds for the end of the range.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": {
+          "events": 2128.5275160335004,
+          "breakdown": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      }
+order: 1000

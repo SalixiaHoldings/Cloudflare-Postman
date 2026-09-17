@@ -1,0 +1,35 @@
+$kind: http-example
+id: e5f08685-3473-5880-a88e-146cc35e41ec
+name: DEX unique devices targeted response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/tests/unique-devices"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: testName
+      value: string
+      disabled: true
+      description: Optionally filter results by test name.
+    - key: deviceId
+      value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
+      description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+    - key: deviceId
+      value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
+      description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

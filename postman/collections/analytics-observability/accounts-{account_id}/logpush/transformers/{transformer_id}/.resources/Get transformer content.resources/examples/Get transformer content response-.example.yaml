@@ -1,0 +1,31 @@
+$kind: http-example
+id: 7787b0f5-dee2-5900-af2f-7561e48e41ab
+name: Get transformer content response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logpush/transformers/{{transformer_id}}/content"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: version_id
+      value: "9879"
+      disabled: true
+      description: Specific version ID to retrieve. When omitted, the latest version is returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "content": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,86 @@
+$kind: http-example
+id: 59ae30cf-a904-5c7f-9a2c-c40070aa1f0b
+name: Forbidden.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: provider_id
+      value: string
+      disabled: true
+    - key: resource_type
+      value: azurerm_virtual_network
+      disabled: true
+    - key: resource_type
+      value: azurerm_route_table
+      disabled: true
+    - key: resource_id
+      value: 23d8f623-e88e-afe3-d5ac-2f587c9db2f8
+      disabled: true
+    - key: resource_id
+      value: b65a6897-f8ed-1cf2-ab9c-4f742b3c1534
+      disabled: true
+    - key: region
+      value: string
+      disabled: true
+    - key: resource_group
+      value: string
+      disabled: true
+    - key: managed
+      value: "true"
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+    - key: order_by
+      value: string
+      disabled: true
+      description: One of ["id", "resource_type", "region"].
+    - key: desc
+      value: "true"
+      disabled: true
+    - key: per_page
+      value: "2977"
+      disabled: true
+    - key: page
+      value: "2977"
+      disabled: true
+    - key: cloudflare
+      value: "true"
+      disabled: true
+    - key: v2
+      value: "true"
+      disabled: true
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": null,
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 4000

@@ -1,0 +1,112 @@
+$kind: http-example
+id: f8cce78c-928a-56cd-9ec6-03cb86044d53
+name: Returns the updated namespace.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "description": "Production environment",
+        "public_endpoint_params": {
+          "authorized_hosts": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "chat_completions_endpoint": {
+            "disabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "custom_domains": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "default_domain_enabled": true,
+          "enabled": false,
+          "instances_allowed": [
+            "docs",
+            "blog"
+          ],
+          "mcp": {
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "disabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "rate_limit": {
+            "period_ms": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "requests": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "technique": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "search_endpoint": {
+            "disabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "name": "production",
+          "created_at": "1977-06-18T07:53:21.172Z",
+          "description": "Production environment",
+          "public_endpoint_id": "string",
+          "public_endpoint_params": {
+            "authorized_hosts": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "chat_completions_endpoint": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "custom_domains": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "default_domain_enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "instances_allowed": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "mcp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rate_limit": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "search_endpoint": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+order: 1000

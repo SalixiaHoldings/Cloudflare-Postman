@@ -1,0 +1,27 @@
+$kind: http-example
+id: 1f0d6c06-44fb-5a9a-a3e9-88b4b4be8878
+name: Get PCAP request response failure (client error).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pcaps/{{pcap_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "result": null
+      }
+order: 2000

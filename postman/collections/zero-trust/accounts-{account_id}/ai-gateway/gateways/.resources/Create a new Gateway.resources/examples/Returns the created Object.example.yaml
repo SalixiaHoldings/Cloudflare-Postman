@@ -1,0 +1,104 @@
+$kind: http-example
+id: 2fce7634-8bd5-519e-8456-10ca6354cead
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "my-gateway",
+        "rate_limiting_interval": 5792,
+        "rate_limiting_limit": 7626,
+        "collect_logs": true,
+        "cache_ttl": 1678,
+        "cache_invalidate_on_update": false,
+        "authentication": true,
+        "byok_only": true,
+        "log_management": 4973335,
+        "log_management_strategy": "STOP_INSERTING",
+        "logpush": false,
+        "logpush_public_key": "stringstringstring",
+        "rate_limiting_technique": "fixed",
+        "retry_backoff": "linear",
+        "retry_delay": 614,
+        "retry_max_attempts": 3,
+        "store_id": "string",
+        "workers_ai_billing_mode": "postpaid",
+        "zdr": false
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "id": "my-gateway",
+          "rate_limiting_interval": 5049,
+          "rate_limiting_limit": 6985,
+          "collect_logs": true,
+          "cache_ttl": 7325,
+          "cache_invalidate_on_update": true,
+          "created_at": "1980-03-29T14:39:43.066Z",
+          "modified_at": "1954-08-19T02:25:02.462Z",
+          "authentication": true,
+          "byok_only": true,
+          "dlp": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "guardrails": {
+            "prompt": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "response": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "is_default": true,
+          "log_classification": true,
+          "log_management": 2788045,
+          "log_management_strategy": "STOP_INSERTING",
+          "logpush": true,
+          "logpush_public_key": "stringstringstring",
+          "otel": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "rate_limiting_technique": "sliding",
+          "retry_backoff": "exponential",
+          "retry_delay": 18658,
+          "retry_max_attempts": 3,
+          "spend_limits": {
+            "enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rules": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "store_id": "string",
+          "stripe": {
+            "authorization": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "usage_events": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "workers_ai_billing_mode": "postpaid",
+          "zdr": false
+        }
+      }
+order: 1000

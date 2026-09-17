@@ -1,0 +1,28 @@
+$kind: http-example
+id: 1eaad292-8186-5b6b-ae97-688745545638
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/fraud_detection/settings"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "username_expressions": []
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

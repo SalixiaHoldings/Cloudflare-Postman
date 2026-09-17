@@ -1,0 +1,21 @@
+$kind: http-example
+id: 35ee3800-d360-55a4-bdf7-67933e5babeb
+name: Object not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/tasks/search"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": []
+      }
+order: 2000

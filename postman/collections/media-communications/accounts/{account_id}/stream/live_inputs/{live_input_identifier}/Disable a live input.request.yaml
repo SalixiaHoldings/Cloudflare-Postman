@@ -1,0 +1,27 @@
+$kind: http-request
+id: 2d5f34d9-8173-52ca-8940-cc7d4c8e20d0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: stream-live-inputs-disable-a-live-input
+  POST /accounts/{account_id}/stream/live_inputs/{live_input_identifier}/disable
+
+  Prevents a live input from being streamed to and terminates any active broadcasts until re-enabled.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs/{{live_input_identifier}}/disable"
+method: POST
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Disable a live input.resources/examples
+order: 4000

@@ -1,0 +1,46 @@
+$kind: http-request
+id: 294f6157-8a32-53ba-a12e-c2b2043370e0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: UpdateWebhook
+  PUT /accounts/{account_id}/data-security/posture/webhooks/{webhook_id}
+
+  Updates an existing webhook configuration with new settings.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/{{webhook_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "label": "Send to Slack",
+      "destination_url": "https://example.com/webhook",
+      "authentication_type": "Bearer Auth",
+      "status": "enabled",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer token123"
+        },
+        {
+          "key": "X-Custom-Header",
+          "value": "value"
+        }
+      ],
+      "signing_secret": "{{signing_secret}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update an existing webhook configuration.resources/examples
+order: 3000

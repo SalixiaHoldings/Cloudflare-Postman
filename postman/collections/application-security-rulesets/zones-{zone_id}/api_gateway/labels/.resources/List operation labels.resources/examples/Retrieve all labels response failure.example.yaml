@@ -1,0 +1,56 @@
+$kind: http-example
+id: 50c1aff8-7341-5022-af95-9eb31bf74be2
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/labels"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: Maximum number of results per page.
+    - key: order
+      value: description
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: source
+      value: user
+      disabled: true
+      description: Filter for labels with source
+    - key: filter
+      value: login
+      disabled: true
+      description: Filter for labels where the name or description matches using substring match
+    - key: with_mapped_resource_counts
+      value: "true"
+      disabled: true
+      description: Include `mapped_resources` for each label
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

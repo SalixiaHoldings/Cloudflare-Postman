@@ -1,0 +1,33 @@
+$kind: http-example
+id: 9feefc9b-7472-5bbd-8c26-eee0104a314b
+name: Get DNS Record Usage response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dns_records/usage"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "record_usage": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "record_quota": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "internal_record_quota": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "internal_record_usage": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

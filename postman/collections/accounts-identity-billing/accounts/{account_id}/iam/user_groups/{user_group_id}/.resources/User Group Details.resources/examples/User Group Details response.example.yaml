@@ -1,0 +1,23 @@
+$kind: http-example
+id: d80c1476-fce8-5af2-9b42-05303a8387e9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/iam/user_groups/{{user_group_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

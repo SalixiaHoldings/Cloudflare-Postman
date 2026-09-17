@@ -1,0 +1,29 @@
+$kind: http-example
+id: 9a573a8d-4c2b-5c7d-8e5e-697a71aa965b
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicatorTypes/create"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "indicatorType": "string",
+        "description": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "indicatorType": "DOMAIN",
+        "message": "Indicator type created successfully",
+        "durableObjectId": "account:123:DOMAIN"
+      }
+order: 1000

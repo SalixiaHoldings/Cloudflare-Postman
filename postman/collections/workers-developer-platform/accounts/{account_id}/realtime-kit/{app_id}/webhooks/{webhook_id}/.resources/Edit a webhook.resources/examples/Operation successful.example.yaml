@@ -1,0 +1,27 @@
+$kind: http-example
+id: 95e00898-2f50-5c00-ac4a-347c999ee5a2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/webhooks/{{webhook_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "test",
+        "events": [
+          "meeting.started"
+        ],
+        "url": "https://new-test-url.com"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: '"{\n  \"success\": true,\n  \"data\": {\n    id: \"901e9adf-ebd9-41f0-9098-28171bc04ddd\",\n    \"name\": \"test\",\n    \"events\": [ \"meeting.started\" ],\n    \"url\": \"https://new-test-url.com\",\n    \"created_at\": \"2021-09-09T10:25:12.330Z\",\n    \"updated_at\": \"2021-09-09T10:25:12.376Z\"\n  }\n}\n"'
+order: 1000

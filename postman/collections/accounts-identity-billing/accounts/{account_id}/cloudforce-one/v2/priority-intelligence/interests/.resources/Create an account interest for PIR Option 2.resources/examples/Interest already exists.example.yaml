@@ -1,0 +1,24 @@
+$kind: http-example
+id: 79ea98bc-d477-5c6b-ae8d-9b4b0fe1af21
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/interests"
+  method: POST
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "dimension": "actor",
+        "value": "string",
+        "enabled": true
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

@@ -1,0 +1,45 @@
+$kind: http-request
+id: 13785703-7962-5594-84cf-47a902416ec0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: agent-memory-ingest
+  POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest
+
+  Processes a conversation and extracts structured memories from it. Agent Memory identifies facts, events, instructions, and tasks automatically.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/ingest"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "messages": [
+        {
+          "role": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "content": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "timestamp": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ],
+      "sessionId": "chat-session-42"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Ingest messages.resources/examples
+order: 2000

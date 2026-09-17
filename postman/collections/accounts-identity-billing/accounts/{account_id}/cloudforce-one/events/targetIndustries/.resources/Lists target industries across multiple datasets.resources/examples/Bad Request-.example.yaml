@@ -1,0 +1,42 @@
+$kind: http-example
+id: 567fa842-4545-50a7-8c51-b20bcae3b91c
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/targetIndustries"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: datasetIds
+      value: string
+      disabled: true
+      description: Array of dataset IDs to query target industries from. If not provided, uses the default dataset.
+    - key: datasetIds
+      value: string
+      disabled: true
+      description: Array of dataset IDs to query target industries from. If not provided, uses the default dataset.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

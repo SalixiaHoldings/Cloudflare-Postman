@@ -1,0 +1,27 @@
+$kind: http-example
+id: b9b46333-ca05-514c-bf50-27e8ed8174ee
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/identity_providers/{{identity_provider_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

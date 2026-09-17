@@ -1,0 +1,18 @@
+$kind: http-example
+id: 4839d545-4e12-5cc4-898e-d43beeb433e6
+name: |
+  Request canceled by the client before the upstream could respond. No response body.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/entitlements"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 204
+  statusText: No Content
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

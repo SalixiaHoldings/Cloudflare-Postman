@@ -1,0 +1,35 @@
+$kind: http-example
+id: 40dee64d-c5c0-5026-bf3d-e086b1446f70
+name: Change Origin Max HTTP Version response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/origin_max_http_version"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "2"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12345,
+            "message": "Some error message"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

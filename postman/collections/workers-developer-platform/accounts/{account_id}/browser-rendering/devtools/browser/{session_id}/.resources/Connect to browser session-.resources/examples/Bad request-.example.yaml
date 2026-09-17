@@ -1,0 +1,58 @@
+$kind: http-example
+id: 3e22f476-344e-5e9f-a83d-77b944dac6a0
+name: Bad request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}"
+  method: GET
+  headers:
+    - key: cf-brapi-guardrails
+      value: eyJtb2RlIjoicmVhZG9ubHkifQ
+      description: Optional base64url-encoded JSON connection guardrails (mode)
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+  queryParams:
+    - key: keep_alive
+      value: "60000"
+      disabled: true
+      description: Keep-alive time in ms (only valid when acquiring new session).
+    - key: lab
+      value: "false"
+      disabled: true
+      description: Use experimental browser.
+    - key: recording
+      value: "false"
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

@@ -1,0 +1,29 @@
+$kind: http-request
+id: ad1775a5-33bf-5be4-aba4-a6a2f4c5d3b8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_meeting
+  GET /accounts/{account_id}/realtime/kit/{app_id}/meetings/{meeting_id}
+
+  Returns a meeting details in an App for the given meeting ID.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: name
+    value: string
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Fetch a meeting for an App.resources/examples
+order: 1000

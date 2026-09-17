@@ -1,0 +1,44 @@
+$kind: http-request
+id: b0a97993-48a9-55a3-a97b-5a714ac04e55
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: GetRemediationTypesForFindingType
+  GET /accounts/{account_id}/data-security/posture/finding_types/{finding_type_id}/remediation_types
+
+  List all remediation types for a given finding type.
+  This endpoint supports both cursor and offset pagination.
+  Note that `cursor` and `page` are mutually exclusive.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/finding_types/{{finding_type_id}}/remediation_types"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: integration_id
+    value: 2fb1bb1c-2780-2c2f-f793-3f3e46718f78
+    disabled: true
+    description: Filter by an integration ID
+  - key: cursor
+    value: string
+    disabled: true
+    description: A cursor for pagination.
+  - key: page
+    value: "4239"
+    disabled: true
+    description: A page number within the paginated result set.
+  - key: per_page
+    value: "4239"
+    disabled: true
+    description: Number of results to return per page.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List remediation types for a finding type.resources/examples
+order: 1000

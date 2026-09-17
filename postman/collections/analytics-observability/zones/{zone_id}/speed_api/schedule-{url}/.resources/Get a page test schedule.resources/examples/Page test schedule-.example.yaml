@@ -1,0 +1,26 @@
+$kind: http-example
+id: 98f331bb-0650-55eb-9945-908413d5bcc7
+name: Page test schedule.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/speed_api/schedule/{{url}}"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: region
+      value: us-central1
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

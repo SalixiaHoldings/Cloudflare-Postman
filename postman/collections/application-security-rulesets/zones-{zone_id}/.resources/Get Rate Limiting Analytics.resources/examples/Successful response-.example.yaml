@@ -1,0 +1,51 @@
+$kind: http-example
+id: ac3f5fd3-04ed-5574-8e64-a963c5b12f43
+name: Successful response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/rate_limit_analytics?since=2024-01-01T00:00:00Z&until=2024-01-02T00:00:00Z&time_delta=3600"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: since
+      value: 2024-01-01T00:00:00Z
+      description: |-
+        (Required) The start of the queried time period. Time must be rounded to the time
+        segment boundary and formatted as RFC 3339.
+    - key: until
+      value: 2024-01-02T00:00:00Z
+      description: |-
+        (Required) The exclusive end of the queried time period. Time must be rounded to the
+        time segment boundary and formatted as RFC 3339.
+    - key: time_delta
+      value: "3600"
+      description: |-
+        (Required) Length (in seconds) of each time segment dividing the entire time period.
+        Accepted values are 60 (minute), 3600 (hour), 86400 (day), and 2592000 (month).
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "since": "2024-01-01T00:00:00Z",
+        "until": "2024-01-02T00:00:00Z",
+        "time_delta": 3600,
+        "labels": {
+          "123e4567-e89b-12d3-a456-426655440000": "block login brute force on /login",
+          "66698345-bc87-d312-a456-937482934748": "rate limit whole site"
+        },
+        "timeseries": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "zone_id": "{{zone_id}}"
+      }
+order: 1000

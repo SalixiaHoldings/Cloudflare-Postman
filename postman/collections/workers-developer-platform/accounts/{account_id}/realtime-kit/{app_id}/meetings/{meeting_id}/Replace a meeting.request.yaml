@@ -1,0 +1,69 @@
+$kind: http-request
+id: 5cfe27eb-023e-56e2-addf-355d477d8f7c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: replace_meeting
+  PUT /accounts/{account_id}/realtime/kit/{app_id}/meetings/{meeting_id}
+
+  Replaces all the details for the given meeting ID.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "ai_config": {
+        "summarization": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "transcription": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "live_stream_on_start": false,
+      "persist_chat": false,
+      "record_on_start": false,
+      "recording_config": {
+        "audio_config": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "file_name_prefix": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "live_streaming_config": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "max_seconds": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "realtimekit_bucket_config": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "storage_config": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "video_config": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "session_keep_alive_time_in_secs": 60,
+      "summarize_on_end": false,
+      "title": "string",
+      "transcribe_on_end": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Replace a meeting.resources/examples
+order: 3000

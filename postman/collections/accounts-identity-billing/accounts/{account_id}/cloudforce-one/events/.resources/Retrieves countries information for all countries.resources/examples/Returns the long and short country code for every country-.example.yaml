@@ -1,0 +1,41 @@
+$kind: http-example
+id: 2d2d602c-5419-56d6-9288-1f37d29608a4
+name: Returns the long and short country code for every country.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/countries"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "success": "true",
+          "result": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        {
+          "success": "true",
+          "result": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      ]
+order: 1000

@@ -1,0 +1,54 @@
+$kind: http-example
+id: 9fd4c0fc-51f0-5915-a515-c1235cc18e47
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/shared/query/{{id}}"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: view
+      value: invocations
+      disabled: true
+      description: Select the view of the query result to return, defaults to events.
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 4000

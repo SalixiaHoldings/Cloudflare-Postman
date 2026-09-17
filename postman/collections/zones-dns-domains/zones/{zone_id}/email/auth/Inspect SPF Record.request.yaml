@@ -1,0 +1,39 @@
+$kind: http-request
+id: b0c7a20f-44a5-5ff9-a103-108fd502b493
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: inspect_spf
+  GET /zones/{zone_id}/email/auth/spf/inspect
+
+  Inspects a specific SPF TXT record and returns a parsed tree structure
+  in the spflimit-worker format.
+
+  The record ID must be provided via the `id` query parameter.
+
+  Returns a recursive tree showing:
+  - Parsed components with their qualifiers and types
+  - Nested includes recursively resolved within components
+  - Per-component and total lookup counts
+  - Detailed error information with context
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/email/auth/spf/inspect?id=e5bb46707a802688812d5d1c9f7977d4"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: id
+    value: e5bb46707a802688812d5d1c9f7977d4
+    description: (Required) DNS record ID (rec_tag) to inspect
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Inspect SPF Record.resources/examples
+order: 2000

@@ -1,0 +1,126 @@
+$kind: http-example
+id: bc85f11c-b30e-5593-8803-0f17eb87f935
+name: An unexpected error response.
+request:
+  url: "{{base_url}}/organizations/{{organization_id}}/accounts"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: account_pubname
+      value: string
+      disabled: true
+      description: |-
+        (case-insensitive) Filter the list of accounts to where the account_pubname is equal to
+        a particular string.
+    - key: account_pubname.startsWith
+      value: string
+      disabled: true
+      description: |-
+        (case-insensitive) Filter the list of accounts to where the account_pubname starts with
+        a particular string.
+    - key: account_pubname.endsWith
+      value: string
+      disabled: true
+      description: |-
+        (case-insensitive) Filter the list of accounts to where the account_pubname ends with
+        a particular string.
+    - key: account_pubname.contains
+      value: string
+      disabled: true
+      description: |-
+        (case-insensitive) Filter the list of accounts to where the account_pubname contains
+        a particular string.
+    - key: name
+      value: string
+      disabled: true
+      description: |-
+        (case-insensitive) Filter the list of accounts to where the name is equal to a
+        particular string.
+    - key: name.startsWith
+      value: string
+      disabled: true
+      description: |-
+        (case-insensitive) Filter the list of accounts to where the name starts with a
+        particular string.
+    - key: name.endsWith
+      value: string
+      disabled: true
+      description: |-
+        (case-insensitive) Filter the list of accounts to where the name ends with a particular
+        string.
+    - key: name.contains
+      value: string
+      disabled: true
+      description: |-
+        (case-insensitive) Filter the list of accounts to where the name contains a particular
+        string.
+    - key: order_by
+      value: account_name
+      disabled: true
+      description: |-
+        Field to order results by. Currently supported values: `account_name`.
+        When not specified, results are ordered by internal account ID.
+    - key: direction
+      value: asc
+      disabled: true
+      description: |-
+        Sort direction for the order_by field. Valid values: `asc`, `desc`.
+        Defaults to `asc` when order_by is specified.
+    - key: include_tags
+      value: "true"
+      disabled: true
+      description: Include Account tags from the resource tag mirror. Omit this parameter to preserve the existing Account response shape.
+    - key: include_total
+      value: "true"
+      disabled: true
+      description: |-
+        Whether to calculate and return the exact result_info.total_size for cursor
+        pagination. Defaults to true. When false, total_size is omitted. page_size and
+        include_total may change between pages; next_page_token remains the authoritative
+        continuation signal.
+        Legacy page/per_page requests always calculate total_count.
+    - key: page_token
+      value: string
+      disabled: true
+      description: |-
+        An opaque token returned from the last list response that when
+        provided will retrieve the next page.
+
+        Parameters used to filter the retrieved list must remain in subsequent
+        requests with a page token.
+    - key: page_size
+      value: "757"
+      disabled: true
+      description: The amount of items to return. Defaults to 10.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 2000

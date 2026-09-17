@@ -1,0 +1,39 @@
+$kind: http-request
+id: 637b328a-89c3-5bda-b317-860fc2d5b85e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_TakedownNoticeLookup
+  POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/takedown-notices/lookup
+
+  Bulk lookup of takedown notices by domain names. Returns an array of { domain, queryId, notice } entries (notice is null when no match exists). Supports optional queryId or queryIds to scope lookups per query. Uses POST to avoid URL length limits when looking up many domains. This endpoint is read-only. Domains are normalized (trimmed, lowercased) and deduplicated.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/takedown-notices/lookup"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "domains": [
+        "string"
+      ],
+      "queryId": 6617,
+      "queryIds": [
+        3319,
+        1775
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Lookup takedown notices by domains.resources/examples
+order: 3000

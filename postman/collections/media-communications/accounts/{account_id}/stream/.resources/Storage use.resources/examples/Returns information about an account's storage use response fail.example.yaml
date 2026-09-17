@@ -1,0 +1,34 @@
+$kind: http-example
+id: 5208f085-8584-5bc2-a8fc-ba00bf20ce10
+name: Returns information about an account's storage use response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/storage-usage"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: creator
+      value: creator-id_abcde12345
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

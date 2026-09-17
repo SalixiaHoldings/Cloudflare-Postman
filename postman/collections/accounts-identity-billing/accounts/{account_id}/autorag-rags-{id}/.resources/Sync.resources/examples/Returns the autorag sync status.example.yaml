@@ -1,0 +1,22 @@
+$kind: http-example
+id: 9dfdfd6b-1b83-51cf-843b-553e0dabd8c1
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/autorag/rags/{{id}}/sync"
+  method: PATCH
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "job_id": "string"
+        }
+      }
+order: 1000

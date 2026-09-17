@@ -1,0 +1,22 @@
+$kind: http-example
+id: 525dc016-ea0b-5b72-ba38-f57ec8cb6360
+name: Catalog not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/delete"
+  method: POST
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: force
+      value: "false"
+      disabled: true
+      description: Remove child metadata before deleting the catalog.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 4000

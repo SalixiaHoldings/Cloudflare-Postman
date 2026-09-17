@@ -1,0 +1,42 @@
+$kind: http-request
+id: 65eb345d-5e05-5708-bc60-d2feab035f94
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_get_phishguard_reports
+  GET /accounts/{account_id}/email-security/phishguard/reports
+
+  Retrieves PhishGuard security alert reports for a specified date range. Reports include detected threats, dispositions, and contextual information. Use for security monitoring and threat analysis.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/phishguard/reports"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: start
+    value: 2020-08-01T00:00:00Z
+    disabled: true
+    description: Start of the time range (RFC3339). Takes precedence over from_date.
+  - key: end
+    value: 2020-09-01T00:00:00Z
+    disabled: true
+    description: End of the time range (RFC3339). Takes precedence over to_date.
+  - key: from_date
+    value: 1962-06-19
+    disabled: true
+    description: Deprecated, use `start` instead. Start date in YYYY-MM-DD format.
+  - key: to_date
+    value: 1982-01-05
+    disabled: true
+    description: Deprecated, use `end` instead. End date in YYYY-MM-DD format.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get PhishGuard reports.resources/examples
+order: 2000

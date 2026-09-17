@@ -1,0 +1,26 @@
+$kind: http-request
+id: b8f72009-a778-5517-a194-f4e4758fda17
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: tunnel-route-delete-a-tunnel-route
+  DELETE /accounts/{account_id}/teamnet/routes/{route_id}
+
+  Deletes a private network route from an account.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/teamnet/routes/{{route_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete a tunnel route.resources/examples
+order: 1000

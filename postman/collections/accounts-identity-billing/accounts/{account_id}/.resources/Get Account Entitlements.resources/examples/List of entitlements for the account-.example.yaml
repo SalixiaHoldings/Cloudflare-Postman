@@ -1,0 +1,59 @@
+$kind: http-example
+id: 4dc5e736-5617-5ed9-8e00-b0b9f848a320
+name: List of entitlements for the account.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/entitlements"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": [
+          {
+            "allocation": {
+              "type": "string",
+              "value": "default"
+            },
+            "created_date": "2024-01-01T00:00:00.000000",
+            "deleted_date": "",
+            "edited_date": "2024-01-01T00:00:01.000000",
+            "feature": {
+              "feature_set": "deployment",
+              "id": 99,
+              "key": "deployment.cohort",
+              "name": "Deployment Cohort"
+            },
+            "id": "deployment.cohort"
+          },
+          {
+            "allocation": {
+              "type": "range",
+              "value": {
+                "max": 86400,
+                "min": 10
+              }
+            },
+            "created_date": "2021-09-17T21:02:02.000000",
+            "deleted_date": "",
+            "edited_date": "2021-09-17T21:02:10.000000",
+            "feature": {
+              "feature_set": "rate_limiting",
+              "id": 33,
+              "key": "rate_limiting.timeout_bounds",
+              "name": "rate_limiting.timeout_bounds"
+            },
+            "id": "rate_limiting.timeout_bounds"
+          }
+        ],
+        "success": true
+      }
+order: 1000

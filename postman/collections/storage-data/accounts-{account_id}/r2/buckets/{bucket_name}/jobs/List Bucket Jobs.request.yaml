@@ -1,0 +1,45 @@
+$kind: http-request
+id: 7e266b3a-3e45-53ae-bcd7-5921b224c2ec
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-list-bucket-jobs
+  GET /accounts/{account_id}/r2/buckets/{bucket_name}/jobs
+
+  Lists background jobs for an R2 bucket. Use this endpoint to poll jobs returned by
+  asynchronous operations such as deleting objects by prefix or emptying a bucket.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs"
+method: GET
+headers:
+  cf-r2-jurisdiction: default
+  Accept: application/json
+queryParams:
+  - key: jobType
+    value: prefixDelete
+    disabled: true
+    description: Restricts results to jobs of the specified type.
+  - key: status
+    value: FAILED
+    disabled: true
+    description: Restricts results to jobs with the specified status. `jobType` is required when this parameter is provided.
+  - key: maxKeys
+    value: "599"
+    disabled: true
+    description: Maximum number of jobs to return.
+  - key: continuationToken
+    value: string
+    disabled: true
+    description: Pagination token received as `nextContinuationToken` in the previous response.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Bucket Jobs.resources/examples
+order: 1000

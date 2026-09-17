@@ -1,0 +1,48 @@
+$kind: http-request
+id: 658f96c5-b342-5e7e-a16f-bc6797636d2c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ip-access-rules-for-an-account-update-an-ip-access-rule
+  PATCH /accounts/{account_id}/firewall/access_rules/rules/{rule_id}
+
+  Updates an IP Access rule defined at the account level.
+
+  Note: This operation will affect all zones in the account.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/firewall/access_rules/rules/{{rule_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "configuration": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "id": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "mode": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "notes": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "allowed_modes": 8764.66596731916
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update an IP Access rule.resources/examples
+order: 3000

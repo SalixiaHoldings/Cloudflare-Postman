@@ -1,0 +1,19 @@
+$kind: http-example
+id: b6e2b4b5-919c-5eba-bb4a-e51971d84056
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals/{{id}}/cancel"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 2000

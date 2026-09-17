@@ -1,0 +1,24 @@
+$kind: http-example
+id: cba98ac1-602c-581e-be2c-a8209ab3f4ea
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/apps/{{app_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "created_at": "2025-01-01T08:16:40.644Z",
+          "id": "14a396e7-ca44-4937-bf1f-050a69118543",
+          "name": "my-first-app"
+        },
+        "success": true
+      }
+order: 1000

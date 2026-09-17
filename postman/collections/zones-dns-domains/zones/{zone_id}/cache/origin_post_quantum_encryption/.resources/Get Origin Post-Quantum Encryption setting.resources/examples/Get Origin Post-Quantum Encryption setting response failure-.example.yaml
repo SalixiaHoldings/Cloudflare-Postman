@@ -1,0 +1,28 @@
+$kind: http-example
+id: 80795c68-1538-5455-b3a8-126ca0dfbdd5
+name: Get Origin Post-Quantum Encryption setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_post_quantum_encryption"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

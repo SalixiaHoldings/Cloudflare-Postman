@@ -1,0 +1,35 @@
+$kind: http-example
+id: 89498aae-b1e8-513a-a905-d4fad1266d94
+name: Page test schedule.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/speed_api/schedule/{{url}}"
+  method: POST
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: region
+      value: us-central1
+      disabled: true
+    - key: frequency
+      value: DAILY
+      disabled: true
+      description: The frequency of the scheduled test. Defaults to WEEKLY for free plans, DAILY for paid plans.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "schedule": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "test": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,65 @@
+$kind: http-request
+id: b00d4ea4-d5d1-5040-ae6c-ca9c6b77065e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: page-shield-list-scripts
+  GET /zones/{zone_id}/page_shield/scripts
+
+  Lists scripts detected on webpages in the zone, with filtering and pagination.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/page_shield/scripts"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: exclude_urls
+    value: blog.cloudflare.com,www.example
+    disabled: true
+  - key: urls
+    value: blog.cloudflare.com,www.example
+    disabled: true
+  - key: hosts
+    value: blog.cloudflare.com,www.example*,*cloudflare.com
+    disabled: true
+  - key: page
+    value: string
+    disabled: true
+  - key: per_page
+    value: "100"
+    disabled: true
+  - key: order_by
+    value: first_seen_at
+    disabled: true
+  - key: direction
+    value: asc
+    disabled: true
+  - key: prioritize_malicious
+    value: "true"
+    disabled: true
+  - key: exclude_cdn_cgi
+    value: "true"
+    disabled: true
+  - key: exclude_duplicates
+    value: "true"
+    disabled: true
+  - key: status
+    value: active,inactive
+    disabled: true
+  - key: page_url
+    value: example.com/page,*/checkout,example.com/*,*checkout*
+    disabled: true
+  - key: export
+    value: csv
+    disabled: true
+auth:
+  type: noauth
+examples: ./.resources/List detected scripts.resources/examples
+order: 1000

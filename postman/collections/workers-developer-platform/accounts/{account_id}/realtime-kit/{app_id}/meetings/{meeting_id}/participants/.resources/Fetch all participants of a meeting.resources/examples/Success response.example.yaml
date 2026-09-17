@@ -1,0 +1,41 @@
+$kind: http-example
+id: 20deb2a3-3cae-5097-8750-746bf39ed264
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/participants"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page_no
+      value: "4342.341406736523"
+      disabled: true
+      description: The page number from which you want your page search results to be displayed.
+    - key: per_page
+      value: "4342.341406736523"
+      disabled: true
+      description: Number of results per page
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "data": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "paging": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

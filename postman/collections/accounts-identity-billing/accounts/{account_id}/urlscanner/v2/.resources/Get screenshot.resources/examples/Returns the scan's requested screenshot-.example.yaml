@@ -1,0 +1,22 @@
+$kind: http-example
+id: 5a7acc13-7d50-5349-a222-235fbbe53d11
+name: Returns the scan's requested screenshot.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/screenshots/{{scan_id}}.png"
+  method: GET
+  headers:
+    Accept: image/png
+  queryParams:
+    - key: resolution
+      value: desktop
+      disabled: true
+      description: Target device type.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: image/png
+  body:
+    type: text
+    content: string
+order: 1000

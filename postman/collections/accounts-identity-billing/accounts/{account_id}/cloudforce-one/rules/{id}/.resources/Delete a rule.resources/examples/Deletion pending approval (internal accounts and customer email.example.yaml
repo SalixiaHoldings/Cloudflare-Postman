@@ -1,0 +1,28 @@
+$kind: http-example
+id: 46a505ce-a85c-5ffc-a5e0-a1ec3e7a8a2c
+name: Deletion pending approval (internal accounts and customer email rules).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/{{id}}"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "commit_message": "Rule superseded by yara/workers/tighter-panel.yar."
+      }
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "approval_id": 1,
+        "message": "Rule creation pending approval"
+      }
+order: 2000

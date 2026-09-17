@@ -1,0 +1,27 @@
+$kind: http-example
+id: 9b802277-06ed-5117-b732-2646fd95a7e7
+name: "Not Found: Finding not found"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{storage_namespace_id}}/instances/export"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "archived": false,
+        "max_affliction_date": "2024-01-01T00:00:00Z",
+        "min_affliction_date": "2023-01-01T00:00:00Z",
+        "search": "sensitive data"
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

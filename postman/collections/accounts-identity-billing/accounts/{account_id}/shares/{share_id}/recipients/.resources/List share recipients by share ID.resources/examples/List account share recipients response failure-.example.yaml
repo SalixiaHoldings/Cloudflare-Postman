@@ -1,0 +1,49 @@
+$kind: http-example
+id: d614522e-0cd6-5cb2-9171-5e83bc10846a
+name: List account share recipients response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/recipients"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: include_resources
+      value: "true"
+      disabled: true
+      description: Include resources in the response.
+    - key: page
+      value: "2"
+      disabled: true
+      description: |-
+        Page number. Defaults to `1` when `per_page` is supplied without
+        `page`. May be omitted entirely along with `per_page` to receive a
+        non-paginated response.
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: |-
+        Number of objects to return per page. Defaults to `20` when `page`
+        is supplied without `per_page`. May be omitted entirely along with
+        `page` to receive a non-paginated response.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

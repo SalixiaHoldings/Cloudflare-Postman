@@ -1,0 +1,30 @@
+$kind: http-example
+id: e5ea1c7c-96f5-5d73-bb5b-9f2a818d0228
+name: Returns the uuid of the updated raw event and its data.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/{{event_id}}/raw/{{raw_id}}"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {},
+        "source": "example.com",
+        "tlp": "amber"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "1234",
+        "data": {}
+      }
+order: 1000

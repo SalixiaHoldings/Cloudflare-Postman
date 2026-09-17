@@ -1,0 +1,22 @@
+$kind: http-example
+id: b0d6a069-5254-56a9-a754-6b68a7f6fd18
+name: Deleted blocked sender.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/block_senders/{{pattern_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,42 @@
+$kind: http-example
+id: 1689bfb9-0eb6-598c-b8cc-709aee9b7924
+name: Successfully created the target.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/infrastructure/targets"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "hostname": "infra-access-target",
+        "ip": {
+          "ipv4": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ipv6": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "tags": {
+          "key_0": "string"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

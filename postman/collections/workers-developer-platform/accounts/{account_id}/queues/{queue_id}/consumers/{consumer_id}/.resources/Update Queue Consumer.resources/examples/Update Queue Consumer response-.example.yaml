@@ -1,0 +1,51 @@
+$kind: http-example
+id: b18c8b62-104d-5e07-9ccb-0eaa9ce92bba
+name: Update Queue Consumer response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/queues/{{queue_id}}/consumers/{{consumer_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "type": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "script_name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "dead_letter_queue": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "settings": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

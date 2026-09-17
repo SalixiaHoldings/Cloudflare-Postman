@@ -1,0 +1,48 @@
+$kind: http-example
+id: 209de63b-1f36-5e64-8f08-1ae1cc55a34d
+name: The request has succeeded.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/profile"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {
+          "business_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "business_email": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "business_phone": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "business_address": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "external_metadata": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,32 @@
+$kind: http-request
+id: 3c864101-9a87-5719-887d-3f840155572c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: artifacts_namespaces_list
+  GET /accounts/{account_id}/artifacts/namespaces
+
+  Lists Artifacts namespaces for an account.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: limit
+    value: "100"
+    disabled: true
+  - key: cursor
+    value: string
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List namespaces.resources/examples
+order: 1000

@@ -1,0 +1,22 @@
+$kind: http-example
+id: 12f4abf1-dda0-5d50-b6d2-7091ccd2be24
+name: DNS TXT verification details.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/domains/{{domain_id}}/verification"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

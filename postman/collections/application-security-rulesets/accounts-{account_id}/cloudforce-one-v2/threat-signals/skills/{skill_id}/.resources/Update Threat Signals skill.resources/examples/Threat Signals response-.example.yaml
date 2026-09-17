@@ -1,0 +1,27 @@
+$kind: http-example
+id: cfd8c3cf-6ce4-56fe-81d7-f93b99b1e359
+name: Threat Signals response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/skills/{{skill_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "config": "string",
+        "is_active": true,
+        "name": "string",
+        "output_schema": "string",
+        "prompt": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

@@ -1,0 +1,53 @@
+$kind: http-example
+id: efbf3b05-cbce-5643-a0a5-9ddfe2b2cf6d
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/datasets"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: limit
+      value: "5"
+      disabled: true
+      description: Limits the number of objects returned in the response.
+    - key: offset
+      value: "2923"
+      disabled: true
+      description: Skips the specified number of objects before fetching the results.
+    - key: datasetType
+      value: RANKING_BUCKET
+      disabled: true
+      description: Filters results by dataset type.
+    - key: date
+      value: 2024-09-19
+      disabled: true
+      description: Filters results by the specified date.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "datasets": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

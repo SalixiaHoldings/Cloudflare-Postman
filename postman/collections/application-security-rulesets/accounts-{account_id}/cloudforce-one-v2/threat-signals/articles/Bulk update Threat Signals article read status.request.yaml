@@ -1,0 +1,34 @@
+$kind: http-request
+id: e1965e00-b0aa-5c18-9f26-3db0ed1d6ae8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: rssArticleBulkMarkRead
+  PATCH /accounts/{account_id}/cloudforce-one/v2/threat-signals/articles
+
+  Bulk update Threat Signals article read status.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/articles"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "article_ids": [
+        "11044cf2-28e3-1148-ef90-04c0ce712c03"
+      ],
+      "read": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Bulk update Threat Signals article read status.resources/examples
+order: 2000

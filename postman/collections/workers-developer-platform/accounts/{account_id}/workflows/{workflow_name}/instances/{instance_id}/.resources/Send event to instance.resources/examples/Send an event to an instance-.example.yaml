@@ -1,0 +1,57 @@
+$kind: http-example
+id: 4b67c286-91de-51e9-8416-1eca217fdd47
+name: Send an event to an instance.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/events/{{event_type}}"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: "{}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": {
+          "instanceId": "string",
+          "timestamp": "1976-10-28T07:33:21.488Z"
+        },
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 3009.738139808178,
+          "count": 3029.7745252028108,
+          "total_count": 8067.8590829484165,
+          "cursor": "string",
+          "page": 1047.610358800739,
+          "total_pages": 6426.268422510475
+        }
+      }
+order: 1000

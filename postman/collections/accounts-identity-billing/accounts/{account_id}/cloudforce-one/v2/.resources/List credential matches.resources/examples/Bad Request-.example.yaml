@@ -1,0 +1,50 @@
+$kind: http-example
+id: b9e44ce4-a201-5dc1-83ec-ef9756bbc890
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/credential-monitor/matches"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: domain
+      value: string
+      disabled: true
+      description: Filter by domain (exact match)
+    - key: username
+      value: string
+      disabled: true
+      description: Filter by username (partial match)
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number
+    - key: per_page
+      value: "100"
+      disabled: true
+      description: Items per page
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

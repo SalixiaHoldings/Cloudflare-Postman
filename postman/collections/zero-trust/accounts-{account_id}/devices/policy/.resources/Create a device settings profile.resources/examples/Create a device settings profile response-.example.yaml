@@ -1,0 +1,91 @@
+$kind: http-example
+id: 10db43aa-fa15-5e6c-958b-e7d770ea6ea6
+name: Create a device settings profile response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/policy"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Allow Developers",
+        "precedence": 100,
+        "match": "identity.email == \"test@cloudflare.com\"",
+        "allow_mode_switch": true,
+        "allow_updates": true,
+        "allowed_to_leave": true,
+        "auto_connect": 0,
+        "captive_portal": 180,
+        "description": "",
+        "disable_auto_fallback": true,
+        "enabled": true,
+        "exclude": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "exclude_office_ips": true,
+        "global_acceleration": {
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "wireguard_endpoints": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "masque_endpoints": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "api_endpoints": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "include": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "lan_allow_minutes": 30,
+        "lan_allow_subnet_size": 24,
+        "register_interface_ip_with_dns": true,
+        "sccm_vpn_boundary_support": false,
+        "service_mode_v2": {
+          "mode": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "port": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "support_url": "https://1.1.1.1/help",
+        "switch_locked": true,
+        "tunnel_protocol": "wireguard",
+        "uninstall_protection": false,
+        "virtual_networks": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

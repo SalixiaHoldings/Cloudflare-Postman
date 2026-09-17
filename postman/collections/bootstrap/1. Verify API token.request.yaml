@@ -1,0 +1,36 @@
+$kind: http-request
+id: 3c9d5046-611f-5207-81f4-5858f835ed00
+description: |-
+  
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/user/tokens/verify"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+scripts:
+  - type: beforeRequest
+    code: |-
+      pm.variables.unset('_cf_bootstrap_account_state');
+      pm.variables.unset('_cf_bootstrap_zone_state');
+      pm.variables.set('_cf_bootstrap_account_page', 1);
+      pm.variables.set('_cf_bootstrap_zone_page', 1);
+    language: text/javascript
+  - type: afterResponse
+    code: |-
+      try {
+        const tokenEnvelope = pm.response.json();
+        if (pm.response.code !== 200 || tokenEnvelope.success !== true || tokenEnvelope.result?.status !== 'active') throw new Error('Token verification failed.');
+        pm.execution.setNextRequest('2. List and resolve account');
+      } catch (error) {
+        pm.execution.setNextRequest(null);
+        throw error;
+      }
+    language: text/javascript
+order: 1000

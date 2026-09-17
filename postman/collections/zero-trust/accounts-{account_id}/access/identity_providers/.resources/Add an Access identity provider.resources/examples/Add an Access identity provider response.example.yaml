@@ -1,0 +1,28 @@
+$kind: http-example
+id: de59c028-8aed-53b5-b1b5-253985fe5077
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

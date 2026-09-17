@@ -1,0 +1,28 @@
+$kind: http-example
+id: 7370ad9a-0454-5c43-9c2e-5d2b08a1272e
+name: Get Automatic Platform Optimization setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/automatic_platform_optimization"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

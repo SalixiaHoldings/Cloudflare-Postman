@@ -1,0 +1,56 @@
+$kind: http-example
+id: 1dab28bd-4cb6-5d89-965b-a9e13b1b3d0b
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/bgp/rpki/aspa/snapshot"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: customerAsn
+      value: "13335"
+      disabled: true
+      description: Filter by customer ASN (the ASN publishing the ASPA object).
+    - key: providerAsn
+      value: "174"
+      disabled: true
+      description: Filter by provider ASN (an authorized upstream provider in ASPA objects).
+    - key: date
+      value: 2024-09-19T00:00:00Z
+      disabled: true
+      description: Filters results by the specified datetime (ISO 8601).
+    - key: includeAsnInfo
+      value: "true"
+      disabled: true
+      description: Include ASN metadata (name, country) in response.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

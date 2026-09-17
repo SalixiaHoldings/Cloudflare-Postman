@@ -1,0 +1,41 @@
+$kind: http-example
+id: e009e4ba-f584-58fa-b90d-8b76f688ded4
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/sources/connectivity-precheck"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "bucket": "string",
+        "vendor": "s3",
+        "secret": "{{secret}}",
+        "account": "string",
+        "region": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

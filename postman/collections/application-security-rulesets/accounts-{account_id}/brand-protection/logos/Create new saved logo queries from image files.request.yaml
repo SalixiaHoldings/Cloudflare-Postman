@@ -1,0 +1,40 @@
+$kind: http-request
+id: 3831f962-3e80-5a40-9b42-b8fb48f686ca
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: postAccountsAccountIdBrandProtectionLogos
+  POST /accounts/{account_id}/brand-protection/logos
+
+  Return new saved logo queries created from image files
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/brand-protection/logos"
+method: POST
+headers:
+  Content-Type: application/x-www-form-urlencoded
+  Accept: application/json
+queryParams:
+  - key: tag
+    value: string
+    disabled: true
+  - key: match_type
+    value: string
+    disabled: true
+  - key: threshold
+    value: "7564.619842451066"
+    disabled: true
+body:
+  type: urlencoded
+  content:
+    image: string
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create new saved logo queries from image files.resources/examples
+order: 2000

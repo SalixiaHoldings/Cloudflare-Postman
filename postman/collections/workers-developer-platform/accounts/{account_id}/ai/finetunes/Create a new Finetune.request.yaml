@@ -1,0 +1,35 @@
+$kind: http-request
+id: e8925e22-d4bc-5172-ba4e-25dd82fd1107
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers-ai-create-finetune
+  POST /accounts/{account_id}/ai/finetunes
+
+  Creates a new fine-tuning job for a Workers AI model using custom training data.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai/finetunes"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "model": "string",
+      "name": "string",
+      "description": "string",
+      "public": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new Finetune.resources/examples
+order: 2000

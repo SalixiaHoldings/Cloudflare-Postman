@@ -1,0 +1,34 @@
+$kind: http-example
+id: 3a164f22-b7b5-51d5-ba67-517e59883fb5
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/constants"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "result": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "properties": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+order: 1000

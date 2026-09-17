@@ -1,0 +1,56 @@
+$kind: http-example
+id: 14a3aa60-272f-53bf-a85b-109767d7ba40
+name: Create a live input response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs"
+  method: POST
+  headers:
+    - key: Idempotency-Key
+      value: string
+      description: Prevents duplicate live inputs from being created when retrying this request. The key is scoped to the account, may contain up to 255 bytes, and expires six hours after the live input is created. Reusing a key for a deleted input before expiry returns a 409 Conflict response.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "defaultCreator": "string",
+        "deleteRecordingAfterDays": 45,
+        "enabled": true,
+        "meta": {
+          "name": "test stream 1"
+        },
+        "preferLowLatency": true,
+        "recording": {
+          "hideLiveViewerCount": false,
+          "mode": "off",
+          "requireSignedURLs": false,
+          "timeoutSeconds": 0
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

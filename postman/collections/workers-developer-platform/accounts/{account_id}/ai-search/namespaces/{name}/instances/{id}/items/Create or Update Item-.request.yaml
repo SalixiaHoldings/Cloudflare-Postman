@@ -1,0 +1,35 @@
+$kind: http-request
+id: 8dd733e4-9b98-5157-a9b9-d6ee09efe8e4
+name: Create or Update Item.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ai-search-namespace-instance-create-or-update-item
+  PUT /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items
+
+  Creates or updates an indexed item in an AI Search instance.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "key": "string",
+      "next_action": "INDEX",
+      "wait_for_completion": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create or Update Item-.resources/examples
+order: 3000

@@ -1,0 +1,55 @@
+$kind: http-example
+id: 700660b4-66bd-5304-b833-9ac8b4386ebb
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/geolocations/{{geo_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "geolocation": {
+            "geoId": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "latitude": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "longitude": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "parent": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "locale": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

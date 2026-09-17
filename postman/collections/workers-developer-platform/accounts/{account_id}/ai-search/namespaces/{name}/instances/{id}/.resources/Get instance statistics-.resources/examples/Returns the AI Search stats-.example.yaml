@@ -1,0 +1,49 @@
+$kind: http-example
+id: 79f7a42e-da27-5f86-9561-0d3f683286d2
+name: Returns the AI Search stats.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/stats"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "completed": 3744,
+          "degraded": false,
+          "engine": {
+            "r2": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "vectorize": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "error": 881,
+          "file_embed_errors": {
+            "key_0": 5530.160730704665,
+            "key_1": 2857,
+            "key_2": 6910.257905256003
+          },
+          "index_source_errors": {
+            "key_0": false,
+            "key_1": "string",
+            "key_2": 6160,
+            "key_3": "string"
+          },
+          "last_activity": "1973-12-21T09:57:13.494Z",
+          "outdated": 3206,
+          "queued": 8068,
+          "running": 5530,
+          "skipped": 6599
+        }
+      }
+order: 1000

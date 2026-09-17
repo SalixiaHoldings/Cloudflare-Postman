@@ -1,0 +1,56 @@
+$kind: http-example
+id: c2fa3438-7ae9-5d16-a83d-9b3260118109
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "git_repository": {
+          "branch": "main",
+          "provider_account_id": "cloudflare",
+          "provider_account_name": "Cloudflare",
+          "provider_type": "github",
+          "repo_id": "workers-sdk",
+          "repo_name": "workers-sdk"
+        },
+        "production_settings": {
+          "build_caching_enabled": true,
+          "build_command": "npm run build",
+          "build_token_uuid": "{{build_token_uuid}}",
+          "deploy_command": "npx wrangler deploy",
+          "environment_variables": {},
+          "path_excludes": [
+            "*.md"
+          ],
+          "path_includes": [
+            "*"
+          ],
+          "root_directory": "/"
+        },
+        "script_tag": "my-worker"
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12000,
+            "message": "Not found"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 4000

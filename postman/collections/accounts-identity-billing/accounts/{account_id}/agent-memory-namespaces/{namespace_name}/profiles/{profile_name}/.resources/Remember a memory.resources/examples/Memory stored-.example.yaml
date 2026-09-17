@@ -1,0 +1,39 @@
+$kind: http-example
+id: d462e9d6-2de3-53e0-ab5c-8c961ad68bbe
+name: Memory stored.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/remember"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "content": "I prefer dark mode in the dashboard.",
+        "sessionId": "chat-session-42"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": "01JSGCEXAMP1E0000000000000",
+          "type": "fact",
+          "summary": "User prefers dark mode in the dashboard.",
+          "content": "The user said they prefer dark mode and find the light theme too bright.",
+          "sessionId": "chat-session-42",
+          "createdAt": "2025-09-21T14:30:00Z",
+          "updatedAt": "2025-09-21T14:30:00Z"
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

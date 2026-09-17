@@ -1,0 +1,61 @@
+$kind: http-example
+id: 7632fd01-152e-59af-83ea-85e7629015ae
+name: An internal error has occurred.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "scheduling_policy": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "instances": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "max_instances": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "configuration": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "constraints": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "durable_objects": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "observability": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "rollout_active_grace_period": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 5000

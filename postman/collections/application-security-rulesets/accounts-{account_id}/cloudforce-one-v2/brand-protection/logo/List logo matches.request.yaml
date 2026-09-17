@@ -1,0 +1,44 @@
+$kind: http-request
+id: 06535bea-b2cc-57e5-b64a-822be0cab963
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_LogoMatchList
+  GET /accounts/{account_id}/cloudforce-one/v2/brand-protection/logo/matches
+
+  Get paginated list of logo matches for a specific brand protection logo query
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/matches?query_id=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: offset
+    value: "0"
+    disabled: true
+  - key: limit
+    value: "50"
+    disabled: true
+  - key: query_id
+    value: string
+    description: "(Required) "
+  - key: download
+    value: string
+    disabled: true
+  - key: orderBy
+    value: registrar
+    disabled: true
+  - key: order
+    value: desc
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List logo matches.resources/examples
+order: 1000

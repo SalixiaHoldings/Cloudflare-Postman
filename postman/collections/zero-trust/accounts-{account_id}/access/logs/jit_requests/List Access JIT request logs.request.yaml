@@ -1,0 +1,47 @@
+$kind: http-request
+id: bf37f2c4-c851-5e86-81ea-cf013afe806f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-jit-request-logs-list
+  GET /accounts/{account_id}/access/logs/jit_requests
+
+  Lists account-wide Access JIT request logs reconstructed from request lifecycle events.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/logs/jit_requests"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "25"
+    disabled: true
+  - key: status
+    value: APPROVED
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
+    description: Case-insensitive search over request ID, requester email, application audience, and application hostname.
+  - key: since
+    value: 1934-06-02T03:59:24.018Z
+    disabled: true
+    description: The earliest request timestamp to query. Defaults to 366 days before the current time.
+  - key: until
+    value: 1934-06-02T03:59:24.018Z
+    disabled: true
+    description: The latest request timestamp to query. Defaults to the current time.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Access JIT request logs.resources/examples
+order: 1000

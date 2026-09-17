@@ -1,0 +1,75 @@
+$kind: http-example
+id: ec31c967-5ea5-54f5-9247-0c5f13a287d1
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/gre_tunnels/{{gre_tunnel_id}}"
+  method: PUT
+  headers:
+    - key: x-magic-new-hc-target
+      value: "true"
+      description: If true, the health check target in the request and response bodies will be presented using the new object format. Defaults to false.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "customer_gre_endpoint": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "cloudflare_gre_endpoint": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "interface_address": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "automatic_return_routing": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "description": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "health_check": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "interface_address6": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "mtu": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "ttl": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

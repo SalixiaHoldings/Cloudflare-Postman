@@ -1,0 +1,38 @@
+$kind: http-request
+id: 49c08715-187b-51a4-b0db-981df51fec9f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudforce-one-priority-update
+  PUT /accounts/{account_id}/cloudforce-one/requests/priority/{priority_id}
+
+  Updates a priority intelligence request in Cloudforce One.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/requests/priority/{{priority_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "labels": [
+        "DoS",
+        "CVE"
+      ],
+      "priority": 1,
+      "requirement": "DoS attacks carried out by CVEs",
+      "tlp": "red"
+    }
+auth:
+  type: noauth
+examples: ./.resources/Update a Priority Intelligence Requirement.resources/examples
+order: 3000

@@ -1,0 +1,30 @@
+$kind: http-example
+id: ea359846-39ab-56e4-bd3e-021bbac3c794
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/images/v1/keys/{{signing_key_name}}"
+  method: PUT
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

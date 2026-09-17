@@ -1,0 +1,30 @@
+$kind: http-example
+id: a35c9153-3d7b-5c25-ac53-1f21aa67c5bc
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/excluded-recipients"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "account_id": "{{account_id}}"
+        },
+        {
+          "account_id": "{{account_id}}"
+        }
+      ]
+response:
+  statusCode: 204
+  statusText: No Content
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

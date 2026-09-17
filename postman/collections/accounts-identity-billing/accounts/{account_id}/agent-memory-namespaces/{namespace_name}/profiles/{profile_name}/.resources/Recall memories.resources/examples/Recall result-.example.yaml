@@ -1,0 +1,44 @@
+$kind: http-example
+id: 804c7e7b-ca1e-5f02-baef-3f35333baa96
+name: Recall result.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/recall"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "query": "What are my UI preferences?",
+        "referenceDate": "2025-09-21T00:00:00Z",
+        "responseLength": "short",
+        "thinkingLevel": "medium"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "count": 1,
+          "candidates": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "answer": "You prefer dark mode in the dashboard."
+        },
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

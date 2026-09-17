@@ -1,0 +1,58 @@
+$kind: http-request
+id: 1087b3e2-39a5-5877-8672-c8438ad46e9d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zones-get
+  GET /zones
+
+  Lists, searches, sorts, and filters your zones. Listing zones across more than 500 accounts
+  is currently not allowed.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: name
+    value: example.com
+    disabled: true
+  - key: status
+    value: initializing
+    disabled: true
+  - key: type
+    value: partial,internal
+    disabled: true
+  - key: account.id
+    value: "{{account_id}}"
+    disabled: true
+  - key: account.name
+    value: Dev Account
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: order
+    value: status
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
+  - key: match
+    value: all
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Zones.resources/examples
+order: 1000

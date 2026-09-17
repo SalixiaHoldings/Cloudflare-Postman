@@ -1,0 +1,35 @@
+$kind: http-example
+id: 0ccc0ae2-84fa-5669-8487-1532ac972561
+name: Get current aggregated analytics response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/analytics/aggregate/current"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: appID
+      value: ea95132c15732412d22c1476fa83f27a,d122c5f4bb71e25cc9e86ab43b142e2f
+      disabled: true
+    - key: colo_name
+      value: PDX
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

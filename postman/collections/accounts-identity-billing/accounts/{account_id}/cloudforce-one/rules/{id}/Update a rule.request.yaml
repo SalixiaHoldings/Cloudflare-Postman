@@ -1,0 +1,49 @@
+$kind: http-request
+id: 0ed3c50f-7811-52d2-8cd3-7a6cd73dd36c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudforce-one-update-rule
+  PUT /accounts/{account_id}/cloudforce-one/rules/{id}
+
+  Updates an existing rule.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/{{id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "commit_message": "Reduce false positives on legit CI workers.",
+      "content": "rule example { condition: true }",
+      "description": "Detects malicious proxy workers",
+      "enabled": true,
+      "is_public": false,
+      "meta": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "name": "block-malicious-workers",
+      "namespaces": [
+        "yara/workers"
+      ],
+      "path": "yara/workers"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a rule.resources/examples
+order: 3000

@@ -1,0 +1,25 @@
+$kind: http-request
+id: 5831aae0-f8cf-55b5-a275-af90b9ed3ba7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: deleteWorkerBuild
+  DELETE /accounts/{account_id}/builds/workers/{script_tag}
+
+  Delete build settings and triggers for a Worker tag and cancel unfinished builds. The Worker is not deleted.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_tag}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete Worker build configuration.resources/examples
+order: 1000

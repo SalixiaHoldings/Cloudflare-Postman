@@ -1,0 +1,26 @@
+$kind: http-example
+id: 91034c14-ace4-55b5-9ddb-9b4e83cf7add
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/queries"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: string
+      disabled: true
+      description: Optional query ID to retrieve a specific logo query
+    - key: download
+      value: string
+      disabled: true
+      description: If true, include base64-encoded image data in the response
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

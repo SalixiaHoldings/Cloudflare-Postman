@@ -1,0 +1,43 @@
+$kind: http-example
+id: 8549dff1-0726-53ac-9359-b54b1529b2b9
+name: Get DEX devices aggregate failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/fleet-status/over-time?to=2023-10-11 00:00:00+00&from=2023-10-11 00:00:00+00"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: to
+      value: 2023-10-11 00:00:00+00
+      description: (Required) End of the time range to query. Timestamp can be provided in ISO 8601 datetime format or milliseconds since epoch.
+    - key: from
+      value: 2023-10-11 00:00:00+00
+      description: (Required) Start of the time range to query. Timestamp can be provided in ISO 8601 datetime format or milliseconds since epoch.
+    - key: colo
+      value: SJC
+      disabled: true
+      description: Cloudflare colo airport code.
+    - key: device_id
+      value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
+      description: Device-specific ID, given as UUID.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

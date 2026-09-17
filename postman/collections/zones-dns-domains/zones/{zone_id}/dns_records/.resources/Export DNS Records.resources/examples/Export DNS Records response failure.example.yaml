@@ -1,0 +1,27 @@
+$kind: http-example
+id: 657c0a0c-475b-5a8f-b779-f0c9607a7603
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dns_records/export"
+  method: GET
+  headers:
+    Accept: text/plain
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

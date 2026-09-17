@@ -1,0 +1,29 @@
+$kind: http-example
+id: 25c00271-740e-5dbb-af9e-f1e06b5c0732
+name: Get Automatic SSL/TLS Enrollment status response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/ssl_automatic_mode"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "editable": true,
+          "id": "ssl_automatic_mode",
+          "modified_on": "2014-01-01T05:20:00.12345Z",
+          "next_scheduled_scan": "2014-02-01T05:20:00.12345Z",
+          "value": "auto"
+        },
+        "success": true
+      }
+order: 1000

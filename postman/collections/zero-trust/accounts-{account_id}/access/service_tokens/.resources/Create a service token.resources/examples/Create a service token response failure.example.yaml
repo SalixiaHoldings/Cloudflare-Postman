@@ -1,0 +1,38 @@
+$kind: http-example
+id: f442c091-ddd9-54c2-a034-309d1323d93f
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/service_tokens"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "CI/CD token",
+        "client_secret_version": "{{client_secret_version}}",
+        "duration": "60m",
+        "enabled": true,
+        "previous_client_secret_expires_at": "{{previous_client_secret_expires_at}}"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

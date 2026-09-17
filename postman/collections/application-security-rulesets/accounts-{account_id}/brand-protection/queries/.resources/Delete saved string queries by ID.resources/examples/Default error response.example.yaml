@@ -1,0 +1,35 @@
+$kind: http-example
+id: 49d0521f-4b01-5fb0-baf5-aba3cdca4b35
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/queries"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: string
+      disabled: true
+    - key: tag
+      value: string
+      disabled: true
+    - key: scan
+      value: "true"
+      disabled: true
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "code": 7665,
+        "errors": {
+          "key_0": {},
+          "key_1": {}
+        },
+        "message": "string",
+        "status": "string"
+      }
+order: 3000

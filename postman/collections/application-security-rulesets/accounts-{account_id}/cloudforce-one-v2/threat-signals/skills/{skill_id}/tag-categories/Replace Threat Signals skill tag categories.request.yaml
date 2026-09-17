@@ -1,0 +1,35 @@
+$kind: http-request
+id: d2e63a74-ac45-5fa9-bd2f-ad30415c1f82
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: rssSkillTagCategoriesReplace
+  PUT /accounts/{account_id}/cloudforce-one/v2/threat-signals/skills/{skill_id}/tag-categories
+
+  Replace Threat Signals skill tag categories.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/skills/{{skill_id}}/tag-categories"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "category_uuids": [
+        "9f22d681-0481-c4e0-4b11-091edd97818f",
+        "3661ede5-aa2c-63e6-d828-b0c535a8a101"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Replace Threat Signals skill tag categories.resources/examples
+order: 2000

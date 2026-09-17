@@ -1,0 +1,28 @@
+$kind: http-request
+id: 27c66a98-51c7-52a8-87a4-40e95da0c6b7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zones-0-get
+  GET /zones/{zone_id}
+
+  Retrieves detailed information about a specific zone identified by its zone ID.
+
+  Returns zone configuration, status, nameservers, and associated metadata.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Zone Details.resources/examples
+order: 2000

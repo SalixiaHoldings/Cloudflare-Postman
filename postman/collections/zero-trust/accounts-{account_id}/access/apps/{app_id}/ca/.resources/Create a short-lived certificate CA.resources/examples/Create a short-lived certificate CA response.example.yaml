@@ -1,0 +1,21 @@
+$kind: http-example
+id: bd3ead8b-f1bc-50c9-a661-02b60e289e60
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/apps/{{app_id}}/ca"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

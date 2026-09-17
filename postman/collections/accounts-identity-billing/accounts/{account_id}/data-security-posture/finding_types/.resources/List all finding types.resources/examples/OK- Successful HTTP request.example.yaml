@@ -1,0 +1,56 @@
+$kind: http-example
+id: 896dc6a4-7041-55a1-b23e-cd8bc958fc87
+name: "OK: Successful HTTP request"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/finding_types"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1209"
+      disabled: true
+      description: A page number within the paginated result set.
+    - key: per_page
+      value: "1209"
+      disabled: true
+      description: Number of results to return per page.
+    - key: vendors
+      value: GOOGLE_WORKSPACE,GOOGLE_WORKSPACE
+      disabled: true
+      description: Filter finding types by vendor. Supports multiple comma-separated values. Each value may be either the vendor enum (GOOGLE_WORKSPACE) or the friendly name returned by the read routes (Google Workspace).
+    - key: search
+      value: string
+      disabled: true
+      description: Filter finding types by name or ID (case-insensitive substring match).
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result_info": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

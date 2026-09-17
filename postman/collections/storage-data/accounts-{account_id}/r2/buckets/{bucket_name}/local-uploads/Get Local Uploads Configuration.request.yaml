@@ -1,0 +1,25 @@
+$kind: http-request
+id: d960c72d-5104-5307-a17b-bb1466287e15
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-get-bucket-local-uploads-configuration
+  GET /accounts/{account_id}/r2/buckets/{bucket_name}/local-uploads
+
+  Get the local uploads configuration for a bucket. When enabled, object's data is written to the nearest region first, then asynchronously replicated to the bucket's primary region.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/local-uploads"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Local Uploads Configuration.resources/examples
+order: 1000

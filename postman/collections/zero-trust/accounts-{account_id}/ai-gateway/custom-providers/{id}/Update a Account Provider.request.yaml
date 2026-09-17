@@ -1,0 +1,43 @@
+$kind: http-request
+id: 516cad6f-6818-5520-9d9d-3ce7c7b8d6f1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: aig-config-update-account-provider
+  PATCH /accounts/{account_id}/ai-gateway/custom-providers/{id}
+
+  Updates an existing AI Gateway dataset.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/custom-providers/{{id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "base_url": "http://GbOOFVuYhJvdJPQ.fwlHcwXLo.A-lXzxoljaD3UE5Qz0LByTpcE4BU6G2",
+      "beta": true,
+      "curl_example": "string",
+      "description": "string",
+      "enable": true,
+      "headers": "string",
+      "js_example": "string",
+      "link": "string",
+      "logo": "string",
+      "name": "string",
+      "position": 5600,
+      "slug": "3Wn4JKu"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a Account Provider.resources/examples
+order: 3000

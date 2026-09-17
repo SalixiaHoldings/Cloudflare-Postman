@@ -1,0 +1,52 @@
+$kind: http-example
+id: a6581a91-dd77-59ae-97a6-eb65cf169a50
+name: Update project response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pages/projects/{{project_name}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "deployment_configs": {
+          "production": {
+            "compatibility_date": "2022-01-01T00:00:00Z",
+            "compatibility_flags": [
+              "url_standard"
+            ],
+            "env_vars": {
+              "NODE_VERSION": {
+                "value": "22"
+              },
+              "delete_this_env_var": null,
+              "secret_var": "{{secret_var}}"
+            }
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

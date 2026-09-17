@@ -1,0 +1,28 @@
+$kind: http-example
+id: c5a2173c-0bc7-5ee5-930f-10d0b322e459
+name: "Bad request. Possible errors: 21003 (relay ID should be 32 hex characters), invalid token id."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/moq/relays/{{relay_id}}/tokens/{{jti}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 21007,
+            "message": "A MoQ relay with this ID was not found."
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

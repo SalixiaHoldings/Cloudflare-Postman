@@ -1,0 +1,66 @@
+$kind: http-request
+id: 1acb1fe9-6063-5c1d-80f1-20609b18a629
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: registrar-extension-list
+  GET /accounts/{account_id}/registrar/extensions
+
+  Returns metadata and JSON Schema documents describing the expected input
+  structure for registration operations on each supported
+  extension (TLD).
+
+  This endpoint uses cursor-based pagination. Results are ordered by
+  extension name by default. To fetch the next page, pass the `cursor`
+  value from the `result_info` object in the response as the `cursor`
+  query parameter in your next request. An empty `cursor` string
+  indicates there are no more pages.
+
+  Supports HTTP conditional GET via `ETag`. Include the `ETag` value
+  from a previous response in an `If-None-Match` header to receive a
+  `304 Not Modified` when the data has not changed.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/registrar/extensions"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: name
+    value: com
+    disabled: true
+    description: |
+      Filter extensions by exact name match.
+      For example, `name=com` returns only the `com` extension.
+  - key: cursor
+    value: string
+    disabled: true
+    description: |
+      Opaque token from a previous response's `result_info.cursor`.
+      Pass this value to fetch the next page of results. Omit (or
+      pass an empty string) for the first page.
+  - key: per_page
+    value: "20"
+    disabled: true
+    description: Number of items to return per page.
+  - key: direction
+    value: asc
+    disabled: true
+    description: |
+      Sort direction for results. Defaults to ascending order.
+  - key: sort_by
+    value: name
+    disabled: true
+    description: |
+      Column to sort results by. Defaults to `name` when omitted.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List extensions.resources/examples
+order: 1000

@@ -1,0 +1,77 @@
+$kind: http-example
+id: 4231c75f-3c03-516f-b2a7-122fb61b0c61
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/shared/query/{{id}}"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: view
+      value: invocations
+      disabled: true
+      description: Select the view of the query result to return, defaults to events.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": {
+          "run": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "statistics": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "agents": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "calculations": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "compare": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "distribution": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "events": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "invocations": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "traces": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

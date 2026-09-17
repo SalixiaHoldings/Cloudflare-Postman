@@ -1,0 +1,69 @@
+$kind: http-example
+id: b4497565-4462-518f-b785-8535d4496bac
+name: |-
+  Too Many Requests: Request was rate limited. May include a
+  `Retry-After` header.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/content"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: direction
+      value: asc
+      disabled: true
+      description: Direction to order results.
+    - key: dlp_profile_id
+      value: 4fb84af0-1366-6f4c-4ccd-23e81a789cb9
+      disabled: true
+      description: Filter by an DLP profile ID
+    - key: integration_id
+      value: 4fb84af0-1366-6f4c-4ccd-23e81a789cb9
+      disabled: true
+      description: Filter by an integration ID
+    - key: max_affliction_date
+      value: 1947-03-20T01:57:00.324Z
+      disabled: true
+      description: Filter to view findings that occurred on or before the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
+    - key: min_affliction_date
+      value: 1947-03-20T01:57:00.324Z
+      disabled: true
+      description: Filter to view findings that occurred on or after the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
+    - key: order
+      value: integration_name
+      disabled: true
+      description: Which field to use when ordering content assets.
+    - key: page
+      value: "1209"
+      disabled: true
+      description: A page number within the paginated result set.
+    - key: per_page
+      value: "1209"
+      disabled: true
+      description: Number of results to return per page.
+    - key: search
+      value: string
+      disabled: true
+      description: A search term.
+    - key: vendor
+      value: GOOGLE_WORKSPACE
+      disabled: true
+      description: Filter by vendor
+response:
+  statusCode: 429
+  statusText: Too Many Requests
+  headers:
+    - key: Retry-After
+      value: string
+      description: Optional. Indicates how many seconds to wait before retrying.
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 3000

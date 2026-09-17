@@ -1,0 +1,73 @@
+$kind: http-example
+id: ad570d58-dbb4-5a79-ab65-199ca9a86e0d
+name: Create workflow instance. Body is a JSON parsable string that it's passed into the new instance as the event payload.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "instance_id": "WXDqgpkI",
+        "instance_retention": {
+          "error_retention": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "success_retention": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "location_hint": "wnam",
+        "params": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": {
+          "id": "PTYrRVm4",
+          "workflow_id": "faf0ea9c-2d08-c556-0abd-0ffe82780f6e",
+          "version_id": "eebd8319-645e-6788-9ecb-650a19d7f90d",
+          "status": "running",
+          "trigger_source": "api"
+        },
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 8205.113590229303,
+          "count": 5239.079559687525,
+          "total_count": 7987.084346823394,
+          "cursor": "string",
+          "page": 6576.93729037419,
+          "total_pages": 1734.145695809275
+        }
+      }
+order: 1000

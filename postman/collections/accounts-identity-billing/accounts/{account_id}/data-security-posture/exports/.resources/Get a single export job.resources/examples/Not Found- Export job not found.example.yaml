@@ -1,0 +1,17 @@
+$kind: http-example
+id: e9c302d8-b140-58ee-a2bb-0c87b249848f
+name: "Not Found: Export job not found"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/exports/{{id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

@@ -1,0 +1,23 @@
+$kind: http-example
+id: fd3611a0-af51-59cd-8902-c8af971169e5
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/articles/{{article_id}}/tags"
+  method: POST
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "tag_id": "9c3c5783-2b6b-2868-6d04-a3fc33a3b322"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

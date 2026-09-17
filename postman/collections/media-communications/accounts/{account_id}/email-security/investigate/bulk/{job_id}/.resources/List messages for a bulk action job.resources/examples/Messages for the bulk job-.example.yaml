@@ -1,0 +1,51 @@
+$kind: http-example
+id: 8420b963-c355-5770-bbf6-c87525b5378c
+name: Messages for the bulk job.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/bulk/{{job_id}}/messages"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Current page within paginated list of results.
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: The number of results per page. Maximum value is 1000.
+    - key: status
+      value: CANCELLED
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result_info": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

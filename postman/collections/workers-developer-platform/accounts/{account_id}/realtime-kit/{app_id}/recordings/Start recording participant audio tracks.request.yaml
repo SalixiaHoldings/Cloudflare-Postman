@@ -1,0 +1,32 @@
+$kind: http-request
+id: 63cb4294-a88e-5bee-a536-4359aa633b2a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: startTrackRecordingForAMeeting
+  POST /accounts/{account_id}/realtime/kit/{app_id}/recordings/track
+
+  Starts track recording for a meeting. Track recording currently records separate participant audio tracks as WebM files in the RealtimeKit bucket. Video track recording is in development. For more information, refer to [Track recording](/realtime/realtimekit/recording-guide/track-recording/).
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/recordings/track"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "meeting_id": "97440c6a-140b-40a9-9499-b23fd7a3868a"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Start recording participant audio tracks.resources/examples
+order: 4000

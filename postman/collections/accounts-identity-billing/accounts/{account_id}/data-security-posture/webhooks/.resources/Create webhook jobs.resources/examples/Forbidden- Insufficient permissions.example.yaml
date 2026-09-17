@@ -1,0 +1,36 @@
+$kind: http-example
+id: d51364e9-45a4-5be0-ab46-1624dadf8d7b
+name: "Forbidden: Insufficient permissions"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/jobs"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "webhook_ids": [
+          "550e8400-e29b-41d4-a716-446655440000",
+          "660e8400-e29b-41d4-a716-446655440001"
+        ],
+        "finding_instance_ids": [
+          "770e8400-e29b-41d4-a716-446655440002",
+          "660e8400-e29b-41d4-a716-446655440001"
+        ]
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 4000

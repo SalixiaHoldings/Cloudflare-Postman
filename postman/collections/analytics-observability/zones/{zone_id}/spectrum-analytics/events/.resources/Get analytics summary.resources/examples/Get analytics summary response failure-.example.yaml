@@ -1,0 +1,56 @@
+$kind: http-example
+id: 1cabf5fd-3758-5f92-989a-15020fe68955
+name: Get analytics summary response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/analytics/events/summary"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: dimensions
+      value: event
+      disabled: true
+    - key: dimensions
+      value: appID
+      disabled: true
+    - key: sort
+      value: +count
+      disabled: true
+    - key: sort
+      value: -bytesIngress
+      disabled: true
+    - key: until
+      value: 2014-01-01T05:20:00.12345Z
+      disabled: true
+    - key: metrics
+      value: count
+      disabled: true
+    - key: metrics
+      value: bytesIngress
+      disabled: true
+    - key: filters
+      value: event==disconnect%20AND%20coloName!=SFO
+      disabled: true
+    - key: since
+      value: 2014-01-01T05:20:00.12345Z
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

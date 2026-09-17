@@ -1,0 +1,33 @@
+$kind: http-request
+id: e50c0167-35cd-5950-9679-5ca5fa238c75
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: worker-routes-update-route
+  PUT /zones/{zone_id}/workers/routes/{route_id}
+
+  Updates the URL pattern or Worker associated with a route.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/workers/routes/{{route_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "pattern": "example.com/*",
+      "script": "my-workers-script"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Route.resources/examples
+order: 3000

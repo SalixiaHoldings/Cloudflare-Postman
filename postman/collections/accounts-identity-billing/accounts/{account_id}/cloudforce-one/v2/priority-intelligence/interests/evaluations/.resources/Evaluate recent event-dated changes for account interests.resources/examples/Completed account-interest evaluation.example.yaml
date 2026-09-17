@@ -1,0 +1,31 @@
+$kind: http-example
+id: 931e638e-020a-5963-a084-b8671b6ece8f
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/interests/evaluations"
+  method: POST
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "as_of": "1967-10-02T21:55:51.002Z",
+        "candidate_limit": 49,
+        "dataset_ids": [
+          "string"
+        ],
+        "emerging_min_current_count": 49701,
+        "established_min_absolute_delta": 86241,
+        "established_min_prior_count": 46216,
+        "established_min_relative_delta": 8.084613014943898,
+        "window_days": 7
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

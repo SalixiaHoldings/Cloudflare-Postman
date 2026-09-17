@@ -1,0 +1,82 @@
+$kind: http-example
+id: 6cc32e64-d30a-5490-9dec-69b863757d2a
+name: Table details retrieved successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/namespaces/{{namespace}}/tables/{{table_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "identifier": {
+            "name": "events",
+            "namespace": [
+              "bronze"
+            ]
+          },
+          "metadata": {
+            "current-schema-id": 1,
+            "current-snapshot-id": 3055729675574597000,
+            "default-spec-id": 0,
+            "format-version": 2,
+            "location": "s3://my-bucket/__r2_data_catalog/wh-id/table-id",
+            "partition-specs": [
+              {
+                "fields": [
+                  {
+                    "field-id": 1000,
+                    "name": "user_id_bucket",
+                    "source-id": 1,
+                    "transform": "bucket[16]"
+                  }
+                ],
+                "spec-id": 0
+              }
+            ],
+            "properties": {
+              "write.parquet.compression-codec": "zstd"
+            },
+            "schemas": [
+              {
+                "type": "struct",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "user_id",
+                    "required": true,
+                    "type": "long"
+                  }
+                ],
+                "schema-id": 1
+              }
+            ],
+            "snapshots": [
+              {
+                "sequence-number": 1,
+                "snapshot-id": 3055729675574597000,
+                "summary": {
+                  "operation": "append"
+                },
+                "timestamp-ms": 1555100955770
+              }
+            ],
+            "table-uuid": "550e8400-e29b-41d4-a716-446655440000"
+          },
+          "metadata_location": "s3://my-bucket/__r2_data_catalog/wh-id/table-id/metadata/00001-abc.metadata.json",
+          "returned_snapshots": 10,
+          "table_uuid": "550e8400-e29b-41d4-a716-446655440000",
+          "total_snapshots": 122113
+        },
+        "success": true
+      }
+order: 1000

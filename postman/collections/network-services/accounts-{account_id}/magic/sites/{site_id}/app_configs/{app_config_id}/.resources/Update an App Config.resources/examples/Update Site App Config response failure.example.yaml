@@ -1,0 +1,47 @@
+$kind: http-example
+id: e1c755bf-e82c-5098-91cf-6e63923befa6
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/app_configs/{{app_config_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "account_app_id": "ac60d3d0435248289d446cedd870bcf4",
+        "breakout": true,
+        "managed_app_id": "cloudflare",
+        "preferred_wans": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "priority": 0
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

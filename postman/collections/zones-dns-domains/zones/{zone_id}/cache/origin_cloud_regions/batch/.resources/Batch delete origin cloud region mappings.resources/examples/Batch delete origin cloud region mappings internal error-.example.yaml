@@ -1,0 +1,36 @@
+$kind: http-example
+id: 6bcfecae-54af-55ce-89ec-88df0d235f2e
+name: Batch delete origin cloud region mappings internal error.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions/batch"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        "192.0.2.1",
+        "2001:db8::1"
+      ]
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1141,
+            "message": "Unable to delete origin_public_cloud_region setting. Internal error."
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

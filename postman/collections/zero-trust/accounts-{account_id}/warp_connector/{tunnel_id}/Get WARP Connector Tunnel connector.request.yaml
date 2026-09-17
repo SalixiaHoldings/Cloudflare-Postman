@@ -1,0 +1,25 @@
+$kind: http-request
+id: 6c745d90-c80f-5308-a269-e4d46cc46427
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-tunnel-get-warp-connector-tunnel-connector
+  GET /accounts/{account_id}/warp_connector/{tunnel_id}/connectors/{connector_id}
+
+  Fetches connector and connection details for a WARP Connector Tunnel.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/warp_connector/{{tunnel_id}}/connectors/{{connector_id}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get WARP Connector Tunnel connector.resources/examples
+order: 6000

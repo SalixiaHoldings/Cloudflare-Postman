@@ -1,0 +1,50 @@
+$kind: http-example
+id: 4af15b5c-b83a-5889-a080-24a518056429
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "description": "We need analysis of domain patterns observed in recent security events",
+        "eventId": "event-456",
+        "metadata": {
+          "key_0": false,
+          "key_1": "string"
+        },
+        "priority": "routine",
+        "request_type": "string",
+        "subtypeId": "subtype-123",
+        "title": "Investigation into suspicious domain activity",
+        "tlp": "amber"
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

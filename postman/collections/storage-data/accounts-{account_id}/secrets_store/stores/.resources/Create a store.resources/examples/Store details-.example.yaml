@@ -1,0 +1,31 @@
+$kind: http-example
+id: 924f7308-5ad3-51b8-b5e4-1e641c0c8c72
+name: Store details.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/secrets_store/stores"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "service_x_keys"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

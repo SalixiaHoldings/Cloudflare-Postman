@@ -1,0 +1,44 @@
+$kind: http-example
+id: a1dd3555-833c-5cca-9b61-f14565b2ae67
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/schemas"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number of paginated results.
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: Maximum number of results per page.
+    - key: omit_source
+      value: "false"
+      disabled: true
+      description: Omit the source-files of schemas and only retrieve their meta-data.
+    - key: validation_enabled
+      value: "true"
+      disabled: true
+      description: Filter for enabled schemas
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

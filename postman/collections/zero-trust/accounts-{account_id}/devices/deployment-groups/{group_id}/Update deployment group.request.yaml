@@ -1,0 +1,44 @@
+$kind: http-request
+id: c0747d69-a7ac-542f-b3d6-99c0b7520b72
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: update-deployment-group
+  PATCH /accounts/{account_id}/devices/deployment-groups/{group_id}
+
+  Updates a deployment group. Returns 409 if any newly added policy IDs already belong to another deployment group. This endpoint is in Beta.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/devices/deployment-groups/{{group_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Engineering Ring 0",
+      "policy_ids": [
+        "string",
+        "string"
+      ],
+      "version_config": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update deployment group.resources/examples
+order: 3000

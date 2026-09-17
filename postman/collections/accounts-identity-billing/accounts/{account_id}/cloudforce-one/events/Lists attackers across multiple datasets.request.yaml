@@ -1,0 +1,34 @@
+$kind: http-request
+id: 3f9c7eae-1ebe-5b1b-9666-5f8f25b224ed
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_AttackerList
+  GET /accounts/{account_id}/cloudforce-one/events/attackers
+
+  Lists known threat attackers tracked in Cloudforce One threat intelligence.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/attackers"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: datasetIds
+    value: string
+    disabled: true
+    description: Array of dataset IDs to query attackers from. If not provided, uses the default dataset.
+  - key: datasetIds
+    value: string
+    disabled: true
+    description: Array of dataset IDs to query attackers from. If not provided, uses the default dataset.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Lists attackers across multiple datasets.resources/examples
+order: 4000

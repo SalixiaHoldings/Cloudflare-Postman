@@ -1,0 +1,30 @@
+$kind: http-example
+id: 7cea3f12-dc9d-5ac6-a299-2d004dc8969c
+name: Data tag category read failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/data_tag_categories/{{category_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

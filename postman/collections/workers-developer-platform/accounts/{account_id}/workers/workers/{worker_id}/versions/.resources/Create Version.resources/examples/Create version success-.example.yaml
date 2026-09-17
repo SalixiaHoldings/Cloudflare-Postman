@@ -1,0 +1,151 @@
+$kind: http-example
+id: 3e004b02-04e8-5733-a344-695caf4b314a
+name: Create version success.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: deploy
+      value: "false"
+      disabled: true
+  body:
+    type: json
+    content: |-
+      {
+        "annotations": {
+          "workers/message": "Fixed bug.",
+          "workers/tag": "v1.0.1"
+        },
+        "assets": {
+          "config": {
+            "html_handling": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "not_found_handling": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "run_worker_first": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "jwt": "string"
+        },
+        "bindings": [
+          {
+            "name": "MY_ENV_VAR",
+            "text": "my_data",
+            "type": "plain_text"
+          }
+        ],
+        "cache_options": {
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "cross_version_cache": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "compatibility_date": "2021-01-01T00:00:00Z",
+        "compatibility_flags": [
+          "nodejs_compat"
+        ],
+        "containers": [
+          {
+            "class_name": "MyDurableObject"
+          }
+        ],
+        "exports": {
+          "description": "Declarative exports for the version, including Durable Object\nclasses (with their `storage` backend) and named Worker\nentrypoints. On reads, tombstoned lifecycle entries are\nomitted, so only live exports (`created` and\n`expecting-transfer`) are returned. `exports` and `migrations`\nare mutually exclusive on upload.\n",
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "exports_reconciliation": {
+          "description": "Summary of the declarative exports reconciliation that ran on\nthis upload. Populated only when the uploaded metadata included\nan `exports` block. Durable Object entries drive reconciliation;\n`type: worker` entries do not contribute to this summary.\n",
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "limits": {
+          "cpu_ms": 50,
+          "subrequests": 1000
+        },
+        "main_module": "index.js",
+        "migrations": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "modules": [
+          {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "content_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "content_base64": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "content_type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "content_base64": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "package_dependencies": [
+          {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "packageJsonVersion": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "installedVersion": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "packageJsonVersion": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "installedVersion": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "placement": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "usage_model": "standard"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

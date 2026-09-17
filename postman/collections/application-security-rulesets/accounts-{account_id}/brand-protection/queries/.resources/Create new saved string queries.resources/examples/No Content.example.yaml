@@ -1,0 +1,37 @@
+$kind: http-example
+id: c169f677-7b14-51f9-9a2b-87a5717b6985
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/queries"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: string
+      disabled: true
+    - key: tag
+      value: string
+      disabled: true
+    - key: scan
+      value: "true"
+      disabled: true
+  body:
+    type: json
+    content: |-
+      {
+        "max_time": "1989-01-18T21:03:11.761Z",
+        "min_time": "1957-12-05T08:49:26.921Z",
+        "scan": true,
+        "string_matches": "",
+        "tag": "string"
+      }
+response:
+  statusCode: 204
+  statusText: No Content
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

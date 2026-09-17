@@ -1,0 +1,25 @@
+$kind: http-request
+id: 1f264bcf-03ae-5d65-989d-86dc5b4554ff
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: client-certificate-for-a-zone-delete-client-certificate
+  DELETE /zones/{zone_id}/client_certificates/{client_certificate_id}
+
+  Set a API Shield mTLS Client Certificate to pending_revocation status for processing to revoked status.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/client_certificates/{{client_certificate_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Revoke Client Certificate.resources/examples
+order: 1000

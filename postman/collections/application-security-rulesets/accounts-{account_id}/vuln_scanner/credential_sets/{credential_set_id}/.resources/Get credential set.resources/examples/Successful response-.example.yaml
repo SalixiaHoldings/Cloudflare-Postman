@@ -1,0 +1,32 @@
+$kind: http-example
+id: 79530128-a3b9-5db7-a08a-f4d15a71df4d
+name: Successful response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vuln_scanner/credential_sets/{{credential_set_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result_info": {}
+      }
+order: 1000

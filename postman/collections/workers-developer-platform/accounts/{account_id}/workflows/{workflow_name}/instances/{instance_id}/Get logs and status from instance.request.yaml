@@ -1,0 +1,36 @@
+$kind: http-request
+id: f09b21b7-5fd1-5e68-93fa-1e31947e876b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: wor-describe-workflow-instance
+  GET /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}
+
+  Retrieves logs and execution status for a specific workflow instance.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: simple
+    value: "false"
+    disabled: true
+    description: When true, omits step details and returns only metadata with step_count.
+  - key: order
+    value: asc
+    disabled: true
+    description: 'Step ordering: "asc" (default, oldest first) or "desc" (newest first).'
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get logs and status from instance.resources/examples
+order: 2000

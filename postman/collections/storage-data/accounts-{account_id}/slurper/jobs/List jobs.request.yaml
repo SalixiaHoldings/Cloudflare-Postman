@@ -1,0 +1,34 @@
+$kind: http-request
+id: e5e2412f-b33f-54c9-93f1-d7a6d8a5f456
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: slurper-list-jobs
+  GET /accounts/{account_id}/slurper/jobs
+
+  Lists all R2 Super Slurper migration jobs for the account with their status.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/slurper/jobs"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: limit
+    value: "29"
+    disabled: true
+  - key: offset
+    value: "5222"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List jobs.resources/examples
+order: 1000

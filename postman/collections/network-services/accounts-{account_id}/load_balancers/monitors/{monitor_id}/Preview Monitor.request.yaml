@@ -1,0 +1,81 @@
+$kind: http-request
+id: adfdf46a-8328-5eb1-8937-17bb519a71ea
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: account-load-balancer-monitors-preview-monitor
+  POST /accounts/{account_id}/load_balancers/monitors/{monitor_id}/preview
+
+  Preview pools using the specified monitor with provided monitor details. The returned preview_id can be used in the preview endpoint to retrieve the results.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/load_balancers/monitors/{{monitor_id}}/preview"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "allow_insecure": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "consecutive_down": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "consecutive_up": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "description": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "expected_body": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "expected_codes": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "follow_redirects": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "header": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "interval": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "method": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "path": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "port": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "probe_zone": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "retries": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "timeout": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "type": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Preview Monitor.resources/examples
+order: 5000

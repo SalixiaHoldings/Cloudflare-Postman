@@ -1,0 +1,55 @@
+$kind: http-example
+id: fe92c820-ccc6-568a-9671-fa23d919557c
+name: Returns a list of proxy endpoints response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/proxy_endpoints"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: search
+      value: string
+      disabled: true
+      description: |-
+        Case-insensitive substring match on the endpoint name. When combined
+        with `filter`, both must match (logical AND).
+    - key: order_by
+      value: name
+      disabled: true
+      description: |-
+        Field to sort the returned endpoints by. When omitted, the order of
+        results is unspecified. Supported values:
+          * `name` — sort alphabetically by endpoint name.
+          * `created_at` — sort by creation time; defaults to descending unless `direction` is set.
+          * `updated_at` — sort by last-modified time; defaults to descending unless `direction` is set.
+    - key: direction
+      value: desc
+      disabled: true
+      description: |-
+        Sort direction. Only takes effect when `order_by` is also provided; it
+        is ignored otherwise. When `direction` is omitted the effective
+        direction is field-specific: `created_at` and `updated_at` default to
+        descending (newest first); `name` defaults to ascending.
+          * `asc` — ascending.
+          * `desc` — descending.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

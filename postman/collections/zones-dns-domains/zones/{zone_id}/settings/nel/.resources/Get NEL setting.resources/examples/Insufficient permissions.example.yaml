@@ -1,0 +1,27 @@
+$kind: http-example
+id: a915cc42-bf83-5af8-878c-43244349f7a2
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/nel"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1010,
+            "message": "auth.forbidden"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

@@ -1,0 +1,28 @@
+$kind: http-example
+id: 5a35ee62-f14e-5323-b096-0d6250569ce9
+name: Get Origin H2 Max Streams setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/origin_h2_max_streams"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12345,
+            "message": "Some error message"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

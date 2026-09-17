@@ -1,0 +1,50 @@
+$kind: http-example
+id: d16bd651-577b-52d0-996a-e9da74f644f7
+request:
+  url: "{{base_url}}/organizations/{{organization_id}}/logs/audit/{{id}}/history?action_time=2024-10-30T15:00:00Z&since=2024-10-30&before=2024-10-31"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: action_time
+      value: 2024-10-30T15:00:00Z
+      description: (Required) RFC3339 timestamp of the source audit log entry's action time. Used to narrow the source-entry lookup window. Provide the `action.time` value from the audit log identified by `id`.
+    - key: since
+      value: 2024-10-30
+      description: (Required) Limits the returned results to logs newer than the specified date. This can be a date string 2019-04-30 (interpreted in UTC) or an absolute timestamp that conforms to RFC3339.
+    - key: before
+      value: 2024-10-31
+      description: (Required) Limits the returned results to logs older than the specified date. This can be a date string 2019-04-30 (interpreted in UTC) or an absolute timestamp that conforms to RFC3339.
+    - key: direction
+      value: desc
+      disabled: true
+    - key: limit
+      value: "25"
+      disabled: true
+    - key: cursor
+      value: Q1buH-__DQqqig7SVYXT-SsMOTGY2Z3Y80W-fGgva7yaDdmPKveucH5ddOcHsJRhNb-xUK8agZQqkJSMAENGO8NU6g==
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: 3e4e1ad7-eda0-5f58-b0ee-f68011acb536
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/time_travel/bookmark"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: timestamp
+      value: 2024-01-15T12:00:00Z
+      disabled: true
+      description: An optional ISO 8601 timestamp. If provided, returns the nearest available bookmark at or before this timestamp. If omitted, returns the current bookmark.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

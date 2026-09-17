@@ -1,0 +1,43 @@
+$kind: http-example
+id: 7ae30ca4-3bf8-5502-995b-f1c5c9288373
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/bulk"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Current page within paginated list of results.
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: The number of results per page. Maximum value is 1000.
+    - key: action_type
+      value: RELEASE
+      disabled: true
+    - key: status
+      value: CANCELLED
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,40 @@
+$kind: http-example
+id: 2153639c-e2f0-5e13-afc5-13124eea7a30
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Schemas/{{schema_id}}"
+  method: GET
+  headers:
+    Accept: application/scim+json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:Schema"
+        ],
+        "id": "urn:ietf:params:scim:schemas:core:2.0:User",
+        "name": "User",
+        "attributes": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "description": "User Account",
+        "meta": {
+          "location": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "resourceType": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

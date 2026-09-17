@@ -1,0 +1,39 @@
+$kind: http-request
+id: 30f689ce-3b09-54f0-a1e0-8afe2cec5f5e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-list-storage-class-migration-jobs
+  GET /accounts/{account_id}/r2/buckets/{bucket_name}/storage-class-migration-jobs
+
+  Lists storage-class migration jobs for an R2 bucket.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/storage-class-migration-jobs"
+method: GET
+headers:
+  cf-r2-jurisdiction: default
+  Accept: application/json
+queryParams:
+  - key: status
+    value: <string>
+    disabled: true
+    description: Restricts results to jobs with the specified status.
+  - key: maxKeys
+    value: "599"
+    disabled: true
+    description: Maximum number of jobs to return.
+  - key: continuationToken
+    value: string
+    disabled: true
+    description: Pagination token received as `nextContinuationToken` in the previous response.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Storage Class Migration Jobs.resources/examples
+order: 1000

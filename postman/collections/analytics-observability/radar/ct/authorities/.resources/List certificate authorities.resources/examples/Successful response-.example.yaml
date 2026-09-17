@@ -1,0 +1,45 @@
+$kind: http-example
+id: ac9df0ba-2765-5814-b0e1-06e7a3545abf
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/ct/authorities"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: limit
+      value: "5"
+      disabled: true
+      description: Limits the number of objects returned in the response.
+    - key: offset
+      value: "2923"
+      disabled: true
+      description: Skips the specified number of objects before fetching the results.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "certificateAuthorities": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,36 @@
+$kind: http-example
+id: ce26b721-d715-58d7-8f61-9c351389b05d
+request:
+  url: "{{base_url}}/accounts/{{accountId}}/zones/{{zoneId}}/v1/images/flows"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "version": 2,
+        "flows": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "etag": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "error": {}
+      }
+order: 2000

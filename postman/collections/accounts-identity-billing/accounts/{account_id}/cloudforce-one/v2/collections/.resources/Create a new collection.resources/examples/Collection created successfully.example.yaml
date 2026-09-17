@@ -1,0 +1,74 @@
+$kind: http-example
+id: 6db80732-40e5-5113-a2ac-f44f1b6e4426
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: name
+        value: string
+        description: (Required) Collection name (alphanumeric with underscores)
+      - type: file
+        key: file
+        src: ""
+        description: (Required) File to upload (CSV, JSON, or JSONL)
+      - type: text
+        key: description
+        value: string
+        description: Optional description
+      - type: text
+        key: metadata
+        value: string
+        description: Optional custom metadata as JSON object (e.g., '{"key":"value"}')
+      - type: text
+        key: project_id
+        value: string
+        description: Optional project ID
+      - type: text
+        key: tags
+        value: string
+        description: Optional tags as JSON array (e.g., '["tag1","tag2"]')
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "4d10f9bf-42be-7a7a-8027-8ede122e3d46",
+          "name": "string",
+          "created_by": "string",
+          "status": "failed",
+          "columns": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "item_count": 3583,
+          "created_at": "1950-11-20T23:24:40.775Z",
+          "updated_at": "1991-07-16T02:30:12.543Z",
+          "description": "string",
+          "project_id": "string",
+          "tags": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      }
+order: 1000

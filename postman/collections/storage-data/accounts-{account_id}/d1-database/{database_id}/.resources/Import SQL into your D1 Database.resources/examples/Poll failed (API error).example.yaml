@@ -1,0 +1,35 @@
+$kind: http-example
+id: af5c6c19-c38e-544b-94ad-f0e6682669de
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/import"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "action": "init",
+        "etag": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

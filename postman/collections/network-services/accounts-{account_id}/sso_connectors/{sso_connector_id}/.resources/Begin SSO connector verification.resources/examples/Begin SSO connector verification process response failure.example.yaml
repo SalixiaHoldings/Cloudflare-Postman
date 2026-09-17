@@ -1,0 +1,27 @@
+$kind: http-example
+id: 55ba80e7-a862-52a6-9249-eac84c6f60d2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/sso_connectors/{{sso_connector_id}}/begin_verification"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

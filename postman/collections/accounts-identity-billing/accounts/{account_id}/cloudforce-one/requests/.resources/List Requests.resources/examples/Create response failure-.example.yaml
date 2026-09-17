@@ -1,0 +1,49 @@
+$kind: http-example
+id: baf2a06d-4c0f-5b27-9d11-4f42c5b6deea
+name: Create response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/requests"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "page": 4414,
+        "per_page": 10,
+        "completed_after": "2022-01-01T00:00:00Z",
+        "completed_before": "2024-01-01T00:00:00Z",
+        "created_after": "2022-01-01T00:00:00Z",
+        "created_before": "2024-01-01T00:00:00Z",
+        "request_type": "Victomology",
+        "sort_by": "created",
+        "sort_order": "desc",
+        "status": "open"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": {
+          "code": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "message": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

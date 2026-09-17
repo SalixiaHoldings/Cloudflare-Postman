@@ -1,0 +1,67 @@
+$kind: http-example
+id: 7f5db350-ea26-5c04-bad4-5a2cb06c61c8
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/indicators"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: datasetIds
+      value: string
+      disabled: true
+      description: "Dataset UUIDs to scope to (repeat the param for multiple), or one standalone scope: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. Analytics datasets do not expose tag associations, so 'analytics' returns an empty result. Omit to search all readable datasets."
+    - key: datasetIds
+      value: string
+      disabled: true
+      description: "Dataset UUIDs to scope to (repeat the param for multiple), or one standalone scope: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. Analytics datasets do not expose tag associations, so 'analytics' returns an empty result. Omit to search all readable datasets."
+    - key: page
+      value: "3075.6446719169617"
+      disabled: true
+    - key: pageSize
+      value: "3075.6446719169617"
+      disabled: true
+    - key: indicatorType
+      value: string
+      disabled: true
+    - key: relatedEvent
+      value: string
+      disabled: true
+      description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+    - key: relatedEvent
+      value: string
+      disabled: true
+      description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+    - key: search
+      value: '{"field":"value","op":"contains","value":"malicious"}'
+      disabled: true
+      description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+    - key: search
+      value: '{"field":"value","op":"contains","value":"malicious"}'
+      disabled: true
+      description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 4000

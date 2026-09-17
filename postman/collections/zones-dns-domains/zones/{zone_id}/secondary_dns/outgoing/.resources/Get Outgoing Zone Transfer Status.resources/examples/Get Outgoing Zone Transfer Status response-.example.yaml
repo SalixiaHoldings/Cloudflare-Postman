@@ -1,0 +1,22 @@
+$kind: http-example
+id: 9135541a-6642-5efa-a654-34cc26fe7a8c
+name: Get Outgoing Zone Transfer Status response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/secondary_dns/outgoing/status"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

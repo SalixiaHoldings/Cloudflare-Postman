@@ -1,0 +1,36 @@
+$kind: http-request
+id: 17c3575b-94a9-5395-869a-176c29fe1eb2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: tunnel-route-delete-a-tunnel-route-with-cidr
+  DELETE /accounts/{account_id}/teamnet/routes/network/{ip_network_encoded}
+
+  Deletes a private network route from an account. The CIDR in `ip_network_encoded` must be written in URL-encoded format. If no virtual_network_id is provided it will delete the route from the default vnet. If no tun_type is provided it will fetch the type from the tunnel_id or if that is missing it will assume Cloudflare Tunnel as default. If tunnel_id is provided it will delete the route from that tunnel, otherwise it will delete the route based on the vnet and tun_type.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/teamnet/routes/network/{{ip_network_encoded}}"
+method: DELETE
+headers:
+  Accept: application/json
+queryParams:
+  - key: virtual_network_id
+    value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+    disabled: true
+  - key: tun_type
+    value: cfd_tunnel
+    disabled: true
+  - key: tunnel_id
+    value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete a tunnel route (CIDR Endpoint).resources/examples
+order: 1000

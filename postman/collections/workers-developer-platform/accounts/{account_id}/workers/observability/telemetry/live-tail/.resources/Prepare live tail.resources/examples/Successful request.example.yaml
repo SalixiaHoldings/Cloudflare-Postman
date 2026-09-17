@@ -1,0 +1,54 @@
+$kind: http-example
+id: 8f86a74c-f615-58d2-b8fe-24b9675db754
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/telemetry/live-tail"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "filterCombination": "and",
+        "scriptId": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": {
+          "wsUrl": "https://aHsEGMz.cvXNTVrqBgLTmz.ScuHVOOlIxpeiWQvfJd6zVx0MNGClP,xcQ"
+        }
+      }
+order: 1000

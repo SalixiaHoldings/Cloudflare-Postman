@@ -1,0 +1,65 @@
+$kind: http-example
+id: 2b715439-1a3a-5fc1-b867-8e3fb41b5ae3
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: Maximum number of results per page.
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number of paginated results.
+    - key: token_configuration
+      value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+      disabled: true
+      description: Select rules using any of these token configurations.
+    - key: token_configuration
+      value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+      disabled: true
+      description: Select rules using any of these token configurations.
+    - key: action
+      value: log
+      disabled: true
+    - key: enabled
+      value: "true"
+      disabled: true
+    - key: id
+      value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+      disabled: true
+      description: Select rules with these IDs.
+    - key: rule_id
+      value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+      disabled: true
+      description: Select rules with these IDs.
+    - key: host
+      value: www.example.com
+      disabled: true
+      description: Select rules with this host in `include`.
+    - key: hostname
+      value: www.example.com
+      disabled: true
+      description: Select rules with this host in `include`.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

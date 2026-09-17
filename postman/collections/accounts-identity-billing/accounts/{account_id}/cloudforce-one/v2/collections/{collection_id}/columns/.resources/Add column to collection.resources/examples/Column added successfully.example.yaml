@@ -1,0 +1,36 @@
+$kind: http-example
+id: d19e321d-1d0b-587e-af4b-c069529b3c79
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/columns"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "6",
+        "type": "number",
+        "default": {},
+        "required": false
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "ebc5da72-f12a-8e78-8529-3adead34e39a",
+          "name": "string",
+          "type": "date",
+          "required": true,
+          "position": 8213.358132634312
+        }
+      }
+order: 1000

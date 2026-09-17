@@ -1,0 +1,42 @@
+$kind: http-example
+id: d0ee813d-6a63-53a2-9215-8f33ded09c79
+name: Successfully updated the target.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/infrastructure/targets/{{target_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "hostname": "infra-access-target",
+        "ip": {
+          "ipv4": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ipv6": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "tags": {
+          "key_0": "string"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

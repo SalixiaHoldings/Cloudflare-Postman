@@ -1,0 +1,44 @@
+$kind: http-example
+id: 663c0040-c8a5-5e9f-9147-bbed79405990
+name: SSL/TLS Recommendation response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ssl/recommendation"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "modified_on": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "editable": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "next_scheduled_scan": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 2000

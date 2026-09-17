@@ -1,0 +1,56 @@
+$kind: http-example
+id: 2d38dc62-4d1c-516f-afbb-63c6158eace6
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/bgp/routes/upstreams/{{asn}}/timeseries"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: ipVersion
+      value: IPv4
+      disabled: true
+      description: Address family of the observed paths. Defaults to IPv4.
+    - key: dateStart
+      value: 2023-09-01T11:41:33.782Z
+      disabled: true
+      description: Start of the date range (inclusive). Alternative to `dateRange`; provide together with `dateEnd`.
+    - key: dateEnd
+      value: 2023-09-01T11:41:33.782Z
+      disabled: true
+      description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`.
+    - key: limit
+      value: "5"
+      disabled: true
+      description: Number of upstream ASNs to return as separate series, ranked by the first bucket. Remaining upstreams are grouped into an "OTHER" series. Defaults to 5.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

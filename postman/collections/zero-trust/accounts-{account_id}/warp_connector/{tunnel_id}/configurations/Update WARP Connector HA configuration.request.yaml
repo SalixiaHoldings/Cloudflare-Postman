@@ -1,0 +1,35 @@
+$kind: http-request
+id: 6a2f4187-744c-5e93-b659-b48688df479f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-tunnel-configuration-update-warp-connector-configuration
+  PUT /accounts/{account_id}/warp_connector/{tunnel_id}/configurations
+
+  Adds or updates the high-availability configuration for a WARP Connector tunnel.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/warp_connector/{{tunnel_id}}/configurations"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "ha_mode": "aws",
+      "config": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update WARP Connector HA configuration.resources/examples
+order: 2000

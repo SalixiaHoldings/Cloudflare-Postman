@@ -1,0 +1,34 @@
+$kind: http-example
+id: 6bcbac56-ae8b-5fae-a268-1c7f445d771c
+name: Returns a created PAC file response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/pacfiles"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "Devops team",
+        "contents": "function FindProxyForURL(url, host) { return \"DIRECT\"; }",
+        "description": "PAC file for Devops team",
+        "slug": "pac_devops"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

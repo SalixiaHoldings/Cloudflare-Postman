@@ -1,0 +1,62 @@
+$kind: http-example
+id: d33d3588-b710-5154-859c-eb957d32ea9a
+name: "Bad Request: Invalid request parameters"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/remediations/jobs"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: cursor
+      value: string
+      disabled: true
+      description: A cursor for pagination.
+    - key: page
+      value: "4239"
+      disabled: true
+      description: A page number within the paginated result set.
+    - key: per_page
+      value: "4239"
+      disabled: true
+      description: Number of results to return per page.
+    - key: search
+      value: string
+      disabled: true
+      description: A search term.
+    - key: min_updated_at
+      value: 1968-08-14T03:25:55.735Z
+      disabled: true
+      description: Filter to view remediations updated on or after the min updated datetime. Can be a date-time in ISO 8601 format or an epoch timestamp.
+    - key: max_updated_at
+      value: 1968-08-14T03:25:55.735Z
+      disabled: true
+      description: Filter to view remediations updated on or before the max updated datetime. Can be a date-time in ISO 8601 format or an epoch timestamp.
+    - key: status
+      value: pending
+      disabled: true
+      description: Filter to view remediations with the given status.
+    - key: triggered_by_actor
+      value: user,account_token
+      disabled: true
+      description: Filter remediations by what kind of actor triggered them. Supports multiple comma-separated values.
+    - key: integration_id
+      value: 2fb1bb1c-2780-2c2f-f793-3f3e46718f78
+      disabled: true
+      description: Filter by an integration ID
+    - key: order
+      value: asset_name
+      disabled: true
+      description: An optional param to sort the results by the given field.
+    - key: direction
+      value: asc
+      disabled: true
+      description: Direction to order results.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

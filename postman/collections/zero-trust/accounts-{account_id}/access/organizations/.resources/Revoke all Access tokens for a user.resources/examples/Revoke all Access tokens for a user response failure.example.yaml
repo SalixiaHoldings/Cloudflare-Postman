@@ -1,0 +1,42 @@
+$kind: http-example
+id: 51774fc7-0d43-55a1-95e4-3c481f35d031
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/organizations/revoke_user"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: devices
+      value: "true"
+      disabled: true
+      description: When set to `true`, all devices associated with the user will be revoked.
+  body:
+    type: json
+    content: |-
+      {
+        "email": "test@example.com",
+        "devices": true,
+        "user_uid": "699d98642c564d2e855e9661899b7252",
+        "warp_session_reauth": true
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

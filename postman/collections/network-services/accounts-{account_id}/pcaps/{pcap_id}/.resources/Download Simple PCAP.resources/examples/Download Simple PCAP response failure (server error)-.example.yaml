@@ -1,0 +1,27 @@
+$kind: http-example
+id: 9d257645-7295-5121-a6eb-ff24b4ad1bb0
+name: Download Simple PCAP response failure (server error).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pcaps/{{pcap_id}}/download"
+  method: GET
+  headers:
+    Accept: application/vnd.tcpdump.pcap
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "result": null
+      }
+order: 3000

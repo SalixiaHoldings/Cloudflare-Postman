@@ -1,0 +1,33 @@
+$kind: http-request
+id: 2037f3ee-48d4-5009-85df-434f3fcfdbad
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-pcap-collection-validate-buckets-for-full-packet-captures
+  POST /accounts/{account_id}/pcaps/ownership/validate
+
+  Validates buckets added to the packet captures API.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/pcaps/ownership/validate"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "destination_conf": "s3://pcaps-bucket?region=us-east-1",
+      "ownership_challenge": "ownership-challenge-9883874ecac311ec8475433579a6bf5f.txt"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Validate buckets for full packet captures.resources/examples
+order: 3000

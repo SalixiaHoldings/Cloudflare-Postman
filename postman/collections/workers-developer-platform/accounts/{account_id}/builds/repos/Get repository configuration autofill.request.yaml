@@ -1,0 +1,32 @@
+$kind: http-request
+id: 77cc6c5e-c2af-56c3-819d-52b4b1ea9c3a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getWorkerConfigAutofill
+  GET /accounts/{account_id}/builds/repos/{provider_type}/{provider_account_id}/{repo_id}/config_autofill
+
+  Analyze repository for automatic configuration detection
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/builds/repos/{{provider_type}}/{{provider_account_id}}/{{repo_id}}/config_autofill?branch=main"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: branch
+    value: main
+    description: "(Required) "
+  - key: root_directory
+    value: /
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get repository configuration autofill.resources/examples
+order: 2000

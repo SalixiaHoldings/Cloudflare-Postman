@@ -1,0 +1,77 @@
+$kind: http-example
+id: 70804df7-2b31-50fb-b572-aa7d793f79fe
+name: An unexpected error response.
+request:
+  url: "{{base_url}}/organizations/{{organization_id}}/members"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: status
+      value: pending
+      disabled: true
+      description: Filter the list of memberships by membership status.
+    - key: status
+      value: rejected
+      disabled: true
+      description: Filter the list of memberships by membership status.
+    - key: user.email
+      value: string
+      disabled: true
+      description: Filter the list of memberships for a specific email.
+    - key: user.email.contains
+      value: string
+      disabled: true
+      description: Filter the list of memberships for a specific email that contains a substring.
+    - key: user.email.startsWith
+      value: string
+      disabled: true
+      description: Filter the list of memberships for a specific email that starts with a substring.
+    - key: user.email.endsWith
+      value: string
+      disabled: true
+      description: Filter the list of memberships for a specific email that ends with a substring.
+    - key: page_token
+      value: string
+      disabled: true
+      description: |-
+        An opaque token returned from the last list response that when
+        provided will retrieve the next page.
+
+        Parameters used to filter the retrieved list must remain in subsequent
+        requests with a page token.
+    - key: page_size
+      value: "757"
+      disabled: true
+      description: The amount of items to return. Defaults to 10.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 2000

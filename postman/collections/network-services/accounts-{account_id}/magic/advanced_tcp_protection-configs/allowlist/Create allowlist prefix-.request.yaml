@@ -1,0 +1,35 @@
+$kind: http-request
+id: 209e797e-a9ff-512d-8b72-1018eceed716
+name: Create allowlist prefix.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: createAllowlistedPrefix
+  POST /accounts/{account_id}/magic/advanced_tcp_protection/configs/allowlist
+
+  Create an allowlist prefix for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/allowlist"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "prefix": "string",
+      "comment": "string",
+      "enabled": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create allowlist prefix-.resources/examples
+order: 3000

@@ -1,0 +1,87 @@
+$kind: http-example
+id: 9e689599-0f38-550c-94ef-10a363e77ed7
+name: Threat Signals response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/indicators"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: feed_id
+      value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
+      disabled: true
+    - key: article_id
+      value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: sort
+      value: id
+      disabled: true
+    - key: include_total
+      value: "false"
+      disabled: true
+    - key: cursor
+      value: string
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "indicators": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "pagination": {
+            "page": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "count": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "per_page": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "total_count": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "total_count_is_exact": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "cursor": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "has_more": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

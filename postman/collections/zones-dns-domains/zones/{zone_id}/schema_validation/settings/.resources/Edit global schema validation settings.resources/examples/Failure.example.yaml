@@ -1,0 +1,35 @@
+$kind: http-example
+id: a412beb3-1f26-5ca8-a98d-6e6df12caf3a
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/settings"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "validation_default_mitigation_action": "block",
+        "validation_override_mitigation_action": null
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

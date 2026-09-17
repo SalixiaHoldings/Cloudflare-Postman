@@ -1,0 +1,37 @@
+$kind: http-example
+id: 08d0d693-bd45-5ffa-a364-211dbdf12c59
+name: Test a Notification policy response failure. Common causes include an invalid or non-existent policy ID, or a delivery mechanism that is unreachable.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/policies/{{policy_id}}/test"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "severity": 1,
+        "source": "string",
+        "state_correlation_id": "string",
+        "state_event": 2
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": []
+      }
+order: 2000

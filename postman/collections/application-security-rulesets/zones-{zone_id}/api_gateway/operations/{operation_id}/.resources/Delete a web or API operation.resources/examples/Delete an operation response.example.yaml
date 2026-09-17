@@ -1,0 +1,23 @@
+$kind: http-example
+id: 7ad1f714-7cdf-5389-b162-a1b7c4c7f1f8
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations/{{operation_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

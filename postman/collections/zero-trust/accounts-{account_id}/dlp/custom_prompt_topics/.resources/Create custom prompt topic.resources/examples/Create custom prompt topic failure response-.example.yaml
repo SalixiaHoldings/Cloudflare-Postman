@@ -1,0 +1,41 @@
+$kind: http-example
+id: 65b42dd4-0946-52f2-afde-04e869e1c003
+name: Create custom prompt topic failure response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/custom_prompt_topics"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "enabled": true,
+        "topic": "string",
+        "description": "string",
+        "profile_id": "ffa163db-0e8b-989c-05b1-81ecfc5ab1fb"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

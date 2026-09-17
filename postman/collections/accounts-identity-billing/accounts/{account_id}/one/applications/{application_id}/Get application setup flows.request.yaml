@@ -1,0 +1,42 @@
+$kind: http-request
+id: f008c57e-0ded-5faf-b4f2-4e86d056c75c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_application_setup_flows_v2
+  GET /accounts/{account_id}/one/applications/{application_id}/setup-flows
+
+  Returns all available setup flows for the application, one per auth method.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/one/applications/{{application_id}}/setup-flows"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: auth_method
+    value: string
+    disabled: true
+    description: Filter by auth method id. Get available ids from GET /v2/applications.
+  - key: environment
+    value: fedramp
+    disabled: true
+    description: Filter by environment.
+  - key: page
+    value: "1209"
+    disabled: true
+    description: A page number within the paginated result set.
+  - key: page_size
+    value: "1209"
+    disabled: true
+    description: Number of results to return per page.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get application setup flows.resources/examples
+order: 3000

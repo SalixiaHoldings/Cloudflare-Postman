@@ -1,0 +1,28 @@
+$kind: http-example
+id: f1f96ccf-f4d9-5885-b7c2-f92d4abf3563
+name: Delete origin cloud region mapping failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions/{{origin_ip}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1142,
+            "message": "Unable to retrieve origin_public_cloud_region setting value. The zone setting does not exist."
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

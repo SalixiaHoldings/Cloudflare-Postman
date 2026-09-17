@@ -1,0 +1,52 @@
+$kind: http-request
+id: 1e6fc5ce-c2e4-5639-833b-53017fb0512d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: radar-get-agent-readiness-summary
+  GET /radar/agent_readiness/summary/{dimension}
+
+  Returns a summary of AI agent readiness scores across scanned domains, grouped by the specified dimension. Data is sourced from weekly bulk scans. All values are raw domain counts.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/radar/agent_readiness/summary/{{dimension}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: date
+    value: 2024-09-19
+    disabled: true
+    description: Filters results by the specified date.
+  - key: domainCategory
+    value: string
+    disabled: true
+    description: Filters results by domain category.
+  - key: domainCategory
+    value: string
+    disabled: true
+    description: Filters results by domain category.
+  - key: name
+    value: main_series
+    disabled: true
+    description: Array of names used to label the series in the response.
+  - key: name
+    value: main_series
+    disabled: true
+    description: Array of names used to label the series in the response.
+  - key: format
+    value: CSV
+    disabled: true
+    description: Format in which results will be returned.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get agent readiness summary.resources/examples
+order: 1000

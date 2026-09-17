@@ -1,0 +1,27 @@
+$kind: http-example
+id: 71e3cccd-7b5b-5aed-9c29-ba080f6256db
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/groups/{{group_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

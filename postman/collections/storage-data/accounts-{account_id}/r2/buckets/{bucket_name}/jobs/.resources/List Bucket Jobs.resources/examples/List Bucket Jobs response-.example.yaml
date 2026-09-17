@@ -1,0 +1,56 @@
+$kind: http-example
+id: 250d86eb-f88f-5cc3-b0f3-4fa5e5b83e65
+name: List Bucket Jobs response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs"
+  method: GET
+  headers:
+    cf-r2-jurisdiction: default
+    Accept: application/json
+  queryParams:
+    - key: jobType
+      value: prefixDelete
+      disabled: true
+      description: Restricts results to jobs of the specified type.
+    - key: status
+      value: FAILED
+      disabled: true
+      description: Restricts results to jobs with the specified status. `jobType` is required when this parameter is provided.
+    - key: maxKeys
+      value: "599"
+      disabled: true
+      description: Maximum number of jobs to return.
+    - key: continuationToken
+      value: string
+      disabled: true
+      description: Pagination token received as `nextContinuationToken` in the previous response.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "jobs": [
+            {
+              "id": "7f24658b-31d7-4b91-9a12-cb5a2c99b294",
+              "jobType": "prefixDelete",
+              "prefixDelete": {
+                "deletedObjects": 1350,
+                "isBucketClear": true,
+                "prefix": ""
+              },
+              "startTime": "2026-07-20T12:00:00Z",
+              "status": "RUNNING"
+            }
+          ],
+          "nextContinuationToken": "eyJ2IjoxLCJzdGFydEFmdGVyIjoiLi4uIn0="
+        },
+        "success": true
+      }
+order: 1000

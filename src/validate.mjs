@@ -1,9 +1,14 @@
+import assert from 'node:assert/strict';
+import queryPolicy from '../config/query-projection.json' with { type: 'json' };
+import { assertQueryRevision, assertQueryContract, assertOmissions, IDENTIFIER_VARIABLES } from './query-policy.mjs';
+import { makeRawUrl } from './postman.mjs';
+import { validateNative } from './native-git.mjs';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import SwaggerParser from '@apidevtools/swagger-parser';
 import AjvDraft04 from 'ajv-draft-04';
 import addFormats from 'ajv-formats';
-import { POSTMAN_DIR } from './constants.mjs';
+import { V2_DIR, ROOT } from './constants.mjs';
 import { readJson, sha256, stableJson } from './io.mjs';
 import { listOperations } from './openapi.mjs';
 import { fetchPinnedSchema, fetchPostmanCollectionSchema } from './upstream.mjs';
@@ -65,7 +70,7 @@ function diagnosticKey(diagnostic) {
 
 async function validateOpenApiWithExceptions(schemaPath, commit) {
   const exceptionConfig = await readJson(
-    path.join(path.dirname(POSTMAN_DIR), 'config', 'upstream-validation-exceptions.json')
+    path.join(ROOT, 'config', 'upstream-validation-exceptions.json')
   );
   if (exceptionConfig.upstreamCommit !== commit) {
     throw new Error('Upstream validation exceptions must be reviewed for the pinned schema commit.');
@@ -102,14 +107,15 @@ export async function validateAll() {
     fetchPinnedSchema(),
     fetchPostmanCollectionSchema()
   ]);
+  assertQueryRevision(queryPolicy, lock, (await readJson(path.join(ROOT, 'package.json'))).devDependencies['openapi-to-postmanv2']);
   const openapiExceptions = await validateOpenApiWithExceptions(schemaPath, lock.commit);
   const schema = await readJson(schemaPath);
   const upstreamOperations = listOperations(schema);
   const upstreamByKey = new Map(upstreamOperations.map((operation) => [operation.key, operation]));
   const config = await loadPartitionConfig();
   const { ownership, classification, overlapCount, overlapDeclarations, assignments } = classifyOperations(upstreamOperations, config);
-  const manifest = await readJson(path.join(POSTMAN_DIR, 'manifest.json'));
-  const accounting = await readJson(path.join(POSTMAN_DIR, 'operation-accounting.json'));
+  const manifest = await readJson(path.join(V2_DIR, 'manifest.json'));
+  const accounting = await readJson(path.join(V2_DIR, 'operation-accounting.json'));
   const postmanSchema = await readJson(postmanSchemaPath);
   const ajv = new AjvDraft04({ allErrors: true, strict: false });
   addFormats(ajv);
@@ -119,7 +125,7 @@ export async function validateAll() {
   assertAuthenticationMetadata(manifest.classification, { policy: config.classification, overlapCount, overlapDeclarations }, 'partition classification');
 
   for (const partition of manifest.partitions) {
-    const file = path.join(POSTMAN_DIR, partition.file);
+    const file = path.join(V2_DIR, partition.file);
     const collection = await readJson(file);
     if (!validateCollection(collection)) {
       throw new Error(`${partition.file} is not valid Collection v2.1: ${ajv.errorsText(validateCollection.errors)}`);
@@ -136,15 +142,29 @@ export async function validateAll() {
       );
     }
     assertAuthenticationMetadata(partition.authentication, authenticationCounts(assignments.get(partition.id)), partition.id);
+    const omissions = [];
+    let enabled = 0, disabled = 0;
     for (const item of requests) {
       const key = normalizedRequestKey(item.request);
       const upstream = upstreamByKey.get(key);
       if (!upstream) throw new Error(`Unexpected request: ${key}`);
       assertRequestAuthentication(item, upstream.authSupport, key);
+      const query = assertQueryContract(item.request, schema, upstream);
+      omissions.push(...query.omissions); enabled += query.enabled; disabled += query.disabled;
+      assert.equal(item.request.url.raw, makeRawUrl(upstream.path, item.request.url.query), 'Raw URL does not reflect enabled query rows.');
+      for (const row of item.request.url.query ?? []) {
+        if (IDENTIFIER_VARIABLES[row.key]) assert.equal(row.value, IDENTIFIER_VARIABLES[row.key], 'Known query identifier must use its variable.');
+      }
+      const snapshot = structuredClone(item.request); delete snapshot.description;
+      for (const response of item.response ?? []) assert.deepEqual(response.originalRequest, snapshot, 'Stale saved originalRequest.');
       const owners = represented.get(key) ?? [];
       owners.push(partition.id);
       represented.set(key, owners);
     }
+    const keys = new Set(assignments.get(partition.id).map(o => o.key));
+    assertOmissions(omissions, queryPolicy.omissions.filter(o => keys.has(o.operation)));
+    assert.deepEqual(partition.queryProjection, { enabled, disabled, omissions,
+      secondaryWarnings: queryPolicy.partitions[partition.id] }, 'Query provenance drift.');
   }
 
   const upstreamKeys = new Set(upstreamOperations.map((operation) => operation.key));
@@ -174,7 +194,7 @@ export async function validateAll() {
     assertAuthenticationMetadata(row.classification, classification.get(row.key), row.key);
   }
 
-  const workflowPath = path.join(POSTMAN_DIR, manifest.workflow.file);
+  const workflowPath = path.join(V2_DIR, manifest.workflow.file);
   const workflow = await readJson(workflowPath);
   if (!validateCollection(workflow)) {
     throw new Error(`Bootstrap workflow is not valid Collection v2.1: ${ajv.errorsText(validateCollection.errors)}`);
@@ -187,10 +207,10 @@ export async function validateAll() {
     throw new Error('Bootstrap workflow does not match its manifest SHA-256.');
   }
 
-  const environment = await readJson(path.join(POSTMAN_DIR, manifest.environment.file));
+  const environment = await readJson(path.join(V2_DIR, manifest.environment.file));
   assertEmptyPublicVariables(environment.values, manifest.environment.file);
   const environmentValues = new Map(environment.values.map((entry) => [entry.key, entry]));
-  for (const required of ['base_url', 'api_token', 'account_id', 'zone_id']) {
+  for (const required of ['base_url', 'api_token', 'account_id', 'zone_id', 'tenant_id', 'organization_id']) {
     if (!environmentValues.has(required)) throw new Error(`Template environment is missing ${required}.`);
   }
   if (AUTH_VARIABLES.some((key) => environmentValues.get(key)?.value !== '' || environmentValues.get(key)?.type !== 'secret')) {
@@ -205,12 +225,14 @@ export async function validateAll() {
       ...manifest.partitions.map((partition) => partition.file),
       manifest.workflow.file,
       manifest.environment.file
-    ].map((file) => readFile(path.join(POSTMAN_DIR, file), 'utf8'))
+    ].map((file) => readFile(path.join(V2_DIR, file), 'utf8'))
   );
   // Public upstream examples may themselves contain illustrative local paths.
   // Permit only exact paths independently present in the verified upstream bytes.
   const upstreamPaths = new Set(localPaths(await readFile(schemaPath, 'utf8')));
   for (const text of generatedText) assertNoLocalPaths(text, 'Generated output', upstreamPaths);
+
+  await validateNative(ROOT, manifest, upstreamPaths);
 
   return {
     commit: lock.commit,

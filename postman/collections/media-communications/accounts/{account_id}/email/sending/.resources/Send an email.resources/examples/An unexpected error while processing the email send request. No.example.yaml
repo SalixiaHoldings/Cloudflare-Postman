@@ -1,0 +1,66 @@
+$kind: http-example
+id: 35e5d08f-9200-534d-b8f3-85f201f5ff74
+name: An unexpected error while processing the email send request. No email will be sent when this happens.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/send"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "attachments": [
+          {
+            "content": "JVBERi0xLjQK...",
+            "disposition": "attachment",
+            "filename": "report.pdf",
+            "type": "application/pdf"
+          }
+        ],
+        "from": "sender@example.com",
+        "html": "<h1>Hello</h1><p>Please find your report attached.</p>",
+        "subject": "Monthly Report",
+        "text": "Hello\n\nPlease find your report attached.",
+        "to": [
+          "recipient@example.com"
+        ]
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "messages": [
+          "string",
+          "string"
+        ],
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": null
+      }
+order: 5000

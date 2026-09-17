@@ -1,0 +1,24 @@
+$kind: http-example
+id: 27b08532-b555-55e3-bb38-7e95bc41b310
+name: Job deleted.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/bulk/{{job_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,45 @@
+$kind: http-example
+id: 4632c6cd-0393-520c-82bf-079519278b21
+name: List request messages response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/requests/{{request_id}}/message"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "page": 9871,
+        "per_page": 10,
+        "after": "2022-01-01T00:00:Z",
+        "before": "2024-01-01T00:00:00Z",
+        "sort_by": "created",
+        "sort_order": "asc"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": {
+          "code": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "message": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

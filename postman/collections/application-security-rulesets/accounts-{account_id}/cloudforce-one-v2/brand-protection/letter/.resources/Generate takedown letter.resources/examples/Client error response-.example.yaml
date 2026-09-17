@@ -1,0 +1,48 @@
+$kind: http-example
+id: 22d00607-3c54-507e-a449-f97fbd22acfe
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/letter/generate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "templateId": "string",
+        "fields": {
+          "discoveryDate": "5058-34-24",
+          "domain": "string",
+          "generationDate": "3456-91-76",
+          "jurisdiction": "string",
+          "registrantEmail": "string",
+          "registrar": "string",
+          "registrarEmail": "string",
+          "resolutionByDate": "7239-00-35",
+          "senderCompany": "string",
+          "senderEmail": "string",
+          "senderName": "string",
+          "senderTitle": "string",
+          "trademarkName": "string",
+          "trademarkNumber": "string",
+          "trademarkOwner": "string"
+        },
+        "createNotice": false,
+        "format": "text",
+        "noticeParams": {
+          "domain": "string",
+          "queryId": 6365,
+          "status": "sent"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

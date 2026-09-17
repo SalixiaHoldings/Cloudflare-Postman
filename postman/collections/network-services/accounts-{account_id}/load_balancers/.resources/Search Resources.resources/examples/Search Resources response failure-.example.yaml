@@ -1,0 +1,46 @@
+$kind: http-example
+id: e2db6205-7b55-5daa-add9-175dc21e1220
+name: Search Resources response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/load_balancers/search"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: query
+      value: primary
+      disabled: true
+    - key: references
+      value: "*"
+      disabled: true
+    - key: page
+      value: "1147.9643547418527"
+      disabled: true
+    - key: per_page
+      value: "25"
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

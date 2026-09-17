@@ -1,0 +1,27 @@
+$kind: http-example
+id: e4331a2a-6715-58da-894a-f23f0f69bfca
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/nel"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1009,
+            "message": "auth.not_authorized"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

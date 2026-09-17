@@ -1,0 +1,66 @@
+$kind: http-example
+id: 4f54a628-dedd-5424-987c-81380d1827ef
+name: Failed to retrieve submitted abuse reports.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/submitted"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page of submitted reports to return.
+    - key: per_page
+      value: "100"
+      disabled: true
+      description: Number of submitted reports per page.
+    - key: sort
+      value: cdate,desc
+      disabled: true
+      description: A property and direction to sort by (id, cdate, domain, type, status).
+    - key: id
+      value: string
+      disabled: true
+      description: Filter by report code.
+    - key: domain
+      value: string
+      disabled: true
+      description: Filter by reported domain. This parameter can be specified multiple times.
+    - key: domain
+      value: string
+      disabled: true
+      description: Filter by reported domain. This parameter can be specified multiple times.
+    - key: created_before
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
+      description: Return reports submitted before this time.
+    - key: created_after
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
+      description: Return reports submitted after this time.
+    - key: status
+      value: submitted
+      disabled: true
+      description: Filter by submitter-facing status. This parameter can be specified multiple times.
+    - key: status
+      value: accepted
+      disabled: true
+      description: Filter by submitter-facing status. This parameter can be specified multiple times.
+    - key: type
+      value: <string>
+      disabled: true
+      description: Filter by report type. This parameter can be specified multiple times.
+    - key: type
+      value: <string>
+      disabled: true
+      description: Filter by report type. This parameter can be specified multiple times.
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 4000

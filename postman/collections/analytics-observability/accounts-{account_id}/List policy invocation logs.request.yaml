@@ -1,0 +1,55 @@
+$kind: http-request
+id: aef20e63-5e54-50f4-9abd-1d93555f4fb8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ListPolicyLogs
+  GET /accounts/{account_id}/data-security/posture/policies/logs
+
+  Returns a list of policy invocation logs for the given account, sourced from ClickHouse via Ready Analytics. Each entry represents one execution of a policy against a finding instance, including the actions (remediation jobs and webhooks) it dispatched.
+
+  Results are scoped to the requesting account's CASB integrations. The `integration_id` query parameter, when supplied, is intersected against the account's integration allowlist; values outside the allowlist are silently dropped.
+
+  Pagination is offset-based. The response does not include a total row count; clients should treat a result with fewer than `per_page` entries as the end of the list.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/policies/logs"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: since
+    value: 2026-04-01T00:00:00Z
+    disabled: true
+    description: Lower bound on the log entry timestamp. Accepts ISO 8601 / RFC3339 or epoch seconds. Defaults to 7 days before `until`. The window between `since` and `until` cannot exceed 180 days.
+  - key: until
+    value: 2026-04-08T00:00:00Z
+    disabled: true
+    description: Upper bound on the log entry timestamp. Accepts ISO 8601 / RFC3339 or epoch seconds. Defaults to the current time. Must be greater than or equal to `since`.
+  - key: integration_id
+    value: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+    disabled: true
+    description: Comma-separated list of CASB integration IDs to filter by. At most 100 values, each at most 128 characters. Values outside the account's tenancy allowlist are silently ignored. When omitted, results are scoped to the full allowlist.
+  - key: policy_name
+    value: Auto-remediate publicly shared files
+    disabled: true
+    description: Comma-separated list of policy display names to filter by. At most 100 values, each at most 255 characters.
+  - key: page
+    value: "8359"
+    disabled: true
+    description: A page number within the paginated result set.
+  - key: per_page
+    value: "8359"
+    disabled: true
+    description: Number of results to return per page.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List policy invocation logs.resources/examples
+order: 8000

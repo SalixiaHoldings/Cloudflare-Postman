@@ -1,0 +1,27 @@
+$kind: http-example
+id: 7ca53fa5-6ff2-5f51-96bb-71554ff761bf
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/calls/apps/{{app_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

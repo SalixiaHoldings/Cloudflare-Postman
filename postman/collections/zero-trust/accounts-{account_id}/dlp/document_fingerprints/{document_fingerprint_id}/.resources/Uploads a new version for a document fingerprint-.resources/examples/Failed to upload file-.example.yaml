@@ -1,0 +1,38 @@
+$kind: http-example
+id: c59ff24c-6807-5ba2-82e4-766afb30910a
+name: Failed to upload file.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/document_fingerprints/{{document_fingerprint_id}}"
+  method: PUT
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: formdata
+    content:
+      - type: file
+        key: file
+        src: ""
+        description: "(Required) "
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

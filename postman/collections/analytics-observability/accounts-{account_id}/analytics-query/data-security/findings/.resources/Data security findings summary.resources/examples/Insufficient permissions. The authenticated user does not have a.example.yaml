@@ -1,0 +1,38 @@
+$kind: http-example
+id: 52b81f4d-698d-5eb4-9bd2-e45d8bbd52c6
+name: |
+  Insufficient permissions. The authenticated user does not have access to the requested dataset or account.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics/query/data-security/findings/summary"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "filters": [],
+        "from": "2024-11-01T00:00:00Z",
+        "to": "2024-11-08T00:00:00Z"
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 11003,
+            "message": "art.api.resource.insufficient_permissions"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 4000

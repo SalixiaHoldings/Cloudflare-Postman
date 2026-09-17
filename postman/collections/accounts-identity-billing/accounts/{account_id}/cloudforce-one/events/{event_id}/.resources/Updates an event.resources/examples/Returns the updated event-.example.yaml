@@ -1,0 +1,96 @@
+$kind: http-example
+id: 14710216-0b75-5238-9c2f-a33325b11488
+name: Returns the updated event.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/{{event_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "datasetId": "9b769969-a211-466c-8ac3-cb91266a066a",
+        "attacker": "Flying Yeti",
+        "attackerCountry": "CN",
+        "category": "Domain Resolution",
+        "createdAt": "2025-12-19T00:00:00Z",
+        "date": "2022-04-01T00:00:00Z",
+        "event": "An attacker registered the domain domain.com",
+        "indicator": "domain2.com",
+        "indicatorType": "domain",
+        "insight": "new insight",
+        "raw": {
+          "data": {
+            "key_0": false,
+            "key_1": 3459
+          },
+          "source": "example.com",
+          "tlp": "amber"
+        },
+        "targetCountry": "US",
+        "targetIndustry": "Insurance",
+        "tlp": "amber"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab",
+        "date": "2022-04-01T00:00:00Z",
+        "targetCountry": "US",
+        "targetCountryAlpha3": "USA",
+        "attacker": "Flying Yeti",
+        "attackerCountry": "CN",
+        "attackerCountryAlpha3": "CHN",
+        "targetIndustry": "Agriculture",
+        "rawId": "453gw34w3",
+        "indicatorTypeId": 5,
+        "indicator": "domain.com",
+        "event": "An attacker registered the domain domain.com",
+        "numReferenced": 677.8819230385125,
+        "numReferences": 6417.745649814606,
+        "tlp": "amber",
+        "category": "Domain Resolution",
+        "indicatorType": "domain",
+        "referenced": [
+          " ",
+          " "
+        ],
+        "references": [
+          " ",
+          " "
+        ],
+        "tags": [
+          "malware",
+          "malware"
+        ],
+        "killChain": 4885.0944405421615,
+        "mitreAttack": [
+          " ",
+          " "
+        ],
+        "mitreCapec": [
+          " ",
+          " "
+        ],
+        "referencedIds": [
+          9288.104549050331,
+          4313.423549756408
+        ],
+        "referencesIds": [
+          5327.5248082354665,
+          7614.759986754507
+        ],
+        "hasChildren": true,
+        "datasetId": "dataset-example-id",
+        "insight": "string",
+        "releasabilityId": "string"
+      }
+order: 1000

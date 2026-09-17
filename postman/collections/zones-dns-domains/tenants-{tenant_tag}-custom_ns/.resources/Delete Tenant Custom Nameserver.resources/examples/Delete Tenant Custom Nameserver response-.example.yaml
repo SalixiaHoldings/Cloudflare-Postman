@@ -1,0 +1,17 @@
+$kind: http-example
+id: 41879022-4f4a-593e-b96f-39b8dfcaed99
+name: Delete Tenant Custom Nameserver response.
+request:
+  url: "{{base_url}}/tenants/{{tenant_tag}}/custom_ns/{{custom_ns_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: "{}"
+order: 1000

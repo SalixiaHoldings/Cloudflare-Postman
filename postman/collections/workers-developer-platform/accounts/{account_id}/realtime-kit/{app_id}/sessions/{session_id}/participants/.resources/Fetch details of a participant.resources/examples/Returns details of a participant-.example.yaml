@@ -1,0 +1,30 @@
+$kind: http-example
+id: 86b76891-3551-57f4-9da3-519ebef9de5b
+name: Returns details of a participant.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}/participants/{{participant_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: include_peer_events
+      value: "false"
+      disabled: true
+      description: if true, response includes all the peer events of participant.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "participant": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": true
+      }
+order: 1000

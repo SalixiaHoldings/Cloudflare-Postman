@@ -1,0 +1,46 @@
+$kind: http-example
+id: 1acf4c16-b910-5bce-a951-3cc9e285551d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/queries"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: string
+      disabled: true
+    - key: tag
+      value: string
+      disabled: true
+    - key: scan
+      value: "true"
+      disabled: true
+  body:
+    type: json
+    content: |-
+      {
+        "max_time": "1989-01-18T21:03:11.761Z",
+        "min_time": "1957-12-05T08:49:26.921Z",
+        "scan": true,
+        "string_matches": "",
+        "tag": "string"
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "code": 7665,
+        "errors": {
+          "key_0": {},
+          "key_1": {}
+        },
+        "message": "string",
+        "status": "string"
+      }
+order: 3000

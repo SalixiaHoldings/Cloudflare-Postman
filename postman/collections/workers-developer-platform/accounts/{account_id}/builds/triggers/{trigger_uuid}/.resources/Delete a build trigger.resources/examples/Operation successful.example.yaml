@@ -1,0 +1,22 @@
+$kind: http-example
+id: fc22f9c0-2dd6-55ad-a3bb-9a88cda23f65
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/triggers/{{trigger_uuid}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": null,
+        "success": true
+      }
+order: 1000

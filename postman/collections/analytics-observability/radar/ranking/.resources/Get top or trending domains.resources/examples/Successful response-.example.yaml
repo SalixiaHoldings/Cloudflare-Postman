@@ -1,0 +1,94 @@
+$kind: http-example
+id: 66c5e409-b10b-5d74-9eca-2b27efb5906d
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/ranking/top"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: limit
+      value: "5"
+      disabled: true
+      description: Limits the number of objects returned in the response.
+    - key: name
+      value: main_series
+      disabled: true
+      description: Array of names used to label the series in the response.
+    - key: name
+      value: main_series
+      disabled: true
+      description: Array of names used to label the series in the response.
+    - key: location
+      value: string
+      disabled: true
+      description: Filters results by location. Specify a comma-separated list of alpha-2 location codes.
+    - key: location
+      value: string
+      disabled: true
+      description: Filters results by location. Specify a comma-separated list of alpha-2 location codes.
+    - key: domainCategory
+      value: string
+      disabled: true
+      description: Filters results by domain category.
+    - key: domainCategory
+      value: string
+      disabled: true
+      description: Filters results by domain category.
+    - key: date
+      value: 1993-08-29
+      disabled: true
+      description: Filters results by the specified array of dates.
+    - key: date
+      value: 1988-07-19
+      disabled: true
+      description: Filters results by the specified array of dates.
+    - key: rankingType
+      value: POPULAR
+      disabled: true
+      description: The ranking type.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "top_0": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "meta": {
+            "dateRange": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidenceInfo": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "normalization": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "lastUpdated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "units": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

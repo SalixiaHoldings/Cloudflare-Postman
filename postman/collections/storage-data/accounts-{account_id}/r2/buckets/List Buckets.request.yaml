@@ -1,0 +1,45 @@
+$kind: http-request
+id: 86af6177-fb35-578e-8dd5-36df5d8f02ce
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-list-buckets
+  GET /accounts/{account_id}/r2/buckets
+
+  Lists all R2 buckets on your account.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets"
+method: GET
+headers:
+  cf-r2-jurisdiction: default
+  Accept: application/json
+queryParams:
+  - key: name_contains
+    value: my-bucket
+    disabled: true
+  - key: start_after
+    value: my-bucket
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: order
+    value: name
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
+  - key: cursor
+    value: string
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Buckets.resources/examples
+order: 1000

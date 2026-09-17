@@ -1,0 +1,25 @@
+$kind: http-request
+id: 45015db8-db61-5a5e-a215-f4996457a2f2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: worker-placement-list-regions
+  GET /accounts/{account_id}/workers/placement/regions
+
+  Returns a list of available placement regions organized by cloud provider. These regions can be used to configure Smart Placement for Workers.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/placement/regions"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Placement Regions.resources/examples
+order: 7000

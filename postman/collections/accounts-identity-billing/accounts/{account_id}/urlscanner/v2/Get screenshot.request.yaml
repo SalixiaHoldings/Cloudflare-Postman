@@ -1,0 +1,30 @@
+$kind: http-request
+id: a520df10-7c3d-5c90-b033-3dfeec54858c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: urlscanner-get-scan-screenshot-v2
+  GET /accounts/{account_id}/urlscanner/v2/screenshots/{scan_id}.png
+
+  Get scan's screenshot by resolution (desktop/mobile/tablet).
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/screenshots/{{scan_id}}.png"
+method: GET
+headers:
+  Accept: image/png
+queryParams:
+  - key: resolution
+    value: desktop
+    disabled: true
+    description: Target device type.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get screenshot.resources/examples
+order: 7000

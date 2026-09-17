@@ -1,0 +1,34 @@
+$kind: http-example
+id: 696ee6ef-be3e-5c42-84de-bb8c75b614be
+name: List Access reusable policies response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/policies"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "100"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

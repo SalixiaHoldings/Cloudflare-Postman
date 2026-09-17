@@ -1,0 +1,43 @@
+$kind: http-example
+id: 3b755243-02e8-59d6-8f6c-897aa4671fd2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zerotrust/connectivity_settings"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "icmp_proxy_enabled": true,
+        "offramp_warp_enabled": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "icmp_proxy_enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "offramp_warp_enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

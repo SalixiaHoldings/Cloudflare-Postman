@@ -1,0 +1,26 @@
+$kind: http-example
+id: 0a68e940-f6f1-52c5-a3d2-e221429d9a74
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/billing/profile/payment-method"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "client_secret": "{{client_secret}}",
+          "intent_type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

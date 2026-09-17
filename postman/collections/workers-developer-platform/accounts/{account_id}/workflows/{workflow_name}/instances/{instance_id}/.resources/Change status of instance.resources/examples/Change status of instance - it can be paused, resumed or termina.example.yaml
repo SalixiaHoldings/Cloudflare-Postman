@@ -1,0 +1,60 @@
+$kind: http-example
+id: 1bb30458-e41b-5fe6-858f-f70502036819
+name: Change status of instance - it can be paused, resumed or terminated.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/status"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "status": "pause"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": {
+          "status": "queued",
+          "timestamp": "1932-07-30T08:28:50.175Z"
+        },
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 6796.968504786491,
+          "count": 3309.1655233874917,
+          "total_count": 4201.576055493206,
+          "cursor": "string",
+          "page": 9232.066257391125,
+          "total_pages": 7390.92605188489
+        }
+      }
+order: 1000

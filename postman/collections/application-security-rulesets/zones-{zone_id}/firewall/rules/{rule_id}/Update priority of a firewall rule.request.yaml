@@ -1,0 +1,37 @@
+$kind: http-request
+id: e579330a-abbf-51d9-91fd-a9352f93f975
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: firewall-rules-update-priority-of-a-firewall-rule
+  PATCH /zones/{zone_id}/firewall/rules/{rule_id}
+
+  **This endpoint has been deprecated and returns 410 Gone. Please use the [Rulesets API](https://developers.cloudflare.com/ruleset-engine/) instead.**
+
+  Updates the priority of an existing firewall rule.
+
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/firewall/rules/{{rule_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "id": "de677e5818985db1285d0e80225f06e5"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update priority of a firewall rule.resources/examples
+order: 3000

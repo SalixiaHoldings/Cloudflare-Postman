@@ -1,0 +1,38 @@
+$kind: http-example
+id: b3ac784b-fc69-504e-9748-460a13c154f9
+name: Get Passive DNS by IP response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/dns"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: end
+      value: 2021-04-30
+      disabled: true
+    - key: start
+      value: 2021-04-01
+      disabled: true
+    - key: ipv4
+      value: string
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

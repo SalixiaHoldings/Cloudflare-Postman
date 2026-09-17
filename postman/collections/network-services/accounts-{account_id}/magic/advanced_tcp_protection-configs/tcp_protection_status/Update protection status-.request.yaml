@@ -1,0 +1,33 @@
+$kind: http-request
+id: 3b940907-036e-54a2-a314-d001a7a805c7
+name: Update protection status.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: updateProtectionStatus
+  PATCH /accounts/{account_id}/magic/advanced_tcp_protection/configs/tcp_protection_status
+
+  Update the protection status of the account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/tcp_protection_status"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "enabled": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update protection status-.resources/examples
+order: 2000

@@ -1,0 +1,43 @@
+$kind: http-request
+id: 37795920-a647-50fb-9a06-2b06b930b039
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: tags-delete
+  DELETE /accounts/{account_id}/tags
+
+  Removes all tags from a specific account-level resource.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/tags"
+method: DELETE
+headers:
+  - key: If-Match
+    value: '"v1:RBNvo1WzZ4oRRq0W9-hkng"'
+    description: |
+      ETag value for optimistic concurrency control. When provided, the server will
+      verify the current resource ETag matches before applying the write. Returns
+      412 Precondition Failed if the resource has been modified since the ETag was
+      obtained. Omit this header for unconditional writes.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+  - key: X-Auth-Email
+    value: "{{api_email}}"
+  - key: X-Auth-Key
+    value: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "value": "<Error: Too many levels of nesting to fake this schema>"
+    }
+auth:
+  type: noauth
+examples: ./.resources/Delete tags from an account-level resource.resources/examples
+order: 1000

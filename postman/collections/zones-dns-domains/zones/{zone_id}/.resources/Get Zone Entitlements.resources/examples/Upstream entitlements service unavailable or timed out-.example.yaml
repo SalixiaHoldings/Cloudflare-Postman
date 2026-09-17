@@ -1,0 +1,28 @@
+$kind: http-example
+id: f842390a-11c8-5038-ba39-cc7f6137e0e0
+name: Upstream entitlements service unavailable or timed out.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/entitlements"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 503
+  statusText: Service Unavailable
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 2003,
+            "message": "failed to fetch entitlements: timeout occurred"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 9000

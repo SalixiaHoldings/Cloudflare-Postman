@@ -1,0 +1,43 @@
+$kind: http-example
+id: a58c1131-e1f9-5de4-92bf-6b030599510e
+name: Upstream authentication service unavailable.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ai-audit/robots/bulk"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        "example.com",
+        "blog.example.com"
+      ]
+response:
+  statusCode: 503
+  statusText: Service Unavailable
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 8000

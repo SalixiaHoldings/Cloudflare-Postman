@@ -1,0 +1,66 @@
+$kind: http-example
+id: bdc49978-e1f3-5cf8-8746-58ce943d54a7
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/lockdowns"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+    - key: description
+      value: endpoints
+      disabled: true
+    - key: modified_on
+      value: 2014-01-01T05:20:00.12345Z
+      disabled: true
+    - key: ip
+      value: 1.2.3.4
+      disabled: true
+    - key: priority
+      value: "5"
+      disabled: true
+    - key: uri_search
+      value: /some/path
+      disabled: true
+    - key: ip_range_search
+      value: 1.2.3.0/16
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: created_on
+      value: 2014-01-01T05:20:00.12345Z
+      disabled: true
+    - key: description_search
+      value: endpoints
+      disabled: true
+    - key: ip_search
+      value: 1.2.3.4
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

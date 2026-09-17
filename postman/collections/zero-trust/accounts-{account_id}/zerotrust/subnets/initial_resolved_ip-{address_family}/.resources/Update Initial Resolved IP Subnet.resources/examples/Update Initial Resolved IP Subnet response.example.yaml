@@ -1,0 +1,39 @@
+$kind: http-example
+id: d348b194-6e0e-559c-a6b3-eb3567bfebd2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zerotrust/subnets/initial_resolved_ip/{{address_family}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "comment": "example comment",
+        "name": "IPv4 Cloudflare Source IPs",
+        "network": "100.64.0.0/12"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,42 @@
+$kind: http-request
+id: 3e1b46b6-5245-53e9-88c1-aca10f6cd08d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: accounts-logs-explorer-datasets-update
+  PUT /accounts/{account_id}/logs/explorer/datasets/{dataset_id}
+
+  Updates the enabled state and/or field configuration of an account dataset.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/logs/explorer/datasets/{{dataset_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "enabled": true,
+      "deletion_protection": true,
+      "fields": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "filter": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update an account dataset.resources/examples
+order: 3000

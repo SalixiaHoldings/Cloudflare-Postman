@@ -1,0 +1,27 @@
+$kind: http-example
+id: fc8618d4-fd54-5e17-a580-56ad12910295
+name: List Keyless SSL Configurations response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/keyless_certificates"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

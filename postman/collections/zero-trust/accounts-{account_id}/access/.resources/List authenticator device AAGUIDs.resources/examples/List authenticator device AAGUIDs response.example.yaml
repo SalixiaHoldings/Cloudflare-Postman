@@ -1,0 +1,28 @@
+$kind: http-example
+id: de0b78e1-769a-5334-98de-1e752d8bc347
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/authenticator_device_aaguids"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "aaguid": "2fc0579f-8113-47ea-b116-bb5a8db9202a",
+            "name": "YubiKey 5 NFC"
+          },
+          {
+            "aaguid": "fcb1bcb4-f370-078c-6993-bc24d0ae3fbe",
+            "name": "Ledger Nano X FIDO2 Authenticator"
+          }
+        ]
+      }
+order: 1000

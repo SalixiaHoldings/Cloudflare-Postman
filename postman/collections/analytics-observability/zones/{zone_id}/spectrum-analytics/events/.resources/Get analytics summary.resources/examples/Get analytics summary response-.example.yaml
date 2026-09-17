@@ -1,0 +1,73 @@
+$kind: http-example
+id: e5b3479a-9627-5521-bdec-110035076391
+name: Get analytics summary response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/analytics/events/summary"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: dimensions
+      value: event
+      disabled: true
+    - key: dimensions
+      value: appID
+      disabled: true
+    - key: sort
+      value: +count
+      disabled: true
+    - key: sort
+      value: -bytesIngress
+      disabled: true
+    - key: until
+      value: 2014-01-01T05:20:00.12345Z
+      disabled: true
+    - key: metrics
+      value: count
+      disabled: true
+    - key: metrics
+      value: bytesIngress
+      disabled: true
+    - key: filters
+      value: event==disconnect%20AND%20coloName!=SFO
+      disabled: true
+    - key: since
+      value: 2014-01-01T05:20:00.12345Z
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "rows": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "data": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "data_lag": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "min": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "max": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "totals": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "query": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "time_intervals": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

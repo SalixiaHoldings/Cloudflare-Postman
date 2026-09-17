@@ -1,0 +1,56 @@
+$kind: http-example
+id: 083481ba-bff1-51ed-be6b-b7f2b464ceb4
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/bgp/rpki/aspa/changes"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: dateStart
+      value: 2023-09-01T11:41:33.782Z
+      disabled: true
+      description: Start of the date range (inclusive). Alternative to `dateRange`; provide together with `dateEnd`.
+    - key: dateEnd
+      value: 2023-09-01T11:41:33.782Z
+      disabled: true
+      description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`.
+    - key: asn
+      value: "13335"
+      disabled: true
+      description: Filter changes involving this ASN (as customer or provider).
+    - key: includeAsnInfo
+      value: "false"
+      disabled: true
+      description: Include ASN metadata (name, country) in response.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

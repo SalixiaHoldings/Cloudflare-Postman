@@ -1,0 +1,55 @@
+$kind: http-request
+id: 2e8c9ccb-6879-54de-9cde-27d9e9fa6d86
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: scim-users-put
+  PUT /accounts/{account_id}/scim/v2/Users/{user_id}
+
+  Replaces a SCIM User resource (RFC 7644 Section 3.5.1). Fully replaces the mutable attributes of the user. Supports updating `userName`, `name`, `emails`, and `active`.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Users/{{user_id}}"
+method: PUT
+headers:
+  Content-Type: application/scim+json
+  Accept: application/scim+json
+body:
+  type: json
+  content: |-
+    {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "userName": "user@example.com",
+      "active": true,
+      "displayName": "Jane Smith",
+      "emails": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "externalId": "idp-user-abc123",
+      "name": {
+        "familyName": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "givenName": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Replace SCIM User.resources/examples
+order: 4000

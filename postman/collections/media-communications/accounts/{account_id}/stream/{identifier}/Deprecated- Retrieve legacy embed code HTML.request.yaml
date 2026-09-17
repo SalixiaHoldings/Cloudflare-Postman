@@ -1,0 +1,28 @@
+$kind: http-request
+id: 56639421-8bdb-54ea-b1ec-ad01f0a9b612
+name: "Deprecated: Retrieve legacy embed code HTML"
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: stream-videos-retreieve-embed-code-html
+  GET /accounts/{account_id}/stream/{identifier}/embed
+
+  Fetches the legacy HTML code snippet to embed a video in a web page delivered through Cloudflare. On success, returns an HTML fragment for use on web pages to display a video. On failure, returns a JSON response body.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/stream/{{identifier}}/embed"
+method: GET
+headers:
+  Accept: text/html
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Deprecated- Retrieve legacy embed code HTML.resources/examples
+order: 7000

@@ -1,0 +1,27 @@
+$kind: http-example
+id: 4203e9db-33bc-59f1-b5be-d30aabd01c9c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/destinations/pagerduty"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

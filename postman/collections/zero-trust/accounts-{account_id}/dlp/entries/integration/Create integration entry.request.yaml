@@ -1,0 +1,37 @@
+$kind: http-request
+id: ee3ccf25-60cd-5489-9e63-3a46f0c056fe
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-entries-create-integration-entry
+  POST /accounts/{account_id}/dlp/entries/integration
+
+  Integration entries can't be created, this will update an existing integration entry.
+  This is needed for our generated terraform API.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/dlp/entries/integration"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "enabled": false,
+      "entry_id": "1db3cdaf-6fbf-e4a2-9150-ddd28ba9131e",
+      "profile_id": "f761b0da-01fc-3ce0-2716-9659e8f2c270"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create integration entry.resources/examples
+order: 1000

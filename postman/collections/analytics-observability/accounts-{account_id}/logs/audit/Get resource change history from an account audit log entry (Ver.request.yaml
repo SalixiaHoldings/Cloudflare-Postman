@@ -1,0 +1,53 @@
+$kind: http-request
+id: 0569037b-c2e6-53a8-9c44-d3c161aa7802
+name: Get resource change history from an account audit log entry (Version 2)
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: audit-logs-v2-get-account-audit-log-history
+  GET /accounts/{account_id}/logs/audit/{id}/history
+
+  Returns the chronological change history for the resource identified by the given audit log entry.
+
+  The endpoint first locates the source audit log entry by `id` (using `action_time` to narrow the lookup window), derives identifying filters from that entry, and then returns matching audit logs within the `since`/`before` window.
+
+  The `result_info.history_status` field indicates the quality of the resource identification used:
+  - `exact`: Resource was identified by the resource URI.
+  - `approximate`: Resource was identified without the resource URI.
+  - `unavailable`: The source audit log entry did not contain enough information to identify the resource; an empty result is returned.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/logs/audit/{{id}}/history?action_time=2024-10-30T15:00:00Z&since=2024-10-30&before=2024-10-31"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: action_time
+    value: 2024-10-30T15:00:00Z
+    description: (Required) RFC3339 timestamp of the source audit log entry's action time. Used to narrow the source-entry lookup window. Provide the `action.time` value from the audit log identified by `id`.
+  - key: since
+    value: 2024-10-30
+    description: (Required) Limits the returned results to logs newer than the specified date. This can be a date string 2019-04-30 (interpreted in UTC) or an absolute timestamp that conforms to RFC3339.
+  - key: before
+    value: 2024-10-31
+    description: (Required) Limits the returned results to logs older than the specified date. This can be a date string 2019-04-30 (interpreted in UTC) or an absolute timestamp that conforms to RFC3339.
+  - key: direction
+    value: desc
+    disabled: true
+  - key: limit
+    value: "25"
+    disabled: true
+  - key: cursor
+    value: Q1buH-__DQqqig7SVYXT-SsMOTGY2Z3Y80W-fGgva7yaDdmPKveucH5ddOcHsJRhNb-xUK8agZQqkJSMAENGO8NU6g==
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get resource change history from an account audit log entry (Ver.resources/examples
+order: 3000

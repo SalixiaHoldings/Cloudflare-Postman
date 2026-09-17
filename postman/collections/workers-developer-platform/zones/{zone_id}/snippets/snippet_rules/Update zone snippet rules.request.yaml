@@ -1,0 +1,39 @@
+$kind: http-request
+id: a8bd0c86-c270-5e46-8135-bbf90dc40b04
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: updateZoneSnippetRules
+  PUT /zones/{zone_id}/snippets/snippet_rules
+
+  Updates all snippet rules belonging to the zone.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/snippets/snippet_rules"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "rules": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update zone snippet rules.resources/examples
+order: 3000

@@ -1,0 +1,35 @@
+$kind: http-request
+id: 90d634e3-43dd-52a4-8969-90c44372a0ff
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ip-address-management-service-bindings-create-service-binding
+  POST /accounts/{account_id}/addressing/prefixes/{prefix_id}/bindings
+
+  Creates a new Service Binding, routing traffic to IPs within the given CIDR to a service running on Cloudflare's network.
+  **NOTE:** The first Service Binding created for an IP Prefix must exactly match the IP Prefix's CIDR. Subsequent Service Bindings may be created with a more-specific CIDR. Refer to the  [Service Bindings Documentation](https://developers.cloudflare.com/byoip/service-bindings/) for compatibility details.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/addressing/prefixes/{{prefix_id}}/bindings"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "cidr": "192.0.2.0/24",
+      "service_id": "2db684ee7ca04e159946fd05b99e1bcd"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Service Binding.resources/examples
+order: 2000

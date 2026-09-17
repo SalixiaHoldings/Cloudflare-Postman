@@ -1,0 +1,54 @@
+$kind: http-example
+id: 7d59fb39-c309-5d0c-9335-f65607261898
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/custom-providers/costs"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: enable
+      value: "true"
+      disabled: true
+    - key: account_provider_id
+      value: 69392f5f-2e8d-64f0-e2f2-202ebb927f7f
+      disabled: true
+    - key: model_rule
+      value: equals
+      disabled: true
+    - key: cost_type
+      value: tokens
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

@@ -1,0 +1,38 @@
+$kind: http-example
+id: b141cdff-203f-53bf-ad54-10e8c221adb0
+name: Create a rate limit response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/rate_limits"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "match": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "threshold": 60,
+        "period": 900,
+        "action": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

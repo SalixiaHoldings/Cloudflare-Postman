@@ -1,0 +1,45 @@
+$kind: http-example
+id: 5b6e20d6-b6b2-5016-9ee0-e2e447d1f0f0
+name: Change Transformations configuration response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/transformations_config"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": {
+          "allowed_origins": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "c2pa": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "transformations": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

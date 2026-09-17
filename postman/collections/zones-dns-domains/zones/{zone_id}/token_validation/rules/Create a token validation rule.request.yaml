@@ -1,0 +1,49 @@
+$kind: http-request
+id: 2a56d768-4838-53b8-aae1-1158bff9f734
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: token-validation-rules-create
+  POST /zones/{zone_id}/token_validation/rules
+
+  Creates a token validation rule for the zone.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "description": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "action": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "enabled": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "expression": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "selector": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a token validation rule.resources/examples
+order: 2000

@@ -1,0 +1,29 @@
+$kind: http-request
+id: 00d4e2ac-c63f-58d4-a736-8b9d69c390f1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: waf-overrides-get-a-waf-override
+  GET /zones/{zone_id}/firewall/waf/overrides/{overrides_id}
+
+  **This endpoint has been deprecated and returns 410 Gone. Please use the [Rulesets API](https://developers.cloudflare.com/ruleset-engine/) instead.**
+
+  Previously fetched the details of a URI-based WAF override.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/overrides/{{overrides_id}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get a WAF override.resources/examples
+order: 2000

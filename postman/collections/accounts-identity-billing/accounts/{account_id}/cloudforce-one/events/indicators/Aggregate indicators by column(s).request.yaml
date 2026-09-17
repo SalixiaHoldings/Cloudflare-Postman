@@ -1,0 +1,65 @@
+$kind: http-request
+id: 24fb6684-85bc-5c65-be0d-5cdeace21485
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_IndicatorAggregate
+  GET /accounts/{account_id}/cloudforce-one/events/indicators/aggregate
+
+  Aggregate threat indicators by one or more columns (e.g., indicatorType, value) across datasets. Returns top-N groups ordered by count.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/indicators/aggregate?aggregateBy=string"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: aggregateBy
+    value: string
+    description: (Required) Column(s) to aggregate by - single column or comma-separated list (e.g., 'indicatorType', 'value', 'indicatorType,value')
+  - key: measure
+    value: indicators
+    disabled: true
+    description: "What to count per group: 'indicators' (catalog rows, default) or 'relationships' (linked events per indicator). Use 'relationships' for 'top indicator by event activity'."
+  - key: tagUuid
+    value: string
+    disabled: true
+    description: Scope to indicators associated with this tag/actor UUID. Combine with measure=relationships for 'top indicator for an actor'.
+  - key: datasetIds
+    value: string
+    disabled: true
+    description: "Dataset UUIDs to filter by, or one standalone scope value: 'all'/'*' for all accessible datasets, 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, aggregates across all accessible datasets."
+  - key: datasetIds
+    value: string
+    disabled: true
+    description: "Dataset UUIDs to filter by, or one standalone scope value: 'all'/'*' for all accessible datasets, 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, aggregates across all accessible datasets."
+  - key: createdAfter
+    value: 1960-08-09T22:31:22.997Z
+    disabled: true
+    description: Filter indicators created after this date/datetime (ISO 8601, e.g., '2024-01-01' or '2024-01-01T00:00:00Z')
+  - key: createdBefore
+    value: 1960-08-09T22:31:22.997Z
+    disabled: true
+    description: Filter indicators created before this date/datetime (ISO 8601, e.g., '2024-12-31' or '2024-12-31T23:59:59Z')
+  - key: eventDateAfter
+    value: string
+    disabled: true
+    description: "For measure=relationships: only count indicator→event links whose relationship was created/observed on or after this date (ISO 8601). Bounds the activity view to recently-observed links. Note: this filters by the relationship's createdAt (link-observation time), not the underlying event's business date."
+  - key: eventDateBefore
+    value: string
+    disabled: true
+    description: "For measure=relationships: only count indicator→event links whose relationship was created/observed on or before this date (ISO 8601). Bounds the activity view by the relationship's createdAt (link-observation time), not the underlying event's business date."
+  - key: limit
+    value: "10"
+    disabled: true
+    description: Maximum number of aggregation results to return (1-100)
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Aggregate indicators by column(s).resources/examples
+order: 2000

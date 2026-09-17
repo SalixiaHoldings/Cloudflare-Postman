@@ -1,0 +1,40 @@
+$kind: http-example
+id: 35a681bc-e7a8-5403-a889-e0659bda2d65
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/physical-devices/{{device_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: include
+      value: string
+      disabled: true
+      description: |
+        Comma-separated list of additional information that should be included in the device response. Supported values are: "last_seen_registration.policy".
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 2000

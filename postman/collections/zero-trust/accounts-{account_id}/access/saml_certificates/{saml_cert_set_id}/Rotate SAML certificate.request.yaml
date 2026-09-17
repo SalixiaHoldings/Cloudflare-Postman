@@ -1,0 +1,32 @@
+$kind: http-request
+id: 3dddfd34-e5c4-532e-93ed-e3bdd11a6696
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-saml-certificates-rotate-certificate
+  POST /accounts/{account_id}/access/saml_certificates/{saml_cert_set_id}/rotate
+
+  Rotates the SAML encryption certificates within the specified certificate set. This generates a new
+  certificate and moves the current certificate to the previous slot. If a previous certificate exists,
+  it will be deactivated and removed.
+
+  This endpoint ensures zero-downtime rotation by maintaining both current and previous certificates 
+  during the transition period, allowing IdPs time to update their configurations. Automated rotation
+  happens 30 days before a current certificate's expiration.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/saml_certificates/{{saml_cert_set_id}}/rotate"
+method: POST
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Rotate SAML certificate.resources/examples
+order: 3000

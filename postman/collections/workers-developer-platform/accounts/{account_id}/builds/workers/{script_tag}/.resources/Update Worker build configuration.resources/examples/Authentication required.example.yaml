@@ -1,0 +1,37 @@
+$kind: http-example
+id: f5488ff1-e249-5bc5-bc07-1687e852441c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_tag}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "production_settings": {
+          "build_command": "npm run build:production",
+          "deploy_command": "npx wrangler deploy --env production"
+        }
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12005,
+            "message": "Missing token from authorization header"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

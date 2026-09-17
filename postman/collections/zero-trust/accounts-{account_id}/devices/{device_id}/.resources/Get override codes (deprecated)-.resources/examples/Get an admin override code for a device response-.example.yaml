@@ -1,0 +1,26 @@
+$kind: http-example
+id: 1fd5a8e3-51fa-5b5c-8110-862516759b40
+name: Get an admin override code for a device response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/{{device_id}}/override_codes"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "disable_for_time": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

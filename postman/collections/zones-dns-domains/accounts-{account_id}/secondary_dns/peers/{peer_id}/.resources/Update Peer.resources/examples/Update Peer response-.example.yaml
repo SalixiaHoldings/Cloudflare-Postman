@@ -1,0 +1,34 @@
+$kind: http-example
+id: dfd3e88d-f7c9-57da-9d3b-8fd5e5fad9e9
+name: Update Peer response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/secondary_dns/peers/{{peer_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "23ff594956f20c2a721606e94745a8aa",
+        "name": "my-peer-1",
+        "ip": "192.0.2.53",
+        "ixfr_enable": false,
+        "port": 53,
+        "tsig_id": "69cd1e104af3e6ed3cb344f263fd0d5a"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

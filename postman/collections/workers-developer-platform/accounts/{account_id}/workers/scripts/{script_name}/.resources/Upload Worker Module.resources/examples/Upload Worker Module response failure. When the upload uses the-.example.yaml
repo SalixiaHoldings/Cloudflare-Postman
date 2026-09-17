@@ -1,0 +1,55 @@
+$kind: http-example
+id: 74e68714-f2f7-5cb3-98a9-02b743c0a1e3
+name: |
+  Upload Worker Module response failure. When the upload uses the
+  declarative `exports` field and one or more entries fail
+  reconciliation, the response is the exports reconciliation
+  error envelope (error code 100402) with per-class detail in
+  `errors[].meta.details`.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}"
+  method: PUT
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  queryParams:
+    - key: bindings_inherit
+      value: strict
+      disabled: true
+      description: When set to "strict", the upload will fail if any `inherit` type bindings cannot be resolved against the previous version of the Worker. Without this, unresolvable inherit bindings are silently dropped.
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: files
+        value: '["export default {\n  async fetch(request, env, ctx) {\n    return new Response(\"Hello, world!\");\n  }\n};"]'
+        contentType: application/javascript+module, text/javascript+module, application/javascript, text/javascript, text/x-python, text/x-python-requirement, application/wasm, text/plain, application/octet-stream, application/source-map
+        description: undefined
+      - type: text
+        key: metadata
+        value: '{"compatibility_date":{},"compatibility_flags":["nodejs_compat"],"main_module":"worker.js"}'
+        contentType: application/json
+        description: undefined
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

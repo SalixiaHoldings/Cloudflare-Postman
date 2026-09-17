@@ -1,0 +1,24 @@
+$kind: http-example
+id: 8ff2f4c7-5816-59ba-82ee-d8fab6e95f06
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/credential-monitor/domains/{{id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": 7168,
+          "domain": "string",
+          "deleted": true
+        }
+      }
+order: 1000

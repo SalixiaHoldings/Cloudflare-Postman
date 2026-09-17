@@ -1,0 +1,41 @@
+$kind: http-request
+id: d04f49c0-6c05-5cd9-8b76-8c346575a808
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getAccountsAccountIdBrandProtectionMatchesDownload
+  GET /accounts/{account_id}/brand-protection/matches/download
+
+  Return matches as CSV for string queries based on ID
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/brand-protection/matches/download"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: id
+    value: string
+    disabled: true
+  - key: offset
+    value: "6305"
+    disabled: true
+  - key: limit
+    value: "6305"
+    disabled: true
+  - key: include_domain_id
+    value: "true"
+    disabled: true
+  - key: include_dismissed
+    value: "true"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Download matches for string queries by ID.resources/examples
+order: 2000

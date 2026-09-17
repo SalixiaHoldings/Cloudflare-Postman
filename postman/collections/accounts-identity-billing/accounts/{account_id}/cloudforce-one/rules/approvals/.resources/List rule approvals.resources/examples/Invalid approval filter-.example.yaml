@@ -1,0 +1,47 @@
+$kind: http-example
+id: 35ccca35-f0d8-5f77-be95-d03309dcd275
+name: Invalid approval filter.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: status
+      value: pending
+      disabled: true
+      description: Selects approval statuses. Repeat the parameter to OR-match statuses (for example, status=pending&status=rejected). Use status=all alone to disable status filtering.
+    - key: latest_only
+      value: "true"
+      disabled: true
+      description: When true, returns the newest revision in each approval chain.
+    - key: limit
+      value: "50"
+      disabled: true
+    - key: offset
+      value: "0"
+      disabled: true
+    - key: reviewer_scope
+      value: email
+      disabled: true
+      description: Limits approvals to the specified reviewer scope.
+    - key: change_type
+      value: create
+      disabled: true
+      description: Limits approvals to the specified mutation type.
+    - key: rule_id
+      value: 128fbd7e-4e46-69ab-dbf7-8f9b58783f49
+      disabled: true
+      description: Filter approvals by rule ID.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 2000

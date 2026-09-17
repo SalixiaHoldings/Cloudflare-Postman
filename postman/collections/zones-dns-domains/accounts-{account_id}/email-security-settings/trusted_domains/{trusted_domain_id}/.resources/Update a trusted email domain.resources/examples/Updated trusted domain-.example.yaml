@@ -1,0 +1,26 @@
+$kind: http-example
+id: d901b2d9-abe1-5bb9-99c4-d7029189c627
+name: Updated trusted domain.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/trusted_domains/{{trusted_domain_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "null"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

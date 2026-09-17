@@ -1,0 +1,83 @@
+$kind: http-example
+id: b51811d1-e911-5d47-b966-fd82e69497dc
+name: Update Pool response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/load_balancers/pools/{{pool_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "origins": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "name": "primary-dc-1",
+        "check_regions": [
+          "WEU",
+          "ENAM"
+        ],
+        "description": "Primary data center - Provider XYZ",
+        "disabled_at": "1933-09-24T20:36:52.352Z",
+        "enabled": false,
+        "health_sources": [
+          "regional",
+          "global"
+        ],
+        "latitude": 2372.9090811684728,
+        "load_shedding": {
+          "default_percent": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "default_policy": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "session_percent": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "session_policy": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "longitude": 3627.060307189822,
+        "minimum_origins": 1,
+        "monitor": "string",
+        "monitor_group": "string",
+        "notification_email": "someone@example.com,sometwo@example.com",
+        "notification_filter": {
+          "origin": {
+            "disable": true
+          },
+          "pool": {
+            "healthy": false
+          }
+        },
+        "origin_steering": {
+          "policy": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,56 @@
+$kind: http-example
+id: b21c38e1-9944-54e4-8911-7ea525075ac5
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/bgp/ips/top/ases"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: date
+      value: 2024-09-19T00:00:00Z
+      disabled: true
+      description: Filters results by the specified datetime (ISO 8601).
+    - key: limit
+      value: "5"
+      disabled: true
+      description: Limits the number of objects returned in the response.
+    - key: metric
+      value: v4_24s
+      disabled: true
+      description: "Ranking metric: IPv4 /24 count or IPv6 /48 count."
+    - key: country
+      value: US
+      disabled: true
+      description: Optional ISO 3166-1 alpha-2 country filter. Omit for global top-N.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "anchorTs": "2026-04-18T16:00:00Z",
+          "metric": "v4_24s",
+          "country": "US",
+          "asns": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

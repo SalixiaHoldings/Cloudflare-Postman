@@ -1,0 +1,22 @@
+$kind: http-example
+id: db1aa9ed-f975-50d5-ad28-5dc94610d77b
+name: Delete TCP Flow Protection rule response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/tcp_flow_protection/rules/{{rule_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

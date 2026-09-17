@@ -1,0 +1,54 @@
+$kind: http-example
+id: e437aa32-6d01-50a2-85ce-f4a89ac19c48
+name: List Objects response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects"
+  method: GET
+  headers:
+    cf-r2-jurisdiction: default
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: prefix
+      value: string
+      disabled: true
+    - key: delimiter
+      value: string
+      disabled: true
+    - key: cursor
+      value: string
+      disabled: true
+    - key: start_after
+      value: string
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": null
+      }
+order: 2000

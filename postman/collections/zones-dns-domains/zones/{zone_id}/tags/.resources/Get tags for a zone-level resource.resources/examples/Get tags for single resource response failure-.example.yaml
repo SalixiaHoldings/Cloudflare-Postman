@@ -1,0 +1,41 @@
+$kind: http-example
+id: 76046e17-c235-5297-8d6f-751d8b7e3863
+name: Get tags for single resource response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/tags?resource_id=023e105f4ecef8ad9ca31a8372d0c353&resource_type=zone"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: resource_id
+      value: 023e105f4ecef8ad9ca31a8372d0c353
+      description: (Required) The ID of the resource to retrieve tags for.
+    - key: resource_type
+      value: zone
+      description: (Required) The type of the resource.
+    - key: access_application_id
+      value: f174e90a-fafe-4643-bbbc-4a0ed4fc8415
+      disabled: true
+      description: Access application ID identifier. Required for access_application_policy resources.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

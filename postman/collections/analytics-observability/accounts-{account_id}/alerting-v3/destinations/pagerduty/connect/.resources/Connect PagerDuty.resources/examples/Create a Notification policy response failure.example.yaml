@@ -1,0 +1,27 @@
+$kind: http-example
+id: d0c45d08-3ba5-5045-826e-544684db5961
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/destinations/pagerduty/connect/{{token_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

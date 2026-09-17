@@ -1,0 +1,25 @@
+$kind: http-request
+id: 136a9c60-1c2c-5c93-b4aa-67cdcc72bcd9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-applications-test-access-policies
+  GET /accounts/{account_id}/access/apps/{app_id}/user_policy_checks
+
+  Tests if a specific user has permission to access an application.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/apps/{{app_id}}/user_policy_checks"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Test Access policies.resources/examples
+order: 8000

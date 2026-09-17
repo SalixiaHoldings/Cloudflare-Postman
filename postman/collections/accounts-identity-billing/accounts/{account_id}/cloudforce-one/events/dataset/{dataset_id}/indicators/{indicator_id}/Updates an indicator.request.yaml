@@ -1,0 +1,60 @@
+$kind: http-request
+id: 458b98a5-df35-5edb-8683-6cfe666c1764
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: patch_IndicatorUpdate
+  PATCH /accounts/{account_id}/cloudforce-one/events/dataset/{dataset_id}/indicators/{indicator_id}
+
+  Updates an existing indicator's properties.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators/{{indicator_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "indicatorType": "domain",
+      "relatedEvents": [
+        {
+          "datasetId": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "eventId": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "datasetId": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "eventId": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ],
+      "tags": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "tlp": "RED",
+      "value": "updated-domain.com"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Updates an indicator.resources/examples
+order: 3000

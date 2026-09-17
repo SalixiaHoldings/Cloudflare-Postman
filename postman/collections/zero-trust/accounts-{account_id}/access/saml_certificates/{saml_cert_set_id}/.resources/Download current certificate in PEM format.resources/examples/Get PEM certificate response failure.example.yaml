@@ -1,0 +1,27 @@
+$kind: http-example
+id: ecb68688-120b-5a2a-8559-bc85db3f20d4
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/saml_certificates/{{saml_cert_set_id}}/pem"
+  method: GET
+  headers:
+    Accept: application/x-pem-file
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

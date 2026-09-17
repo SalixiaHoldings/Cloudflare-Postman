@@ -1,0 +1,27 @@
+$kind: http-example
+id: 1695eb0a-2cb2-5828-bd2e-d92aa7357f71
+name: Not found.
+request:
+  url: "{{base_url}}/radar/geolocations/{{geo_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not Found."
+      }
+order: 2000

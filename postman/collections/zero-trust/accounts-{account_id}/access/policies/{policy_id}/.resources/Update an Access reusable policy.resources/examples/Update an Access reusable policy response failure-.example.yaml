@@ -1,0 +1,73 @@
+$kind: http-example
+id: 345e4f62-cd01-59f7-aa51-4059b0014f36
+name: Update an Access reusable policy response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/policies/{{policy_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "decision": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "include": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "approval_groups": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "approval_required": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "connection_rules": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "isolation_required": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "mfa_config": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "purpose_justification_prompt": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "purpose_justification_required": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "session_duration": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "exclude": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "require": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

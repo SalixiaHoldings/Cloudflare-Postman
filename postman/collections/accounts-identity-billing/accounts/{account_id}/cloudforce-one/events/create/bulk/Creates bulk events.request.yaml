@@ -1,0 +1,135 @@
+$kind: http-request
+id: 763f2d6b-fac2-55ef-b6c1-6722904e5a67
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_EventCreateBulk
+  POST /accounts/{account_id}/cloudforce-one/events/create/bulk
+
+  The `datasetId` parameter must be defined. To list existing datasets (and their IDs) in your account, use the [`List Datasets`](https://developers.cloudflare.com/api/resources/cloudforce_one/subresources/threat_events/subresources/datasets/methods/list/) endpoint.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/create/bulk"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "data": [
+        {
+          "date": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "category": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "event": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "tlp": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "raw": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "accountId": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "attacker": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "attackerCountry": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "datasetId": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "indicator": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "indicatorType": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "indicators": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "insight": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "tags": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "targetCountry": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "targetIndustry": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "date": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "category": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "event": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "tlp": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "raw": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "accountId": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "attacker": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "attackerCountry": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "datasetId": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "indicator": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "indicatorType": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "indicators": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "insight": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "tags": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "targetCountry": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "targetIndustry": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ],
+      "datasetId": "durableObjectName",
+      "includeCreatedEvents": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Creates bulk events.resources/examples
+order: 1000

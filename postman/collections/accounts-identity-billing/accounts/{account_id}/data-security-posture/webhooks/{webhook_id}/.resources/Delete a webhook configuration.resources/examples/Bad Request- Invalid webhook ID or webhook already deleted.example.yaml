@@ -1,0 +1,17 @@
+$kind: http-example
+id: d0514676-d119-5209-b4c9-d3aeba55bdd3
+name: "Bad Request: Invalid webhook ID or webhook already deleted"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/{{webhook_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

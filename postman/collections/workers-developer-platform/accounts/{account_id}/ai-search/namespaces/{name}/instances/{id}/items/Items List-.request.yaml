@@ -1,0 +1,59 @@
+$kind: http-request
+id: b76c6734-4033-5d6b-9902-2c5f207f8ee6
+name: Items List.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ai-search-namespace-instance-list-items
+  GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items
+
+  Lists indexed items in an AI Search instance.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
+  - key: sort_by
+    value: status
+    disabled: true
+    description: Sort order for items. "status" (default) sorts by status priority then last_seen_at. "modified_at" sorts by file modification time (most recent first), falling back to created_at.
+  - key: status
+    value: completed
+    disabled: true
+  - key: source
+    value: string
+    disabled: true
+    description: Filter items by source_id. Use "builtin" for uploaded files, or a source identifier like "web-crawler:https://example.com".
+  - key: metadata_filter
+    value: string
+    disabled: true
+    description: 'JSON-encoded metadata filter using Vectorize filter syntax. Examples: {"folder":"reports/"}, {"timestamp":{"$gte":1700000000000}}, {"folder":{"$in":["docs/","reports/"]}}'
+  - key: item_id
+    value: string
+    disabled: true
+    description: Filter items by their unique ID. Returns at most one item.
+  - key: key
+    value: string
+    disabled: true
+    description: Filter items by their exact key (object key / filename). Keys are unique per source, so combine with `source` to disambiguate across data sources.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Items List-.resources/examples
+order: 1000

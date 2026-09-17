@@ -1,0 +1,51 @@
+$kind: http-request
+id: 4eb425de-2ce8-57b9-944e-c8be3f70f625
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_DatasetTagIndicatorsList
+  GET /accounts/{account_id}/cloudforce-one/events/dataset/{dataset_id}/tags/{tag_uuid}/indicators
+
+  This endpoint is deprecated. Use GET /:account_id/events/tags/:tag_uuid/indicators with the optional datasetIds query parameter instead. Returns indicators associated with the provided tag UUID within a single dataset's indicator shards, with pagination.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/tags/{{tag_uuid}}/indicators"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "3075.6446719169617"
+    disabled: true
+  - key: pageSize
+    value: "3075.6446719169617"
+    disabled: true
+  - key: indicatorType
+    value: string
+    disabled: true
+  - key: relatedEvent
+    value: string
+    disabled: true
+    description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+  - key: relatedEvent
+    value: string
+    disabled: true
+    description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
+  - key: search
+    value: '{"field":"value","op":"contains","value":"malicious"}'
+    disabled: true
+    description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+  - key: search
+    value: '{"field":"value","op":"contains","value":"malicious"}'
+    disabled: true
+    description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List indicators related to a tag within a dataset (deprecated).resources/examples
+order: 11000

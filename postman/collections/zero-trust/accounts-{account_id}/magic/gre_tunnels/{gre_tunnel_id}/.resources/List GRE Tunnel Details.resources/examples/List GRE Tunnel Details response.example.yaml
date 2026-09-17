@@ -1,0 +1,31 @@
+$kind: http-example
+id: c44c59e0-6a27-58e6-af61-6976489f2d29
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/gre_tunnels/{{gre_tunnel_id}}"
+  method: GET
+  headers:
+    - key: x-magic-new-hc-target
+      value: "true"
+      description: If true, the health check target in the response body will be presented using the new object format. Defaults to false.
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "gre_tunnel": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

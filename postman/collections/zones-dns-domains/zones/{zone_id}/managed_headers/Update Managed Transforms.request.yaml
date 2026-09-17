@@ -1,0 +1,41 @@
+$kind: http-request
+id: 99f3e11a-7e49-5bb1-b7cc-57abbc37d853
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: updateManagedTransforms
+  PATCH /zones/{zone_id}/managed_headers
+
+  Updates the status of one or more Managed Transforms.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/managed_headers"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "managed_request_headers": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "managed_response_headers": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Managed Transforms.resources/examples
+order: 3000

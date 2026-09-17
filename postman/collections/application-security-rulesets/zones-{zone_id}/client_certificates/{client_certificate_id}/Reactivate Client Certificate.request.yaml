@@ -1,0 +1,32 @@
+$kind: http-request
+id: fda6885a-1bd6-59a7-a26a-b40f4714b92e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: client-certificate-for-a-zone-edit-client-certificate
+  PATCH /zones/{zone_id}/client_certificates/{client_certificate_id}
+
+  If a API Shield mTLS Client Certificate is in a pending_revocation state, you may reactivate it with this endpoint.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/client_certificates/{{client_certificate_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "reactivate": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Reactivate Client Certificate.resources/examples
+order: 3000

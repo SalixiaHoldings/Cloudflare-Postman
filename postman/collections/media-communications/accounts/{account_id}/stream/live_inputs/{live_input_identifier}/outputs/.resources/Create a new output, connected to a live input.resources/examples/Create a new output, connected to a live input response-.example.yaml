@@ -1,0 +1,33 @@
+$kind: http-example
+id: cbc25bb0-6fc5-500c-b0d1-285150b5983f
+name: Create a new output, connected to a live input response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs/{{live_input_identifier}}/outputs"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "url": "rtmp://a.rtmp.youtube.com/live2",
+        "streamKey": "uzya-f19y-g2g9-a2ee-51j2",
+        "enabled": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

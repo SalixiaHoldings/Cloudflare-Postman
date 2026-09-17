@@ -1,0 +1,43 @@
+$kind: http-example
+id: 3e325a3e-cbd5-5e7c-9ec1-a08243e35361
+name: "Not Found: Policy, integration, remediation type, or webhook config not found"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/policies/{{policy_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "display_name": "Auto-remediate public files",
+        "enabled": true,
+        "applies_to_all_integrations": false,
+        "actions": {
+          "remediation_types": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "webhook_configs": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "description": "Automatically remove public access from files when detected",
+        "integration_ids": [
+          "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+        ]
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 5000

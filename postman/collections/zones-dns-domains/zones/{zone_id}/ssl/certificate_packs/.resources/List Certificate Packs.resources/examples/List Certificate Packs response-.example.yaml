@@ -1,0 +1,40 @@
+$kind: http-example
+id: ae7b1e91-140a-5f20-b9cf-e6ce5be59e48
+name: List Certificate Packs response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ssl/certificate_packs"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: status
+      value: all
+      disabled: true
+    - key: deploy
+      value: production
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

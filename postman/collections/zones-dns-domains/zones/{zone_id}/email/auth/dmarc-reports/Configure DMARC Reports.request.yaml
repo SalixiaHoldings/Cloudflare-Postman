@@ -1,0 +1,36 @@
+$kind: http-request
+id: da8d03ce-c726-590b-8cc3-e386a5385743
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: configure_dmarc_reports
+  PATCH /zones/{zone_id}/email/auth/dmarc-reports
+
+  Updates the DMARC report configuration for a zone.
+  At least one of `enabled` or `skip_wizard` must be provided.
+  When enabling, the handler will ensure the DMARC RUA record exists in DNS.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/email/auth/dmarc-reports"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "enabled": true,
+      "skip_wizard": false
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Configure DMARC Reports.resources/examples
+order: 2000

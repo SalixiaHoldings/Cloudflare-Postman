@@ -1,0 +1,43 @@
+$kind: http-example
+id: c69358e6-518b-5f8e-a81f-0e4241f34044
+name: Get list items response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/rules/lists/{{list_id}}/items"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cursor
+      value: zzz
+      disabled: true
+    - key: per_page
+      value: "433"
+      disabled: true
+    - key: search
+      value: 1.1.1.
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

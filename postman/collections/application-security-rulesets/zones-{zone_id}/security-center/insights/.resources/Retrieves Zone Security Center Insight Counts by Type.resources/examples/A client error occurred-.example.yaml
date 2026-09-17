@@ -1,0 +1,95 @@
+$kind: http-example
+id: 4649c9d4-df60-5873-8284-4f04d8493fe0
+name: A client error occurred.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/security-center/insights/type"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: dismissed
+      value: "false"
+      disabled: true
+    - key: issue_class
+      value: a_record_dangling
+      disabled: true
+    - key: issue_class
+      value: always_use_https_not_enabled
+      disabled: true
+    - key: issue_type
+      value: compliance_violation
+      disabled: true
+    - key: issue_type
+      value: email_security
+      disabled: true
+    - key: product
+      value: access
+      disabled: true
+    - key: product
+      value: dns
+      disabled: true
+    - key: source
+      value: cloudflare
+      disabled: true
+    - key: severity
+      value: low
+      disabled: true
+    - key: severity
+      value: moderate
+      disabled: true
+    - key: subject
+      value: example.com
+      disabled: true
+    - key: subject
+      value: example.com
+      disabled: true
+    - key: issue_class~neq
+      value: a_record_dangling
+      disabled: true
+    - key: issue_class~neq
+      value: always_use_https_not_enabled
+      disabled: true
+    - key: issue_type~neq
+      value: compliance_violation
+      disabled: true
+    - key: issue_type~neq
+      value: email_security
+      disabled: true
+    - key: product~neq
+      value: access
+      disabled: true
+    - key: product~neq
+      value: dns
+      disabled: true
+    - key: severity~neq
+      value: low
+      disabled: true
+    - key: severity~neq
+      value: moderate
+      disabled: true
+    - key: subject~neq
+      value: example.com
+      disabled: true
+    - key: subject~neq
+      value: example.com
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

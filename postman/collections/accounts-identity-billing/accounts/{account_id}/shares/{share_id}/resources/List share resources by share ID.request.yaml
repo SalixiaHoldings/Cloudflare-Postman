@@ -1,0 +1,48 @@
+$kind: http-request
+id: 396e29f9-157c-5e58-bdf1-d8b17c05a084
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: share-resources-list
+  GET /accounts/{account_id}/shares/{share_id}/resources
+
+  List share resources by share ID.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/resources"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: status
+    value: active
+    disabled: true
+    description: Filter share resources by status.
+  - key: resource_type
+    value: <string>
+    disabled: true
+    description: Filter share resources by resource_type.
+  - key: page
+    value: "2"
+    disabled: true
+    description: |-
+      Page number. Defaults to `1` when `per_page` is supplied without
+      `page`. May be omitted entirely along with `per_page` to receive a
+      non-paginated response.
+  - key: per_page
+    value: "20"
+    disabled: true
+    description: |-
+      Number of objects to return per page. Defaults to `20` when `page`
+      is supplied without `per_page`. May be omitted entirely along with
+      `page` to receive a non-paginated response.
+auth:
+  type: noauth
+examples: ./.resources/List share resources by share ID.resources/examples
+order: 1000

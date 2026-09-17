@@ -1,0 +1,23 @@
+$kind: http-example
+id: dd62e295-da8c-5142-a8f9-f067475f1b56
+name: Threat Signals response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/articles/{{article_id}}/tags"
+  method: POST
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "tag_id": "9c3c5783-2b6b-2868-6d04-a3fc33a3b322"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

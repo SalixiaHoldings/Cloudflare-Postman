@@ -1,0 +1,27 @@
+$kind: http-example
+id: 7d8a88e1-952e-550b-aa5d-d8bb632c8234
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules/{{rule_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,40 @@
+$kind: http-example
+id: c5bf65d4-ce62-567a-a0bb-4165afb9919b
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/pagerules"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: order
+      value: status
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: match
+      value: all
+      disabled: true
+    - key: status
+      value: active
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

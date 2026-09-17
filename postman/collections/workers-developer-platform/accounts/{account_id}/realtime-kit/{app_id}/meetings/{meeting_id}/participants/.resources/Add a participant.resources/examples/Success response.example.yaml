@@ -1,0 +1,34 @@
+$kind: http-example
+id: 46e36ff9-09fa-5b3a-b3e2-a03a77f9677a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/participants"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "preset_name": "group_call_host",
+        "custom_participant_id": "string",
+        "name": "Mary Sue",
+        "picture": "https://i.imgur.com/test.jpg"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "data": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

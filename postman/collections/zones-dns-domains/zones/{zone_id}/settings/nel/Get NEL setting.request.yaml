@@ -1,0 +1,26 @@
+$kind: http-request
+id: 08725923-06fa-528e-98db-0086eafd8456
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: nel-settings-get
+  GET /zones/{zone_id}/settings/nel
+
+  Fetches the Network Error Logging (NEL) setting for a zone. NEL allows browsers to report network errors to a configured endpoint. The setting is enabled by default for free and pro zones, and disabled by default for business and enterprise zones unless the NEL product feature is enabled.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/settings/nel"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get NEL setting.resources/examples
+order: 1000

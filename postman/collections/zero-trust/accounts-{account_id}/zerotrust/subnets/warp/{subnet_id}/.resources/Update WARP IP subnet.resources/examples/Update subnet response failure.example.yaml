@@ -1,0 +1,40 @@
+$kind: http-example
+id: 62c9b1d8-138e-5500-b495-73ce6ecf53c3
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zerotrust/subnets/warp/{{subnet_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "comment": "example comment",
+        "is_default_network": false,
+        "name": "IPv4 Cloudflare Source IPs",
+        "network": "100.64.0.0/12"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,32 @@
+$kind: http-example
+id: 51d1a878-7e1c-5eae-bfbf-d84a589cd52d
+name: Returns successfully if finetunes were uploaded.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/finetunes/{{finetune_id}}/finetune-assets"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: file_name
+        value: string
+        description: (Required) Name of the file (adapter_config.json or adapter_model.safetensors).
+      - type: file
+        key: file
+        src: ""
+        description: (Required) File to upload.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false
+      }
+order: 1000

@@ -1,0 +1,49 @@
+$kind: http-example
+id: 7016767f-82e6-5275-883c-bc4066319662
+name: Get Domain Details response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/domain"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: domain
+      value: string
+      disabled: true
+    - key: skip_dns
+      value: "true"
+      disabled: true
+      description: Skip DNS resolution lookups for faster response.
+    - key: skip_ranking
+      value: "false"
+      disabled: true
+      description: |
+        Skip the domain ranking lookup for faster responses. Defaults to
+        `false` (ranking is included). Set to `true` to opt out — primarily
+        used by callers like Cloudflare Radar that need to avoid a
+        circular dependency when building the domain details page.
+        Note: the bulk endpoint (`/intel/domain/bulk`) uses opposite
+        defaults — see `include_ranking` there.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,25 @@
+$kind: http-request
+id: 1a948754-aa67-586b-9f55-8b2719574240
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: delete-dex-rule
+  DELETE /accounts/{account_id}/dex/rules/{rule_id}
+
+  Delete a DEX Rule.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/rules/{{rule_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete a DEX Rule.resources/examples
+order: 1000

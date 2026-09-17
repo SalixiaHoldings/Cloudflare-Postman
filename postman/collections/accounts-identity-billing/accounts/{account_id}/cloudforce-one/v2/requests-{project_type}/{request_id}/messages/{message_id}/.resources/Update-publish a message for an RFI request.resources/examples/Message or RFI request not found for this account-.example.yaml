@@ -1,0 +1,35 @@
+$kind: http-example
+id: fb9b3e8d-5d5d-5a7b-bb8c-36568a8e66bc
+name: Message or RFI request not found for this account.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/messages/{{message_id}}"
+  method: PUT
+  headers:
+    - key: Idempotency-Key
+      value: string
+      description: Client command key. Required when publishing a message for a workflow-enabled project; trimmed and limited to 255 characters.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "content": "string",
+        "publish": true,
+        "tlp": "clear",
+        "attachment_asset_ids": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

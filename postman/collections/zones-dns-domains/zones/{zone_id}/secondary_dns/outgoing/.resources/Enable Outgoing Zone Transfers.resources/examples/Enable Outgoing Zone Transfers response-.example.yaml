@@ -1,0 +1,22 @@
+$kind: http-example
+id: fdc16e7e-5ebb-5d18-9616-7ea5777b28fe
+name: Enable Outgoing Zone Transfers response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/secondary_dns/outgoing/enable"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

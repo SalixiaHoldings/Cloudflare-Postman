@@ -1,0 +1,40 @@
+$kind: http-request
+id: 5e751857-62e2-5e2a-8fd2-c5b53ec99c82
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_create_sending_domain_restriction
+  POST /accounts/{account_id}/email-security/settings/sending_domain_restrictions
+
+  Creates a new sending domain restriction to enforce TLS requirements for a domain. Emails without TLS from this domain will be dropped unless the subdomain is in the exclude list.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/sending_domain_restrictions"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "domain": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "exclude": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "comments": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a sending domain restriction.resources/examples
+order: 2000

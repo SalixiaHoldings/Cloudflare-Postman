@@ -1,0 +1,26 @@
+$kind: http-example
+id: ea357b86-56a2-5aaf-9fe4-79c72074ef8c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/columns/{{column_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "position": 5625.7606646977365,
+        "required": false,
+        "type": "number"
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 4000

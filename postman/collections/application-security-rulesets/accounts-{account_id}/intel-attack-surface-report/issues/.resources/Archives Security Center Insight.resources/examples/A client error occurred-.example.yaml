@@ -1,0 +1,35 @@
+$kind: http-example
+id: eb12093e-6443-5fd7-8c51-aeee9c14741e
+name: A client error occurred.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/attack-surface-report/issues/{{issue_id}}/dismiss"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "dismiss": true
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

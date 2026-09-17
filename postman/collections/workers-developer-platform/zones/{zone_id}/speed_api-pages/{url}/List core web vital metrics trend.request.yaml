@@ -1,0 +1,44 @@
+$kind: http-request
+id: a2627d50-92a5-59fe-949f-56df2407fe48
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: speed-list-page-trend
+  GET /zones/{zone_id}/speed_api/pages/{url}/trend
+
+  Lists the core web vital metrics trend over time for a specific page.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/speed_api/pages/{{url}}/trend?region=us-central1&deviceType=DESKTOP&start=2014-01-01T05:20:00.12345Z&tz=America/Chicago&metrics=performanceScore,ttfb,fcp,si,lcp,tti,tbt,cls"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: region
+    value: us-central1
+    description: "(Required) "
+  - key: deviceType
+    value: DESKTOP
+    description: "(Required) "
+  - key: start
+    value: 2014-01-01T05:20:00.12345Z
+    description: "(Required) "
+  - key: end
+    value: 2014-01-01T05:20:00.12345Z
+    disabled: true
+  - key: tz
+    value: America/Chicago
+    description: (Required) The timezone of the start and end timestamps.
+  - key: metrics
+    value: performanceScore,ttfb,fcp,si,lcp,tti,tbt,cls
+    description: (Required) A comma-separated list of metrics to include in the results.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List core web vital metrics trend.resources/examples
+order: 2000

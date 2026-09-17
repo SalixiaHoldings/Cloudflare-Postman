@@ -1,0 +1,21 @@
+$kind: http-example
+id: 2c8fb0cf-e015-5e10-bfb6-0f41dd0d1b56
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cni/interconnects/{{icon}}/status"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "state": "Pending"
+      }
+order: 1000

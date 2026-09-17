@@ -1,0 +1,40 @@
+$kind: http-request
+id: 4dd905c3-c816-5510-8e00-65a473ebc03c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: moq-relays-tokens-create
+  POST /accounts/{account_id}/moq/relays/{relay_id}/tokens
+
+  Mints a new relay-scoped token and adds it to the relay's accepted-auth
+  registry. The token value (secret) is shown once in the response. A relay
+  may hold up to 10 tokens; creating an 11th is rejected.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/moq/relays/{{relay_id}}/tokens"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "operations": [
+        "publish",
+        "subscribe"
+      ],
+      "expires": "2027-03-27T15:00:00Z",
+      "label": "primary-encoder"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a token.resources/examples
+order: 2000

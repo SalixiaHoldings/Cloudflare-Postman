@@ -1,0 +1,40 @@
+$kind: http-example
+id: f5320c77-2f66-52ee-96b0-88d82b34fd16
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/groups"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: name
+      value: string
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "1000"
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

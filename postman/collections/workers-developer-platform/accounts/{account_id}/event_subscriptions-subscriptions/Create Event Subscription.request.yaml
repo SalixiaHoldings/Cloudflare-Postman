@@ -1,0 +1,44 @@
+$kind: http-request
+id: c98ceeac-363c-5c62-a7fb-eb6f5489d83d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: subscriptions-create
+  POST /accounts/{account_id}/event_subscriptions/subscriptions
+
+  Create a new event subscription for a queue
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/event_subscriptions/subscriptions"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "destination": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "enabled": false,
+      "events": [
+        "string"
+      ],
+      "name": "string",
+      "source": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Event Subscription.resources/examples
+order: 2000

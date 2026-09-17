@@ -1,0 +1,36 @@
+$kind: http-request
+id: 8df17e97-ec70-5624-bb4b-837a33efa110
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: replaceWebhook
+  PUT /accounts/{account_id}/realtime/kit/{app_id}/webhooks/{webhook_id}
+
+  Replace all details for the given webhook ID.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/webhooks/{{webhook_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "test",
+      "events": [
+        "meeting.started"
+      ],
+      "url": "https://new-test-url.com"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Replace a webhook.resources/examples
+order: 4000

@@ -1,0 +1,32 @@
+$kind: http-request
+id: 121d9f6a-d53a-5197-9cf6-718cc49982af
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-sourcingkit-list-migration-logs
+  GET /accounts/{account_id}/images/v2/sourcingkit/migrations/{migration_id}/logs
+
+  List log entries for a specific migration.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/migrations/{{migration_id}}/logs"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: offset
+    value: "0"
+    disabled: true
+  - key: limit
+    value: "25"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List migration logs.resources/examples
+order: 4000

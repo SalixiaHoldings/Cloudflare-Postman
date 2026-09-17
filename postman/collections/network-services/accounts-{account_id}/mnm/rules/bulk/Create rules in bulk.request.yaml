@@ -1,0 +1,63 @@
+$kind: http-request
+id: e8b2e13f-aa88-592e-a7ec-9ea4a9726f98
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-network-monitoring-rules-create-rules-bulk
+  POST /accounts/{account_id}/mnm/rules/bulk
+
+  Create multiple network monitoring rules for account in a single request. Supports up to 100 rules per request. All rules in a single request must be of the same type.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/mnm/rules/bulk"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    [
+      {
+        "name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "prefixes": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "automatic_advertisement": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "type": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "bandwidth_threshold": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "duration": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "packet_threshold": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "prefix_match": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "zscore_sensitivity": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "zscore_target": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    ]
+auth:
+  type: noauth
+examples: ./.resources/Create rules in bulk.resources/examples
+order: 1000

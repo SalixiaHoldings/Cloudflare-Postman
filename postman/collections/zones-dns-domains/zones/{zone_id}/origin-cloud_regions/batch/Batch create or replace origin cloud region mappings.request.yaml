@@ -1,0 +1,41 @@
+$kind: http-request
+id: 5216d046-9a27-54d5-90fc-238b801a6439
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: origin-cloud-regions-v2-batch-upsert
+  PUT /zones/{zone_id}/origin/cloud_regions/batch
+
+  Upserts up to 100 IP-to-cloud-region mappings in a single request. Items in the request body are created or replaced; mappings not included in the request body are preserved unchanged (this is a merge operation, not a full collection replacement). Each item is validated independently — valid items are applied and invalid items are returned in the `failed` array. The vendor and region for every item are validated against the list from `GET /zones/{zone_id}/origin/cloud_regions/supported_regions`.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions/batch"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    [
+      {
+        "origin_ip": "192.0.2.1",
+        "region": "us-east-1",
+        "vendor": "aws"
+      },
+      {
+        "origin_ip": "2001:db8::1",
+        "region": "us-central1",
+        "vendor": "gcp"
+      }
+    ]
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Batch create or replace origin cloud region mappings.resources/examples
+order: 2000

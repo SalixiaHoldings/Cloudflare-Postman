@@ -1,0 +1,43 @@
+$kind: http-example
+id: 73cb8bfb-1397-5944-8930-d599e2fe4caf
+name: Invalid request or unsupported query.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/logs/explorer/query/sql"
+  method: POST
+  headers:
+    Content-Type: text/plain
+    Accept: application/json
+  body:
+    type: file
+    content: {}
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "key_0": "string",
+          "key_1": 1714.02208507061,
+          "key_2": 4576.62018481642,
+          "key_3": 675.5453837104142,
+          "key_4": true
+        },
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          "string",
+          "string"
+        ]
+      }
+order: 2000

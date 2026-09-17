@@ -1,0 +1,50 @@
+$kind: http-example
+id: 5a5eba46-793b-5aff-8985-44773d9c642e
+name: Invalid input.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/screenshots/{{scan_id}}.png"
+  method: GET
+  headers:
+    Accept: image/png
+  queryParams:
+    - key: resolution
+      value: desktop
+      disabled: true
+      description: Target device type.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "string",
+        "status": 400,
+        "errors": [
+          {
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "status": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

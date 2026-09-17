@@ -1,0 +1,40 @@
+$kind: http-example
+id: 235a1ede-4b1d-5c35-976a-d626f6cc431f
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/teamnet/routes/network/{{ip_network_encoded}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: virtual_network_id
+      value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+      disabled: true
+    - key: tun_type
+      value: cfd_tunnel
+      disabled: true
+    - key: tunnel_id
+      value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

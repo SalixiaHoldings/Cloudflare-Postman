@@ -1,0 +1,35 @@
+$kind: http-example
+id: 92140a61-5ca6-5993-ba2e-372327332291
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zerotrust/connectivity_settings"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "icmp_proxy_enabled": true,
+        "offramp_warp_enabled": true
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

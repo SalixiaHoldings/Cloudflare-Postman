@@ -1,0 +1,37 @@
+$kind: http-request
+id: 96fead68-2a03-5304-8d35-4c3f497607cb
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: fraud-detection-zone-update-settings
+  PUT /zones/{zone_id}/fraud_detection/settings
+
+  Update Fraud Detection settings for a zone.
+
+  Notes on `username_expressions` behavior:
+  - If omitted or set to null, expressions are not modified.
+  - If provided as an empty array `[]`, all expressions will be cleared.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/fraud_detection/settings"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "username_expressions": []
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Fraud Detection Settings.resources/examples
+order: 2000

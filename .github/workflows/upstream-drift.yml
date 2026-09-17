@@ -54,7 +54,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin "refs/heads/$UPDATE_BRANCH:refs/remotes/origin/$UPDATE_BRANCH" || true
           git switch -C "$UPDATE_BRANCH"
-          git add schema-lock.json config/upstream-validation-exceptions.json postman upstream-change-summary.md
+          git add schema-lock.json config/upstream-validation-exceptions.json dist postman upstream-change-summary.md
           git commit -m "chore: update Cloudflare API schema"
           git push --force-with-lease origin "HEAD:$UPDATE_BRANCH"
       - name: Create or update review PR

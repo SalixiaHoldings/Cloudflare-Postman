@@ -1,0 +1,24 @@
+$kind: http-example
+id: 862276cc-af8d-543d-9336-348a9399f7b5
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/queries/{{query_id}}/matches/{{domain_id}}/undismiss"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "query_id": 6555,
+          "domain_id": 1400,
+          "dismissed": true
+        }
+      }
+order: 1000

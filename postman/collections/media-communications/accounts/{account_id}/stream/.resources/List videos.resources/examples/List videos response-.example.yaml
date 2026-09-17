@@ -1,0 +1,92 @@
+$kind: http-example
+id: a26975c6-93e8-5c79-a870-03221af0fbef
+name: List videos response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/stream"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: status
+      value: inprogress
+      disabled: true
+    - key: creator
+      value: creator-id_abcde12345
+      disabled: true
+    - key: type
+      value: live
+      disabled: true
+    - key: asc
+      value: "true"
+      disabled: true
+    - key: video_name
+      value: puppy.mp4
+      disabled: true
+    - key: search
+      value: puppy.mp4
+      disabled: true
+    - key: start
+      value: 2014-01-02T02:20:00Z
+      disabled: true
+    - key: end
+      value: 2014-01-02T02:20:00Z
+      disabled: true
+    - key: include_counts
+      value: "true"
+      disabled: true
+    - key: id
+      value: ea95132c15732412d22c1476fa83f27a
+      disabled: true
+      description: Filter by video ID(s). Can be a single ID or a comma-separated list of IDs.
+    - key: name
+      value: string
+      disabled: true
+      description: Filter by video name/UID(s). Can be a single name or a comma-separated list.
+    - key: live_input_id
+      value: string
+      disabled: true
+      description: Filter by live input ID to find videos associated with a specific live stream.
+    - key: before
+      value: 1968-08-14T03:25:55.735Z
+      disabled: true
+      description: Alias for 'end'. Returns videos created before this date/time (RFC 3339 format).
+    - key: after
+      value: 1968-08-14T03:25:55.735Z
+      disabled: true
+      description: Alias for 'start'. Returns videos created after this date/time (RFC 3339 format).
+    - key: limit
+      value: "547"
+      disabled: true
+      description: Maximum number of videos to return (default 1000, max 1000).
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "range": 1000,
+        "total": 35586
+      }
+order: 1000

@@ -1,0 +1,25 @@
+$kind: http-example
+id: 93dd28c9-ed29-5a31-97df-df4b094a84de
+name: Disable Content Scanning response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/content-upload-scan/disable"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result": {}
+      }
+order: 1000

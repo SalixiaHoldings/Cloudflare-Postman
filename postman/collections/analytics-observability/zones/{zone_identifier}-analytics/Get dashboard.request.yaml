@@ -1,0 +1,37 @@
+$kind: http-request
+id: fc40c1d7-b65f-570f-8323-d3b64c8b92af
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-analytics-(-deprecated)-get-dashboard
+  GET /zones/{zone_identifier}/analytics/dashboard
+
+  The dashboard view provides both totals and timeseries data for the given zone and time period across the entire Cloudflare network.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_identifier}}/analytics/dashboard"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: until
+    value: <string>
+    disabled: true
+  - key: since
+    value: string
+    disabled: true
+  - key: continuous
+    value: "true"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get dashboard.resources/examples
+order: 2000

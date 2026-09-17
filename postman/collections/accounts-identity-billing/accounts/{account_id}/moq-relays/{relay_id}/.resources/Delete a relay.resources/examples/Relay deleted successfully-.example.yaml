@@ -1,0 +1,29 @@
+$kind: http-example
+id: 4cd0f03c-1a62-58a2-80b3-1c8aefc2081b
+name: Relay deleted successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/moq/relays/{{relay_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {}
+      }
+order: 1000

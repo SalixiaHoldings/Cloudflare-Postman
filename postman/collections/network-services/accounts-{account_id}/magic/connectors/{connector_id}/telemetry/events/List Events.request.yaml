@@ -1,0 +1,44 @@
+$kind: http-request
+id: fc8aa7be-2a22-5d69-9f20-e0302dc452ac
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: mconn-connector-telemetry-events-list
+  GET /accounts/{account_id}/magic/connectors/{connector_id}/telemetry/events
+
+  Lists Magic WAN Connector Telemetry Events
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/connectors/{{connector_id}}/telemetry/events?from=324.4386496953666&to=324.4386496953666"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: from
+    value: "324.4386496953666"
+    description: "(Required) "
+  - key: to
+    value: "324.4386496953666"
+    description: "(Required) "
+  - key: limit
+    value: "324.4386496953666"
+    disabled: true
+  - key: cursor
+    value: string
+    disabled: true
+  - key: k
+    value: string
+    disabled: true
+    description: Filter by event kind
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Events.resources/examples
+order: 1000

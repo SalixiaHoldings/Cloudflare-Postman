@@ -1,0 +1,97 @@
+$kind: http-example
+id: 5d2e8fb6-0b3a-5941-aa30-868a4ec92e52
+name: Evaluation-only flag definitions.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/definitions"
+  method: GET
+  headers:
+    - key: If-None-Match
+      value: string
+      description: Previously returned ETag, or `*`.
+    - key: Accept
+      value: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    - key: ETag
+      value: string
+      description: Strong entity tag for the current definitions payload.
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "flags": {
+          "key_0": {
+            "key": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "default_variation": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "variations": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rules": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "key_1": {
+            "key": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "default_variation": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "variations": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rules": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "key_2": {
+            "key": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "default_variation": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "variations": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rules": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "key_3": {
+            "key": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "enabled": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "default_variation": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "variations": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "rules": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      }
+order: 1000

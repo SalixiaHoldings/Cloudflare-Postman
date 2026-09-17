@@ -1,0 +1,26 @@
+$kind: http-example
+id: 658728f6-dcdb-592d-b686-9b7f61443f39
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/users/{{user_id}}/failed_logins"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

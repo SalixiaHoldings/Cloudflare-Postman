@@ -1,0 +1,29 @@
+$kind: http-request
+id: 6b06bea6-8dbf-5c5e-9b4a-a93f7c63d7db
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_create_trusted_domain
+  POST /accounts/{account_id}/email-security/settings/trusted_domains
+
+  Creates a new trusted domain pattern. Use for partner domains or approved senders that should bypass recent domain registration and similarity checks. Configure whether it prevents recent domain or spoof dispositions.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/trusted_domains"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: "null"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create trusted email domain.resources/examples
+order: 2000

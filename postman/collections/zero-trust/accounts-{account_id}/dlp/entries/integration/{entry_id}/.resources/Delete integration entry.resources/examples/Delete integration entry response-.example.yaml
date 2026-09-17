@@ -1,0 +1,24 @@
+$kind: http-example
+id: ee178cdf-2bf3-5712-8909-8f93d9cd8b45
+name: Delete integration entry response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/entries/integration/{{entry_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,36 @@
+$kind: http-example
+id: e7b5e912-dbc7-5dbb-84db-cb90d61b9109
+name: Information about the newly created tab.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json/new"
+  method: PUT
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: url
+      value: http://Lumh.jcqaFdK.er2Jgw9mtpkwOaaw9nap0EFUpoUST
+      disabled: true
+    - key: liveViewUrlExpiresInMs
+      value: "300000"
+      disabled: true
+      description: How long the live view URL remains valid, in milliseconds (max 60 minutes)
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "string",
+        "type": "string",
+        "url": "string",
+        "description": "string",
+        "devtoolsFrontendUrl": "string",
+        "title": "string",
+        "webSocketDebuggerUrl": "string"
+      }
+order: 1000

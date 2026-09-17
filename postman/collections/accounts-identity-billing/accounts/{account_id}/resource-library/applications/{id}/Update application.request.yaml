@@ -1,0 +1,47 @@
+$kind: http-request
+id: d126033d-a39a-5388-8dd0-28172e0973a4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: updateResourceLibraryApplication
+  PATCH /accounts/{account_id}/resource-library/applications/{id}
+
+  Replace the network matchers for a custom application and create a new version.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/resource-library/applications/{{id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "hostnames": [
+        "example.com",
+        "foo.com"
+      ],
+      "ip_subnets": [
+        "192.168.1.0/24",
+        "10.0.0.0/8"
+      ],
+      "port_protocols": [
+        "tcp/80",
+        "tcp/443"
+      ],
+      "support_domains": [
+        "example.com",
+        "foo.com"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update application.resources/examples
+order: 3000

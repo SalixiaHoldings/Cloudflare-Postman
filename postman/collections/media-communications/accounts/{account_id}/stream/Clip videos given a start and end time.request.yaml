@@ -1,0 +1,54 @@
+$kind: http-request
+id: ec1ed5d2-f6ea-5ca7-bf01-3a6f24cff2d5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: stream-video-clipping-clip-videos-given-a-start-and-end-time
+  POST /accounts/{account_id}/stream/clip
+
+  Clips a video based on the specified start and end times provided in seconds.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/stream/clip"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "clippedFromVideoUID": "023e105f4ecef8ad9ca31a8372d0c353",
+      "startTimeSeconds": 5760,
+      "endTimeSeconds": 9074,
+      "allowedOrigins": [
+        "example.com"
+      ],
+      "creator": "creator-id_abcde12345",
+      "input": "https://example.com/myvideo.mp4",
+      "meta": {
+        "name": "video12345.mp4"
+      },
+      "name": "myvideo.mp4",
+      "requireSignedURLs": true,
+      "scheduledDeletion": "2014-01-02T02:20:00Z",
+      "thumbnailTimestampPct": 0.529241,
+      "url": "https://example.com/myvideo.mp4",
+      "watermark": {
+        "uid": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Clip videos given a start and end time.resources/examples
+order: 3000

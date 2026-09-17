@@ -1,0 +1,29 @@
+$kind: http-example
+id: 85947955-a1a0-533f-ab23-be3a375dbc5d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/reporting/policies/{{policy_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "policy_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "policy_name": "Weekly Security Report",
+          "policy_schedule": "0 9 * * 1",
+          "enabled": true,
+          "version": 1,
+          "valid_from": "2024-01-01T00:00:00Z",
+          "policy_description": "Generates a comprehensive security report every Monday covering firewall events and threat analysis",
+          "valid_to": "2024-12-31T23:59:59Z"
+        }
+      }
+order: 1000

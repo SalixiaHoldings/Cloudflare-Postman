@@ -1,0 +1,54 @@
+$kind: http-request
+id: 30f887d0-49ee-5abb-a17c-3586736dcaf6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-zone-security-center-issue-audit-log
+  GET /zones/{zone_id}/security-center/insights/{issue_id}/audit-log
+
+  Lists audit log entries for a specific Security Center insight within a zone, showing changes to its status and classification over time.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/security-center/insights/{{issue_id}}/audit-log"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: per_page
+    value: "25"
+    disabled: true
+    description: Number of results per page.
+  - key: cursor
+    value: string
+    disabled: true
+    description: Opaque cursor for pagination. Use the cursor value from result_info of the previous response.
+  - key: field_changed
+    value: status
+    disabled: true
+    description: Filter by the field that was changed.
+  - key: changed_by
+    value: string
+    disabled: true
+    description: Filter by the actor that made the change.
+  - key: since
+    value: 1995-01-25T04:50:11.938Z
+    disabled: true
+    description: Filter entries changed at or after this timestamp (RFC 3339).
+  - key: before
+    value: 1995-01-25T04:50:11.938Z
+    disabled: true
+    description: Filter entries changed before this timestamp (RFC 3339).
+  - key: order
+    value: desc
+    disabled: true
+    description: Sort order for results. Use 'asc' for oldest first or 'desc' for newest first.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Retrieves Zone Issue Audit Log.resources/examples
+order: 1000

@@ -1,0 +1,34 @@
+$kind: http-example
+id: c8a5ae80-1565-5d06-abd1-e7ad9060abd7
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/repos/{{provider_type}}/{{provider_account_id}}/{{repo_id}}/config_autofill?branch=main"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: branch
+      value: main
+      description: "(Required) "
+    - key: root_directory
+      value: /
+      disabled: true
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12005,
+            "message": "Missing token from authorization header"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

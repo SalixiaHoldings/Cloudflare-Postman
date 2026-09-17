@@ -1,0 +1,74 @@
+$kind: http-request
+id: ba22a18c-bf9c-51e6-b1d0-dfd4a6d63e27
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_IndicatorCreateBulk
+  POST /accounts/{account_id}/cloudforce-one/events/dataset/{dataset_id}/indicators/bulk
+
+  Creates multiple indicators at once with their respective types and related datasets.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators/bulk"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "indicators": [
+        {
+          "indicatorType": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "autoCreateType": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "relatedEvents": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "tags": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "tlp": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "indicatorType": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "autoCreateType": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "relatedEvents": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "tags": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "tlp": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ],
+      "autoCreateType": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Creates multiple indicators in bulk.resources/examples
+order: 2000

@@ -1,0 +1,88 @@
+$kind: http-example
+id: 45b9aad7-1496-5500-b7e9-699cbadd99b5
+name: Request failed due to rate limiting. The Retry-After header indicates when the client should retry the request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: keep_alive
+      value: "60000"
+      disabled: true
+      description: Keep-alive time in milliseconds.
+    - key: lab
+      value: "false"
+      disabled: true
+      description: Use experimental browser.
+    - key: targets
+      value: "false"
+      disabled: true
+      description: Include browser targets in response.
+    - key: liveViewUrlExpiresInMs
+      value: "300000"
+      disabled: true
+      description: How long the live view URL remains valid, in milliseconds (max 60 minutes). Only used when targets is true.
+    - key: recording
+      value: "false"
+      disabled: true
+  body:
+    type: json
+    content: |-
+      {
+        "guardrails": {
+          "allowedDomainSets": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "allowedDomains": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        }
+      }
+response:
+  statusCode: 429
+  statusText: Too Many Requests
+  headers:
+    - key: Retry-After
+      value: "60"
+      description: (Required) Number of seconds to wait before retrying the request.
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "status": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

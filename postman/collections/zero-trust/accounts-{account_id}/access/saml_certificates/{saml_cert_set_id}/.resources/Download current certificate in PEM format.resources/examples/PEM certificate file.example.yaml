@@ -1,0 +1,21 @@
+$kind: http-example
+id: d11c8334-7d55-517d-9b45-78654158836c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/saml_certificates/{{saml_cert_set_id}}/pem"
+  method: GET
+  headers:
+    Accept: application/x-pem-file
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Disposition: attachment; filename="saml_certificate.pem"
+    Content-Type: application/x-pem-file
+  body:
+    type: text
+    content: |
+      -----BEGIN CERTIFICATE-----
+      MIIGAjCCA+qgAwIBAgIJAI7kymlF7CWT...
+      ...certificate content...
+      -----END CERTIFICATE-----
+order: 1000

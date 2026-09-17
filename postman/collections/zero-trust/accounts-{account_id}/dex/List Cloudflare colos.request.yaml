@@ -1,0 +1,36 @@
+$kind: http-request
+id: 2a2ee966-6106-542a-9e7b-89e03d1883d7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dex-endpoints-list-colos
+  GET /accounts/{account_id}/dex/colos
+
+  List Cloudflare colos that account's devices were connected to during a time period, sorted by usage starting from the most used colo. Colos without traffic are also returned and sorted alphabetically.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/colos?from=2023-08-20T20:45:00Z&to=2023-08-24T20:45:00Z"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: from
+    value: 2023-08-20T20:45:00Z
+    description: (Required) Start time for connection period in ISO (RFC3339 - ISO 8601) format.
+  - key: to
+    value: 2023-08-24T20:45:00Z
+    description: (Required) End time for connection period in ISO (RFC3339 - ISO 8601) format.
+  - key: sortBy
+    value: fleet-status-usage
+    disabled: true
+    description: Type of usage that colos should be sorted by. If unspecified, returns all Cloudflare colos sorted alphabetically.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Cloudflare colos.resources/examples
+order: 1000

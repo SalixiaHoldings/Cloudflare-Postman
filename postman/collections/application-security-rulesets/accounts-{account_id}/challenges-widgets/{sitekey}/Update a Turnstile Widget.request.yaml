@@ -1,0 +1,43 @@
+$kind: http-request
+id: ecaec421-1bb0-5bf1-8227-266a3f71fc2f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: accounts-turnstile-widget-update
+  PUT /accounts/{account_id}/challenges/widgets/{sitekey}
+
+  Update the configuration of a widget.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/challenges/widgets/{{sitekey}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "blog.cloudflare.com login form",
+      "mode": "invisible",
+      "domains": [
+        "203.0.113.1",
+        "cloudflare.com",
+        "blog.example.com"
+      ],
+      "bot_fight_mode": false,
+      "clearance_level": "interactive",
+      "ephemeral_id": false,
+      "offlabel": false,
+      "region": "world"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a Turnstile Widget.resources/examples
+order: 3000

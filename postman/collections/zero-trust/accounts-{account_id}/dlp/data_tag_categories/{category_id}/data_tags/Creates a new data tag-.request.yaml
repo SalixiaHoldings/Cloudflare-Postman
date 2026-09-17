@@ -1,0 +1,36 @@
+$kind: http-request
+id: f6483248-3293-5ac8-bde9-3ca36e54194e
+name: Creates a new data tag.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-data-tags-create
+  POST /accounts/{account_id}/dlp/data_tag_categories/{category_id}/data_tags
+
+  Creates a data tag in a category.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/dlp/data_tag_categories/{{category_id}}/data_tags"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "description": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Creates a new data tag-.resources/examples
+order: 2000

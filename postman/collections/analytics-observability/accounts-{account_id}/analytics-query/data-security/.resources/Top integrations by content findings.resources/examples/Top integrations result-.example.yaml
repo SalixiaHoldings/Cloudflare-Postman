@@ -1,0 +1,49 @@
+$kind: http-example
+id: 3fedfa37-c506-536a-8771-a2ec2cd5277a
+name: Top integrations result.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/analytics/query/data-security/content-findings/top-n"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "filters": [],
+        "from": "2024-11-01T00:00:00Z",
+        "n": 10,
+        "to": "2024-11-08T00:00:00Z"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [
+          {
+            "code": 1000,
+            "message": "API in beta: expect breaking changes."
+          }
+        ],
+        "result": [
+          {
+            "integrationId": "123e4567-e89b-12d3-a456-426614174000",
+            "integrationName": "Google Workspace",
+            "total": 42
+          },
+          {
+            "integrationId": "223e4567-e89b-12d3-a456-426614174001",
+            "integrationName": "Microsoft 365",
+            "total": 17
+          }
+        ],
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,68 @@
+$kind: http-example
+id: b1a9f3ac-5f12-51fd-8f4c-56067103840e
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/ranking/internet_services/top"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: serviceCategory
+      value: string
+      disabled: true
+      description: Filters results by Internet service category.
+    - key: serviceCategory
+      value: string
+      disabled: true
+      description: Filters results by Internet service category.
+    - key: limit
+      value: "5"
+      disabled: true
+      description: Limits the number of objects returned in the response.
+    - key: name
+      value: main_series
+      disabled: true
+      description: Array of names used to label the series in the response.
+    - key: name
+      value: main_series
+      disabled: true
+      description: Array of names used to label the series in the response.
+    - key: date
+      value: 1993-08-29
+      disabled: true
+      description: Filters results by the specified array of dates.
+    - key: date
+      value: 1988-07-19
+      disabled: true
+      description: Filters results by the specified array of dates.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

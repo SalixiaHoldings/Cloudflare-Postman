@@ -1,0 +1,53 @@
+$kind: http-example
+id: 7c78d5d8-f35b-566b-a410-d009186c6f37
+name: Authentication required or insufficient permissions.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Current page.
+    - key: per_page
+      value: "10"
+      disabled: true
+      description: Items per-page.
+    - key: order_by
+      value: deployed_on
+      disabled: true
+      description: Property to sort results by.
+    - key: order
+      value: desc
+      disabled: true
+      description: Sort direction.
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

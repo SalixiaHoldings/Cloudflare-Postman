@@ -1,0 +1,56 @@
+$kind: http-example
+id: c9135b25-3e7a-5b1d-a5b2-f12af9f95a40
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/slurper/jobs"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "overwrite": true,
+        "source": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "target": {
+          "vendor": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "bucket": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "secret": "{{secret}}",
+          "jurisdiction": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

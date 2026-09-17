@@ -1,0 +1,34 @@
+$kind: http-example
+id: 4ea8f71a-83dd-587d-bb86-2f0f4ba1a9f0
+name: Dataset version upload failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/datasets/{{dataset_id}}/upload/{{version}}"
+  method: POST
+  headers:
+    Content-Type: application/octet-stream
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: file
+    content: {}
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

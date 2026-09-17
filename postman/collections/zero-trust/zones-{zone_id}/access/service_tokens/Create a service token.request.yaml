@@ -1,0 +1,36 @@
+$kind: http-request
+id: dcf3797b-0716-5b56-b3c0-35339fa620f8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-level-access-service-tokens-create-a-service-token
+  POST /zones/{zone_id}/access/service_tokens
+
+  Generates a new service token. **Note:** This is the only time you can get the Client Secret. If you lose the Client Secret, you will have to create a new service token.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/access/service_tokens"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "CI/CD token",
+      "client_secret_version": "{{client_secret_version}}",
+      "duration": "60m",
+      "enabled": true,
+      "previous_client_secret_expires_at": "{{previous_client_secret_expires_at}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a service token.resources/examples
+order: 2000

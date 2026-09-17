@@ -1,0 +1,25 @@
+$kind: http-request
+id: a816b55f-b4dd-52bd-b8be-85f1eae94de6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getZoneRulesetVersion
+  GET /zones/{zone_id}/rulesets/{ruleset_id}/versions/{ruleset_version}
+
+  Fetches a specific version of a zone ruleset.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/rulesets/{{ruleset_id}}/versions/{{ruleset_version}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get a zone ruleset version.resources/examples
+order: 2000

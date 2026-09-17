@@ -1,0 +1,36 @@
+$kind: http-request
+id: 85ddf801-b8f6-5f27-abe0-26775e031220
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: api-shield-schema-validation-retrieve-user-schema-hosts
+  GET /zones/{zone_id}/api_gateway/user_schemas/hosts
+
+  Lists all unique hosts found in uploaded OpenAPI schemas for the zone. Useful for understanding which domains have schema coverage. Deprecated; use `/zones/{zone_id}/schema_validation/schemas/hosts` instead.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/hosts"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+    description: Page number of paginated results.
+  - key: per_page
+    value: "20"
+    disabled: true
+    description: Maximum number of results per page.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Retrieve schema hosts in a zone.resources/examples
+order: 3000

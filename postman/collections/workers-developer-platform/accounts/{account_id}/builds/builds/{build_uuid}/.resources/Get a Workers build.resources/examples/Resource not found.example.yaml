@@ -1,0 +1,27 @@
+$kind: http-example
+id: aa1abb87-95d0-5665-880c-42a2e61ec240
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/builds/{{build_uuid}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12000,
+            "message": "Not found"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

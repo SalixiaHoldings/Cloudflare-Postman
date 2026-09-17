@@ -1,0 +1,45 @@
+$kind: http-request
+id: 2fad4f7d-aff5-565e-a82a-b645f622085e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-list-objects
+  GET /accounts/{account_id}/r2/buckets/{bucket_name}/objects
+
+  Lists objects in an R2 bucket. Returns object metadata including key, size, etag, last modified date, HTTP metadata, and custom metadata.
+
+  For most workloads, we recommend using R2's [S3-compatible API](https://developers.cloudflare.com/r2/api/s3/api/) or a [Worker with an R2 binding](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/) instead.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects"
+method: GET
+headers:
+  cf-r2-jurisdiction: default
+  Accept: application/json
+queryParams:
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: prefix
+    value: string
+    disabled: true
+  - key: delimiter
+    value: string
+    disabled: true
+  - key: cursor
+    value: string
+    disabled: true
+  - key: start_after
+    value: string
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Objects.resources/examples
+order: 2000

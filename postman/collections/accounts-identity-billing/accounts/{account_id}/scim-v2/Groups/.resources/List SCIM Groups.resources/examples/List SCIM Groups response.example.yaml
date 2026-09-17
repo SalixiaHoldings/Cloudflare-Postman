@@ -1,0 +1,42 @@
+$kind: http-example
+id: 524c6961-5783-5f72-a1ac-69f419a060b5
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Groups"
+  method: GET
+  headers:
+    Accept: application/scim+json
+  queryParams:
+    - key: startIndex
+      value: "1"
+      disabled: true
+    - key: count
+      value: "1182"
+      disabled: true
+    - key: filter
+      value: displayName eq "My Group"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "schemas": [
+          "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+        ],
+        "totalResults": 5,
+        "Resources": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "itemsPerPage": 5,
+        "startIndex": 1
+      }
+order: 1000

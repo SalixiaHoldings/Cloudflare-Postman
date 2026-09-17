@@ -1,0 +1,35 @@
+$kind: http-example
+id: 613353b8-6ca2-5b58-b729-a710c2de7dbe
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/warp_connector/{{tunnel_id}}/failover"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "client_id": "1bedc50d-42b3-473c-b108-ff3d10c0d925"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": null
+      }
+order: 1000

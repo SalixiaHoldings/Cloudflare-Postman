@@ -1,0 +1,64 @@
+$kind: http-example
+id: 7f086035-9e92-5e9c-845a-1f8e6aea44b6
+name: Update Logpush job response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/logpush/jobs/{{job_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "destination_conf": "s3://mybucket/logs?region=us-west-2",
+        "enabled": false,
+        "filter": "{\"where\":{\"and\":[{\"key\":\"ClientRequestPath\",\"operator\":\"contains\",\"value\":\"/static\"},{\"key\":\"ClientRequestHost\",\"operator\":\"eq\",\"value\":\"example.com\"}]}}",
+        "kind": "",
+        "max_upload_bytes": 5000000,
+        "max_upload_interval_seconds": 30,
+        "max_upload_records": 1000,
+        "output_options": {
+          "CVE-2021-44228": false,
+          "batch_prefix": "",
+          "batch_suffix": "",
+          "field_delimiter": ",",
+          "field_names": [
+            "Datetime",
+            "DstIP",
+            "SrcIP"
+          ],
+          "output_type": "ndjson",
+          "record_delimiter": "",
+          "record_prefix": "{",
+          "record_suffix": "}\n",
+          "sample_rate": 1,
+          "timestamp_format": "unixnano"
+        },
+        "ownership_challenge": "00000000000000000000"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

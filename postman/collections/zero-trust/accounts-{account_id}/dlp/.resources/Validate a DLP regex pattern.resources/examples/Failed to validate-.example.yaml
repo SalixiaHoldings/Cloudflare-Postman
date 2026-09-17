@@ -1,0 +1,38 @@
+$kind: http-example
+id: e1a9ddb1-6d25-599b-8298-2679c5fbaf7b
+name: Failed to validate.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/patterns/validate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "regex": "string",
+        "max_match_bytes": 548
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

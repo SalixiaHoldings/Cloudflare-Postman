@@ -1,0 +1,48 @@
+$kind: http-example
+id: 1f5d30ed-03d5-53b1-9f64-6e7c8ceaedb7
+name: The image registry already exists in the account.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/registries"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domain": "docker.io",
+        "auth": {
+          "public_credential": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "private_credential": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "kind": {
+          "description": "Registry provider. This must match `domain`: `DockerHub` for `docker.io`,\n`ECR` for AWS ECR, or `GAR` for Google Artifact Registry.\n",
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "is_public": false
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 4000

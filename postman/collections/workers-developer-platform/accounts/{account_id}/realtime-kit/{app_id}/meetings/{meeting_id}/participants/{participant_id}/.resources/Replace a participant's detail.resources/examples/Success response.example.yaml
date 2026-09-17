@@ -1,0 +1,34 @@
+$kind: http-example
+id: a1a236f9-026c-5b8e-b227-eb150d33e890
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/participants/{{participant_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "preset_name": "string",
+        "custom_participant_id": "string",
+        "name": "string",
+        "picture": "http://aWstQAGJuJhJ.likR3ba-s,Z,NZmnMwMOU"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "data": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

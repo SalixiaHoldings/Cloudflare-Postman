@@ -1,0 +1,85 @@
+$kind: http-example
+id: a5a57c25-8e1a-5e10-b9e6-e1471745d854
+name: "[DEPRECATED] Indicates a successfully created pipeline. Use /pipelines/v1/pipelines instead."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "sample_pipeline",
+        "source": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "destination": {
+          "type": "r2",
+          "format": "json",
+          "batch": {
+            "max_bytes": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "max_duration_s": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "max_rows": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "compression": {
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "path": {
+            "bucket": "bucket",
+            "prefix": "base"
+          },
+          "credentials": {
+            "endpoint": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "access_key_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "secret_access_key": "{{secret_access_key}}"
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "source": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "destination": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "version": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "endpoint": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

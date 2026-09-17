@@ -1,0 +1,47 @@
+$kind: http-request
+id: 918c9a05-2f4d-55a9-a1bc-e146025e1a53
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: rssArticleIndicatorList
+  GET /accounts/{account_id}/cloudforce-one/v2/threat-signals/indicators
+
+  List Threat Signals article indicators.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/indicators"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: feed_id
+    value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
+    disabled: true
+  - key: article_id
+    value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: sort
+    value: id
+    disabled: true
+  - key: include_total
+    value: "false"
+    disabled: true
+  - key: cursor
+    value: string
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Threat Signals article indicators.resources/examples
+order: 5000

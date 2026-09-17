@@ -1,0 +1,81 @@
+$kind: http-request
+id: 9759c887-08ae-5096-bca8-c861f3767561
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: rssArticleList
+  GET /accounts/{account_id}/cloudforce-one/v2/threat-signals/articles
+
+  List Threat Signals articles.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/articles"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: cursor
+    value: string
+    disabled: true
+    description: Opaque cursor from a previous response's `next_cursor`. When provided, pagination, ordering, totals, and article filters come from the cursor. Sending `per_page`, `sort`, `include_total`, or any article filter alongside it returns a 400 `CursorFilterConflictError`.
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: feed_id
+    value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
+    disabled: true
+  - key: article_id
+    value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
+    disabled: true
+  - key: read
+    value: "true"
+    disabled: true
+  - key: tag_id
+    value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
+    disabled: true
+  - key: tag
+    value: string
+    disabled: true
+  - key: tag_category
+    value: string
+    disabled: true
+  - key: include_total
+    value: "false"
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
+  - key: published_after
+    value: 1995-01-25T04:50:11.938Z
+    disabled: true
+  - key: published_before
+    value: 1995-01-25T04:50:11.938Z
+    disabled: true
+  - key: fetched_after
+    value: 1995-01-25T04:50:11.938Z
+    disabled: true
+  - key: fetched_before
+    value: 1995-01-25T04:50:11.938Z
+    disabled: true
+  - key: feed_category
+    value: string
+    disabled: true
+  - key: source_type
+    value: custom
+    disabled: true
+  - key: tag_applied_by
+    value: ai
+    disabled: true
+  - key: sort
+    value: -fetched_at
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Threat Signals articles.resources/examples
+order: 1000

@@ -1,0 +1,137 @@
+$kind: http-example
+id: fe93a7c8-0a37-52b6-93fc-cf820beac23c
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/email/security/timeseries_groups/{{dimension}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: aggInterval
+      value: 1h
+      disabled: true
+      description: Aggregation interval of the results (e.g., in 15 minutes or 1 hour intervals). Refer to [Aggregation intervals](https://developers.cloudflare.com/radar/concepts/aggregation-intervals/). When omitted, the interval is auto-selected from the requested date range; finer intervals are only available for shorter ranges. If the requested interval is too granular for the date range, the request is rejected.
+    - key: name
+      value: main_series
+      disabled: true
+      description: Array of names used to label the series in the response.
+    - key: name
+      value: main_series
+      disabled: true
+      description: Array of names used to label the series in the response.
+    - key: dateRange
+      value: 7d
+      disabled: true
+      description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
+    - key: dateRange
+      value: 7d
+      disabled: true
+      description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
+    - key: dateStart
+      value: 1943-04-17T22:40:41.639Z
+      disabled: true
+      description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+    - key: dateStart
+      value: 1932-06-29T20:40:48.455Z
+      disabled: true
+      description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+    - key: dateEnd
+      value: 1971-03-11T04:16:19.464Z
+      disabled: true
+      description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+    - key: dateEnd
+      value: 1974-05-26T22:34:40.196Z
+      disabled: true
+      description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
+    - key: arc
+      value: FAIL
+      disabled: true
+      description: Filters results by ARC (Authenticated Received Chain) validation.
+    - key: arc
+      value: FAIL
+      disabled: true
+      description: Filters results by ARC (Authenticated Received Chain) validation.
+    - key: dkim
+      value: PASS
+      disabled: true
+      description: Filters results by DKIM (DomainKeys Identified Mail) validation status.
+    - key: dkim
+      value: PASS
+      disabled: true
+      description: Filters results by DKIM (DomainKeys Identified Mail) validation status.
+    - key: dmarc
+      value: FAIL
+      disabled: true
+      description: Filters results by DMARC (Domain-based Message Authentication, Reporting and Conformance) validation status.
+    - key: dmarc
+      value: FAIL
+      disabled: true
+      description: Filters results by DMARC (Domain-based Message Authentication, Reporting and Conformance) validation status.
+    - key: spf
+      value: FAIL
+      disabled: true
+      description: Filters results by SPF (Sender Policy Framework) validation status.
+    - key: spf
+      value: PASS
+      disabled: true
+      description: Filters results by SPF (Sender Policy Framework) validation status.
+    - key: tlsVersion
+      value: TLSv1_3
+      disabled: true
+      description: Filters results by TLS version.
+    - key: tlsVersion
+      value: TLSv1_0
+      disabled: true
+      description: Filters results by TLS version.
+    - key: limitPerGroup
+      value: "10"
+      disabled: true
+      description: Limits the number of objects per group to the top items within the specified time range. When item count exceeds the limit, extra items appear grouped under an "other" category. Only supported on high-cardinality dimensions; otherwise the request is rejected. Minimum value is 2.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "serie_0": {
+            "PASS": [
+              "50.168733"
+            ],
+            "timestamps": [
+              "2023-08-08T10:15:00Z"
+            ]
+          },
+          "meta": {
+            "dateRange": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidenceInfo": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "normalization": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "lastUpdated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "units": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "aggInterval": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

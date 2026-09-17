@@ -1,0 +1,26 @@
+$kind: http-request
+id: 16dee2b1-629a-527a-b152-956417738161
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: scim-resource-types-list
+  GET /accounts/{account_id}/scim/v2/ResourceTypes
+
+  Returns the list of SCIM resource types supported by the Cloudflare SCIM service (RFC 7643 Section 6, RFC 7644 Section 4). Clients use this to discover available resource categories (e.g. Users, Groups) and their associated schemas. Query parameters are not supported on this endpoint.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/scim/v2/ResourceTypes"
+method: GET
+headers:
+  Accept: application/scim+json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List SCIM Resource Types.resources/examples
+order: 1000

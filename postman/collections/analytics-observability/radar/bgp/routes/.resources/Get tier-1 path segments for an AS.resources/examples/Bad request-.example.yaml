@@ -1,0 +1,48 @@
+$kind: http-example
+id: 5bc645f0-53f7-5d44-ad0e-da5c912a98b4
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/bgp/routes/paths/{{asn}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: ipVersion
+      value: IPv4
+      disabled: true
+      description: Address family of the observed paths. Defaults to IPv4.
+    - key: collector
+      value: route-views3
+      disabled: true
+      description: Scope to a single RouteViews collector (e.g. "route-views3"). Omit to merge across all active collectors (identical path segments are deduplicated, observation counts summed, and every contributing collector listed).
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

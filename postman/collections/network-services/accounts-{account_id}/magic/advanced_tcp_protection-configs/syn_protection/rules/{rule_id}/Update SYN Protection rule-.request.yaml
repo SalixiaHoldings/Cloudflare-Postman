@@ -1,0 +1,36 @@
+$kind: http-request
+id: 228ccb2d-2c34-5bf7-a351-ec21ec7c9c4d
+name: Update SYN Protection rule.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: updateSynProtectionRule
+  PATCH /accounts/{account_id}/magic/advanced_tcp_protection/configs/syn_protection/rules/{rule_id}
+
+  Update a SYN Protection rule specified by the given UUID.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/syn_protection/rules/{{rule_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "burst_sensitivity": "string",
+      "mitigation_type": "string",
+      "mode": "string",
+      "rate_sensitivity": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update SYN Protection rule-.resources/examples
+order: 3000

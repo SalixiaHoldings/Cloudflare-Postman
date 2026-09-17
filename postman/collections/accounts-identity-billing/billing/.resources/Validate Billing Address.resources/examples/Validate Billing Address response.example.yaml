@@ -1,0 +1,35 @@
+$kind: http-example
+id: 9ba4d016-7c95-57f1-bcff-fd9870dc4522
+request:
+  url: "{{base_url}}/billing/address-validation"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "address": "string",
+        "address2": "string",
+        "city": "string",
+        "country": "string",
+        "state": "string",
+        "zipcode": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "validated_addresses": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,51 @@
+$kind: http-example
+id: d3e0fe73-e789-5d14-b42b-66c67ac6c840
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/logs/received?end=string"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: start
+      value: string
+      disabled: true
+    - key: end
+      value: string
+      description: "(Required) "
+    - key: fields
+      value: ClientIP,RayID,EdgeStartTimestamp
+      disabled: true
+    - key: sample
+      value: "0.1"
+      disabled: true
+    - key: count
+      value: "7105"
+      disabled: true
+    - key: timestamps
+      value: unixnano
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

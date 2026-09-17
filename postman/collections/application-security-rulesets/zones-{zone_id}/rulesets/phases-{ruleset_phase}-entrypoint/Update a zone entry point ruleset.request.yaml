@@ -1,0 +1,51 @@
+$kind: http-request
+id: 0e9b2106-c762-58e0-aef7-2395df6a4910
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: updateZoneEntrypointRuleset
+  PUT /zones/{zone_id}/rulesets/phases/{ruleset_phase}/entrypoint
+
+  Updates a zone entry point ruleset, creating a new version.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/rulesets/phases/{{ruleset_phase}}/entrypoint"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  - key: dry_run
+    value: "false"
+    disabled: true
+    description: "Validates the request without persisting changes when set to `true`. Responses that normally return 200 return `result: null`; endpoints that normally return 204 continue to return 204."
+body:
+  type: json
+  content: |-
+    {
+      "id": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "version": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "description": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "name": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "rules": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a zone entry point ruleset.resources/examples
+order: 2000

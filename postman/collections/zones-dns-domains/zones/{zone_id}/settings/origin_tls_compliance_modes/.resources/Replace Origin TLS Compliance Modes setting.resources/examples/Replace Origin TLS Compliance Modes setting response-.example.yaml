@@ -1,0 +1,32 @@
+$kind: http-example
+id: 34213cd7-e02d-5cf2-a694-e6a35a94b59d
+name: Replace Origin TLS Compliance Modes setting response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/origin_tls_compliance_modes"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": [
+          "fips",
+          "pqh"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

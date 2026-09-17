@@ -1,0 +1,122 @@
+$kind: http-example
+id: d4d15b6e-d3e5-5b2a-a821-daa3e78bed7c
+name: List deployed workflow versions.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/versions"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: per_page
+      value: "50"
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": [
+          {
+            "created_on": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modified_on": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "workflow_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "class_name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "has_dag": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "language": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "concurrency": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "default_retention": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "limits": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "created_on": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "modified_on": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "workflow_id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "class_name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "has_dag": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "language": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "concurrency": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "default_retention": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "limits": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 6908.351383171976,
+          "count": 6631.902379449457,
+          "total_count": 9269.312992691994,
+          "cursor": "string",
+          "page": 594.1623635590076,
+          "total_pages": 7604.637430049479
+        }
+      }
+order: 1000

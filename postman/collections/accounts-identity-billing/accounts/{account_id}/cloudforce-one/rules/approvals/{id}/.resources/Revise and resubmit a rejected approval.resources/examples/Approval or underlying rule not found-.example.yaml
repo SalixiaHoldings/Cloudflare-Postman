@@ -1,0 +1,35 @@
+$kind: http-example
+id: 586e37b4-feeb-5f1f-8c77-a1f226c2aac2
+name: Approval or underlying rule not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/approvals/{{id}}/resubmit"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "commit_message": "string",
+        "content": "string",
+        "description": "string",
+        "enabled": false,
+        "name": "string",
+        "namespaces": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 4000

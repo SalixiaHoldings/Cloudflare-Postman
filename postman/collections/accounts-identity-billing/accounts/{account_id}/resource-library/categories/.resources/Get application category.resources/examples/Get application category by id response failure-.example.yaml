@@ -1,0 +1,28 @@
+$kind: http-example
+id: fb46c773-6aae-54f3-acae-cb89bb29c3ce
+name: Get application category by id response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/resource-library/categories/{{id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

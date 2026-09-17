@@ -1,0 +1,31 @@
+$kind: http-example
+id: 03bb48f0-0fa0-5f98-ab61-22c53f91597b
+name: Secondary Zone Configuration Details response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/secondary_dns/incoming"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

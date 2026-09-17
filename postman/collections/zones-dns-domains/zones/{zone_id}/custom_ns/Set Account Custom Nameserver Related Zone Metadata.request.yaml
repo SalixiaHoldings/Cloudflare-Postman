@@ -1,0 +1,38 @@
+$kind: http-request
+id: 08780639-2687-5be0-b0b8-fe5b02bae06b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: account-level-custom-nameservers-usage-for-a-zone-set-account-custom-nameserver-related-zone-metadata
+  PUT /zones/{zone_id}/custom_ns
+
+  Set metadata for account-level custom nameservers on a zone.
+
+  If you would like new zones in the account to use account custom nameservers by default, use PUT /accounts/:identifier to set the account setting use_account_custom_ns_by_default to true.
+
+  Deprecated in favor of [Update DNS Settings](https://developers.cloudflare.com/api/operations/dns-settings-for-a-zone-update-dns-settings).
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/custom_ns"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "enabled": true,
+      "ns_set": 1
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Set Account Custom Nameserver Related Zone Metadata.resources/examples
+order: 2000

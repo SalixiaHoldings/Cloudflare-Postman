@@ -1,0 +1,34 @@
+$kind: http-request
+id: be568aa8-5a90-5fda-b485-223c102b8614
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: GetParticipantDataFromPeerId
+  GET /accounts/{account_id}/realtime/kit/{app_id}/sessions/peer-report/{peer_id}
+
+  Returns participant details for the given peer ID along with call statistics.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/peer-report/{{peer_id}}"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: filters
+    value: device_info
+    disabled: true
+    description: Filter to apply to the peer report.
+  - key: include_peer_events
+    value: "false"
+    disabled: true
+    description: if true, response includes all the peer events of participant.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Fetch details of peer.resources/examples
+order: 2000

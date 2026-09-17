@@ -1,0 +1,53 @@
+$kind: http-example
+id: 5aef7e48-48d7-5255-8bf7-7ff847a1e180
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/challenges/widgets"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "25"
+      disabled: true
+    - key: order
+      value: id
+      disabled: true
+    - key: direction
+      value: asc
+      disabled: true
+    - key: filter
+      value: name:my-widget
+      disabled: true
+      description: |
+        Filter widgets by field using case-insensitive substring matching.
+        Format: `field:value`
+
+        Supported fields:
+        - `name` - Filter by widget name (e.g., `filter=name:login-form`)
+        - `sitekey` - Filter by sitekey (e.g., `filter=sitekey:0x4AAA`)
+
+        Returns 400 Bad Request if the field is unsupported or format is invalid.
+        An empty filter value returns all results.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

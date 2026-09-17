@@ -1,0 +1,50 @@
+$kind: http-example
+id: c3fe6f80-82a1-547e-b6a2-306fc30a9c37
+name: Rate limited.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions/bulk"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "items": [
+          {
+            "email": "user@example.com"
+          },
+          {
+            "email": "other@example.com",
+            "expires_at": "2027-01-01T00:00:00Z",
+            "note": "Imported from CRM"
+          }
+        ]
+      }
+response:
+  statusCode: 429
+  statusText: Too Many Requests
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+order: 2000

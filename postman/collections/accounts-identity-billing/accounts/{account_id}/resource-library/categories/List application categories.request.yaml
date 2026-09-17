@@ -1,0 +1,34 @@
+$kind: http-request
+id: 0455bbbf-822b-5c6e-b73b-604cdb050eb4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: getResourceLibraryCategories
+  GET /accounts/{account_id}/resource-library/categories
+
+  List application categories.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/resource-library/categories"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: limit
+    value: "25"
+    disabled: true
+    description: Limit of number of results to return.
+  - key: offset
+    value: "0"
+    disabled: true
+    description: Offset of results to return.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List application categories.resources/examples
+order: 1000

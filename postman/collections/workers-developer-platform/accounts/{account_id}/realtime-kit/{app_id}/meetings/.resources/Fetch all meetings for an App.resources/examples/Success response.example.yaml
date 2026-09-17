@@ -1,0 +1,57 @@
+$kind: http-example
+id: 06c24bb0-34b9-59a3-991e-0873b5dfbd3d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page_no
+      value: "4342.341406736523"
+      disabled: true
+      description: The page number from which you want your page search results to be displayed.
+    - key: per_page
+      value: "4342.341406736523"
+      disabled: true
+      description: Number of results per page
+    - key: start_time
+      value: 1925-07-26T17:47:35.721Z
+      disabled: true
+      description: The start time range for which you want to retrieve the meetings. The time must be specified in ISO format.
+    - key: end_time
+      value: 1925-07-26T17:47:35.721Z
+      disabled: true
+      description: The end time range for which you want to retrieve the meetings. The time must be specified in ISO format.
+    - key: search
+      value: string
+      disabled: true
+      description: The search query string. You can search using the meeting ID or title.
+    - key: status
+      value: ACTIVE
+      disabled: true
+      description: Filter meetings by status.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "data": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "paging": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

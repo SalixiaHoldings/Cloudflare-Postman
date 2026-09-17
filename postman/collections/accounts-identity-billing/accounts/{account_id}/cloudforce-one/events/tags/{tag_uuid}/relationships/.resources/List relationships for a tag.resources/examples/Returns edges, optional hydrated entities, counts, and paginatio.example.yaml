@@ -1,0 +1,69 @@
+$kind: http-example
+id: b0503879-5157-5b63-92c6-38c5471b4194
+name: Returns edges, optional hydrated entities, counts, and pagination.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/relationships"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: datasets
+      value: string
+      disabled: true
+    - key: datasets
+      value: string
+      disabled: true
+    - key: search
+      value: '{"field":"string","op":"startsWith","value":"string"}'
+      disabled: true
+    - key: search
+      value: '{"field":"string","op":"not","value":"string"}'
+      disabled: true
+    - key: expand
+      value: string
+      disabled: true
+    - key: expand
+      value: string
+      disabled: true
+    - key: cursor
+      value: string
+      disabled: true
+    - key: pageSize
+      value: "25"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "counts": {},
+          "cursor": "string",
+          "entities": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "failedShardCount": 7255.6494968011975,
+          "hasMore": false,
+          "hydrationErrors": {},
+          "partialResults": false,
+          "relationships": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "success": true
+      }
+order: 1000

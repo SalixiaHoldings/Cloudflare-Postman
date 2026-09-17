@@ -1,0 +1,25 @@
+$kind: http-example
+id: 86828485-7128-543a-90f3-5ee467beed5c
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/logs/rayids/{{ray_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: fields
+      value: ClientIP,RayID,EdgeStartTimestamp
+      disabled: true
+    - key: timestamps
+      value: unixnano
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: '"string"'
+order: 1000

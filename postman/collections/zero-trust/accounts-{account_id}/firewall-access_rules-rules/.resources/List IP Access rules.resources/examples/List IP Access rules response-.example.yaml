@@ -1,0 +1,57 @@
+$kind: http-example
+id: 33ffb602-64de-5011-b5c4-f59c49e6d491
+name: List IP Access rules response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/firewall/access_rules/rules"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: mode
+      value: challenge
+      disabled: true
+    - key: configuration.target
+      value: ip
+      disabled: true
+    - key: configuration.value
+      value: 198.51.100.4
+      disabled: true
+    - key: notes
+      value: my note
+      disabled: true
+    - key: match
+      value: all
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: order
+      value: mode
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

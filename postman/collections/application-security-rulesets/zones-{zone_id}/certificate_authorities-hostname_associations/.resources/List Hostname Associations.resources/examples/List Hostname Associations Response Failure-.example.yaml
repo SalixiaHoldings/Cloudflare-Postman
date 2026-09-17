@@ -1,0 +1,35 @@
+$kind: http-example
+id: 3ef8bfc7-31f0-5c76-a607-6ad0b2fa1b08
+name: List Hostname Associations Response Failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/certificate_authorities/hostname_associations"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: mtls_certificate_id
+      value: b2134436-2555-4acf-be5b-26c48136575e
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

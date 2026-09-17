@@ -1,0 +1,38 @@
+$kind: http-request
+id: 8c984e2a-148b-599e-938c-5504174f7456
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: waiting-room-patch-waiting-room-rule
+  PATCH /zones/{zone_id}/waiting_rooms/{waiting_room_id}/rules/{rule_id}
+
+  Patches a rule for a waiting room.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/{{waiting_room_id}}/rules/{{rule_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "action": "bypass_waiting_room",
+      "expression": "ip.src in {10.20.30.40}",
+      "description": "allow all traffic from 10.20.30.40",
+      "enabled": true,
+      "position": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Patch Waiting Room Rule.resources/examples
+order: 2000

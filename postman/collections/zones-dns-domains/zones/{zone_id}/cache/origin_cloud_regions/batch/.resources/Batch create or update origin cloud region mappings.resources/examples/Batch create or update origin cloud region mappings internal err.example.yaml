@@ -1,0 +1,44 @@
+$kind: http-example
+id: e6443221-fcb6-562d-9f46-3fc47e4f64fc
+name: Batch create or update origin cloud region mappings internal error.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions/batch"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "ip": "192.0.2.1",
+          "region": "us-east-1",
+          "vendor": "aws"
+        },
+        {
+          "ip": "2001:db8::1",
+          "region": "us-central1",
+          "vendor": "gcp"
+        }
+      ]
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1140,
+            "message": "Unable to update origin_public_cloud_region setting value. Internal error."
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

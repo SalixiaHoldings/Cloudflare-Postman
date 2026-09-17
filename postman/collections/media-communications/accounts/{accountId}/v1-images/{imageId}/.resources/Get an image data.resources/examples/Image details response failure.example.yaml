@@ -1,0 +1,20 @@
+$kind: http-example
+id: db742754-680a-56fe-b24a-5b902f244480
+request:
+  url: "{{base_url}}/accounts/{{accountId}}/v1/images/{{imageId}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "error": {}
+      }
+order: 2000

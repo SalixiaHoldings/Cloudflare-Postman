@@ -1,0 +1,38 @@
+$kind: http-example
+id: 33c93bcb-aa34-5e5c-9fe0-c10f4d670dda
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vectorize/v2/indexes/{{index_name}}/upsert"
+  method: POST
+  headers:
+    Content-Type: application/x-ndjson
+    Accept: application/json
+  queryParams:
+    - key: unparsable-behavior
+      value: discard
+      disabled: true
+  body:
+    type: file
+    content: {}
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,42 @@
+$kind: http-example
+id: 57c56486-5e05-5672-bfd7-ae6d2d9c16d7
+name: A rulesets response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/rulesets"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: cursor
+      value: dGhpc2lzYW5leGFtcGxlCg
+      disabled: true
+    - key: per_page
+      value: "3"
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "success": true,
+        "errors": [],
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result_info": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

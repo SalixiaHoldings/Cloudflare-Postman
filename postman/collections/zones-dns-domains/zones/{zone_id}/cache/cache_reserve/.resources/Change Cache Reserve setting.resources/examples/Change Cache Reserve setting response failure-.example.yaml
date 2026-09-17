@@ -1,0 +1,35 @@
+$kind: http-example
+id: a6bb9059-b695-5f72-ba86-b32f911d6d53
+name: Change Cache Reserve setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/cache_reserve"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "off"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1153,
+            "message": "Cache Reserve cannot be enabled because a deletion is already in progress."
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

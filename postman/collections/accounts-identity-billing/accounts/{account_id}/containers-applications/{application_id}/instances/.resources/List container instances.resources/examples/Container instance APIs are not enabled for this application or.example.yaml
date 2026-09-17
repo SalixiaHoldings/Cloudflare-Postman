@@ -1,0 +1,47 @@
+$kind: http-example
+id: 6edae2c6-7454-5e8f-afb1-d4db2c9b8adb
+name: Container instance APIs are not enabled for this application or the request was invalid.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/instances"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "771"
+      disabled: true
+      description: Maximum number of instances to return per page. Defaults to all.
+    - key: page_token
+      value: string
+      disabled: true
+      description: Opaque token from a previous response to retrieve the next page.
+    - key: state
+      value: not-active
+      disabled: true
+      description: |
+        Filters instances by lifecycle state. `active` includes provisioning, running, and stopping instances; `not-active` includes stopped and failed instances. When omitted, all instances are returned.
+    - key: name_prefix
+      value: string
+      disabled: true
+      description: |
+        Filter instances by a case-sensitive name prefix, falling back to the actor ID when no name is known. Keep the same prefix when using a page token.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

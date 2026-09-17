@@ -1,0 +1,31 @@
+$kind: http-example
+id: 4b32877a-1ee8-5f0d-b709-75cc82451643
+name: Health Check Preview Details response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/healthchecks/preview/{{healthcheck_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

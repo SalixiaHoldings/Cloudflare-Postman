@@ -1,0 +1,30 @@
+$kind: http-request
+id: b371c3b6-5031-5566-9b63-50a7a31ff303
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: deleteZoneRuleset
+  DELETE /zones/{zone_id}/rulesets/{ruleset_id}
+
+  Deletes all versions of an existing zone ruleset.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/rulesets/{{ruleset_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+queryParams:
+  - key: dry_run
+    value: "false"
+    disabled: true
+    description: "Validates the request without persisting changes when set to `true`. Responses that normally return 200 return `result: null`; endpoints that normally return 204 continue to return 204."
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete a zone ruleset.resources/examples
+order: 1000

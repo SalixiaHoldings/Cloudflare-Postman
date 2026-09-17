@@ -1,0 +1,38 @@
+$kind: http-example
+id: 8208e789-4363-5a3a-86df-4cafc639dd9c
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/service_tokens/{{service_token_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "client_secret_version": "{{client_secret_version}}",
+        "duration": "60m",
+        "enabled": false,
+        "name": "CI/CD token",
+        "previous_client_secret_expires_at": "{{previous_client_secret_expires_at}}"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

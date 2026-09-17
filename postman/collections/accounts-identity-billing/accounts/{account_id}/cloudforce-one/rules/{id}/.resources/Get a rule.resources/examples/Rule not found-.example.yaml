@@ -1,0 +1,20 @@
+$kind: http-example
+id: abb0588e-9ab8-5009-ab44-f1ef84f7eafc
+name: Rule not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/{{id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 3000

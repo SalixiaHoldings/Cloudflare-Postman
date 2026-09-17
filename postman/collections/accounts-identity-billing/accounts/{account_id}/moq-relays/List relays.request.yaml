@@ -1,0 +1,59 @@
+$kind: http-request
+id: 5c7c1cfb-865d-5915-8e72-bec89e6df2c3
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: moq-relays-list
+  GET /accounts/{account_id}/moq/relays
+
+  Lists all MoQ relays for the account. Returns only metadata.
+  Config, status, and tokens are omitted.
+
+  Results are cursor-paginated (keyset on the `created` timestamp).
+  Use `created_before` / `created_after` with the `created` value of the
+  first/last item in a page to fetch the adjacent page. `result_info`
+  reports the page `count` and the `total` matching the cursor filters.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/moq/relays"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: created_before
+    value: 2026-03-27T15:00:00Z
+    disabled: true
+    description: |
+      Cursor for pagination. Returns relays created strictly before this
+      RFC 3339 timestamp (typically the `created` value of the first item
+      on the current page, to fetch the previous page).
+  - key: created_after
+    value: 2026-03-27T15:00:00Z
+    disabled: true
+    description: |
+      Cursor for pagination. Returns relays created strictly after this
+      RFC 3339 timestamp (typically the `created` value of the last item
+      on the current page, to fetch the next page).
+  - key: per_page
+    value: "50"
+    disabled: true
+    description: |
+      Maximum number of relays to return per page. Values above the maximum are
+      clamped to it rather than rejected.
+  - key: asc
+    value: "false"
+    disabled: true
+    description: |
+      Sort order by `created`. When true, results are returned oldest-first
+      (ascending); otherwise newest-first (descending, the default).
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List relays.resources/examples
+order: 1000

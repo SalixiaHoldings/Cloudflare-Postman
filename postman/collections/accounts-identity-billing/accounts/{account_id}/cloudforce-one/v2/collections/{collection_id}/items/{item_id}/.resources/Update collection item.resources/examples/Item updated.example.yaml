@@ -1,0 +1,38 @@
+$kind: http-example
+id: f3f4b096-2f6b-53e8-91a2-9399f77a15b9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/items/{{item_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "key_0": false
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "data": {
+            "key_0": 7689.408655278385,
+            "key_1": 2088,
+            "key_2": 3163
+          },
+          "created_at": "string",
+          "updated_at": "string"
+        }
+      }
+order: 1000

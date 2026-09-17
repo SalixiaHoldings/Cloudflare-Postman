@@ -1,0 +1,37 @@
+$kind: http-request
+id: e2d6af82-9ef4-5e77-873d-71475507a0aa
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zones-0-hold-delete
+  DELETE /zones/{zone_id}/hold
+
+  Stop enforcement of a zone hold on the zone, permanently or temporarily, allowing the
+  creation and activation of zones with this zone's hostname.
+  Existing zone holds can be removed from CDN-only zones when `hold_after` is not provided.
+  Active holds are automatically disabled when a zone transitions to CDN-only mode.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/hold"
+method: DELETE
+headers:
+  Accept: application/json
+queryParams:
+  - key: hold_after
+    value: 2023-01-31T15:56:36Z
+    disabled: true
+    description: |-
+      If `hold_after` is provided, the hold will be temporarily disabled,
+      then automatically re-enabled by the system at the time specified
+      in this RFC3339-formatted timestamp. Otherwise, the hold will be
+      disabled indefinitely. `hold_after` cannot be provided for CDN-only zones.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Remove Zone Hold.resources/examples
+order: 1000

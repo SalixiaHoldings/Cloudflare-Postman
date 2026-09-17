@@ -1,0 +1,45 @@
+$kind: http-example
+id: 2828698a-92a2-549d-9fb1-e8310e270731
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/token_validation/config"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "title": "Example Token Validation Configuration",
+        "description": "Long description for Token Validation Configuration",
+        "token_sources": [
+          "http.request.headers[\"x-auth\"][0]",
+          "http.request.cookies[\"Authorization\"][0]"
+        ],
+        "token_type": "JWT",
+        "credentials": {
+          "keys": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

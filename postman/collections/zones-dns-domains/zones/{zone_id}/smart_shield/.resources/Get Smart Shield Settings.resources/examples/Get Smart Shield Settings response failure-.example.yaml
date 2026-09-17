@@ -1,0 +1,28 @@
+$kind: http-example
+id: b2564701-ae69-5e86-a297-d1371888f58a
+name: Get Smart Shield Settings response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/smart_shield"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1137,
+            "message": "Unable to process request. Internal error."
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

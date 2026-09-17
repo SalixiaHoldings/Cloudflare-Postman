@@ -1,0 +1,24 @@
+$kind: http-example
+id: fb7af9e3-e7a0-5430-89dc-97765c58828c
+name: Get WARP client provision certificates enabled status response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/devices/policy/certificates"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

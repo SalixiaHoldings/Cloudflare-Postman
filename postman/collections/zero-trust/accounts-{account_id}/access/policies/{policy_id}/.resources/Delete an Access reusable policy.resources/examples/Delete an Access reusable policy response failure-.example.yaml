@@ -1,0 +1,28 @@
+$kind: http-example
+id: fc16de83-ac09-505c-8e64-073142bd310a
+name: Delete an Access reusable policy response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/policies/{{policy_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

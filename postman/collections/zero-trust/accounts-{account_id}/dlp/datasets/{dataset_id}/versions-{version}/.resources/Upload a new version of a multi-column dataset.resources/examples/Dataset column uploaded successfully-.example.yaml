@@ -1,0 +1,28 @@
+$kind: http-example
+id: 37859cf6-71d6-5d79-b459-82bacb7cfcce
+name: Dataset column uploaded successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/datasets/{{dataset_id}}/versions/{{version}}/entries/{{entry_id}}"
+  method: POST
+  headers:
+    Content-Type: application/octet-stream
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: file
+    content: {}
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

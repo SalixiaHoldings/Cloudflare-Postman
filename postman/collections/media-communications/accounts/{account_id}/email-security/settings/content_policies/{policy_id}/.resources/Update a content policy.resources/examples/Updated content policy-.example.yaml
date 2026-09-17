@@ -1,0 +1,26 @@
+$kind: http-example
+id: 32703863-654a-5f3f-8518-edf363a8b6d4
+name: Updated content policy.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/content_policies/{{policy_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "null"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

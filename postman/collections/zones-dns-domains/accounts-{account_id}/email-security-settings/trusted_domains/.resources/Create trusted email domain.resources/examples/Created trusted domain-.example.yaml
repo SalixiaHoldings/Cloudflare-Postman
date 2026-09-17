@@ -1,0 +1,26 @@
+$kind: http-example
+id: 3fce7d92-b68f-5a63-8082-55f890ee71a8
+name: Created trusted domain.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/trusted_domains"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "null"
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

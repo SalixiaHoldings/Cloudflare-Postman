@@ -1,0 +1,38 @@
+$kind: http-request
+id: 00979074-3adb-534c-9b8d-3636444c9366
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dex-endpoints-traceroute-test-network-path
+  GET /accounts/{account_id}/dex/traceroute-tests/{test_id}/network-path
+
+  Get a breakdown of metrics by hop for individual traceroute test runs.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}/network-path?deviceId=string&from=string&to=string&interval=hour"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: deviceId
+    value: string
+    description: (Required) Device to filter traceroute result runs to.
+  - key: from
+    value: string
+    description: (Required) Start time for aggregate metrics in ISO ms.
+  - key: to
+    value: string
+    description: (Required) End time for aggregate metrics in ISO ms.
+  - key: interval
+    value: hour
+    description: (Required) Time interval for aggregate time slots.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get network path breakdown for a traceroute test.resources/examples
+order: 2000

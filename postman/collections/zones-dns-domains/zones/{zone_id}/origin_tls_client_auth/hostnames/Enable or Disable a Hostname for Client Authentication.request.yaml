@@ -1,0 +1,39 @@
+$kind: http-request
+id: 0c2e6f50-e3d3-5197-a246-c9458a863ed1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: per-hostname-authenticated-origin-pull-enable-or-disable-a-hostname-for-client-authentication
+  PUT /zones/{zone_id}/origin_tls_client_auth/hostnames
+
+  Associate a hostname to a certificate and enable, disable or invalidate the association. If disabled, client certificate will not be sent to the hostname even if activated at the zone level. 100 maximum associations on a single certificate are allowed. Note: Use a null value for parameter *enabled* to invalidate the association.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/origin_tls_client_auth/hostnames"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "config": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Enable or Disable a Hostname for Client Authentication.resources/examples
+order: 2000

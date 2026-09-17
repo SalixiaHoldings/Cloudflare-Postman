@@ -1,0 +1,36 @@
+$kind: http-example
+id: 636e16b2-a320-5c75-b6ea-33353bb22272
+name: Patch Automatic SSL/TLS Enrollment status response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/ssl_automatic_mode"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "auto"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "editable": true,
+          "id": "ssl_automatic_mode",
+          "modified_on": "2014-01-01T05:20:00.12345Z",
+          "next_scheduled_scan": "2014-02-01T05:20:00.12345Z",
+          "value": "auto"
+        },
+        "success": true
+      }
+order: 1000

@@ -1,0 +1,35 @@
+$kind: http-example
+id: e9205083-9baf-5a71-a66f-ee190e48365a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_name}}/deploy_hooks/{{deploy_hook_uuid}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "deploy_hook_name": "Production Deploy Hook",
+        "branch": "main"
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12049,
+            "message": "Resource already exists"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 5000

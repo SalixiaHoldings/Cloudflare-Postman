@@ -1,0 +1,71 @@
+$kind: http-example
+id: dfc31a0a-db0a-5e82-8336-85bdff4e4909
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/allow_policies"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Current page within paginated list of results.
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: The number of results per page. Maximum value is 1000.
+    - key: search
+      value: string
+      disabled: true
+      description: Search term for filtering records. Behavior may change.
+    - key: order
+      value: created_at
+      disabled: true
+      description: Field to sort by.
+    - key: direction
+      value: asc
+      disabled: true
+      description: The sorting direction.
+    - key: is_exempt_recipient
+      value: "true"
+      disabled: true
+      description: Filter to show only policies where messages to the recipient bypass all detections.
+    - key: is_trusted_sender
+      value: "true"
+      disabled: true
+      description: Filter to show only policies where messages from the sender bypass all detections and link following.
+    - key: is_acceptable_sender
+      value: "true"
+      disabled: true
+      description: Filter to show only policies where messages from the sender are exempted from Spam, Spoof, and Bulk dispositions (not Malicious or Suspicious).
+    - key: verify_sender
+      value: "true"
+      disabled: true
+      description: Filter to show only policies that enforce DMARC, SPF, or DKIM authentication.
+    - key: pattern_type
+      value: EMAIL
+      disabled: true
+    - key: pattern
+      value: string
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

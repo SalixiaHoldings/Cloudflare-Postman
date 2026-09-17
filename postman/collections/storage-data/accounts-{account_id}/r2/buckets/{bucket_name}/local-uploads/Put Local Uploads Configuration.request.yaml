@@ -1,0 +1,32 @@
+$kind: http-request
+id: 1731dc1b-580c-545b-a56d-ca1e74e1f190
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-put-bucket-local-uploads-configuration
+  PUT /accounts/{account_id}/r2/buckets/{bucket_name}/local-uploads
+
+  Set the local uploads configuration for a bucket. When enabled, object's data is written to the nearest region first, then asynchronously replicated to the bucket's primary region.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/local-uploads"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "enabled": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Put Local Uploads Configuration.resources/examples
+order: 2000

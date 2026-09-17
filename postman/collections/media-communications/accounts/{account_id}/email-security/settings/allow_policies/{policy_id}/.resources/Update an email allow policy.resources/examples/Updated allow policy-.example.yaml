@@ -1,0 +1,26 @@
+$kind: http-example
+id: e022fe41-c8a8-5849-9904-74d0b489fc2c
+name: Updated allow policy.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/allow_policies/{{policy_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "null"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

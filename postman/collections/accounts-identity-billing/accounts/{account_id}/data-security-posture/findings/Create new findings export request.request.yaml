@@ -1,0 +1,55 @@
+$kind: http-request
+id: ca1bcbf0-1085-51d9-b48c-d4a3a79c8fa1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: CreateFindingExportCSV
+  POST /accounts/{account_id}/data-security/posture/findings/export
+
+  Creates a CSV export for findings and accepts optional filters in the payload.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/export"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "ignored": true,
+      "integration_id": [
+        "55d7337e-1d0a-49fc-9826-925ba40df035"
+      ],
+      "max_affliction_date": "2019-08-24T14:15:22Z",
+      "min_affliction_date": "2018-08-24T14:15:22Z",
+      "orders": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "product": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "search": "public access",
+      "severities": [
+        "CRITICAL"
+      ],
+      "vendors": [
+        "AWS"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create new findings export request.resources/examples
+order: 2000

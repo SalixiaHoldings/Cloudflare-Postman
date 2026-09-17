@@ -1,0 +1,57 @@
+$kind: http-example
+id: eba64b6e-3dd5-56d3-9d88-3a909d4927fd
+name: A client error occurred.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/security-center/insights/{{issue_id}}/audit-log"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "25"
+      disabled: true
+      description: Number of results per page.
+    - key: cursor
+      value: string
+      disabled: true
+      description: Opaque cursor for pagination. Use the cursor value from result_info of the previous response.
+    - key: field_changed
+      value: status
+      disabled: true
+      description: Filter by the field that was changed.
+    - key: changed_by
+      value: string
+      disabled: true
+      description: Filter by the actor that made the change.
+    - key: since
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
+      description: Filter entries changed at or after this timestamp (RFC 3339).
+    - key: before
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
+      description: Filter entries changed before this timestamp (RFC 3339).
+    - key: order
+      value: desc
+      disabled: true
+      description: Sort order for results. Use 'asc' for oldest first or 'desc' for newest first.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

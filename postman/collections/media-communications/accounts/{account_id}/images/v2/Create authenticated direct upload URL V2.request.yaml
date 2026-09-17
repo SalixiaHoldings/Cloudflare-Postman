@@ -1,0 +1,49 @@
+$kind: http-request
+id: 6becc911-3a76-5655-8f11-61e9cf48fea5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-create-authenticated-direct-upload-url-v-2
+  POST /accounts/{account_id}/images/v2/direct_upload
+
+  Direct uploads allow users to upload images without API keys. A common use case are web apps, client-side applications, or mobile devices where users upload content directly to Cloudflare Images. This method creates a draft record for a future image. It returns an upload URL and an image identifier. To verify if the image itself has been uploaded, send an image details request (accounts/:account_identifier/images/v1/:identifier), and check that the `draft: true` property is not present.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v2/direct_upload"
+method: POST
+headers:
+  Content-Type: multipart/form-data
+  Accept: application/json
+body:
+  type: formdata
+  content:
+    - type: text
+      key: creator
+      value: string
+      description: Can set the creator field with an internal user ID.
+    - type: text
+      key: expiry
+      value: 2021-01-02T02:20:00Z
+      description: "The date after which the upload will not be accepted. Minimum: Now + 2 minutes. Maximum: Now + 6 hours."
+    - type: text
+      key: id
+      value: this/is/my-customid
+      description: Optional Image Custom ID. Up to 1024 chars. Can include any number of subpaths, and utf8 characters. Cannot start nor end with a / (forward slash). Cannot be a UUID.
+    - type: text
+      key: metadata
+      value: "{}"
+      description: User modifiable key-value store. Can be used for keeping references to another system of record, for managing images.
+    - type: text
+      key: requireSignedURLs
+      value: "true"
+      description: Indicates whether the image requires a signature token to be accessed.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create authenticated direct upload URL V2.resources/examples
+order: 2000

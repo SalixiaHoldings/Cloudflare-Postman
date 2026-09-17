@@ -1,0 +1,34 @@
+$kind: http-example
+id: c1224d10-db26-5bc9-8cce-134978627cf4
+name: Get current aggregated analytics response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/analytics/aggregate/current"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: appID
+      value: ea95132c15732412d22c1476fa83f27a,d122c5f4bb71e25cc9e86ab43b142e2f
+      disabled: true
+    - key: colo_name
+      value: PDX
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

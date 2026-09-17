@@ -1,0 +1,25 @@
+$kind: http-request
+id: 64d07e3e-3dd1-5c74-ace3-a8099bae9f2d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-base-image
+  GET /accounts/{account_id}/images/v1/{image_id}/blob
+
+  Download an image from CF Images. For most images this will be the originally uploaded file. For larger images it can be a near-lossless version of the original.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v1/{{image_id}}/blob"
+method: GET
+headers:
+  Accept: image/*
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Download image.resources/examples
+order: 4000

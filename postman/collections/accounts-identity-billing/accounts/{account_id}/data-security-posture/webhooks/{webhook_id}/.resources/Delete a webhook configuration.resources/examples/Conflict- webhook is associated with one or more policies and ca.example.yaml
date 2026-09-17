@@ -1,0 +1,22 @@
+$kind: http-example
+id: fdd2035c-d7c4-533f-80b8-6ee60e4e4eb7
+name: "Conflict: webhook is associated with one or more policies and cannot be deleted"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/{{webhook_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 3000

@@ -1,0 +1,43 @@
+$kind: http-example
+id: 05fc18fd-d96a-5734-97ce-4c35d2129884
+name: List Regions response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/load_balancers/regions"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: subdivision_code
+      value: CA
+      disabled: true
+    - key: subdivision_code_a2
+      value: CA
+      disabled: true
+    - key: country_code_a2
+      value: US
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

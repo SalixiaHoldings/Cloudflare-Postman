@@ -1,0 +1,47 @@
+$kind: http-request
+id: 073b15bc-bf26-55a9-aede-c40b96a4b2f5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: UpdatePolicy
+  PUT /accounts/{account_id}/data-security/posture/policies/{policy_id}
+
+  Updates an existing policy configuration and replaces its actions.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/policies/{{policy_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "display_name": "Auto-remediate public files",
+      "enabled": true,
+      "applies_to_all_integrations": false,
+      "actions": {
+        "remediation_types": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "webhook_configs": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "description": "Automatically remove public access from files when detected",
+      "integration_ids": [
+        "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a policy configuration.resources/examples
+order: 3000

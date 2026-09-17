@@ -1,0 +1,86 @@
+$kind: http-example
+id: 5daf9068-ca3d-56a9-bb15-0f7008b2550c
+name: Rule created (non-email customer accounts, or silent warning-free customer email rules).
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "block-malicious-workers",
+        "path": "yara/workers",
+        "content": "rule example { condition: true }",
+        "actions": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "commit_message": "Add worker rule to catch bpb-panel variants.",
+        "description": "Detects malicious proxy workers",
+        "enabled": true,
+        "is_public": false,
+        "meta": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "name": "block-malicious-workers",
+        "path": "yara/workers",
+        "description": "Detects malicious proxy workers",
+        "namespaces": [
+          "yara/workers"
+        ],
+        "content": "rule example { condition: true }",
+        "is_public": false,
+        "enabled": true,
+        "created_at": 1679529600000,
+        "updated_at": 1679529600000,
+        "created_by": "user@example.com",
+        "updated_by": "user@example.com",
+        "pending_approval_id": 4426.7185078933835,
+        "pending_change": {
+          "approval_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "requested_at": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "requested_by": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "meta": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "structured_source": "string"
+      }
+order: 1000

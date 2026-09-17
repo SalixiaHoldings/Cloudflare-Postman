@@ -1,0 +1,48 @@
+$kind: http-request
+id: 47ed098c-b758-5f5c-b65e-42ba8db0239a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email-sending-account-send-builder
+  POST /accounts/{account_id}/email/sending/send
+
+  Send an email for the specified account using the structured builder. Provide the sender, recipients, subject, and at least one of text or html; attachments are optional.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/email/sending/send"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "attachments": [
+        {
+          "content": "JVBERi0xLjQK...",
+          "disposition": "attachment",
+          "filename": "report.pdf",
+          "type": "application/pdf"
+        }
+      ],
+      "from": "sender@example.com",
+      "html": "<h1>Hello</h1><p>Please find your report attached.</p>",
+      "subject": "Monthly Report",
+      "text": "Hello\n\nPlease find your report attached.",
+      "to": [
+        "recipient@example.com"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Send an email.resources/examples
+order: 4000

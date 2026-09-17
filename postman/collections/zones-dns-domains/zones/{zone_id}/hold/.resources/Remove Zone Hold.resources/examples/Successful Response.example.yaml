@@ -1,0 +1,38 @@
+$kind: http-example
+id: 82709fd9-f7f1-5959-a4ad-00dc11ea46fc
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/hold"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: hold_after
+      value: 2023-01-31T15:56:36Z
+      disabled: true
+      description: |-
+        If `hold_after` is provided, the hold will be temporarily disabled,
+        then automatically re-enabled by the system at the time specified
+        in this RFC3339-formatted timestamp. Otherwise, the hold will be
+        disabled indefinitely. `hold_after` cannot be provided for CDN-only zones.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "hold": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "hold_after": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "include_subdomains": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,25 @@
+$kind: http-example
+id: 2825b399-f312-54c2-8457-0464bedfdf55
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cni/settings"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "default_asn": 5240
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

@@ -1,0 +1,66 @@
+$kind: http-example
+id: 9b3db5a9-25f6-5605-a2ae-c42595d699a5
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/bgp/rpki/aspa/changes"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: dateStart
+      value: 2023-09-01T11:41:33.782Z
+      disabled: true
+      description: Start of the date range (inclusive). Alternative to `dateRange`; provide together with `dateEnd`.
+    - key: dateEnd
+      value: 2023-09-01T11:41:33.782Z
+      disabled: true
+      description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`.
+    - key: asn
+      value: "13335"
+      disabled: true
+      description: Filter changes involving this ASN (as customer or provider).
+    - key: includeAsnInfo
+      value: "false"
+      disabled: true
+      description: Include ASN metadata (name, country) in response.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "changes": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "asnInfo": {
+            "13335": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "meta": {
+            "dataTime": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "queryTime": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

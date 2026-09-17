@@ -1,0 +1,45 @@
+$kind: http-example
+id: 1ca277ae-4a8e-5841-8c49-af9328ce8368
+name: Failed to update Workers VPC connectivity service.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/connectivity/directory/services/{{service_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "host": {
+          "ipv4": "10.0.0.1",
+          "network": {
+            "tunnel_id": "0191dce4-9ab4-7fce-b660-8e5dec5172da"
+          }
+        },
+        "name": "postgres-db",
+        "tcp_port": 5432,
+        "type": "tcp"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

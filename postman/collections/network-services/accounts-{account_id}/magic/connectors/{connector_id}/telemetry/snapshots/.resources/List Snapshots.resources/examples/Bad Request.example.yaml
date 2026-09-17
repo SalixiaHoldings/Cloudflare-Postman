@@ -1,0 +1,50 @@
+$kind: http-example
+id: 6ef49a57-f028-505f-8068-b3207efd2956
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/connectors/{{connector_id}}/telemetry/snapshots?from=324.4386496953666&to=324.4386496953666"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: from
+      value: "324.4386496953666"
+      description: "(Required) "
+    - key: to
+      value: "324.4386496953666"
+      description: "(Required) "
+    - key: limit
+      value: "324.4386496953666"
+      disabled: true
+    - key: cursor
+      value: string
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 2000

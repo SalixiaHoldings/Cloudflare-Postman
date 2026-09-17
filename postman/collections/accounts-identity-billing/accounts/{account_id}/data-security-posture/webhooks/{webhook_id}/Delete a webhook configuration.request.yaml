@@ -1,0 +1,26 @@
+$kind: http-request
+id: 80ca0b23-5b8c-51b5-bd79-94260ab9dff7
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: DeleteWebhook
+  DELETE /accounts/{account_id}/data-security/posture/webhooks/{webhook_id}
+
+  Soft deletes a webhook configuration by its unique identifier.
+  The webhook will be marked as deleted and will no longer be available for use.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/{{webhook_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete a webhook configuration.resources/examples
+order: 1000

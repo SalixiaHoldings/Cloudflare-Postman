@@ -1,0 +1,36 @@
+$kind: http-request
+id: dc9a7e43-0100-56bc-93af-2bd5e0346376
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: editWebhook
+  PATCH /accounts/{account_id}/realtime/kit/{app_id}/webhooks/{webhook_id}
+
+  Edits the webhook details for the given webhook ID.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/webhooks/{{webhook_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "test",
+      "events": [
+        "meeting.started"
+      ],
+      "url": "https://new-test-url.com"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Edit a webhook.resources/examples
+order: 3000

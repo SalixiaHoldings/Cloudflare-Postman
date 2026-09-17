@@ -1,0 +1,34 @@
+$kind: http-example
+id: 1f52fc26-9dca-5de9-9267-a4b9eaef85ec
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/labels/user/{{name}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: with_mapped_resource_counts
+      value: "true"
+      disabled: true
+      description: Include `mapped_resources` for each label
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

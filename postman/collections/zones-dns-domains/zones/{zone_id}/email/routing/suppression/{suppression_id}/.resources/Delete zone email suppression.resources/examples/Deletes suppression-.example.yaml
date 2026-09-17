@@ -1,0 +1,20 @@
+$kind: http-example
+id: 0ddf07a7-a5a7-5148-af1a-7a6d9ef149ad
+name: Deletes suppression.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/routing/suppression/{{suppression_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true
+      }
+order: 1000

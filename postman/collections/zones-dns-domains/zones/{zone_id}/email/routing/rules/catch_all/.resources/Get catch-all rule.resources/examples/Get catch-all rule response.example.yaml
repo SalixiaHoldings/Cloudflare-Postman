@@ -1,0 +1,23 @@
+$kind: http-example
+id: 2de989a2-1073-5700-a63a-b53536cf631a
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/routing/rules/catch_all"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

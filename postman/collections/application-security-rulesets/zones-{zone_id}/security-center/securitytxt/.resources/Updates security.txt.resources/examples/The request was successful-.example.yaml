@@ -1,0 +1,51 @@
+$kind: http-example
+id: 818a7d27-11e4-5d28-89e9-87eb9b64eacf
+name: The request was successful.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/security-center/securitytxt"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "acknowledgments": [
+          "https://example.com/hall-of-fame.html"
+        ],
+        "canonical": [
+          "https://www.example.com/.well-known/security.txt"
+        ],
+        "contact": [
+          "mailto:security@example.com",
+          "tel:+1-201-555-0123",
+          "https://example.com/security-contact.html"
+        ],
+        "enabled": true,
+        "encryption": [
+          "https://example.com/pgp-key.txt",
+          "dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY",
+          "openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f"
+        ],
+        "expires": "1941-08-22T02:52:26.425Z",
+        "hiring": [
+          "https://example.com/jobs.html"
+        ],
+        "policy": [
+          "https://example.com/disclosure-policy.html"
+        ],
+        "preferred_languages": "en, es, fr"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+order: 1000

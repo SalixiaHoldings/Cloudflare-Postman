@@ -1,0 +1,29 @@
+$kind: http-example
+id: 2b65d40e-f39c-5c6f-afe0-7411fe813a6a
+name: Reactivate Client Certificate Response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/client_certificates/{{client_certificate_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "reactivate": true
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

@@ -1,0 +1,38 @@
+$kind: http-request
+id: c1cd76dc-f95f-5fad-ad56-ccc0b608d6ef
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_ItemQuery
+  GET /accounts/{account_id}/cloudforce-one/v2/collections/{collection_id}/items
+
+  Retrieves items from a collection with keyset pagination and optional column-based filters
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/items"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: cursor
+    value: string
+    disabled: true
+    description: Opaque pagination cursor from a previous response. Omit for the first page.
+  - key: limit
+    value: "7853.857895825058"
+    disabled: true
+    description: Items per page
+  - key: q
+    value: string
+    disabled: true
+    description: Case-insensitive substring search across all columns. Matches any column containing the term. No relevance ranking.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Query collection items.resources/examples
+order: 1000

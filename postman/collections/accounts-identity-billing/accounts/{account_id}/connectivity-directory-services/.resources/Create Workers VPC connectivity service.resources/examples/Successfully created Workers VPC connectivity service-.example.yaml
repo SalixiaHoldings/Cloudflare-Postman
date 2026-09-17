@@ -1,0 +1,51 @@
+$kind: http-example
+id: da99c781-c7d9-5931-bf1f-d98e234acd53
+name: Successfully created Workers VPC connectivity service.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/connectivity/directory/services"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "host": {
+          "hostname": "api.example.com",
+          "resolver_network": {
+            "tunnel_id": "0191dce4-9ab4-7fce-b660-8e5dec5172da"
+          }
+        },
+        "name": "web-server",
+        "type": "http"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "created_at": "2024-01-15T09:30:00Z",
+          "host": {
+            "hostname": "api.example.com",
+            "resolver_network": {
+              "tunnel_id": "0191dce4-9ab4-7fce-b660-8e5dec5172da"
+            }
+          },
+          "name": "web-server",
+          "service_id": "550e8400-e29b-41d4-a716-446655440000",
+          "type": "http",
+          "updated_at": "2024-01-15T09:30:00Z"
+        },
+        "success": true
+      }
+order: 1000

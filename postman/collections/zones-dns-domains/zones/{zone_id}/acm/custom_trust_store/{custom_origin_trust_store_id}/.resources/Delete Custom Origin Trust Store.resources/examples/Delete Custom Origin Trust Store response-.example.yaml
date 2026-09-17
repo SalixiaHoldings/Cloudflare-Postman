@@ -1,0 +1,24 @@
+$kind: http-example
+id: 8d5052d6-d568-52be-a035-dff8cfdd777d
+name: Delete Custom Origin Trust Store response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/acm/custom_trust_store/{{custom_origin_trust_store_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

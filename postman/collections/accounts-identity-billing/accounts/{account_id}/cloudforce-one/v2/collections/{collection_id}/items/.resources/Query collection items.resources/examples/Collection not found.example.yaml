@@ -1,0 +1,29 @@
+$kind: http-example
+id: 8b4384fc-2d59-5b85-9f8f-ca0fed7c7586
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/items"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: cursor
+      value: string
+      disabled: true
+      description: Opaque pagination cursor from a previous response. Omit for the first page.
+    - key: limit
+      value: "7853.857895825058"
+      disabled: true
+      description: Items per page
+    - key: q
+      value: string
+      disabled: true
+      description: Case-insensitive substring search across all columns. Matches any column containing the term. No relevance ranking.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

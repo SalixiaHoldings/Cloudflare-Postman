@@ -1,0 +1,32 @@
+$kind: http-example
+id: d8c7ca3a-e1f1-5757-84dd-a49fb61c91ed
+name: Edit DNSSEC Status response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dnssec"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "dnssec_multi_signer": false,
+        "dnssec_presigned": true,
+        "dnssec_use_nsec3": false,
+        "status": "active"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

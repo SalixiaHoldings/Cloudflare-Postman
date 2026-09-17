@@ -1,0 +1,25 @@
+$kind: http-request
+id: 77f9e542-caf7-5546-9b3a-45ca1cef68cf
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get_TakedownLetterPdfGet
+  GET /accounts/{account_id}/cloudforce-one/v2/brand-protection/takedown-notices/{notice_id}/letters/{letter_id}/pdf
+
+  Download the PDF for a stored takedown letter. If no PDF exists yet, it is generated from the stored letter text and cached for future downloads.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/takedown-notices/{{notice_id}}/letters/{{letter_id}}/pdf"
+method: GET
+headers:
+  Accept: application/pdf
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Download takedown letter PDF.resources/examples
+order: 3000

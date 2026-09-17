@@ -1,0 +1,44 @@
+$kind: http-request
+id: 8e731672-d9ac-5b23-925a-a0e4e2fa2eda
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: stream-videos-initiate-video-uploads-using-tus
+  POST /accounts/{account_id}/stream
+
+  Initiates a video upload using the TUS protocol. On success, the server responds with a status code 201 (created) and includes a `location` header to indicate where the content should be uploaded. Refer to https://tus.io for protocol details.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/stream"
+method: POST
+headers:
+  - key: Tus-Resumable
+    value: 1.0.0
+    description: "(Required) "
+  - key: Upload-Creator
+    value: creator-id_abcde12345
+  - key: Upload-Length
+    value: "5898"
+    description: "(Required) "
+  - key: Upload-Metadata
+    value: name aGVsbG8gd29ybGQ=, requiresignedurls, allowedorigins ZXhhbXBsZS5jb20sdGVzdC5jb20=
+  - key: Accept
+    value: application/json
+  - key: X-Auth-Email
+    value: "{{api_email}}"
+  - key: X-Auth-Key
+    value: "{{api_key}}"
+queryParams:
+  - key: direct_user
+    value: "true"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Initiate video uploads using TUS.resources/examples
+order: 2000

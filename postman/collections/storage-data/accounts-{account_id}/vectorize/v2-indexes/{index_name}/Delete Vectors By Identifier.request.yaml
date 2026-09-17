@@ -1,0 +1,35 @@
+$kind: http-request
+id: 01294c1d-68f2-542c-af6c-346ed00c65ba
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: vectorize-delete-vectors-by-id
+  POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/delete_by_ids
+
+  Delete a set of vectors from an index by their vector identifiers.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/vectorize/v2/indexes/{{index_name}}/delete_by_ids"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "ids": [
+        "5121db81354a40c6aedc3fe1ace51c59",
+        "f90eb49c2107486abdfd78c67e853430"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete Vectors By Identifier.resources/examples
+order: 3000

@@ -1,0 +1,30 @@
+$kind: http-example
+id: 7b90396c-9aa6-53b6-b87e-5fc83a53a517
+name: Browser extension configuration deleted.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

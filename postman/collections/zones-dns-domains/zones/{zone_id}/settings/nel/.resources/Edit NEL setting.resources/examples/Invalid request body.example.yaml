@@ -1,0 +1,36 @@
+$kind: http-example
+id: 54aa4ad8-dd5f-5431-9b18-d92c810579ea
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/nel"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": {
+          "enabled": false
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1001,
+            "message": "invalid_content_type"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

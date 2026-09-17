@@ -1,0 +1,39 @@
+$kind: http-request
+id: 45ed7cab-927f-50da-8b2f-25a126aedfae
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: catalog-syncs-create
+  POST /accounts/{account_id}/magic/cloud/catalog-syncs
+
+  Create a new Catalog Sync (Closed Beta).
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs"
+method: POST
+headers:
+  forwarded: string
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "update_mode": "MANUAL",
+      "destination_type": "ZERO_TRUST_LIST",
+      "description": "string",
+      "policy": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Catalog Sync.resources/examples
+order: 2000

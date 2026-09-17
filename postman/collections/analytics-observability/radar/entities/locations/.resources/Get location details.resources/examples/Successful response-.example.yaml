@@ -1,0 +1,55 @@
+$kind: http-example
+id: f66fb03a-12df-5c7d-be2b-3bea98fc001a
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/entities/locations/{{location}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "location": {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "region": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "subregion": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "continent": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "latitude": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "longitude": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "alpha2": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidenceLevel": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

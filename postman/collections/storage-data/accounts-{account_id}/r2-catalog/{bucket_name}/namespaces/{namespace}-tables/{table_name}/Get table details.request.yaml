@@ -1,0 +1,34 @@
+$kind: http-request
+id: bca81527-c3d6-53a5-a57a-c58b04ee30e9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-table
+  GET /accounts/{account_id}/r2-catalog/{bucket_name}/namespaces/{namespace}/tables/{table_name}
+
+  Returns full Apache Iceberg metadata for a single table: schema,
+  partition specs, sort orders, properties, and recent snapshot history.
+  Designed for catalog introspection UIs that need per-table details
+  without holding R2 credentials.
+
+  The `metadata.snapshots`, `metadata.snapshot-log`, and
+  `metadata.metadata-log` arrays are pruned to the most recent 10
+  entries by `timestamp-ms`. Use `total_snapshots` and
+  `returned_snapshots` to surface the truncation to end users.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/namespaces/{{namespace}}/tables/{{table_name}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get table details.resources/examples
+order: 1000

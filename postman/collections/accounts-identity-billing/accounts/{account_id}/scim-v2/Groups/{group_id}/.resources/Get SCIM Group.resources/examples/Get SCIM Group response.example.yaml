@@ -1,0 +1,35 @@
+$kind: http-example
+id: d579e0b2-54f0-5fe2-8dac-dcfc827af34d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Groups/{{group_id}}"
+  method: GET
+  headers:
+    Accept: application/scim+json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/scim+json
+  body:
+    type: json
+    content: |-
+      {
+        "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:Group"
+        ],
+        "id": "cloudflare-v1-023e105f4ecef8ad9ca31a8372d0c353",
+        "displayName": "Administrators",
+        "externalId": "idp-group-456",
+        "members": [
+          {
+            "display": "user@example.com",
+            "value": "023e105f4ecef8ad9ca31a8372d0c353"
+          }
+        ],
+        "meta": {
+          "resourceType": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

@@ -1,0 +1,35 @@
+$kind: http-example
+id: df764269-6a4e-5d3f-8396-862bcd4a3226
+name: Change Origin Post-Quantum Encryption setting response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_post_quantum_encryption"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": "supported"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

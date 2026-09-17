@@ -1,0 +1,26 @@
+$kind: http-example
+id: a818f681-12c1-5e5d-bfe7-4b182a1cf1a9
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/articles"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "article_ids": [
+          "11044cf2-28e3-1148-ef90-04c0ce712c03"
+        ],
+        "read": false
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

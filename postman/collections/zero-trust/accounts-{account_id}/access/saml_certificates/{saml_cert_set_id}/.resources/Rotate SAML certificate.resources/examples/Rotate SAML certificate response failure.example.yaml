@@ -1,0 +1,27 @@
+$kind: http-example
+id: e6d2be7e-f083-5932-aa1e-a3d8dff7eadf
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/saml_certificates/{{saml_cert_set_id}}/rotate"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

@@ -1,0 +1,41 @@
+$kind: http-example
+id: 4fd6a489-97dc-5496-943a-22f71969aa3b
+name: A failure response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/rulesets/{{ruleset_id}}/rules/{{rule_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: dry_run
+      value: "false"
+      disabled: true
+      description: "Validates the request without persisting changes when set to `true`. Responses that normally return 200 return `result: null`; endpoints that normally return 204 continue to return 204."
+  body:
+    type: json
+    content: |-
+      {
+        "position": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": null,
+        "success": false,
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

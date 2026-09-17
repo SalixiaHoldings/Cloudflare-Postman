@@ -1,0 +1,40 @@
+$kind: http-example
+id: 61e5d833-1d65-5792-89dc-6c2f6566c40a
+name: Bad Request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/{{dataset_id}}/delete?eventIds=string&eventIds=string"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: eventIds
+      value: string
+      description: (Required) Array of Event IDs to delete.
+    - key: eventIds
+      value: string
+      description: (Required) Array of Event IDs to delete.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

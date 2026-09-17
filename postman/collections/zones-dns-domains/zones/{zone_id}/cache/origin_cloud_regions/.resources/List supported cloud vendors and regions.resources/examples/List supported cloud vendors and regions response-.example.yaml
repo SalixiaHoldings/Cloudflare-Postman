@@ -1,0 +1,50 @@
+$kind: http-example
+id: 916e9659-6a5b-54d0-b545-6f57abfd1922
+name: List supported cloud vendors and regions response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/cache/origin_cloud_regions/supported_regions"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "obtained_codes": true,
+          "vendors": {
+            "aws": [
+              {
+                "name": "us-east-1",
+                "upper_tier_colos": [
+                  "IAD",
+                  "EWR"
+                ]
+              },
+              {
+                "name": "us-west-2",
+                "upper_tier_colos": [
+                  "SEA"
+                ]
+              }
+            ],
+            "gcp": [
+              {
+                "name": "us-central1",
+                "upper_tier_colos": [
+                  "ORD"
+                ]
+              }
+            ]
+          }
+        },
+        "success": true
+      }
+order: 1000

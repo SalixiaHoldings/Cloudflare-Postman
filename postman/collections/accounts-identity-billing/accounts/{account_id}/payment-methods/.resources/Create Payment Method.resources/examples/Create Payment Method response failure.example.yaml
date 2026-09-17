@@ -1,0 +1,57 @@
+$kind: http-example
+id: 7a983d5d-3c1c-5b82-b4c7-d1e206b8cb2c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/payment-methods"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "address": "string",
+        "address2": "string",
+        "bank_account_type": "string",
+        "bank_code": "string",
+        "bank_country": "string",
+        "bank_name": "string",
+        "bank_routing_number": "string",
+        "cashapp_cash_tag": "string",
+        "city": "string",
+        "country": "string",
+        "default": true,
+        "device_data": "string",
+        "first_name": "string",
+        "last_name": "string",
+        "nick_name": "string",
+        "payment_account_email": "string",
+        "payment_email": "string",
+        "payment_gateway": "string",
+        "payment_nonce": "string",
+        "state": "string",
+        "type": "CREDIT_CARD",
+        "zipcode": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

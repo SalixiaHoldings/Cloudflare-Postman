@@ -1,0 +1,35 @@
+$kind: http-request
+id: dd6affe4-58ce-5f8c-9870-72e897e8a348
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: sinkhole-config-create-sinkhole
+  POST /accounts/{account_id}/intel/sinkholes
+
+  Create a new sinkhole. Logs of large request bodies will be truncated, but the full request body can be recorded in R2. If you wish to record large request bodies in R2, include the R2 key ID, key secret, and bucket name in the request body.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/intel/sinkholes"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "r2_bucket": "string",
+      "r2_id": "string",
+      "r2_secret": "{{r2_secret}}"
+    }
+auth:
+  type: noauth
+examples: ./.resources/Create a new sinkhole for your account.resources/examples
+order: 2000

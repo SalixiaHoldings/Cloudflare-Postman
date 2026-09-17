@@ -1,0 +1,30 @@
+$kind: http-example
+id: b46aae07-e558-523e-9885-5c5172616241
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/binary"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: file
+        key: file
+        src: ""
+        description: (Required) The binary file content to upload.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "md5": "5d84ade76d2a8387c81175bb0cbe6492",
+        "sha1": "9aff6879626d957eafadda044e4f879aae1e7278",
+        "sha256": "0000a7f2692ef479e2e3d02661568882cadec451cc8a64d4e7faca29810cd626",
+        "content_type": "text/plain"
+      }
+order: 1000

@@ -1,0 +1,25 @@
+$kind: http-request
+id: c251f8e9-5594-546a-8bd2-e3847c689553
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: secondary-dns-(-secondary-zone)-force-axfr
+  POST /zones/{zone_id}/secondary_dns/force_axfr
+
+  Sends AXFR zone transfer request to primary nameserver(s).
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/secondary_dns/force_axfr"
+method: POST
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Force AXFR.resources/examples
+order: 1000

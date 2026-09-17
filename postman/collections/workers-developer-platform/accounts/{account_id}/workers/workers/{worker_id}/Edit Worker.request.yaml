@@ -1,0 +1,49 @@
+$kind: http-request
+id: 38a76ad4-3d5a-5d1c-8125-f4002ebd06c0
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: editWorker
+  PATCH /accounts/{account_id}/workers/workers/{worker_id}
+
+  Perform a partial update on a Worker, where omitted properties are left unchanged from their current values.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "tags": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "subdomain": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "observability": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "logpush": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "tail_consumers": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Edit Worker.resources/examples
+order: 3000

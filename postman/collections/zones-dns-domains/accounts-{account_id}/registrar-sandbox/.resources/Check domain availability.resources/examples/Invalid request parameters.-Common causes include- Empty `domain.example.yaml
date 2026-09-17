@@ -1,0 +1,47 @@
+$kind: http-example
+id: 80961c04-ce3c-52c6-8d50-660a2ac18122
+name: |
+  Invalid request parameters.
+  Common causes include:
+  - Empty `domains` array.
+  - More than 20 domains per request.
+  - Malformed request body.
+  - Zero valid domains after validation.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/domain-check"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domains": [
+          "myawesomebrand.com",
+          "myawesomebrand.net",
+          "myawesomebrand.org",
+          "myawesomebrand.app",
+          "myawesomebrand.dev"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1006,
+            "message": "domains array must contain at least one domain"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

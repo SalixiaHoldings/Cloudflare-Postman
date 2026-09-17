@@ -1,0 +1,53 @@
+$kind: http-request
+id: 89e64094-f871-5232-9c79-49c1c34df974
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-level-zero-trust-organization-create-your-zero-trust-organization
+  POST /zones/{zone_id}/access/organizations
+
+  Sets up a Zero Trust organization for your account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/access/organizations"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Widget Corps Internal Applications",
+      "auth_domain": "test.cloudflareaccess.com",
+      "is_ui_read_only": true,
+      "login_design": {
+        "background_color": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "footer_text": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "header_text": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "logo_path": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "text_color": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "ui_read_only_toggle_reason": "Temporarily turn off the UI read only lock to make a change via the UI",
+      "user_seat_expiration_inactive_time": "720h"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create your Zero Trust organization.resources/examples
+order: 2000

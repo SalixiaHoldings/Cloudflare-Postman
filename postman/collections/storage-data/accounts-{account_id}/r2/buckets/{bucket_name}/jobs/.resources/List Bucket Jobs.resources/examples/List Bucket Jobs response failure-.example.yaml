@@ -1,0 +1,55 @@
+$kind: http-example
+id: 6f5ed858-5bb8-5c9e-a5c7-26a5cce1ba2d
+name: List Bucket Jobs response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs"
+  method: GET
+  headers:
+    cf-r2-jurisdiction: default
+    Accept: application/json
+  queryParams:
+    - key: jobType
+      value: prefixDelete
+      disabled: true
+      description: Restricts results to jobs of the specified type.
+    - key: status
+      value: FAILED
+      disabled: true
+      description: Restricts results to jobs with the specified status. `jobType` is required when this parameter is provided.
+    - key: maxKeys
+      value: "599"
+      disabled: true
+      description: Maximum number of jobs to return.
+    - key: continuationToken
+      value: string
+      disabled: true
+      description: Pagination token received as `nextContinuationToken` in the previous response.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": null
+      }
+order: 2000

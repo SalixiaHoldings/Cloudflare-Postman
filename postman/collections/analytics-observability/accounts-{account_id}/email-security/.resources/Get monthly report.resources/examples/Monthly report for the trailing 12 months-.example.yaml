@@ -1,0 +1,24 @@
+$kind: http-example
+id: a717d63c-d114-54f4-b288-b2158b4dab98
+name: Monthly report for the trailing 12 months.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/analytics/monthly_report"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "by_month": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

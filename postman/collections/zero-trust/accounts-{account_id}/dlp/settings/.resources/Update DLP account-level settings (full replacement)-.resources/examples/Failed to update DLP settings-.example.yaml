@@ -1,0 +1,42 @@
+$kind: http-example
+id: c6d2e0de-9767-58af-9f17-b6d44a57625d
+name: Failed to update DLP settings.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/settings"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "ai_context_analysis": false,
+        "ocr": false,
+        "payload_logging": {
+          "x-stainless-terraform-configurability": "computed_optional",
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

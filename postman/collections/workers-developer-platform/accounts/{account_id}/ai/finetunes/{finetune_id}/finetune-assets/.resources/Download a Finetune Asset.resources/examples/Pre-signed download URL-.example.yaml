@@ -1,0 +1,24 @@
+$kind: http-example
+id: e6896af1-8996-567d-8757-e5b9eca10590
+name: Pre-signed download URL.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/finetunes/{{finetune_id}}/finetune-assets/{{file_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "file_name": "string",
+          "file_url": "string"
+        }
+      }
+order: 1000

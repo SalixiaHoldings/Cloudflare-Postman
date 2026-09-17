@@ -1,0 +1,35 @@
+$kind: http-example
+id: 65e373e1-f49f-5672-b4f4-ce0e22d886b1
+name: List Access reusable policies response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/policies"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "100"
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

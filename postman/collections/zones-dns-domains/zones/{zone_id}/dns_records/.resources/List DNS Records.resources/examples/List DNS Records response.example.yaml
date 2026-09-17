@@ -1,0 +1,135 @@
+$kind: http-example
+id: 9d6e6503-c5c5-5307-b042-d51d201e6fcb
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dns_records"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: name
+      value: www.example.com
+      disabled: true
+    - key: name.exact
+      value: www.example.com
+      disabled: true
+    - key: name.contains
+      value: w.example.
+      disabled: true
+    - key: name.startswith
+      value: www.example
+      disabled: true
+    - key: name.endswith
+      value: .example.com
+      disabled: true
+    - key: type
+      value: A
+      disabled: true
+    - key: content
+      value: 127.0.0.1
+      disabled: true
+    - key: content.exact
+      value: 127.0.0.1
+      disabled: true
+    - key: content.contains
+      value: 7.0.0.
+      disabled: true
+    - key: content.startswith
+      value: 127.0.
+      disabled: true
+    - key: content.endswith
+      value: .0.1
+      disabled: true
+    - key: proxied
+      value: "true"
+      disabled: true
+    - key: match
+      value: any
+      disabled: true
+    - key: comment
+      value: Hello, world
+      disabled: true
+    - key: comment.present
+      value: string
+      disabled: true
+    - key: comment.absent
+      value: string
+      disabled: true
+    - key: comment.exact
+      value: Hello, world
+      disabled: true
+    - key: comment.contains
+      value: ello, worl
+      disabled: true
+    - key: comment.startswith
+      value: Hello, w
+      disabled: true
+    - key: comment.endswith
+      value: o, world
+      disabled: true
+    - key: tag
+      value: team:DNS
+      disabled: true
+    - key: tag.present
+      value: important
+      disabled: true
+    - key: tag.absent
+      value: important
+      disabled: true
+    - key: tag.exact
+      value: greeting:Hello, world
+      disabled: true
+    - key: tag.contains
+      value: greeting:ello, worl
+      disabled: true
+    - key: tag.startswith
+      value: greeting:Hello, w
+      disabled: true
+    - key: tag.endswith
+      value: greeting:o, world
+      disabled: true
+    - key: search
+      value: www.cloudflare.com
+      disabled: true
+    - key: tag_match
+      value: any
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "5"
+      disabled: true
+    - key: order
+      value: type
+      disabled: true
+    - key: direction
+      value: asc
+      disabled: true
+    - key: include_shadow_metadata
+      value: "true"
+      disabled: true
+    - key: shadowed_by_name
+      value: sub.example.com
+      disabled: true
+    - key: shadowing_name
+      value: www.sub.example.com
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

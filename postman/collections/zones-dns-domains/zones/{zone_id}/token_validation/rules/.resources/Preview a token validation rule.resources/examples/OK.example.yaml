@@ -1,0 +1,110 @@
+$kind: http-example
+id: b305f889-138b-5a5c-b233-da262c078dfb
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules/preview"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: Maximum number of results per page.
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number of paginated results.
+    - key: state
+      value: included
+      disabled: true
+    - key: state
+      value: included
+      disabled: true
+    - key: host
+      value: www.example.com
+      disabled: true
+      description: Filter operations by host.
+    - key: host
+      value: www.example.com
+      disabled: true
+      description: Filter operations by host.
+    - key: hostname
+      value: www.example.com
+      disabled: true
+      description: Filter operations by host.
+    - key: hostname
+      value: www.example.com
+      disabled: true
+      description: Filter operations by host.
+    - key: method
+      value: GET
+      disabled: true
+      description: Filter operations by method.
+    - key: method
+      value: GET
+      disabled: true
+      description: Filter operations by method.
+    - key: endpoint
+      value: /api/v1/users/{var1}
+      disabled: true
+      description: Filter operations by endpoint. Allows substring matching.
+    - key: endpoint
+      value: /api/v1/users/{var1}
+      disabled: true
+      description: Filter operations by endpoint. Allows substring matching.
+  body:
+    type: json
+    content: |-
+      {
+        "exclude": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "include": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "available_hosts": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "excluded": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "ignored": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "included": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "operations": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "selected_hosts": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

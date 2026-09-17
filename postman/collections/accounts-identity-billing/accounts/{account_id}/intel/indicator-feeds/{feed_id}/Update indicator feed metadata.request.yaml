@@ -1,0 +1,36 @@
+$kind: http-request
+id: 523c8e85-ee06-57f0-bca7-6782a5cf78a2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: custom-indicator-feeds-update-indicator-feed-metadata
+  PUT /accounts/{account_id}/intel/indicator-feeds/{feed_id}
+
+  Revises details for a specific custom threat indicator feed.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/intel/indicator-feeds/{{feed_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "description": "This is an example description",
+      "is_attributable": true,
+      "is_downloadable": true,
+      "is_public": true,
+      "name": "indicator_list"
+    }
+auth:
+  type: noauth
+examples: ./.resources/Update indicator feed metadata.resources/examples
+order: 2000

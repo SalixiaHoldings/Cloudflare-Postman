@@ -1,0 +1,31 @@
+$kind: http-example
+id: 7cdd0b0e-405e-5c39-8500-ef6dcd673c70
+name: Edit TLS setting for hostname response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/hostnames/settings/{{setting_id}}/{{hostname}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

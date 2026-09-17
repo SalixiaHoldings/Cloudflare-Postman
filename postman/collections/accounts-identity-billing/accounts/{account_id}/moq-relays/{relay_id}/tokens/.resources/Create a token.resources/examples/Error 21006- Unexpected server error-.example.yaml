@@ -1,0 +1,40 @@
+$kind: http-example
+id: eff11ce3-2e06-53a1-be33-1bc0fc47ede6
+name: "Error 21006: Unexpected server error."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/moq/relays/{{relay_id}}/tokens"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "operations": [
+          "publish",
+          "subscribe"
+        ],
+        "expires": "2027-03-27T15:00:00Z",
+        "label": "primary-encoder"
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 21007,
+            "message": "A MoQ relay with this ID was not found."
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 5000

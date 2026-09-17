@@ -1,0 +1,25 @@
+$kind: http-request
+id: 76b9c567-3192-553b-9b31-32da4320082e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: waiting-room-preview-active-event-details
+  GET /zones/{zone_id}/waiting_rooms/{waiting_room_id}/events/{event_id}/details
+
+  Previews an event's configuration as if it was active. Inherited fields from the waiting room will be displayed with their current values.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/{{waiting_room_id}}/events/{{event_id}}/details"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Preview active event details.resources/examples
+order: 5000

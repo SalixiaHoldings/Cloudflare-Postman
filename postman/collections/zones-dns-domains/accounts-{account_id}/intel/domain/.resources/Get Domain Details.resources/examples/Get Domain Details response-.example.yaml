@@ -1,0 +1,40 @@
+$kind: http-example
+id: 7f7b9b84-6a1e-5d43-ac23-82e13942f1a4
+name: Get Domain Details response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/domain"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: domain
+      value: string
+      disabled: true
+    - key: skip_dns
+      value: "true"
+      disabled: true
+      description: Skip DNS resolution lookups for faster response.
+    - key: skip_ranking
+      value: "false"
+      disabled: true
+      description: |
+        Skip the domain ranking lookup for faster responses. Defaults to
+        `false` (ranking is included). Set to `true` to opt out — primarily
+        used by callers like Cloudflare Radar that need to avoid a
+        circular dependency when building the domain details page.
+        Note: the bulk endpoint (`/intel/domain/bulk`) uses opposite
+        defaults — see `include_ranking` there.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

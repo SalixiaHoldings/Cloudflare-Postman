@@ -1,0 +1,49 @@
+$kind: http-example
+id: 777d3de4-631d-5d21-abf4-a692a2a58e66
+name: Client error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/sending_domain_restrictions"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Current page within paginated list of results.
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: The number of results per page. Maximum value is 1000.
+    - key: search
+      value: string
+      disabled: true
+      description: Search term for filtering records. Behavior may change.
+    - key: order
+      value: domain
+      disabled: true
+      description: Field to sort by.
+    - key: direction
+      value: asc
+      disabled: true
+      description: The sorting direction.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,48 @@
+$kind: http-example
+id: c9f5ae7f-783d-5e2f-a1ed-dbd4e54f4af1
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/sites"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "site_1",
+        "connector_id": "ac60d3d0435248289d446cedd870bcf4",
+        "description": "string",
+        "ha_mode": true,
+        "location": {
+          "lat": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "lon": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "secondary_connector_id": "8d67040d3835dbcf46ce29da440dc482"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

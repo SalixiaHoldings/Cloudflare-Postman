@@ -1,0 +1,23 @@
+$kind: http-example
+id: ebedfb6a-63b9-5ec6-bcb3-3e18f3487d8a
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cf1_sites/{{cf1_site_id}}/ramps/{{ramp_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

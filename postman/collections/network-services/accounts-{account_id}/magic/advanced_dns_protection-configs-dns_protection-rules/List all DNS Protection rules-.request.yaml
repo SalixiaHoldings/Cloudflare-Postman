@@ -1,0 +1,43 @@
+$kind: http-request
+id: 3e1fe09b-b69f-5677-a762-1b30ceaa7703
+name: List all DNS Protection rules.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: listDnsProtectionRulesForAccount
+  GET /accounts/{account_id}/magic/advanced_dns_protection/configs/dns_protection/rules
+
+  List all DNS Protection rules for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 3375bc3f8659a3d95b9a57b3d9f65923376fc3a6eb9d8bcb7ad361a341520536
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_dns_protection/configs/dns_protection/rules"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "7134"
+    disabled: true
+    description: The page number for pagination. Defaults to 1.
+  - key: per_page
+    value: "7134"
+    disabled: true
+    description: The number of items per page. Must be between 10 and 1000. Defaults to 25.
+  - key: order
+    value: string
+    disabled: true
+    description: The field to order by. Defaults to 'prefix'.
+  - key: direction
+    value: string
+    disabled: true
+    description: The direction of ordering (ASC or DESC). Defaults to 'ASC'.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List all DNS Protection rules-.resources/examples
+order: 2000

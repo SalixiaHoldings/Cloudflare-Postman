@@ -1,0 +1,78 @@
+$kind: http-example
+id: 0f38c359-fc7c-5b62-bd9a-ad80fbef8c5c
+name: Successful response.
+request:
+  url: "{{base_url}}/radar/robots_txt/top/domain_categories"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: limit
+      value: "5"
+      disabled: true
+      description: Limits the number of objects returned in the response.
+    - key: name
+      value: main_series
+      disabled: true
+      description: Array of names used to label the series in the response.
+    - key: name
+      value: main_series
+      disabled: true
+      description: Array of names used to label the series in the response.
+    - key: userAgentCategory
+      value: AI
+      disabled: true
+      description: Filters results by user agent category.
+    - key: date
+      value: 1993-08-29
+      disabled: true
+      description: Filters results by the specified array of dates.
+    - key: date
+      value: 1988-07-19
+      disabled: true
+      description: Filters results by the specified array of dates.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "top_0": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "meta": {
+            "dateRange": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "confidenceInfo": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "normalization": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "lastUpdated": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "units": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        "success": true
+      }
+order: 1000

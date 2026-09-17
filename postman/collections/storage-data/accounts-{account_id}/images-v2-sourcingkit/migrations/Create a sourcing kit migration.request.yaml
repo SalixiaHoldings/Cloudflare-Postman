@@ -1,0 +1,45 @@
+$kind: http-request
+id: 0f36f457-01ff-5842-a18d-de364fc6ffcb
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: cloudflare-images-sourcingkit-create-migration
+  POST /accounts/{account_id}/images/v2/sourcingkit/migrations
+
+  Create a new migration from an existing source. The migration will import
+  objects from the source bucket into Cloudflare Images.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/migrations"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "sourceId": "4f707bc3-4191-06d0-89e2-1a4432e8e253",
+      "conflictBehaviour": "skip",
+      "excludedContentTypes": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "pathPrefix": "string",
+      "rootDirectory": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a sourcing kit migration.resources/examples
+order: 2000

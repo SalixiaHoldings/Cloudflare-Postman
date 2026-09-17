@@ -1,0 +1,61 @@
+$kind: http-example
+id: 7d80a0d7-f38b-5d94-86f2-de9b79ec9a84
+name: Failed to create the targets.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/infrastructure/targets/batch"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "hostname": "infra-access-target",
+          "ip": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "tags": {
+            "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "key_1": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        },
+        {
+          "hostname": "infra-access-target",
+          "ip": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "tags": {
+            "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        }
+      ]
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

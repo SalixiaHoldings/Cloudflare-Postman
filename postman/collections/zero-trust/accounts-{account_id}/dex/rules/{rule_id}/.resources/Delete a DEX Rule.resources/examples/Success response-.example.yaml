@@ -1,0 +1,20 @@
+$kind: http-example
+id: 5748a91d-a3d1-5d1e-a667-cb63144581fd
+name: Success response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/rules/{{rule_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": true
+      }
+order: 1000

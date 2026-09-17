@@ -1,0 +1,34 @@
+$kind: http-request
+id: 685b11ab-7157-5c3d-8df7-771a60a1b2af
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: flagship_list_flags
+  GET /accounts/{account_id}/flagship/apps/{app_id}/flags
+
+  Lists an app's flags ordered by key. Pass `cursor` from `result_info` to page forward; a null cursor indicates the last page.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: limit
+    value: string
+    disabled: true
+    description: Max items to return (1–200).
+  - key: cursor
+    value: string
+    disabled: true
+    description: Pagination cursor from a previous response.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List flags.resources/examples
+order: 1000

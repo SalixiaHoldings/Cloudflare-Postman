@@ -1,0 +1,45 @@
+$kind: http-example
+id: d8ad58c2-6c2a-53d1-b21e-8f8771cf2732
+name: Not Modified — client cache is current. Returned when the request includes an `If-None-Match` header matching the current ETag.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/extensions"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: name
+      value: com
+      disabled: true
+      description: |
+        Filter extensions by exact name match.
+        For example, `name=com` returns only the `com` extension.
+    - key: cursor
+      value: string
+      disabled: true
+      description: |
+        Opaque token from a previous response's `result_info.cursor`.
+        Pass this value to fetch the next page of results. Omit (or
+        pass an empty string) for the first page.
+    - key: per_page
+      value: "20"
+      disabled: true
+      description: Number of items to return per page.
+    - key: direction
+      value: asc
+      disabled: true
+      description: |
+        Sort direction for results. Defaults to ascending order.
+    - key: sort_by
+      value: name
+      disabled: true
+      description: |
+        Column to sort results by. Defaults to `name` when omitted.
+response:
+  statusCode: 304
+  statusText: Not Modified
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

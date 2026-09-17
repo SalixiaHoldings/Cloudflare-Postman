@@ -1,0 +1,43 @@
+$kind: http-request
+id: f411f2b9-7817-5978-8c32-a65d75781b7b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: user-agent-blocking-rules-list-user-agent-blocking-rules
+  GET /zones/{zone_id}/firewall/ua_rules
+
+  Fetches User Agent Blocking rules in a zone. You can filter the results using several optional parameters.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/firewall/ua_rules"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+  - key: description
+    value: abusive
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: user_agent
+    value: Safari
+    disabled: true
+  - key: paused
+    value: "false"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List User Agent Blocking rules.resources/examples
+order: 1000

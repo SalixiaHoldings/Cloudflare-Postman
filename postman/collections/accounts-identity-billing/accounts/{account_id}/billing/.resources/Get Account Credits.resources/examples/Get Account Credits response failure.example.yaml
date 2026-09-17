@@ -1,0 +1,29 @@
+$kind: http-example
+id: df2897b8-2e59-5630-8fb3-59c7a31a1d2e
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/billing/credits"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

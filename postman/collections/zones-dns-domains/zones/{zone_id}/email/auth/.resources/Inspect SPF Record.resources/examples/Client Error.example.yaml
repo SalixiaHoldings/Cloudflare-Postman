@@ -1,0 +1,31 @@
+$kind: http-example
+id: fd098ed3-cd90-5860-8f89-6690c062aefc
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/auth/spf/inspect?id=e5bb46707a802688812d5d1c9f7977d4"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: id
+      value: e5bb46707a802688812d5d1c9f7977d4
+      description: (Required) DNS record ID (rec_tag) to inspect
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

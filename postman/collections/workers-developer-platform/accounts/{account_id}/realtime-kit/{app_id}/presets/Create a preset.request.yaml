@@ -1,0 +1,161 @@
+$kind: http-request
+id: 4a845590-2e8b-585c-b5e1-5d902b65e064
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post-presets
+  POST /accounts/{account_id}/realtime/kit/{app_id}/presets
+
+  Creates a preset belonging to the current App
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/presets"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "config": {
+        "view_type": "GROUP_CALL",
+        "max_video_streams": {
+          "mobile": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "desktop": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "max_screenshare_count": 9696.994121186435,
+        "media": {
+          "video": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "screenshare": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "audio": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      },
+      "permissions": {
+        "accept_waiting_requests": true,
+        "can_accept_production_requests": true,
+        "can_edit_display_name": true,
+        "can_spotlight": false,
+        "recorder_type": "NONE",
+        "disable_participant_audio": true,
+        "disable_participant_screensharing": false,
+        "disable_participant_video": false,
+        "kick_participant": false,
+        "pin_participant": true,
+        "can_record": false,
+        "can_livestream": false,
+        "waiting_room_type": "SKIP",
+        "plugins": {
+          "can_close": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "can_start": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "can_edit_config": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "config": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "connected_meetings": {
+          "can_alter_connected_meetings": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "can_switch_connected_meetings": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "can_switch_to_parent_meeting": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "polls": {
+          "can_create": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "can_vote": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "can_view": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "media": {
+          "video": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "audio": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "screenshare": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "chat": {
+          "public": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "private": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "hidden_participant": false,
+        "show_participant_list": false,
+        "can_change_participant_permissions": true,
+        "accept_stage_requests": false,
+        "is_recorder": false,
+        "stage_access": "NOT_ALLOWED",
+        "stage_enabled": false,
+        "transcription_enabled": false
+      },
+      "ui": {
+        "design_tokens": {
+          "border_radius": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "border_width": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "spacing_base": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "theme": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "colors": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "font_family": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "google_font": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "logo": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a preset.resources/examples
+order: 2000

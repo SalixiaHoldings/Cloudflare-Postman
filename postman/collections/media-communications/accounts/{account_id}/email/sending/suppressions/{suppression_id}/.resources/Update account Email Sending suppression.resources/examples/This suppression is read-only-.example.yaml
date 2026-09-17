@@ -1,0 +1,42 @@
+$kind: http-example
+id: 266878bc-1c5e-5591-856d-d914ea59875f
+name: This suppression is read-only.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions/{{suppression_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "expires_at": "2027-01-01T00:00:00Z",
+        "note": "Customer re-confirmed opt-in"
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+order: 3000

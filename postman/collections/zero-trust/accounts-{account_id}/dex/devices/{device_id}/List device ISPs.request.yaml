@@ -1,0 +1,53 @@
+$kind: http-request
+id: 65be4b19-1ec6-565d-b369-d754c24f59ca
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dex-endpoints-list-device-isps
+  GET /accounts/{account_id}/dex/devices/{device_id}/isps
+
+  List ISP information observed for a specific device during traceroute tests.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/isps?per_page=10"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+    description: Page number of paginated results. Mutually exclusive with cursor.
+  - key: per_page
+    value: "10"
+    description: (Required) Number of items per page
+  - key: cursor
+    value: string
+    disabled: true
+    description: Cursor for cursor-based pagination. Mutually exclusive with page.
+  - key: sort_by
+    value: time_start
+    disabled: true
+    description: The field to sort results by.
+  - key: sort_order
+    value: DESC
+    disabled: true
+    description: The order to sort results.
+  - key: from
+    value: 1934-06-02T03:59:24.018Z
+    disabled: true
+    description: Start time for the query in ISO 8601 format.
+  - key: to
+    value: 1934-06-02T03:59:24.018Z
+    disabled: true
+    description: End time for the query in ISO 8601 format.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List device ISPs.resources/examples
+order: 2000

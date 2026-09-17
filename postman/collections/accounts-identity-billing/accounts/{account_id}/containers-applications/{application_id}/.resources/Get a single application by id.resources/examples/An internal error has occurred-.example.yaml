@@ -1,0 +1,28 @@
+$kind: http-example
+id: 9b5cc8c2-9a26-5e12-8bac-a3b7b35650a1
+name: An internal error has occurred.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 4000

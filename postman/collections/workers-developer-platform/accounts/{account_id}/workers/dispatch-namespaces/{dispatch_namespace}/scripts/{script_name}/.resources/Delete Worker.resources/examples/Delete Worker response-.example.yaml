@@ -1,0 +1,34 @@
+$kind: http-example
+id: 9f6575d5-0715-5756-82f5-58bb83dc4e6b
+name: Delete Worker response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts/{{script_name}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: force
+      value: "true"
+      disabled: true
+      description: If set to true, delete will not be stopped by associated service binding, durable object, or other binding. Any of these associated bindings/durable objects will be deleted along with the script.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": null
+      }
+order: 1000

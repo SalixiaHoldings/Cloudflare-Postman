@@ -1,0 +1,34 @@
+$kind: http-example
+id: 9ab21b9a-e684-5a6a-aecd-5011452c1ce4
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/page_shield/policies/{{policy_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "action": "allow",
+        "description": "Checkout page CSP policy",
+        "enabled": true,
+        "expression": "ends_with(http.request.uri.path, \"/checkout\")",
+        "value": "script-src 'none';"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "result": null
+      }
+order: 2000

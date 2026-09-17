@@ -1,0 +1,25 @@
+$kind: http-request
+id: bbc313e4-3805-542d-aae6-17e0c3963921
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: artifacts_repos_raw_get
+  GET /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}/raw/{ref}/{path}
+
+  Returns file bytes resolved by ref and path, with a sniffed content type and browser-safe response headers.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/raw/{{ref}}/{{path}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Read a raw file with content type.resources/examples
+order: 8000

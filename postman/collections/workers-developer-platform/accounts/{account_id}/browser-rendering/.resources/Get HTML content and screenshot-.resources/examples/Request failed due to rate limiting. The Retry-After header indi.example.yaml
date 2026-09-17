@@ -1,0 +1,48 @@
+$kind: http-example
+id: 92c218c1-841e-53a7-8989-f4c016f4beaf
+name: Request failed due to rate limiting. The Retry-After header indicates when the client should retry the request.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/snapshot"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cacheTTL
+      value: "5"
+      disabled: true
+      description: Cache TTL default is 5s. Set to 0 to disable.
+  body:
+    type: json
+    content: |-
+      {
+        "formats": [
+          "content",
+          "screenshot"
+        ],
+        "url": "https://www.example.com/"
+      }
+response:
+  statusCode: 429
+  statusText: Too Many Requests
+  headers:
+    - key: Retry-After
+      value: "60"
+      description: (Required) Number of seconds to wait before retrying the request.
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 2001,
+            "message": "Rate limit exceeded"
+          }
+        ],
+        "success": false
+      }
+order: 4000

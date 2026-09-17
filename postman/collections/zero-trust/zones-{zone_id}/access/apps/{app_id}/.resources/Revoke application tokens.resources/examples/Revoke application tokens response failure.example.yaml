@@ -1,0 +1,27 @@
+$kind: http-example
+id: a0033cfa-df1d-5710-9b05-52ad8a25129e
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/access/apps/{{app_id}}/revoke_tokens"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

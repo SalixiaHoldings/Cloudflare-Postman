@@ -1,0 +1,33 @@
+$kind: http-request
+id: 846ea614-823f-56d8-887a-cbe325d85421
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ip-address-management-prefix-delegation-create-prefix-delegation
+  POST /accounts/{account_id}/addressing/prefixes/{prefix_id}/delegations
+
+  Create a new account delegation for a given IP prefix.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/addressing/prefixes/{{prefix_id}}/delegations"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "cidr": "192.0.2.0/24",
+      "delegated_account_id": "b1946ac92492d2347c6235b4d2611184"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Prefix Delegation.resources/examples
+order: 2000

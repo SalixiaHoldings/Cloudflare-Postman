@@ -1,0 +1,54 @@
+$kind: http-example
+id: 082ec6b3-c245-5c15-8963-20cf719147b3
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/magic/connectors/{{connector_id}}/telemetry/events?from=324.4386496953666&to=324.4386496953666"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: from
+      value: "324.4386496953666"
+      description: "(Required) "
+    - key: to
+      value: "324.4386496953666"
+      description: "(Required) "
+    - key: limit
+      value: "324.4386496953666"
+      disabled: true
+    - key: cursor
+      value: string
+      disabled: true
+    - key: k
+      value: string
+      disabled: true
+      description: Filter by event kind
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 4000

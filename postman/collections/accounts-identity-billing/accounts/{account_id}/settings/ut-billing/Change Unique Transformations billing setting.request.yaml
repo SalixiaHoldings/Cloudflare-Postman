@@ -1,0 +1,35 @@
+$kind: http-request
+id: 779fd842-6abf-52dd-a566-0dfc2fed948d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: account-settings-change-ut-billing-setting
+  PATCH /accounts/{account_id}/settings/ut-billing
+
+  Updates the Unique Transformations billing configuration for an account.
+  When enabled, billing data is directed to the Transformations pipeline.
+  Note: setting the value to "off" is not permitted once enabled.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/settings/ut-billing"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": "on"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Change Unique Transformations billing setting.resources/examples
+order: 2000

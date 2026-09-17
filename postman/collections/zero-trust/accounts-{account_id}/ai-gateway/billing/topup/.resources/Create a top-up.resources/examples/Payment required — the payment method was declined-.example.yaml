@@ -1,0 +1,46 @@
+$kind: http-example
+id: d28b53e0-04f3-53d8-b6f3-f51c8da14805
+name: Payment required — the payment method was declined.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/topup"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "amount": 5000
+      }
+response:
+  statusCode: 402
+  statusText: Payment Required
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

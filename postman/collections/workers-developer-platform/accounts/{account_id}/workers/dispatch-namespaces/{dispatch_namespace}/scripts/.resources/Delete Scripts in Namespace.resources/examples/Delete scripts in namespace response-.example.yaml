@@ -1,0 +1,42 @@
+$kind: http-example
+id: a1e9918f-8808-527e-b521-be6de23480aa
+name: Delete scripts in namespace response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: tags
+      value: production:yes,staging:no
+      disabled: true
+      description: "Filter scripts by tags before deletion. Format: comma-separated list of tag:allowed pairs where allowed is 'yes' or 'no'."
+    - key: limit
+      value: "1000"
+      disabled: true
+      description: Limit the number of scripts to delete.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "deleted": [
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "id": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "deleted_count": 100,
+        "has_more": false
+      }
+order: 1000

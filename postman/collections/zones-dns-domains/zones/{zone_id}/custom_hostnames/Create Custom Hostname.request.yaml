@@ -1,0 +1,45 @@
+$kind: http-request
+id: 31a7a35f-b3a3-5e65-8d49-5b5cc06b4a99
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: custom-hostname-for-a-zone-create-custom-hostname
+  POST /zones/{zone_id}/custom_hostnames
+
+  Add a new custom hostname and request that an SSL certificate be issued for it. One of three validation methods—http, txt, email—should be used, with 'http' recommended if the CNAME is already in place (or will be soon). Specifying 'email' will send an email to the WHOIS contacts on file for the base domain plus hostmaster, postmaster, webmaster, admin, administrator. If http is used and the domain is not already pointing to the Managed CNAME host, the PATCH method must be used once it is (to complete validation).  Enable bundling of certificates using the custom_cert_bundle field. The bundling process requires the following condition One certificate in the bundle must use an RSA, and the other must use an ECDSA.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/custom_hostnames"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "hostname": "app.example.com",
+      "custom_metadata": {
+        "key_0": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "key_1": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "custom_origin_server": "origin2.example.com",
+      "custom_origin_sni": "sni.example.com",
+      "ssl": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Custom Hostname.resources/examples
+order: 2000

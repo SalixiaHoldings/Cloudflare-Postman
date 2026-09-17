@@ -1,0 +1,39 @@
+$kind: http-example
+id: 392d7ab3-9af1-5d84-9256-c36e22508566
+name: Patch Auto-Origin TLS KEX enrollment status failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/auto_origin_tls_kex"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1009,
+            "message": "Missing field 'enabled' in JSON body"
+          }
+        ],
+        "messages": [],
+        "result": {
+          "enabled": false,
+          "id": "auto_origin_tls_kex",
+          "modified_on": "2014-01-01T05:20:00.12345Z"
+        },
+        "success": false
+      }
+order: 2000

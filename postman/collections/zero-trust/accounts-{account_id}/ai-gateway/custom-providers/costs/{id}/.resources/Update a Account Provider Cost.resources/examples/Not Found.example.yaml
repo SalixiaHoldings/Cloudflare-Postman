@@ -1,0 +1,63 @@
+$kind: http-example
+id: 892372e2-30b2-5f74-a112-3263a314ed74
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/custom-providers/costs/{{id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "cost_in": 5644.867669325322,
+        "cost_out": 421.6822679154575,
+        "cost_type": "tokens",
+        "enable": false,
+        "model": "string",
+        "model_rule": "equals",
+        "token_pricing": {
+          "input_audio_tokens": 6933.114938437939,
+          "input_cache_creation_tokens": 5148.757223505527,
+          "input_cached_tokens": 666.7215144261718,
+          "input_image_count": 5686.406148597598,
+          "input_image_tokens": 5987.695681396872,
+          "input_text_tokens": 7431.142064742744,
+          "input_tokens": 1107.3984950780869,
+          "input_video_tokens": 937.004720326513,
+          "output_image_count": 2634.454669896513,
+          "output_reasoning_tokens": 1032.7048343606293,
+          "output_tokens": 3693.5570696368814,
+          "total_tokens": 455.9372807852924
+        }
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

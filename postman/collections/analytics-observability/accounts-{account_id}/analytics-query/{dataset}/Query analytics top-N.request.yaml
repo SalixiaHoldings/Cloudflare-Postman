@@ -1,0 +1,45 @@
+$kind: http-request
+id: ebc3c05d-b6d9-5702-8bd3-d1b57af3baf5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: art-analytics-query-top-n
+  POST /accounts/{account_id}/analytics/query/{dataset}/top-n
+
+  Returns the top N results for a dataset by a specified stat. Includes an array of result rows, each containing the requested stats and group-by dimensions.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/analytics/query/{{dataset}}/top-n"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "filters": [],
+      "from": "2024-11-05T00:00:00Z",
+      "groupBy": [
+        "appName",
+        "appCategory"
+      ],
+      "n": 10,
+      "orderBy": "bytesTotal",
+      "stats": [
+        "bytesTotal",
+        "requestsTotal"
+      ],
+      "to": "2024-11-06T00:00:00Z"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Query analytics top-N.resources/examples
+order: 3000

@@ -1,0 +1,28 @@
+$kind: http-request
+id: b889ccfb-b955-59ed-885f-e9f86c23d73e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone-settings-get-transformations-allowed-origins-setting
+  GET /zones/{zone_id}/settings/transformations_allowed_origins
+
+  Media Transformations Allowed Origins restricts transformations for images and video served through
+  Cloudflare's network to requests originating from specified domains. Refer to the
+  Image Transformations and Video Transformations documentation for more information.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/settings/transformations_allowed_origins"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Image Transformations Allowed Origins setting.resources/examples
+order: 1000

@@ -1,0 +1,27 @@
+$kind: http-request
+id: 4b93ec01-6fb8-5fa3-bd67-846c3bf246a8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: account-load-balancers-account-load-balancer-details
+  GET /accounts/{account_id}/load_balancers/{load_balancer_id}
+
+  Fetch a single configured account-scoped load balancer.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/load_balancers/{{load_balancer_id}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Account Load Balancer Details.resources/examples
+order: 2000

@@ -1,0 +1,92 @@
+$kind: http-request
+id: b20ff312-5683-575e-b95b-c059e1ca12b8
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-zone-security-center-insight-counts-by-type
+  GET /zones/{zone_id}/security-center/insights/type
+
+  Retrieves zone-specific Security Center insight counts aggregated by insight type.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/security-center/insights/type"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: dismissed
+    value: "false"
+    disabled: true
+  - key: issue_class
+    value: a_record_dangling
+    disabled: true
+  - key: issue_class
+    value: always_use_https_not_enabled
+    disabled: true
+  - key: issue_type
+    value: compliance_violation
+    disabled: true
+  - key: issue_type
+    value: email_security
+    disabled: true
+  - key: product
+    value: access
+    disabled: true
+  - key: product
+    value: dns
+    disabled: true
+  - key: source
+    value: cloudflare
+    disabled: true
+  - key: severity
+    value: low
+    disabled: true
+  - key: severity
+    value: moderate
+    disabled: true
+  - key: subject
+    value: example.com
+    disabled: true
+  - key: subject
+    value: example.com
+    disabled: true
+  - key: issue_class~neq
+    value: a_record_dangling
+    disabled: true
+  - key: issue_class~neq
+    value: always_use_https_not_enabled
+    disabled: true
+  - key: issue_type~neq
+    value: compliance_violation
+    disabled: true
+  - key: issue_type~neq
+    value: email_security
+    disabled: true
+  - key: product~neq
+    value: access
+    disabled: true
+  - key: product~neq
+    value: dns
+    disabled: true
+  - key: severity~neq
+    value: low
+    disabled: true
+  - key: severity~neq
+    value: moderate
+    disabled: true
+  - key: subject~neq
+    value: example.com
+    disabled: true
+  - key: subject~neq
+    value: example.com
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Retrieves Zone Security Center Insight Counts by Type.resources/examples
+order: 6000

@@ -1,0 +1,50 @@
+$kind: http-request
+id: 5ccf540d-4d85-5a98-ac8d-28a680598f21
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: CreatePolicy
+  POST /accounts/{account_id}/data-security/posture/policies
+
+  Creates a new policy configuration that defines automated actions to be executed 
+  when security findings are detected. A policy can include multiple remediation 
+  and/or webhook actions that will be triggered automatically.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/policies"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "display_name": "Auto-remediate public files",
+      "enabled": true,
+      "applies_to_all_integrations": false,
+      "finding_type_id": "5a7d9e2f-1b3c-4d5e-8f6a-7b8c9d0e1f2a",
+      "actions": {
+        "remediation_types": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "webhook_configs": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "description": "Automatically remove public access from files when detected",
+      "integration_ids": [
+        "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a new policy configuration.resources/examples
+order: 2000

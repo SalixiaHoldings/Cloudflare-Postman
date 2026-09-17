@@ -1,0 +1,35 @@
+$kind: http-request
+id: c98ec1f2-1f83-5061-93b9-64f2218ac600
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_EventTagCreate
+  POST /accounts/{account_id}/cloudforce-one/events/event_tag/{event_id}/create
+
+  Adds a tag to a threat event in Cloudforce One for classification and filtering.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/event_tag/{{event_id}}/create"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "tags": [
+        "botnet",
+        "botnet"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Adds a tag to an event.resources/examples
+order: 2000

@@ -1,0 +1,30 @@
+$kind: http-example
+id: ecdaefd8-8365-51db-8b89-82929487cae8
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/routing/addresses/{{destination_address_identifier}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "status": "verified"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

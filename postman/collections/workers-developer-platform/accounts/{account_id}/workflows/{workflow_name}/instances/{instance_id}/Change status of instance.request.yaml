@@ -1,0 +1,34 @@
+$kind: http-request
+id: f2c4b147-441f-570c-a9b2-8128c845f34a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: wor-change-status-workflow-instance
+  PATCH /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/status
+
+  Changes the execution status of a workflow instance (e.g., pause, resume, terminate).
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/status"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "status": "pause"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Change status of instance.resources/examples
+order: 4000

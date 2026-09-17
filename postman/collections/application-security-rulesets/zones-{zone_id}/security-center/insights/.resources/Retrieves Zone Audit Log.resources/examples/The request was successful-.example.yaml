@@ -1,0 +1,76 @@
+$kind: http-example
+id: 050c2ffd-258f-50e6-8970-0eaa87b07f5f
+name: The request was successful.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/security-center/insights/audit-log"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: per_page
+      value: "25"
+      disabled: true
+      description: Number of results per page.
+    - key: cursor
+      value: string
+      disabled: true
+      description: Opaque cursor for pagination. Use the cursor value from result_info of the previous response.
+    - key: field_changed
+      value: status
+      disabled: true
+      description: Filter by the field that was changed.
+    - key: changed_by
+      value: string
+      disabled: true
+      description: Filter by the actor that made the change.
+    - key: since
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
+      description: Filter entries changed at or after this timestamp (RFC 3339).
+    - key: before
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
+      description: Filter entries changed before this timestamp (RFC 3339).
+    - key: order
+      value: desc
+      disabled: true
+      description: Sort order for results. Use 'asc' for oldest first or 'desc' for newest first.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result_info": {
+          "count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "cursor": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "per_page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

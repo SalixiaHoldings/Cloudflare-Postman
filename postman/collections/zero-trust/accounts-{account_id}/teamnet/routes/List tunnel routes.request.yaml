@@ -1,0 +1,62 @@
+$kind: http-request
+id: 33fdbdc7-591a-56b5-a935-433015a4af0c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: tunnel-route-list-tunnel-routes
+  GET /accounts/{account_id}/teamnet/routes
+
+  Lists and filters private network routes in an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/teamnet/routes"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: comment
+    value: Example comment for this route.
+    disabled: true
+  - key: is_deleted
+    value: "false"
+    disabled: true
+  - key: network_subset
+    value: 172.16.0.0/16
+    disabled: true
+  - key: network_superset
+    value: 172.16.0.0/16
+    disabled: true
+  - key: existed_at
+    value: 2019-10-12T07%3A20%3A50.52Z
+    disabled: true
+  - key: tunnel_id
+    value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+    disabled: true
+  - key: route_id
+    value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+    disabled: true
+  - key: tun_types
+    value: cfd_tunnel
+    disabled: true
+  - key: tun_types
+    value: cfd_tunnel
+    disabled: true
+  - key: virtual_network_id
+    value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+    disabled: true
+  - key: per_page
+    value: <number>
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List tunnel routes.resources/examples
+order: 1000

@@ -1,0 +1,41 @@
+$kind: http-request
+id: be011d6c-f9cd-5f18-b733-661ed4572f60
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: patch_LegacyTagCategoryUpdate
+  PATCH /accounts/{account_id}/cloudforce-one/events/tags/categories/{category_uuid}
+
+  Deprecated; use PATCH /events/tag-categories/{category_uuid}. Available through 2026-11-28.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/categories/{{category_uuid}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "description": "string",
+      "name": "string",
+      "schema": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Updates a tag category (SoT).resources/examples
+order: 3000

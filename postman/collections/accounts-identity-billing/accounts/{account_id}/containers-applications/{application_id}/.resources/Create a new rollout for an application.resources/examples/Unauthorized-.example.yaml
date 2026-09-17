@@ -1,0 +1,70 @@
+$kind: http-example
+id: 354e64b6-7ff2-5145-a114-3ebc0ec1c06a
+name: Unauthorized.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/rollouts"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "target_configuration": {
+          "authorized_keys": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "command": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "entrypoint": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "environment_variables": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "image": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "instance_type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "observability": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "strategy": "rolling",
+        "description": "string",
+        "kind": "full_auto",
+        "percentage": 1,
+        "step_percentage": 20,
+        "steps": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

@@ -1,0 +1,42 @@
+$kind: http-example
+id: f37f44af-e8d6-5de1-9189-4ecfe88a236c
+name: Returns a AI Search Item detail.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items/{{item_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "id": "string",
+          "key": "string",
+          "status": "queued",
+          "next_action": null,
+          "checksum": "string",
+          "namespace": "string",
+          "chunks_count": 7871,
+          "file_size": 4512.552656233311,
+          "metadata": {
+            "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "key_1": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "source_id": "string",
+          "last_seen_at": "1934-02-06T11:15:56.894Z",
+          "created_at": "1965-08-22T08:20:30.705Z",
+          "error": "string"
+        }
+      }
+order: 1000

@@ -1,0 +1,31 @@
+$kind: http-request
+id: 2bfa4980-b978-5a90-bb0e-365dc131e282
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: sandbox-registrar-domain-registration-get
+  GET /accounts/{account_id}/registrar-sandbox/registrations/{domain_name}
+
+  Returns the current state of a domain registration.
+
+  This is the canonical read endpoint for a domain you own. It returns
+  the full registration resource including current settings and expiration.
+  When the registration resource is ready, both `created_at` and `expires_at`
+  are present in the response.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/registrations/{{domain_name}}"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Registration.resources/examples
+order: 1000

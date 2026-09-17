@@ -1,0 +1,76 @@
+$kind: http-request
+id: 41bec7c4-f695-59b1-bceb-f1525cf901bf
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: magic-ipsec-tunnels-create-ipsec-tunnels
+  POST /accounts/{account_id}/magic/ipsec_tunnels
+
+  Creates a new IPsec tunnel associated with an account. Use `?validate_only=true` as an optional query parameter to only run validation without persisting changes.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/ipsec_tunnels"
+method: POST
+headers:
+  - key: x-magic-new-hc-target
+    value: "true"
+    description: If true, the health check target in the request and response bodies will be presented using the new object format. Defaults to false.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+  - key: X-Auth-Email
+    value: "{{api_email}}"
+  - key: X-Auth-Key
+    value: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "cloudflare_endpoint": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "interface_address": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "automatic_return_routing": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "bgp": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "custom_remote_identities": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "customer_endpoint": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "description": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "health_check": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "interface_address6": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "psk": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "replay_protection": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create an IPsec tunnel.resources/examples
+order: 2000

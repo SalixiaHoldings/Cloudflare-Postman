@@ -1,0 +1,102 @@
+$kind: http-example
+id: fc7e205c-3e07-52db-aae2-ae4acc881404
+name: Threat Signals response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/articles"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: cursor
+      value: string
+      disabled: true
+      description: Opaque cursor from a previous response's `next_cursor`. When provided, pagination, ordering, totals, and article filters come from the cursor. Sending `per_page`, `sort`, `include_total`, or any article filter alongside it returns a 400 `CursorFilterConflictError`.
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: feed_id
+      value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
+      disabled: true
+    - key: article_id
+      value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
+      disabled: true
+    - key: read
+      value: "true"
+      disabled: true
+    - key: tag_id
+      value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
+      disabled: true
+    - key: tag
+      value: string
+      disabled: true
+    - key: tag_category
+      value: string
+      disabled: true
+    - key: include_total
+      value: "false"
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+    - key: published_after
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
+    - key: published_before
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
+    - key: fetched_after
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
+    - key: fetched_before
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
+    - key: feed_category
+      value: string
+      disabled: true
+    - key: source_type
+      value: custom
+      disabled: true
+    - key: tag_applied_by
+      value: ai
+      disabled: true
+    - key: sort
+      value: -fetched_at
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "articles": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "next_cursor": "string",
+          "has_more": false,
+          "total_count": 3363.24832867831,
+          "total_count_is_exact": true
+        },
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

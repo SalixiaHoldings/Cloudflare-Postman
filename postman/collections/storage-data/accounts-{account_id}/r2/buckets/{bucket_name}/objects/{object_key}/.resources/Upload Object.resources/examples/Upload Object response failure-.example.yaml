@@ -1,0 +1,50 @@
+$kind: http-example
+id: de107526-515b-58a1-8072-cc1965ba0008
+name: Upload Object response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects/{{object_key}}"
+  method: PUT
+  headers:
+    - key: cf-r2-jurisdiction
+      value: default
+    - key: Content-Length
+      value: "1081"
+    - key: cf-r2-storage-class
+      value: Standard
+      description: Storage class for this object. Overrides the bucket default.
+    - key: Content-Type
+      value: application/octet-stream
+    - key: Accept
+      value: application/json
+  body:
+    type: file
+    content: {}
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": null
+      }
+order: 2000

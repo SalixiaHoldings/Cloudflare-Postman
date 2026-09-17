@@ -1,0 +1,37 @@
+$kind: http-example
+id: b91d4ad0-6596-528e-ba43-59e2446ef228
+name: The created custom domain and the CNAME target to configure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/custom-domains"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "domain": "ai.acme.com",
+        "zone_id": "{{zone_id}}",
+        "minTLS": "1.2"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "hostname": "string",
+          "gateway_id": "string",
+          "status": "active",
+          "cname_target": "string",
+          "created_at": 1717459200000,
+          "modified_at": 1717459200000
+        }
+      }
+order: 1000

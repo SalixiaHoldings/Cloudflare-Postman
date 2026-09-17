@@ -1,0 +1,26 @@
+$kind: http-example
+id: 48851e4f-b731-5849-b97e-6dd8db525641
+name: Returns suppression.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/sending/suppression/{{suppression_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": "5a5cceca-b31b-2af9-cb64-a0a94254cec9",
+          "email": "user@example.com",
+          "reason": "hard_bounce",
+          "created_at": "1968-10-12T01:28:26.502Z",
+          "expires_at": "1971-08-12T10:42:49.764Z"
+        }
+      }
+order: 1000

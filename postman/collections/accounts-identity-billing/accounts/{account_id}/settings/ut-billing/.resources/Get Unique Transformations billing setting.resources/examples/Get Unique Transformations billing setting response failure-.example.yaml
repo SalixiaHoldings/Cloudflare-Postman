@@ -1,0 +1,28 @@
+$kind: http-example
+id: b022007c-0b65-52ce-a04d-534e3b03c8ab
+name: Get Unique Transformations billing setting response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/settings/ut-billing"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": {}
+      }
+order: 2000

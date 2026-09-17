@@ -1,0 +1,39 @@
+$kind: http-example
+id: 2ee7b0bc-4a91-5eef-a58d-1ab8a7dd96cf
+name: Validate buckets for full packet captures response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pcaps/ownership/validate"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "destination_conf": "s3://pcaps-bucket?region=us-east-1",
+        "ownership_challenge": "ownership-challenge-9883874ecac311ec8475433579a6bf5f.txt"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

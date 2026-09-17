@@ -1,0 +1,92 @@
+$kind: http-request
+id: e4a04dde-b747-55c9-b233-81995e2565d5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: get-security-center-issue-counts-by-type
+  GET /accounts/{account_id}/intel/attack-surface-report/issues/type
+
+  Retrieves Security Center issue counts aggregated by issue type.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 2166703635048cb52bd52578312a0ab280aacd393c36672621bcc540c3911741
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/intel/attack-surface-report/issues/type"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: dismissed
+    value: "false"
+    disabled: true
+  - key: issue_class
+    value: a_record_dangling
+    disabled: true
+  - key: issue_class
+    value: always_use_https_not_enabled
+    disabled: true
+  - key: issue_type
+    value: compliance_violation
+    disabled: true
+  - key: issue_type
+    value: email_security
+    disabled: true
+  - key: product
+    value: access
+    disabled: true
+  - key: product
+    value: dns
+    disabled: true
+  - key: source
+    value: cloudflare
+    disabled: true
+  - key: severity
+    value: low
+    disabled: true
+  - key: severity
+    value: moderate
+    disabled: true
+  - key: subject
+    value: example.com
+    disabled: true
+  - key: subject
+    value: example.com
+    disabled: true
+  - key: issue_class~neq
+    value: a_record_dangling
+    disabled: true
+  - key: issue_class~neq
+    value: always_use_https_not_enabled
+    disabled: true
+  - key: issue_type~neq
+    value: compliance_violation
+    disabled: true
+  - key: issue_type~neq
+    value: email_security
+    disabled: true
+  - key: product~neq
+    value: access
+    disabled: true
+  - key: product~neq
+    value: dns
+    disabled: true
+  - key: severity~neq
+    value: low
+    disabled: true
+  - key: severity~neq
+    value: moderate
+    disabled: true
+  - key: subject~neq
+    value: example.com
+    disabled: true
+  - key: subject~neq
+    value: example.com
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Retrieves Security Center Issue Counts by Type.resources/examples
+order: 4000

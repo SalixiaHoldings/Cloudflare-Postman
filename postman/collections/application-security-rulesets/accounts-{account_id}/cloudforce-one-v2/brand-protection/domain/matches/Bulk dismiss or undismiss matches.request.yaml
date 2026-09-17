@@ -1,0 +1,45 @@
+$kind: http-request
+id: e7b838b1-711c-51c5-b06b-46eeb6cd382d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_BulkDismissMatches
+  POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/domain/matches/bulk-dismiss
+
+  Dismiss or undismiss multiple matches in a single request. Accepts either the new format (matches: [{query_id, domain_id}]) for per-query control, or the legacy format (match_ids: [number]) which dismisses for all queries sharing each match's hash. Returns per-item success/error results.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/domain/matches/bulk-dismiss"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "action": "undismiss",
+      "match_ids": [
+        5399
+      ],
+      "matches": [
+        {
+          "query_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "domain_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Bulk dismiss or undismiss matches.resources/examples
+order: 2000

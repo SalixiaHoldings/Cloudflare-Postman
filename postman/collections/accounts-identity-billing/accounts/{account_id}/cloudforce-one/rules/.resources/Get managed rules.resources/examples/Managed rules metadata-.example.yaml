@@ -1,0 +1,41 @@
+$kind: http-example
+id: 30f1c21f-1c4f-5c28-91b6-341ab44128ec
+name: Managed rules metadata.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/managed"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "rules": [
+          {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "name": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "metadata": {
+          "total_rules": 9400.163122918457,
+          "fetched_at": "string"
+        }
+      }
+order: 1000

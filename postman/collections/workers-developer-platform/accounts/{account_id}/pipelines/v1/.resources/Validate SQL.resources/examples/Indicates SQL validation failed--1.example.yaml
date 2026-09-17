@@ -1,0 +1,24 @@
+$kind: http-example
+id: cf1b5d71-5c76-51c7-b982-6089df5f0b97
+name: Indicates SQL validation failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/validate_sql"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "sql": "insert into sink select * from source;"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

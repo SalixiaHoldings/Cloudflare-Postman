@@ -1,0 +1,34 @@
+$kind: http-example
+id: 9b82b419-c7e2-53f1-8cdd-bdd2dfb5e65b
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/page_shield/policies/{{policy_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "action": "allow",
+        "description": "Checkout page CSP policy",
+        "enabled": true,
+        "expression": "ends_with(http.request.uri.path, \"/checkout\")",
+        "value": "script-src 'none';"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

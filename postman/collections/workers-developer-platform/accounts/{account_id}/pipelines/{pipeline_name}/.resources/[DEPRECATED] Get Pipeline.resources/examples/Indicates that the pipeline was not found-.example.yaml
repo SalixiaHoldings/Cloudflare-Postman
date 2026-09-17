@@ -1,0 +1,22 @@
+$kind: http-example
+id: d16ce928-26b1-5a8e-9af9-d73593c5d496
+name: Indicates that the pipeline was not found.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/{{pipeline_name}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "results": {},
+        "errors": []
+      }
+order: 2000

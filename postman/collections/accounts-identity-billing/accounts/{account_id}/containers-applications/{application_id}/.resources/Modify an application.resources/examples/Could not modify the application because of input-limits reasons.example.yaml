@@ -1,0 +1,53 @@
+$kind: http-example
+id: c60cbe47-caac-5e31-92d5-b34eee2d0b64
+name: Could not modify the application because of input/limits reasons, more details in the error code.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "configuration": {
+          "authorized_keys": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "constraints": {
+          "jurisdiction": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "regions": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "max_instances": 3126,
+        "observability": {
+          "description": "Top-level application observability settings. Scheduler-backed applications\nhot-reload these settings across existing instances. An existing Durable\nObject-managed application accepts only `logs.enabled` and publishes these settings\nto runtime metadata without creating deployments or rollouts.\n",
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "rollout_active_grace_period": 0
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

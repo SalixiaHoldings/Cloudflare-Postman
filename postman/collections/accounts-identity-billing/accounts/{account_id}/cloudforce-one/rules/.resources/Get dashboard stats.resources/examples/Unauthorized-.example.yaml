@@ -1,0 +1,20 @@
+$kind: http-example
+id: 08639b18-3e7d-5a7a-af27-f1f38c6d8afa
+name: Unauthorized.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/stats"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 2000

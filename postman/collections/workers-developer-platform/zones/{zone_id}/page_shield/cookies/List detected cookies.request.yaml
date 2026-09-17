@@ -1,0 +1,68 @@
+$kind: http-request
+id: 4e280d81-e0e3-5034-84ba-eefb16429d17
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: page-shield-list-cookies
+  GET /zones/{zone_id}/page_shield/cookies
+
+  Lists cookies detected on the zone.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/page_shield/cookies"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: hosts
+    value: blog.cloudflare.com,www.example*,*cloudflare.com
+    disabled: true
+  - key: page
+    value: string
+    disabled: true
+  - key: per_page
+    value: "100"
+    disabled: true
+  - key: order_by
+    value: first_seen_at
+    disabled: true
+  - key: direction
+    value: asc
+    disabled: true
+  - key: page_url
+    value: example.com/page,*/checkout,example.com/*,*checkout*
+    disabled: true
+  - key: export
+    value: csv
+    disabled: true
+  - key: name
+    value: session_id
+    disabled: true
+  - key: secure
+    value: "true"
+    disabled: true
+  - key: http_only
+    value: "true"
+    disabled: true
+  - key: same_site
+    value: strict
+    disabled: true
+  - key: type
+    value: first_party
+    disabled: true
+  - key: path
+    value: /
+    disabled: true
+  - key: domain
+    value: example.com
+    disabled: true
+auth:
+  type: noauth
+examples: ./.resources/List detected cookies.resources/examples
+order: 1000

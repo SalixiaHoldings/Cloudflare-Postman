@@ -1,0 +1,80 @@
+$kind: http-request
+id: 625d1be3-64ed-5af7-b4e0-b64ec51b715a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zero-trust-accounts-update-zero-trust-account-configuration.
+  PUT /accounts/{account_id}/gateway/configuration
+
+  Update the current Zero Trust account configuration.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/gateway/configuration"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "settings": {
+        "activity_log": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "antivirus": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "block_page": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "body_scanning": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "browser_isolation": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "certificate": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "custom_certificate": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "extended_email_matching": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "fips": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "host_selector": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "inspection": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "max_ttl_secs": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "protocol_detection": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "sandbox": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "tls_decrypt": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Zero Trust account configuration.resources/examples
+order: 3000

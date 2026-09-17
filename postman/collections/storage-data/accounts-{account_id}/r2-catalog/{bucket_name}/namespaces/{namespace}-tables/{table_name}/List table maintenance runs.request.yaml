@@ -1,0 +1,32 @@
+$kind: http-request
+id: 4d3b3dd7-4306-5ac6-bdf6-5161161cffe1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: list-table-maintenance-runs
+  GET /accounts/{account_id}/r2-catalog/{bucket_name}/namespaces/{namespace}/tables/{table_name}/maintenance-runs
+
+  Retrieves recent table maintenance runs for the current table.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/namespaces/{{namespace}}/tables/{{table_name}}/maintenance-runs"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page_size
+    value: "9"
+    disabled: true
+  - key: page_token
+    value: string
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List table maintenance runs.resources/examples
+order: 3000

@@ -1,0 +1,29 @@
+$kind: http-request
+id: 5421be06-6d0f-59d1-9484-6131a9d34f8e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: delete_TagRelationshipDelete
+  DELETE /accounts/{account_id}/cloudforce-one/events/tags/{tag_uuid}/relationships/{rel_uuid}
+
+  Deletes a relationship by UUID. Idempotent: returns deleted=false if not found. Requires datasetId query param.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/relationships/{{rel_uuid}}?datasetId=string"
+method: DELETE
+headers:
+  Accept: application/json
+queryParams:
+  - key: datasetId
+    value: string
+    description: (Required) Dataset UUID containing the relationship.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete a tag relationship.resources/examples
+order: 1000

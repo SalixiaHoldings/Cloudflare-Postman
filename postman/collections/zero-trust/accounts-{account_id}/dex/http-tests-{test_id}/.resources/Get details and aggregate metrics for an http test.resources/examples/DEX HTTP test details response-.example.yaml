@@ -1,0 +1,44 @@
+$kind: http-example
+id: 08febb1f-39f4-55ab-8cf6-919c407cf61c
+name: DEX HTTP test details response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/http-tests/{{test_id}}?from=string&to=string&interval=hour"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: deviceId
+      value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
+      description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+    - key: deviceId
+      value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
+      description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+    - key: from
+      value: string
+      description: (Required) Start time for aggregate metrics in ISO ms.
+    - key: to
+      value: string
+      description: (Required) End time for aggregate metrics in ISO ms.
+    - key: interval
+      value: hour
+      description: (Required) Time interval for aggregate time slots.
+    - key: colo
+      value: SJC
+      disabled: true
+      description: Optionally filter result stats to a Cloudflare colo. Cannot be used in combination with deviceId param.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

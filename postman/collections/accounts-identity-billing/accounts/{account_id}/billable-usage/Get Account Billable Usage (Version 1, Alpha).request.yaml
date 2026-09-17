@@ -1,0 +1,37 @@
+$kind: http-request
+id: af191d99-8520-5511-a210-51ec335f727f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: billable-usage-get-v1-account-usage
+  GET /accounts/{account_id}/billable-usage
+
+  Returns billable usage data for the account.
+  When no query parameters are provided, returns usage for the current
+  billing period.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/billable-usage"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: from
+    value: 2025-05-01
+    disabled: true
+    description: Start date for the usage query (ISO 8601). The provided time range must include the subscription billing cycle anchor day, otherwise no usage data is returned. Use the info endpoint to retrieve the subscription anchor day.
+  - key: to
+    value: 2025-05-31
+    disabled: true
+    description: End date for the usage query (ISO 8601).
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Account Billable Usage (Version 1, Alpha).resources/examples
+order: 1000

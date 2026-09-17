@@ -1,0 +1,44 @@
+$kind: http-example
+id: a56a18ac-8f45-50aa-b229-7e8556357bd8
+name: Indicates the request failed.
+request:
+  url: "{{base_url}}/organizations/{{organization_id}}/billable/usage"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: from
+      value: 2025-05-01
+      disabled: true
+      description: Start date for the usage query (ISO 8601). Required if `to` is set. When omitted along with `to`, defaults to the start of the current month. Filters by charge period (when consumption happened), not billing period. The maximum date range is 31 days.
+    - key: to
+      value: 2025-05-31
+      disabled: true
+      description: End date for the usage query (ISO 8601). Required if `from` is set. When omitted along with `from`, defaults to today. Filters by charge period (when consumption happened), not billing period. The maximum date range is 31 days.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 1183,
+            "message": "Invalid request parameters: Please ensure all required parameters are included and correctly formatted."
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 2000

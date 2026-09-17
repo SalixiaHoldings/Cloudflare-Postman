@@ -1,0 +1,24 @@
+$kind: http-example
+id: ecd0b5ed-a763-5455-a87d-d126d877007a
+name: List all email scanner rules response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/email/rules"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

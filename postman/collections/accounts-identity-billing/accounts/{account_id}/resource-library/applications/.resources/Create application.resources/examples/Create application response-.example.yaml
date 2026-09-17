@@ -1,0 +1,56 @@
+$kind: http-example
+id: a0022683-2f2a-586d-86d2-9f5b0bc9b87d
+name: Create application response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/resource-library/applications"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "HR",
+        "human_id": "HR",
+        "category_id": 12,
+        "hostnames": [
+          "example.com",
+          "foo.com"
+        ],
+        "ip_subnets": [
+          "192.168.1.0/24",
+          "10.0.0.0/8"
+        ],
+        "port_protocols": [
+          "tcp/80",
+          "tcp/443"
+        ],
+        "support_domains": [
+          "example.com",
+          "foo.com"
+        ]
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

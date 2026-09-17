@@ -1,0 +1,30 @@
+$kind: http-example
+id: 9487b0c2-4ce1-5e18-972d-cc348ec7b8f2
+name: Create Client Certificate Response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/client_certificates"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICY....\n-----END CERTIFICATE REQUEST-----",
+        "validity_days": 3650
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

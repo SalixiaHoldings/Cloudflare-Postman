@@ -1,0 +1,25 @@
+$kind: http-request
+id: 4453e088-8935-569a-96c6-5185c7c99308
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: custom-hostname-for-a-zone-get-custom-hostname-quota
+  GET /zones/{zone_id}/custom_hostnames/quota
+
+  Returns custom hostname quota usage for a zone. The allocated quota is a soft limit; creating custom hostnames after usage exceeds this limit can still succeed until the hard cap is reached. Use the exceeded and hard_cap fields to track when usage is above the soft limit and when new custom hostname creation will be rejected.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/custom_hostnames/quota"
+method: GET
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Custom Hostname Quota.resources/examples
+order: 4000

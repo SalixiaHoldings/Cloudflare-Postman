@@ -1,0 +1,48 @@
+$kind: http-example
+id: 74c1e0f2-9090-59fc-b518-428a8dde3dd3
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/challenges/widgets/{{sitekey}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "blog.cloudflare.com login form",
+        "mode": "invisible",
+        "domains": [
+          "203.0.113.1",
+          "cloudflare.com",
+          "blog.example.com"
+        ],
+        "bot_fight_mode": false,
+        "clearance_level": "interactive",
+        "ephemeral_id": false,
+        "offlabel": false,
+        "region": "world"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

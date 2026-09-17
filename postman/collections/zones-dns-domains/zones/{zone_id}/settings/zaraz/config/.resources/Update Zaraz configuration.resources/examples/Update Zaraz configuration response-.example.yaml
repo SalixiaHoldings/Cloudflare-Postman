@@ -1,0 +1,107 @@
+$kind: http-example
+id: 39b7ec79-a3e3-5412-9f11-528059293d66
+name: Update Zaraz configuration response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/zaraz/config"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "consent": {
+          "cookieName": "zaraz-consent",
+          "customIntroDisclaimerDismissed": true,
+          "enabled": false
+        },
+        "dataLayer": true,
+        "debugKey": "my-debug-key",
+        "settings": {
+          "autoInjectScript": true,
+          "ecommerce": true,
+          "initPath": "/i"
+        },
+        "tools": {
+          "aJvt": {
+            "actions": {
+              "hrnc": {
+                "actionType": "pageview",
+                "blockingTriggers": [],
+                "data": {
+                  "__zaraz_setting_name": "Page view",
+                  "ev": "PageView"
+                },
+                "firingTriggers": [
+                  "Pageview"
+                ]
+              }
+            },
+            "component": "facebook-pixel",
+            "defaultFields": {
+              "testKey": "TEST123456"
+            },
+            "enabled": true,
+            "name": "Facebook Pixel",
+            "permissions": [
+              "access_client_kv"
+            ],
+            "settings": {
+              "accessToken": "{{accesstoken}}",
+              "ecommerce": true,
+              "property": "12345"
+            },
+            "type": "component"
+          }
+        },
+        "triggers": {
+          "ktBn": {
+            "Pageview": {
+              "clientRules": [],
+              "description": "All page loads",
+              "excludeRules": [],
+              "loadRules": [
+                {
+                  "match": "{{ client.__zarazTrack }}",
+                  "op": "EQUALS",
+                  "value": "Pageview"
+                }
+              ],
+              "name": "Pageview",
+              "system": "pageload"
+            }
+          }
+        },
+        "variables": {
+          "Autd": {
+            "name": "ip",
+            "type": "string",
+            "value": "{{ system.device.ip }}"
+          }
+        },
+        "zarazVersion": 43
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

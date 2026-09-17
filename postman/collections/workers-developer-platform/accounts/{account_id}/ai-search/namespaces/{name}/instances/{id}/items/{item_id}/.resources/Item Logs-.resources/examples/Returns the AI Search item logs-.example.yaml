@@ -1,0 +1,81 @@
+$kind: http-example
+id: 5ad12c23-997e-5ecc-bc65-00f16615d754
+name: Returns the AI Search item logs.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items/{{item_id}}/logs"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: limit
+      value: "50"
+      disabled: true
+    - key: cursor
+      value: string
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": [
+          {
+            "timestamp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "action": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "fileKey": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "chunkCount": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "processingTimeMs": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "errorType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "timestamp": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "action": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "fileKey": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "chunkCount": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "processingTimeMs": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "errorType": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "count": 5637,
+          "per_page": 5419,
+          "cursor": "string",
+          "truncated": false
+        }
+      }
+order: 1000

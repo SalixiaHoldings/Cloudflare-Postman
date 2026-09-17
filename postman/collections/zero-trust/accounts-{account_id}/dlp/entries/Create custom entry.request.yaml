@@ -1,0 +1,45 @@
+$kind: http-request
+id: c85dddd2-2a4a-5031-9c20-209dfc158de9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dlp-entries-create-entry
+  POST /accounts/{account_id}/dlp/entries
+
+  Creates a DLP custom entry.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/dlp/entries"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "pattern": {
+        "regex": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "validation": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "enabled": false,
+      "description": "string",
+      "profile_id": "1d988d25-1f73-7852-5ed7-a7fe936dc1f1"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create custom entry.resources/examples
+order: 2000

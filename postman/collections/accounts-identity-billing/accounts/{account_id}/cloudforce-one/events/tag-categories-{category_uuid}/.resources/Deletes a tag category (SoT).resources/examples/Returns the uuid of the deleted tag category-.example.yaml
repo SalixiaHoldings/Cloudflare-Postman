@@ -1,0 +1,20 @@
+$kind: http-example
+id: 41ca65d5-fc8b-55c7-92ba-c61460cfb55f
+name: Returns the uuid of the deleted tag category.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tag-categories/{{category_uuid}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "uuid": "12345678-1234-1234-1234-1234567890ab"
+      }
+order: 1000

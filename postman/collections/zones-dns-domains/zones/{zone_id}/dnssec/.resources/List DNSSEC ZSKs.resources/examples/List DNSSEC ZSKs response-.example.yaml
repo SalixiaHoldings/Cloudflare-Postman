@@ -1,0 +1,27 @@
+$kind: http-example
+id: c8651d7a-c711-5395-8c0e-fe11cd3c7a5c
+name: List DNSSEC ZSKs response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/dnssec/zsk"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

@@ -1,0 +1,38 @@
+$kind: http-request
+id: 5edce803-1f45-5f13-af31-d47c32f3ee5c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: SubmitAbuseReport
+  POST /accounts/{account_id}/abuse-reports/{report_param}
+
+  Submit an abuse report of a particular type.
+
+  Requires the abuse-reports entitlement on the account (Enterprise
+  accounts have it by default; other accounts must request access) and an
+  API token with the `Account > Abuse Reports > Edit` permission. If the
+  account is not entitled, the request is rejected with an HTTP `401`
+  response (see below).
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/{{report_param}}"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": "<Error: Too many levels of nesting to fake this schema>"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Submit an abuse report.resources/examples
+order: 2000

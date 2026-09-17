@@ -1,0 +1,25 @@
+$kind: http-request
+id: 9c8100d1-18c0-5bd7-b225-13d18cf87e1d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_DismissMatch
+  POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/queries/{query_id}/matches/{domain_id}/dismiss
+
+  Mark a specific domain as dismissed for a given query. Dismissals are per-query — dismissing a domain in one query does not affect other queries.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/queries/{{query_id}}/matches/{{domain_id}}/dismiss"
+method: POST
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Dismiss a match.resources/examples
+order: 1000

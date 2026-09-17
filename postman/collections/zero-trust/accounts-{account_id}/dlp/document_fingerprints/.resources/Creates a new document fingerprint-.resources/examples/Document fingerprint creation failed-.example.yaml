@@ -1,0 +1,39 @@
+$kind: http-example
+id: 50e3bfed-5443-5abf-b168-39091779a378
+name: Document fingerprint creation failed.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/document_fingerprints"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "match_percent": 8045,
+        "description": ""
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

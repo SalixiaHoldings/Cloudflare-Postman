@@ -1,0 +1,48 @@
+$kind: http-example
+id: e084cf11-ebab-520b-8492-5242783f9bb0
+name: Change Transformations configuration response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/settings/transformations_config"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "value": {
+          "allowed_origins": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "c2pa": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "transformations": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

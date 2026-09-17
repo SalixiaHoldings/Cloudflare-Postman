@@ -1,0 +1,36 @@
+$kind: http-request
+id: 06b27eda-3a07-59ee-8458-8f335bbd01cb
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: share-recipient-delete
+  DELETE /accounts/{account_id}/shares/{share_id}/recipients/{recipient_id}
+
+  Performs a **soft delete**: sets the recipient's
+  `desired_association_status` to `disassociated`, which signals the
+  background reconciliation workflow (Temporal) to remove the shared
+  resources from the recipient account. The recipient record remains in
+  the database for audit purposes and is still returned by
+  `GET /accounts/{account_id}/shares/{share_id}/recipients` with its
+  updated status.
+
+  Resource access is not fully removed until the workflow completes and
+  `current_association_status` transitions to `disassociated`. The
+  recipient record itself is never physically deleted.
+
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/recipients/{{recipient_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: noauth
+examples: ./.resources/Delete a share recipient.resources/examples
+order: 1000

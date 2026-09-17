@@ -1,0 +1,23 @@
+$kind: http-example
+id: 4dd16b02-8623-5779-9b11-d2363dbe5684
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/client-secret"
+  method: POST
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "client_secret": "{{client_secret}}"
+        }
+      }
+order: 1000

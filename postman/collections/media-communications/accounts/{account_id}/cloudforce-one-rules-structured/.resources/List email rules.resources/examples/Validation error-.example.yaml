@@ -1,0 +1,30 @@
+$kind: http-example
+id: 4759228c-7ff6-58e0-9683-89a169ccff03
+name: Validation error.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: limit
+      value: "50"
+      disabled: true
+    - key: offset
+      value: "0"
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not found"
+      }
+order: 2000

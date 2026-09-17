@@ -1,0 +1,30 @@
+$kind: http-example
+id: 163e76e8-6d97-549a-adca-5e1081e6b068
+name: The authorization service is temporarily unavailable.
+request:
+  url: "{{base_url}}/analytics/sql/introspection?account_tag=0123456789abcdef0123456789abcdef"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: account_tag
+      value: 0123456789abcdef0123456789abcdef
+      description: (Required) Account whose available analytics datasets are returned.
+    - key: include_columns
+      value: "false"
+      disabled: true
+      description: Include column metadata for each returned dataset.
+    - key: dataset_name
+      value: events.httpRequests
+      disabled: true
+      description: |
+        Return only the dataset with this exact name. An empty value does not filter the catalogue. An unknown name returns a successful response with an empty `datasets` array.
+response:
+  statusCode: 503
+  statusText: Service Unavailable
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: string
+order: 6000

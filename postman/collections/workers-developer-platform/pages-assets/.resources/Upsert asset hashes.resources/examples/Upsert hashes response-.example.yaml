@@ -1,0 +1,30 @@
+$kind: http-example
+id: 3abe39c6-57f6-5b0f-93ae-d5c67aee6ca3
+name: Upsert hashes response.
+request:
+  url: "{{base_url}}/pages/assets/upsert-hashes"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "hashes": [
+          "a948904f2f0f479b8f936b8a0c5d9882",
+          "b026324c6904b2a9cb4b88d6d61c81d1"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true
+      }
+order: 1000

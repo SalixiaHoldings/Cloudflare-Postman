@@ -1,0 +1,49 @@
+$kind: http-example
+id: 298892d3-7241-51d2-a464-ca22c1426d53
+name: Returns a list of event queries.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/queries"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "id": 6381,
+          "account_id": "{{account_id}}",
+          "name": "string",
+          "user_email": "string",
+          "query_json": "string",
+          "alert_enabled": true,
+          "alert_rollup_enabled": true,
+          "rule_enabled": false,
+          "created_at": "string",
+          "updated_at": "string",
+          "custom_threat_feed_id": 4568,
+          "rule_list_id": "string",
+          "rule_scope": "string"
+        },
+        {
+          "id": 2863,
+          "account_id": "{{account_id}}",
+          "name": "string",
+          "user_email": "string",
+          "query_json": "string",
+          "alert_enabled": false,
+          "alert_rollup_enabled": false,
+          "rule_enabled": true,
+          "created_at": "string",
+          "updated_at": "string",
+          "custom_threat_feed_id": 8857,
+          "rule_list_id": "string",
+          "rule_scope": "string"
+        }
+      ]
+order: 1000

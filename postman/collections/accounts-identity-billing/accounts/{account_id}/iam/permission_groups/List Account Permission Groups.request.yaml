@@ -1,0 +1,41 @@
+$kind: http-request
+id: b16ac703-a94c-58be-ac50-f396a2307009
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: account-permission-group-list
+  GET /accounts/{account_id}/iam/permission_groups
+
+  List all the permissions groups for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/iam/permission_groups"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: id
+    value: 6d7f2f5f5b1d4a0e9081fdc98d432fd1
+    disabled: true
+  - key: name
+    value: NameOfThePermissionGroup
+    disabled: true
+  - key: label
+    value: labelOfThePermissionGroup
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Account Permission Groups.resources/examples
+order: 1000

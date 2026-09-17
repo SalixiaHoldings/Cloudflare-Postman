@@ -1,0 +1,21 @@
+$kind: http-example
+id: d02aaa06-4984-57bb-ae70-81439b28159c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/export"
+  method: GET
+  headers:
+    Accept: application/x-ndjson
+  queryParams:
+    - key: include_ids
+      value: "true"
+      disabled: true
+      description: "Include item IDs in export (default: false)"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/x-ndjson
+  body:
+    type: text
+    content: string
+order: 1000

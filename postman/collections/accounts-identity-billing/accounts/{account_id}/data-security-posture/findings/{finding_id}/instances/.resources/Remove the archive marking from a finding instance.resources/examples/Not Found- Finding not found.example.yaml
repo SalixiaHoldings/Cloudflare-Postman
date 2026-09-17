@@ -1,0 +1,26 @@
+$kind: http-example
+id: 39ed8521-0acc-5e53-a454-7c5cadac4996
+name: "Not Found: Finding not found"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{finding_id}}/instances/unarchive"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "check_instances": [
+          "497f6eca-6276-4993-bfeb-53cbbbba6f08"
+        ]
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 3000

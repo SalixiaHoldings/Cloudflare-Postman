@@ -1,0 +1,26 @@
+$kind: http-example
+id: 09f9bc69-bf25-55b5-9ef9-720f86e40ab0
+name: Replaced blocked sender.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/block_senders/{{pattern_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "null"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

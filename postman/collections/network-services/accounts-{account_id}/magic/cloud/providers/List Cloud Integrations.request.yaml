@@ -1,0 +1,41 @@
+$kind: http-request
+id: 8ec0f9e3-61da-5671-adb9-d8b69e601f70
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: providers-list
+  GET /accounts/{account_id}/magic/cloud/providers
+
+  List Cloud Integrations (Closed Beta).
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: status
+    value: "true"
+    disabled: true
+  - key: order_by
+    value: string
+    disabled: true
+    description: One of ["updated_at", "id", "cloud_type", "name"].
+  - key: desc
+    value: "true"
+    disabled: true
+  - key: cloudflare
+    value: "true"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Cloud Integrations.resources/examples
+order: 1000

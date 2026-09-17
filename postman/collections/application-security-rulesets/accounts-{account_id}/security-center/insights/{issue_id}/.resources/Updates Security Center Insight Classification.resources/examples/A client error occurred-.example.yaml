@@ -1,0 +1,36 @@
+$kind: http-example
+id: a61e8677-8c33-55ea-a5e5-8eceb58649ad
+name: A client error occurred.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/security-center/insights/{{issue_id}}/classification"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "classification": "false_positive",
+        "rationale": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

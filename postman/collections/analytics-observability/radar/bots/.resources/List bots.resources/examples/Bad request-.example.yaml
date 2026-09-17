@@ -1,0 +1,64 @@
+$kind: http-example
+id: 4f695b77-835b-54a1-a46e-760b5f5e82d4
+name: Bad request.
+request:
+  url: "{{base_url}}/radar/bots"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: limit
+      value: "5"
+      disabled: true
+      description: Limits the number of objects returned in the response.
+    - key: offset
+      value: "2923"
+      disabled: true
+      description: Skips the specified number of objects before fetching the results.
+    - key: botCategory
+      value: PAGE_PREVIEW
+      disabled: true
+      description: Filters results by bot category.
+    - key: botOperator
+      value: string
+      disabled: true
+      description: Filters results by bot operator.
+    - key: kind
+      value: BOT
+      disabled: true
+      description: "Filters results by bot kind. Deprecated: the Verified Bot / Signed Agent distinction is being removed."
+    - key: botVerificationStatus
+      value: VERIFIED
+      disabled: true
+      description: Filters results by bot verification status.
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

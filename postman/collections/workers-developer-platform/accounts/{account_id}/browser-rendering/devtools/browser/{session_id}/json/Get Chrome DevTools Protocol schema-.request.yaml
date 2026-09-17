@@ -1,0 +1,28 @@
+$kind: http-request
+id: fefd4a4d-b96b-5ffb-b6d2-0033f1b633ce
+name: Get Chrome DevTools Protocol schema.
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: brapi-get_DevtoolsJsonProtocol
+  GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/protocol
+
+  Returns the complete Chrome DevTools Protocol schema including all domains, commands, events, and types. This schema describes the entire CDP API surface.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json/protocol"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Chrome DevTools Protocol schema-.resources/examples
+order: 6000

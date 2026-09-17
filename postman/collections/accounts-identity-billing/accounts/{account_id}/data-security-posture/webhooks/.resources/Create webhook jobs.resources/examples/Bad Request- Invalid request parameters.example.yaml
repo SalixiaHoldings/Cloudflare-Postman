@@ -1,0 +1,36 @@
+$kind: http-example
+id: 3e231549-4ab9-5c2a-b6e2-1b8b21766806
+name: "Bad Request: Invalid request parameters"
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks/jobs"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "webhook_ids": [
+          "550e8400-e29b-41d4-a716-446655440000",
+          "660e8400-e29b-41d4-a716-446655440001"
+        ],
+        "finding_instance_ids": [
+          "770e8400-e29b-41d4-a716-446655440002",
+          "660e8400-e29b-41d4-a716-446655440001"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [],
+        "messages": []
+      }
+order: 2000

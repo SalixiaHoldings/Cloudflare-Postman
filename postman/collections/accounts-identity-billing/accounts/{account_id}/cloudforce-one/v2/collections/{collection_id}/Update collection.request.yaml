@@ -1,0 +1,44 @@
+$kind: http-request
+id: c03c421f-5e61-5cd9-848f-04f43f17d4a9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: patch_CollectionUpdate
+  PATCH /accounts/{account_id}/cloudforce-one/v2/collections/{collection_id}
+
+  Updates collection name and/or metadata. Schema (columns) cannot be modified.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "metadata": {
+        "description": "string",
+        "project_id": "string",
+        "tags": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      },
+      "name": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update collection.resources/examples
+order: 3000

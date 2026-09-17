@@ -1,0 +1,59 @@
+$kind: http-example
+id: 61a9d71d-6fa5-5d24-bfb5-7e59998bc652
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/recordings"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "allow_multiple_recordings": false,
+        "audio_config": {
+          "channel": "stereo",
+          "codec": "AAC",
+          "export_file": true
+        },
+        "file_name_prefix": "string",
+        "interactive_config": {
+          "type": "ID3"
+        },
+        "max_seconds": 60,
+        "meeting_id": "97440c6a-140b-40a9-9499-b23fd7a3868a",
+        "realtimekit_bucket_config": {
+          "enabled": true
+        },
+        "video_config": {
+          "codec": "H264",
+          "export_file": true,
+          "height": 720,
+          "watermark": {
+            "position": "left top",
+            "size": {
+              "height": 1,
+              "width": 1
+            },
+            "url": "http://example.com"
+          },
+          "width": 1280
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "data": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

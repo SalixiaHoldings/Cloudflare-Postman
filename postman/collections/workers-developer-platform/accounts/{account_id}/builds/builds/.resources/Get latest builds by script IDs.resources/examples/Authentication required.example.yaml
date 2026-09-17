@@ -1,0 +1,31 @@
+$kind: http-example
+id: 49df02a6-22f0-5c00-bb73-bfd71452c390
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/builds/latest?external_script_ids=dd7160bb9cef458093557736f4b9e75b,42fb14fe81df47139d3be684e4c637a6,ff7cf9a7582f4c0d90a4b95cb17d659e"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: external_script_ids
+      value: dd7160bb9cef458093557736f4b9e75b,42fb14fe81df47139d3be684e4c637a6,ff7cf9a7582f4c0d90a4b95cb17d659e
+      description: "(Required) "
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12005,
+            "message": "Missing token from authorization header"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

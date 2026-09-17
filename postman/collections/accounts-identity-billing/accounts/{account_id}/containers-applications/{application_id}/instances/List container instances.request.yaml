@@ -1,0 +1,45 @@
+$kind: http-request
+id: da4165a1-db2d-5956-a71e-347e3dfc4d83
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: listContainerInstances
+  GET /accounts/{account_id}/containers/applications/{application_id}/instances
+
+  Lists container instances belonging to an application.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/instances"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: per_page
+    value: "771"
+    disabled: true
+    description: Maximum number of instances to return per page. Defaults to all.
+  - key: page_token
+    value: string
+    disabled: true
+    description: Opaque token from a previous response to retrieve the next page.
+  - key: state
+    value: not-active
+    disabled: true
+    description: |
+      Filters instances by lifecycle state. `active` includes provisioning, running, and stopping instances; `not-active` includes stopped and failed instances. When omitted, all instances are returned.
+  - key: name_prefix
+    value: string
+    disabled: true
+    description: |
+      Filter instances by a case-sensitive name prefix, falling back to the actor ID when no name is known. Keep the same prefix when using a page token.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List container instances.resources/examples
+order: 1000

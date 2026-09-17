@@ -1,0 +1,43 @@
+$kind: http-request
+id: 528ad1e9-9c7f-5c5b-a96d-69b9efcc7e6b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: access-custom-pages-update-a-custom-page
+  PUT /accounts/{account_id}/access/custom_pages/{custom_page_id}
+
+  Update a custom page
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/access/custom_pages/{{custom_page_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "custom_html": "<html><body><h1>Access Denied</h1></body></html>",
+      "type": "identity_denied",
+      "app_count": 2928,
+      "contract_version": 3494,
+      "created_at": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "uid": "f174e90a-fafe-4643-bbbc-4a0ed4fc8415",
+      "updated_at": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update a custom page.resources/examples
+order: 3000

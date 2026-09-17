@@ -1,0 +1,28 @@
+$kind: http-example
+id: f6802f75-52f2-5cf7-a2f2-646cc9c68ae1
+name: Start Cache Reserve Clear failure response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/smart_shield/cache_reserve_clear"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 1152,
+            "message": "Turn off Cache Reserve sync to proceed with deletion."
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

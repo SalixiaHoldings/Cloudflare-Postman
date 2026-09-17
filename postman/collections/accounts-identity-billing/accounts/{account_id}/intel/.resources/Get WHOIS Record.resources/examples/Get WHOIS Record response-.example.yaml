@@ -1,0 +1,26 @@
+$kind: http-example
+id: 66ad6cb3-495d-5913-9bd7-ae0cc2f7b1ef
+name: Get WHOIS Record response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/intel/whois"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: domain
+      value: string
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

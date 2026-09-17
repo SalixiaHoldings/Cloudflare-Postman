@@ -1,0 +1,29 @@
+$kind: http-example
+id: d5b5c5d0-aa4f-525d-adb3-945f1f3fb53f
+name: Delete Content Scanning custom expression response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/content-upload-scan/payloads/{{expression_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

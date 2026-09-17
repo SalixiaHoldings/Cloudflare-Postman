@@ -1,0 +1,46 @@
+$kind: http-example
+id: 9895dd45-bc10-57cd-854f-13c90050ec96
+name: Device DEX test details response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/devices/dex_tests"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number of paginated results.
+    - key: per_page
+      value: "10"
+      disabled: true
+      description: Number of results per page.
+    - key: testName
+      value: string
+      disabled: true
+      description: Filter by test name.
+    - key: kind
+      value: traceroute
+      disabled: true
+      description: Filter by test type.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

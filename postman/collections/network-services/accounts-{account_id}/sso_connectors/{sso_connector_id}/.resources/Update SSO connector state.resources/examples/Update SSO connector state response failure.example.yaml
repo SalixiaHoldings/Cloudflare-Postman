@@ -1,0 +1,35 @@
+$kind: http-example
+id: cda1dd2a-c17c-55b4-99c4-2c75f1513f45
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/sso_connectors/{{sso_connector_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "enabled": true,
+        "use_fedramp_language": false
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,0 +1,39 @@
+$kind: http-example
+id: 4ecff861-3dcd-55cb-9f5c-e03b6ad28043
+name: Get an Access policy tester users page response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/policy-tests/{{policy_test_id}}/users"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "25"
+      disabled: true
+    - key: status
+      value: success
+      disabled: true
+      description: Filter users by their policy evaluation status.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

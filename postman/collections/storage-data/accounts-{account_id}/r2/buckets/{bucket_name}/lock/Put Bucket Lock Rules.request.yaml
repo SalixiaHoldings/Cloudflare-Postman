@@ -1,0 +1,40 @@
+$kind: http-request
+id: 9d77dccf-6622-52f8-aa3c-57cbfe575b3a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: r2-put-bucket-lock-configuration
+  PUT /accounts/{account_id}/r2/buckets/{bucket_name}/lock
+
+  Set lock rules for a bucket.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/lock"
+method: PUT
+headers:
+  cf-r2-jurisdiction: default
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "rules": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Put Bucket Lock Rules.resources/examples
+order: 2000

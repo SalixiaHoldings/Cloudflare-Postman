@@ -1,0 +1,36 @@
+$kind: http-example
+id: 6213fd97-9329-564a-bae8-280f39a97213
+name: Get command artifacts response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/commands/{{command_id}}/downloads/{{filename}}"
+  method: GET
+  headers:
+    Accept: application/zip
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    - key: Accept-Ranges
+      value: bytes
+      description: Indicates that the file supports byte-range requests.
+    - key: Content-Disposition
+      value: attachment; filename*=example.zip
+      description: Indicates that the file should be treated as an attachment for downloading
+    - key: Content-Encoding
+      value: gzip
+      description: Specifies the encoding of the file content, if any.
+    - key: Content-Length
+      value: "7426"
+      description: The size of the file in bytes.
+    - key: ETag
+      value: 34f9b5e9c8a6
+      description: The entity tag of the file for cache validation.
+    - key: Last-Modified
+      value: 1967-11-09T20:09:15.492Z
+      description: The last modification date of the file.
+    - key: Content-Type
+      value: application/zip
+  body:
+    type: text
+    content: string
+order: 1000

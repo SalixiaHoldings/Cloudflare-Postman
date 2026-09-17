@@ -1,0 +1,21 @@
+$kind: http-example
+id: 922848ad-7880-5970-a4ba-be91a8e2f4b7
+name: Returns the created group member.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/-/groups/{{group_id}}/members/{{member_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "string",
+        "success": false
+      }
+order: 1000

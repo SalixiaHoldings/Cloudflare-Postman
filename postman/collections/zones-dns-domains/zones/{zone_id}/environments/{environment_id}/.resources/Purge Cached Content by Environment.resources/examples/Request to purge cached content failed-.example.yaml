@@ -1,0 +1,41 @@
+$kind: http-example
+id: 68fb4242-7aef-5f9d-8515-a237478b5218
+name: Request to purge cached content failed.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/environments/{{environment_id}}/purge_cache"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "hosts": [
+          "www.example.com",
+          "images.example.com"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

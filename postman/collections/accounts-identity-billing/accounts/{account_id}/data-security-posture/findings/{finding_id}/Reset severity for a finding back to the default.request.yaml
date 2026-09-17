@@ -1,0 +1,26 @@
+$kind: http-request
+id: 6e6e7a61-8eae-502c-a1a0-674c1036a6e2
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: ResetFindingSeverity
+  POST /accounts/{account_id}/data-security/posture/findings/{finding_id}/reset_finding_severity
+
+  If a Finding's severity has been changed, reset it back to default value.
+  Does nothing if no override exists.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{finding_id}}/reset_finding_severity"
+method: POST
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Reset severity for a finding back to the default.resources/examples
+order: 3000

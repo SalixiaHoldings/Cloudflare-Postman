@@ -1,0 +1,27 @@
+$kind: http-example
+id: 8e02974a-cf7c-58c2-885f-64e8ca02724d
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/queries"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "tag": "string",
+        "image_data": "strin",
+        "similarity_threshold": 0.6605934964027256,
+        "search_lookback": true
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

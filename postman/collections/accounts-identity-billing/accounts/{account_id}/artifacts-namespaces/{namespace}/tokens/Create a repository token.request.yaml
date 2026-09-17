@@ -1,0 +1,34 @@
+$kind: http-request
+id: 42f3f5ef-5fff-56ad-9bf8-c9febed5a65e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: artifacts_tokens_create
+  POST /accounts/{account_id}/artifacts/namespaces/{namespace}/tokens
+
+  Creates a scoped Git token for a repository.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/tokens"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "repo": "dMrtRH",
+      "scope": "write",
+      "ttl": 18221098
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a repository token.resources/examples
+order: 1000

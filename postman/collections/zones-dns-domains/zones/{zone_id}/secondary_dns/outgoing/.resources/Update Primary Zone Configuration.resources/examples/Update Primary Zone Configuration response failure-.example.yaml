@@ -1,0 +1,43 @@
+$kind: http-example
+id: 159d34f5-2484-5eff-9d80-8fd7fb8ee417
+name: Update Primary Zone Configuration response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/secondary_dns/outgoing"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "269d8f4853475ca241c4e730be286b20",
+        "name": "www.example.com.",
+        "peers": [
+          "23ff594956f20c2a721606e94745a8aa",
+          "00920f38ce07c2e2f4df50b1f61d4194"
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

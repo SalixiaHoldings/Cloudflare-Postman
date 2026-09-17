@@ -1,0 +1,50 @@
+$kind: http-example
+id: c5ca2410-6c4a-524b-adba-5c86e4bd9ed9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/vectorize/indexes/{{index_name}}/query"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "vector": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "filter": {
+          "has_viewed": {
+            "$ne": true
+          },
+          "streaming_platform": "netflix"
+        },
+        "returnMetadata": false,
+        "returnValues": false,
+        "topK": 5
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

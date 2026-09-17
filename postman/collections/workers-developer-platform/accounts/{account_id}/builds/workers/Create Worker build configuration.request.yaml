@@ -1,0 +1,54 @@
+$kind: http-request
+id: 04e4f9ea-0303-5216-81cc-c71f9d75e56d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: createWorkerBuild
+  POST /accounts/{account_id}/builds/workers
+
+  Connect a Worker tag to a repository and production build settings.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/builds/workers"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "git_repository": {
+        "branch": "main",
+        "provider_account_id": "cloudflare",
+        "provider_account_name": "Cloudflare",
+        "provider_type": "github",
+        "repo_id": "workers-sdk",
+        "repo_name": "workers-sdk"
+      },
+      "production_settings": {
+        "build_caching_enabled": true,
+        "build_command": "npm run build",
+        "build_token_uuid": "{{build_token_uuid}}",
+        "deploy_command": "npx wrangler deploy",
+        "environment_variables": {},
+        "path_excludes": [
+          "*.md"
+        ],
+        "path_includes": [
+          "*"
+        ],
+        "root_directory": "/"
+      },
+      "script_tag": "my-worker"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Worker build configuration.resources/examples
+order: 1000

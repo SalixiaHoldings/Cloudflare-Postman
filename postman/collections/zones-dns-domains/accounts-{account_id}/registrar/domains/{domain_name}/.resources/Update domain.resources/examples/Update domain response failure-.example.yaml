@@ -1,0 +1,48 @@
+$kind: http-example
+id: 25e78eb0-2007-500a-b501-140700befb83
+name: Update domain response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/domains/{{domain_name}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "auto_renew": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "locked": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "privacy": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

@@ -1,0 +1,35 @@
+$kind: http-request
+id: fe20e4c0-6aa6-574a-aa4b-b4684bb1ae83
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: analytics-engine-sql-query-post
+  POST /accounts/{account_id}/analytics_engine/sql
+
+  Executes a SQL query against Workers Analytics Engine data. Pass the SQL query in the request body as plain text. The response uses newline-delimited JSON (NDJSON) by default, or a single JSON object when the query includes a FORMAT JSON clause. Prefer this method for longer queries that may exceed URL length limits.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/analytics_engine/sql"
+method: POST
+headers:
+  Content-Type: text/plain
+  Accept: application/json
+body:
+  type: text
+  content: |
+    SELECT blob1, sum(double1) as total
+    FROM my_dataset
+    WHERE timestamp > NOW() - INTERVAL '7' DAY
+    GROUP BY blob1
+    ORDER BY total DESC
+    LIMIT 100
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Execute an Analytics Engine SQL query via request body.resources/examples
+order: 2000

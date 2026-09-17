@@ -1,0 +1,46 @@
+$kind: http-example
+id: 407d8901-308c-5dc9-b4dd-02a920cd4537
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dns_firewall/{{dns_firewall_id}}/dns_analytics/report/bytime"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: metrics
+      value: queryCount,uncachedCount
+      disabled: true
+    - key: dimensions
+      value: queryType
+      disabled: true
+    - key: since
+      value: 2023-11-11T12:00:00Z
+      disabled: true
+    - key: until
+      value: 2023-11-11T13:00:00Z
+      disabled: true
+    - key: limit
+      value: "100"
+      disabled: true
+    - key: sort
+      value: +responseCode,-queryName
+      disabled: true
+    - key: filters
+      value: responseCode==NOERROR,queryType==A
+      disabled: true
+    - key: time_delta
+      value: hour
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

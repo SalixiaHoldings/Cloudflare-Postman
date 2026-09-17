@@ -1,0 +1,34 @@
+$kind: http-example
+id: 2a504d95-823e-5880-8188-17e488f7bee0
+name: Suppression conflicts with this operation.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions/{{suppression_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+order: 5000

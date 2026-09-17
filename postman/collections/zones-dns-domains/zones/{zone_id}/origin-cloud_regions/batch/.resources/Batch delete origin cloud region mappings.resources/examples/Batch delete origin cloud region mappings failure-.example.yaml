@@ -1,0 +1,36 @@
+$kind: http-example
+id: 0209bee0-6595-5d8c-baa6-2219721c9afe
+name: Batch delete origin cloud region mappings failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions/batch"
+  method: DELETE
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      [
+        "192.0.2.1",
+        "2001:db8::1"
+      ]
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

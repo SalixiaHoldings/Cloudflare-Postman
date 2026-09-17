@@ -1,0 +1,36 @@
+$kind: http-request
+id: 4ce5b001-f272-5626-adb9-c599fdcf498a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: put-accounts-account_id-logpush-transformers-transformer_id
+  PUT /accounts/{account_id}/logpush/transformers/{transformer_id}
+
+  Updates an existing custom log transformer. When `code` is provided, the SQL query is validated and a new version is created. When `code` is omitted, only the name and description are updated. Omitting `description` clears the existing description.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/logpush/transformers/{{transformer_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "redact-pii",
+      "code": "SELECT ClientIP, RayID FROM http_requests",
+      "description": "Redacts PII fields from HTTP request logs."
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update transformer.resources/examples
+order: 3000

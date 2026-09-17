@@ -1,0 +1,49 @@
+$kind: http-request
+id: 1afb7e53-d6ea-5d5a-825b-fbc856293154
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post_TakedownLetterCreate
+  POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/takedown-notices/{notice_id}/letters
+
+  Generate a takedown letter for a notice and persist the rendered text. The PDF is generated lazily on download.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/takedown-notices/{{notice_id}}/letters"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "templateId": "string",
+      "fields": {
+        "discoveryDate": "2035-49-05",
+        "domain": "string",
+        "generationDate": "9790-38-05",
+        "jurisdiction": "string",
+        "registrantEmail": "string",
+        "registrar": "string",
+        "registrarEmail": "string",
+        "resolutionByDate": "8109-15-92",
+        "senderCompany": "string",
+        "senderEmail": "string",
+        "senderName": "string",
+        "senderTitle": "string",
+        "trademarkName": "string",
+        "trademarkNumber": "string",
+        "trademarkOwner": "string"
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create takedown letter.resources/examples
+order: 2000

@@ -1,0 +1,24 @@
+$kind: http-example
+id: 0f4f200e-9e6a-5b10-9f19-e73c04aee2ee
+name: Gets Zero Trust certificate details response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/certificates/{{certificate_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

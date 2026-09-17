@@ -1,0 +1,38 @@
+$kind: http-request
+id: 3dd9d294-a863-5809-a562-e3539601da43
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dex-endpoints-tests-unique-devices
+  GET /accounts/{account_id}/dex/tests/unique-devices
+
+  Returns unique count of devices that have run synthetic application monitoring tests in the past 7 days.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/tests/unique-devices"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: testName
+    value: string
+    disabled: true
+    description: Optionally filter results by test name.
+  - key: deviceId
+    value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+    disabled: true
+    description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+  - key: deviceId
+    value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+    disabled: true
+    description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get count of devices targeted.resources/examples
+order: 2000

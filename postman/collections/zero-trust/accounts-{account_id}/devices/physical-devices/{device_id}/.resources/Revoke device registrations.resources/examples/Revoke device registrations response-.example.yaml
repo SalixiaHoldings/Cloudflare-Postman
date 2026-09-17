@@ -1,0 +1,37 @@
+$kind: http-example
+id: c43ff0f5-249a-5223-b03c-eb4f2b4aad7d
+name: Revoke device registrations response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/physical-devices/{{device_id}}/revoke"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {}
+      }
+order: 1000

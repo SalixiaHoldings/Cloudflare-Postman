@@ -1,0 +1,37 @@
+$kind: http-example
+id: 054b791c-02e5-58c9-884d-842e332b5708
+name: Client error response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/assets/upload"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: description
+        value: string
+        description: Optional description of the asset
+      - type: file
+        key: file
+        src: ""
+        description: The file to upload (can also use 'source')
+      - type: text
+        key: metadata
+        value: string
+        description: Optional JSON string of key-value pairs (e.g., '{"key1":"value1"}')
+      - type: file
+        key: source
+        src: ""
+        description: The file to upload (can also use 'file')
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

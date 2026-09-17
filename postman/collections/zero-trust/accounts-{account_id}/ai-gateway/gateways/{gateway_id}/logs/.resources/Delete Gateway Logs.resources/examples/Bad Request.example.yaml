@@ -1,0 +1,48 @@
+$kind: http-example
+id: ab57af40-2640-54da-a43c-86d8b35a0741
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/logs"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: order_by
+      value: created_at
+      disabled: true
+    - key: order_by_direction
+      value: asc
+      disabled: true
+    - key: filters
+      value: '{"key":"created_at","operator":"eq","value":["string","string"]}'
+      disabled: true
+    - key: filters
+      value: '{"key":"compatibilityMode","operator":"lt","value":["string","string"]}'
+      disabled: true
+    - key: limit
+      value: "10000"
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

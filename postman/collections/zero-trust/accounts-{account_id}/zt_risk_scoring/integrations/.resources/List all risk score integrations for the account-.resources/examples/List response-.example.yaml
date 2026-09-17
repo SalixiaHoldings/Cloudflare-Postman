@@ -1,0 +1,24 @@
+$kind: http-example
+id: 7be4b78f-8c19-5cfb-bc44-ffa7b6b732d1
+name: List response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/zt_risk_scoring/integrations"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

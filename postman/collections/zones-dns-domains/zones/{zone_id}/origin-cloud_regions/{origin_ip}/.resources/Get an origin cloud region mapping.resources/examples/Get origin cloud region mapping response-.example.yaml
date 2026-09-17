@@ -1,0 +1,28 @@
+$kind: http-example
+id: 0bd64332-a87b-528a-b9b7-053e86c7cca6
+name: Get origin cloud region mapping response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions/{{origin_ip}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "modified_on": "2026-03-01T12:00:00Z",
+          "origin_ip": "192.0.2.1",
+          "region": "us-east-1",
+          "vendor": "aws"
+        },
+        "success": true
+      }
+order: 1000

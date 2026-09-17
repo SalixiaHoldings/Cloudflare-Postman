@@ -1,0 +1,48 @@
+$kind: http-example
+id: 8d53b451-0370-5ab2-8d0a-63c80f3a280c
+name: Get ownership challenge response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/logpush/ownership"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "destination_conf": "s3://mybucket/logs?region=us-west-2"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "filename": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "message": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "valid": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

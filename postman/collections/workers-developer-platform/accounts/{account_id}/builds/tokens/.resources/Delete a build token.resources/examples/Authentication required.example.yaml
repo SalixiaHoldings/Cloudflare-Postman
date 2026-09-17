@@ -1,0 +1,27 @@
+$kind: http-example
+id: 91b9116a-4d08-53e2-8b55-a9d7eab47097
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/tokens/{{build_token_uuid}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12005,
+            "message": "Missing token from authorization header"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

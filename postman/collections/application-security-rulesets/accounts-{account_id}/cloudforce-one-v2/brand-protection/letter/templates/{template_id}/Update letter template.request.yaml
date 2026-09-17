@@ -1,0 +1,35 @@
+$kind: http-request
+id: 2fa1055a-dab1-5e81-8c60-921783066237
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: put_LetterTemplateUpdate
+  PUT /accounts/{account_id}/cloudforce-one/v2/brand-protection/letter/templates/{template_id}
+
+  Update a user-defined takedown letter template. System templates cannot be modified.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/letter/templates/{{template_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "body": "string",
+      "category": "string",
+      "description": "string",
+      "name": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update letter template.resources/examples
+order: 3000

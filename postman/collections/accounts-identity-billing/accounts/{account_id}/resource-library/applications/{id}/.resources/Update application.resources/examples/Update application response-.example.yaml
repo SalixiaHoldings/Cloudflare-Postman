@@ -1,0 +1,53 @@
+$kind: http-example
+id: 6ae3cb49-967f-5ac6-8d62-ec95d900f18e
+name: Update application response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/resource-library/applications/{{id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "hostnames": [
+          "example.com",
+          "foo.com"
+        ],
+        "ip_subnets": [
+          "192.168.1.0/24",
+          "10.0.0.0/8"
+        ],
+        "port_protocols": [
+          "tcp/80",
+          "tcp/443"
+        ],
+        "support_domains": [
+          "example.com",
+          "foo.com"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

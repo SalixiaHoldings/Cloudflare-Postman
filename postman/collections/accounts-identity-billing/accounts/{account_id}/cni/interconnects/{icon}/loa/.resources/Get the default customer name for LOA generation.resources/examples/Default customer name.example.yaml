@@ -1,0 +1,21 @@
+$kind: http-example
+id: e159ac59-5a22-5769-b634-7b96259519f0
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cni/interconnects/{{icon}}/loa/default"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string"
+      }
+order: 1000

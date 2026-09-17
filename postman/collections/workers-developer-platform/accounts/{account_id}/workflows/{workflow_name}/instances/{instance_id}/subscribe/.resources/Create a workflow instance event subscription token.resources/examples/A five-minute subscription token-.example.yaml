@@ -1,0 +1,53 @@
+$kind: http-example
+id: ecaf23cf-baff-54f8-9791-f57e3df71b5b
+name: A five-minute subscription token.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/subscribe/token"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "result": {
+          "token": "string",
+          "websocketUrl": "string"
+        },
+        "messages": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result_info": {
+          "per_page": 9862.926637288183,
+          "count": 8169.449020642787,
+          "total_count": 342.8404754959047,
+          "cursor": "string",
+          "page": 2757.5592161156237,
+          "total_pages": 6941.614272072911
+        }
+      }
+order: 1000

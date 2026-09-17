@@ -1,0 +1,39 @@
+$kind: http-example
+id: d74308af-762b-570a-b6df-b41eb83e44b7
+name: SSL/TLS Recommendation response.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/ssl/recommendation"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": [],
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "modified_on": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "value": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "editable": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "next_scheduled_scan": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

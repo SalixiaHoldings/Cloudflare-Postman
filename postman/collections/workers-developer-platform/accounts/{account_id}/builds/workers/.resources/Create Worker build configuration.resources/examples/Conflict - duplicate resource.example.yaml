@@ -1,0 +1,56 @@
+$kind: http-example
+id: 07db65dd-c112-5956-ad80-7588e5338397
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "git_repository": {
+          "branch": "main",
+          "provider_account_id": "cloudflare",
+          "provider_account_name": "Cloudflare",
+          "provider_type": "github",
+          "repo_id": "workers-sdk",
+          "repo_name": "workers-sdk"
+        },
+        "production_settings": {
+          "build_caching_enabled": true,
+          "build_command": "npm run build",
+          "build_token_uuid": "{{build_token_uuid}}",
+          "deploy_command": "npx wrangler deploy",
+          "environment_variables": {},
+          "path_excludes": [
+            "*.md"
+          ],
+          "path_includes": [
+            "*"
+          ],
+          "root_directory": "/"
+        },
+        "script_tag": "my-worker"
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12049,
+            "message": "Resource already exists"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 5000

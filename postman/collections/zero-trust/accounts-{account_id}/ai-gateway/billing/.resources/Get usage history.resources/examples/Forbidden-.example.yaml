@@ -1,0 +1,51 @@
+$kind: http-example
+id: 1d4b985e-38c3-54ab-8cca-1d66632408af
+name: Forbidden.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/usage-history?value_grouping_window=day"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: value_grouping_window
+      value: day
+      description: (Required) Grouping window for usage data.
+    - key: start_time
+      value: "1700000000000"
+      disabled: true
+      description: Start time as Unix timestamp in milliseconds.
+    - key: end_time
+      value: "1700086400000"
+      disabled: true
+      description: End time as Unix timestamp in milliseconds.
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

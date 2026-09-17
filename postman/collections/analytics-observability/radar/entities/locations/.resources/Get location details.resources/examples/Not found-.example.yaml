@@ -1,0 +1,27 @@
+$kind: http-example
+id: 06cf7e17-97a1-5822-859b-56016f8510e9
+name: Not found.
+request:
+  url: "{{base_url}}/radar/entities/locations/{{location}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: CSV
+      disabled: true
+      description: Format in which results will be returned.
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Not Found."
+      }
+order: 2000

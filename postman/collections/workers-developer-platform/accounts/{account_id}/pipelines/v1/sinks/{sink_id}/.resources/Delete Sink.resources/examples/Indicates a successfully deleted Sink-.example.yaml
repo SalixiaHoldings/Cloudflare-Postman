@@ -1,0 +1,21 @@
+$kind: http-example
+id: fe6e82a1-eee3-5454-9417-470aa1bc4f26
+name: Indicates a successfully deleted Sink.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/sinks/{{sink_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {}
+      }
+order: 1000

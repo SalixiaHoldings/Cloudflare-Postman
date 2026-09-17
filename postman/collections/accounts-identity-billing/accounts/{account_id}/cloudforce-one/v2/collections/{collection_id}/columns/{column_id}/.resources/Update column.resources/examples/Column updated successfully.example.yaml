@@ -1,0 +1,35 @@
+$kind: http-example
+id: a7e3900e-81ec-598c-bd6d-d0f192e0e9b7
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/columns/{{column_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "position": 5625.7606646977365,
+        "required": false,
+        "type": "number"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "id": "string",
+          "name": "string",
+          "type": "string",
+          "required": false,
+          "position": 4293.447236996144
+        }
+      }
+order: 1000

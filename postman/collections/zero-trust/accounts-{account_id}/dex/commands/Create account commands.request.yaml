@@ -1,0 +1,67 @@
+$kind: http-request
+id: eeb083e8-9550-596e-a6be-deaa99f5fcb5
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: post-commands
+  POST /accounts/{account_id}/dex/commands
+
+  Initiate commands for up to 10 devices per account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: b395f70e61eb27aafe28c21bc6105428aec03adf1e831a6905fa29c899861d17
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/dex/commands"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "commands": [
+        {
+          "device_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "user_email": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "args": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "registration_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "device_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "user_email": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "type": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "args": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "registration_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create account commands.resources/examples
+order: 2000

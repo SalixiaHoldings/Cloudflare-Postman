@@ -1,0 +1,22 @@
+$kind: http-example
+id: cc7d07c0-4941-5aae-8319-e99e2e115b70
+name: DEX traceroute test result network path response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-test-results/{{test_result_id}}/network-path"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

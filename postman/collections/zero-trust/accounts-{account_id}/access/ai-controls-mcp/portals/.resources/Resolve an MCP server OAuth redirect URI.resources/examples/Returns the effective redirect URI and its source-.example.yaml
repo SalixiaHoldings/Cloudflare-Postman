@@ -1,0 +1,24 @@
+$kind: http-example
+id: 94a5d01d-16ba-5912-9edc-32e51ef25b47
+name: Returns the effective redirect URI and its source.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/portals/{{portal_id}}/servers/{{server_id}}/effective-redirect-uri"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "redirect_uri": "https://UAAmronE.hmgVIrVdnwEbhJw+6-gsEazGmgBVf2Mptwdq-S,gLusxZ4",
+          "source": "per_portal"
+        }
+      }
+order: 1000

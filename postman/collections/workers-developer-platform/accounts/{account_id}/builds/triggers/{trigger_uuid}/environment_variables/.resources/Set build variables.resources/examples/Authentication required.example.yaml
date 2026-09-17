@@ -1,0 +1,38 @@
+$kind: http-example
+id: 81ce2c01-8b44-5d74-b085-8501c07b07fe
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/triggers/{{trigger_uuid}}/environment_variables"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "API_KEY": "{{api_key}}",
+        "NODE_ENV": {
+          "is_secret": "{{is_secret}}",
+          "value": "production"
+        }
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12005,
+            "message": "Missing token from authorization header"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

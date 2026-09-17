@@ -1,0 +1,46 @@
+$kind: http-example
+id: d6a4373f-c4e4-5163-8bb5-326aba59c252
+name: Dataset columns created successfully.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/datasets/{{dataset_id}}/versions/{{version}}"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "header_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "num_cells": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        {
+          "header_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "num_cells": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      ]
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

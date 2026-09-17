@@ -1,0 +1,134 @@
+$kind: http-request
+id: 5551f584-85fa-5d0b-b708-7ec594629b9b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: dns-records-for-a-zone-list-dns-records
+  GET /zones/{zone_id}/dns_records
+
+  List, search, sort, and filter a zones' DNS records.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/dns_records"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: name
+    value: www.example.com
+    disabled: true
+  - key: name.exact
+    value: www.example.com
+    disabled: true
+  - key: name.contains
+    value: w.example.
+    disabled: true
+  - key: name.startswith
+    value: www.example
+    disabled: true
+  - key: name.endswith
+    value: .example.com
+    disabled: true
+  - key: type
+    value: A
+    disabled: true
+  - key: content
+    value: 127.0.0.1
+    disabled: true
+  - key: content.exact
+    value: 127.0.0.1
+    disabled: true
+  - key: content.contains
+    value: 7.0.0.
+    disabled: true
+  - key: content.startswith
+    value: 127.0.
+    disabled: true
+  - key: content.endswith
+    value: .0.1
+    disabled: true
+  - key: proxied
+    value: "true"
+    disabled: true
+  - key: match
+    value: any
+    disabled: true
+  - key: comment
+    value: Hello, world
+    disabled: true
+  - key: comment.present
+    value: string
+    disabled: true
+  - key: comment.absent
+    value: string
+    disabled: true
+  - key: comment.exact
+    value: Hello, world
+    disabled: true
+  - key: comment.contains
+    value: ello, worl
+    disabled: true
+  - key: comment.startswith
+    value: Hello, w
+    disabled: true
+  - key: comment.endswith
+    value: o, world
+    disabled: true
+  - key: tag
+    value: team:DNS
+    disabled: true
+  - key: tag.present
+    value: important
+    disabled: true
+  - key: tag.absent
+    value: important
+    disabled: true
+  - key: tag.exact
+    value: greeting:Hello, world
+    disabled: true
+  - key: tag.contains
+    value: greeting:ello, worl
+    disabled: true
+  - key: tag.startswith
+    value: greeting:Hello, w
+    disabled: true
+  - key: tag.endswith
+    value: greeting:o, world
+    disabled: true
+  - key: search
+    value: www.cloudflare.com
+    disabled: true
+  - key: tag_match
+    value: any
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "5"
+    disabled: true
+  - key: order
+    value: type
+    disabled: true
+  - key: direction
+    value: asc
+    disabled: true
+  - key: include_shadow_metadata
+    value: "true"
+    disabled: true
+  - key: shadowed_by_name
+    value: sub.example.com
+    disabled: true
+  - key: shadowing_name
+    value: www.sub.example.com
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List DNS Records.resources/examples
+order: 1000

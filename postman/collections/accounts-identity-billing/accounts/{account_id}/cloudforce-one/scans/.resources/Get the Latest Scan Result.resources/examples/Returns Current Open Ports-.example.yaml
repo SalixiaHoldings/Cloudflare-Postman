@@ -1,0 +1,38 @@
+$kind: http-example
+id: ad9ca609-32b0-5e5f-807b-2ce86c0ecf64
+name: Returns Current Open Ports.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/scans/results/{{config_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "1.1.1.1": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ]
+        },
+        "messages": [
+          "string",
+          "string"
+        ],
+        "errors": [
+          "string",
+          "string"
+        ]
+      }
+order: 1000

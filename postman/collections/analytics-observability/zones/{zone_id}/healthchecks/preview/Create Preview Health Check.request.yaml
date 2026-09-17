@@ -1,0 +1,79 @@
+$kind: http-request
+id: 6ca9cd44-7141-5bfb-a4f0-b8e7f75caf32
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: health-checks-create-preview-health-check
+  POST /zones/{zone_id}/healthchecks/preview
+
+  Create a new preview health check.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/healthchecks/preview"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "server-1",
+      "address": "www.example.com",
+      "check_regions": [
+        "WEU",
+        "ENAM"
+      ],
+      "consecutive_fails": 1,
+      "consecutive_successes": 1,
+      "description": "Health check for www.example.com",
+      "http_config": {
+        "allow_insecure": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "expected_body": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "expected_codes": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "follow_redirects": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "header": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "method": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "path": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "port": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "interval": 60,
+      "retries": 2,
+      "suspended": false,
+      "tcp_config": {
+        "method": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "port": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "timeout": 5,
+      "type": "HTTPS"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create Preview Health Check.resources/examples
+order: 1000

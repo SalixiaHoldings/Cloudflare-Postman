@@ -1,0 +1,27 @@
+$kind: http-request
+id: 0d6b4386-d368-55ed-a113-6f346e0c0a56
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: delete_interconnect
+  DELETE /accounts/{account_id}/cni/interconnects/{icon}
+
+  Permanently removes a network interconnect configuration. The physical or virtual connection
+  will be terminated.
+
+  Authentication support: multi-scheme-or-other
+  Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
+  Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/cni/interconnects/{{icon}}"
+method: DELETE
+headers:
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete an interconnect object.resources/examples
+order: 1000

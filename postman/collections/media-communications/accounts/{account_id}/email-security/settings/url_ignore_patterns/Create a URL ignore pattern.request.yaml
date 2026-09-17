@@ -1,0 +1,33 @@
+$kind: http-request
+id: a36d5389-fac1-5bad-84a7-20289640c2bc
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: email_security_create_url_ignore_pattern
+  POST /accounts/{account_id}/email-security/settings/url_ignore_patterns
+
+  Creates a new URL rewrite ignore pattern. URLs matching this pattern will not be rewritten.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/url_ignore_patterns"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "pattern": "https://example\\.com/.*",
+      "comments": "Trusted internal redirect service"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a URL ignore pattern.resources/examples
+order: 2000

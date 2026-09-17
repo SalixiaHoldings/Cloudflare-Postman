@@ -1,0 +1,28 @@
+$kind: http-example
+id: b1edb23a-5cae-5b55-9dc3-055104b40cbe
+name: Number of deleted tests.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/speed_api/schedule/{{url}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: region
+      value: us-central1
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

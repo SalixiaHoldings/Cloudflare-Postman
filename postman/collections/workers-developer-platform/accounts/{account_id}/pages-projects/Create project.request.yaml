@@ -1,0 +1,93 @@
+$kind: http-request
+id: a545753b-a881-5142-9aa0-d8a6e8ee008e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: pages-project-create-project
+  POST /accounts/{account_id}/pages/projects
+
+  Create a new project.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/pages/projects"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "my-pages-app",
+      "production_branch": "main",
+      "build_config": {
+        "build_caching": true,
+        "build_command": "npm run build",
+        "destination_dir": "build",
+        "root_dir": "/",
+        "web_analytics_tag": "cee1c73f6e4743d0b5e6bb1a0bcaabcc",
+        "web_analytics_token": "021e1057c18547eca7b79f2516f06o7x"
+      },
+      "deployment_configs": {
+        "preview": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "production": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      },
+      "source": {
+        "type": "github",
+        "config": {
+          "deployments_enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "owner": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "owner_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "path_excludes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "path_includes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "pr_comments_enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "preview_branch_excludes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "preview_branch_includes": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "preview_deployment_setting": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "production_branch": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "production_deployments_enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "repo_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "repo_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create project.resources/examples
+order: 2000

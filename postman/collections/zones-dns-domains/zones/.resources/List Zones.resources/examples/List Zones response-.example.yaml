@@ -1,0 +1,70 @@
+$kind: http-example
+id: 4e2fb212-ff8b-56f9-9cba-f04c0a112ff5
+name: List Zones response.
+request:
+  url: "{{base_url}}/zones"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: name
+      value: example.com
+      disabled: true
+    - key: status
+      value: initializing
+      disabled: true
+    - key: type
+      value: partial,internal
+      disabled: true
+    - key: account.id
+      value: "{{account_id}}"
+      disabled: true
+    - key: account.name
+      value: Dev Account
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: order
+      value: status
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: match
+      value: all
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result_info": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

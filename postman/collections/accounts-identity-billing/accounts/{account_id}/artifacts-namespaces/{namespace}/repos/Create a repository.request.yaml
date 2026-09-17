@@ -1,0 +1,35 @@
+$kind: http-request
+id: 6cf69a78-b6fa-5a6f-9799-05707bed491e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: artifacts_repos_create
+  POST /accounts/{account_id}/artifacts/namespaces/{namespace}/repos
+
+  Creates a Git-compatible Artifacts repository in a namespace.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "k-.2",
+      "default_branch": "o",
+      "description": "string",
+      "read_only": true
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a repository.resources/examples
+order: 2000

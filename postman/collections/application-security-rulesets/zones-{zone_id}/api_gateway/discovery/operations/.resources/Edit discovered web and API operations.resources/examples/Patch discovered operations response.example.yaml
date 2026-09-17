@@ -1,0 +1,44 @@
+$kind: http-example
+id: 5095ff5c-b238-5196-97e4-3609493f0c31
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/discovery/operations"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "3818d821-5901-4147-a474-f5f5aec1d54e": {
+          "state": "ignored"
+        },
+        "b17c8043-99a0-4202-b7d9-8f7cdbee02cd": {
+          "state": "review"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000
