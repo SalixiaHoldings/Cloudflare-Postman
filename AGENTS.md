@@ -2,52 +2,51 @@
 
 ## Purpose
 
-This repository is the public, open-source Salixia-maintained Postman distribution of the Cloudflare API. It must be generated from Cloudflare's official `cloudflare/api-schemas` OpenAPI source rather than becoming an independently maintained fork of Cloudflare's API schema.
+This repository is the public, open-source Salixia-maintained Postman distribution of the Cloudflare API. Generate it from Cloudflare's official `cloudflare/api-schemas` OpenAPI source; do not turn it into an independently maintained API-schema fork.
 
 ## Boundaries
 
-- Keep this repository public-safe. Never add credentials, customer or tenant-specific data, private identifiers, or proprietary internal workflows.
-- Keep project-specific private operational logic out of this open-source repository. Do not name or describe non-public repositories, products, infrastructure, or operating arrangements in documentation or validation rules.
-- Generated reference collections may include generic chaining helpers that are universally useful to Cloudflare API users. Keep fixtures synthetic and populated environments local/private.
-- Never commit API tokens, Postman API keys, account IDs, zone IDs, customer names, or other secrets. Environment files must be templates only.
+- Keep the repository public-safe. Never add credentials, customer data, private identifiers, proprietary workflows, or non-public operating details.
+- Fixtures must use conspicuously fictional values.
+- `base_url` is intentionally public/tracked. Credentials and real account/zone/tenant/organization identifiers must remain local only and must never be Shared or committed.
+- Never commit API tokens, Global API Keys, Postman API keys, authentication email values, customer names, populated environments, or live response payloads.
 
 ## Upstream authority and provenance
 
-- Treat `https://github.com/cloudflare/api-schemas` as the authoritative upstream API definition.
-- Pin the exact upstream commit and SHA-256 digest used for generation in a lock/provenance file.
-- Preserve all legally required upstream notices. Cloudflare's schema repository is BSD-3-Clause licensed; generated/redistributed material must retain required notices.
-- Do not silently patch the upstream schema in generated output. If a live API mismatch requires a compatibility workaround, isolate and document it explicitly as a project compatibility override with a test and upstream issue/reference when available.
+- Treat `https://github.com/cloudflare/api-schemas` as the authoritative API definition.
+- Pin the exact upstream commit and SHA-256 used for generation.
+- Preserve required BSD-3-Clause notices.
+- Do not silently patch upstream operation definitions. Compatibility handling must be isolated, documented, revision-bound where appropriate, and covered by tests.
 
 ## Engineering requirements
 
-- Standardize on Node.js 24 for repository tooling unless an unavoidable dependency prevents it; document any exception.
-- Pin material generator/toolchain versions. Do not rely on `latest` in reproducible generation.
-- Generation must be deterministic: the same upstream commit plus the same toolchain must produce byte-stable artifacts except for explicitly documented metadata.
-- The complete upstream operation set must be accounted for. Every HTTP operation must map to exactly one generated reference collection or fail validation with a clear unclassified-operation report. No silent omissions or duplicates.
-- Prefer config-driven product partitions over fragile handwritten request lists.
-- Keep generated artifacts clearly marked as generated and do not hand-edit them.
-- Use Cloudflare API tokens/Bearer authentication for normal examples. Do not normalize around Global API Keys.
-- Keep `https://api.cloudflare.com/client/v4` configurable via a collection/environment variable.
+- Use Node.js 24 unless an unavoidable dependency requires otherwise.
+- Pin material generator/toolchain versions; do not rely on `latest`.
+- Generation must be deterministic.
+- Every upstream HTTP operation must map to exactly one generated reference collection or fail validation. No silent omissions or duplicates.
+- Prefer config-driven partitions over handwritten request lists.
+- Generated artifacts must be clearly marked and never hand-edited.
+- Preserve schema-declared authentication. Prefer standalone API-token/Bearer alternatives where supported, but do not rewrite legacy-only or multi-scheme requirements.
+- Keep `https://api.cloudflare.com/client/v4` configurable through `base_url`.
 
-## Postman format
+## Postman formats and query policy
 
-- Generate v2.1 JSON under `dist/v2.1/` and derive v3 YAML under `postman/` using pinned official CLI migration. Both are generated; never hand-edit either format.
-- Only the guarded collection-auth ID compatibility policy in `docs/native-git.md` is approved. Any additional migration instability requires review.
-- Never commit `.postman/` workspace bindings. Upstream updates must regenerate and validate both formats together.
-
-- Use the current stable, automatable format supported by the selected generator. At staging time `openapi-to-postmanv2` is the established Postman converter and its upstream package is 6.3.3; Collection v3 support in that converter is not yet established. Pin a verified compatible version rather than assuming v3 support.
-- Structure collections so they remain practical to navigate; do not emit one monolithic 20+ MB collection if modular output can preserve complete coverage.
-- Generic reusable variables should include at minimum the Cloudflare API base URL, account ID, zone ID, and token reference. Secrets must never contain committed values.
+- Generate v2.1 JSON under `dist/v2.1/` and derive v3 YAML under `postman/` using pinned official Postman CLI migration.
+- Never commit `.postman/` workspace bindings. Regenerate and validate both formats together.
+- Only the guarded collection-auth UUID normalization documented in `docs/native-git.md` is approved for v3 migration. Additional migration instability requires review.
+- Query defaults use the isolated full-secondary/query-only projection documented in `docs/query-policy.md`. Do not replace it with endpoint-specific query rewriting, a local array/object serializer, or the rejected reduced-input optimization.
+- Required query Params remain enabled; emitted optional Params remain disabled by default. The five known optional-array omissions are revision-bound limitations.
+- Generic environment selectors include `account_id`, `zone_id`, `tenant_id`, and `organization_id`. Their committed values must remain empty. `base_url` is the only intentionally populated shared environment value.
+- Keep collections practical to navigate; do not collapse complete coverage into one monolithic collection when modular output preserves exact accounting.
 
 ## CI and maintenance
 
-- Pull requests must run deterministic generation checks, schema/collection validation, lint/type/tests, and operation-accounting checks.
-- A scheduled upstream drift job should check Cloudflare's schema at least daily. When the pinned upstream changes, automation should generate a reviewable branch/PR and a human-readable change summary; it must not auto-merge upstream API changes.
-- Live Cloudflare smoke tests must be read-only by default and use narrowly scoped credentials for maintainer-controlled non-production test resources, stored only in GitHub Actions secrets. Do not expose secrets to forked PR execution.
-- Scheduled/main-only smoke tests should fail clearly on authentication, response-envelope, pagination, or chaining regressions.
+- Pull requests must run deterministic generation checks, schema/collection validation, tests, operation accounting, auth validation, query-policy validation, and v2/v3 semantic checks.
+- Scheduled upstream drift must produce a reviewable branch/PR and human-readable summary; it must never auto-merge.
+- Live Cloudflare smoke tests must be read-only by default, use narrowly scoped maintainer-controlled credentials, and keep secrets unavailable to PR execution.
 
 ## Change discipline
 
 - Keep implementation scope bounded to the active task.
-- Do not merge PRs. Leave the branch and PR ready for human review.
-- Update durable documentation when architecture or operating decisions change; do not create documentation churn merely because commands were run.
+- Do not merge PRs. Leave branches ready for human review.
+- Update durable documentation when architecture or operating decisions change; avoid documentation churn that only records command execution.
