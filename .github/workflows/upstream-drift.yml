@@ -5,9 +5,9 @@ on:
     - cron: "23 10 * * *"
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pull-requests: write
+# Keep repository defaults restricted. Only the updater job receives the two
+# write scopes it needs to maintain its branch and review PR.
+permissions: {}
 
 concurrency:
   group: cloudflare-upstream-drift
@@ -16,6 +16,9 @@ concurrency:
 jobs:
   update:
     if: github.repository == 'SalixiaHoldings/Cloudflare-Postman'
+    permissions:
+      contents: write
+      pull-requests: write
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
