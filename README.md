@@ -4,29 +4,24 @@ An independent, Salixia-maintained distribution of modular Postman collections g
 
 ## Quick start — Import into Postman
 
-1. Clone or download this repository.
-2. Open Postman.
-3. Click **Import**.
-4. Choose **Files** (or the file picker in the import window).
-5. Import one or more collection files from `dist/v2.1/reference/`; use the table below to choose.
-6. Import `dist/v2.1/environments/cloudflare.template.postman_environment.json`.
-7. Select the imported **Cloudflare API — Template** environment.
-8. Add your Cloudflare credential values locally; normally begin with `api_token`.
-9. Set `account_id`, `zone_id`, `tenant_id`, or `organization_id` when the request requires them, along with any other request parameters.
-10. Open a request, inspect its authentication and payload, and click **Send**.
+1. Import one or more collections from `dist/v2.1/reference/`.
+2. Import `dist/v2.1/environments/cloudflare.template.postman_environment.json` and select **Cloudflare API — Template**.
+3. Set only the local values you need. Prefer `api_token` where supported; some requests require `api_email` + `api_key` or another declared credential.
+4. Set required resource selectors such as `account_id`, `zone_id`, `tenant_id`, or `organization_id`.
+5. Inspect the request, parameters, authentication, and payload before clicking **Send**.
 
-Keep populated environments local/private. Do not commit them or export them publicly.
+`base_url` is intentionally populated and may remain Shared/tracked. **Never Share or commit credentials, API keys/tokens, or real resource identifiers.** Keep `api_token`, `api_email`, `api_key`, `user_service_key`, account/zone/tenant/organization IDs, and any other sensitive values local only.
 
 ## Local Mode / Native Git (Postman v12+)
 
-1. Clone this repository and open its root in Postman desktop.
-2. Switch to **Local View**.
-3. Use the generated collections and template environment under `postman/`.
-4. Enter credentials and resource selectors only as **local Values** in Postman. Do not **Share** sensitive values or populate Shared values; local values stay in your Postman app rather than the Git-tracked YAML.
+1. Clone the repository, open its root in Postman desktop, and switch to **Local View**.
+2. Select **Cloudflare API — Template**.
+3. Enter credentials and resource selectors only in Postman's local **Value** fields, never **Shared** values.
+4. Confirm `git status` stays clean after setting local values.
 
-Local Mode does **not** require connecting or pushing to Postman Cloud. A cloud workspace binding is optional; its `.postman/resources.yaml` stays local and ignored. After adding a local test value, `git status` should remain clean; stop before committing if Postman wrote a sensitive value into a tracked file. See [Native Git usage and generation](docs/native-git.md).
+No Postman Cloud connection is required. `.postman/` workspace-binding state stays local and ignored. See [Native Git usage and generation](docs/native-git.md).
 
-An empty **Globals** entity is intentionally generated because Local View materializes it. This project uses collection/environment variables and defines no shared workspace globals. Keep credentials only in Postman’s local **Value** fields; never **Share** sensitive global or environment values.
+An empty **Globals** entity is generated intentionally. This project uses collection/environment variables and defines no shared workspace globals.
 
 ## Which collection should I import?
 
@@ -47,19 +42,23 @@ Files below are in `dist/v2.1/reference/` and end in `.postman_collection.json`.
 
 ## Authentication
 
-Cloudflare API tokens are preferred wherever the official schema supports them. Some operations declare different requirements; each generated request follows the pinned Cloudflare OpenAPI declaration instead of assuming Bearer authentication everywhere. All credential fields in the environment template ship empty.
+Generated requests follow the pinned Cloudflare OpenAPI authentication declaration. API tokens are preferred where the schema supports them, but some operations require other credentials. All credential fields ship empty.
 
-Read the request's authentication notice before sending it. See the [detailed authentication policy](docs/architecture.md#authentication-contract) for the full matrix and edge cases.
+Read the request's authentication notice before sending it. See the [authentication policy](docs/architecture.md#authentication-contract) for details.
+
+## Query defaults
+
+Required query Params are enabled. Optional Params emitted by the official converter are visible but unchecked, so default URLs contain only required Params. Enable optional filters deliberately. See the [query policy](docs/query-policy.md) for known converter limitations.
 
 ## Optional account/zone bootstrap
 
-Import `dist/v2.1/workflows/bootstrap.postman_collection.json` to verify a token and resolve account/zone IDs. Run the **whole collection from its first request in Collection Runner**, not individual Send requests, so pagination works.
+Import `dist/v2.1/workflows/bootstrap.postman_collection.json` to verify a token and resolve account/zone IDs. Run the **whole collection from its first request in Collection Runner** so pagination and request routing work.
 
-The pinned account-list operation requires local `api_email` and `api_key` values; token verification and zone listing use `api_token`. If you do not want to supply legacy credentials, set account/zone IDs manually and use token-supported reference requests. See [bootstrap details](docs/architecture.md#paginated-postman-bootstrap).
+The pinned account-list operation requires local `api_email` and `api_key`; token verification and zone listing use `api_token`. If you do not want to supply legacy credentials, set account/zone IDs manually and use token-supported reference requests. See [bootstrap details](docs/architecture.md#paginated-postman-bootstrap).
 
 ## Safety
 
-Reference collections include **read and write operations**. Importing them executes nothing. Use least-privilege credentials and inspect the endpoint, authentication, parameters, and payload before sending a request. Do not run an entire reference collection as a workflow.
+Reference collections include **read and write operations**. Importing them executes nothing. Use least-privilege credentials and inspect every request before sending it. Do not run an entire reference collection as a workflow.
 
 ## Updating / developing
 
@@ -71,12 +70,8 @@ npm run generate
 npm run check
 ```
 
-Generated files must not be edited by hand. See [CONTRIBUTING.md](CONTRIBUTING.md) and [architecture and maintenance](docs/architecture.md) for provenance, deterministic generation, validation, upstream updates, and known limitations. Report vulnerabilities through the process in [SECURITY.md](SECURITY.md).
+Generated files must not be edited by hand. See [CONTRIBUTING.md](CONTRIBUTING.md) and [architecture and maintenance](docs/architecture.md). Report vulnerabilities through [SECURITY.md](SECURITY.md).
 
 ## License / provenance
 
 Project code is [BSD-3-Clause licensed](LICENSE). Collections are generated from Cloudflare's BSD-3-Clause API schema, pinned by exact commit and SHA-256 in `schema-lock.json`. Required attribution and tool notices are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
-
-### Query defaults
-
-Required query Params are enabled; optional Params emitted by the official converter are visible but unchecked. Default URLs contain only enabled Params. Enable optional filters deliberately. The [query policy](docs/query-policy.md) documents the five revision-bound optional-array omissions and validation. Tenant/organization selectors ship empty in both environment formats; keep sensitive values local and never Share them.
