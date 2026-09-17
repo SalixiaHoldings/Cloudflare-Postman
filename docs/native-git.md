@@ -68,7 +68,7 @@ The manifest records the schema commit/digest, converter and CLI toolchain, comp
 
 ## Desktop acceptance boundary
 
-PR #4's subsequent live-query acceptance work is paused on a [reproduced converter query-identity defect](query-policy-blocker.md). The requested global optional-query defaults and tenant/organization template additions remain pending that review; Desktop acceptance is not the only remaining gate.
+PR #4's subsequent live-query acceptance work is paused at the [official-options experiment's adoption gate](query-options-experiment.md): the settings fix the five query-identity defects but cause broad non-query drift, and five optional arrays remain omitted. The requested global optional-query defaults and tenant/organization template additions remain pending review of the bounded secondary-pass design; Desktop acceptance is not the only remaining gate.
 
 CLI lint proves format validity, not desktop behavior. In Postman v12+ desktop, open this repository root in Local View without a cloud binding; confirm all ten reference collections, the three-request bootstrap, and template environment plus empty Globals appear, and no **Upgrade files** warning appears. Inspect auth/variables and bootstrap scripts without sending requests. Set one harmless local Value and confirm `git status` remains clean. Confirm opening Local View no longer creates an untracked Globals file. This final UI acceptance check requires a human desktop session.
 

@@ -1,6 +1,6 @@
 # Query-default policy: converter blocker
 
-The [live-test follow-up on PR #4](https://github.com/SalixiaHoldings/Cloudflare-Postman/pull/4#issuecomment-5715345457) requests a global optional-query policy. Implementation is paused under the accompanying instruction to document and stop if an independent converter serialization defect is found. No query serialization workaround or schema edit has been applied.
+The [live-test follow-up on PR #4](https://github.com/SalixiaHoldings/Cloudflare-Postman/pull/4#issuecomment-5715345457) requests a global optional-query policy. The subsequent [official-options experiment](query-options-experiment.md) fixes all five query-identity defects below using supported converter settings. Global adoption is paused because those settings also change 735 non-query requests and 3,268 response-example bodies. A query-only candidate preserves those fields, but five optional array parameters remain absent. No production converter change, query serialization workaround, or schema edit has been applied.
 
 ## Reproduced failure
 
@@ -67,7 +67,7 @@ An initial schema audit counts 133 required and 5,495 optional query-parameter c
 
 ## Remaining work
 
-Review a bounded converter-level remedy and its serialization/identity tests before resuming. Do not introduce endpoint-specific rewriting, another URL builder, a toolchain upgrade, or a schema patch implicitly.
+Review the measured [query-only candidate and optional-array visibility gap](query-options-experiment.md) before resuming. The original nesting failure has a supported converter remedy; its global non-query effects exceed the authorized adoption gate. Do not introduce endpoint-specific rewriting, another URL builder, a toolchain upgrade, or a schema patch implicitly.
 
 Both empty environment additions (`tenant_id`, `organization_id`), the global query policy and required-value priorities, fail-closed validation, v2/v3 query equivalence, focused regression tests, dual-format regeneration, and the complete local/hosted acceptance gate remain pending. The current generated artifacts have not been changed by this investigation. Existing Globals, auth-ID normalization, bootstrap, schema/toolchain pins, and operation accounting remain unchanged.
 
