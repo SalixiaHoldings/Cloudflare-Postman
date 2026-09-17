@@ -144,6 +144,10 @@ The generated environment intentionally shares/tracks only the public `base_url`
 
 `.github/workflows/upstream-drift.yml` resolves Cloudflare's current `main` revision, updates the provenance lock, regenerates both formats, validates them, and creates/updates a review PR. It never auto-merges.
 
+The repository must enable **Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests** so the updater's `GITHUB_TOKEN` can open its review PR. GitHub exposes PR creation and approval as one repository switch; this project uses only the creation capability. Repository defaults remain restricted, the workflow has top-level `permissions: {}`, and only the scheduled/manual `update` job receives `contents: write` plus `pull-requests: write`. Regression tests fail if another workflow gains PR-write access or if an Actions workflow attempts to submit an approving review.
+
+Do **not** enable write tokens for pull-request workflows. The public `pull_request` validation path remains read-only. PRs created by `GITHUB_TOKEN` may require a maintainer to approve their PR-triggered workflow run; the updater itself already performs generation and validation before opening the PR, and human review remains the merge boundary.
+
 ### Protected read-only smoke test
 
 `.github/workflows/live-smoke.yml` runs only on schedule/manual dispatch in the canonical repository. It skips until `CLOUDFLARE_READ_TOKEN` is configured and is not exposed to pull requests.
