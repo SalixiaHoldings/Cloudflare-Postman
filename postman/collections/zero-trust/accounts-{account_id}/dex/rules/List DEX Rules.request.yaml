@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/dex/rules?page=1&per_page=10&sort_order=ASC&sort_by=name&name=string"
+url: "{{base_url}}/accounts/{{account_id}}/dex/rules?page=1&per_page=10"
 method: GET
 headers:
   Accept: application/json
@@ -26,12 +26,15 @@ queryParams:
     description: (Required) Number of results per page.
   - key: sort_order
     value: ASC
+    disabled: true
     description: Sort direction for sort_by property.
   - key: sort_by
     value: name
+    disabled: true
     description: Which property to sort results by.
   - key: name
     value: string
+    disabled: true
     description: Filter results by rule name.
 auth:
   type: bearer

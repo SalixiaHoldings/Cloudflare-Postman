@@ -2,7 +2,7 @@ $kind: http-example
 id: 16102158-636b-5ef6-8ce2-c755cc7e445e
 name: Internet traffic anomaly.
 request:
-  url: "{{base_url}}/radar/traffic_anomalies/{{uuid}}?format=JSON"
+  url: "{{base_url}}/radar/traffic_anomalies/{{uuid}}"
   method: GET
   headers:
     Accept: application/json
@@ -10,7 +10,8 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 200

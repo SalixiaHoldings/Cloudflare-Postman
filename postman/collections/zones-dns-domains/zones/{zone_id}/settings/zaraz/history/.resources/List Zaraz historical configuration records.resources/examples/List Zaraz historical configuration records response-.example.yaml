@@ -2,22 +2,26 @@ $kind: http-example
 id: d64b5ff5-5a6f-517c-b033-cd3d143cf43f
 name: List Zaraz historical configuration records response.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/settings/zaraz/history?offset=0&limit=10&sortField=updated_at&sortOrder=DESC"
+  url: "{{base_url}}/zones/{{zone_id}}/settings/zaraz/history"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: offset
       value: "0"
+      disabled: true
       description: Ordinal number to start listing the results with. Default value is 0.
     - key: limit
       value: "10"
+      disabled: true
       description: Maximum amount of results to list. Default value is 10.
     - key: sortField
       value: updated_at
+      disabled: true
       description: The field to sort by. Default is updated_at.
     - key: sortOrder
       value: DESC
+      disabled: true
       description: Sorting order. Default is DESC.
 response:
   statusCode: 200

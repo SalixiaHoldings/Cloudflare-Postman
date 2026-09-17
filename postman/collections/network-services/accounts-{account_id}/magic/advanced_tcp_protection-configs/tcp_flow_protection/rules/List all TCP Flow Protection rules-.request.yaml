@@ -14,22 +14,26 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/tcp_flow_protection/rules?page=1033&per_page=1033&order=string&direction=string"
+url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/tcp_flow_protection/rules"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: page
-    value: "1033"
+    value: "7134"
+    disabled: true
     description: The page number for pagination. Defaults to 1.
   - key: per_page
-    value: "1033"
+    value: "7134"
+    disabled: true
     description: The number of items per page. Must be between 10 and 1000. Defaults to 25.
   - key: order
     value: string
+    disabled: true
     description: The field to order by. Defaults to 'prefix'.
   - key: direction
     value: string
+    disabled: true
     description: The direction of ordering (ASC or DESC). Defaults to 'ASC'.
 auth:
   type: bearer

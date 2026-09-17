@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/bgp/ips/top/ases?date=2024-09-19T00:00:00Z&limit=5&metric=v4_24s&country=US&format=JSON"
+url: "{{base_url}}/radar/bgp/ips/top/ases"
 method: GET
 headers:
   Accept: application/json
@@ -22,18 +22,23 @@ headers:
 queryParams:
   - key: date
     value: 2024-09-19T00:00:00Z
+    disabled: true
     description: Filters results by the specified datetime (ISO 8601).
   - key: limit
     value: "5"
+    disabled: true
     description: Limits the number of objects returned in the response.
   - key: metric
     value: v4_24s
+    disabled: true
     description: "Ranking metric: IPv4 /24 count or IPv6 /48 count."
   - key: country
     value: US
+    disabled: true
     description: Optional ISO 3166-1 alpha-2 country filter. Omit for global top-N.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

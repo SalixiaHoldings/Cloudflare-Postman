@@ -13,19 +13,22 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/one/applications?environment=string&page=8161&page_size=8161"
+url: "{{base_url}}/accounts/{{account_id}}/one/applications"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: environment
     value: string
+    disabled: true
     description: Filter by supported environment (standard, fedramp).
   - key: page
-    value: "8161"
+    value: "1209"
+    disabled: true
     description: A page number within the paginated result set.
   - key: page_size
-    value: "8161"
+    value: "1209"
+    disabled: true
     description: Number of results to return per page.
 auth:
   type: bearer

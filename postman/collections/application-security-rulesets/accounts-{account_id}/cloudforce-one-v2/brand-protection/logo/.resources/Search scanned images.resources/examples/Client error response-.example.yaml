@@ -2,7 +2,7 @@ $kind: http-example
 id: c5017d40-8d2f-5ae6-8340-3ae1182ac8c4
 name: Client error response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/search?showHistoric=false&download=string"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/search"
   method: POST
   headers:
     Content-Type: application/json
@@ -10,9 +10,11 @@ request:
   queryParams:
     - key: showHistoric
       value: "false"
+      disabled: true
       description: "Include scanned images without domain metadata (historic data). Default: false (only show images with domain)"
     - key: download
       value: string
+      disabled: true
       description: If true, include base64-encoded image data in the response
   body:
     type: json

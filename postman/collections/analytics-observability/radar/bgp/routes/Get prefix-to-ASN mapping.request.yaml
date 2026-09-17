@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/bgp/routes/pfx2as?prefix=1.1.1.0/24&origin=3602&rpkiStatus=INVALID&longestPrefixMatch=true&format=JSON"
+url: "{{base_url}}/radar/bgp/routes/pfx2as"
 method: GET
 headers:
   Accept: application/json
@@ -22,17 +22,22 @@ headers:
 queryParams:
   - key: prefix
     value: 1.1.1.0/24
+    disabled: true
   - key: origin
-    value: "3602"
+    value: "610"
+    disabled: true
     description: Lookup prefixes originated by the given ASN.
   - key: rpkiStatus
     value: INVALID
+    disabled: true
     description: "Return only results with matching rpki status: valid, invalid or unknown."
   - key: longestPrefixMatch
     value: "true"
+    disabled: true
     description: Return only results with the longest prefix match for the given prefix. For example, specify a /32 prefix to lookup the origin ASN for an IPv4 address.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

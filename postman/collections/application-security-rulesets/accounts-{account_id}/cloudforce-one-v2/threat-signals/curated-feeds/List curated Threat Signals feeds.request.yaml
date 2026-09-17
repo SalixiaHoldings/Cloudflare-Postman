@@ -13,11 +13,15 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/curated-feeds?category=string&include_inactive=false"
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/curated-feeds"
 method: GET
 queryParams:
-  category: string
-  include_inactive: "false"
+  - key: category
+    value: string
+    disabled: true
+  - key: include_inactive
+    value: "false"
+    disabled: true
 auth:
   type: bearer
   credentials:

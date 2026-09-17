@@ -13,21 +13,26 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: '{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/logs?order_by=created_at&order_by_direction=asc&filters={"key":"duration","operator":"gt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}&filters={"key":"cached","operator":"lt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}&limit=10000'
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/logs"
 method: DELETE
 headers:
   Accept: application/json
 queryParams:
   - key: order_by
     value: created_at
+    disabled: true
   - key: order_by_direction
     value: asc
+    disabled: true
   - key: filters
-    value: '{"key":"duration","operator":"gt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}'
+    value: '{"key":"created_at","operator":"eq","value":["string","string"]}'
+    disabled: true
   - key: filters
-    value: '{"key":"cached","operator":"lt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}'
+    value: '{"key":"compatibilityMode","operator":"lt","value":["string","string"]}'
+    disabled: true
   - key: limit
     value: "10000"
+    disabled: true
 auth:
   type: bearer
   credentials:

@@ -2,7 +2,7 @@ $kind: http-example
 id: 95cb229e-8833-5e12-a124-e7085d65d6d6
 name: Successful response.
 request:
-  url: "{{base_url}}/radar/bgp/rpki/aspa/timeseries?dateStart=2023-09-01T11:41:33.782Z&dateEnd=2023-09-01T11:41:33.782Z&name=main_series&name=main_series&rir=ARIN&rir=RIPE_NCC&location=string&location=string&format=JSON"
+  url: "{{base_url}}/radar/bgp/rpki/aspa/timeseries"
   method: GET
   headers:
     Accept: application/json
@@ -11,30 +11,39 @@ request:
   queryParams:
     - key: dateStart
       value: 2023-09-01T11:41:33.782Z
+      disabled: true
       description: Start of the date range (inclusive). Alternative to `dateRange`; provide together with `dateEnd`.
     - key: dateEnd
       value: 2023-09-01T11:41:33.782Z
+      disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`.
     - key: name
       value: main_series
+      disabled: true
       description: Array of names used to label the series in the response.
     - key: name
       value: main_series
+      disabled: true
       description: Array of names used to label the series in the response.
     - key: rir
-      value: ARIN
+      value: LACNIC
+      disabled: true
       description: Filter by Regional Internet Registry (RIR). Multiple RIRs generate multiple series.
     - key: rir
       value: RIPE_NCC
+      disabled: true
       description: Filter by Regional Internet Registry (RIR). Multiple RIRs generate multiple series.
     - key: location
       value: string
+      disabled: true
       description: Filters results by location. Specify a comma-separated list of alpha-2 location codes.
     - key: location
       value: string
+      disabled: true
       description: Filters results by location. Specify a comma-separated list of alpha-2 location codes.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 200

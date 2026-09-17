@@ -13,17 +13,20 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/access/policy-tests/{{policy_test_id}}/users?page=1&per_page=25&status=fail"
+url: "{{base_url}}/accounts/{{account_id}}/access/policy-tests/{{policy_test_id}}/users"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: page
     value: "1"
+    disabled: true
   - key: per_page
     value: "25"
+    disabled: true
   - key: status
-    value: fail
+    value: success
+    disabled: true
     description: Filter users by their policy evaluation status.
 auth:
   type: bearer

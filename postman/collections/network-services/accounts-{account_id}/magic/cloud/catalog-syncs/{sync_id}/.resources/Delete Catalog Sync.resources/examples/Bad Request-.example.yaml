@@ -2,14 +2,16 @@ $kind: http-example
 id: fb2a9813-cc5b-524d-b743-24d4a909e982
 name: Bad Request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/{{sync_id}}?delete_destination=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/{{sync_id}}"
   method: DELETE
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    delete_destination: "true"
+    - key: delete_destination
+      value: "true"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

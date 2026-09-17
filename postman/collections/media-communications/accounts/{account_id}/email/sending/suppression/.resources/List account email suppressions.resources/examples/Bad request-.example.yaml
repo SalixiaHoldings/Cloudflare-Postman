@@ -2,15 +2,23 @@ $kind: http-example
 id: df9e05ad-d178-5cac-bec3-0274b70987c4
 name: Bad request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppression?page=1&per_page=100&order=created_at&direction=desc"
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppression"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "100"
-    order: created_at
-    direction: desc
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "100"
+      disabled: true
+    - key: order
+      value: created_at
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

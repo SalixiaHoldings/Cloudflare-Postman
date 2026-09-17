@@ -2,7 +2,7 @@ $kind: http-example
 id: 88f75638-1447-536f-8134-c7540ade160f
 name: Too many active prefix-delete or bucket-emptying jobs. Wait for an existing job to finish, then retry.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects?prefix="
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects"
   method: DELETE
   headers:
     - key: cf-r2-jurisdiction
@@ -15,7 +15,9 @@ request:
     - key: Accept
       value: application/json
   queryParams:
-    prefix: ""
+    - key: prefix
+      value: ""
+      disabled: true
   body:
     type: json
     content: |-

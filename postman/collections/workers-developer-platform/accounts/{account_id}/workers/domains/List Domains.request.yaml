@@ -13,16 +13,26 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/workers/domains?zone_id={{zone_id}}&zone_name=example.com&service=my-worker&hostname=app.example.com&environment=production"
+url: "{{base_url}}/accounts/{{account_id}}/workers/domains"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  zone_id: "{{zone_id}}"
-  zone_name: example.com
-  service: my-worker
-  hostname: app.example.com
-  environment: production
+  - key: zone_id
+    value: "{{zone_id}}"
+    disabled: true
+  - key: zone_name
+    value: example.com
+    disabled: true
+  - key: service
+    value: my-worker
+    disabled: true
+  - key: hostname
+    value: app.example.com
+    disabled: true
+  - key: environment
+    value: production
+    disabled: true
 auth:
   type: bearer
   credentials:

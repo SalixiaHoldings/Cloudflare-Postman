@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/gateway/lists?type=SERIAL&search=string&order_by=updated_at&direction=asc"
+url: "{{base_url}}/accounts/{{account_id}}/gateway/lists"
 method: GET
 headers:
   Accept: application/json
@@ -22,13 +22,16 @@ headers:
 queryParams:
   - key: type
     value: SERIAL
+    disabled: true
   - key: search
     value: string
+    disabled: true
     description: |-
       Case-insensitive substring match on the list name or description. When
       combined with `filter`, both must match (logical AND).
   - key: order_by
-    value: updated_at
+    value: name
+    disabled: true
     description: |-
       Field to sort the returned lists by. When omitted, results are ordered by
       `created_at` in ascending order (i.e. creation order) for backwards
@@ -38,7 +41,8 @@ queryParams:
         * `updated_at` — sort by last-modified time; defaults to descending unless `direction` is set.
         * `item_count` — sort by number of items in the list.
   - key: direction
-    value: asc
+    value: desc
+    disabled: true
     description: |-
       Sort direction. Applies to the field named in `order_by`; when `order_by`
       is omitted it applies to the default `created_at` ordering. When

@@ -2,7 +2,7 @@ $kind: http-example
 id: c2ce8fc7-ae5e-5396-9c47-67405ba31ab2
 name: List tagged resources response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/tags/resources?type=zone&type=zone&name=string&id=023e105f4ecef8ad9ca31a8372d0c353&id=023e105f4ecef8ad9ca31a8372d0c353&case_insensitive=false&tag=production&tag=env=prod&tag=env=prod,staging&tag=!archived&tag=region!=us-west-1&cursor=eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ"
+  url: "{{base_url}}/accounts/{{account_id}}/tags/resources"
   method: GET
   headers:
     Accept: application/json
@@ -11,24 +11,31 @@ request:
   queryParams:
     - key: type
       value: zone
+      disabled: true
       description: "Filter by resource type. Can be repeated to filter by multiple types (OR logic). Example: ?type=zone&type=worker"
     - key: type
       value: zone
+      disabled: true
       description: "Filter by resource type. Can be repeated to filter by multiple types (OR logic). Example: ?type=zone&type=worker"
     - key: name
       value: string
+      disabled: true
       description: "Filter by resource name. Performs a case-insensitive substring match. Example: ?name=my-zone"
     - key: id
       value: 023e105f4ecef8ad9ca31a8372d0c353
+      disabled: true
       description: "Filter by resource ID. Can be repeated up to 50 times to filter by multiple IDs. Example: ?id=abc&id=def"
     - key: id
       value: 023e105f4ecef8ad9ca31a8372d0c353
+      disabled: true
       description: "Filter by resource ID. Can be repeated up to 50 times to filter by multiple IDs. Example: ?id=abc&id=def"
     - key: case_insensitive
       value: "false"
+      disabled: true
       description: "Match `tag` keys and values case-insensitively. Stored casing is unchanged. Example: ?tag=environment=production&case_insensitive=true"
     - key: tag
       value: production
+      disabled: true
       description: |
         Filter resources by tag criteria. This parameter can be repeated multiple times, with AND logic between parameters.
 
@@ -42,6 +49,7 @@ request:
         Multiple tag parameters are combined with AND logic.
     - key: tag
       value: env=prod
+      disabled: true
       description: |
         Filter resources by tag criteria. This parameter can be repeated multiple times, with AND logic between parameters.
 
@@ -55,6 +63,7 @@ request:
         Multiple tag parameters are combined with AND logic.
     - key: tag
       value: env=prod,staging
+      disabled: true
       description: |
         Filter resources by tag criteria. This parameter can be repeated multiple times, with AND logic between parameters.
 
@@ -68,6 +77,7 @@ request:
         Multiple tag parameters are combined with AND logic.
     - key: tag
       value: "!archived"
+      disabled: true
       description: |
         Filter resources by tag criteria. This parameter can be repeated multiple times, with AND logic between parameters.
 
@@ -81,6 +91,7 @@ request:
         Multiple tag parameters are combined with AND logic.
     - key: tag
       value: region!=us-west-1
+      disabled: true
       description: |
         Filter resources by tag criteria. This parameter can be repeated multiple times, with AND logic between parameters.
 
@@ -94,6 +105,7 @@ request:
         Multiple tag parameters are combined with AND logic.
     - key: cursor
       value: eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ
+      disabled: true
       description: Cursor for pagination.
 response:
   statusCode: 400

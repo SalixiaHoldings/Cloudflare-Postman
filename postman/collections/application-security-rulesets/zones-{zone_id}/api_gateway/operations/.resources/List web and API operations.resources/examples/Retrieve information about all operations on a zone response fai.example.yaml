@@ -2,7 +2,7 @@ $kind: http-example
 id: 2ccb13c1-e002-58d4-8032-e301ec7a3062
 name: Retrieve information about all operations on a zone response failure
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations?page=1&per_page=20&order=method&direction=desc&host=api.cloudflare.com&method=GET&endpoint=/api/v1&feature=thresholds"
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations"
   method: GET
   headers:
     Accept: application/json
@@ -11,22 +11,30 @@ request:
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: per_page
       value: "20"
+      disabled: true
       description: Maximum number of results per page.
     - key: order
       value: method
+      disabled: true
     - key: direction
       value: desc
+      disabled: true
     - key: host
       value: api.cloudflare.com
+      disabled: true
     - key: method
       value: GET
+      disabled: true
     - key: endpoint
       value: /api/v1
+      disabled: true
     - key: feature
       value: thresholds
+      disabled: true
       description: Add feature(s) to the results. The feature name that is given here corresponds to the resulting feature object. Have a look at the top-level object description for more details on the specific meaning.
 response:
   statusCode: 400

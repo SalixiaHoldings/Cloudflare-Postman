@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_email":[],"api_key":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/shares?status=active&kind=sent&target_type=organization&resource_types=custom-ruleset&resource_types=gateway-extended-email-matching&order=created&direction=asc&page=2&per_page=20&include_resources=true&include_recipient_counts=true&tag=env=production&tag=env=production"
+url: "{{base_url}}/accounts/{{account_id}}/shares"
 method: GET
 headers:
   Accept: application/json
@@ -21,49 +21,62 @@ headers:
   X-Auth-Key: "{{api_key}}"
 queryParams:
   - key: status
-    value: active
+    value: deleted
+    disabled: true
     description: Filter shares by status.
   - key: kind
     value: sent
+    disabled: true
     description: Filter shares by kind.
   - key: target_type
     value: organization
+    disabled: true
     description: Filter shares by target_type.
   - key: resource_types
     value: custom-ruleset
+    disabled: true
     description: Filter share resources by resource_types.
   - key: resource_types
-    value: gateway-extended-email-matching
+    value: gateway-destination-ip
+    disabled: true
     description: Filter share resources by resource_types.
   - key: order
     value: created
+    disabled: true
     description: Order shares by values in the given field.
   - key: direction
     value: asc
+    disabled: true
     description: Direction to sort objects.
   - key: page
     value: "2"
+    disabled: true
     description: |-
       Page number. Defaults to `1` when `per_page` is supplied without
       `page`. May be omitted entirely along with `per_page` to receive a
       non-paginated response.
   - key: per_page
     value: "20"
+    disabled: true
     description: |-
       Number of objects to return per page. Defaults to `20` when `page`
       is supplied without `per_page`. May be omitted entirely along with
       `page` to receive a non-paginated response.
   - key: include_resources
     value: "true"
+    disabled: true
     description: Include resources in the response.
   - key: include_recipient_counts
     value: "true"
+    disabled: true
     description: Include recipient counts in the response.
   - key: tag
     value: env=production
+    disabled: true
     description: Filter shares by tag. Each value is either `key=value` (matches shares whose tags contain that key/value pair) or `key` alone (matches shares that have any value for that key). May be repeated; multiple `tag` parameters are ANDed together. Maximum 20 `tag` parameters per request.
   - key: tag
     value: env=production
+    disabled: true
     description: Filter shares by tag. Each value is either `key=value` (matches shares whose tags contain that key/value pair) or `key` alone (matches shares that have any value for that key). May be repeated; multiple `tag` parameters are ANDed together. Maximum 20 `tag` parameters per request.
 auth:
   type: noauth

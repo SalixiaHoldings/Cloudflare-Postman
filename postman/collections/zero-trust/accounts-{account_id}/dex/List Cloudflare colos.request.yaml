@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/dex/colos?from=2023-08-20T20:45:00Z&to=2023-08-24T20:45:00Z&sortBy=fleet-status-usage"
+url: "{{base_url}}/accounts/{{account_id}}/dex/colos?from=2023-08-20T20:45:00Z&to=2023-08-24T20:45:00Z"
 method: GET
 headers:
   Accept: application/json
@@ -26,6 +26,7 @@ queryParams:
     description: (Required) End time for connection period in ISO (RFC3339 - ISO 8601) format.
   - key: sortBy
     value: fleet-status-usage
+    disabled: true
     description: Type of usage that colos should be sorted by. If unspecified, returns all Cloudflare colos sorted alphabetically.
 auth:
   type: bearer

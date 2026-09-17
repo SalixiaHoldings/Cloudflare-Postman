@@ -2,12 +2,14 @@ $kind: http-example
 id: 2d9c2e3b-129c-5d83-80d9-3920fc6cf00f
 name: Failure response.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/speed_api/schedule/{{url}}?region=us-central1"
+  url: "{{base_url}}/zones/{{zone_id}}/speed_api/schedule/{{url}}"
   method: DELETE
   headers:
     Accept: application/json
   queryParams:
-    region: us-central1
+    - key: region
+      value: us-central1
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

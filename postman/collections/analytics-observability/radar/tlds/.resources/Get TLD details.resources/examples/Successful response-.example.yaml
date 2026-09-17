@@ -2,7 +2,7 @@ $kind: http-example
 id: b08d4998-fe6b-55b6-a6c6-78583cfe2338
 name: Successful response.
 request:
-  url: "{{base_url}}/radar/tlds/{{tld}}?format=JSON"
+  url: "{{base_url}}/radar/tlds/{{tld}}"
   method: GET
   headers:
     Accept: application/json
@@ -10,7 +10,8 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 200

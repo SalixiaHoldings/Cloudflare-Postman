@@ -13,14 +13,20 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/sources?offset=0&limit=25&name=string"
+url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/sources"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  offset: "0"
-  limit: "25"
-  name: string
+  - key: offset
+    value: "0"
+    disabled: true
+  - key: limit
+    value: "25"
+    disabled: true
+  - key: name
+    value: string
+    disabled: true
 auth:
   type: bearer
   credentials:

@@ -2,12 +2,14 @@ $kind: http-example
 id: cbc25d74-0e22-58d5-aa90-a40d1d438c51
 name: Delete deployment response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/pages/projects/{{project_name}}/deployments/{{deployment_id}}?force=true"
+  url: "{{base_url}}/accounts/{{account_id}}/pages/projects/{{project_name}}/deployments/{{deployment_id}}"
   method: DELETE
   headers:
     Accept: application/json
   queryParams:
-    force: "true"
+    - key: force
+      value: "true"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

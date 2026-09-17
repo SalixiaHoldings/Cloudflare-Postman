@@ -2,14 +2,16 @@ $kind: http-example
 id: 0d3fcfb6-1c34-5c92-852a-c92b2e82f3c8
 name: Internal Server Error.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/{{sync_id}}?delete_destination=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/{{sync_id}}"
   method: DELETE
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    delete_destination: "true"
+    - key: delete_destination
+      value: "true"
+      disabled: true
 response:
   statusCode: 500
   statusText: Internal Server Error

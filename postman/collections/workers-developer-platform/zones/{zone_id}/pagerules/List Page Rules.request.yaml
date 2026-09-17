@@ -13,15 +13,23 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones/{{zone_id}}/pagerules?order=status&direction=desc&match=all&status=active"
+url: "{{base_url}}/zones/{{zone_id}}/pagerules"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  order: status
-  direction: desc
-  match: all
-  status: active
+  - key: order
+    value: status
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
+  - key: match
+    value: all
+    disabled: true
+  - key: status
+    value: active
+    disabled: true
 auth:
   type: bearer
   credentials:

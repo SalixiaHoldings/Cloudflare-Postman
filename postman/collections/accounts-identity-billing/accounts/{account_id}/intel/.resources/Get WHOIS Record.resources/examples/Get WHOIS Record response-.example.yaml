@@ -2,12 +2,14 @@ $kind: http-example
 id: 66ad6cb3-495d-5913-9bd7-ae0cc2f7b1ef
 name: Get WHOIS Record response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/intel/whois?domain=string"
+  url: "{{base_url}}/accounts/{{account_id}}/intel/whois"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    domain: string
+    - key: domain
+      value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

@@ -1,16 +1,26 @@
 $kind: http-example
 id: 4bd9e4ca-699d-56bb-b59b-ea206c2e258b
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/custom-providers?page=1&per_page=20&beta=false&enable=true&search=string"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/custom-providers"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
-    beta: "false"
-    enable: "true"
-    search: string
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: beta
+      value: "false"
+      disabled: true
+    - key: enable
+      value: "false"
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

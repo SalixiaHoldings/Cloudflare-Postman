@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/magic/connectors/{{connector_id}}/telemetry/events?from=7965.822466649115&to=7965.822466649115&limit=7965.822466649115&cursor=string&k=string"
+url: "{{base_url}}/accounts/{{account_id}}/magic/connectors/{{connector_id}}/telemetry/events?from=324.4386496953666&to=324.4386496953666"
 method: GET
 headers:
   Accept: application/json
@@ -21,17 +21,20 @@ headers:
   X-Auth-Key: "{{api_key}}"
 queryParams:
   - key: from
-    value: "7965.822466649115"
+    value: "324.4386496953666"
     description: "(Required) "
   - key: to
-    value: "7965.822466649115"
+    value: "324.4386496953666"
     description: "(Required) "
   - key: limit
-    value: "7965.822466649115"
+    value: "324.4386496953666"
+    disabled: true
   - key: cursor
     value: string
+    disabled: true
   - key: k
     value: string
+    disabled: true
     description: Filter by event kind
 auth:
   type: bearer

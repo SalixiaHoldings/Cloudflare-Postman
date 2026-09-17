@@ -2,7 +2,7 @@ $kind: http-example
 id: c6437bdb-d145-5ccf-9651-d3e310c056a0
 name: Successful response.
 request:
-  url: "{{base_url}}/radar/entities/asns/{{asn}}/rel?asn2=8856&format=JSON"
+  url: "{{base_url}}/radar/entities/asns/{{asn}}/rel"
   method: GET
   headers:
     Accept: application/json
@@ -10,10 +10,12 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: asn2
-      value: "8856"
+      value: "4248"
+      disabled: true
       description: Retrieves the AS relationship of ASN2 with respect to the given ASN.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 200

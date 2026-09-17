@@ -1,12 +1,14 @@
 $kind: http-example
 id: 71c4fc30-435f-5aa6-ac14-03671fd3a014
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/builds/builds/{{build_uuid}}/logs?cursor=eyJsaW5lIjoxMDAsInRpbWVzdGFtcCI6MTYzNjQ3MjQwMH0"
+  url: "{{base_url}}/accounts/{{account_id}}/builds/builds/{{build_uuid}}/logs"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    cursor: eyJsaW5lIjoxMDAsInRpbWVzdGFtcCI6MTYzNjQ3MjQwMH0
+    - key: cursor
+      value: eyJsaW5lIjoxMDAsInRpbWVzdGFtcCI6MTYzNjQ3MjQwMH0
+      disabled: true
 response:
   statusCode: 401
   statusText: Unauthorized

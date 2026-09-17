@@ -1,7 +1,7 @@
 $kind: http-example
 id: a3b6859e-99fe-54fa-b0a5-5ebbdc7694e6
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/labels/managed/{{name}}?with_mapped_resource_counts=true"
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/labels/managed/{{name}}"
   method: GET
   headers:
     Accept: application/json
@@ -10,6 +10,7 @@ request:
   queryParams:
     - key: with_mapped_resource_counts
       value: "true"
+      disabled: true
       description: Include `mapped_resources` for each label
 response:
   statusCode: 400

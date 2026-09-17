@@ -2,13 +2,14 @@ $kind: http-example
 id: 8143bcbe-0557-54b1-8bf1-1c5cad806581
 name: Invoice history retrieved.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/invoice-history?type=all"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/invoice-history"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: type
       value: all
+      disabled: true
       description: "Filter invoice type: auto, manual, or all."
 response:
   statusCode: 200

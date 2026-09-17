@@ -13,16 +13,18 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/search?size=100&q=string"
+url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/search"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: size
     value: "100"
+    disabled: true
     description: Limit the number of objects in the response.
   - key: q
     value: string
+    disabled: true
     description: Filter scans
 auth:
   type: bearer

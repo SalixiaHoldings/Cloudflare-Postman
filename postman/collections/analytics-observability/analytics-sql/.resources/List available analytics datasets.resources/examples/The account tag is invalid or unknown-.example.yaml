@@ -2,7 +2,7 @@ $kind: http-example
 id: b92ee790-5030-5985-8fc3-bc2bdfe5dbe9
 name: The account tag is invalid or unknown.
 request:
-  url: "{{base_url}}/analytics/sql/introspection?account_tag=0123456789abcdef0123456789abcdef&include_columns=false&dataset_name=events.httpRequests"
+  url: "{{base_url}}/analytics/sql/introspection?account_tag=0123456789abcdef0123456789abcdef"
   method: GET
   headers:
     Accept: application/json
@@ -12,9 +12,11 @@ request:
       description: (Required) Account whose available analytics datasets are returned.
     - key: include_columns
       value: "false"
+      disabled: true
       description: Include column metadata for each returned dataset.
     - key: dataset_name
       value: events.httpRequests
+      disabled: true
       description: |
         Return only the dataset with this exact name. An empty value does not filter the catalogue. An unknown name returns a successful response with an empty `datasets` array.
 response:

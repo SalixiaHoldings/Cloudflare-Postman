@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_email":[],"api_key":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/zones/{{zone_id}}/email/routing/dns?subdomain=example.net"
+url: "{{base_url}}/zones/{{zone_id}}/email/routing/dns"
 method: GET
 headers:
   Accept: application/json
@@ -22,6 +22,7 @@ headers:
 queryParams:
   - key: subdomain
     value: example.net
+    disabled: true
     description: Deprecated. When supplied, the response shape differs from the documented default and is not modeled in generated SDKs. Do not rely on this parameter.
 auth:
   type: noauth

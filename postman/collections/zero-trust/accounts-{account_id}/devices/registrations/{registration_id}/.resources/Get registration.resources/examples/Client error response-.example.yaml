@@ -2,13 +2,14 @@ $kind: http-example
 id: 4b927832-708c-5560-b1e0-641c36197472
 name: Client error response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/devices/registrations/{{registration_id}}?include=string"
+  url: "{{base_url}}/accounts/{{account_id}}/devices/registrations/{{registration_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: include
       value: string
+      disabled: true
       description: |
         Comma-separated list of additional information that should be included in the registration response. Supported values are: "policy".
 response:

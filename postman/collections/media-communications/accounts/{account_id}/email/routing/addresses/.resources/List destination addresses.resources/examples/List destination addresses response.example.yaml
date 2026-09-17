@@ -1,17 +1,25 @@
 $kind: http-example
 id: cf02732d-397f-564a-8f7b-6c18888a0b2d
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/email/routing/addresses?page=1&per_page=20&direction=asc&verified=true"
+  url: "{{base_url}}/accounts/{{account_id}}/email/routing/addresses"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    page: "1"
-    per_page: "20"
-    direction: asc
-    verified: "true"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: direction
+      value: asc
+      disabled: true
+    - key: verified
+      value: "true"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

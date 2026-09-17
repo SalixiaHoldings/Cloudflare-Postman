@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/entities/locations?limit=5&offset=3789&location=US,CA&region=Middle East&subregion=Southern Europe&continent=EU&format=JSON"
+url: "{{base_url}}/radar/entities/locations"
 method: GET
 headers:
   Accept: application/json
@@ -22,24 +22,31 @@ headers:
 queryParams:
   - key: limit
     value: "5"
+    disabled: true
     description: Limits the number of objects returned in the response.
   - key: offset
-    value: "3789"
+    value: "2923"
+    disabled: true
     description: Skips the specified number of objects before fetching the results.
   - key: location
     value: US,CA
+    disabled: true
     description: Filters results by location. Specify a comma-separated list of alpha-2 location codes.
   - key: region
     value: Middle East
+    disabled: true
     description: Filters results by region.
   - key: subregion
     value: Southern Europe
+    disabled: true
     description: Filters results by subregion.
   - key: continent
     value: EU
+    disabled: true
     description: Filters results by continent code.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

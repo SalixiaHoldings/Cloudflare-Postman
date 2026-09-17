@@ -2,7 +2,7 @@ $kind: http-example
 id: ecc6dd11-84c7-5a09-8983-3c8fbde1dd4f
 name: Flag store temporarily unavailable.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/evaluate?flagKey=string&targetingKey=string"
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/evaluate?flagKey=string"
   method: GET
   headers:
     Accept: application/json
@@ -12,6 +12,7 @@ request:
       description: (Required) The flag key to evaluate.
     - key: targetingKey
       value: string
+      disabled: true
       description: Context targeting key (per OpenFeature spec); used for percentage rollout bucketing.
 response:
   statusCode: 503

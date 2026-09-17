@@ -2,17 +2,25 @@ $kind: http-example
 id: 379eb023-d3dd-55af-922b-67d67d796a22
 name: Forbidden.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps/{{onramp_id}}?status=true&vpcs=true&post_apply_resources=true&planned_resources=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps/{{onramp_id}}"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    status: "true"
-    vpcs: "true"
-    post_apply_resources: "true"
-    planned_resources: "true"
+    - key: status
+      value: "true"
+      disabled: true
+    - key: vpcs
+      value: "true"
+      disabled: true
+    - key: post_apply_resources
+      value: "true"
+      disabled: true
+    - key: planned_resources
+      value: "true"
+      disabled: true
 response:
   statusCode: 403
   statusText: Forbidden

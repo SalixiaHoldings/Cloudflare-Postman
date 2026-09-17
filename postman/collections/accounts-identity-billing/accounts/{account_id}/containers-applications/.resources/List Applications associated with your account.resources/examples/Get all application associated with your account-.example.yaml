@@ -2,16 +2,18 @@ $kind: http-example
 id: cb570222-c415-56c8-9bf2-575601e4568d
 name: Get all application associated with your account.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/containers/applications?name=string&image=string"
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: name
       value: string
+      disabled: true
       description: Filter applications by name.
     - key: image
       value: string
+      disabled: true
       description: Filter applications by image.
 response:
   statusCode: 200

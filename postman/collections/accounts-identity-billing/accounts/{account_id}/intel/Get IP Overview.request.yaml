@@ -13,13 +13,17 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/intel/ip?ipv4=string&ipv6=string"
+url: "{{base_url}}/accounts/{{account_id}}/intel/ip"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  ipv4: string
-  ipv6: string
+  - key: ipv4
+    value: string
+    disabled: true
+  - key: ipv6
+    value: string
+    disabled: true
 auth:
   type: bearer
   credentials:

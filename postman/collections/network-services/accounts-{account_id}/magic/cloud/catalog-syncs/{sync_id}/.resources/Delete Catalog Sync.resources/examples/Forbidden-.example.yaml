@@ -2,14 +2,16 @@ $kind: http-example
 id: f9258e97-3281-5b31-bf88-cf5d641e9762
 name: Forbidden.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/{{sync_id}}?delete_destination=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/{{sync_id}}"
   method: DELETE
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    delete_destination: "true"
+    - key: delete_destination
+      value: "true"
+      disabled: true
 response:
   statusCode: 403
   statusText: Forbidden

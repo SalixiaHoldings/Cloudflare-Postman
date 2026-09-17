@@ -14,14 +14,20 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: '{{base_url}}/accounts/{{account_id}}/scim/v2/Users?startIndex=1&count=5628&filter=userName eq "user@example.com"'
+url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Users"
 method: GET
 headers:
   Accept: application/scim+json
 queryParams:
-  startIndex: "1"
-  count: "5628"
-  filter: userName eq "user@example.com"
+  - key: startIndex
+    value: "1"
+    disabled: true
+  - key: count
+    value: "1182"
+    disabled: true
+  - key: filter
+    value: userName eq "user@example.com"
+    disabled: true
 auth:
   type: bearer
   credentials:

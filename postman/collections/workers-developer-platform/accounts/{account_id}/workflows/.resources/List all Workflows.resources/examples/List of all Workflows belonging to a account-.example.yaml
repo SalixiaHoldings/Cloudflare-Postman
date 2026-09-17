@@ -2,7 +2,7 @@ $kind: http-example
 id: 71e1be12-6a82-5bd2-a6b0-f17405a55649
 name: List of all Workflows belonging to a account.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workflows?per_page=10&page=1&search=2"
+  url: "{{base_url}}/accounts/{{account_id}}/workflows"
   method: GET
   headers:
     Accept: application/json
@@ -11,10 +11,13 @@ request:
   queryParams:
     - key: per_page
       value: "10"
+      disabled: true
     - key: page
       value: "1"
+      disabled: true
     - key: search
-      value: "2"
+      value: vy3iedI4G
+      disabled: true
       description: Allows filtering workflows` name.
 response:
   statusCode: 200

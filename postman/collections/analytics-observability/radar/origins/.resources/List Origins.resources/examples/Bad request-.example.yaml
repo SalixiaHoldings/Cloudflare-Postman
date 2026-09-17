@@ -2,7 +2,7 @@ $kind: http-example
 id: 7fb3c7e0-654e-500c-8edd-ed2b4cea1b48
 name: Bad request.
 request:
-  url: "{{base_url}}/radar/origins?limit=5&offset=3789&format=JSON"
+  url: "{{base_url}}/radar/origins"
   method: GET
   headers:
     Accept: application/json
@@ -11,12 +11,15 @@ request:
   queryParams:
     - key: limit
       value: "5"
+      disabled: true
       description: Limits the number of objects returned in the response.
     - key: offset
-      value: "3789"
+      value: "2923"
+      disabled: true
       description: Skips the specified number of objects before fetching the results.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 400

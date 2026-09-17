@@ -1,7 +1,7 @@
 $kind: http-example
 id: d14a6c01-af00-504c-9b59-82784e3e12cf
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/search?showHistoric=false&download=string"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/search"
   method: POST
   headers:
     Content-Type: application/json
@@ -9,9 +9,11 @@ request:
   queryParams:
     - key: showHistoric
       value: "false"
+      disabled: true
       description: "Include scanned images without domain metadata (historic data). Default: false (only show images with domain)"
     - key: download
       value: string
+      disabled: true
       description: If true, include base64-encoded image data in the response
   body:
     type: json

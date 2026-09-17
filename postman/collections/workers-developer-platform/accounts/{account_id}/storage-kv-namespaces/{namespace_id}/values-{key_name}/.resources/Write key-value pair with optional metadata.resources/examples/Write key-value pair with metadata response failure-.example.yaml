@@ -2,14 +2,18 @@ $kind: http-example
 id: 12ef4760-f6df-589e-95a8-c0fd40214fd9
 name: Write key-value pair with metadata response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}/values/{{key_name}}?expiration=1578435000&expiration_ttl=300"
+  url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}/values/{{key_name}}"
   method: PUT
   headers:
     Content-Type: multipart/form-data
     Accept: application/json
   queryParams:
-    expiration: "1578435000"
-    expiration_ttl: "300"
+    - key: expiration
+      value: "1578435000"
+      disabled: true
+    - key: expiration_ttl
+      value: "300"
+      disabled: true
   body:
     type: formdata
     content:

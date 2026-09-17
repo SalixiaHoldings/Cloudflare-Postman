@@ -18,13 +18,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/logs/explorer/datasets?include_zones=false"
+url: "{{base_url}}/accounts/{{account_id}}/logs/explorer/datasets"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: include_zones
     value: "false"
+    disabled: true
     description: Set to true to include zone-scoped datasets belonging to this account.
 auth:
   type: bearer

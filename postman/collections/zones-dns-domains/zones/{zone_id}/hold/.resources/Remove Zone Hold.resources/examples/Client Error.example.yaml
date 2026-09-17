@@ -1,13 +1,14 @@
 $kind: http-example
 id: c73e5773-357a-535e-8dc9-80b05b04b983
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/hold?hold_after=2023-01-31T15:56:36Z"
+  url: "{{base_url}}/zones/{{zone_id}}/hold"
   method: DELETE
   headers:
     Accept: application/json
   queryParams:
     - key: hold_after
       value: 2023-01-31T15:56:36Z
+      disabled: true
       description: |-
         If `hold_after` is provided, the hold will be temporarily disabled,
         then automatically re-enabled by the system at the time specified

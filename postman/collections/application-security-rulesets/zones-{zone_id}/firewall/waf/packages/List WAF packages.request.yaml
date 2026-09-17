@@ -15,19 +15,31 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages?page=1&per_page=50&order=name&direction=desc&match=all&name=USER"
+url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages"
 method: GET
 headers:
   Accept: application/json
   X-Auth-Email: "{{api_email}}"
   X-Auth-Key: "{{api_key}}"
 queryParams:
-  page: "1"
-  per_page: "50"
-  order: name
-  direction: desc
-  match: all
-  name: USER
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "50"
+    disabled: true
+  - key: order
+    value: name
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
+  - key: match
+    value: all
+    disabled: true
+  - key: name
+    value: USER
+    disabled: true
 auth:
   type: bearer
   credentials:

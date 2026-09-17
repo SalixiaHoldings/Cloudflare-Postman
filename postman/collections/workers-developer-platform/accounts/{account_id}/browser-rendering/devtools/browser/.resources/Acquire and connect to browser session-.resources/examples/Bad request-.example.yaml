@@ -2,7 +2,7 @@ $kind: http-example
 id: 64621535-379a-59c4-99db-c71827d9008d
 name: Bad request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser?keep_alive=60000&lab=false&recording=false"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser"
   method: GET
   headers:
     - key: cf-brapi-guardrails
@@ -17,12 +17,15 @@ request:
   queryParams:
     - key: keep_alive
       value: "60000"
+      disabled: true
       description: Keep-alive time in ms (only valid when acquiring new session).
     - key: lab
       value: "false"
+      disabled: true
       description: Use experimental browser.
     - key: recording
       value: "false"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

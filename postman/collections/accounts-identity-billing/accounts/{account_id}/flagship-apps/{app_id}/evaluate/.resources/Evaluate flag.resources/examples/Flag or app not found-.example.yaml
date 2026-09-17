@@ -2,7 +2,7 @@ $kind: http-example
 id: cc8b3382-23bb-5349-ae6a-dc594b1768f0
 name: Flag or app not found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/evaluate?flagKey=string&targetingKey=string"
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/evaluate?flagKey=string"
   method: GET
   headers:
     Accept: application/json
@@ -12,6 +12,7 @@ request:
       description: (Required) The flag key to evaluate.
     - key: targetingKey
       value: string
+      disabled: true
       description: Context targeting key (per OpenFeature spec); used for percentage rollout bucketing.
 response:
   statusCode: 404

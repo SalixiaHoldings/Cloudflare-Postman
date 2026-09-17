@@ -13,14 +13,16 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/{{sync_id}}?delete_destination=true"
+url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/{{sync_id}}"
 method: DELETE
 headers:
   Accept: application/json
   X-Auth-Email: "{{api_email}}"
   X-Auth-Key: "{{api_key}}"
 queryParams:
-  delete_destination: "true"
+  - key: delete_destination
+    value: "true"
+    disabled: true
 auth:
   type: bearer
   credentials:

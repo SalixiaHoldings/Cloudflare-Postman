@@ -2,7 +2,7 @@ $kind: http-example
 id: 2c608484-f105-52aa-b288-f000a9f49673
 name: Returns a session ID ready to be connected to.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser?keep_alive=60000&lab=false&targets=false&liveViewUrlExpiresInMs=300000&recording=false"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser"
   method: POST
   headers:
     Content-Type: application/json
@@ -12,18 +12,23 @@ request:
   queryParams:
     - key: keep_alive
       value: "60000"
+      disabled: true
       description: Keep-alive time in milliseconds.
     - key: lab
       value: "false"
+      disabled: true
       description: Use experimental browser.
     - key: targets
       value: "false"
+      disabled: true
       description: Include browser targets in response.
     - key: liveViewUrlExpiresInMs
       value: "300000"
+      disabled: true
       description: How long the live view URL remains valid, in milliseconds (max 60 minutes). Only used when targets is true.
     - key: recording
       value: "false"
+      disabled: true
   body:
     type: json
     content: |-

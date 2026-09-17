@@ -2,7 +2,7 @@ $kind: http-example
 id: 03a9a8fb-c534-5b0b-b636-c3e49a557c9f
 name: Not found.
 request:
-  url: "{{base_url}}/radar/quality/speed/top/locations?limit=5&name=main_series&name=main_series&dateEnd=1927-12-19T06:37:38.317Z&dateEnd=1959-05-01T07:56:39.610Z&asn=string&asn=string&location=string&location=string&continent=string&continent=string&orderBy=BANDWIDTH_DOWNLOAD&reverse=true&format=JSON"
+  url: "{{base_url}}/radar/quality/speed/top/locations"
   method: GET
   headers:
     Accept: application/json
@@ -11,45 +11,59 @@ request:
   queryParams:
     - key: limit
       value: "5"
+      disabled: true
       description: Limits the number of objects returned in the response.
     - key: name
       value: main_series
+      disabled: true
       description: Array of names used to label the series in the response.
     - key: name
       value: main_series
+      disabled: true
       description: Array of names used to label the series in the response.
     - key: dateEnd
-      value: 1927-12-19T06:37:38.317Z
+      value: 1971-03-11T04:16:19.464Z
+      disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1959-05-01T07:56:39.610Z
+      value: 1974-05-26T22:34:40.196Z
+      disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: asn
       value: string
+      disabled: true
       description: Filters results by Autonomous System. Specify one or more Autonomous System Numbers (ASNs) as a comma-separated list. Prefix with `-` to exclude ASNs from results. For example, `-174, 3356` excludes results from AS174, but includes results from AS3356.
     - key: asn
       value: string
+      disabled: true
       description: Filters results by Autonomous System. Specify one or more Autonomous System Numbers (ASNs) as a comma-separated list. Prefix with `-` to exclude ASNs from results. For example, `-174, 3356` excludes results from AS174, but includes results from AS3356.
     - key: location
       value: string
+      disabled: true
       description: Filters results by location. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude locations from results. For example, `-US,PT` excludes results from the US, but includes results from PT.
     - key: location
       value: string
+      disabled: true
       description: Filters results by location. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude locations from results. For example, `-US,PT` excludes results from the US, but includes results from PT.
     - key: continent
       value: string
+      disabled: true
       description: Filters results by continent. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude continents from results. For example, `-EU,NA` excludes results from EU, but includes results from NA.
     - key: continent
       value: string
+      disabled: true
       description: Filters results by continent. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude continents from results. For example, `-EU,NA` excludes results from EU, but includes results from NA.
     - key: orderBy
       value: BANDWIDTH_DOWNLOAD
+      disabled: true
       description: Specifies the metric to order the results by.
     - key: reverse
       value: "true"
+      disabled: true
       description: Reverses the order of results.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 404

@@ -2,24 +2,29 @@ $kind: http-example
 id: 208ed20c-c25c-54f1-88f0-25e20c7e9ac6
 name: Client error response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/matches?offset=0&limit=50&query_id=string&download=string&orderBy=domain&order=asc"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/matches?query_id=string"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: offset
       value: "0"
+      disabled: true
     - key: limit
       value: "50"
+      disabled: true
     - key: query_id
       value: string
       description: "(Required) "
     - key: download
       value: string
+      disabled: true
     - key: orderBy
-      value: domain
+      value: registrar
+      disabled: true
     - key: order
-      value: asc
+      value: desc
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

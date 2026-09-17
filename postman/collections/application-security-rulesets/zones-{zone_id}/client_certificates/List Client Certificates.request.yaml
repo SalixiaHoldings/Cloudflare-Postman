@@ -13,16 +13,26 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones/{{zone_id}}/client_certificates?status=all&page=1&per_page=20&limit=10&offset=10"
+url: "{{base_url}}/zones/{{zone_id}}/client_certificates"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  status: all
-  page: "1"
-  per_page: "20"
-  limit: "10"
-  offset: "10"
+  - key: status
+    value: all
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: limit
+    value: "10"
+    disabled: true
+  - key: offset
+    value: "10"
+    disabled: true
 auth:
   type: bearer
   credentials:

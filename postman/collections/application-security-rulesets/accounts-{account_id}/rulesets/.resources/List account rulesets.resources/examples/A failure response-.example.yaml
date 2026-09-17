@@ -2,13 +2,17 @@ $kind: http-example
 id: 8a5aa3f9-307f-54b4-afbc-95e90ce85c86
 name: A failure response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/rulesets?cursor=dGhpc2lzYW5leGFtcGxlCg&per_page=3"
+  url: "{{base_url}}/accounts/{{account_id}}/rulesets"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    cursor: dGhpc2lzYW5leGFtcGxlCg
-    per_page: "3"
+    - key: cursor
+      value: dGhpc2lzYW5leGFtcGxlCg
+      disabled: true
+    - key: per_page
+      value: "3"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

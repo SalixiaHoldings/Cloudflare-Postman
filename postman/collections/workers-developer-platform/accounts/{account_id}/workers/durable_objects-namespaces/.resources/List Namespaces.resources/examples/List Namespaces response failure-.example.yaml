@@ -2,16 +2,18 @@ $kind: http-example
 id: 6b67011d-6c98-5a2e-b5f6-cd24938f813c
 name: List Namespaces response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/durable_objects/namespaces?page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/durable_objects/namespaces"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Current page.
     - key: per_page
       value: "20"
+      disabled: true
       description: Items per-page.
 response:
   statusCode: 400

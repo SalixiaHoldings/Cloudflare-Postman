@@ -1,5 +1,7 @@
 # Query-default policy: converter blocker
 
+> Historical investigation. The maintainer subsequently approved and the generator now implements the full-secondary query-only projection. See [current query policy](query-policy.md) for the implemented behavior, approved limitations, and validation. The stop/pending statements below describe the experiment at that time.
+
 The [live-test follow-up on PR #4](https://github.com/SalixiaHoldings/Cloudflare-Postman/pull/4#issuecomment-5715345457) requests a global optional-query policy. The subsequent [official-options experiment](query-options-experiment.md) fixes all five query-identity defects below using supported converter settings. Global adoption is paused because those settings also change 735 non-query requests and 3,268 response-example bodies. A query-only candidate preserves those fields, but five optional array parameters remain absent. No production converter change, query serialization workaround, or schema edit has been applied.
 
 ## Reproduced failure

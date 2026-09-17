@@ -13,16 +13,18 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/peer-report/{{peer_id}}?filters=device_info&include_peer_events=false"
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/peer-report/{{peer_id}}"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: filters
     value: device_info
+    disabled: true
     description: Filter to apply to the peer report.
   - key: include_peer_events
     value: "false"
+    disabled: true
     description: if true, response includes all the peer events of participant.
 auth:
   type: bearer

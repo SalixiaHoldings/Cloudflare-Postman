@@ -2,7 +2,7 @@ $kind: http-example
 id: b4525b0a-618f-5620-8773-706fb319783f
 name: Bad Request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events?forceRefresh=true&format=json&cache=from-graph"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events"
   method: POST
   headers:
     Content-Type: application/json
@@ -10,11 +10,14 @@ request:
   queryParams:
     - key: forceRefresh
       value: "true"
+      disabled: true
     - key: format
       value: json
+      disabled: true
       description: Output format for event data. 'json' returns the default format, 'stix2' returns STIX 2.1 Sighting SROs with linked Indicator SDOs, Observed Data SDOs, and SCOs, 'taxii' returns a TAXII 2.1 Envelope with Content-Type application/taxii+json;version=2.1.
     - key: cache
       value: from-graph
+      disabled: true
       description: Cache strategy. 'from-graph' serves results from the graph-node KV cache when all requested UUIDs are cached; falls back to normal path on partial/zero hit.
   body:
     type: json

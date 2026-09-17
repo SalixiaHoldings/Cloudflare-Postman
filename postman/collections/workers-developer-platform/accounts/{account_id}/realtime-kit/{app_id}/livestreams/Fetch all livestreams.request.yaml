@@ -13,31 +13,38 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/livestreams?exclude_meetings=false&per_page=6991&page_no=6991&status=LIVE&start_time=1922-11-28T14:57:39.484Z&end_time=1922-11-28T14:57:39.484Z&sort_order=DSC"
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/livestreams"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: exclude_meetings
     value: "false"
+    disabled: true
     description: Exclude the RealtimeKit meetings that are livestreamed.
   - key: per_page
-    value: "6991"
+    value: "2212"
+    disabled: true
     description: Number of results per page.
   - key: page_no
-    value: "6991"
+    value: "2212"
+    disabled: true
     description: The page number from which you want your page search results to be displayed.
   - key: status
-    value: LIVE
+    value: ERRORED
+    disabled: true
     description: Specifies the status of the operation.
   - key: start_time
-    value: 1922-11-28T14:57:39.484Z
+    value: 1925-07-26T17:47:35.721Z
+    disabled: true
     description: Specify the start time range in ISO format to access the live stream.
   - key: end_time
-    value: 1922-11-28T14:57:39.484Z
+    value: 1925-07-26T17:47:35.721Z
+    disabled: true
     description: Specify the end time range in ISO format to access the live stream.
   - key: sort_order
     value: DSC
+    disabled: true
     description: Specifies the sorting order for the results.
 auth:
   type: bearer

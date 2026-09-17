@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/dex/fleet-status/over-time?to=2023-10-11 00:00:00+00&from=2023-10-11 00:00:00+00&colo=SJC&device_id=cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7"
+url: "{{base_url}}/accounts/{{account_id}}/dex/fleet-status/over-time?to=2023-10-11 00:00:00+00&from=2023-10-11 00:00:00+00"
 method: GET
 headers:
   Accept: application/json
@@ -26,9 +26,11 @@ queryParams:
     description: (Required) Start of the time range to query. Timestamp can be provided in ISO 8601 datetime format or milliseconds since epoch.
   - key: colo
     value: SJC
+    disabled: true
     description: Cloudflare colo airport code.
   - key: device_id
     value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+    disabled: true
     description: Device-specific ID, given as UUID.
 auth:
   type: bearer

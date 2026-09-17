@@ -14,7 +14,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/cni/slots?address_contains=string&site=string&speed=string&occupied=true&cursor=9230&limit=4653"
+url: "{{base_url}}/accounts/{{account_id}}/cni/slots"
 method: GET
 headers:
   Accept: application/json
@@ -23,20 +23,26 @@ headers:
 queryParams:
   - key: address_contains
     value: string
+    disabled: true
     description: If specified, only show slots with the given text in their address field
   - key: site
     value: string
+    disabled: true
     description: If specified, only show slots located at the given site
   - key: speed
     value: string
+    disabled: true
     description: If specified, only show slots that support the given speed
   - key: occupied
     value: "true"
+    disabled: true
     description: If specified, only show slots with a specific occupied/unoccupied state
   - key: cursor
-    value: "9230"
+    value: "4690"
+    disabled: true
   - key: limit
-    value: "4653"
+    value: "5193"
+    disabled: true
 auth:
   type: bearer
   credentials:

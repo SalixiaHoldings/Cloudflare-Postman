@@ -20,16 +20,18 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config/inventories?cursor=string&per_page=50"
+url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config/inventories"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: cursor
     value: string
+    disabled: true
     description: Opaque cursor from a previous response to fetch the next page.
   - key: per_page
     value: "50"
+    disabled: true
     description: Number of results per page (default 50, max 200).
 auth:
   type: bearer

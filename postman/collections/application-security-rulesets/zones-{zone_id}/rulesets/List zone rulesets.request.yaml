@@ -13,13 +13,17 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones/{{zone_id}}/rulesets?cursor=dGhpc2lzYW5leGFtcGxlCg&per_page=3"
+url: "{{base_url}}/zones/{{zone_id}}/rulesets"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  cursor: dGhpc2lzYW5leGFtcGxlCg
-  per_page: "3"
+  - key: cursor
+    value: dGhpc2lzYW5leGFtcGxlCg
+    disabled: true
+  - key: per_page
+    value: "3"
+    disabled: true
 auth:
   type: bearer
   credentials:

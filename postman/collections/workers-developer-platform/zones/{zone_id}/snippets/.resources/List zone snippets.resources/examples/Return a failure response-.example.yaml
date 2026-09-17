@@ -2,13 +2,17 @@ $kind: http-example
 id: 13074442-a77c-57ff-b5a7-2799ad8a410c
 name: Return a failure response.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/snippets?page=1&per_page=25"
+  url: "{{base_url}}/zones/{{zone_id}}/snippets"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "25"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "25"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

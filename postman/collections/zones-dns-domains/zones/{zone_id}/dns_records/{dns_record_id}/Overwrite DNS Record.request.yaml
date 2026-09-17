@@ -20,13 +20,15 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones/{{zone_id}}/dns_records/{{dns_record_id}}?include_shadow_metadata=true"
+url: "{{base_url}}/zones/{{zone_id}}/dns_records/{{dns_record_id}}"
 method: PUT
 headers:
   Content-Type: application/json
   Accept: application/json
 queryParams:
-  include_shadow_metadata: "true"
+  - key: include_shadow_metadata
+    value: "true"
+    disabled: true
 body:
   type: json
   content: |-

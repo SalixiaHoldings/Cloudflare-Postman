@@ -13,16 +13,18 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}?deviceId=string&deviceId=string&from=string&to=string&interval=minute&colo=string"
+url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}?from=string&to=string&interval=hour"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: deviceId
     value: string
+    disabled: true
     description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
   - key: deviceId
     value: string
+    disabled: true
     description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
   - key: from
     value: string
@@ -31,10 +33,11 @@ queryParams:
     value: string
     description: (Required) End time for aggregate metrics in ISO ms.
   - key: interval
-    value: minute
+    value: hour
     description: (Required) Time interval for aggregate time slots.
   - key: colo
     value: string
+    disabled: true
     description: Optionally filter result stats to a Cloudflare colo. Cannot be used in combination with deviceId param.
 auth:
   type: bearer

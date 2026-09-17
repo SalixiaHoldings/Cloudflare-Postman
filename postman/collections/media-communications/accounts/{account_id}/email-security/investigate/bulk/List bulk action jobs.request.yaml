@@ -13,21 +13,25 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/bulk?page=1&per_page=20&action_type=RELEASE&status=PENDING"
+url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/bulk"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: page
     value: "1"
+    disabled: true
     description: Current page within paginated list of results.
   - key: per_page
     value: "20"
+    disabled: true
     description: The number of results per page. Maximum value is 1000.
   - key: action_type
     value: RELEASE
+    disabled: true
   - key: status
-    value: PENDING
+    value: CANCELLED
+    disabled: true
 auth:
   type: bearer
   credentials:

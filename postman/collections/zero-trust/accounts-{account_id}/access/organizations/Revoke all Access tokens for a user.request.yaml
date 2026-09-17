@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/access/organizations/revoke_user?devices=true"
+url: "{{base_url}}/accounts/{{account_id}}/access/organizations/revoke_user"
 method: POST
 headers:
   Content-Type: application/json
@@ -21,6 +21,7 @@ headers:
 queryParams:
   - key: devices
     value: "true"
+    disabled: true
     description: When set to `true`, all devices associated with the user will be revoked.
 body:
   type: json

@@ -2,7 +2,7 @@ $kind: http-example
 id: 2c84c078-e0ac-5ab0-be50-5990cc15e842
 name: List tag values response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/tags/values/{{tag_key}}?type=zone&cursor=eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ"
+  url: "{{base_url}}/accounts/{{account_id}}/tags/values/{{tag_key}}"
   method: GET
   headers:
     Accept: application/json
@@ -11,9 +11,11 @@ request:
   queryParams:
     - key: type
       value: zone
+      disabled: true
       description: Filter by resource type.
     - key: cursor
       value: eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ
+      disabled: true
       description: Cursor for pagination.
 response:
   statusCode: 400

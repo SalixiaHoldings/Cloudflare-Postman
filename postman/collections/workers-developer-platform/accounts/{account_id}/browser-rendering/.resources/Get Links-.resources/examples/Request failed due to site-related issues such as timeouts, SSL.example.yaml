@@ -2,7 +2,7 @@ $kind: http-example
 id: f90df6e9-6e1d-5864-a930-df828840b116
 name: Request failed due to site-related issues such as timeouts, SSL errors, or inaccessible content.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/links?cacheTTL=5"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/links"
   method: POST
   headers:
     Content-Type: application/json
@@ -12,6 +12,7 @@ request:
   queryParams:
     - key: cacheTTL
       value: "5"
+      disabled: true
       description: Cache TTL default is 5s. Set to 0 to disable.
   body:
     type: json

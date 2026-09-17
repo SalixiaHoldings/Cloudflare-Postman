@@ -2,7 +2,7 @@ $kind: http-example
 id: 11288e22-f368-5372-9b7e-137f5a84f7d8
 name: Successful response.
 request:
-  url: "{{base_url}}/radar/bgp/routes/ases?location=US&limit=5&sortBy=ipv4&sortOrder=DESC&format=JSON"
+  url: "{{base_url}}/radar/bgp/routes/ases"
   method: GET
   headers:
     Accept: application/json
@@ -11,18 +11,23 @@ request:
   queryParams:
     - key: location
       value: US
+      disabled: true
       description: Filters results by location. Specify an alpha-2 location code.
     - key: limit
       value: "5"
+      disabled: true
       description: Limits the number of objects returned in the response.
     - key: sortBy
       value: ipv4
+      disabled: true
       description: Sorts results by the specified field.
     - key: sortOrder
-      value: DESC
+      value: ASC
+      disabled: true
       description: Sort order.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 200

@@ -2,15 +2,23 @@ $kind: http-example
 id: 470cf743-4a7c-5bb8-bfcb-51c5e85dfda8
 name: Error response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces?per_page=20&order=id&direction=asc&cursor=string"
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    per_page: "20"
-    order: id
-    direction: asc
-    cursor: string
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: order
+      value: id
+      disabled: true
+    - key: direction
+      value: asc
+      disabled: true
+    - key: cursor
+      value: string
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

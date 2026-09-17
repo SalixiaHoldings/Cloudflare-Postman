@@ -1,35 +1,47 @@
 $kind: http-example
 id: fbf2558b-aefa-5ad9-a83c-903d7a437c62
 request:
-  url: '{{base_url}}/accounts/{{account_id}}/teamnet/routes?comment=Example comment for this route.&is_deleted=true&network_subset=172.16.0.0/16&network_superset=172.16.0.0/16&existed_at=2019-10-12T07%3A20%3A50.52Z&tunnel_id=f70ff985-a4ef-4643-bbbc-4a0ed4fc8415&route_id=f70ff985-a4ef-4643-bbbc-4a0ed4fc8415&tun_types={"value":"<Error: Too many levels of nesting to fake this schema>"}&tun_types={"value":"<Error: Too many levels of nesting to fake this schema>"}&virtual_network_id=f70ff985-a4ef-4643-bbbc-4a0ed4fc8415&per_page=<number>&page=1'
+  url: "{{base_url}}/accounts/{{account_id}}/teamnet/routes"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: comment
       value: Example comment for this route.
+      disabled: true
     - key: is_deleted
-      value: "true"
+      value: "false"
+      disabled: true
     - key: network_subset
       value: 172.16.0.0/16
+      disabled: true
     - key: network_superset
       value: 172.16.0.0/16
+      disabled: true
     - key: existed_at
       value: 2019-10-12T07%3A20%3A50.52Z
+      disabled: true
     - key: tunnel_id
       value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+      disabled: true
     - key: route_id
       value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+      disabled: true
     - key: tun_types
-      value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+      value: cfd_tunnel
+      disabled: true
     - key: tun_types
-      value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+      value: cfd_tunnel
+      disabled: true
     - key: virtual_network_id
       value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+      disabled: true
     - key: per_page
       value: <number>
+      disabled: true
     - key: page
       value: "1"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

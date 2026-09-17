@@ -2,13 +2,14 @@ $kind: http-example
 id: 174df999-af53-5cf5-acd2-da8a964e5345
 name: Internal server error.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/delete?force=false"
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/delete"
   method: POST
   headers:
     Accept: application/json
   queryParams:
     - key: force
       value: "false"
+      disabled: true
       description: Remove child metadata before deleting the catalog.
 response:
   statusCode: 500

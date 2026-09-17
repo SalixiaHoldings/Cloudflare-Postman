@@ -1,14 +1,15 @@
 $kind: http-example
 id: 5e6fa159-3ac1-5d06-a457-843d42473283
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/copy?keepRawData=true"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/copy"
   method: POST
   headers:
     Content-Type: application/json
     Accept: application/json
   queryParams:
     - key: keepRawData
-      value: "true"
+      value: "false"
+      disabled: true
       description: If true, copies raw data to the destination dataset. Default is false (raw data is stripped/not copied).
   body:
     type: json

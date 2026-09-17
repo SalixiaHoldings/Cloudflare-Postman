@@ -1,15 +1,23 @@
 $kind: http-example
 id: 79b487df-314a-5280-8aba-b168aaad8ed5
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/service_tokens?name=string&search=string&page=1&per_page=1000"
+  url: "{{base_url}}/accounts/{{account_id}}/access/service_tokens"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    name: string
-    search: string
-    page: "1"
-    per_page: "1000"
+    - key: name
+      value: string
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "1000"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

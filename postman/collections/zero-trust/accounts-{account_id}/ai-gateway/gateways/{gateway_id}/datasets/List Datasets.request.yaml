@@ -13,16 +13,26 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/datasets?page=1&per_page=20&name=string&enable=true&search=string"
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/datasets"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  page: "1"
-  per_page: "20"
-  name: string
-  enable: "true"
-  search: string
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: name
+    value: string
+    disabled: true
+  - key: enable
+    value: "true"
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
 auth:
   type: bearer
   credentials:

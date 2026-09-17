@@ -2,16 +2,18 @@ $kind: http-example
 id: 7b0232d7-385b-5422-a757-6f03f7e11a5b
 name: Indicates the request failed.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/billable/usage?from=2025-05-01&to=2025-05-31"
+  url: "{{base_url}}/accounts/{{account_id}}/billable/usage"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: from
       value: 2025-05-01
+      disabled: true
       description: Start date for the usage query (ISO 8601). Required if `to` is set. When omitted along with `to`, defaults to the start of the current month. Filters by charge period (when consumption happened), not billing period. The maximum date range is 31 days.
     - key: to
       value: 2025-05-31
+      disabled: true
       description: End date for the usage query (ISO 8601). Required if `from` is set. When omitted along with `from`, defaults to today. Filters by charge period (when consumption happened), not billing period. The maximum date range is 31 days.
 response:
   statusCode: 400

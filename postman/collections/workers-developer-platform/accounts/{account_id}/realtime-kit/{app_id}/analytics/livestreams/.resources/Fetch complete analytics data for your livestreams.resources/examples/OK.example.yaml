@@ -1,19 +1,22 @@
 $kind: http-example
 id: d8669ff5-3701-50fe-8a29-1899bebc0df6
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/analytics/livestreams/overall?start_time=3783&end_time=3783&filters=string"
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/analytics/livestreams/overall"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: start_time
-      value: "3783"
+      value: "4321"
+      disabled: true
       description: Specify the start time as a Unix timestamp in seconds to access the livestream analytics.
     - key: end_time
-      value: "3783"
+      value: "4321"
+      disabled: true
       description: Specify the end time as a Unix timestamp in seconds to access the livestream analytics.
     - key: filters
       value: string
+      disabled: true
       description: Optional filters for livestream analytics.
 response:
   statusCode: 200

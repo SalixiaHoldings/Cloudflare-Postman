@@ -15,22 +15,40 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages/{{package_id}}/rules?mode=CHL&group_id=de677e5818985db1285d0e80225f06e5&page=1&per_page=50&order=description&direction=desc&match=all&description=SQL injection prevention for SELECT statements&priority=string"
+url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages/{{package_id}}/rules"
 method: GET
 headers:
   Accept: application/json
   X-Auth-Email: "{{api_email}}"
   X-Auth-Key: "{{api_key}}"
 queryParams:
-  mode: CHL
-  group_id: de677e5818985db1285d0e80225f06e5
-  page: "1"
-  per_page: "50"
-  order: description
-  direction: desc
-  match: all
-  description: SQL injection prevention for SELECT statements
-  priority: string
+  - key: mode
+    value: CHL
+    disabled: true
+  - key: group_id
+    value: de677e5818985db1285d0e80225f06e5
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "50"
+    disabled: true
+  - key: order
+    value: description
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
+  - key: match
+    value: all
+    disabled: true
+  - key: description
+    value: SQL injection prevention for SELECT statements
+    disabled: true
+  - key: priority
+    value: string
+    disabled: true
 auth:
   type: bearer
   credentials:

@@ -1,7 +1,7 @@
 $kind: http-example
 id: f9f549e6-6151-57f6-ace2-322f2ab94d26
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/challenges/widgets?page=1&per_page=25&order=id&direction=asc&filter=name:my-widget"
+  url: "{{base_url}}/accounts/{{account_id}}/challenges/widgets"
   method: POST
   headers:
     Content-Type: application/json
@@ -9,14 +9,19 @@ request:
   queryParams:
     - key: page
       value: "1"
+      disabled: true
     - key: per_page
       value: "25"
+      disabled: true
     - key: order
       value: id
+      disabled: true
     - key: direction
       value: asc
+      disabled: true
     - key: filter
       value: name:my-widget
+      disabled: true
       description: |
         Filter widgets by field using case-insensitive substring matching.
         Format: `field:value`

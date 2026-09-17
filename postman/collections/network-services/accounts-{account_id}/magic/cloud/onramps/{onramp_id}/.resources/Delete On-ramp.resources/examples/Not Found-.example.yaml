@@ -2,15 +2,19 @@ $kind: http-example
 id: 85250474-645c-5e6e-bd58-4696b26830be
 name: Not Found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps/{{onramp_id}}?destroy=true&force=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps/{{onramp_id}}"
   method: DELETE
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    destroy: "true"
-    force: "true"
+    - key: destroy
+      value: "true"
+      disabled: true
+    - key: force
+      value: "true"
+      disabled: true
 response:
   statusCode: 404
   statusText: Not Found

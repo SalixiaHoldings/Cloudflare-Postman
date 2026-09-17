@@ -15,21 +15,41 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones?name=example.com&status=initializing&type=full,full&account.id={{account_id}}&account.name=Dev Account&page=1&per_page=20&order=status&direction=desc&match=all"
+url: "{{base_url}}/zones"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  name: example.com
-  status: initializing
-  type: full,full
-  account.id: "{{account_id}}"
-  account.name: Dev Account
-  page: "1"
-  per_page: "20"
-  order: status
-  direction: desc
-  match: all
+  - key: name
+    value: example.com
+    disabled: true
+  - key: status
+    value: initializing
+    disabled: true
+  - key: type
+    value: partial,internal
+    disabled: true
+  - key: account.id
+    value: "{{account_id}}"
+    disabled: true
+  - key: account.name
+    value: Dev Account
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: order
+    value: status
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
+  - key: match
+    value: all
+    disabled: true
 auth:
   type: bearer
   credentials:

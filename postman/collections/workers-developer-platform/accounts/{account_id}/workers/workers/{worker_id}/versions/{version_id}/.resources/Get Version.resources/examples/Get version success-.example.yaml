@@ -2,12 +2,14 @@ $kind: http-example
 id: edc9884b-22e1-582b-8eee-2124a37e3f42
 name: Get version success.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions/{{version_id}}?include=modules"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions/{{version_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    include: modules
+    - key: include
+      value: modules
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

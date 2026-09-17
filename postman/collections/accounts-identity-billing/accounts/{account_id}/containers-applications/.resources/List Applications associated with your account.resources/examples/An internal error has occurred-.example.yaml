@@ -2,16 +2,18 @@ $kind: http-example
 id: eabec065-0598-5475-ae1d-020327d9650b
 name: An internal error has occurred.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/containers/applications?name=string&image=string"
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: name
       value: string
+      disabled: true
       description: Filter applications by name.
     - key: image
       value: string
+      disabled: true
       description: Filter applications by image.
 response:
   statusCode: 500

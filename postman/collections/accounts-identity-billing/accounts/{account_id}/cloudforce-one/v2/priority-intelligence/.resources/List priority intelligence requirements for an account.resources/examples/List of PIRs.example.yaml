@@ -1,11 +1,15 @@
 $kind: http-example
 id: 3fccd4d7-b225-5fba-a9a1-d2d3e715f78b
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence?page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence"
   method: GET
   queryParams:
-    page: "1"
-    per_page: "20"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

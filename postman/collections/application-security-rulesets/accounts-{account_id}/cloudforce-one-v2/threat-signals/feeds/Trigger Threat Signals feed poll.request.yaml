@@ -13,12 +13,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds/poll?feed_id=9b51c2d8-bda3-70f7-65a8-85a4a505bfdf"
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds/poll"
 method: POST
 headers:
   Accept: application/json
 queryParams:
-  feed_id: 9b51c2d8-bda3-70f7-65a8-85a4a505bfdf
+  - key: feed_id
+    value: 802af697-2580-5653-8bc6-33a481906932
+    disabled: true
 auth:
   type: bearer
   credentials:

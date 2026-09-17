@@ -2,19 +2,22 @@ $kind: http-example
 id: f04ba6f4-1a9b-5774-a95d-a72124918c80
 name: "OK: Successful HTTP request"
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/exports?page=8161&per_page=8161&status=Success"
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/exports"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: A page number within the paginated result set.
     - key: per_page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: Number of results to return per page.
     - key: status
       value: Success
+      disabled: true
       description: Filter on export job's status
 response:
   statusCode: 200

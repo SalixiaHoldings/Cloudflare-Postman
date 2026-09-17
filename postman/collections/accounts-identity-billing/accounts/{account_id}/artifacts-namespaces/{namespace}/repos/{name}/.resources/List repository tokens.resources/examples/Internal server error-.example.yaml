@@ -2,14 +2,20 @@ $kind: http-example
 id: 532e8572-a05e-525f-a246-8c1aec252c24
 name: Internal server error.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/tokens?state=active&page=1&per_page=30"
+  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/tokens"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    state: active
-    page: "1"
-    per_page: "30"
+    - key: state
+      value: active
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "30"
+      disabled: true
 response:
   statusCode: 500
   statusText: Internal Server Error

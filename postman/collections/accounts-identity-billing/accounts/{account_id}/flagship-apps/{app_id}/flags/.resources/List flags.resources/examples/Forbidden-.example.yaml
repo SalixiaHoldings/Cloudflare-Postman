@@ -2,16 +2,18 @@ $kind: http-example
 id: 55684547-b714-5cbc-b239-05a4ed7cb874
 name: Forbidden.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags?limit=string&cursor=string"
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: limit
       value: string
+      disabled: true
       description: Max items to return (1–200).
     - key: cursor
       value: string
+      disabled: true
       description: Pagination cursor from a previous response.
 response:
   statusCode: 403

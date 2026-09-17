@@ -2,16 +2,18 @@ $kind: http-example
 id: 386d226f-9308-51e0-86f3-3488445be4d4
 name: Lists deployment group response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/devices/deployment-groups?page=1&per_page=50"
+  url: "{{base_url}}/accounts/{{account_id}}/devices/deployment-groups"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: The page number to return.
     - key: per_page
       value: "50"
+      disabled: true
       description: The maximum number of deployment groups to return per page.
 response:
   statusCode: 200

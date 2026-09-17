@@ -2,16 +2,22 @@ $kind: http-example
 id: aaf29abf-31b5-59d6-b85e-4789748a022c
 name: Failure response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/rum/site_info/list?per_page=10&page=1&order_by=host"
+  url: "{{base_url}}/accounts/{{account_id}}/rum/site_info/list"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    per_page: "10"
-    page: "1"
-    order_by: host
+    - key: per_page
+      value: "10"
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: order_by
+      value: host
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

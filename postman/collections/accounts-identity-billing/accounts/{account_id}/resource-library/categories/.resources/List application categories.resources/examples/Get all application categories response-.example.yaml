@@ -2,16 +2,18 @@ $kind: http-example
 id: 9611c30d-9377-57b2-864f-68196b9ff74c
 name: Get all application categories response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/resource-library/categories?limit=25&offset=0"
+  url: "{{base_url}}/accounts/{{account_id}}/resource-library/categories"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: limit
       value: "25"
+      disabled: true
       description: Limit of number of results to return.
     - key: offset
       value: "0"
+      disabled: true
       description: Offset of results to return.
 response:
   statusCode: 200

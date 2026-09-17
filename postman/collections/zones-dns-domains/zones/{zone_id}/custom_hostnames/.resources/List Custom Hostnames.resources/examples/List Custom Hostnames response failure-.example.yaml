@@ -2,26 +2,56 @@ $kind: http-example
 id: 9fcc889d-ac38-58bd-9e5e-19fe080dc148
 name: List Custom Hostnames response failure.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/custom_hostnames?hostname=app.example.com&hostname.exact=app.example.com&hostname.startsWith=app&hostname.contain=example.com&id=0d89c70d-ad9f-4843-b99f-6cc0252067e9&page=1&per_page=20&order=ssl&direction=desc&ssl_status=active&hostname_status=provisioned&certificate_authority=google&wildcard=false&custom_origin_server=origin2.example.com&ssl=0"
+  url: "{{base_url}}/zones/{{zone_id}}/custom_hostnames"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    hostname: app.example.com
-    hostname.exact: app.example.com
-    hostname.startsWith: app
-    hostname.contain: example.com
-    id: 0d89c70d-ad9f-4843-b99f-6cc0252067e9
-    page: "1"
-    per_page: "20"
-    order: ssl
-    direction: desc
-    ssl_status: active
-    hostname_status: provisioned
-    certificate_authority: google
-    wildcard: "false"
-    custom_origin_server: origin2.example.com
-    ssl: "0"
+    - key: hostname
+      value: app.example.com
+      disabled: true
+    - key: hostname.exact
+      value: app.example.com
+      disabled: true
+    - key: hostname.startsWith
+      value: app
+      disabled: true
+    - key: hostname.contain
+      value: example.com
+      disabled: true
+    - key: id
+      value: 0d89c70d-ad9f-4843-b99f-6cc0252067e9
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: order
+      value: ssl
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: ssl_status
+      value: active
+      disabled: true
+    - key: hostname_status
+      value: provisioned
+      disabled: true
+    - key: certificate_authority
+      value: google
+      disabled: true
+    - key: wildcard
+      value: "false"
+      disabled: true
+    - key: custom_origin_server
+      value: origin2.example.com
+      disabled: true
+    - key: ssl
+      value: "0"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

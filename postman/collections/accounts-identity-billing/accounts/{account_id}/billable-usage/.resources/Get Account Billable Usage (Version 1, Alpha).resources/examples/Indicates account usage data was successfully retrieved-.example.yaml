@@ -2,16 +2,18 @@ $kind: http-example
 id: 30aec3c0-3e4d-534c-8e27-f8bef01d2f1b
 name: Indicates account usage data was successfully retrieved.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/billable-usage?from=2025-05-01&to=2025-05-31"
+  url: "{{base_url}}/accounts/{{account_id}}/billable-usage"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: from
       value: 2025-05-01
+      disabled: true
       description: Start date for the usage query (ISO 8601). The provided time range must include the subscription billing cycle anchor day, otherwise no usage data is returned. Use the info endpoint to retrieve the subscription anchor day.
     - key: to
       value: 2025-05-31
+      disabled: true
       description: End date for the usage query (ISO 8601).
 response:
   statusCode: 200

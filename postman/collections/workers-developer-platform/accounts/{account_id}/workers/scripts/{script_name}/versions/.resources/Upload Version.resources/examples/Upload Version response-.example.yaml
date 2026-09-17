@@ -2,7 +2,7 @@ $kind: http-example
 id: af8afd86-2ed8-58ad-9a6f-1e121ce8407f
 name: Upload Version response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/versions?bindings_inherit=strict"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/versions"
   method: POST
   headers:
     Content-Type: multipart/form-data
@@ -10,6 +10,7 @@ request:
   queryParams:
     - key: bindings_inherit
       value: strict
+      disabled: true
       description: When set to "strict", the upload will fail if any `inherit` type bindings cannot be resolved against the previous version of the Worker. Without this, unresolvable inherit bindings are silently dropped.
   body:
     type: formdata

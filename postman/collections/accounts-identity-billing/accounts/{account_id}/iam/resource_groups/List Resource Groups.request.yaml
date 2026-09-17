@@ -13,14 +13,17 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/iam/resource_groups?description=ID of the resource group to be fetched.&value=<Error: Too many levels of nesting to fake this schema>&name=NameOfTheResourceGroup"
+url: "{{base_url}}/accounts/{{account_id}}/iam/resource_groups"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  description: ID of the resource group to be fetched.
-  value: "<Error: Too many levels of nesting to fake this schema>"
-  name: NameOfTheResourceGroup
+  - key: id
+    value: 023e105f4ecef8ad9ca31a8372d0c353
+    disabled: true
+  - key: name
+    value: NameOfTheResourceGroup
+    disabled: true
 auth:
   type: bearer
   credentials:

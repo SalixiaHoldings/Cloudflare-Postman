@@ -1,16 +1,22 @@
 $kind: http-example
 id: 7396d4dd-5897-5e85-bfff-1af9b9a192b1
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/billing/history?page=1&per_page=20&status=string"
+  url: "{{base_url}}/accounts/{{account_id}}/billing/history"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    page: "1"
-    per_page: "20"
-    status: string
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: status
+      value: string
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

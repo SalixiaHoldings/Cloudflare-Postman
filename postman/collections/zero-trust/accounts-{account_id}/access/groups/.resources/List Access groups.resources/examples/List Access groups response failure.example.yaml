@@ -1,15 +1,23 @@
 $kind: http-example
 id: f5320c77-2f66-52ee-96b0-88d82b34fd16
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/groups?name=string&search=string&page=1&per_page=1000"
+  url: "{{base_url}}/accounts/{{account_id}}/access/groups"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    name: string
-    search: string
-    page: "1"
-    per_page: "1000"
+    - key: name
+      value: string
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "1000"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/magic/ipsec_tunnels/psk?validate_only=true"
+url: "{{base_url}}/accounts/{{account_id}}/magic/ipsec_tunnels/psk"
 method: POST
 headers:
   Content-Type: application/json
@@ -23,6 +23,7 @@ headers:
 queryParams:
   - key: validate_only
     value: "true"
+    disabled: true
     description: If `true`, only run validation without persisting changes.
 body:
   type: json

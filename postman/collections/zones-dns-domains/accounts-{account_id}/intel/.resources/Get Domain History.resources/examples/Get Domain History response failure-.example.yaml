@@ -2,12 +2,14 @@ $kind: http-example
 id: 46384159-09c6-5e2a-88a1-273c42ea696d
 name: Get Domain History response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/intel/domain-history?domain=example.com"
+  url: "{{base_url}}/accounts/{{account_id}}/intel/domain-history"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    domain: example.com
+    - key: domain
+      value: example.com
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

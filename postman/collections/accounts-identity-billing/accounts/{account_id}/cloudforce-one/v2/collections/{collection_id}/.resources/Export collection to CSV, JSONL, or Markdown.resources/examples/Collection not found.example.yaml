@@ -1,13 +1,14 @@
 $kind: http-example
 id: bfd59938-6a98-5590-8f4a-96075d9f048c
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/export?include_ids=true"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/export"
   method: GET
   headers:
     Accept: application/x-ndjson
   queryParams:
     - key: include_ids
       value: "true"
+      disabled: true
       description: "Include item IDs in export (default: false)"
 response:
   statusCode: 404

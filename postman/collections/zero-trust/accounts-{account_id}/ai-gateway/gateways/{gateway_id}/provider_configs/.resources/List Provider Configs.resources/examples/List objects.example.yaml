@@ -1,13 +1,17 @@
 $kind: http-example
 id: b71197d9-12de-5ab9-b5dd-615a09e70536
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/provider_configs?page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/provider_configs"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

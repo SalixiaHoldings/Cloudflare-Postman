@@ -1,13 +1,14 @@
 $kind: http-example
 id: 4231c75f-3c03-516f-b2a7-122fb61b0c61
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/shared/query/{{id}}?view=events"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/shared/query/{{id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: view
-      value: events
+      value: invocations
+      disabled: true
       description: Select the view of the query result to return, defaults to events.
 response:
   statusCode: 200

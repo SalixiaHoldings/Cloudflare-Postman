@@ -16,16 +16,18 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/billable-usage?from=2025-05-01&to=2025-05-31"
+url: "{{base_url}}/accounts/{{account_id}}/billable-usage"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: from
     value: 2025-05-01
+    disabled: true
     description: Start date for the usage query (ISO 8601). The provided time range must include the subscription billing cycle anchor day, otherwise no usage data is returned. Use the info endpoint to retrieve the subscription anchor day.
   - key: to
     value: 2025-05-31
+    disabled: true
     description: End date for the usage query (ISO 8601).
 auth:
   type: bearer

@@ -13,13 +13,17 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles?per_page=20&cursor=eyJ2IjoxLCJuIjoibXktcHJvZmlsZSJ9"
+url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  per_page: "20"
-  cursor: eyJ2IjoxLCJuIjoibXktcHJvZmlsZSJ9
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: cursor
+    value: eyJ2IjoxLCJuIjoibXktcHJvZmlsZSJ9
+    disabled: true
 auth:
   type: bearer
   credentials:

@@ -2,12 +2,14 @@ $kind: http-example
 id: 3fe21bf9-b923-5e05-8b0d-3f7a364fa6c1
 name: Get version failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions/{{version_id}}?include=modules"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions/{{version_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    include: modules
+    - key: include
+      value: modules
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

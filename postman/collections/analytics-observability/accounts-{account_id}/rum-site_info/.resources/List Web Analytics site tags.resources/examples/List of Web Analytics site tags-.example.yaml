@@ -2,7 +2,7 @@ $kind: http-example
 id: 2fc1ab89-d9fd-58f5-b1b9-522c30dc8f23
 name: List of Web Analytics site tags.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/rum/site_info/site_tag/list?all=false"
+  url: "{{base_url}}/accounts/{{account_id}}/rum/site_info/site_tag/list"
   method: GET
   headers:
     Accept: application/json
@@ -11,6 +11,7 @@ request:
   queryParams:
     - key: all
       value: "false"
+      disabled: true
       description: When true, includes sites that are disabled or paused.
 response:
   statusCode: 200

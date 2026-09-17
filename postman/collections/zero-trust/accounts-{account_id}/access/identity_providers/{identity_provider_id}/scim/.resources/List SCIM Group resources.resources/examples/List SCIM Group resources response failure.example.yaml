@@ -1,16 +1,26 @@
 $kind: http-example
 id: 758f500d-5c59-5e21-80b4-ffc0cd1d34ef
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers/{{identity_provider_id}}/scim/groups?cf_resource_id=a2abeb50-59c9-4c01-8c5c-963d3bf5700f&idp_resource_id=all_employees&name=ALL_EMPLOYEES&page=1&per_page=100"
+  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers/{{identity_provider_id}}/scim/groups"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    cf_resource_id: a2abeb50-59c9-4c01-8c5c-963d3bf5700f
-    idp_resource_id: all_employees
-    name: ALL_EMPLOYEES
-    page: "1"
-    per_page: "100"
+    - key: cf_resource_id
+      value: a2abeb50-59c9-4c01-8c5c-963d3bf5700f
+      disabled: true
+    - key: idp_resource_id
+      value: all_employees
+      disabled: true
+    - key: name
+      value: ALL_EMPLOYEES
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "100"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

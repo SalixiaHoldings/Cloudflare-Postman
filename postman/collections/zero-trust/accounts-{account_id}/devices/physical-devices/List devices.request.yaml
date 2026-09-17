@@ -13,49 +13,62 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/devices/physical-devices?cursor=string&sort_by=last_seen_user.email&sort_order=asc&last_seen_user.email=string&seen_after=string&seen_before=string&per_page=7426&search=string&active_registrations=exclude&id=string&id=string&last_seen_registration.policy.id=11ffb86f-3f0c-4306-b4a2-e62f872b166a&include=string"
+url: "{{base_url}}/accounts/{{account_id}}/devices/physical-devices"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: cursor
     value: string
+    disabled: true
     description: Opaque token indicating the starting position when requesting the next set of records. A cursor value can be obtained from the result_info.cursor field in the response.
   - key: sort_by
     value: last_seen_user.email
+    disabled: true
     description: The device field to order results by.
   - key: sort_order
-    value: asc
+    value: desc
+    disabled: true
     description: Sort direction.
   - key: last_seen_user.email
     value: string
+    disabled: true
     description: Filter by the last seen user's email.
   - key: seen_after
     value: string
+    disabled: true
     description: Filter by the last_seen timestamp - returns only devices last seen after this timestamp.
   - key: seen_before
     value: string
+    disabled: true
     description: Filter by the last_seen timestamp - returns only devices last seen before this timestamp.
   - key: per_page
-    value: "7426"
+    value: "6728"
+    disabled: true
     description: The maximum number of devices to return in a single response.
   - key: search
     value: string
+    disabled: true
     description: Search by device details.
   - key: active_registrations
-    value: exclude
+    value: only
+    disabled: true
     description: Include or exclude devices with active registrations. The default is "only" - return only devices with active registrations.
   - key: id
     value: string
+    disabled: true
     description: Filter by a one or more device IDs.
   - key: id
     value: string
+    disabled: true
     description: Filter by a one or more device IDs.
   - key: last_seen_registration.policy.id
     value: 11ffb86f-3f0c-4306-b4a2-e62f872b166a
+    disabled: true
     description: Filter by the ID of the device settings profile assigned to the device registration.
   - key: include
     value: string
+    disabled: true
     description: |
       Comma-separated list of additional information that should be included in the device response. Supported values are: "last_seen_registration.policy".
 auth:

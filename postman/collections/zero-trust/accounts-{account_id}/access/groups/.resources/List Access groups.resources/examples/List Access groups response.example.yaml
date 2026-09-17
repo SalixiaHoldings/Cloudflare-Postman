@@ -1,15 +1,23 @@
 $kind: http-example
 id: a054c0b6-dd4d-5e22-b258-94ea2030c5b8
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/groups?name=string&search=string&page=1&per_page=1000"
+  url: "{{base_url}}/accounts/{{account_id}}/access/groups"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    name: string
-    search: string
-    page: "1"
-    per_page: "1000"
+    - key: name
+      value: string
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "1000"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

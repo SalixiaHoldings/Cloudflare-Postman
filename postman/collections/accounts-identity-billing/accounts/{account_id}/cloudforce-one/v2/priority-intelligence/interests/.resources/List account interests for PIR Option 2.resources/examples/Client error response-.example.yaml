@@ -2,12 +2,18 @@ $kind: http-example
 id: 922b2119-ab04-5844-861b-06137b905a32
 name: Client error response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/interests?page=1&per_page=20&enabled=false"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/priority-intelligence/interests"
   method: GET
   queryParams:
-    page: "1"
-    per_page: "20"
-    enabled: "false"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: enabled
+      value: "true"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

@@ -1,13 +1,17 @@
 $kind: http-example
 id: c0f73f8d-49f9-53bd-90b3-15de2c0d5145
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/autorag/rags/{{id}}/jobs/{{job_id}}/logs?page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/autorag/rags/{{id}}/jobs/{{job_id}}/logs"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

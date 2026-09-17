@@ -1,13 +1,17 @@
 $kind: http-example
 id: a578d117-c3df-53c6-94fc-288b73828631
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/certificates?page=1&per_page=50"
+  url: "{{base_url}}/accounts/{{account_id}}/access/certificates"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "50"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "50"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

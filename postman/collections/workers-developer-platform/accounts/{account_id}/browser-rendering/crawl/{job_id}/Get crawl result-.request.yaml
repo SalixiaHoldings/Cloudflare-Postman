@@ -14,7 +14,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/crawl/{{job_id}}?cacheTTL=5&status=disallowed&cursor=0&limit=50"
+url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/crawl/{{job_id}}"
 method: GET
 headers:
   Accept: application/json
@@ -23,15 +23,19 @@ headers:
 queryParams:
   - key: cacheTTL
     value: "5"
+    disabled: true
     description: Cache TTL default is 5s. Set to 0 to disable.
   - key: status
     value: disallowed
+    disabled: true
     description: Filter by URL status.
   - key: cursor
     value: "0"
+    disabled: true
     description: Cursor for pagination.
   - key: limit
     value: "50"
+    disabled: true
     description: Limit for pagination.
 auth:
   type: bearer

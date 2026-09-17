@@ -2,14 +2,16 @@ $kind: http-example
 id: 79b086c1-8dc5-5922-818b-9b97adb61cf6
 name: Not Found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers/{{provider_id}}?status=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers/{{provider_id}}"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    status: "true"
+    - key: status
+      value: "true"
+      disabled: true
 response:
   statusCode: 404
   statusText: Not Found

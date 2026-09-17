@@ -13,29 +13,37 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/zerotrust/routes/hostname?id=f70ff985-a4ef-4643-bbbc-4a0ed4fc8415&hostname=office-1.local&tunnel_id=f70ff985-a4ef-4643-bbbc-4a0ed4fc8415&comment=example%20comment&existed_at=2019-10-12T07%3A20%3A50.52Z&is_deleted=true&per_page=<number>&page=1"
+url: "{{base_url}}/accounts/{{account_id}}/zerotrust/routes/hostname"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: id
     value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+    disabled: true
   - key: hostname
     value: office-1.local
+    disabled: true
     description: If set, only list hostname routes that contain a substring of the given value, the filter is case-insensitive.
   - key: tunnel_id
     value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+    disabled: true
     description: If set, only list hostname routes that point to a specific tunnel.
   - key: comment
     value: example%20comment
+    disabled: true
   - key: existed_at
     value: 2019-10-12T07%3A20%3A50.52Z
+    disabled: true
   - key: is_deleted
     value: "true"
+    disabled: true
   - key: per_page
     value: <number>
+    disabled: true
   - key: page
     value: "1"
+    disabled: true
 auth:
   type: bearer
   credentials:

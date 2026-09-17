@@ -13,16 +13,18 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts?tags=production:yes,staging:no&limit=1000"
+url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts"
 method: DELETE
 headers:
   Accept: application/json
 queryParams:
   - key: tags
     value: production:yes,staging:no
+    disabled: true
     description: "Filter scripts by tags before deletion. Format: comma-separated list of tag:allowed pairs where allowed is 'yes' or 'no'."
   - key: limit
     value: "1000"
+    disabled: true
     description: Limit the number of scripts to delete.
 auth:
   type: bearer

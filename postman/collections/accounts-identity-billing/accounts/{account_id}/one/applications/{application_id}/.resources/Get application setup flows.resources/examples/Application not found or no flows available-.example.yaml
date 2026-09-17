@@ -2,22 +2,26 @@ $kind: http-example
 id: d5f4e088-68d1-5825-a9e7-81cb922419ab
 name: Application not found or no flows available.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/one/applications/{{application_id}}/setup-flows?auth_method=string&environment=fedramp&page=8161&page_size=8161"
+  url: "{{base_url}}/accounts/{{account_id}}/one/applications/{{application_id}}/setup-flows"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: auth_method
       value: string
+      disabled: true
       description: Filter by auth method id. Get available ids from GET /v2/applications.
     - key: environment
       value: fedramp
+      disabled: true
       description: Filter by environment.
     - key: page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: A page number within the paginated result set.
     - key: page_size
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: Number of results to return per page.
 response:
   statusCode: 404

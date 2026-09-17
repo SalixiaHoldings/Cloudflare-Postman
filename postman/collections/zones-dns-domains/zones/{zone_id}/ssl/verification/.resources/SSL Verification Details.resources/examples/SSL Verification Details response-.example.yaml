@@ -2,12 +2,14 @@ $kind: http-example
 id: d101d7bb-df36-5ac1-9dae-6cbaa6b31073
 name: SSL Verification Details response.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/ssl/verification?retry=true"
+  url: "{{base_url}}/zones/{{zone_id}}/ssl/verification"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    retry: "true"
+    - key: retry
+      value: "true"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

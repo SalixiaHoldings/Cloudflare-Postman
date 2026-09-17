@@ -13,22 +13,40 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/user/firewall/access_rules/rules?mode=challenge&configuration.target=ip&configuration.value=198.51.100.4&notes=my note&match=all&page=1&per_page=20&order=mode&direction=desc"
+url: "{{base_url}}/user/firewall/access_rules/rules"
 method: GET
 headers:
   Accept: application/json
   X-Auth-Email: "{{api_email}}"
   X-Auth-Key: "{{api_key}}"
 queryParams:
-  mode: challenge
-  configuration.target: ip
-  configuration.value: 198.51.100.4
-  notes: my note
-  match: all
-  page: "1"
-  per_page: "20"
-  order: mode
-  direction: desc
+  - key: mode
+    value: challenge
+    disabled: true
+  - key: configuration.target
+    value: ip
+    disabled: true
+  - key: configuration.value
+    value: 198.51.100.4
+    disabled: true
+  - key: notes
+    value: my note
+    disabled: true
+  - key: match
+    value: all
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: order
+    value: mode
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
 auth:
   type: bearer
   credentials:

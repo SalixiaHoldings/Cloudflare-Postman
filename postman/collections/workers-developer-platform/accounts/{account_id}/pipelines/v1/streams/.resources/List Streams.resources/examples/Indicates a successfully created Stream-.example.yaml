@@ -2,20 +2,24 @@ $kind: http-example
 id: 03836bc7-2a28-5ef7-9e63-465998c37e7f
 name: Indicates a successfully created Stream.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/streams?pipeline_id=043e105f4ecef8ad9ca31a8372d0c353&name=string&page=1&per_page=6111.051584593952"
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/streams"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: pipeline_id
       value: 043e105f4ecef8ad9ca31a8372d0c353
+      disabled: true
     - key: name
       value: string
+      disabled: true
       description: Filters streams by name (case-insensitive substring).
     - key: page
       value: "1"
+      disabled: true
     - key: per_page
-      value: "6111.051584593952"
+      value: "204.77698417380452"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

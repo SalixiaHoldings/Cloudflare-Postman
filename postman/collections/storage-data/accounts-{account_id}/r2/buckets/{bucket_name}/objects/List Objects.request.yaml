@@ -16,17 +16,27 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects?per_page=20&prefix=string&delimiter=string&cursor=string&start_after=string"
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects"
 method: GET
 headers:
   cf-r2-jurisdiction: default
   Accept: application/json
 queryParams:
-  per_page: "20"
-  prefix: string
-  delimiter: string
-  cursor: string
-  start_after: string
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: prefix
+    value: string
+    disabled: true
+  - key: delimiter
+    value: string
+    disabled: true
+  - key: cursor
+    value: string
+    disabled: true
+  - key: start_after
+    value: string
+    disabled: true
 auth:
   type: bearer
   credentials:

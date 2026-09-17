@@ -2,15 +2,19 @@ $kind: http-example
 id: 81073ce7-a848-5193-ae96-ddffb3b4e2ff
 name: Bad Request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/versions?per_page=50&page=1"
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/versions"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    per_page: "50"
-    page: "1"
+    - key: per_page
+      value: "50"
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

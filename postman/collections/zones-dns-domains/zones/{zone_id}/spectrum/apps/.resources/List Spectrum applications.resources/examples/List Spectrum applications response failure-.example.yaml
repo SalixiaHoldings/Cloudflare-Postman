@@ -2,15 +2,23 @@ $kind: http-example
 id: 7f337069-eeaf-5bef-9e46-2acc268696c0
 name: List Spectrum applications response failure.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/spectrum/apps?page=1&per_page=20&direction=desc&order=protocol"
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/apps"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
-    direction: desc
-    order: protocol
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: order
+      value: protocol
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

@@ -13,16 +13,18 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags/{{flag_key}}/changelog?limit=string&cursor=string"
+url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags/{{flag_key}}/changelog"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: limit
     value: string
+    disabled: true
     description: Max items to return (1–200).
   - key: cursor
     value: string
+    disabled: true
     description: Pagination cursor from a previous response.
 auth:
   type: bearer

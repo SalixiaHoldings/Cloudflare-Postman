@@ -2,13 +2,14 @@ $kind: http-example
 id: 248f6cda-4f1c-5ac8-9a58-b723f7483d9a
 name: "Scan is in progress. Check current status in `result.scan.task.status`. Possible statuses: `Queued`,`InProgress`,`InPostProcessing`,`Finished`."
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}?full=false"
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: full
       value: "false"
+      disabled: true
       description: Whether to return full report (scan summary and network log).
 response:
   statusCode: 202

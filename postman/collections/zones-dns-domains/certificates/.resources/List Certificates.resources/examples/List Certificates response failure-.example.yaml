@@ -2,7 +2,7 @@ $kind: http-example
 id: 514fedef-83ec-5222-8216-b815703971aa
 name: List Certificates response failure.
 request:
-  url: "{{base_url}}/certificates?zone_id={{zone_id}}&page=1&per_page=20&limit=10&offset=10"
+  url: "{{base_url}}/certificates?zone_id={{zone_id}}"
   method: GET
   headers:
     Accept: application/json
@@ -12,12 +12,16 @@ request:
       description: "(Required) "
     - key: page
       value: "1"
+      disabled: true
     - key: per_page
       value: "20"
+      disabled: true
     - key: limit
       value: "10"
+      disabled: true
     - key: offset
       value: "10"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

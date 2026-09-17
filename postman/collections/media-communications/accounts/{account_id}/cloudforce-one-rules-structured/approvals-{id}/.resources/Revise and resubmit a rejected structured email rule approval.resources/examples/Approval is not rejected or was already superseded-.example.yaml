@@ -2,7 +2,7 @@ $kind: http-example
 id: a32af2b7-6a42-5c4a-b688-8c334303ce38
 name: Approval is not rejected or was already superseded.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured/approvals/{{id}}/resubmit?module=eml"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured/approvals/{{id}}/resubmit"
   method: POST
   headers:
     Content-Type: application/json
@@ -10,6 +10,7 @@ request:
   queryParams:
     - key: module
       value: eml
+      disabled: true
       description: Structured rule module.
   body:
     type: json

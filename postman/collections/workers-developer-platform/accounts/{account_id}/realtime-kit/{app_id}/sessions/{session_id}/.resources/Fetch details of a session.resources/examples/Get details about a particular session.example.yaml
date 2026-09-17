@@ -1,13 +1,14 @@
 $kind: http-example
 id: 8d26cd7c-241f-5a6a-8653-a6fddaeeaa6b
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}?include_breakout_rooms=false"
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: include_breakout_rooms
       value: "false"
+      disabled: true
       description: List all breakout rooms
 response:
   statusCode: 200

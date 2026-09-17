@@ -13,17 +13,20 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/pipelines?page=1&per_page=6111.051584593952&name=string"
+url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/pipelines"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: page
     value: "1"
+    disabled: true
   - key: per_page
-    value: "6111.051584593952"
+    value: "204.77698417380452"
+    disabled: true
   - key: name
     value: string
+    disabled: true
     description: Filters pipelines by name (case-insensitive substring).
 auth:
   type: bearer

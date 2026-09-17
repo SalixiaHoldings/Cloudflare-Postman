@@ -2,31 +2,38 @@ $kind: http-example
 id: d9dece7a-3c73-561f-b152-b0e12e36544b
 name: A client error occurred.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/security-center/insights/audit-log?per_page=25&cursor=string&field_changed=user_classification&changed_by=string&since=1975-02-17T04:30:50.988Z&before=1975-02-17T04:30:50.988Z&order=desc"
+  url: "{{base_url}}/accounts/{{account_id}}/security-center/insights/audit-log"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: per_page
       value: "25"
+      disabled: true
       description: Number of results per page.
     - key: cursor
       value: string
+      disabled: true
       description: Opaque cursor for pagination. Use the cursor value from result_info of the previous response.
     - key: field_changed
-      value: user_classification
+      value: status
+      disabled: true
       description: Filter by the field that was changed.
     - key: changed_by
       value: string
+      disabled: true
       description: Filter by the actor that made the change.
     - key: since
-      value: 1975-02-17T04:30:50.988Z
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
       description: Filter entries changed at or after this timestamp (RFC 3339).
     - key: before
-      value: 1975-02-17T04:30:50.988Z
+      value: 1995-01-25T04:50:11.938Z
+      disabled: true
       description: Filter entries changed before this timestamp (RFC 3339).
     - key: order
       value: desc
+      disabled: true
       description: Sort order for results. Use 'asc' for oldest first or 'desc' for newest first.
 response:
   statusCode: 400

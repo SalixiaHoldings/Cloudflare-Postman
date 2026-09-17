@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_email":[],"api_key":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}?include_resources=true&include_recipient_counts=true"
+url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}"
 method: GET
 headers:
   Accept: application/json
@@ -22,9 +22,11 @@ headers:
 queryParams:
   - key: include_resources
     value: "true"
+    disabled: true
     description: Include resources in the response.
   - key: include_recipient_counts
     value: "true"
+    disabled: true
     description: Include recipient counts in the response.
 auth:
   type: noauth

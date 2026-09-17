@@ -1,5 +1,7 @@
 # Official query options: full-partition experiment
 
+> Historical investigation. The maintainer subsequently approved and the generator now implements the full-secondary query-only projection. See [current query policy](query-policy.md) for the implemented behavior, approved limitations, and validation. The stop/pending statements below describe the experiment at that time.
+
 ## Decision
 
 The [maintainer follow-up](https://github.com/SalixiaHoldings/Cloudflare-Postman/pull/4#issuecomment-5716166995) requires testing official converter controls before any custom normalization. **The settings fix all five documented query-identity defects, but are not adopted globally:** they change substantial unrelated request and response content. This is the explicit stop/report boundary in the follow-up.

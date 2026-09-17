@@ -15,19 +15,22 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/access/saml_certificates?page=1&per_page=25&id=a5bb4b3f-c2d1-4e6a-8f9b-1d3e4f5a6b7c,f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+url: "{{base_url}}/accounts/{{account_id}}/access/saml_certificates"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: page
     value: "1"
+    disabled: true
     description: Page number of paginated results.
   - key: per_page
     value: "25"
+    disabled: true
     description: Maximum number of results per page.
   - key: id
     value: a5bb4b3f-c2d1-4e6a-8f9b-1d3e4f5a6b7c,f174e90a-fafe-4643-bbbc-4a0ed4fc8415
+    disabled: true
     description: Filter by SAML certificate set UID. Accepts a comma-separated list of UIDs.
 auth:
   type: bearer

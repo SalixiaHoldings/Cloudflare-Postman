@@ -2,22 +2,40 @@ $kind: http-example
 id: a1a83882-b80d-54a1-af68-53a68f471188
 name: List WAF rules response failure.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages/{{package_id}}/rules?mode=CHL&group_id=de677e5818985db1285d0e80225f06e5&page=1&per_page=50&order=description&direction=desc&match=all&description=SQL injection prevention for SELECT statements&priority=string"
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages/{{package_id}}/rules"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    mode: CHL
-    group_id: de677e5818985db1285d0e80225f06e5
-    page: "1"
-    per_page: "50"
-    order: description
-    direction: desc
-    match: all
-    description: SQL injection prevention for SELECT statements
-    priority: string
+    - key: mode
+      value: CHL
+      disabled: true
+    - key: group_id
+      value: de677e5818985db1285d0e80225f06e5
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "50"
+      disabled: true
+    - key: order
+      value: description
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: match
+      value: all
+      disabled: true
+    - key: description
+      value: SQL injection prevention for SELECT statements
+      disabled: true
+    - key: priority
+      value: string
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

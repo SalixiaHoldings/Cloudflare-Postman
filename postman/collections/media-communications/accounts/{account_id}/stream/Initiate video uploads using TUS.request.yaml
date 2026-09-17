@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/stream?direct_user=true"
+url: "{{base_url}}/accounts/{{account_id}}/stream"
 method: POST
 headers:
   - key: Tus-Resumable
@@ -33,7 +33,9 @@ headers:
   - key: X-Auth-Key
     value: "{{api_key}}"
 queryParams:
-  direct_user: "true"
+  - key: direct_user
+    value: "true"
+    disabled: true
 auth:
   type: bearer
   credentials:

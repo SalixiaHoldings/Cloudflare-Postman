@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/usage-history?value_grouping_window=day&start_time=1700000000000&end_time=1700086400000"
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/usage-history?value_grouping_window=day"
 method: GET
 headers:
   Accept: application/json
@@ -23,9 +23,11 @@ queryParams:
     description: (Required) Grouping window for usage data.
   - key: start_time
     value: "1700000000000"
+    disabled: true
     description: Start time as Unix timestamp in milliseconds.
   - key: end_time
     value: "1700086400000"
+    disabled: true
     description: End time as Unix timestamp in milliseconds.
 auth:
   type: bearer

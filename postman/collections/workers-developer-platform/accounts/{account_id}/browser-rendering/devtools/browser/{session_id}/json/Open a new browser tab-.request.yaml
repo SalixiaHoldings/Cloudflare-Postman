@@ -14,7 +14,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json/new?url=https://suweLcMthpYMXdZKmJUwbEtIOf.vumT0DRbzrkAcTZeOKiUVWHLwvoh.LmeIqeycCIFIQ3ie.pUJZuy&liveViewUrlExpiresInMs=300000"
+url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json/new"
 method: PUT
 headers:
   Accept: application/json
@@ -22,9 +22,11 @@ headers:
   X-Auth-Key: "{{api_key}}"
 queryParams:
   - key: url
-    value: https://suweLcMthpYMXdZKmJUwbEtIOf.vumT0DRbzrkAcTZeOKiUVWHLwvoh.LmeIqeycCIFIQ3ie.pUJZuy
+    value: http://Lumh.jcqaFdK.er2Jgw9mtpkwOaaw9nap0EFUpoUST
+    disabled: true
   - key: liveViewUrlExpiresInMs
     value: "300000"
+    disabled: true
     description: How long the live view URL remains valid, in milliseconds (max 60 minutes)
 auth:
   type: bearer

@@ -2,7 +2,7 @@ $kind: http-example
 id: 4998db21-8c7f-57b8-ad73-8974a9cedf9c
 name: Bad request.
 request:
-  url: "{{base_url}}/radar/email/security/timeseries_groups/threat_category?aggInterval=1h&name=main_series&name=main_series&dateRange=7d&dateRange=7d&dateStart=1974-11-27T07:36:05.859Z&dateStart=1966-02-27T14:40:59.169Z&dateEnd=1995-10-19T15:53:05.619Z&dateEnd=1960-10-24T10:15:31.348Z&arc=PASS&arc=NONE&dkim=FAIL&dkim=FAIL&dmarc=NONE&dmarc=FAIL&spf=PASS&spf=FAIL&tlsVersion=TLSv1_3&tlsVersion=TLSv1_0&format=JSON"
+  url: "{{base_url}}/radar/email/security/timeseries_groups/threat_category"
   method: GET
   headers:
     Accept: application/json
@@ -11,63 +11,83 @@ request:
   queryParams:
     - key: aggInterval
       value: 1h
+      disabled: true
       description: Aggregation interval of the results (e.g., in 15 minutes or 1 hour intervals). Refer to [Aggregation intervals](https://developers.cloudflare.com/radar/concepts/aggregation-intervals/). When omitted, the interval is auto-selected from the requested date range; finer intervals are only available for shorter ranges. If the requested interval is too granular for the date range, the request is rejected.
     - key: name
       value: main_series
+      disabled: true
       description: Array of names used to label the series in the response.
     - key: name
       value: main_series
+      disabled: true
       description: Array of names used to label the series in the response.
     - key: dateRange
       value: 7d
+      disabled: true
       description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
     - key: dateRange
       value: 7d
+      disabled: true
       description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
     - key: dateStart
-      value: 1974-11-27T07:36:05.859Z
+      value: 1951-09-27T11:58:44.857Z
+      disabled: true
       description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateStart
-      value: 1966-02-27T14:40:59.169Z
+      value: 1941-01-15T14:17:23.841Z
+      disabled: true
       description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1995-10-19T15:53:05.619Z
+      value: 1999-07-22T08:43:28.015Z
+      disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1960-10-24T10:15:31.348Z
+      value: 1952-11-21T00:59:03.123Z
+      disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: arc
-      value: PASS
+      value: NONE
+      disabled: true
       description: Filters results by ARC (Authenticated Received Chain) validation.
     - key: arc
-      value: NONE
+      value: PASS
+      disabled: true
       description: Filters results by ARC (Authenticated Received Chain) validation.
     - key: dkim
-      value: FAIL
+      value: PASS
+      disabled: true
       description: Filters results by DKIM (DomainKeys Identified Mail) validation status.
     - key: dkim
-      value: FAIL
+      value: NONE
+      disabled: true
       description: Filters results by DKIM (DomainKeys Identified Mail) validation status.
     - key: dmarc
-      value: NONE
+      value: PASS
+      disabled: true
       description: Filters results by DMARC (Domain-based Message Authentication, Reporting and Conformance) validation status.
     - key: dmarc
-      value: FAIL
+      value: NONE
+      disabled: true
       description: Filters results by DMARC (Domain-based Message Authentication, Reporting and Conformance) validation status.
     - key: spf
-      value: PASS
+      value: NONE
+      disabled: true
       description: Filters results by SPF (Sender Policy Framework) validation status.
     - key: spf
       value: FAIL
+      disabled: true
       description: Filters results by SPF (Sender Policy Framework) validation status.
     - key: tlsVersion
-      value: TLSv1_3
+      value: TLSv1_2
+      disabled: true
       description: Filters results by TLS version.
     - key: tlsVersion
-      value: TLSv1_0
+      value: TLSv1_2
+      disabled: true
       description: Filters results by TLS version.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 400

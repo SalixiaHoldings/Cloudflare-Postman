@@ -2,13 +2,14 @@ $kind: http-example
 id: ec804086-92d0-5141-bd1b-f1ff57c1c8c2
 name: Invalid params.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}?full=false"
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: full
       value: "false"
+      disabled: true
       description: Whether to return full report (scan summary and network log).
 response:
   statusCode: 400

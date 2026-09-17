@@ -1,15 +1,21 @@
 $kind: http-example
 id: 1acf4c16-b910-5bce-a951-3cc9e285551d
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/queries?id=string&tag=string&scan=true"
+  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/queries"
   method: POST
   headers:
     Content-Type: application/json
     Accept: application/json
   queryParams:
-    id: string
-    tag: string
-    scan: "true"
+    - key: id
+      value: string
+      disabled: true
+    - key: tag
+      value: string
+      disabled: true
+    - key: scan
+      value: "true"
+      disabled: true
   body:
     type: json
     content: |-

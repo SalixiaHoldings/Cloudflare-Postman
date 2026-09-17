@@ -2,15 +2,23 @@ $kind: http-example
 id: efb07103-ca7b-523a-ae6c-f2027261772d
 name: List Spectrum applications response.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/spectrum/apps?page=1&per_page=20&direction=desc&order=protocol"
+  url: "{{base_url}}/zones/{{zone_id}}/spectrum/apps"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
-    direction: desc
-    order: protocol
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: order
+      value: protocol
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

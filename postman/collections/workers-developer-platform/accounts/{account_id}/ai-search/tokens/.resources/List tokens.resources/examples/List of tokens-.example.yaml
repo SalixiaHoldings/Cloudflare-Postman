@@ -2,19 +2,22 @@ $kind: http-example
 id: e81ce79f-6ba9-5a90-b0b2-0d6377e1abdb
 name: List of tokens.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-search/tokens?page=1&per_page=20&search=my-token"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/tokens"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number (1-indexed).
     - key: per_page
       value: "20"
+      disabled: true
       description: Number of results per page.
     - key: search
       value: my-token
+      disabled: true
       description: Filter tokens whose name contains this string (case-insensitive).
 response:
   statusCode: 200

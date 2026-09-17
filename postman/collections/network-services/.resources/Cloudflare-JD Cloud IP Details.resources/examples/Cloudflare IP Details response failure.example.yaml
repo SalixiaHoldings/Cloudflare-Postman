@@ -1,13 +1,14 @@
 $kind: http-example
 id: d64e3869-6e66-511c-9d85-d08ab998b551
 request:
-  url: "{{base_url}}/ips?networks=string"
+  url: "{{base_url}}/ips"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: networks
       value: string
+      disabled: true
       description: Specified as `jdcloud` to list IPs used by JD Cloud data centers.
 response:
   statusCode: 400

@@ -2,14 +2,15 @@ $kind: http-example
 id: 6de2c5af-b84a-55ae-a6bc-8b5cf944f741
 name: Bad Request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/copy?keepRawData=true"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/copy"
   method: POST
   headers:
     Content-Type: application/json
     Accept: application/json
   queryParams:
     - key: keepRawData
-      value: "true"
+      value: "false"
+      disabled: true
       description: If true, copies raw data to the destination dataset. Default is false (raw data is stripped/not copied).
   body:
     type: json

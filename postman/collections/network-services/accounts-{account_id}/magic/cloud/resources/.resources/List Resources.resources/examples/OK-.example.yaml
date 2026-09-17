@@ -2,7 +2,7 @@ $kind: http-example
 id: af1beb8a-4617-5b11-b9a7-c6484154da92
 name: OK.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources?provider_id=string&resource_type=aws_ec2_transit_gateway_prefix_list_reference&resource_type=azurerm_network_interface_backend_address_pool_association&resource_id=dbc81e0c-0618-b0ac-0185-2fe928407d07&resource_id=abf529c0-d69a-82fb-edb3-2f270a52dd8b&region=string&resource_group=string&managed=true&search=string&search=string&order_by=string&desc=true&per_page=3005&page=3005&cloudflare=true&v2=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources"
   method: GET
   headers:
     Accept: application/json
@@ -11,37 +11,53 @@ request:
   queryParams:
     - key: provider_id
       value: string
+      disabled: true
     - key: resource_type
-      value: aws_ec2_transit_gateway_prefix_list_reference
+      value: azurerm_virtual_network
+      disabled: true
     - key: resource_type
-      value: azurerm_network_interface_backend_address_pool_association
+      value: azurerm_route_table
+      disabled: true
     - key: resource_id
-      value: dbc81e0c-0618-b0ac-0185-2fe928407d07
+      value: 23d8f623-e88e-afe3-d5ac-2f587c9db2f8
+      disabled: true
     - key: resource_id
-      value: abf529c0-d69a-82fb-edb3-2f270a52dd8b
+      value: b65a6897-f8ed-1cf2-ab9c-4f742b3c1534
+      disabled: true
     - key: region
       value: string
+      disabled: true
     - key: resource_group
       value: string
+      disabled: true
     - key: managed
       value: "true"
+      disabled: true
     - key: search
       value: string
+      disabled: true
     - key: search
       value: string
+      disabled: true
     - key: order_by
       value: string
+      disabled: true
       description: One of ["id", "resource_type", "region"].
     - key: desc
       value: "true"
+      disabled: true
     - key: per_page
-      value: "3005"
+      value: "2977"
+      disabled: true
     - key: page
-      value: "3005"
+      value: "2977"
+      disabled: true
     - key: cloudflare
       value: "true"
+      disabled: true
     - key: v2
       value: "true"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

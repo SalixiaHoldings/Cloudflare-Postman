@@ -2,31 +2,38 @@ $kind: http-example
 id: 0a87b1f8-7a21-57c5-8127-994f89021b8a
 name: Client error.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/content_policies?page=1&per_page=20&search=string&order=name&direction=asc&enabled=true&name=string"
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/content_policies"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Current page within paginated list of results.
     - key: per_page
       value: "20"
+      disabled: true
       description: The number of results per page. Maximum value is 1000.
     - key: search
       value: string
+      disabled: true
       description: Search term for filtering records. Behavior may change.
     - key: order
-      value: name
+      value: created_at
+      disabled: true
       description: Field to sort by.
     - key: direction
       value: asc
+      disabled: true
       description: The sorting direction.
     - key: enabled
       value: "true"
+      disabled: true
       description: Filter by enabled status.
     - key: name
       value: string
+      disabled: true
       description: Filter by exact policy name.
 response:
   statusCode: 400

@@ -1,3 +1,4 @@
+import { orderedQuery } from './query-policy.mjs';
 import assert from 'node:assert/strict';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -139,6 +140,10 @@ export async function assertSemanticEquivalence(collection, root) {
     assert.equal(request.method, v2.method, 'HTTP method drift.');
     const raw = typeof v2.url === 'string' ? v2.url : v2.url.raw;
     assert.equal(operation(request.method,request.url),operation(v2.method,raw),'Operation path drift.');
+    const nativeQuery = Array.isArray(request.queryParams) ? request.queryParams :
+      Object.entries(request.queryParams ?? {}).map(([key, value]) => ({ key, value }));
+    assert.deepEqual(orderedQuery(nativeQuery), orderedQuery(v2.url?.query ?? []), `Ordered query drift: ${file}`);
+    assert.equal(request.url, raw, `Raw URL drift: ${file}`);
     assert.deepEqual(request.auth ?? undefined,auth(v2.auth),'Request auth drift.');
     const authHeaders = entries => entries.filter(h => /^X-Auth-/iu.test(h.key) && !h.disabled)
       .map(h => [h.key.toLowerCase(),h.value]).sort((a,b) => a[0].localeCompare(b[0]));

@@ -2,7 +2,7 @@ $kind: http-example
 id: f21f7291-a845-5e67-b2f2-01aba435c380
 name: WebSocket subscription established.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/subscribe?cursor=6991&filter=rollback_attempt_started&filter=rollback_attempt_started"
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/subscribe"
   method: GET
   headers:
     Accept: application/json
@@ -10,13 +10,16 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: cursor
-      value: "6991"
+      value: "2212"
+      disabled: true
       description: Last event ID already received.
     - key: filter
-      value: rollback_attempt_started
+      value: rollback_attempt_errored
+      disabled: true
       description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
     - key: filter
-      value: rollback_attempt_started
+      value: rollback_started
+      disabled: true
       description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
 response:
   statusCode: 101

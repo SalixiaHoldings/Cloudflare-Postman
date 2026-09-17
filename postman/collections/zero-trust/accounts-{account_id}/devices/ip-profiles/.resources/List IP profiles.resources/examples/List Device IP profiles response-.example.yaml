@@ -2,16 +2,18 @@ $kind: http-example
 id: 6713b11c-e944-566e-b0b6-d8c2393587e9
 name: List Device IP profiles response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/devices/ip-profiles?page=1&per_page=50"
+  url: "{{base_url}}/accounts/{{account_id}}/devices/ip-profiles"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: The page number to return.
     - key: per_page
       value: "50"
+      disabled: true
       description: The number of IP profiles to return per page.
 response:
   statusCode: 200

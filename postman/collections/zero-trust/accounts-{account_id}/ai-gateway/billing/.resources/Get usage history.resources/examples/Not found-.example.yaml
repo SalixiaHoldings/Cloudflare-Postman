@@ -2,7 +2,7 @@ $kind: http-example
 id: 757edf9d-58a1-5e4b-a6f3-3a043c86668a
 name: Not found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/usage-history?value_grouping_window=day&start_time=1700000000000&end_time=1700086400000"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/usage-history?value_grouping_window=day"
   method: GET
   headers:
     Accept: application/json
@@ -12,9 +12,11 @@ request:
       description: (Required) Grouping window for usage data.
     - key: start_time
       value: "1700000000000"
+      disabled: true
       description: Start time as Unix timestamp in milliseconds.
     - key: end_time
       value: "1700086400000"
+      disabled: true
       description: End time as Unix timestamp in milliseconds.
 response:
   statusCode: 404

@@ -2,7 +2,7 @@ $kind: http-example
 id: adaba472-8173-56f0-b628-6847df929f18
 name: List account stores response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/secrets_store/stores?direction=desc&page=2&per_page=20&order=created"
+  url: "{{base_url}}/accounts/{{account_id}}/secrets_store/stores"
   method: GET
   headers:
     Accept: application/json
@@ -11,15 +11,19 @@ request:
   queryParams:
     - key: direction
       value: desc
+      disabled: true
       description: Direction to sort objects.
     - key: page
       value: "2"
+      disabled: true
       description: Page number.
     - key: per_page
       value: "20"
+      disabled: true
       description: Number of objects to return per page.
     - key: order
       value: created
+      disabled: true
       description: Order stores by values in the given field.
 response:
   statusCode: 200

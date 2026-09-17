@@ -2,19 +2,22 @@ $kind: http-example
 id: 3a051b82-59fb-5a24-8d9e-f60e4ff8fd79
 name: List of applications.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/one/applications?environment=string&page=8161&page_size=8161"
+  url: "{{base_url}}/accounts/{{account_id}}/one/applications"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: environment
       value: string
+      disabled: true
       description: Filter by supported environment (standard, fedramp).
     - key: page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: A page number within the paginated result set.
     - key: page_size
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: Number of results to return per page.
 response:
   statusCode: 200

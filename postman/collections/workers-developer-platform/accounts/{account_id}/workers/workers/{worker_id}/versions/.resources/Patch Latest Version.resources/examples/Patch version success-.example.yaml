@@ -2,13 +2,15 @@ $kind: http-example
 id: 69f42bbb-c699-5153-bc79-10747e55a44a
 name: Patch version success.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions/latest?deploy=true"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions/latest"
   method: PATCH
   headers:
     Content-Type: application/json
     Accept: application/json
   queryParams:
-    deploy: "true"
+    - key: deploy
+      value: "true"
+      disabled: true
   body:
     type: json
     content: |-

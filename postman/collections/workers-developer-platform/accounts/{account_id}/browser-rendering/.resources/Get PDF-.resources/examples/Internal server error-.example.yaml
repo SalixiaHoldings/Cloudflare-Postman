@@ -2,7 +2,7 @@ $kind: http-example
 id: 60f3b8ee-d46e-5ae7-9272-4ba17a597511
 name: Internal server error.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/pdf?cacheTTL=5"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/pdf"
   method: POST
   headers:
     Content-Type: application/json
@@ -12,6 +12,7 @@ request:
   queryParams:
     - key: cacheTTL
       value: "5"
+      disabled: true
       description: Cache TTL default is 5s. Set to 0 to disable.
   body:
     type: json

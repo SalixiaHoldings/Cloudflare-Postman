@@ -2,31 +2,36 @@ $kind: http-example
 id: 804f535c-b704-5bf9-b192-662b24053996
 name: Successfully returned extensions.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/extensions?name=com&cursor=string&per_page=20&direction=asc&sort_by=name"
+  url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/extensions"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: name
       value: com
+      disabled: true
       description: |
         Filter extensions by exact name match.
         For example, `name=com` returns only the `com` extension.
     - key: cursor
       value: string
+      disabled: true
       description: |
         Opaque token from a previous response's `result_info.cursor`.
         Pass this value to fetch the next page of results. Omit (or
         pass an empty string) for the first page.
     - key: per_page
       value: "20"
+      disabled: true
       description: Number of items to return per page.
     - key: direction
       value: asc
+      disabled: true
       description: |
         Sort direction for results. Defaults to ascending order.
     - key: sort_by
       value: name
+      disabled: true
       description: |
         Column to sort results by. Defaults to `name` when omitted.
 response:

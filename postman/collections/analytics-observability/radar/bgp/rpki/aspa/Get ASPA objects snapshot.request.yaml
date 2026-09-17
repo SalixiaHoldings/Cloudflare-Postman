@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/bgp/rpki/aspa/snapshot?customerAsn=13335&providerAsn=174&date=2024-09-19T00:00:00Z&includeAsnInfo=true&format=JSON"
+url: "{{base_url}}/radar/bgp/rpki/aspa/snapshot"
 method: GET
 headers:
   Accept: application/json
@@ -22,18 +22,23 @@ headers:
 queryParams:
   - key: customerAsn
     value: "13335"
+    disabled: true
     description: Filter by customer ASN (the ASN publishing the ASPA object).
   - key: providerAsn
     value: "174"
+    disabled: true
     description: Filter by provider ASN (an authorized upstream provider in ASPA objects).
   - key: date
     value: 2024-09-19T00:00:00Z
+    disabled: true
     description: Filters results by the specified datetime (ISO 8601).
   - key: includeAsnInfo
     value: "true"
+    disabled: true
     description: Include ASN metadata (name, country) in response.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

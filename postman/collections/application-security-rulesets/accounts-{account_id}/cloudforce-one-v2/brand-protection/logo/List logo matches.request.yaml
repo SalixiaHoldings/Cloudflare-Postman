@@ -13,24 +13,29 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/matches?offset=0&limit=50&query_id=string&download=string&orderBy=domain&order=asc"
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/matches?query_id=string"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: offset
     value: "0"
+    disabled: true
   - key: limit
     value: "50"
+    disabled: true
   - key: query_id
     value: string
     description: "(Required) "
   - key: download
     value: string
+    disabled: true
   - key: orderBy
-    value: domain
+    value: registrar
+    disabled: true
   - key: order
-    value: asc
+    value: desc
+    disabled: true
 auth:
   type: bearer
   credentials:

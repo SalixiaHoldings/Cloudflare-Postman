@@ -2,7 +2,7 @@ $kind: http-example
 id: 01e2b125-06b3-556c-ab94-7083228307f7
 name: Bad Request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/prebuilt-policies?destination_type=ZERO_TRUST_LIST"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/prebuilt-policies"
   method: GET
   headers:
     Accept: application/json
@@ -10,7 +10,8 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: destination_type
-      value: ZERO_TRUST_LIST
+      value: NONE
+      disabled: true
       description: Specify type of destination, omit to return all.
 response:
   statusCode: 400

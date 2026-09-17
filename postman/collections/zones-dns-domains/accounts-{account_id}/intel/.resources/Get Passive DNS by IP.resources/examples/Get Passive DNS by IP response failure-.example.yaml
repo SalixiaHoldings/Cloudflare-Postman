@@ -2,16 +2,26 @@ $kind: http-example
 id: bdddef7f-7eb9-58b7-87ab-fe6dbb565899
 name: Get Passive DNS by IP response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/intel/dns?end=2021-04-30&start=2021-04-01&ipv4=string&page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/intel/dns"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    end: 2021-04-30
-    start: 2021-04-01
-    ipv4: string
-    page: "1"
-    per_page: "20"
+    - key: end
+      value: 2021-04-30
+      disabled: true
+    - key: start
+      value: 2021-04-01
+      disabled: true
+    - key: ipv4
+      value: string
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

@@ -12,7 +12,7 @@ An independent, Salixia-maintained distribution of modular Postman collections g
 6. Import `dist/v2.1/environments/cloudflare.template.postman_environment.json`.
 7. Select the imported **Cloudflare API — Template** environment.
 8. Add your Cloudflare credential values locally; normally begin with `api_token`.
-9. Set `account_id` and/or `zone_id` when the request requires them, along with any other request parameters.
+9. Set `account_id`, `zone_id`, `tenant_id`, or `organization_id` when the request requires them, along with any other request parameters.
 10. Open a request, inspect its authentication and payload, and click **Send**.
 
 Keep populated environments local/private. Do not commit them or export them publicly.
@@ -76,3 +76,7 @@ Generated files must not be edited by hand. See [CONTRIBUTING.md](CONTRIBUTING.m
 ## License / provenance
 
 Project code is [BSD-3-Clause licensed](LICENSE). Collections are generated from Cloudflare's BSD-3-Clause API schema, pinned by exact commit and SHA-256 in `schema-lock.json`. Required attribution and tool notices are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+### Query defaults
+
+Required query Params are enabled; optional Params emitted by the official converter are visible but unchecked. Default URLs contain only enabled Params. Enable optional filters deliberately. The [query policy](docs/query-policy.md) documents the five revision-bound optional-array omissions and validation. Tenant/organization selectors ship empty in both environment formats; keep sensitive values local and never Share them.

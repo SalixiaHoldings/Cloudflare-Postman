@@ -13,13 +13,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/rulesets/{{ruleset_id}}?dry_run=false"
+url: "{{base_url}}/accounts/{{account_id}}/rulesets/{{ruleset_id}}"
 method: DELETE
 headers:
   Accept: application/json
 queryParams:
   - key: dry_run
     value: "false"
+    disabled: true
     description: "Validates the request without persisting changes when set to `true`. Responses that normally return 200 return `result: null`; endpoints that normally return 204 continue to return 204."
 auth:
   type: bearer

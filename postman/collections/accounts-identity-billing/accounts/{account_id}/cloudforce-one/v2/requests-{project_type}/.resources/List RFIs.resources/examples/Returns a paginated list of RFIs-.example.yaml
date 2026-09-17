@@ -2,45 +2,61 @@ $kind: http-example
 id: 399ed0a8-fb2d-5728-9870-eb9ae9e55f86
 name: Returns a paginated list of RFIs.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}?page=2535.467583220452&pageSize=2535.467583220452&status=string&search=string&createdBy=string&assignee=string&requestType=string&priority=string&tlp=string&id=string&readableId=string&summary=string&accountId=string&metadata=string&orderBy=string&order=string"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
-      value: "2535.467583220452"
+      value: "3075.6446719169617"
+      disabled: true
     - key: pageSize
-      value: "2535.467583220452"
+      value: "3075.6446719169617"
+      disabled: true
     - key: status
       value: string
+      disabled: true
     - key: search
       value: string
+      disabled: true
     - key: createdBy
       value: string
+      disabled: true
       description: "Filter by creator email. NOTE: For the `legal-response` project type this query parameter is **rejected with HTTP 400** — the server derives the filter from the authenticated user's JWT automatically and does not accept a client-supplied value. Requests to `legal-response` with no valid JWT identity are rejected with HTTP 401."
     - key: assignee
       value: string
+      disabled: true
     - key: requestType
       value: string
+      disabled: true
     - key: priority
       value: string
+      disabled: true
     - key: tlp
       value: string
+      disabled: true
     - key: id
       value: string
+      disabled: true
     - key: readableId
       value: string
+      disabled: true
     - key: summary
       value: string
+      disabled: true
     - key: accountId
       value: string
+      disabled: true
     - key: metadata
       value: string
+      disabled: true
       description: "JSON string object of metadata filters. Supports two formats: 1) Simple values for exact match (backward compatible): {\"status\": \"open\"} 2) Operator objects for advanced filtering: {\"identifiers\": {\"operator\": \"contains_line\", \"value\": \"blah.com\"}}. Available operators: 'eq' (exact match, default), 'contains' (substring match), 'contains_line' (match complete line in newline-separated text). Date fields are automatically normalized to YYYY-MM-DD format."
     - key: orderBy
       value: string
+      disabled: true
     - key: order
       value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

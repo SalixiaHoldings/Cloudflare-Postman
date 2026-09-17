@@ -1,7 +1,7 @@
 $kind: http-example
 id: e4591717-b9e6-51a0-8ab1-d67305c23c63
 request:
-  url: "{{base_url}}/organizations/{{organization_id}}/logs/audit/{{id}}/history?action_time=2024-10-30T15:00:00Z&since=2024-10-30&before=2024-10-31&direction=desc&limit=25&cursor=Q1buH-__DQqqig7SVYXT-SsMOTGY2Z3Y80W-fGgva7yaDdmPKveucH5ddOcHsJRhNb-xUK8agZQqkJSMAENGO8NU6g=="
+  url: "{{base_url}}/organizations/{{organization_id}}/logs/audit/{{id}}/history?action_time=2024-10-30T15:00:00Z&since=2024-10-30&before=2024-10-31"
   method: GET
   headers:
     Accept: application/json
@@ -17,10 +17,13 @@ request:
       description: (Required) Limits the returned results to logs older than the specified date. This can be a date string 2019-04-30 (interpreted in UTC) or an absolute timestamp that conforms to RFC3339.
     - key: direction
       value: desc
+      disabled: true
     - key: limit
       value: "25"
+      disabled: true
     - key: cursor
       value: Q1buH-__DQqqig7SVYXT-SsMOTGY2Z3Y80W-fGgva7yaDdmPKveucH5ddOcHsJRhNb-xUK8agZQqkJSMAENGO8NU6g==
+      disabled: true
 response:
   statusCode: 404
   statusText: Not Found

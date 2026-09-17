@@ -1,7 +1,7 @@
 $kind: http-example
 id: b305f889-138b-5a5c-b233-da262c078dfb
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules/preview?per_page=20&page=1&state=included&state=included&host=www.example.com&host=www.example.com&hostname=www.example.com&hostname=www.example.com&method=GET&method=GET&endpoint=/api/v1/users/{var1}&endpoint=/api/v1/users/{var1}"
+  url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules/preview"
   method: POST
   headers:
     Content-Type: application/json
@@ -9,37 +9,49 @@ request:
   queryParams:
     - key: per_page
       value: "20"
+      disabled: true
       description: Maximum number of results per page.
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: state
       value: included
+      disabled: true
     - key: state
       value: included
+      disabled: true
     - key: host
       value: www.example.com
+      disabled: true
       description: Filter operations by host.
     - key: host
       value: www.example.com
+      disabled: true
       description: Filter operations by host.
     - key: hostname
       value: www.example.com
+      disabled: true
       description: Filter operations by host.
     - key: hostname
       value: www.example.com
+      disabled: true
       description: Filter operations by host.
     - key: method
       value: GET
+      disabled: true
       description: Filter operations by method.
     - key: method
       value: GET
+      disabled: true
       description: Filter operations by method.
     - key: endpoint
       value: /api/v1/users/{var1}
+      disabled: true
       description: Filter operations by endpoint. Allows substring matching.
     - key: endpoint
       value: /api/v1/users/{var1}
+      disabled: true
       description: Filter operations by endpoint. Allows substring matching.
   body:
     type: json

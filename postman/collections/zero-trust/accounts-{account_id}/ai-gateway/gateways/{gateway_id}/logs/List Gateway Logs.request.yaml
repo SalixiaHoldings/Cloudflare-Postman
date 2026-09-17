@@ -13,69 +13,98 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: '{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/logs?search=string&page=1&per_page=20&order_by=created_at&order_by_direction=desc&filters={"key":"duration","operator":"gt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}&filters={"key":"cached","operator":"lt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}&meta_info=true&direction=desc&start_date=1957-09-08T05:12:33.215Z&end_date=1957-09-08T05:12:33.215Z&min_cost=9025.046115275472&max_cost=9025.046115275472&min_tokens_in=9025.046115275472&max_tokens_in=9025.046115275472&min_tokens_out=9025.046115275472&max_tokens_out=9025.046115275472&min_total_tokens=9025.046115275472&max_total_tokens=9025.046115275472&min_duration=9025.046115275472&max_duration=9025.046115275472&feedback=NaN&success=false&cached=false&model=string&model_type=string&provider=string&request_content_type=string&response_content_type=string'
+url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/logs"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: search
     value: string
+    disabled: true
   - key: page
     value: "1"
+    disabled: true
   - key: per_page
     value: "20"
+    disabled: true
   - key: order_by
     value: created_at
+    disabled: true
   - key: order_by_direction
     value: desc
+    disabled: true
   - key: filters
-    value: '{"key":"duration","operator":"gt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}'
+    value: '{"key":"created_at","operator":"eq","value":["string","string"]}'
+    disabled: true
   - key: filters
-    value: '{"key":"cached","operator":"lt","value":[{"value":"<Error: Too many levels of nesting to fake this schema>"},{"value":"<Error: Too many levels of nesting to fake this schema>"}]}'
+    value: '{"key":"compatibilityMode","operator":"lt","value":["string","string"]}'
+    disabled: true
   - key: meta_info
     value: "true"
+    disabled: true
   - key: direction
-    value: desc
+    value: asc
+    disabled: true
   - key: start_date
-    value: 1957-09-08T05:12:33.215Z
+    value: 1936-05-04T09:14:15.001Z
+    disabled: true
   - key: end_date
-    value: 1957-09-08T05:12:33.215Z
+    value: 1936-05-04T09:14:15.001Z
+    disabled: true
   - key: min_cost
-    value: "9025.046115275472"
+    value: "2103.6077244207263"
+    disabled: true
   - key: max_cost
-    value: "9025.046115275472"
+    value: "2103.6077244207263"
+    disabled: true
   - key: min_tokens_in
-    value: "9025.046115275472"
+    value: "2103.6077244207263"
+    disabled: true
   - key: max_tokens_in
-    value: "9025.046115275472"
+    value: "2103.6077244207263"
+    disabled: true
   - key: min_tokens_out
-    value: "9025.046115275472"
+    value: "2103.6077244207263"
+    disabled: true
   - key: max_tokens_out
-    value: "9025.046115275472"
+    value: "2103.6077244207263"
+    disabled: true
   - key: min_total_tokens
-    value: "9025.046115275472"
+    value: "2103.6077244207263"
+    disabled: true
   - key: max_total_tokens
-    value: "9025.046115275472"
+    value: "2103.6077244207263"
+    disabled: true
   - key: min_duration
-    value: "9025.046115275472"
+    value: "2103.6077244207263"
+    disabled: true
   - key: max_duration
-    value: "9025.046115275472"
+    value: "2103.6077244207263"
+    disabled: true
   - key: feedback
     value: NaN
+    disabled: true
   - key: success
-    value: "false"
+    value: "true"
+    disabled: true
   - key: cached
-    value: "false"
+    value: "true"
+    disabled: true
   - key: model
     value: string
+    disabled: true
   - key: model_type
     value: string
+    disabled: true
   - key: provider
     value: string
+    disabled: true
   - key: request_content_type
     value: string
+    disabled: true
   - key: response_content_type
     value: string
+    disabled: true
 auth:
   type: bearer
   credentials:

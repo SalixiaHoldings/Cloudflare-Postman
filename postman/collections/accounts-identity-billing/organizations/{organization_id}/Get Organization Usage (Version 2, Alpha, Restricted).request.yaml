@@ -28,16 +28,18 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/organizations/{{organization_id}}/billable/usage?from=2025-05-01&to=2025-05-31"
+url: "{{base_url}}/organizations/{{organization_id}}/billable/usage"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: from
     value: 2025-05-01
+    disabled: true
     description: Start date for the usage query (ISO 8601). Required if `to` is set. When omitted along with `to`, defaults to the start of the current month. Filters by charge period (when consumption happened), not billing period. The maximum date range is 31 days.
   - key: to
     value: 2025-05-31
+    disabled: true
     description: End date for the usage query (ISO 8601). Required if `from` is set. When omitted along with `from`, defaults to today. Filters by charge period (when consumption happened), not billing period. The maximum date range is 31 days.
 auth:
   type: bearer

@@ -13,13 +13,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}?submission=true"
+url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: submission
     value: "true"
+    disabled: true
     description: |-
       When true, search the submissions datastore only. When false or omitted, search the
       regular datastore only.

@@ -1,15 +1,21 @@
 $kind: http-example
 id: b4e8fc7b-3fd4-58da-a623-3c9617cd5785
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/logos?tag=string&match_type=string&threshold=3078.528684563935"
+  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/logos"
   method: POST
   headers:
     Content-Type: application/x-www-form-urlencoded
     Accept: application/json
   queryParams:
-    tag: string
-    match_type: string
-    threshold: "3078.528684563935"
+    - key: tag
+      value: string
+      disabled: true
+    - key: match_type
+      value: string
+      disabled: true
+    - key: threshold
+      value: "7564.619842451066"
+      disabled: true
   body:
     type: urlencoded
     content:

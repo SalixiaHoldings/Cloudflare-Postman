@@ -13,13 +13,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset?includeDeleted=true"
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: includeDeleted
     value: "true"
+    disabled: true
     description: "When true, include soft-deleted datasets in the response. Each item includes a `deletedAt` field (ISO 8601 or null). Default: false."
 auth:
   type: bearer

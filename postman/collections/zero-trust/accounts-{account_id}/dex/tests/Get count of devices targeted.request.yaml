@@ -13,19 +13,22 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/dex/tests/unique-devices?testName=string&deviceId=cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7&deviceId=cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7"
+url: "{{base_url}}/accounts/{{account_id}}/dex/tests/unique-devices"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: testName
     value: string
+    disabled: true
     description: Optionally filter results by test name.
   - key: deviceId
     value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+    disabled: true
     description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
   - key: deviceId
     value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+    disabled: true
     description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
 auth:
   type: bearer

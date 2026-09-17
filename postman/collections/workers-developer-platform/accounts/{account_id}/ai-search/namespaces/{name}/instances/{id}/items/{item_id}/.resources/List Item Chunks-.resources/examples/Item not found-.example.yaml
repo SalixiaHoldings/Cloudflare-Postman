@@ -2,13 +2,17 @@ $kind: http-example
 id: 13947c8a-7b56-5b4e-b02b-e41b2cf202cd
 name: Item not found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items/{{item_id}}/chunks?limit=20&offset=0"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items/{{item_id}}/chunks"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    limit: "20"
-    offset: "0"
+    - key: limit
+      value: "20"
+      disabled: true
+    - key: offset
+      value: "0"
+      disabled: true
 response:
   statusCode: 404
   statusText: Not Found

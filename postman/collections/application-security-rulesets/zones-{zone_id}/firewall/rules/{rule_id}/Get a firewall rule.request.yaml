@@ -16,14 +16,16 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/zones/{{zone_id}}/firewall/rules/{{rule_id}}?id=372e67954025e0ba6aaa6d586b9e0b60"
+url: "{{base_url}}/zones/{{zone_id}}/firewall/rules/{{rule_id}}"
 method: GET
 headers:
   Accept: application/json
   X-Auth-Email: "{{api_email}}"
   X-Auth-Key: "{{api_key}}"
 queryParams:
-  id: 372e67954025e0ba6aaa6d586b9e0b60
+  - key: id
+    value: 372e67954025e0ba6aaa6d586b9e0b60
+    disabled: true
 auth:
   type: bearer
   credentials:

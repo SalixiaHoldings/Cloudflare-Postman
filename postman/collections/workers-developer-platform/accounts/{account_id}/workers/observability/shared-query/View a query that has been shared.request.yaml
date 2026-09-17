@@ -13,13 +13,14 @@ description: |-
   Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/workers/observability/shared/query/{{id}}?view=events"
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/shared/query/{{id}}"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: view
-    value: events
+    value: invocations
+    disabled: true
     description: Select the view of the query result to return, defaults to events.
 auth:
   type: bearer

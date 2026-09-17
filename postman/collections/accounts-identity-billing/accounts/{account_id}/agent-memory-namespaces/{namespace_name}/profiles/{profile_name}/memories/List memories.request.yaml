@@ -13,15 +13,23 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/memories?per_page=20&cursor=01JSGCEXAMP1E0000000000000&session_id=chat-session-42&type=fact"
+url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles/{{profile_name}}/memories"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  per_page: "20"
-  cursor: 01JSGCEXAMP1E0000000000000
-  session_id: chat-session-42
-  type: fact
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: cursor
+    value: 01JSGCEXAMP1E0000000000000
+    disabled: true
+  - key: session_id
+    value: chat-session-42
+    disabled: true
+  - key: type
+    value: fact
+    disabled: true
 auth:
   type: bearer
   credentials:

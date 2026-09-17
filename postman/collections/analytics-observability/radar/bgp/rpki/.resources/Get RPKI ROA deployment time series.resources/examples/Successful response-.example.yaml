@@ -2,7 +2,7 @@ $kind: http-example
 id: 108dd6fa-a2fa-57aa-b1c5-75f0a3783d70
 name: Successful response.
 request:
-  url: "{{base_url}}/radar/bgp/rpki/roas/timeseries?dateStart=2023-09-01T11:41:33.782Z&dateEnd=2023-09-01T11:41:33.782Z&metric=validPfxsRatio&asn=string&asn=string&location=string&location=string&name=main_series&name=main_series&format=JSON"
+  url: "{{base_url}}/radar/bgp/rpki/roas/timeseries"
   method: GET
   headers:
     Accept: application/json
@@ -11,33 +11,43 @@ request:
   queryParams:
     - key: dateStart
       value: 2023-09-01T11:41:33.782Z
+      disabled: true
       description: Start of the date range (inclusive). Alternative to `dateRange`; provide together with `dateEnd`.
     - key: dateEnd
       value: 2023-09-01T11:41:33.782Z
+      disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`.
     - key: metric
       value: validPfxsRatio
+      disabled: true
       description: Which RPKI ROA validation metric to return. validPfxsRatio = ratio of RPKI-valid prefixes (IPv4+IPv6 combined). validPfxsV4Ratio / validPfxsV6Ratio = same, split by IP version. validIpsRatio = ratio of RPKI-valid address space (IPv4 /24s + IPv6 /48s). validIpsV4Ratio / validIpsV6Ratio = same, split by IP version.
     - key: asn
       value: string
+      disabled: true
       description: Filters results by Autonomous System Number. Specify one or more ASNs. Multiple values generate one series per ASN.
     - key: asn
       value: string
+      disabled: true
       description: Filters results by Autonomous System Number. Specify one or more ASNs. Multiple values generate one series per ASN.
     - key: location
       value: string
+      disabled: true
       description: Filters results by location. Specify a comma-separated list of alpha-2 location codes.
     - key: location
       value: string
+      disabled: true
       description: Filters results by location. Specify a comma-separated list of alpha-2 location codes.
     - key: name
       value: main_series
+      disabled: true
       description: Array of names used to label the series in the response.
     - key: name
       value: main_series
+      disabled: true
       description: Array of names used to label the series in the response.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 200

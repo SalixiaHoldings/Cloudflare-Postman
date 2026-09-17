@@ -2,13 +2,17 @@ $kind: http-example
 id: b850db6c-2db2-57a5-b718-59f54922dafa
 name: Returns the AI Search item chunks with text content.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items/{{item_id}}/chunks?limit=20&offset=0"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items/{{item_id}}/chunks"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    limit: "20"
-    offset: "0"
+    - key: limit
+      value: "20"
+      disabled: true
+    - key: offset
+      value: "0"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

@@ -2,16 +2,18 @@ $kind: http-example
 id: 9f0d709f-6ab5-51bf-ab0e-0d3c324932e4
 name: Paginated flag changelog.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags/{{flag_key}}/changelog?limit=string&cursor=string"
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags/{{flag_key}}/changelog"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: limit
       value: string
+      disabled: true
       description: Max items to return (1–200).
     - key: cursor
       value: string
+      disabled: true
       description: Pagination cursor from a previous response.
 response:
   statusCode: 200

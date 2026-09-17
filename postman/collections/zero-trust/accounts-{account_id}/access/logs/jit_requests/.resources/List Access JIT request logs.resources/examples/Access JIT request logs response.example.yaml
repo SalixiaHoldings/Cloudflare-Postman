@@ -1,25 +1,31 @@
 $kind: http-example
 id: 1ec911d9-c8dd-5f9b-8121-d7bbfbcb33fa
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/logs/jit_requests?page=1&per_page=25&status=CANCELED&search=string&since=1976-02-19T15:56:07.521Z&until=1976-02-19T15:56:07.521Z"
+  url: "{{base_url}}/accounts/{{account_id}}/access/logs/jit_requests"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
     - key: per_page
       value: "25"
+      disabled: true
     - key: status
-      value: CANCELED
+      value: APPROVED
+      disabled: true
     - key: search
       value: string
+      disabled: true
       description: Case-insensitive search over request ID, requester email, application audience, and application hostname.
     - key: since
-      value: 1976-02-19T15:56:07.521Z
+      value: 1934-06-02T03:59:24.018Z
+      disabled: true
       description: The earliest request timestamp to query. Defaults to 366 days before the current time.
     - key: until
-      value: 1976-02-19T15:56:07.521Z
+      value: 1934-06-02T03:59:24.018Z
+      disabled: true
       description: The latest request timestamp to query. Defaults to the current time.
 response:
   statusCode: 200

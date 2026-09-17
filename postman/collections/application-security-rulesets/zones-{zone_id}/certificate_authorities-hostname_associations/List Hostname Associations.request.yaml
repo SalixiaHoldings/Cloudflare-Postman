@@ -13,12 +13,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones/{{zone_id}}/certificate_authorities/hostname_associations?mtls_certificate_id=b2134436-2555-4acf-be5b-26c48136575e"
+url: "{{base_url}}/zones/{{zone_id}}/certificate_authorities/hostname_associations"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  mtls_certificate_id: b2134436-2555-4acf-be5b-26c48136575e
+  - key: mtls_certificate_id
+    value: b2134436-2555-4acf-be5b-26c48136575e
+    disabled: true
 auth:
   type: bearer
   credentials:

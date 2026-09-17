@@ -17,7 +17,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_email":[],"api_key":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/recipients?include_resources=true&page=2&per_page=20"
+url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/recipients"
 method: GET
 headers:
   Accept: application/json
@@ -26,15 +26,18 @@ headers:
 queryParams:
   - key: include_resources
     value: "true"
+    disabled: true
     description: Include resources in the response.
   - key: page
     value: "2"
+    disabled: true
     description: |-
       Page number. Defaults to `1` when `per_page` is supplied without
       `page`. May be omitted entirely along with `per_page` to receive a
       non-paginated response.
   - key: per_page
     value: "20"
+    disabled: true
     description: |-
       Number of objects to return per page. Defaults to `20` when `page`
       is supplied without `per_page`. May be omitted entirely along with

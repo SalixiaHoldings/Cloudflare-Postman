@@ -1,19 +1,31 @@
 $kind: http-example
 id: 6f4d75ac-448f-58e5-a95a-5caf120fab79
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/firewall/rules?description=mir&action=block&page=1&per_page=25&id=372e67954025e0ba6aaa6d586b9e0b60&paused=false"
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/rules"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    description: mir
-    action: block
-    page: "1"
-    per_page: "25"
-    id: 372e67954025e0ba6aaa6d586b9e0b60
-    paused: "false"
+    - key: description
+      value: mir
+      disabled: true
+    - key: action
+      value: block
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "25"
+      disabled: true
+    - key: id
+      value: 372e67954025e0ba6aaa6d586b9e0b60
+      disabled: true
+    - key: paused
+      value: "false"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

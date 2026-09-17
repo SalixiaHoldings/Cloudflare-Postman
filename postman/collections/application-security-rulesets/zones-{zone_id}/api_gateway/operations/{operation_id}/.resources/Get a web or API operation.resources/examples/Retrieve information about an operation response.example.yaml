@@ -1,7 +1,7 @@
 $kind: http-example
 id: a5ba2903-48e5-595d-868f-88a70ed13a54
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations/{{operation_id}}?feature=thresholds&with_schemas=false"
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/operations/{{operation_id}}"
   method: GET
   headers:
     Accept: application/json
@@ -10,9 +10,11 @@ request:
   queryParams:
     - key: feature
       value: thresholds
+      disabled: true
       description: Add feature(s) to the results. The feature name that is given here corresponds to the resulting feature object. Have a look at the top-level object description for more details on the specific meaning.
     - key: with_schemas
       value: "false"
+      disabled: true
       description: When true, includes OpenAPI schemas (both uploaded and learned) for the operation in the response. Due to the conversion overhead, this parameter is only supported on single-operation retrieval.
 response:
   statusCode: 200

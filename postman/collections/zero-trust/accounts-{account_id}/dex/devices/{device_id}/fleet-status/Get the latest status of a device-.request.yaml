@@ -14,7 +14,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/live?since_minutes=10&time_now=2023-10-11T00:00:00Z&colo=SJC"
+url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/live?since_minutes=10"
 method: GET
 headers:
   Accept: application/json
@@ -24,9 +24,11 @@ queryParams:
     description: (Required) Number of minutes before current time.
   - key: time_now
     value: 2023-10-11T00:00:00Z
+    disabled: true
     description: Current time in ISO format.
   - key: colo
     value: SJC
+    disabled: true
     description: List of data centers to filter results.
 auth:
   type: bearer

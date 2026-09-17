@@ -2,16 +2,18 @@ $kind: http-example
 id: 63fc52b7-866c-5b69-980e-60846998ec7e
 name: List origin cloud region mappings failure.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions?page=1&per_page=20"
+  url: "{{base_url}}/zones/{{zone_id}}/origin/cloud_regions"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: per_page
       value: "20"
+      disabled: true
       description: Number of items per page.
 response:
   statusCode: 400

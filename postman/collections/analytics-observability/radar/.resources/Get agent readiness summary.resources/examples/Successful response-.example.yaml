@@ -2,7 +2,7 @@ $kind: http-example
 id: 5584ab6d-a1c0-5c06-94f4-5f6749318a6b
 name: Successful response.
 request:
-  url: "{{base_url}}/radar/agent_readiness/summary/{{dimension}}?date=2024-09-19&domainCategory=string&domainCategory=string&name=main_series&name=main_series&format=JSON"
+  url: "{{base_url}}/radar/agent_readiness/summary/{{dimension}}"
   method: GET
   headers:
     Accept: application/json
@@ -11,21 +11,27 @@ request:
   queryParams:
     - key: date
       value: 2024-09-19
+      disabled: true
       description: Filters results by the specified date.
     - key: domainCategory
       value: string
+      disabled: true
       description: Filters results by domain category.
     - key: domainCategory
       value: string
+      disabled: true
       description: Filters results by domain category.
     - key: name
       value: main_series
+      disabled: true
       description: Array of names used to label the series in the response.
     - key: name
       value: main_series
+      disabled: true
       description: Array of names used to label the series in the response.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 200

@@ -1,12 +1,14 @@
 $kind: http-example
 id: 870dec5f-518b-5ef1-ac88-3f3c549309e6
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/builds/builds/{{build_uuid}}/logs?cursor=eyJsaW5lIjoxMDAsInRpbWVzdGFtcCI6MTYzNjQ3MjQwMH0"
+  url: "{{base_url}}/accounts/{{account_id}}/builds/builds/{{build_uuid}}/logs"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    cursor: eyJsaW5lIjoxMDAsInRpbWVzdGFtcCI6MTYzNjQ3MjQwMH0
+    - key: cursor
+      value: eyJsaW5lIjoxMDAsInRpbWVzdGFtcCI6MTYzNjQ3MjQwMH0
+      disabled: true
 response:
   statusCode: 404
   statusText: Not Found

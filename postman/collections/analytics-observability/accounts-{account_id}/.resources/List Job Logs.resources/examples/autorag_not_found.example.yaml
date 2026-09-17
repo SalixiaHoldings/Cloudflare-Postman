@@ -1,13 +1,17 @@
 $kind: http-example
 id: bb531a7d-1e47-5b42-8f4f-5ce6ae716b77
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/autorag/rags/{{id}}/jobs/{{job_id}}/logs?page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/autorag/rags/{{id}}/jobs/{{job_id}}/logs"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
 response:
   statusCode: 404
   statusText: Not Found

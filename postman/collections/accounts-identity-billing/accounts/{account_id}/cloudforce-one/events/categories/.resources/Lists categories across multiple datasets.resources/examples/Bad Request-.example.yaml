@@ -2,16 +2,18 @@ $kind: http-example
 id: c9554cce-c870-5eff-858d-0428fa0d3ea4
 name: Bad Request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/categories?datasetIds=string&datasetIds=string"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/categories"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: datasetIds
       value: string
+      disabled: true
       description: Array of dataset IDs to query categories from. If not provided, uses the default dataset.
     - key: datasetIds
       value: string
+      disabled: true
       description: Array of dataset IDs to query categories from. If not provided, uses the default dataset.
 response:
   statusCode: 400

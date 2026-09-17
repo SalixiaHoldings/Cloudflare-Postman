@@ -2,13 +2,17 @@ $kind: http-example
 id: ae1cd162-df96-520e-b409-664d28b2d479
 name: Return a failure response.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/snippets?page=1&per_page=25"
+  url: "{{base_url}}/zones/{{zone_id}}/snippets"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "25"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "25"
+      disabled: true
 response:
   statusCode: 500
   statusText: Internal Server Error

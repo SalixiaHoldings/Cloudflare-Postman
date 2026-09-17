@@ -2,16 +2,18 @@ $kind: http-example
 id: d935d82e-173c-56db-8f2c-973693b41c6b
 name: Not found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags/{{flag_key}}/changelog?limit=string&cursor=string"
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags/{{flag_key}}/changelog"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: limit
       value: string
+      disabled: true
       description: Max items to return (1–200).
     - key: cursor
       value: string
+      disabled: true
       description: Pagination cursor from a previous response.
 response:
   statusCode: 404

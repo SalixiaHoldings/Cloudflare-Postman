@@ -1,3 +1,7 @@
+import assert from 'node:assert/strict';
+import queryPolicy from '../config/query-projection.json' with { type: 'json' };
+import { assertQueryRevision, assertQueryContract, assertOmissions, IDENTIFIER_VARIABLES } from './query-policy.mjs';
+import { makeRawUrl } from './postman.mjs';
 import { validateNative } from './native-git.mjs';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -103,6 +107,7 @@ export async function validateAll() {
     fetchPinnedSchema(),
     fetchPostmanCollectionSchema()
   ]);
+  assertQueryRevision(queryPolicy, lock, (await readJson(path.join(ROOT, 'package.json'))).devDependencies['openapi-to-postmanv2']);
   const openapiExceptions = await validateOpenApiWithExceptions(schemaPath, lock.commit);
   const schema = await readJson(schemaPath);
   const upstreamOperations = listOperations(schema);
@@ -137,15 +142,29 @@ export async function validateAll() {
       );
     }
     assertAuthenticationMetadata(partition.authentication, authenticationCounts(assignments.get(partition.id)), partition.id);
+    const omissions = [];
+    let enabled = 0, disabled = 0;
     for (const item of requests) {
       const key = normalizedRequestKey(item.request);
       const upstream = upstreamByKey.get(key);
       if (!upstream) throw new Error(`Unexpected request: ${key}`);
       assertRequestAuthentication(item, upstream.authSupport, key);
+      const query = assertQueryContract(item.request, schema, upstream);
+      omissions.push(...query.omissions); enabled += query.enabled; disabled += query.disabled;
+      assert.equal(item.request.url.raw, makeRawUrl(upstream.path, item.request.url.query), 'Raw URL does not reflect enabled query rows.');
+      for (const row of item.request.url.query ?? []) {
+        if (IDENTIFIER_VARIABLES[row.key]) assert.equal(row.value, IDENTIFIER_VARIABLES[row.key], 'Known query identifier must use its variable.');
+      }
+      const snapshot = structuredClone(item.request); delete snapshot.description;
+      for (const response of item.response ?? []) assert.deepEqual(response.originalRequest, snapshot, 'Stale saved originalRequest.');
       const owners = represented.get(key) ?? [];
       owners.push(partition.id);
       represented.set(key, owners);
     }
+    const keys = new Set(assignments.get(partition.id).map(o => o.key));
+    assertOmissions(omissions, queryPolicy.omissions.filter(o => keys.has(o.operation)));
+    assert.deepEqual(partition.queryProjection, { enabled, disabled, omissions,
+      secondaryWarnings: queryPolicy.partitions[partition.id] }, 'Query provenance drift.');
   }
 
   const upstreamKeys = new Set(upstreamOperations.map((operation) => operation.key));
@@ -191,7 +210,7 @@ export async function validateAll() {
   const environment = await readJson(path.join(V2_DIR, manifest.environment.file));
   assertEmptyPublicVariables(environment.values, manifest.environment.file);
   const environmentValues = new Map(environment.values.map((entry) => [entry.key, entry]));
-  for (const required of ['base_url', 'api_token', 'account_id', 'zone_id']) {
+  for (const required of ['base_url', 'api_token', 'account_id', 'zone_id', 'tenant_id', 'organization_id']) {
     if (!environmentValues.has(required)) throw new Error(`Template environment is missing ${required}.`);
   }
   if (AUTH_VARIABLES.some((key) => environmentValues.get(key)?.value !== '' || environmentValues.get(key)?.type !== 'secret')) {

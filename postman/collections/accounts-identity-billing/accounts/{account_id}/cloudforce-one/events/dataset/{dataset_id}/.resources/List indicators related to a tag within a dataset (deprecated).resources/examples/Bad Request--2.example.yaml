@@ -2,28 +2,35 @@ $kind: http-example
 id: e67a39b4-730c-5a4f-800f-3005d7ce557c
 name: Bad Request.
 request:
-  url: '{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/tags/{{tag_uuid}}/indicators?page=2535.467583220452&pageSize=2535.467583220452&indicatorType=string&relatedEvent=string&relatedEvent=string&search={"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&search={"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/tags/{{tag_uuid}}/indicators"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
-      value: "2535.467583220452"
+      value: "3075.6446719169617"
+      disabled: true
     - key: pageSize
-      value: "2535.467583220452"
+      value: "3075.6446719169617"
+      disabled: true
     - key: indicatorType
       value: string
+      disabled: true
     - key: relatedEvent
       value: string
+      disabled: true
       description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
     - key: relatedEvent
       value: string
+      disabled: true
       description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
     - key: search
-      value: '{"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+      value: '{"field":"value","op":"contains","value":"malicious"}'
+      disabled: true
       description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
     - key: search
-      value: '{"field":"value","op":"contains","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+      value: '{"field":"value","op":"contains","value":"malicious"}'
+      disabled: true
       description: "Structured search as a JSON array of {field, op, value} objects. Searchable fields: value, indicatorType. Multiple conditions are AND'd together. Max 10 conditions per request."
 response:
   statusCode: 500

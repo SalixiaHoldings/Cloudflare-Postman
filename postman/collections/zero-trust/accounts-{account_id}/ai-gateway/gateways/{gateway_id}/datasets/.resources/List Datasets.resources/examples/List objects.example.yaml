@@ -1,16 +1,26 @@
 $kind: http-example
 id: 0b3b3271-561a-59de-8a6f-c64cdcac32d6
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/datasets?page=1&per_page=20&name=string&enable=true&search=string"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/datasets"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
-    name: string
-    enable: "true"
-    search: string
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: name
+      value: string
+      disabled: true
+    - key: enable
+      value: "true"
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

@@ -13,13 +13,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/export?include_ids=true"
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/collections/{{collection_id}}/export"
 method: GET
 headers:
   Accept: application/x-ndjson
 queryParams:
   - key: include_ids
     value: "true"
+    disabled: true
     description: "Include item IDs in export (default: false)"
 auth:
   type: bearer

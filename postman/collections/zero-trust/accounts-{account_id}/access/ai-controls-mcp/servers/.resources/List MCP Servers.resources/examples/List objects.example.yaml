@@ -1,14 +1,20 @@
 $kind: http-example
 id: daa48c07-a354-5361-b4e1-ce788a8dc11c
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/servers?page=1&per_page=20&search=string"
+  url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/servers"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
-    search: string
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

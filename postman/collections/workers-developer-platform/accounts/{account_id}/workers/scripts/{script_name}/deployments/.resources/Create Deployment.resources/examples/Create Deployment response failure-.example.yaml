@@ -2,7 +2,7 @@ $kind: http-example
 id: 1ad0226c-fd5c-55a2-b1b1-9b90c8f96b14
 name: Create Deployment response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/deployments?force=true"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/deployments"
   method: POST
   headers:
     Content-Type: application/json
@@ -10,6 +10,7 @@ request:
   queryParams:
     - key: force
       value: "true"
+      disabled: true
       description: If set to true, the deployment will be created even if normally blocked by something such rolling back to an older version when a secret has changed.
   body:
     type: json

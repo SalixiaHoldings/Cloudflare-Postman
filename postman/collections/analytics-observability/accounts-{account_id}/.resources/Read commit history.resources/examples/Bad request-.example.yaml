@@ -2,18 +2,21 @@ $kind: http-example
 id: d3140a0e-fed5-5f1e-b502-e5d888c6c750
 name: Bad request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/log?ref=string&limit=391&offset=6553"
+  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/log"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: ref
       value: string
+      disabled: true
       description: Git ref, branch, tag, or commit hash. Defaults to HEAD.
     - key: limit
-      value: "391"
+      value: "674"
+      disabled: true
     - key: offset
-      value: "6553"
+      value: "3167"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

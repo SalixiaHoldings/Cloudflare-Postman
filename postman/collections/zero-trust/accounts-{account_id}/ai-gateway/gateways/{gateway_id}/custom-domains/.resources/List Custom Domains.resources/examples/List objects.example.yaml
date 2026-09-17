@@ -1,15 +1,23 @@
 $kind: http-example
 id: daa3dc00-6685-56c2-984b-e8f0b146ce9e
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/custom-domains?page=1&per_page=20&status=pending_dcv&search=string"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/custom-domains"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
-    status: pending_dcv
-    search: string
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: status
+      value: active
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

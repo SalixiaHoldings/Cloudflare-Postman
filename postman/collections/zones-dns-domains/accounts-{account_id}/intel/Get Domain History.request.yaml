@@ -13,12 +13,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/intel/domain-history?domain=example.com"
+url: "{{base_url}}/accounts/{{account_id}}/intel/domain-history"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  domain: example.com
+  - key: domain
+    value: example.com
+    disabled: true
 auth:
   type: bearer
   credentials:

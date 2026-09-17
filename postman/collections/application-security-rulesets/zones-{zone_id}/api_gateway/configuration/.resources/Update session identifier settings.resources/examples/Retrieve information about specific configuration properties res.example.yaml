@@ -2,7 +2,7 @@ $kind: http-example
 id: 185a1636-8ac4-59ee-b331-279422828c2a
 name: Retrieve information about specific configuration properties response failure
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/configuration?normalize=true"
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/configuration"
   method: PUT
   headers:
     Content-Type: application/json
@@ -10,6 +10,7 @@ request:
   queryParams:
     - key: normalize
       value: "true"
+      disabled: true
       description: Ensures that the configuration is written or retrieved in normalized fashion
   body:
     type: json

@@ -2,16 +2,18 @@ $kind: http-example
 id: e4ac50ab-436e-5631-b415-886998f02cfb
 name: Auth methods available for this application.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/one/applications/{{application_id}}/auth-methods?page=8161&page_size=8161"
+  url: "{{base_url}}/accounts/{{account_id}}/one/applications/{{application_id}}/auth-methods"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: A page number within the paginated result set.
     - key: page_size
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: Number of results to return per page.
 response:
   statusCode: 200

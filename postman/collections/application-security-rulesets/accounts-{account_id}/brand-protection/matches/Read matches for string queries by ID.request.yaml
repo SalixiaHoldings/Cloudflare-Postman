@@ -13,16 +13,26 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/brand-protection/matches?id=string&offset=6305&limit=6305&include_domain_id=false&include_dismissed=false"
+url: "{{base_url}}/accounts/{{account_id}}/brand-protection/matches"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  id: string
-  offset: "6305"
-  limit: "6305"
-  include_domain_id: "false"
-  include_dismissed: "false"
+  - key: id
+    value: string
+    disabled: true
+  - key: offset
+    value: "6305"
+    disabled: true
+  - key: limit
+    value: "6305"
+    disabled: true
+  - key: include_domain_id
+    value: "false"
+    disabled: true
+  - key: include_dismissed
+    value: "true"
+    disabled: true
 auth:
   type: bearer
   credentials:

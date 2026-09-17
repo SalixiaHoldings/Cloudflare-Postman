@@ -13,20 +13,34 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_email":[],"api_key":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/memberships?account.name=Demo Account&page=1&per_page=20&order=status&direction=desc&name=Demo Account&status=accepted"
+url: "{{base_url}}/memberships"
 method: GET
 headers:
   Accept: application/json
   X-Auth-Email: "{{api_email}}"
   X-Auth-Key: "{{api_key}}"
 queryParams:
-  account.name: Demo Account
-  page: "1"
-  per_page: "20"
-  order: status
-  direction: desc
-  name: Demo Account
-  status: accepted
+  - key: account.name
+    value: Demo Account
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: order
+    value: status
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
+  - key: name
+    value: Demo Account
+    disabled: true
+  - key: status
+    value: accepted
+    disabled: true
 auth:
   type: noauth
 examples: ./.resources/List Memberships.resources/examples

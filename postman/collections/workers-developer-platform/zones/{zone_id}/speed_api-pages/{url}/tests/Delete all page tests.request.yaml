@@ -13,12 +13,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones/{{zone_id}}/speed_api/pages/{{url}}/tests?region=us-central1"
+url: "{{base_url}}/zones/{{zone_id}}/speed_api/pages/{{url}}/tests"
 method: DELETE
 headers:
   Accept: application/json
 queryParams:
-  region: us-central1
+  - key: region
+    value: us-central1
+    disabled: true
 auth:
   type: bearer
   credentials:

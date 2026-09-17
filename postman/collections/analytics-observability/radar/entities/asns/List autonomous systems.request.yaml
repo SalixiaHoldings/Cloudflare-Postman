@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/entities/asns?limit=5&offset=3789&asn=174,7922&location=US&orderBy=ASN&format=JSON"
+url: "{{base_url}}/radar/entities/asns"
 method: GET
 headers:
   Accept: application/json
@@ -22,21 +22,27 @@ headers:
 queryParams:
   - key: limit
     value: "5"
+    disabled: true
     description: Limits the number of objects returned in the response.
   - key: offset
-    value: "3789"
+    value: "2923"
+    disabled: true
     description: Skips the specified number of objects before fetching the results.
   - key: asn
     value: 174,7922
+    disabled: true
     description: Filters results by Autonomous System. Specify one or more Autonomous System Numbers (ASNs) as a comma-separated list.
   - key: location
     value: US
+    disabled: true
     description: Filters results by location. Specify an alpha-2 location code.
   - key: orderBy
     value: ASN
+    disabled: true
     description: Specifies the metric to order the ASNs by.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

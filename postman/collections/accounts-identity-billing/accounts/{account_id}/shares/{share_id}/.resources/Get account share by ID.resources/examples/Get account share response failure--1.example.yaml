@@ -2,7 +2,7 @@ $kind: http-example
 id: 4f50ec3a-9ce7-5b25-b402-fb305d3b6d3b
 name: Get account share response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}?include_resources=true&include_recipient_counts=true"
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}"
   method: GET
   headers:
     Accept: application/json
@@ -11,9 +11,11 @@ request:
   queryParams:
     - key: include_resources
       value: "true"
+      disabled: true
       description: Include resources in the response.
     - key: include_recipient_counts
       value: "true"
+      disabled: true
       description: Include recipient counts in the response.
 response:
   statusCode: 500

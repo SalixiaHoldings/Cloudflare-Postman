@@ -2,14 +2,20 @@ $kind: http-example
 id: 56e6f1cf-36c8-55dd-889c-55974bd5e74e
 name: List of test history for a page.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/speed_api/pages/{{url}}/tests?page=1&per_page=20&region=us-central1"
+  url: "{{base_url}}/zones/{{zone_id}}/speed_api/pages/{{url}}/tests"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
-    region: us-central1
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: region
+      value: us-central1
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

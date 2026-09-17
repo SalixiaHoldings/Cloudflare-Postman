@@ -2,14 +2,16 @@ $kind: http-example
 id: 4defd21d-4998-5c6c-89ce-5d17653717b2
 name: Conflict.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers/{{provider_id}}/discover?v2=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers/{{provider_id}}/discover"
   method: POST
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    v2: "true"
+    - key: v2
+      value: "true"
+      disabled: true
 response:
   statusCode: 409
   statusText: Conflict

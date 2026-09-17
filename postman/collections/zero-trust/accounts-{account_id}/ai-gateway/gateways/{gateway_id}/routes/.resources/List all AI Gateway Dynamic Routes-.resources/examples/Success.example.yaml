@@ -1,16 +1,18 @@
 $kind: http-example
 id: 7898c0e4-bdc8-58b8-a4e4-05d9360dd1c0
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/routes?page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/routes"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number
     - key: per_page
       value: "20"
+      disabled: true
       description: Number of routes per page
 response:
   statusCode: 200

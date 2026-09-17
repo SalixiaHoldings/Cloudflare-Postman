@@ -1,16 +1,18 @@
 $kind: http-example
 id: 78517109-0956-5493-8990-3ec85dee5d79
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/builds/tokens?page=1&per_page=50"
+  url: "{{base_url}}/accounts/{{account_id}}/builds/tokens"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number for pagination
     - key: per_page
       value: "50"
+      disabled: true
       description: Number of items per page
 response:
   statusCode: 200

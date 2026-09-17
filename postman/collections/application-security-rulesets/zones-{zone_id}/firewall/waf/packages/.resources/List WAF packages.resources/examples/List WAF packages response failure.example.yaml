@@ -1,19 +1,31 @@
 $kind: http-example
 id: bdeb3895-fa14-53f9-b9ed-068e645645da
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages?page=1&per_page=50&order=name&direction=desc&match=all&name=USER"
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    page: "1"
-    per_page: "50"
-    order: name
-    direction: desc
-    match: all
-    name: USER
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "50"
+      disabled: true
+    - key: order
+      value: name
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: match
+      value: all
+      disabled: true
+    - key: name
+      value: USER
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

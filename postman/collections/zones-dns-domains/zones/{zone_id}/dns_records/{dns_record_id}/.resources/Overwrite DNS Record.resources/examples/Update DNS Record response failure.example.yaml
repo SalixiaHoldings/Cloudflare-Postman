@@ -1,13 +1,15 @@
 $kind: http-example
 id: 9c586799-e623-5262-b5ef-555693fcddb3
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/dns_records/{{dns_record_id}}?include_shadow_metadata=true"
+  url: "{{base_url}}/zones/{{zone_id}}/dns_records/{{dns_record_id}}"
   method: PUT
   headers:
     Content-Type: application/json
     Accept: application/json
   queryParams:
-    include_shadow_metadata: "true"
+    - key: include_shadow_metadata
+      value: "true"
+      disabled: true
   body:
     type: json
     content: |-

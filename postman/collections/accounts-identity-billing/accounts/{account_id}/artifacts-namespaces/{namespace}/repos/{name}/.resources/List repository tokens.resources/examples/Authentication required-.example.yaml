@@ -2,14 +2,20 @@ $kind: http-example
 id: 8854c01f-33a1-5f91-9f0d-d315b516db23
 name: Authentication required.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/tokens?state=active&page=1&per_page=30"
+  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/tokens"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    state: active
-    page: "1"
-    per_page: "30"
+    - key: state
+      value: active
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "30"
+      disabled: true
 response:
   statusCode: 401
   statusText: Unauthorized

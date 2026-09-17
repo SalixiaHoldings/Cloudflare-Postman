@@ -13,22 +13,26 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones/{{zone_id}}/schema_validation/schemas?page=1&per_page=20&omit_source=false&validation_enabled=false"
+url: "{{base_url}}/zones/{{zone_id}}/schema_validation/schemas"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: page
     value: "1"
+    disabled: true
     description: Page number of paginated results.
   - key: per_page
     value: "20"
+    disabled: true
     description: Maximum number of results per page.
   - key: omit_source
     value: "false"
+    disabled: true
     description: Omit the source-files of schemas and only retrieve their meta-data.
   - key: validation_enabled
-    value: "false"
+    value: "true"
+    disabled: true
     description: Filter for enabled schemas
 auth:
   type: bearer

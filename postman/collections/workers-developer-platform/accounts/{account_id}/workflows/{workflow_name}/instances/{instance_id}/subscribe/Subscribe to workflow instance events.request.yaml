@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/subscribe?cursor=6991&filter=rollback_attempt_started&filter=rollback_attempt_started"
+url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/subscribe"
 method: GET
 headers:
   Accept: application/json
@@ -21,13 +21,16 @@ headers:
   X-Auth-Key: "{{api_key}}"
 queryParams:
   - key: cursor
-    value: "6991"
+    value: "2212"
+    disabled: true
     description: Last event ID already received.
   - key: filter
-    value: rollback_attempt_started
+    value: rollback_attempt_errored
+    disabled: true
     description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
   - key: filter
-    value: rollback_attempt_started
+    value: rollback_started
+    disabled: true
     description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
 auth:
   type: bearer

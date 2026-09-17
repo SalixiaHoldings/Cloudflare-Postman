@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/search/global?limit=5&limitPerGroup=8348.891565110534&query=United&include=NOTEBOOKS&include=ORIGIN_REGIONS&exclude=LOCATIONS&exclude=VERTICALS&format=JSON"
+url: "{{base_url}}/radar/search/global?query=United"
 method: GET
 headers:
   Accept: application/json
@@ -22,27 +22,34 @@ headers:
 queryParams:
   - key: limit
     value: "5"
+    disabled: true
     description: Limits the number of objects returned in the response.
   - key: limitPerGroup
-    value: "8348.891565110534"
+    value: "955.4245183244348"
+    disabled: true
     description: Limits the number of objects per search category.
   - key: query
     value: United
     description: (Required) String used to perform the search operation.
   - key: include
     value: NOTEBOOKS
+    disabled: true
     description: Search types included in results.
   - key: include
-    value: ORIGIN_REGIONS
+    value: INDUSTRIES
+    disabled: true
     description: Search types included in results.
   - key: exclude
-    value: LOCATIONS
+    value: ORIGINS
+    disabled: true
     description: Search types excluded from results.
   - key: exclude
-    value: VERTICALS
+    value: TLDS
+    disabled: true
     description: Search types excluded from results.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

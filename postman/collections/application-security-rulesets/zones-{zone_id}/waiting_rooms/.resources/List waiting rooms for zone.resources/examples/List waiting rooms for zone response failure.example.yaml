@@ -1,16 +1,18 @@
 $kind: http-example
 id: fbff2738-dc70-52a3-a7f3-8d8bdff1f5fa
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms?page=1&per_page=25"
+  url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: per_page
       value: "25"
+      disabled: true
       description: Maximum number of results per page. Must be a multiple of 5.
 response:
   statusCode: 400

@@ -2,7 +2,7 @@ $kind: http-example
 id: e3f70f1f-4e47-5d4a-ae09-4bdd5964cb8c
 name: Not found.
 request:
-  url: "{{base_url}}/radar/tlds/{{tld}}?format=JSON"
+  url: "{{base_url}}/radar/tlds/{{tld}}"
   method: GET
   headers:
     Accept: application/json
@@ -10,7 +10,8 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 404

@@ -1,21 +1,26 @@
 $kind: http-example
 id: 2ff0b910-1196-5c33-8274-9873a7b506aa
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/images/v2?continuation_token=string&per_page=1000&sort_order=desc&creator=string&meta.<field>[<operator>]=string"
+  url: "{{base_url}}/accounts/{{account_id}}/images/v2"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: continuation_token
       value: string
+      disabled: true
     - key: per_page
       value: "1000"
+      disabled: true
     - key: sort_order
       value: desc
+      disabled: true
     - key: creator
       value: string
+      disabled: true
     - key: meta.<field>[<operator>]
       value: string
+      disabled: true
       description: |
         Optional metadata filter(s). Multiple filters can be combined with AND logic.
 

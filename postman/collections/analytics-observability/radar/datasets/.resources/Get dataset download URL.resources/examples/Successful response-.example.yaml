@@ -2,7 +2,7 @@ $kind: http-example
 id: 73290135-b070-54f1-abfd-04e13b17a2e4
 name: Successful response.
 request:
-  url: "{{base_url}}/radar/datasets/download?format=JSON"
+  url: "{{base_url}}/radar/datasets/download"
   method: POST
   headers:
     Content-Type: application/json
@@ -11,7 +11,8 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
   body:
     type: json

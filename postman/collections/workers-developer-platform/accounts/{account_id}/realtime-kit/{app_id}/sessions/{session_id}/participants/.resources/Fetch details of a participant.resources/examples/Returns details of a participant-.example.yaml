@@ -2,13 +2,14 @@ $kind: http-example
 id: 86b76891-3551-57f4-9da3-519ebef9de5b
 name: Returns details of a participant.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}/participants/{{participant_id}}?include_peer_events=false"
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}/participants/{{participant_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: include_peer_events
       value: "false"
+      disabled: true
       description: if true, response includes all the peer events of participant.
 response:
   statusCode: 200

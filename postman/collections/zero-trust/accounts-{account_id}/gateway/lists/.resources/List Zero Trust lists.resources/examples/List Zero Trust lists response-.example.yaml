@@ -2,7 +2,7 @@ $kind: http-example
 id: 482dd012-6746-5985-8d37-2cd43d6f9b14
 name: List Zero Trust lists response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/gateway/lists?type=SERIAL&search=string&order_by=updated_at&direction=asc"
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/lists"
   method: GET
   headers:
     Accept: application/json
@@ -11,13 +11,16 @@ request:
   queryParams:
     - key: type
       value: SERIAL
+      disabled: true
     - key: search
       value: string
+      disabled: true
       description: |-
         Case-insensitive substring match on the list name or description. When
         combined with `filter`, both must match (logical AND).
     - key: order_by
-      value: updated_at
+      value: name
+      disabled: true
       description: |-
         Field to sort the returned lists by. When omitted, results are ordered by
         `created_at` in ascending order (i.e. creation order) for backwards
@@ -27,7 +30,8 @@ request:
           * `updated_at` — sort by last-modified time; defaults to descending unless `direction` is set.
           * `item_count` — sort by number of items in the list.
     - key: direction
-      value: asc
+      value: desc
+      disabled: true
       description: |-
         Sort direction. Applies to the field named in `order_by`; when `order_by`
         is omitted it applies to the default `created_at` ordering. When

@@ -2,13 +2,14 @@ $kind: http-example
 id: a01d3e5a-2045-520e-b17b-24fd818313f7
 name: Scan has finished. It may or may not have been successful.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}?full=false"
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: full
       value: "false"
+      disabled: true
       description: Whether to return full report (scan summary and network log).
 response:
   statusCode: 200

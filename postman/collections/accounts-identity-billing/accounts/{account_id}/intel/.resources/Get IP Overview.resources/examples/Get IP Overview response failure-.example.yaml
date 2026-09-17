@@ -2,13 +2,17 @@ $kind: http-example
 id: 7cdac2ec-0cea-5232-87cf-405fb87f31ab
 name: Get IP Overview response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/intel/ip?ipv4=string&ipv6=string"
+  url: "{{base_url}}/accounts/{{account_id}}/intel/ip"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    ipv4: string
-    ipv6: string
+    - key: ipv4
+      value: string
+      disabled: true
+    - key: ipv6
+      value: string
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

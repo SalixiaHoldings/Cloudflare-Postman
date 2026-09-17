@@ -2,29 +2,36 @@ $kind: http-example
 id: 2f87cb9f-fc13-58d2-b22c-6bc299998cd2
 name: Unauthorized.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules?namespace=string&path=string&recursive=true&search=malicious&is_public=true&limit=50&offset=0"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: namespace
       value: string
+      disabled: true
       description: Selects namespaces. Repeat the parameter to select multiple namespaces (for example, namespace=foo&namespace=bar).
     - key: path
       value: string
+      disabled: true
       description: Selects paths with exact-match semantics. Omit the parameter to return rules from all paths. Pass an empty string (path=) to return only rules with an empty or uncategorized path. Pass a value (for example, path=yara) to match that exact path. Repeat the parameter (for example, path=yara&path=expr) to OR-match multiple paths with SQL `IN (...)` semantics. The `recursive` flag affects only customer-account namespace selection.
     - key: recursive
       value: "true"
+      disabled: true
       description: For customer accounts, true enables descendant matching for namespaces. Paths always use exact matching.
     - key: search
       value: malicious
+      disabled: true
     - key: is_public
       value: "true"
+      disabled: true
       description: Limits rules to the specified public visibility.
     - key: limit
       value: "50"
+      disabled: true
     - key: offset
       value: "0"
+      disabled: true
 response:
   statusCode: 401
   statusText: Unauthorized

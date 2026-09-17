@@ -2,7 +2,7 @@ $kind: http-example
 id: cfa006fe-3fe2-5fdb-bcc6-f82b5429e471
 name: The request has succeeded.
 request:
-  url: "{{base_url}}/organizations/{{organization_id}}/members?status=pending&status=active&user.email=string&user.email.contains=string&user.email.startsWith=string&user.email.endsWith=string&page_token=string&page_size=473"
+  url: "{{base_url}}/organizations/{{organization_id}}/members"
   method: GET
   headers:
     Accept: application/json
@@ -11,24 +11,31 @@ request:
   queryParams:
     - key: status
       value: pending
+      disabled: true
       description: Filter the list of memberships by membership status.
     - key: status
-      value: active
+      value: rejected
+      disabled: true
       description: Filter the list of memberships by membership status.
     - key: user.email
       value: string
+      disabled: true
       description: Filter the list of memberships for a specific email.
     - key: user.email.contains
       value: string
+      disabled: true
       description: Filter the list of memberships for a specific email that contains a substring.
     - key: user.email.startsWith
       value: string
+      disabled: true
       description: Filter the list of memberships for a specific email that starts with a substring.
     - key: user.email.endsWith
       value: string
+      disabled: true
       description: Filter the list of memberships for a specific email that ends with a substring.
     - key: page_token
       value: string
+      disabled: true
       description: |-
         An opaque token returned from the last list response that when
         provided will retrieve the next page.
@@ -36,7 +43,8 @@ request:
         Parameters used to filter the retrieved list must remain in subsequent
         requests with a page token.
     - key: page_size
-      value: "473"
+      value: "757"
+      disabled: true
       description: The amount of items to return. Defaults to 10.
 response:
   statusCode: 200

@@ -2,7 +2,7 @@ $kind: http-example
 id: 1d5706f5-9cec-5846-8fe5-d3cafa4df9f9
 name: The request contains errors or didn't properly encode content.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/json?cacheTTL=5"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/json"
   method: POST
   headers:
     Content-Type: application/json
@@ -12,6 +12,7 @@ request:
   queryParams:
     - key: cacheTTL
       value: "5"
+      disabled: true
       description: Cache TTL default is 5s. Set to 0 to disable.
   body:
     type: json

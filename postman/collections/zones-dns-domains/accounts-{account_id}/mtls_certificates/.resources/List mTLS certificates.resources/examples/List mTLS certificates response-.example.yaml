@@ -2,13 +2,14 @@ $kind: http-example
 id: bfaeb415-9cbb-59e7-9a96-fafc3b2c508c
 name: List mTLS certificates response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/mtls_certificates?type=custom"
+  url: "{{base_url}}/accounts/{{account_id}}/mtls_certificates"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: type
       value: custom
+      disabled: true
       description: Filters results by certificate type. Multiple types can be comma-separated.
 response:
   statusCode: 200

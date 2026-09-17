@@ -2,21 +2,20 @@ $kind: http-example
 id: 0c18d7bd-0bbc-5e22-b4ca-d95f8b1ffc04
 name: Get zones bandwidth report response failure.
 request:
-  url: "{{base_url}}/user/spectrum_analytics/zones/report?description=Start of time interval to query, defaults to `until` - 6 hours. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.&value=<Error: Too many levels of nesting to fake this schema>&description=End of time interval to query, defaults to current time. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.&value=<Error: Too many levels of nesting to fake this schema>&cdn_traffic=true"
+  url: "{{base_url}}/user/spectrum_analytics/zones/report"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    - key: description
-      value: Start of time interval to query, defaults to `until` - 6 hours. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.
-    - key: value
-      value: "<Error: Too many levels of nesting to fake this schema>"
-    - key: description
-      value: End of time interval to query, defaults to current time. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.
-    - key: value
-      value: "<Error: Too many levels of nesting to fake this schema>"
+    - key: since
+      value: 2014-01-01T05:20:00.12345Z
+      disabled: true
+    - key: until
+      value: 2014-01-01T05:20:00.12345Z
+      disabled: true
     - key: cdn_traffic
       value: "true"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

@@ -2,42 +2,53 @@ $kind: http-example
 id: 7572a529-20f8-5156-8512-c6f846a83396
 name: List of allow policies.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/allow_policies?page=1&per_page=20&search=string&order=pattern&direction=asc&is_exempt_recipient=true&is_trusted_sender=true&is_acceptable_sender=true&verify_sender=true&pattern_type=EMAIL&pattern=string"
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/allow_policies"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Current page within paginated list of results.
     - key: per_page
       value: "20"
+      disabled: true
       description: The number of results per page. Maximum value is 1000.
     - key: search
       value: string
+      disabled: true
       description: Search term for filtering records. Behavior may change.
     - key: order
-      value: pattern
+      value: created_at
+      disabled: true
       description: Field to sort by.
     - key: direction
       value: asc
+      disabled: true
       description: The sorting direction.
     - key: is_exempt_recipient
       value: "true"
+      disabled: true
       description: Filter to show only policies where messages to the recipient bypass all detections.
     - key: is_trusted_sender
       value: "true"
+      disabled: true
       description: Filter to show only policies where messages from the sender bypass all detections and link following.
     - key: is_acceptable_sender
       value: "true"
+      disabled: true
       description: Filter to show only policies where messages from the sender are exempted from Spam, Spoof, and Bulk dispositions (not Malicious or Suspicious).
     - key: verify_sender
       value: "true"
+      disabled: true
       description: Filter to show only policies that enforce DMARC, SPF, or DKIM authentication.
     - key: pattern_type
       value: EMAIL
+      disabled: true
     - key: pattern
       value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

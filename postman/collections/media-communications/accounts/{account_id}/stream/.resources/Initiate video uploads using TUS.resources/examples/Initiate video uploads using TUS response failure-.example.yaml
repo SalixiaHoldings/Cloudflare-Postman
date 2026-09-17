@@ -2,7 +2,7 @@ $kind: http-example
 id: 9a24d6dd-e595-51d4-a3e3-3e6432c0ccbb
 name: Initiate video uploads using TUS response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/stream?direct_user=true"
+  url: "{{base_url}}/accounts/{{account_id}}/stream"
   method: POST
   headers:
     - key: Tus-Resumable
@@ -22,7 +22,9 @@ request:
     - key: X-Auth-Key
       value: "{{api_key}}"
   queryParams:
-    direct_user: "true"
+    - key: direct_user
+      value: "true"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

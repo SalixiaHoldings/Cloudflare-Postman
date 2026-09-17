@@ -2,7 +2,7 @@ $kind: http-example
 id: e909d3b9-b116-5900-9b2a-21654f6b253d
 name: List devices response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dex/fleet-status/devices?to=2023-10-11 00:00:00+00&from=2023-10-11 00:00:00+00&page=1&per_page=10&sort_by=timestamp&colo=SJC&device_id=cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7&mode=proxy&status=connected&platform=windows&version=1.0.0&source=last_seen"
+  url: "{{base_url}}/accounts/{{account_id}}/dex/fleet-status/devices?to=2023-10-11 00:00:00+00&from=2023-10-11 00:00:00+00&page=1&per_page=10"
   method: GET
   headers:
     Accept: application/json
@@ -21,27 +21,35 @@ request:
       description: (Required) Number of results per page.
     - key: sort_by
       value: timestamp
+      disabled: true
       description: Dimension to sort results by.
     - key: colo
       value: SJC
+      disabled: true
       description: Cloudflare colo airport code.
     - key: device_id
       value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
       description: Device-specific ID, given as UUID.
     - key: mode
       value: proxy
+      disabled: true
       description: The mode under which the WARP client is run.
     - key: status
       value: connected
+      disabled: true
       description: Network status.
     - key: platform
       value: windows
+      disabled: true
       description: Operating system.
     - key: version
       value: 1.0.0
+      disabled: true
       description: WARP client version.
     - key: source
       value: last_seen
+      disabled: true
       description: |
         Source:
           * `hourly` - device details aggregated hourly, up to 7 days prior

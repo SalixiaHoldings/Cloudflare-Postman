@@ -2,7 +2,7 @@ $kind: http-example
 id: 3a5f7f84-1649-5b54-b945-5314038f39e0
 name: Store deleted.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/secrets_store/stores/{{store_id}}?force=false"
+  url: "{{base_url}}/accounts/{{account_id}}/secrets_store/stores/{{store_id}}"
   method: DELETE
   headers:
     Accept: application/json
@@ -11,6 +11,7 @@ request:
   queryParams:
     - key: force
       value: "false"
+      disabled: true
       description: |
         When true, cascade-deletes all secrets in the store before deleting the store itself.
         Required when deleting a non-empty store. Without this parameter, attempting to

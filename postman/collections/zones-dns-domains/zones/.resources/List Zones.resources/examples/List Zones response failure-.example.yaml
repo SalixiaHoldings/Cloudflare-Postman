@@ -2,21 +2,41 @@ $kind: http-example
 id: b706c272-81e8-5a84-a4c2-f5ed05c91798
 name: List Zones response failure.
 request:
-  url: "{{base_url}}/zones?name=example.com&status=initializing&type=full,full&account.id={{account_id}}&account.name=Dev Account&page=1&per_page=20&order=status&direction=desc&match=all"
+  url: "{{base_url}}/zones"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    name: example.com
-    status: initializing
-    type: full,full
-    account.id: "{{account_id}}"
-    account.name: Dev Account
-    page: "1"
-    per_page: "20"
-    order: status
-    direction: desc
-    match: all
+    - key: name
+      value: example.com
+      disabled: true
+    - key: status
+      value: initializing
+      disabled: true
+    - key: type
+      value: partial,internal
+      disabled: true
+    - key: account.id
+      value: "{{account_id}}"
+      disabled: true
+    - key: account.name
+      value: Dev Account
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: order
+      value: status
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: match
+      value: all
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

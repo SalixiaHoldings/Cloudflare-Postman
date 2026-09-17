@@ -2,12 +2,14 @@ $kind: http-example
 id: 2e0d833c-7995-52bc-a27e-40b9d0262d6c
 name: Get Domain History response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/intel/domain-history?domain=example.com"
+  url: "{{base_url}}/accounts/{{account_id}}/intel/domain-history"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    domain: example.com
+    - key: domain
+      value: example.com
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

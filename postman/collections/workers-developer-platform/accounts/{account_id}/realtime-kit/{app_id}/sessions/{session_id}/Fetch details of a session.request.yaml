@@ -13,13 +13,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}?include_breakout_rooms=false"
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: include_breakout_rooms
     value: "false"
+    disabled: true
     description: List all breakout rooms
 auth:
   type: bearer

@@ -14,7 +14,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser?keep_alive=60000&lab=false&recording=false"
+url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser"
 method: GET
 headers:
   - key: cf-brapi-guardrails
@@ -29,12 +29,15 @@ headers:
 queryParams:
   - key: keep_alive
     value: "60000"
+    disabled: true
     description: Keep-alive time in ms (only valid when acquiring new session).
   - key: lab
     value: "false"
+    disabled: true
     description: Use experimental browser.
   - key: recording
     value: "false"
+    disabled: true
 auth:
   type: bearer
   credentials:

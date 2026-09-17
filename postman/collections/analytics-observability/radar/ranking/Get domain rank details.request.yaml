@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/ranking/domain/{{domain}}?limit=5&rankingType=POPULAR&name=main_series&name=main_series&includeTopLocations=false&date=1930-12-13&date=1954-10-21&format=JSON"
+url: "{{base_url}}/radar/ranking/domain/{{domain}}"
 method: GET
 headers:
   Accept: application/json
@@ -22,27 +22,35 @@ headers:
 queryParams:
   - key: limit
     value: "5"
+    disabled: true
     description: Limits the number of objects returned in the response.
   - key: rankingType
     value: POPULAR
+    disabled: true
     description: The ranking type.
   - key: name
     value: main_series
+    disabled: true
     description: Array of names used to label the series in the response.
   - key: name
     value: main_series
+    disabled: true
     description: Array of names used to label the series in the response.
   - key: includeTopLocations
-    value: "false"
+    value: "true"
+    disabled: true
     description: Includes top locations in the response.
   - key: date
-    value: 1930-12-13
+    value: 1993-08-29
+    disabled: true
     description: Filters results by the specified array of dates.
   - key: date
-    value: 1954-10-21
+    value: 1988-07-19
+    disabled: true
     description: Filters results by the specified array of dates.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

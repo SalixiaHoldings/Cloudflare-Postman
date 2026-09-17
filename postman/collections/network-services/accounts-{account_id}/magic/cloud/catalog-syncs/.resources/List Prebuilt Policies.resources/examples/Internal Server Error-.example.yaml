@@ -2,7 +2,7 @@ $kind: http-example
 id: d03657bb-3aac-5130-8c63-58fc5fd9d774
 name: Internal Server Error.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/prebuilt-policies?destination_type=ZERO_TRUST_LIST"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/prebuilt-policies"
   method: GET
   headers:
     Accept: application/json
@@ -10,7 +10,8 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: destination_type
-      value: ZERO_TRUST_LIST
+      value: NONE
+      disabled: true
       description: Specify type of destination, omit to return all.
 response:
   statusCode: 500

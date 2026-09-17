@@ -1,28 +1,35 @@
 $kind: http-example
 id: ab2a4a3f-9456-5d47-a87e-f32615bc54b7
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/schemas/{{schema_id}}/operations?feature=thresholds&host=api.cloudflare.com&method=GET&endpoint=/api/v1&page=1&per_page=20&operation_status=new"
+  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/schemas/{{schema_id}}/operations"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: feature
       value: thresholds
+      disabled: true
       description: Add feature(s) to the results. The feature name that is given here corresponds to the resulting feature object. Have a look at the top-level object description for more details on the specific meaning.
     - key: host
       value: api.cloudflare.com
+      disabled: true
     - key: method
       value: GET
+      disabled: true
     - key: endpoint
       value: /api/v1
+      disabled: true
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: per_page
       value: "20"
+      disabled: true
       description: Maximum number of results per page.
     - key: operation_status
       value: new
+      disabled: true
       description: Filter results by whether operations exist in Web Asset Management or not. `new` will just return operations from the schema that do not exist otherwise. `existing` will just return operations from the schema that already exist.
 response:
   statusCode: 400

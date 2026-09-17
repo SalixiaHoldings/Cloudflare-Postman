@@ -1,27 +1,55 @@
 $kind: http-example
 id: 0bec6836-413e-5a97-ab89-5263b882a5c7
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/page_shield/cookies?hosts=blog.cloudflare.com,www.example*,*cloudflare.com&page=string&per_page=100&order_by=first_seen_at&direction=asc&page_url=example.com/page,*/checkout,example.com/*,*checkout*&export=csv&name=session_id&secure=true&http_only=true&same_site=strict&type=first_party&path=/&domain=example.com"
+  url: "{{base_url}}/zones/{{zone_id}}/page_shield/cookies"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    hosts: blog.cloudflare.com,www.example*,*cloudflare.com
-    page: string
-    per_page: "100"
-    order_by: first_seen_at
-    direction: asc
-    page_url: example.com/page,*/checkout,example.com/*,*checkout*
-    export: csv
-    name: session_id
-    secure: "true"
-    http_only: "true"
-    same_site: strict
-    type: first_party
-    path: /
-    domain: example.com
+    - key: hosts
+      value: blog.cloudflare.com,www.example*,*cloudflare.com
+      disabled: true
+    - key: page
+      value: string
+      disabled: true
+    - key: per_page
+      value: "100"
+      disabled: true
+    - key: order_by
+      value: first_seen_at
+      disabled: true
+    - key: direction
+      value: asc
+      disabled: true
+    - key: page_url
+      value: example.com/page,*/checkout,example.com/*,*checkout*
+      disabled: true
+    - key: export
+      value: csv
+      disabled: true
+    - key: name
+      value: session_id
+      disabled: true
+    - key: secure
+      value: "true"
+      disabled: true
+    - key: http_only
+      value: "true"
+      disabled: true
+    - key: same_site
+      value: strict
+      disabled: true
+    - key: type
+      value: first_party
+      disabled: true
+    - key: path
+      value: /
+      disabled: true
+    - key: domain
+      value: example.com
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

@@ -1,16 +1,18 @@
 $kind: http-example
 id: e4658763-46d4-51f6-8a39-a63864a7fb95
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/search?size=100&q=string"
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/search"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: size
       value: "100"
+      disabled: true
       description: Limit the number of objects in the response.
     - key: q
       value: string
+      disabled: true
       description: Filter scans
 response:
   statusCode: 200

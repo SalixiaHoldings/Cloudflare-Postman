@@ -2,7 +2,7 @@ $kind: http-example
 id: 479493ff-8158-5b40-aac6-ca803444d485
 name: Device DEX test response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dex/devices/dex_tests?page=1&per_page=10&testName=string&kind=traceroute"
+  url: "{{base_url}}/accounts/{{account_id}}/dex/devices/dex_tests"
   method: GET
   headers:
     Accept: application/json
@@ -11,15 +11,19 @@ request:
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: per_page
       value: "10"
+      disabled: true
       description: Number of results per page.
     - key: testName
       value: string
+      disabled: true
       description: Filter by test name.
     - key: kind
       value: traceroute
+      disabled: true
       description: Filter by test type.
 response:
   statusCode: 400

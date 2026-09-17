@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones/{{zone_id}}/speed_api/pages/{{url}}/trend?region=us-central1&deviceType=DESKTOP&start=2014-01-01T05:20:00.12345Z&end=2014-01-01T05:20:00.12345Z&tz=America/Chicago&metrics=performanceScore,ttfb,fcp,si,lcp,tti,tbt,cls"
+url: "{{base_url}}/zones/{{zone_id}}/speed_api/pages/{{url}}/trend?region=us-central1&deviceType=DESKTOP&start=2014-01-01T05:20:00.12345Z&tz=America/Chicago&metrics=performanceScore,ttfb,fcp,si,lcp,tti,tbt,cls"
 method: GET
 headers:
   Accept: application/json
@@ -29,6 +29,7 @@ queryParams:
     description: "(Required) "
   - key: end
     value: 2014-01-01T05:20:00.12345Z
+    disabled: true
   - key: tz
     value: America/Chicago
     description: (Required) The timezone of the start and end timestamps.

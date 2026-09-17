@@ -2,7 +2,7 @@ $kind: http-example
 id: 5797ad95-6315-5275-ba77-b9031b3bef21
 name: Bad request.
 request:
-  url: "{{base_url}}/radar/bgp/routes/realtime?prefix=1.1.1.0/24&format=JSON"
+  url: "{{base_url}}/radar/bgp/routes/realtime"
   method: GET
   headers:
     Accept: application/json
@@ -11,8 +11,10 @@ request:
   queryParams:
     - key: prefix
       value: 1.1.1.0/24
+      disabled: true
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 400

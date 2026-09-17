@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones/{{zone_id}}/api_gateway/configuration?normalize=true"
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/configuration"
 method: PUT
 headers:
   Content-Type: application/json
@@ -21,6 +21,7 @@ headers:
 queryParams:
   - key: normalize
     value: "true"
+    disabled: true
     description: Ensures that the configuration is written or retrieved in normalized fashion
 body:
   type: json

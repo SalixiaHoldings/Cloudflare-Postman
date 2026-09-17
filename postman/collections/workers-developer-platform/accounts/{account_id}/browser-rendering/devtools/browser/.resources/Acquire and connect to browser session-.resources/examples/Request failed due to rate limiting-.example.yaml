@@ -2,7 +2,7 @@ $kind: http-example
 id: e3215efa-2bec-548a-99b0-c6e01b08c85b
 name: Request failed due to rate limiting.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser?keep_alive=60000&lab=false&recording=false"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser"
   method: GET
   headers:
     - key: cf-brapi-guardrails
@@ -17,12 +17,15 @@ request:
   queryParams:
     - key: keep_alive
       value: "60000"
+      disabled: true
       description: Keep-alive time in ms (only valid when acquiring new session).
     - key: lab
       value: "false"
+      disabled: true
       description: Use experimental browser.
     - key: recording
       value: "false"
+      disabled: true
 response:
   statusCode: 429
   statusText: Too Many Requests

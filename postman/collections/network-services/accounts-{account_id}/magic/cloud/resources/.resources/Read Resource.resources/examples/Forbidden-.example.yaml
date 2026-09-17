@@ -2,14 +2,16 @@ $kind: http-example
 id: b4993186-15fc-5700-9e5d-1f633255d892
 name: Forbidden.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources/{{resource_id}}?v2=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources/{{resource_id}}"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    v2: "true"
+    - key: v2
+      value: "true"
+      disabled: true
 response:
   statusCode: 403
   statusText: Forbidden

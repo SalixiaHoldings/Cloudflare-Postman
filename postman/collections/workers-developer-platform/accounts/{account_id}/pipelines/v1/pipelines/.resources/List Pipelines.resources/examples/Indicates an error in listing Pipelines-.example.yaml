@@ -2,17 +2,20 @@ $kind: http-example
 id: 8f0b78cc-d8b3-5405-ad38-4a28400e8578
 name: Indicates an error in listing Pipelines.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/pipelines?page=1&per_page=6111.051584593952&name=string"
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines/v1/pipelines"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
     - key: per_page
-      value: "6111.051584593952"
+      value: "204.77698417380452"
+      disabled: true
     - key: name
       value: string
+      disabled: true
       description: Filters pipelines by name (case-insensitive substring).
 response:
   statusCode: 400

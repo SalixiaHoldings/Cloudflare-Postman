@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/storage-class-migration-jobs?status=<string>&maxKeys=719&continuationToken=string"
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/storage-class-migration-jobs"
 method: GET
 headers:
   cf-r2-jurisdiction: default
@@ -21,12 +21,15 @@ headers:
 queryParams:
   - key: status
     value: <string>
+    disabled: true
     description: Restricts results to jobs with the specified status.
   - key: maxKeys
-    value: "719"
+    value: "599"
+    disabled: true
     description: Maximum number of jobs to return.
   - key: continuationToken
     value: string
+    disabled: true
     description: Pagination token received as `nextContinuationToken` in the previous response.
 auth:
   type: bearer

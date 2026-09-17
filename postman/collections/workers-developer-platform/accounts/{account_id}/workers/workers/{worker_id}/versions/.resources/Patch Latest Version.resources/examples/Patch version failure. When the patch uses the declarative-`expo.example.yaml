@@ -7,13 +7,15 @@ name: |
   (error code 100402) with per-class detail in
   `errors[].meta.details`.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions/latest?deploy=true"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions/latest"
   method: PATCH
   headers:
     Content-Type: application/json
     Accept: application/json
   queryParams:
-    deploy: "true"
+    - key: deploy
+      value: "true"
+      disabled: true
   body:
     type: json
     content: |-

@@ -2,13 +2,14 @@ $kind: http-example
 id: a16161eb-c0e8-5f87-b986-a7670a78c2f6
 name: Delete Worker response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}?force=true"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}"
   method: DELETE
   headers:
     Accept: application/json
   queryParams:
     - key: force
       value: "true"
+      disabled: true
       description: If set to true, delete will not be stopped by associated service binding, durable object, or other binding. Any of these associated bindings/durable objects will be deleted along with the script.
 response:
   statusCode: 400

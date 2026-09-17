@@ -13,14 +13,20 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}/keys?limit=1000&prefix=My-Prefix&cursor=6Ck1la0VxJ0djhidm1MdX2FyDGxLKVeeHZZmORS_8XeSuhz9SjIJRaSa2lnsF01tQOHrfTGAP3R5X1Kv5iVUuMbNKhWNAXHOl6ePB0TUL8nw"
+url: "{{base_url}}/accounts/{{account_id}}/storage/kv/namespaces/{{namespace_id}}/keys"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  limit: "1000"
-  prefix: My-Prefix
-  cursor: 6Ck1la0VxJ0djhidm1MdX2FyDGxLKVeeHZZmORS_8XeSuhz9SjIJRaSa2lnsF01tQOHrfTGAP3R5X1Kv5iVUuMbNKhWNAXHOl6ePB0TUL8nw
+  - key: limit
+    value: "1000"
+    disabled: true
+  - key: prefix
+    value: My-Prefix
+    disabled: true
+  - key: cursor
+    value: 6Ck1la0VxJ0djhidm1MdX2FyDGxLKVeeHZZmORS_8XeSuhz9SjIJRaSa2lnsF01tQOHrfTGAP3R5X1Kv5iVUuMbNKhWNAXHOl6ePB0TUL8nw
+    disabled: true
 auth:
   type: bearer
   credentials:

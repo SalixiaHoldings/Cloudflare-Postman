@@ -2,7 +2,7 @@ $kind: http-example
 id: fda61927-6843-5598-a268-95fe7986c1b2
 name: List share excluded recipients response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/excluded-recipients?page=2&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/excluded-recipients"
   method: GET
   headers:
     Accept: application/json
@@ -11,12 +11,14 @@ request:
   queryParams:
     - key: page
       value: "2"
+      disabled: true
       description: |-
         Page number. Defaults to `1` when `per_page` is supplied without
         `page`. May be omitted entirely along with `per_page` to receive a
         non-paginated response.
     - key: per_page
       value: "20"
+      disabled: true
       description: |-
         Number of objects to return per page. Defaults to `20` when `page`
         is supplied without `per_page`. May be omitted entirely along with

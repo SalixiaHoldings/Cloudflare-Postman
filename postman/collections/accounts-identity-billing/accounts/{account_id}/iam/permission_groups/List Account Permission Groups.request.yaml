@@ -13,16 +13,26 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/iam/permission_groups?id=6d7f2f5f5b1d4a0e9081fdc98d432fd1&name=NameOfThePermissionGroup&label=labelOfThePermissionGroup&page=1&per_page=20"
+url: "{{base_url}}/accounts/{{account_id}}/iam/permission_groups"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  id: 6d7f2f5f5b1d4a0e9081fdc98d432fd1
-  name: NameOfThePermissionGroup
-  label: labelOfThePermissionGroup
-  page: "1"
-  per_page: "20"
+  - key: id
+    value: 6d7f2f5f5b1d4a0e9081fdc98d432fd1
+    disabled: true
+  - key: name
+    value: NameOfThePermissionGroup
+    disabled: true
+  - key: label
+    value: labelOfThePermissionGroup
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
 auth:
   type: bearer
   credentials:

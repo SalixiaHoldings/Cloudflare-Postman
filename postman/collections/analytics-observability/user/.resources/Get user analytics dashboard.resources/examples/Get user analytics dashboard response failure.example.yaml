@@ -1,14 +1,20 @@
 $kind: http-example
 id: 82f83a78-52ea-5829-b2ff-2c7a689a2764
 request:
-  url: "{{base_url}}/user/analytics/dashboard?since=string&until=string&continuous=true"
+  url: "{{base_url}}/user/analytics/dashboard"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    since: string
-    until: string
-    continuous: "true"
+    - key: since
+      value: string
+      disabled: true
+    - key: until
+      value: string
+      disabled: true
+    - key: continuous
+      value: "true"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

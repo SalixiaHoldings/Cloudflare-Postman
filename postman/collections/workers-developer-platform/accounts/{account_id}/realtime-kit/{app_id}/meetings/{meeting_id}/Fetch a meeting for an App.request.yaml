@@ -13,12 +13,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}?name=string"
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  name: string
+  - key: name
+    value: string
+    disabled: true
 auth:
   type: bearer
   credentials:

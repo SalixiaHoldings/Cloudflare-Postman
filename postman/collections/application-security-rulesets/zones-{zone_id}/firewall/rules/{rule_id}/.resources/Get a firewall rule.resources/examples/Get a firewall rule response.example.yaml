@@ -1,14 +1,16 @@
 $kind: http-example
 id: 8124119f-c4fa-5c33-ac66-9b2711549baa
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/firewall/rules/{{rule_id}}?id=372e67954025e0ba6aaa6d586b9e0b60"
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/rules/{{rule_id}}"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    id: 372e67954025e0ba6aaa6d586b9e0b60
+    - key: id
+      value: 372e67954025e0ba6aaa6d586b9e0b60
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

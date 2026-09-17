@@ -1,19 +1,31 @@
 $kind: http-example
 id: 5064499e-4d1d-560d-aaef-c9cf4ddea1a4
 request:
-  url: "{{base_url}}/user/billing/history?page=1&per_page=20&order=occurred_at&occurred_at=2014-03-01T12:21:59.3456Z&type=charge&action=subscription"
+  url: "{{base_url}}/user/billing/history"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    page: "1"
-    per_page: "20"
-    order: occurred_at
-    occurred_at: 2014-03-01T12:21:59.3456Z
-    type: charge
-    action: subscription
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: order
+      value: occurred_at
+      disabled: true
+    - key: occurred_at
+      value: 2014-03-01T12:21:59.3456Z
+      disabled: true
+    - key: type
+      value: charge
+      disabled: true
+    - key: action
+      value: subscription
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

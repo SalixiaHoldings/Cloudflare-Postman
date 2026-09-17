@@ -1,16 +1,18 @@
 $kind: http-example
 id: ff116c41-f964-5e67-9125-750812b7fa60
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/credential-monitor/domains?page=1&per_page=100"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/credential-monitor/domains"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number
     - key: per_page
       value: "100"
+      disabled: true
       description: Items per page
 response:
   statusCode: 200

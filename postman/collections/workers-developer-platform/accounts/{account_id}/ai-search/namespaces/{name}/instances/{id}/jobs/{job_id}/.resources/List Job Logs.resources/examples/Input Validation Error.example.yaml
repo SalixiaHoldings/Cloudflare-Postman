@@ -1,13 +1,17 @@
 $kind: http-example
 id: e5d77dd6-7eac-5e32-a9cb-c9958bd999d8
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/jobs/{{job_id}}/logs?page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/jobs/{{job_id}}/logs"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

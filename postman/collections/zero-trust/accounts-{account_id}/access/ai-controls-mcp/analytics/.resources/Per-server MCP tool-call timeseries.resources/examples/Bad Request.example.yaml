@@ -1,19 +1,23 @@
 $kind: http-example
 id: 4c8044e6-de9b-5d29-9754-16e4304a0bd8
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/analytics/servers/{{server_id}}/tool-calls/timeseries?granularity=daily&aggregate=false&tz=utc&days=56"
+  url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/analytics/servers/{{server_id}}/tool-calls/timeseries"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: granularity
       value: daily
+      disabled: true
     - key: aggregate
       value: "false"
+      disabled: true
     - key: tz
       value: utc
+      disabled: true
     - key: days
       value: "56"
+      disabled: true
       description: Daily trailing-window size; defaults to 7 and is ignored for monthly
 response:
   statusCode: 400

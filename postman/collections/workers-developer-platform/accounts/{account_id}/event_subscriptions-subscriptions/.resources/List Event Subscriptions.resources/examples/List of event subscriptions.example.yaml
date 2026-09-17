@@ -1,7 +1,7 @@
 $kind: http-example
 id: 63c531a9-7bc2-51d1-9e06-e770a9cceacd
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/event_subscriptions/subscriptions?page=1&per_page=20&order=name&direction=asc"
+  url: "{{base_url}}/accounts/{{account_id}}/event_subscriptions/subscriptions"
   method: GET
   headers:
     Accept: application/json
@@ -10,15 +10,19 @@ request:
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number for pagination
     - key: per_page
       value: "20"
+      disabled: true
       description: Number of items per page
     - key: order
       value: name
+      disabled: true
       description: Field to sort by
     - key: direction
       value: asc
+      disabled: true
       description: Sort direction
 response:
   statusCode: 200

@@ -13,13 +13,17 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/namespaces/{{namespace}}/tables/{{table_name}}/maintenance-runs?page_size=87&page_token=string"
+url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/namespaces/{{namespace}}/tables/{{table_name}}/maintenance-runs"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  page_size: "87"
-  page_token: string
+  - key: page_size
+    value: "9"
+    disabled: true
+  - key: page_token
+    value: string
+    disabled: true
 auth:
   type: bearer
   credentials:

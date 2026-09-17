@@ -2,16 +2,18 @@ $kind: http-example
 id: cace41e1-32c4-53ff-89f2-69fa80e28938
 name: Submitted abuse report emails listed successfully.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/submitted/{{report_id}}/emails?page=6305&per_page=6305"
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/submitted/{{report_id}}/emails"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "6305"
+      disabled: true
       description: Page number to retrieve (default 1).
     - key: per_page
       value: "6305"
+      disabled: true
       description: Number of emails per page (default 20, max 100).
 response:
   statusCode: 200

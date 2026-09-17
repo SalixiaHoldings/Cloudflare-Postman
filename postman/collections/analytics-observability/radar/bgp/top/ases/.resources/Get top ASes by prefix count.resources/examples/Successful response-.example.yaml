@@ -2,7 +2,7 @@ $kind: http-example
 id: 3be6342b-fc72-5fcf-a67b-11432e667ea6
 name: Successful response.
 request:
-  url: "{{base_url}}/radar/bgp/top/ases/prefixes?country=NZ&limit=10&format=JSON"
+  url: "{{base_url}}/radar/bgp/top/ases/prefixes"
   method: GET
   headers:
     Accept: application/json
@@ -11,12 +11,15 @@ request:
   queryParams:
     - key: country
       value: NZ
+      disabled: true
       description: Alpha-2 country code.
     - key: limit
       value: "10"
+      disabled: true
       description: Maximum number of ASes to return.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 200

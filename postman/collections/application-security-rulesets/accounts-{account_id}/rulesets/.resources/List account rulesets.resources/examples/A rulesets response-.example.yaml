@@ -2,13 +2,17 @@ $kind: http-example
 id: c989ea82-4620-5510-b104-6324b941a67e
 name: A rulesets response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/rulesets?cursor=dGhpc2lzYW5leGFtcGxlCg&per_page=3"
+  url: "{{base_url}}/accounts/{{account_id}}/rulesets"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    cursor: dGhpc2lzYW5leGFtcGxlCg
-    per_page: "3"
+    - key: cursor
+      value: dGhpc2lzYW5leGFtcGxlCg
+      disabled: true
+    - key: per_page
+      value: "3"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

@@ -13,16 +13,18 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/categories?datasetIds=string&datasetIds=string"
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/categories"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: datasetIds
     value: string
+    disabled: true
     description: Array of dataset IDs to query categories from. If not provided, uses the default dataset.
   - key: datasetIds
     value: string
+    disabled: true
     description: Array of dataset IDs to query categories from. If not provided, uses the default dataset.
 auth:
   type: bearer

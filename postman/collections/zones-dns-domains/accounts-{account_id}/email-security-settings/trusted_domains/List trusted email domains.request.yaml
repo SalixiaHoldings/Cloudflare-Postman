@@ -13,34 +13,42 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/trusted_domains?page=1&per_page=20&search=string&order=pattern&direction=desc&is_recent=false&is_similarity=false&pattern=string"
+url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/trusted_domains"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: page
     value: "1"
+    disabled: true
     description: Current page within paginated list of results.
   - key: per_page
     value: "20"
+    disabled: true
     description: The number of results per page. Maximum value is 1000.
   - key: search
     value: string
+    disabled: true
     description: Search term for filtering records. Behavior may change.
   - key: order
-    value: pattern
+    value: created_at
+    disabled: true
     description: Field to sort by.
   - key: direction
-    value: desc
+    value: asc
+    disabled: true
     description: The sorting direction.
   - key: is_recent
     value: "false"
+    disabled: true
     description: Filter to show only recently registered domains that are trusted to prevent triggering Suspicious or Malicious dispositions.
   - key: is_similarity
-    value: "false"
+    value: "true"
+    disabled: true
     description: Filter to show only proximity domains (partner or approved domains with similar spelling to connected domains) that prevent Spoof dispositions.
   - key: pattern
     value: string
+    disabled: true
 auth:
   type: bearer
   credentials:

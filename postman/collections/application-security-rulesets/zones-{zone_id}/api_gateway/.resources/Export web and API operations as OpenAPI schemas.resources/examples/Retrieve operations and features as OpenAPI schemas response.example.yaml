@@ -1,7 +1,7 @@
 $kind: http-example
 id: d5533995-c7ed-573b-be44-1e16eb0aa00c
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/schemas?host=www.example.com&feature=thresholds&include_schema_kind=learned"
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/schemas"
   method: GET
   headers:
     Accept: application/json
@@ -10,11 +10,14 @@ request:
   queryParams:
     - key: host
       value: www.example.com
+      disabled: true
     - key: feature
       value: thresholds
+      disabled: true
       description: Add feature(s) to the results. The feature name that is given here corresponds to the resulting feature object. Have a look at the top-level object description for more details on the specific meaning.
     - key: include_schema_kind
       value: learned
+      disabled: true
       description: Schema kinds to include in exported OpenAPI schemas.
 response:
   statusCode: 200

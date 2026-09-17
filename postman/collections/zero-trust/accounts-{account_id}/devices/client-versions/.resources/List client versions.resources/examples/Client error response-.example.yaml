@@ -2,7 +2,7 @@ $kind: http-example
 id: b2fc06d2-cfdb-592a-a82c-7cf42816dd57
 name: Client error response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/devices/client-versions?target_environment=string&release_track=beta&page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/devices/client-versions?target_environment=string&release_track=beta"
   method: GET
   headers:
     Accept: application/json
@@ -15,9 +15,11 @@ request:
       description: (Required) The release track (ga for General Availability, beta for Beta releases).
     - key: page
       value: "1"
+      disabled: true
       description: The page number to return.
     - key: per_page
       value: "20"
+      disabled: true
       description: The maximum number of versions to return per page.
 response:
   statusCode: 400

@@ -13,14 +13,20 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/tokens?state=active&page=1&per_page=30"
+url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/tokens"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  state: active
-  page: "1"
-  per_page: "30"
+  - key: state
+    value: active
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "30"
+    disabled: true
 auth:
   type: bearer
   credentials:

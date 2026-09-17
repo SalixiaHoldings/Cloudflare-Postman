@@ -13,35 +13,46 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/zerotrust/subnets?name=IPv4%20Cloudflare%20Source%20IPs&comment=example%20comment&network=172.16.0.0%2F16&existed_at=2019-10-12T07%3A20%3A50.52Z&address_family=v4&is_default_network=false&is_deleted=false&sort_order=desc&subnet_types=cloudflare_source&per_page=<number>&page=1"
+url: "{{base_url}}/accounts/{{account_id}}/zerotrust/subnets"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: name
     value: IPv4%20Cloudflare%20Source%20IPs
+    disabled: true
     description: If set, only list subnets with the given name
   - key: comment
     value: example%20comment
+    disabled: true
   - key: network
     value: 172.16.0.0%2F16
+    disabled: true
   - key: existed_at
     value: 2019-10-12T07%3A20%3A50.52Z
+    disabled: true
   - key: address_family
     value: v4
+    disabled: true
     description: If set, only include subnets in the given address family - `v4` or `v6`
   - key: is_default_network
-    value: "false"
+    value: "true"
+    disabled: true
   - key: is_deleted
-    value: "false"
+    value: "true"
+    disabled: true
   - key: sort_order
     value: desc
+    disabled: true
   - key: subnet_types
     value: cloudflare_source
+    disabled: true
   - key: per_page
     value: <number>
+    disabled: true
   - key: page
     value: "1"
+    disabled: true
 auth:
   type: bearer
   credentials:

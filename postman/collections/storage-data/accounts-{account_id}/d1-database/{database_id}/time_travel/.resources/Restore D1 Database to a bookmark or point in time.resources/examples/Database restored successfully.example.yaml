@@ -1,16 +1,18 @@
 $kind: http-example
 id: 7d866064-9af2-51cb-b194-2d56f80db3aa
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/time_travel/restore?bookmark=00000001-00000002-00004e2f-0a83ea2fceebc654de0640c422be4653&timestamp=2024-01-15T12:00:00Z"
+  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/time_travel/restore"
   method: POST
   headers:
     Accept: application/json
   queryParams:
     - key: bookmark
       value: 00000001-00000002-00004e2f-0a83ea2fceebc654de0640c422be4653
+      disabled: true
       description: A bookmark to restore the database to. Required if `timestamp` is not provided.
     - key: timestamp
       value: 2024-01-15T12:00:00Z
+      disabled: true
       description: An ISO 8601 timestamp to restore the database to. Required if `bookmark` is not provided.
 response:
   statusCode: 200

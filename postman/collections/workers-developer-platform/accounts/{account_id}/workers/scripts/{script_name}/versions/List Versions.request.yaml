@@ -13,19 +13,22 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/versions?deployable=false&page=1&per_page=6991"
+url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/versions"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: deployable
     value: "false"
+    disabled: true
     description: Only return versions that can be used in a deployment. Ignores pagination.
   - key: page
     value: "1"
+    disabled: true
     description: Current page.
   - key: per_page
-    value: "6991"
+    value: "2212"
+    disabled: true
     description: Items per-page.
 auth:
   type: bearer

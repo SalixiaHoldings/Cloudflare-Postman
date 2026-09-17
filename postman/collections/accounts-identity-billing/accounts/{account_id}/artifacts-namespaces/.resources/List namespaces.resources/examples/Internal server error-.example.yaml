@@ -2,13 +2,17 @@ $kind: http-example
 id: 1a75429f-8416-5efd-be6c-50344a455bd2
 name: Internal server error.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces?limit=100&cursor=string"
+  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    limit: "100"
-    cursor: string
+    - key: limit
+      value: "100"
+      disabled: true
+    - key: cursor
+      value: string
+      disabled: true
 response:
   statusCode: 500
   statusText: Internal Server Error

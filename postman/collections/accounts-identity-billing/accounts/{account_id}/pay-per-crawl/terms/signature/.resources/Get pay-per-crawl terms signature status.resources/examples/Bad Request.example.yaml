@@ -1,7 +1,7 @@
 $kind: http-example
 id: 61c638fe-436e-5133-a1dc-cd15b3c09e02
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/pay-per-crawl/terms/signature?remote=true"
+  url: "{{base_url}}/accounts/{{account_id}}/pay-per-crawl/terms/signature"
   method: GET
   headers:
     Accept: application/json
@@ -10,6 +10,7 @@ request:
   queryParams:
     - key: remote
       value: "true"
+      disabled: true
       description: Refresh the signature status from Ironclad.
 response:
   statusCode: 400

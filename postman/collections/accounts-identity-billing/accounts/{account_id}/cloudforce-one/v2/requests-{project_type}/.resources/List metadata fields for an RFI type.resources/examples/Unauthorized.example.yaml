@@ -1,16 +1,18 @@
 $kind: http-example
 id: 28a15684-ddc9-596c-adaf-ca02eb59e129
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/metadata?request_type=string&country=HY"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/metadata"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: request_type
       value: string
+      disabled: true
       description: Filter fields to those applicable to this request type. Fields without request type restrictions are always included.
     - key: country
-      value: HY
+      value: KN
+      disabled: true
       description: Exclude fields restricted for this alpha-2 country code
 response:
   statusCode: 401

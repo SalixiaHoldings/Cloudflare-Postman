@@ -1,35 +1,48 @@
 $kind: http-example
 id: e2d8d372-2464-5a77-833e-c8389fee3052
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules?per_page=20&page=1&token_configuration=f0963ed4-f3a1-4599-8a61-9e5658c865e0,3aad66bb-059d-4b3d-87e1-cdf4d406f412&action=log&enabled=true&id=4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7&rule_id=4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7&host=www.example.com&hostname=www.example.com"
+  url: "{{base_url}}/zones/{{zone_id}}/token_validation/rules"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: per_page
       value: "20"
+      disabled: true
       description: Maximum number of results per page.
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: token_configuration
-      value: f0963ed4-f3a1-4599-8a61-9e5658c865e0,3aad66bb-059d-4b3d-87e1-cdf4d406f412
+      value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+      disabled: true
+      description: Select rules using any of these token configurations.
+    - key: token_configuration
+      value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+      disabled: true
       description: Select rules using any of these token configurations.
     - key: action
       value: log
+      disabled: true
     - key: enabled
       value: "true"
+      disabled: true
     - key: id
       value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+      disabled: true
       description: Select rules with these IDs.
     - key: rule_id
       value: 4a7ee8d3-dd63-4ceb-9d5f-c27831854ce7
+      disabled: true
       description: Select rules with these IDs.
     - key: host
       value: www.example.com
+      disabled: true
       description: Select rules with this host in `include`.
     - key: hostname
       value: www.example.com
+      disabled: true
       description: Select rules with this host in `include`.
 response:
   statusCode: 400

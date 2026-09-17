@@ -1,15 +1,23 @@
 $kind: http-example
 id: 01befafd-150b-5c67-9cae-c693dceee58f
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/evaluation-types?page=1&per_page=20&order_by=mandatory&order_by_direction=desc"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/evaluation-types"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
-    order_by: mandatory
-    order_by_direction: desc
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: order_by
+      value: mandatory
+      disabled: true
+    - key: order_by_direction
+      value: desc
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

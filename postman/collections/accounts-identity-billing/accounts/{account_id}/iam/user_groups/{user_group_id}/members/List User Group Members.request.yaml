@@ -13,17 +13,25 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_email":[],"api_key":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/iam/user_groups/{{user_group_id}}/members?page=1&per_page=100&fuzzyEmail=user@&direction=asc"
+url: "{{base_url}}/accounts/{{account_id}}/iam/user_groups/{{user_group_id}}/members"
 method: GET
 headers:
   Accept: application/json
   X-Auth-Email: "{{api_email}}"
   X-Auth-Key: "{{api_key}}"
 queryParams:
-  page: "1"
-  per_page: "100"
-  fuzzyEmail: user@
-  direction: asc
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "100"
+    disabled: true
+  - key: fuzzyEmail
+    value: user@
+    disabled: true
+  - key: direction
+    value: asc
+    disabled: true
 auth:
   type: noauth
 examples: ./.resources/List User Group Members.resources/examples

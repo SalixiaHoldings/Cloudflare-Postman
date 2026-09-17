@@ -2,7 +2,7 @@ $kind: http-example
 id: a68cf98f-a315-5f6a-9787-78c07667fa3f
 name: The request contains errors or didn't properly encode content.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/crawl/{{job_id}}?cacheTTL=5&status=disallowed&cursor=0&limit=50"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/crawl/{{job_id}}"
   method: GET
   headers:
     Accept: application/json
@@ -11,15 +11,19 @@ request:
   queryParams:
     - key: cacheTTL
       value: "5"
+      disabled: true
       description: Cache TTL default is 5s. Set to 0 to disable.
     - key: status
       value: disallowed
+      disabled: true
       description: Filter by URL status.
     - key: cursor
       value: "0"
+      disabled: true
       description: Cursor for pagination.
     - key: limit
       value: "50"
+      disabled: true
       description: Limit for pagination.
 response:
   statusCode: 400

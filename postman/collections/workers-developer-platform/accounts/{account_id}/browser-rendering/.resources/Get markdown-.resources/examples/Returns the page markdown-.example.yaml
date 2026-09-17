@@ -2,7 +2,7 @@ $kind: http-example
 id: 9b012375-ee8b-5226-b4d0-cd66933adbb2
 name: Returns the page markdown.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/markdown?cacheTTL=5"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/markdown"
   method: POST
   headers:
     Content-Type: application/json
@@ -12,6 +12,7 @@ request:
   queryParams:
     - key: cacheTTL
       value: "5"
+      disabled: true
       description: Cache TTL default is 5s. Set to 0 to disable.
   body:
     type: json

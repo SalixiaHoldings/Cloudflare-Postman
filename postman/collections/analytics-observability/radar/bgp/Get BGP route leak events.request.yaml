@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/bgp/leaks/events?page=1&per_page=50&eventId=592&leakAsn=9674&involvedAsn=8770&involvedCountry=PT&dateRange=7d&dateStart=2023-09-01T11:41:33.782Z&dateEnd=2023-09-01T11:41:33.782Z&sortBy=TIME&sortOrder=DESC&format=JSON"
+url: "{{base_url}}/radar/bgp/leaks/events"
 method: GET
 headers:
   Accept: application/json
@@ -22,39 +22,51 @@ headers:
 queryParams:
   - key: page
     value: "1"
+    disabled: true
     description: Current page number, starting from 1.
   - key: per_page
     value: "50"
+    disabled: true
     description: Number of entries per page.
   - key: eventId
-    value: "592"
+    value: "250"
+    disabled: true
     description: The unique identifier of a event.
   - key: leakAsn
-    value: "9674"
+    value: "4847"
+    disabled: true
     description: The leaking AS of a route leak event.
   - key: involvedAsn
-    value: "8770"
+    value: "456"
+    disabled: true
     description: ASN that is causing or affected by a route leak event.
   - key: involvedCountry
     value: PT
+    disabled: true
     description: Country code of a involved ASN in a route leak event.
   - key: dateRange
     value: 7d
+    disabled: true
     description: "Filters results by a relative date range ending at the current time. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`), e.g. `7d`. Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `3dcontrol` covers days -10 to -7, `7dcontrol` covers days -14 to -7, `28dcontrol` covers days -56 to -28, and `10dcontrol` covers days -24 to -14). Mutually exclusive with `dateStart`/`dateEnd`."
   - key: dateStart
     value: 2023-09-01T11:41:33.782Z
+    disabled: true
     description: Start of the date range (inclusive). Alternative to `dateRange`; provide together with `dateEnd`.
   - key: dateEnd
     value: 2023-09-01T11:41:33.782Z
+    disabled: true
     description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`.
   - key: sortBy
     value: TIME
+    disabled: true
     description: Sorts results by the specified field.
   - key: sortOrder
-    value: DESC
+    value: ASC
+    disabled: true
     description: Sort order.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

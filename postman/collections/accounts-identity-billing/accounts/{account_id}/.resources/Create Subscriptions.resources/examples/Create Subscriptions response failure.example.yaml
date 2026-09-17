@@ -1,7 +1,7 @@
 $kind: http-example
 id: 5fe4fbc9-6dee-507b-8963-98d82811b7fa
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/bulk/subscriptions?idemp_key=string"
+  url: "{{base_url}}/accounts/{{account_id}}/bulk/subscriptions"
   method: POST
   headers:
     Content-Type: application/json
@@ -9,7 +9,9 @@ request:
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    idemp_key: string
+    - key: idemp_key
+      value: string
+      disabled: true
   body:
     type: json
     content: |-

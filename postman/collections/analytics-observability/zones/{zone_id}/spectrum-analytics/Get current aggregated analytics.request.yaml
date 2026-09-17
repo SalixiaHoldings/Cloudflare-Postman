@@ -13,13 +13,17 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones/{{zone_id}}/spectrum/analytics/aggregate/current?appID=ea95132c15732412d22c1476fa83f27a,d122c5f4bb71e25cc9e86ab43b142e2f&colo_name=PDX"
+url: "{{base_url}}/zones/{{zone_id}}/spectrum/analytics/aggregate/current"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  appID: ea95132c15732412d22c1476fa83f27a,d122c5f4bb71e25cc9e86ab43b142e2f
-  colo_name: PDX
+  - key: appID
+    value: ea95132c15732412d22c1476fa83f27a,d122c5f4bb71e25cc9e86ab43b142e2f
+    disabled: true
+  - key: colo_name
+    value: PDX
+    disabled: true
 auth:
   type: bearer
   credentials:

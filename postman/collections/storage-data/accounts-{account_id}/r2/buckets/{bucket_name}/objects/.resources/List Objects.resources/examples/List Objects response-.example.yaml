@@ -2,17 +2,27 @@ $kind: http-example
 id: f963b221-3bab-50b8-a939-79c9251c5041
 name: List Objects response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects?per_page=20&prefix=string&delimiter=string&cursor=string&start_after=string"
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects"
   method: GET
   headers:
     cf-r2-jurisdiction: default
     Accept: application/json
   queryParams:
-    per_page: "20"
-    prefix: string
-    delimiter: string
-    cursor: string
-    start_after: string
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: prefix
+      value: string
+      disabled: true
+    - key: delimiter
+      value: string
+      disabled: true
+    - key: cursor
+      value: string
+      disabled: true
+    - key: start_after
+      value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

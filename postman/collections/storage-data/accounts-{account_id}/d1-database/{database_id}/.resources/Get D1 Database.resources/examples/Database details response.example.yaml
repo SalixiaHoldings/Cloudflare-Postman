@@ -1,13 +1,14 @@
 $kind: http-example
 id: d5b14738-5cf8-5020-899f-05957a308db1
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}?fields=running_in_region,file_size"
+  url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: fields
-      value: running_in_region,file_size
+      value: version,jurisdiction
+      disabled: true
       description: |
         Comma-separated list of fields to include in the response. When omitted,
         all fields are returned.

@@ -2,12 +2,14 @@ $kind: http-example
 id: ee5779fd-aef2-5879-bd9f-95069bf4b430
 name: SSL Verification Details response failure.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/ssl/verification?retry=true"
+  url: "{{base_url}}/zones/{{zone_id}}/ssl/verification"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    retry: "true"
+    - key: retry
+      value: "true"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

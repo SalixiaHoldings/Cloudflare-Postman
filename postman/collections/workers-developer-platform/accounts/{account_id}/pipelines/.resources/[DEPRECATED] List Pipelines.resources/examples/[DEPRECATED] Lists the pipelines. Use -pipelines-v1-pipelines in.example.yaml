@@ -2,14 +2,20 @@ $kind: http-example
 id: b318f8f6-6f2f-5101-9c6c-6b905a15118c
 name: "[DEPRECATED] Lists the pipelines. Use /pipelines/v1/pipelines instead."
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/pipelines?search=string&page=1&per_page=25"
+  url: "{{base_url}}/accounts/{{account_id}}/pipelines"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    search: string
-    page: "1"
-    per_page: "25"
+    - key: search
+      value: string
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "25"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

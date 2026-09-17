@@ -1,16 +1,22 @@
 $kind: http-example
 id: 3e50e1bd-0f40-59a7-9277-1939e059ddb6
 request:
-  url: "{{base_url}}/zones/{{zone_identifier}}/analytics/dashboard?until=<string>&since=string&continuous=true"
+  url: "{{base_url}}/zones/{{zone_identifier}}/analytics/dashboard"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    until: <string>
-    since: string
-    continuous: "true"
+    - key: until
+      value: <string>
+      disabled: true
+    - key: since
+      value: string
+      disabled: true
+    - key: continuous
+      value: "true"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

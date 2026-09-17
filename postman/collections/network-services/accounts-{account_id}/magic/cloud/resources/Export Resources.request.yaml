@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources/export?provider_id=string&resource_type=<string>&resource_type=<string>&resource_id=<uuid>&resource_id=<uuid>&region=string&resource_group=string&search=string&search=string&order_by=string&desc=true&v2=true"
+url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/resources/export"
 method: GET
 headers:
   Accept: application/octet-stream
@@ -22,29 +22,41 @@ headers:
 queryParams:
   - key: provider_id
     value: string
+    disabled: true
   - key: resource_type
     value: <string>
+    disabled: true
   - key: resource_type
     value: <string>
+    disabled: true
   - key: resource_id
     value: <uuid>
+    disabled: true
   - key: resource_id
     value: <uuid>
+    disabled: true
   - key: region
     value: string
+    disabled: true
   - key: resource_group
     value: string
+    disabled: true
   - key: search
     value: string
+    disabled: true
   - key: search
     value: string
+    disabled: true
   - key: order_by
     value: string
+    disabled: true
     description: One of ["id", "resource_type", "region"].
   - key: desc
     value: "true"
+    disabled: true
   - key: v2
     value: "true"
+    disabled: true
 auth:
   type: bearer
   credentials:

@@ -2,7 +2,7 @@ $kind: http-example
 id: d8918e12-ca79-5dce-8b7e-472e35c82348
 name: Bad request.
 request:
-  url: "{{base_url}}/radar/entities/asns/botnet_threat_feed?limit=5&offset=1874&metric=NUMBER_OF_OFFENDING_IPS&date=2026-02-04&compareDateRange=7d&location=US&asn=string&asn=string&sortOrder=DESC&format=JSON"
+  url: "{{base_url}}/radar/entities/asns/botnet_threat_feed"
   method: GET
   headers:
     Accept: application/json
@@ -11,33 +11,43 @@ request:
   queryParams:
     - key: limit
       value: "5"
+      disabled: true
       description: Limits the number of objects returned in the response.
     - key: offset
-      value: "1874"
+      value: "5983"
+      disabled: true
       description: Skips the specified number of objects before fetching the results.
     - key: metric
       value: NUMBER_OF_OFFENDING_IPS
+      disabled: true
       description: Metric to rank ASNs by.
     - key: date
       value: 2026-02-04
+      disabled: true
       description: "The date to retrieve (YYYY-MM-DD format). If not specified, returns the most recent available data. Note: This is the date the report was generated. The report is generated from information collected from the previous day (e.g., the 2026-02-23 entry contains data from 2026-02-22)."
     - key: compareDateRange
       value: 7d
+      disabled: true
       description: Relative date range for rank change comparison (e.g., "1d", "7d", "30d").
     - key: location
       value: US
+      disabled: true
       description: Filters results by location. Specify an alpha-2 location code.
     - key: asn
       value: string
+      disabled: true
       description: Filters results by Autonomous System. Specify one or more Autonomous System Numbers (ASNs) as a comma-separated list. Prefix with `-` to exclude ASNs from results. For example, `-174, 3356` excludes results from AS174, but includes results from AS3356.
     - key: asn
       value: string
+      disabled: true
       description: Filters results by Autonomous System. Specify one or more Autonomous System Numbers (ASNs) as a comma-separated list. Prefix with `-` to exclude ASNs from results. For example, `-174, 3356` excludes results from AS174, but includes results from AS3356.
     - key: sortOrder
       value: DESC
+      disabled: true
       description: Sort order.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 400

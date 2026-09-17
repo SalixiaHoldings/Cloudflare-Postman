@@ -1,16 +1,26 @@
 $kind: http-example
 id: cc4e83d0-55bd-59ce-8dc6-cfa5ed181806
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/evaluations?page=1&per_page=20&name=string&processed=true&search=string"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/gateways/{{gateway_id}}/evaluations"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
-    name: string
-    processed: "true"
-    search: string
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: name
+      value: string
+      disabled: true
+    - key: processed
+      value: "true"
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

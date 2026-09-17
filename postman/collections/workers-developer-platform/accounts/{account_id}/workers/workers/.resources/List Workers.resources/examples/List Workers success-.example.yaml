@@ -2,22 +2,26 @@ $kind: http-example
 id: 54fc902d-a907-5ba0-9c48-3385b31e200c
 name: List Workers success.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/workers?page=1&per_page=10&order_by=deployed_on&order=desc"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Current page.
     - key: per_page
       value: "10"
+      disabled: true
       description: Items per-page.
     - key: order_by
       value: deployed_on
+      disabled: true
       description: Property to sort results by.
     - key: order
       value: desc
+      disabled: true
       description: Sort direction.
 response:
   statusCode: 200

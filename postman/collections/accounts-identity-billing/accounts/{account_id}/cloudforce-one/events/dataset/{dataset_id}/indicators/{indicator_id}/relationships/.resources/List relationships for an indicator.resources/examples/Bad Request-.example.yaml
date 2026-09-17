@@ -2,23 +2,29 @@ $kind: http-example
 id: a5ba8ebd-e74c-5ac0-9ed5-bd1339c7ace0
 name: Bad Request.
 request:
-  url: '{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators/{{indicator_id}}/relationships?search={"field":"string","op":"lt","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&search={"field":"string","op":"lt","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&expand=string&expand=string&cursor=string&pageSize=25'
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators/{{indicator_id}}/relationships"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: search
-      value: '{"field":"string","op":"lt","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+      value: '{"field":"string","op":"contains","value":"string"}'
+      disabled: true
     - key: search
-      value: '{"field":"string","op":"lt","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+      value: '{"field":"string","op":"like","value":"string"}'
+      disabled: true
     - key: expand
       value: string
+      disabled: true
     - key: expand
       value: string
+      disabled: true
     - key: cursor
       value: string
+      disabled: true
     - key: pageSize
       value: "25"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

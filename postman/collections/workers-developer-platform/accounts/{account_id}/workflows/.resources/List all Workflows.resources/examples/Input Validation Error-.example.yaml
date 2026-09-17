@@ -2,7 +2,7 @@ $kind: http-example
 id: 9e010e32-e4b1-530e-b039-7664b3690a8c
 name: Input Validation Error.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workflows?per_page=10&page=1&search=2"
+  url: "{{base_url}}/accounts/{{account_id}}/workflows"
   method: GET
   headers:
     Accept: application/json
@@ -11,10 +11,13 @@ request:
   queryParams:
     - key: per_page
       value: "10"
+      disabled: true
     - key: page
       value: "1"
+      disabled: true
     - key: search
-      value: "2"
+      value: vy3iedI4G
+      disabled: true
       description: Allows filtering workflows` name.
 response:
   statusCode: 400

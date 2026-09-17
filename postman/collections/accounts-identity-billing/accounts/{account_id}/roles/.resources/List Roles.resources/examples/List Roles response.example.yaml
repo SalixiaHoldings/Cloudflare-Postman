@@ -1,15 +1,19 @@
 $kind: http-example
 id: d8aebae2-36d1-52d6-82f5-500e987e4b54
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/roles?page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/roles"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    page: "1"
-    per_page: "20"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

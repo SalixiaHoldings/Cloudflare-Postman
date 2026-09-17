@@ -2,7 +2,7 @@ $kind: http-example
 id: df6f8e42-2eb9-5010-95f0-ffd6f344fa2a
 name: Internal Server Error.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps?order_by=string&desc=true&status=true&vpcs=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps"
   method: GET
   headers:
     Accept: application/json
@@ -11,13 +11,17 @@ request:
   queryParams:
     - key: order_by
       value: string
+      disabled: true
       description: One of ["updated_at", "id", "cloud_type", "name"].
     - key: desc
       value: "true"
+      disabled: true
     - key: status
       value: "true"
+      disabled: true
     - key: vpcs
       value: "true"
+      disabled: true
 response:
   statusCode: 500
   statusText: Internal Server Error

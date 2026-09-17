@@ -2,13 +2,14 @@ $kind: http-example
 id: e57bd574-db5d-5255-838f-f7a90750e675
 name: Returns the scan's requested screenshot.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}/screenshot?resolution=desktop"
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}/screenshot"
   method: GET
   headers:
     Accept: image/png
   queryParams:
     - key: resolution
       value: desktop
+      disabled: true
       description: Target device type.
 response:
   statusCode: 200

@@ -13,15 +13,23 @@ description: |-
   Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/workers/observability/queries?page=1&perPage=20&order=desc&orderBy=updated"
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/queries"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  page: "1"
-  perPage: "20"
-  order: desc
-  orderBy: updated
+  - key: page
+    value: "1"
+    disabled: true
+  - key: perPage
+    value: "20"
+    disabled: true
+  - key: order
+    value: desc
+    disabled: true
+  - key: orderBy
+    value: updated
+    disabled: true
 auth:
   type: bearer
   credentials:

@@ -2,13 +2,14 @@ $kind: http-example
 id: 0595e871-254c-5f88-8660-106aef7c3e9e
 name: Bad request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/invoice-history?type=all"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/invoice-history"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: type
       value: all
+      disabled: true
       description: "Filter invoice type: auto, manual, or all."
 response:
   statusCode: 400

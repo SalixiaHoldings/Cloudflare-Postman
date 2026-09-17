@@ -1,7 +1,7 @@
 $kind: http-example
 id: 25208b13-9a30-5fd0-adb5-71a20203aff0
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/labels?page=1&per_page=20&order=description&direction=desc&source=user&filter=login&with_mapped_resource_counts=true"
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/labels"
   method: GET
   headers:
     Accept: application/json
@@ -10,22 +10,29 @@ request:
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: per_page
       value: "20"
+      disabled: true
       description: Maximum number of results per page.
     - key: order
       value: description
+      disabled: true
     - key: direction
       value: desc
+      disabled: true
     - key: source
       value: user
+      disabled: true
       description: Filter for labels with source
     - key: filter
       value: login
+      disabled: true
       description: Filter for labels where the name or description matches using substring match
     - key: with_mapped_resource_counts
       value: "true"
+      disabled: true
       description: Include `mapped_resources` for each label
 response:
   statusCode: 200

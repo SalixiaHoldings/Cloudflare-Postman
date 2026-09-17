@@ -1,16 +1,18 @@
 $kind: http-example
 id: fcae3daa-ef9a-573f-aa66-5d840e02ce41
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/queries?id=string&download=string"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/queries"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: id
       value: string
+      disabled: true
       description: Optional query ID to retrieve a specific logo query
     - key: download
       value: string
+      disabled: true
       description: If true, include base64-encoded image data in the response
 response:
   statusCode: 200

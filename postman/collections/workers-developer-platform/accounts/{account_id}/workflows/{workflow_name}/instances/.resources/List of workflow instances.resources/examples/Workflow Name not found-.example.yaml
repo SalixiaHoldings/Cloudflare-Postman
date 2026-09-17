@@ -2,7 +2,7 @@ $kind: http-example
 id: 5b2c3a1d-07b2-5fad-94ca-888a143153ae
 name: Workflow Name not found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances?page=5076.798240310978&per_page=50&cursor=string&direction=desc&status=waitingForPause&date_start=1922-11-28T14:57:39.484Z&date_end=1922-11-28T14:57:39.484Z"
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances"
   method: GET
   headers:
     Accept: application/json
@@ -10,23 +10,30 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: page
-      value: "5076.798240310978"
+      value: "2557.454902787227"
+      disabled: true
       description: "Deprecated: use `cursor` for pagination instead."
     - key: per_page
       value: "50"
+      disabled: true
     - key: cursor
       value: string
+      disabled: true
       description: Opaque token for cursor-based pagination. Mutually exclusive with `page`.
     - key: direction
-      value: desc
+      value: asc
+      disabled: true
       description: Defines the direction for cursor-based pagination.
     - key: status
       value: waitingForPause
+      disabled: true
     - key: date_start
-      value: 1922-11-28T14:57:39.484Z
+      value: 1925-07-26T17:47:35.721Z
+      disabled: true
       description: Accepts ISO 8601 with no timezone offsets and in UTC.
     - key: date_end
-      value: 1922-11-28T14:57:39.484Z
+      value: 1925-07-26T17:47:35.721Z
+      disabled: true
       description: Accepts ISO 8601 with no timezone offsets and in UTC.
 response:
   statusCode: 404

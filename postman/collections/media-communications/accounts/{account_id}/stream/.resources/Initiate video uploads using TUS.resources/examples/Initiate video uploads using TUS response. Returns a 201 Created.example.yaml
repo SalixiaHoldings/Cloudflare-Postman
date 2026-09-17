@@ -2,7 +2,7 @@ $kind: http-example
 id: ff7cb1bf-54d1-5704-b72b-d9101184c03a
 name: Initiate video uploads using TUS response. Returns a 201 Created status with Location header for TUS uploads.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/stream?direct_user=true"
+  url: "{{base_url}}/accounts/{{account_id}}/stream"
   method: POST
   headers:
     - key: Tus-Resumable
@@ -22,7 +22,9 @@ request:
     - key: X-Auth-Key
       value: "{{api_key}}"
   queryParams:
-    direct_user: "true"
+    - key: direct_user
+      value: "true"
+      disabled: true
 response:
   statusCode: 201
   statusText: Created

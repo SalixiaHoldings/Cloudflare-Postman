@@ -13,19 +13,23 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/analytics/tool-calls/timeseries?granularity=daily&aggregate=false&tz=utc&days=56"
+url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/analytics/tool-calls/timeseries"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: granularity
     value: daily
+    disabled: true
   - key: aggregate
     value: "false"
+    disabled: true
   - key: tz
     value: utc
+    disabled: true
   - key: days
     value: "56"
+    disabled: true
     description: Daily trailing-window size; defaults to 7 and is ignored for monthly
 auth:
   type: bearer

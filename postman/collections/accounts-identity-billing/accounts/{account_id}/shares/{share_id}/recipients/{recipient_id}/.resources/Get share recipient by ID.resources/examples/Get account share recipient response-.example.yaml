@@ -2,7 +2,7 @@ $kind: http-example
 id: 1f39dea3-480e-54f0-8209-3b153fcdccd7
 name: Get account share recipient response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/recipients/{{recipient_id}}?include_resources=true"
+  url: "{{base_url}}/accounts/{{account_id}}/shares/{{share_id}}/recipients/{{recipient_id}}"
   method: GET
   headers:
     Accept: application/json
@@ -11,6 +11,7 @@ request:
   queryParams:
     - key: include_resources
       value: "true"
+      disabled: true
       description: Include resources in the response.
 response:
   statusCode: 200

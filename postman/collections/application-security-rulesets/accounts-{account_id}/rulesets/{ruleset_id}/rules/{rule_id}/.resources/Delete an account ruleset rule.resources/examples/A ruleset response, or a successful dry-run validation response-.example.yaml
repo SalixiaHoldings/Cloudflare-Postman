@@ -2,13 +2,14 @@ $kind: http-example
 id: 226e843b-c4db-52b2-bb73-d10ca7219e07
 name: A ruleset response, or a successful dry-run validation response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/rulesets/{{ruleset_id}}/rules/{{rule_id}}?dry_run=false"
+  url: "{{base_url}}/accounts/{{account_id}}/rulesets/{{ruleset_id}}/rules/{{rule_id}}"
   method: DELETE
   headers:
     Accept: application/json
   queryParams:
     - key: dry_run
       value: "false"
+      disabled: true
       description: "Validates the request without persisting changes when set to `true`. Responses that normally return 200 return `result: null`; endpoints that normally return 204 continue to return 204."
 response:
   statusCode: 200

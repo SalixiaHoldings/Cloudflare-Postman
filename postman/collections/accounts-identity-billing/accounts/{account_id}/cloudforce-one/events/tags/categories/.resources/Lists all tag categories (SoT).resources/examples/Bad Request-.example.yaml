@@ -2,12 +2,14 @@ $kind: http-example
 id: d5fbc465-01e6-5ced-a21a-5009f832953a
 name: Bad Request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/categories?search=string"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/categories"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    search: string
+    - key: search
+      value: string
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

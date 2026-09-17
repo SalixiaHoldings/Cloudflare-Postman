@@ -15,13 +15,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/time_travel/bookmark?timestamp=2024-01-15T12:00:00Z"
+url: "{{base_url}}/accounts/{{account_id}}/d1/database/{{database_id}}/time_travel/bookmark"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: timestamp
     value: 2024-01-15T12:00:00Z
+    disabled: true
     description: An optional ISO 8601 timestamp. If provided, returns the nearest available bookmark at or before this timestamp. If omitted, returns the current bookmark.
 auth:
   type: bearer

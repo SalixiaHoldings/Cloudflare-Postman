@@ -1,7 +1,7 @@
 $kind: http-example
 id: 12ecf382-7de4-5485-9434-82a3ebfc4d85
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/{{schema_id}}?omit_source=false"
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/{{schema_id}}"
   method: GET
   headers:
     Accept: application/json
@@ -10,6 +10,7 @@ request:
   queryParams:
     - key: omit_source
       value: "false"
+      disabled: true
       description: Omit the source-files of schemas and only retrieve their meta-data.
 response:
   statusCode: 200

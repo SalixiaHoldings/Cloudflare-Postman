@@ -1,16 +1,18 @@
 $kind: http-example
 id: 01da9319-4457-5d82-b696-e544913b4a6c
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/{{report_id}}/emails?page=6305&per_page=6305"
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports/{{report_id}}/emails"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "6305"
+      disabled: true
       description: Page number to retrieve (default 1)
     - key: per_page
       value: "6305"
+      disabled: true
       description: Number of emails per page (default 20, max 100)
 response:
   statusCode: 400

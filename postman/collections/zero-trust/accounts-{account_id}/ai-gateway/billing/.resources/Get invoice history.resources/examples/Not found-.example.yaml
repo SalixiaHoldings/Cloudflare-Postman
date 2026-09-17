@@ -2,13 +2,14 @@ $kind: http-example
 id: 2d630d7b-7947-5536-9d12-0e62d268db8e
 name: Not found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/invoice-history?type=all"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-gateway/billing/invoice-history"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: type
       value: all
+      disabled: true
       description: "Filter invoice type: auto, manual, or all."
 response:
   statusCode: 404

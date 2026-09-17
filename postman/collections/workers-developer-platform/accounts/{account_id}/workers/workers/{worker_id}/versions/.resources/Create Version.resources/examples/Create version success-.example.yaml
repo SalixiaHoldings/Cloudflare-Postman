@@ -2,13 +2,15 @@ $kind: http-example
 id: 3e004b02-04e8-5733-a344-695caf4b314a
 name: Create version success.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions?deploy=false"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions"
   method: POST
   headers:
     Content-Type: application/json
     Accept: application/json
   queryParams:
-    deploy: "false"
+    - key: deploy
+      value: "false"
+      disabled: true
   body:
     type: json
     content: |-

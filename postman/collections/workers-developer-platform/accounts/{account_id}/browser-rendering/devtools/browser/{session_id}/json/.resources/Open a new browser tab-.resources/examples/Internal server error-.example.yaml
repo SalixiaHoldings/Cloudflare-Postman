@@ -2,7 +2,7 @@ $kind: http-example
 id: beca2ba6-dc18-5a4c-8e32-6be768fab1cb
 name: Internal server error.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json/new?url=https://suweLcMthpYMXdZKmJUwbEtIOf.vumT0DRbzrkAcTZeOKiUVWHLwvoh.LmeIqeycCIFIQ3ie.pUJZuy&liveViewUrlExpiresInMs=300000"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json/new"
   method: PUT
   headers:
     Accept: application/json
@@ -10,9 +10,11 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: url
-      value: https://suweLcMthpYMXdZKmJUwbEtIOf.vumT0DRbzrkAcTZeOKiUVWHLwvoh.LmeIqeycCIFIQ3ie.pUJZuy
+      value: http://Lumh.jcqaFdK.er2Jgw9mtpkwOaaw9nap0EFUpoUST
+      disabled: true
     - key: liveViewUrlExpiresInMs
       value: "300000"
+      disabled: true
       description: How long the live view URL remains valid, in milliseconds (max 60 minutes)
 response:
   statusCode: 500

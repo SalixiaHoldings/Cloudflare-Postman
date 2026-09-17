@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/email/security/summary/dkim?name=main_series&name=main_series&dateRange=7d&dateRange=7d&dateStart=1990-07-31T02:59:38.133Z&dateStart=1929-06-14T03:10:47.996Z&dateEnd=1927-12-19T06:37:38.317Z&dateEnd=1959-05-01T07:56:39.610Z&arc=NONE&arc=FAIL&dmarc=NONE&dmarc=PASS&spf=FAIL&spf=NONE&tlsVersion=TLSv1_3&tlsVersion=TLSv1_2&format=JSON"
+url: "{{base_url}}/radar/email/security/summary/dkim"
 method: GET
 headers:
   Accept: application/json
@@ -22,54 +22,71 @@ headers:
 queryParams:
   - key: name
     value: main_series
+    disabled: true
     description: Array of names used to label the series in the response.
   - key: name
     value: main_series
+    disabled: true
     description: Array of names used to label the series in the response.
   - key: dateRange
     value: 7d
+    disabled: true
     description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
   - key: dateRange
     value: 7d
+    disabled: true
     description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
   - key: dateStart
-    value: 1990-07-31T02:59:38.133Z
+    value: 1943-04-17T22:40:41.639Z
+    disabled: true
     description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
   - key: dateStart
-    value: 1929-06-14T03:10:47.996Z
+    value: 1932-06-29T20:40:48.455Z
+    disabled: true
     description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
   - key: dateEnd
-    value: 1927-12-19T06:37:38.317Z
+    value: 1971-03-11T04:16:19.464Z
+    disabled: true
     description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
   - key: dateEnd
-    value: 1959-05-01T07:56:39.610Z
+    value: 1974-05-26T22:34:40.196Z
+    disabled: true
     description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
   - key: arc
-    value: NONE
+    value: FAIL
+    disabled: true
     description: Filters results by ARC (Authenticated Received Chain) validation.
   - key: arc
     value: FAIL
+    disabled: true
     description: Filters results by ARC (Authenticated Received Chain) validation.
   - key: dmarc
-    value: NONE
+    value: FAIL
+    disabled: true
     description: Filters results by DMARC (Domain-based Message Authentication, Reporting and Conformance) validation status.
   - key: dmarc
-    value: PASS
+    value: FAIL
+    disabled: true
     description: Filters results by DMARC (Domain-based Message Authentication, Reporting and Conformance) validation status.
   - key: spf
     value: FAIL
+    disabled: true
     description: Filters results by SPF (Sender Policy Framework) validation status.
   - key: spf
-    value: NONE
+    value: PASS
+    disabled: true
     description: Filters results by SPF (Sender Policy Framework) validation status.
   - key: tlsVersion
     value: TLSv1_3
+    disabled: true
     description: Filters results by TLS version.
   - key: tlsVersion
-    value: TLSv1_2
+    value: TLSv1_0
+    disabled: true
     description: Filters results by TLS version.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

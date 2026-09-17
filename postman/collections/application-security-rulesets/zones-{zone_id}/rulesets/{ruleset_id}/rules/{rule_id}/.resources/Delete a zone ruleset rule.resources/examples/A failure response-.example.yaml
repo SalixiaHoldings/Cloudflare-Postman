@@ -2,13 +2,14 @@ $kind: http-example
 id: b0a47860-d762-5690-b912-cd3d94d9d71a
 name: A failure response.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/rulesets/{{ruleset_id}}/rules/{{rule_id}}?dry_run=false"
+  url: "{{base_url}}/zones/{{zone_id}}/rulesets/{{ruleset_id}}/rules/{{rule_id}}"
   method: DELETE
   headers:
     Accept: application/json
   queryParams:
     - key: dry_run
       value: "false"
+      disabled: true
       description: "Validates the request without persisting changes when set to `true`. Responses that normally return 200 return `result: null`; endpoints that normally return 204 continue to return 204."
 response:
   statusCode: 400

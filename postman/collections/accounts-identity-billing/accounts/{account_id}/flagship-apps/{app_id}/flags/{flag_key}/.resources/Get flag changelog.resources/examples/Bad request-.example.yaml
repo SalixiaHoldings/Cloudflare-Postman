@@ -2,16 +2,18 @@ $kind: http-example
 id: 6ce3b131-6d48-5c13-afa7-7c95302a1867
 name: Bad request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags/{{flag_key}}/changelog?limit=string&cursor=string"
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags/{{flag_key}}/changelog"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: limit
       value: string
+      disabled: true
       description: Max items to return (1–200).
     - key: cursor
       value: string
+      disabled: true
       description: Pagination cursor from a previous response.
 response:
   statusCode: 400

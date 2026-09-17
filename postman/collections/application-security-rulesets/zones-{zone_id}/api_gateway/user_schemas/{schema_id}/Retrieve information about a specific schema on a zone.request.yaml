@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/{{schema_id}}?omit_source=false"
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/{{schema_id}}"
 method: GET
 headers:
   Accept: application/json
@@ -22,6 +22,7 @@ headers:
 queryParams:
   - key: omit_source
     value: "false"
+    disabled: true
     description: Omit the source-files of schemas and only retrieve their meta-data.
 auth:
   type: bearer

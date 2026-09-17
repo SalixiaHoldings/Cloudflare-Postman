@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_email":[],"api_key":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/tags?resource_id=023e105f4ecef8ad9ca31a8372d0c353&resource_type=worker&worker_id=3f72a691-44b3-4c11-8642-c18a88ddaa5e"
+url: "{{base_url}}/accounts/{{account_id}}/tags?resource_id=023e105f4ecef8ad9ca31a8372d0c353&resource_type=worker"
 method: GET
 headers:
   Accept: application/json
@@ -28,6 +28,7 @@ queryParams:
     description: (Required) The type of the resource.
   - key: worker_id
     value: 3f72a691-44b3-4c11-8642-c18a88ddaa5e
+    disabled: true
     description: Worker identifier. Required for worker_version resources.
 auth:
   type: noauth

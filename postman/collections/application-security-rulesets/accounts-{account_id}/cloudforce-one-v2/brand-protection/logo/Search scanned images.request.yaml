@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/search?showHistoric=false&download=string"
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/logo/search"
 method: POST
 headers:
   Content-Type: application/json
@@ -21,9 +21,11 @@ headers:
 queryParams:
   - key: showHistoric
     value: "false"
+    disabled: true
     description: "Include scanned images without domain metadata (historic data). Default: false (only show images with domain)"
   - key: download
     value: string
+    disabled: true
     description: If true, include base64-encoded image data in the response
 body:
   type: json

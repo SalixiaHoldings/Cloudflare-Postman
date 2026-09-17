@@ -2,13 +2,14 @@ $kind: http-example
 id: 19d57f65-e4a2-591a-b713-c7e64761e597
 name: Scan not found or in progress.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/screenshots/{{scan_id}}.png?resolution=desktop"
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/screenshots/{{scan_id}}.png"
   method: GET
   headers:
     Accept: image/png
   queryParams:
     - key: resolution
       value: desktop
+      disabled: true
       description: Target device type.
 response:
   statusCode: 404

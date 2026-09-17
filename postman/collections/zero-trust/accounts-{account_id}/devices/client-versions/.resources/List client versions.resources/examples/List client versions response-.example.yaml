@@ -2,7 +2,7 @@ $kind: http-example
 id: d40d032f-4ad1-5fd3-a9ed-26957daf81cc
 name: List client versions response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/devices/client-versions?target_environment=string&release_track=beta&page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/devices/client-versions?target_environment=string&release_track=beta"
   method: GET
   headers:
     Accept: application/json
@@ -15,9 +15,11 @@ request:
       description: (Required) The release track (ga for General Availability, beta for Beta releases).
     - key: page
       value: "1"
+      disabled: true
       description: The page number to return.
     - key: per_page
       value: "20"
+      disabled: true
       description: The maximum number of versions to return per page.
 response:
   statusCode: 200

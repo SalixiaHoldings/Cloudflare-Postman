@@ -1,12 +1,14 @@
 $kind: http-example
 id: 8f6c43b0-50b1-58b5-b3fc-7aa55752b344
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}?name=string"
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    name: string
+    - key: name
+      value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

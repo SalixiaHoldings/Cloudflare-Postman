@@ -2,7 +2,7 @@ $kind: http-example
 id: 1f4e4c1c-9ec6-5e6c-bcbb-519ca3780d62
 name: Retrieve information about a specific schema zone response failure
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/{{schema_id}}?omit_source=false"
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/{{schema_id}}"
   method: GET
   headers:
     Accept: application/json
@@ -11,6 +11,7 @@ request:
   queryParams:
     - key: omit_source
       value: "false"
+      disabled: true
       description: Omit the source-files of schemas and only retrieve their meta-data.
 response:
   statusCode: 400

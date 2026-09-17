@@ -13,61 +13,78 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan?scan_id=04d4b2e9-c26a-56e9-4f7a-0d1dbfe68670&limit=100&next_cursor=string&date_start=1942-09-28T18:42:36.313Z&date_end=1957-06-29T04:31:55.808Z&url=https://example.com/?hello&hostname=example.com&path=/samples/subresource-integrity/&ip=1.1.1.1&hash=string&page_url=string&page_hostname=string&page_path=string&page_asn=string&page_ip=string&account_scans=false&is_malicious=true"
+url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: scan_id
-    value: 04d4b2e9-c26a-56e9-4f7a-0d1dbfe68670
+    value: b24973dc-8712-dcba-29fd-70228dd82a9a
+    disabled: true
     description: Scan UUID.
   - key: limit
     value: "100"
+    disabled: true
     description: Limit the number of objects in the response.
   - key: next_cursor
     value: string
+    disabled: true
     description: Pagination cursor to get the next set of results.
   - key: date_start
-    value: 1942-09-28T18:42:36.313Z
+    value: 1949-12-03T07:30:36.210Z
+    disabled: true
     description: Filter scans requested after date (inclusive).
   - key: date_end
-    value: 1957-06-29T04:31:55.808Z
+    value: 1961-10-20T05:02:27.188Z
+    disabled: true
     description: Filter scans requested before date (inclusive).
   - key: url
     value: https://example.com/?hello
+    disabled: true
     description: Filter scans by URL of _any_ request made by the webpage
   - key: hostname
     value: example.com
+    disabled: true
     description: Filter scans by hostname of _any_ request made by the webpage.
   - key: path
     value: /samples/subresource-integrity/
+    disabled: true
     description: Filter scans by url path of _any_ request made by the webpage.
   - key: ip
     value: 1.1.1.1
+    disabled: true
     description: Filter scans by IP address (IPv4 or IPv6) of _any_ request made by the webpage.
   - key: hash
     value: string
+    disabled: true
     description: Filter scans by hash of any html/js/css request made by the webpage.
   - key: page_url
     value: string
+    disabled: true
     description: Filter scans by submitted or scanned URL
   - key: page_hostname
     value: string
+    disabled: true
     description: Filter scans by main page hostname (domain of effective URL).
   - key: page_path
     value: string
+    disabled: true
     description: Filter scans by exact match of effective URL path (also supports suffix search).
   - key: page_asn
     value: string
+    disabled: true
     description: Filter scans by main page Autonomous System Number (ASN).
   - key: page_ip
     value: string
+    disabled: true
     description: Filter scans by  main page IP address (IPv4 or IPv6).
   - key: account_scans
     value: "false"
+    disabled: true
     description: Return only scans created by account.
   - key: is_malicious
-    value: "true"
+    value: "false"
+    disabled: true
     description: Filter scans by malicious verdict.
 auth:
   type: bearer

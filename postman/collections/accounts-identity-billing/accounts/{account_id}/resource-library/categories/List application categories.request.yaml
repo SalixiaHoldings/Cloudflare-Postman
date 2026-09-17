@@ -13,16 +13,18 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/resource-library/categories?limit=25&offset=0"
+url: "{{base_url}}/accounts/{{account_id}}/resource-library/categories"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: limit
     value: "25"
+    disabled: true
     description: Limit of number of results to return.
   - key: offset
     value: "0"
+    disabled: true
     description: Offset of results to return.
 auth:
   type: bearer

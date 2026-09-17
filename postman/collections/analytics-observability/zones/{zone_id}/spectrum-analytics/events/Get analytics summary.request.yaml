@@ -13,33 +13,38 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones/{{zone_id}}/spectrum/analytics/events/summary?dimensions=event&dimensions=appID&sort=+count&sort=-bytesIngress&description=End of time interval to query, defaults to current time. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.&value=<Error: Too many levels of nesting to fake this schema>&metrics=count&metrics=bytesIngress&filters=event==disconnect%20AND%20coloName!=SFO&description=Start of time interval to query, defaults to `until` - 6 hours. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.&value=<Error: Too many levels of nesting to fake this schema>"
+url: "{{base_url}}/zones/{{zone_id}}/spectrum/analytics/events/summary"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: dimensions
     value: event
+    disabled: true
   - key: dimensions
     value: appID
+    disabled: true
   - key: sort
     value: +count
+    disabled: true
   - key: sort
     value: -bytesIngress
-  - key: description
-    value: End of time interval to query, defaults to current time. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.
-  - key: value
-    value: "<Error: Too many levels of nesting to fake this schema>"
+    disabled: true
+  - key: until
+    value: 2014-01-01T05:20:00.12345Z
+    disabled: true
   - key: metrics
     value: count
+    disabled: true
   - key: metrics
     value: bytesIngress
+    disabled: true
   - key: filters
     value: event==disconnect%20AND%20coloName!=SFO
-  - key: description
-    value: Start of time interval to query, defaults to `until` - 6 hours. Timestamp must be in RFC3339 format and uses UTC unless otherwise specified.
-  - key: value
-    value: "<Error: Too many levels of nesting to fake this schema>"
+    disabled: true
+  - key: since
+    value: 2014-01-01T05:20:00.12345Z
+    disabled: true
 auth:
   type: bearer
   credentials:

@@ -14,7 +14,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/rum/site_info/site_tag/list?all=false"
+url: "{{base_url}}/accounts/{{account_id}}/rum/site_info/site_tag/list"
 method: GET
 headers:
   Accept: application/json
@@ -23,6 +23,7 @@ headers:
 queryParams:
   - key: all
     value: "false"
+    disabled: true
     description: When true, includes sites that are disabled or paused.
 auth:
   type: bearer

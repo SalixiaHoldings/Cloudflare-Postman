@@ -1,15 +1,19 @@
 $kind: http-example
 id: 06eb5589-30e9-51c4-81f7-65a667188079
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/overrides?page=1&per_page=50"
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/overrides"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    page: "1"
-    per_page: "50"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "50"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

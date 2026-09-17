@@ -2,37 +2,46 @@ $kind: http-example
 id: debcd923-2ec7-5a75-917f-b7136a390528
 name: Invalid request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/one/integrations?application=string&direction=desc&dlp_enabled=true&order=status&page=8161&page_size=8161&search=string&status=Unhealthy&use_cases=string"
+  url: "{{base_url}}/accounts/{{account_id}}/one/integrations"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: application
       value: string
+      disabled: true
       description: Filter by application/vendor (e.g., GOOGLE_WORKSPACE, MICROSOFT_INTERNAL).
     - key: direction
-      value: desc
+      value: asc
+      disabled: true
       description: Direction to order results.
     - key: dlp_enabled
       value: "true"
+      disabled: true
       description: Filter by DLP enabled status (true/false).
     - key: order
-      value: status
+      value: application
+      disabled: true
       description: Field to order results by.
     - key: page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: Page number within the paginated result set.
     - key: page_size
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: Number of results per page.
     - key: search
       value: string
+      disabled: true
       description: Search integrations by name or application.
     - key: status
-      value: Unhealthy
+      value: Healthy
+      disabled: true
       description: Filter by integration status.
     - key: use_cases
       value: string
+      disabled: true
       description: Filter by enabled use cases (e.g., casb, ces). Matches integrations enrolled in any of the specified values. Can be specified multiple times.
 response:
   statusCode: 400

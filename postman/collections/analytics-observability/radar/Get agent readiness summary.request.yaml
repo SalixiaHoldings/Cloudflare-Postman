@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/agent_readiness/summary/{{dimension}}?date=2024-09-19&domainCategory=string&domainCategory=string&name=main_series&name=main_series&format=JSON"
+url: "{{base_url}}/radar/agent_readiness/summary/{{dimension}}"
 method: GET
 headers:
   Accept: application/json
@@ -22,21 +22,27 @@ headers:
 queryParams:
   - key: date
     value: 2024-09-19
+    disabled: true
     description: Filters results by the specified date.
   - key: domainCategory
     value: string
+    disabled: true
     description: Filters results by domain category.
   - key: domainCategory
     value: string
+    disabled: true
     description: Filters results by domain category.
   - key: name
     value: main_series
+    disabled: true
     description: Array of names used to label the series in the response.
   - key: name
     value: main_series
+    disabled: true
     description: Array of names used to label the series in the response.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

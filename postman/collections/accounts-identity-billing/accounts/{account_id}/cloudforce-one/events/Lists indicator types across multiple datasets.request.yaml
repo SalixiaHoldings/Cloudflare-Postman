@@ -13,16 +13,18 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/indicator-types?datasetIds=string&datasetIds=string"
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/indicator-types"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: datasetIds
     value: string
+    disabled: true
     description: "Dataset UUIDs to query, or one standalone scope value: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, queries all accessible datasets."
   - key: datasetIds
     value: string
+    disabled: true
     description: "Dataset UUIDs to query, or one standalone scope value: 'all'/'*', 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, queries all accessible datasets."
 auth:
   type: bearer

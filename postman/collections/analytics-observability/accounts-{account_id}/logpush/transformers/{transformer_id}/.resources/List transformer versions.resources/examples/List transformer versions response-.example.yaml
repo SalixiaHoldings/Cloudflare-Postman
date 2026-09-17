@@ -2,7 +2,7 @@ $kind: http-example
 id: ccdb6f5c-0892-5735-b988-bd8159b8aef3
 name: List transformer versions response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/logpush/transformers/{{transformer_id}}/versions?limit=10"
+  url: "{{base_url}}/accounts/{{account_id}}/logpush/transformers/{{transformer_id}}/versions"
   method: GET
   headers:
     Accept: application/json
@@ -11,6 +11,7 @@ request:
   queryParams:
     - key: limit
       value: "10"
+      disabled: true
       description: Maximum number of versions to return.
 response:
   statusCode: 200

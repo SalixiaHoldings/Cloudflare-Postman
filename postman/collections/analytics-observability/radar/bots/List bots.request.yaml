@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/bots?limit=5&offset=3789&botCategory=FEED_FETCHER&botOperator=string&kind=BOT&botVerificationStatus=VERIFIED&format=JSON"
+url: "{{base_url}}/radar/bots"
 method: GET
 headers:
   Accept: application/json
@@ -22,24 +22,31 @@ headers:
 queryParams:
   - key: limit
     value: "5"
+    disabled: true
     description: Limits the number of objects returned in the response.
   - key: offset
-    value: "3789"
+    value: "2923"
+    disabled: true
     description: Skips the specified number of objects before fetching the results.
   - key: botCategory
-    value: FEED_FETCHER
+    value: PAGE_PREVIEW
+    disabled: true
     description: Filters results by bot category.
   - key: botOperator
     value: string
+    disabled: true
     description: Filters results by bot operator.
   - key: kind
     value: BOT
+    disabled: true
     description: "Filters results by bot kind. Deprecated: the Verified Bot / Signed Agent distinction is being removed."
   - key: botVerificationStatus
     value: VERIFIED
+    disabled: true
     description: Filters results by bot verification status.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

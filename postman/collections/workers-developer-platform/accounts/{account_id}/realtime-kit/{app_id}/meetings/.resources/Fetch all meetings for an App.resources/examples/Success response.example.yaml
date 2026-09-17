@@ -1,28 +1,34 @@
 $kind: http-example
 id: 06c24bb0-34b9-59a3-991e-0873b5dfbd3d
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings?page_no=1043.4947488829494&per_page=1043.4947488829494&start_time=1922-11-28T14:57:39.484Z&end_time=1922-11-28T14:57:39.484Z&search=string&status=INACTIVE"
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page_no
-      value: "1043.4947488829494"
+      value: "4342.341406736523"
+      disabled: true
       description: The page number from which you want your page search results to be displayed.
     - key: per_page
-      value: "1043.4947488829494"
+      value: "4342.341406736523"
+      disabled: true
       description: Number of results per page
     - key: start_time
-      value: 1922-11-28T14:57:39.484Z
+      value: 1925-07-26T17:47:35.721Z
+      disabled: true
       description: The start time range for which you want to retrieve the meetings. The time must be specified in ISO format.
     - key: end_time
-      value: 1922-11-28T14:57:39.484Z
+      value: 1925-07-26T17:47:35.721Z
+      disabled: true
       description: The end time range for which you want to retrieve the meetings. The time must be specified in ISO format.
     - key: search
       value: string
+      disabled: true
       description: The search query string. You can search using the meeting ID or title.
     - key: status
-      value: INACTIVE
+      value: ACTIVE
+      disabled: true
       description: Filter meetings by status.
 response:
   statusCode: 200

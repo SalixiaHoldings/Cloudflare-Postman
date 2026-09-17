@@ -2,16 +2,26 @@ $kind: http-example
 id: bac3af3b-37e4-5d92-a4d7-4d40a6ee77a6
 name: List domains response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/domains?zone_id={{zone_id}}&zone_name=example.com&service=my-worker&hostname=app.example.com&environment=production"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/domains"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    zone_id: "{{zone_id}}"
-    zone_name: example.com
-    service: my-worker
-    hostname: app.example.com
-    environment: production
+    - key: zone_id
+      value: "{{zone_id}}"
+      disabled: true
+    - key: zone_name
+      value: example.com
+      disabled: true
+    - key: service
+      value: my-worker
+      disabled: true
+    - key: hostname
+      value: app.example.com
+      disabled: true
+    - key: environment
+      value: production
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

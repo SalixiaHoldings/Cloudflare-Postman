@@ -2,13 +2,17 @@ $kind: http-example
 id: 390c74fd-6ffa-5889-9f8b-6b356a20839a
 name: List Objects response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/durable_objects/namespaces/{{id}}/objects?limit=1000&cursor=AAAAANuhDN7SjacTnSVsDu3WW1Lvst6dxJGTjRY5BhxPXdf6L6uTcpd_NVtjhn11OUYRsVEykxoUwF-JQU4dn6QylZSKTOJuG0indrdn_MlHpMRtsxgXjs-RPdHYIVm3odE_uvEQ_dTQGFm8oikZMohns34DLBgrQpc"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/durable_objects/namespaces/{{id}}/objects"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    limit: "1000"
-    cursor: AAAAANuhDN7SjacTnSVsDu3WW1Lvst6dxJGTjRY5BhxPXdf6L6uTcpd_NVtjhn11OUYRsVEykxoUwF-JQU4dn6QylZSKTOJuG0indrdn_MlHpMRtsxgXjs-RPdHYIVm3odE_uvEQ_dTQGFm8oikZMohns34DLBgrQpc
+    - key: limit
+      value: "1000"
+      disabled: true
+    - key: cursor
+      value: AAAAANuhDN7SjacTnSVsDu3WW1Lvst6dxJGTjRY5BhxPXdf6L6uTcpd_NVtjhn11OUYRsVEykxoUwF-JQU4dn6QylZSKTOJuG0indrdn_MlHpMRtsxgXjs-RPdHYIVm3odE_uvEQ_dTQGFm8oikZMohns34DLBgrQpc
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

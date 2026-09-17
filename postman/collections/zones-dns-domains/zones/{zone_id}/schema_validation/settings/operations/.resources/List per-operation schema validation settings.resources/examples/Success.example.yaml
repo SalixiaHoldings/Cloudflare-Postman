@@ -1,16 +1,18 @@
 $kind: http-example
 id: 72d9c1f1-c56c-5cab-abc0-3c4906c0f5ea
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/settings/operations?page=1&per_page=20"
+  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/settings/operations"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: per_page
       value: "20"
+      disabled: true
       description: Maximum number of results per page.
 response:
   statusCode: 200

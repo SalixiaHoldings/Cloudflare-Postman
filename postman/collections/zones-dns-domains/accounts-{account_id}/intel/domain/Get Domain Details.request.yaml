@@ -13,18 +13,21 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/intel/domain?domain=string&skip_dns=true&skip_ranking=false"
+url: "{{base_url}}/accounts/{{account_id}}/intel/domain"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: domain
     value: string
+    disabled: true
   - key: skip_dns
     value: "true"
+    disabled: true
     description: Skip DNS resolution lookups for faster response.
   - key: skip_ranking
     value: "false"
+    disabled: true
     description: |
       Skip the domain ranking lookup for faster responses. Defaults to
       `false` (ranking is included). Set to `true` to opt out — primarily

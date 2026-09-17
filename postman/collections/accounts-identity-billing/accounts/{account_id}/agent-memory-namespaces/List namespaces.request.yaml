@@ -13,15 +13,23 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces?per_page=20&order=id&direction=asc&cursor=string"
+url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  per_page: "20"
-  order: id
-  direction: asc
-  cursor: string
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: order
+    value: id
+    disabled: true
+  - key: direction
+    value: asc
+    disabled: true
+  - key: cursor
+    value: string
+    disabled: true
 auth:
   type: bearer
   credentials:

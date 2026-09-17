@@ -1,13 +1,14 @@
 $kind: http-example
 id: 125acade-e13a-51b3-8446-21300b1d2743
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/schemas/{{schema_id}}?omit_source=false"
+  url: "{{base_url}}/zones/{{zone_id}}/schema_validation/schemas/{{schema_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: omit_source
       value: "false"
+      disabled: true
       description: Omit the source-files of schemas and only retrieve their meta-data.
 response:
   statusCode: 400

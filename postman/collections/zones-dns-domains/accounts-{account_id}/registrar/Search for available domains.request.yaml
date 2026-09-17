@@ -36,7 +36,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/registrar/domain-search?q=coffee shop&extensions=com,net,org&limit=20"
+url: "{{base_url}}/accounts/{{account_id}}/registrar/domain-search?q=coffee shop"
 method: GET
 headers:
   Accept: application/json
@@ -49,12 +49,14 @@ queryParams:
       - Domain names: "example.com" returns example.com and variations across extensions
   - key: extensions
     value: com,net,org
+    disabled: true
     description: |
       Limits results to specific domain extensions from the supported set. If not specified,
       returns results across all supported extensions. Extensions not in the supported
       set are silently ignored.
   - key: limit
     value: "20"
+    disabled: true
     description: |
       Maximum number of domain suggestions to return. Defaults to 20 if not specified.
 auth:

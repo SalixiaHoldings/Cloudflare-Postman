@@ -2,13 +2,17 @@ $kind: http-example
 id: fcb7868e-498b-52ed-8fec-5e264f8e323a
 name: Forbidden.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/namespaces/{{namespace}}/tables/{{table_name}}/maintenance-runs?page_size=87&page_token=string"
+  url: "{{base_url}}/accounts/{{account_id}}/r2-catalog/{{bucket_name}}/namespaces/{{namespace}}/tables/{{table_name}}/maintenance-runs"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page_size: "87"
-    page_token: string
+    - key: page_size
+      value: "9"
+      disabled: true
+    - key: page_token
+      value: string
+      disabled: true
 response:
   statusCode: 403
   statusText: Forbidden

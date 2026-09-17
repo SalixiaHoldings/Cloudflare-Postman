@@ -17,7 +17,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_email":[],"api_key":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/secrets_store/stores/{{store_id}}?force=false"
+url: "{{base_url}}/accounts/{{account_id}}/secrets_store/stores/{{store_id}}"
 method: DELETE
 headers:
   Accept: application/json
@@ -26,6 +26,7 @@ headers:
 queryParams:
   - key: force
     value: "false"
+    disabled: true
     description: |
       When true, cascade-deletes all secrets in the store before deleting the store itself.
       Required when deleting a non-empty store. Without this parameter, attempting to

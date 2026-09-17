@@ -2,13 +2,17 @@ $kind: http-example
 id: e4c48969-92af-5235-9a11-edf9d37ab4e3
 name: Get IP Overview response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/intel/ip?ipv4=string&ipv6=string"
+  url: "{{base_url}}/accounts/{{account_id}}/intel/ip"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    ipv4: string
-    ipv6: string
+    - key: ipv4
+      value: string
+      disabled: true
+    - key: ipv6
+      value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

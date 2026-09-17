@@ -1,14 +1,20 @@
 $kind: http-example
 id: dad10851-d72a-5bc5-a976-5745a1bfba78
 request:
-  url: '{{base_url}}/accounts/{{account_id}}/scim/v2/Groups?startIndex=1&count=5628&filter=displayName eq "My Group"'
+  url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Groups"
   method: GET
   headers:
     Accept: application/scim+json
   queryParams:
-    startIndex: "1"
-    count: "5628"
-    filter: displayName eq "My Group"
+    - key: startIndex
+      value: "1"
+      disabled: true
+    - key: count
+      value: "1182"
+      disabled: true
+    - key: filter
+      value: displayName eq "My Group"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

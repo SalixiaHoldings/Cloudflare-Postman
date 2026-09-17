@@ -1,13 +1,15 @@
 $kind: http-example
 id: 1c6dc30f-beb4-54c6-bfe9-ced047032809
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/vectorize/v2/indexes/{{index_name}}/insert?unparsable-behavior=error"
+  url: "{{base_url}}/accounts/{{account_id}}/vectorize/v2/indexes/{{index_name}}/insert"
   method: POST
   headers:
     Content-Type: application/x-ndjson
     Accept: application/json
   queryParams:
-    unparsable-behavior: error
+    - key: unparsable-behavior
+      value: discard
+      disabled: true
   body:
     type: file
     content: {}

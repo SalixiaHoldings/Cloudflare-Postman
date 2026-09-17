@@ -1,12 +1,14 @@
 $kind: http-example
 id: f5ed869e-e8b2-584f-884b-b978f2584d23
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/analytics/latency?bins=string"
+  url: "{{base_url}}/zones/{{zone_id}}/analytics/latency"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    bins: string
+    - key: bins
+      value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

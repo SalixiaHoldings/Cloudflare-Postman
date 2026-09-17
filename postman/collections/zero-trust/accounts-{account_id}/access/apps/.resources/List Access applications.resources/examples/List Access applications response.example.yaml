@@ -1,19 +1,35 @@
 $kind: http-example
 id: e1cc244c-7d50-5918-9c70-a3f309c529d1
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/apps?name=string&domain=string&aud=string&target_attributes=string&exact=true&search=string&page=1&per_page=1000"
+  url: "{{base_url}}/accounts/{{account_id}}/access/apps"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    name: string
-    domain: string
-    aud: string
-    target_attributes: string
-    exact: "true"
-    search: string
-    page: "1"
-    per_page: "1000"
+    - key: name
+      value: string
+      disabled: true
+    - key: domain
+      value: string
+      disabled: true
+    - key: aud
+      value: string
+      disabled: true
+    - key: target_attributes
+      value: string
+      disabled: true
+    - key: exact
+      value: "true"
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "1000"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

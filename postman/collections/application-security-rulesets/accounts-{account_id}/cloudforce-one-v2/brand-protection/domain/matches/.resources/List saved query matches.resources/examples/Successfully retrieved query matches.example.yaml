@@ -1,15 +1,17 @@
 $kind: http-example
 id: 95b72408-85be-537b-b304-82f8668a90af
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/domain/matches?offset=0&limit=50&query_id=string&query_id=string&include_domain_id=false&include_dismissed=string&domain_search=string&orderBy=first_seen&order=asc"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/brand-protection/domain/matches?query_id=string&query_id=string"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: offset
       value: "0"
+      disabled: true
     - key: limit
       value: "50"
+      disabled: true
     - key: query_id
       value: string
       description: "(Required) "
@@ -18,14 +20,19 @@ request:
       description: "(Required) "
     - key: include_domain_id
       value: "false"
+      disabled: true
     - key: include_dismissed
       value: string
+      disabled: true
     - key: domain_search
       value: string
+      disabled: true
     - key: orderBy
-      value: first_seen
+      value: domain
+      disabled: true
     - key: order
-      value: asc
+      value: desc
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

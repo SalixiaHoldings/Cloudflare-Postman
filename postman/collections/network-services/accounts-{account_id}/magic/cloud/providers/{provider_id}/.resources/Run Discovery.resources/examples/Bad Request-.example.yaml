@@ -2,14 +2,16 @@ $kind: http-example
 id: 538f1856-8925-5356-b793-57520dc74e56
 name: Bad Request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers/{{provider_id}}/discover?v2=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers/{{provider_id}}/discover"
   method: POST
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    v2: "true"
+    - key: v2
+      value: "true"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

@@ -2,35 +2,44 @@ $kind: http-example
 id: 0fc82c10-e922-5399-87fa-265ea68361a7
 name: Object not found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai/models/search?per_page=100&page=1&task=Text Generation&author=&source=7160.418841522187&hide_experimental=false&search=&include_deprecated=false&format=openrouter"
+  url: "{{base_url}}/accounts/{{account_id}}/ai/models/search"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: per_page
       value: "100"
+      disabled: true
     - key: page
       value: "1"
+      disabled: true
     - key: task
       value: Text Generation
+      disabled: true
       description: Filter by Task Name.
     - key: author
       value: ""
+      disabled: true
       description: Filter by Author.
     - key: source
-      value: "7160.418841522187"
+      value: "7864.530649967492"
+      disabled: true
       description: Filter by Source Id.
     - key: hide_experimental
       value: "false"
+      disabled: true
       description: Filter to hide experimental models.
     - key: search
       value: ""
+      disabled: true
       description: Search.
     - key: include_deprecated
       value: "false"
+      disabled: true
       description: If true, include models for up to three months after their deprecation date. Defaults to false.
     - key: format
       value: openrouter
+      disabled: true
       description: If set, return models in the requested marketplace format instead of the default response.
 response:
   statusCode: 404

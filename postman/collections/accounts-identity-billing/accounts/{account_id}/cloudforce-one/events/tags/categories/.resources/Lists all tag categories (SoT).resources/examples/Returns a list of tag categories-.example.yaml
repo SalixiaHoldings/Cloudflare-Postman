@@ -2,12 +2,14 @@ $kind: http-example
 id: edf89149-34b2-524f-879c-3722788326e3
 name: Returns a list of tag categories.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/categories?search=string"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/categories"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    search: string
+    - key: search
+      value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

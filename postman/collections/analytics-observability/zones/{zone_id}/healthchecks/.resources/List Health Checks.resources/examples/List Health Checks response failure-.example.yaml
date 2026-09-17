@@ -2,16 +2,18 @@ $kind: http-example
 id: 1c15bd94-fd0a-5b47-abf3-817ddaf1193c
 name: List Health Checks response failure.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/healthchecks?page=1&per_page=25"
+  url: "{{base_url}}/zones/{{zone_id}}/healthchecks"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: per_page
       value: "25"
+      disabled: true
       description: Maximum number of results per page. Must be a multiple of 5.
 response:
   statusCode: 400

@@ -1,10 +1,13 @@
+import { createQueryConverter } from './query-process.mjs';
+import queryPolicy from '../config/query-projection.json' with { type: 'json' };
+import { assertQueryRevision } from './query-policy.mjs';
 import { generateNative } from './native-git.mjs';
 import { cp, mkdtemp, mkdir, readFile, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { V2_DIR, ROOT } from './constants.mjs';
 import { createBootstrapCollection, createTemplateEnvironment } from './chaining.mjs';
-import { sha256, stableJson, writeJson } from './io.mjs';
+import { readJson, sha256, stableJson, writeJson } from './io.mjs';
 import { listOperations, subsetSchema } from './openapi.mjs';
 import { classifyOperations, loadPartitionConfig } from './partition.mjs';
 import { generateCollection } from './postman.mjs';
@@ -24,6 +27,7 @@ async function cleanGeneratedDirectories(outputRoot) {
 
 async function generateV2({ outputRoot = V2_DIR, schemaPath, schemaLock } = {}) {
   const pinned = schemaPath && schemaLock ? { destination: schemaPath, lock: schemaLock } : await fetchPinnedSchema();
+  assertQueryRevision(queryPolicy, pinned.lock, (await readJson(path.join(ROOT, 'package.json'))).devDependencies['openapi-to-postmanv2']);
   const schema = JSON.parse(await readFile(pinned.destination, 'utf8'));
   const operations = listOperations(schema);
   const config = await loadPartitionConfig();
@@ -31,11 +35,17 @@ async function generateV2({ outputRoot = V2_DIR, schemaPath, schemaLock } = {}) 
   await cleanGeneratedDirectories(outputRoot);
 
   const manifestPartitions = [];
+  const queryConverter = createQueryConverter();
+  let secondaryResults;
+  try { secondaryResults = await queryConverter.convertAll(structuredClone(schema), config.partitions, assignments); }
+  finally { await queryConverter.close(); }
   for (const partition of config.partitions) {
     const partitionOperations = assignments.get(partition.id);
     const partitionSchema = subsetSchema(schema, partition, partitionOperations);
-    const { collection, represented, warnings } = await generateCollection(partitionSchema, {
+    const { collection, represented, warnings, queryProjection } = await generateCollection(partitionSchema, {
       partition,
+      queryPolicy,
+      secondaryResult: secondaryResults.get(partition.id),
       operations: partitionOperations,
       commit: pinned.lock.commit,
       schemaSha256: pinned.lock.schema.sha256
@@ -50,6 +60,7 @@ async function generateV2({ outputRoot = V2_DIR, schemaPath, schemaLock } = {}) 
       operationCount: represented.length,
       residual: partition.residual === true,
       converterWarningCount: warnings.length,
+      queryProjection,
       authentication: authenticationCounts(partitionOperations),
       sha256: sha256(serialized)
     });

@@ -2,14 +2,16 @@ $kind: http-example
 id: a7e28bff-dcaf-5de4-bc25-423f13d424d2
 name: List Pools response failure.
 request:
-  url: "{{base_url}}/user/load_balancers/pools?monitor=string"
+  url: "{{base_url}}/user/load_balancers/pools"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    monitor: string
+    - key: monitor
+      value: string
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

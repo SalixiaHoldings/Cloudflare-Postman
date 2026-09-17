@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/over-time?from=2023-10-11 00:00:00+00&to=2023-10-11 00:00:00+00&interval=minute&colo=SJC"
+url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/over-time?from=2023-10-11 00:00:00+00&to=2023-10-11 00:00:00+00&interval=hour"
 method: GET
 headers:
   Accept: application/json
@@ -25,10 +25,11 @@ queryParams:
     value: 2023-10-11 00:00:00+00
     description: (Required) End of the time range to query. Timestamp can be provided in ISO 8601 datetime format or milliseconds since epoch.
   - key: interval
-    value: minute
+    value: hour
     description: (Required) Time interval for aggregate time slots.
   - key: colo
     value: SJC
+    disabled: true
     description: List of data centers to filter results.
 auth:
   type: bearer

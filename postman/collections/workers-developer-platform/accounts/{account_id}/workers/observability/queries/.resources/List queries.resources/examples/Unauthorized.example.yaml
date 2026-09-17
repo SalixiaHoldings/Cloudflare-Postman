@@ -1,15 +1,23 @@
 $kind: http-example
 id: 8d34ee99-178d-5b14-b8ab-68696fa8b177
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/queries?page=1&perPage=20&order=desc&orderBy=updated"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/queries"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    perPage: "20"
-    order: desc
-    orderBy: updated
+    - key: page
+      value: "1"
+      disabled: true
+    - key: perPage
+      value: "20"
+      disabled: true
+    - key: order
+      value: desc
+      disabled: true
+    - key: orderBy
+      value: updated
+      disabled: true
 response:
   statusCode: 401
   statusText: Unauthorized

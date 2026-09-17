@@ -2,7 +2,7 @@ $kind: http-example
 id: e7006451-39b0-5d31-9358-184826b1e1f6
 name: Delete Objects response failure. The bucket may not exist, the request may be invalid, or the caller may not be authorized.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects?prefix="
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects"
   method: DELETE
   headers:
     - key: cf-r2-jurisdiction
@@ -15,7 +15,9 @@ request:
     - key: Accept
       value: application/json
   queryParams:
-    prefix: ""
+    - key: prefix
+      value: ""
+      disabled: true
   body:
     type: json
     content: |-

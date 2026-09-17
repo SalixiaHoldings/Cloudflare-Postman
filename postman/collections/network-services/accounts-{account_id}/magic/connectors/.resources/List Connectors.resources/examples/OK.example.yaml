@@ -1,7 +1,7 @@
 $kind: http-example
 id: e7d7dd0c-73e5-5bf7-8b5b-db82c162e738
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/connectors?device_type=MANAGED"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/connectors"
   method: GET
   headers:
     Accept: application/json
@@ -10,6 +10,7 @@ request:
   queryParams:
     - key: device_type
       value: MANAGED
+      disabled: true
       description: Filter connectors by device type.
 response:
   statusCode: 200

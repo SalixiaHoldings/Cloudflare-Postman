@@ -2,16 +2,18 @@ $kind: http-example
 id: f3d5f887-bc19-59ff-b94e-a8b2879a93d1
 name: Application not found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/one/applications/{{application_id}}/auth-methods?page=8161&page_size=8161"
+  url: "{{base_url}}/accounts/{{account_id}}/one/applications/{{application_id}}/auth-methods"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: A page number within the paginated result set.
     - key: page_size
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: Number of results to return per page.
 response:
   statusCode: 404

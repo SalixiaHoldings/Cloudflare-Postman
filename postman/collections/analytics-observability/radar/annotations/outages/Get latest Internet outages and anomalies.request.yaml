@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/annotations/outages?limit=5&offset=3789&dateRange=7d&dateStart=2023-09-01T11:41:33.782Z&dateEnd=2023-09-01T11:41:33.782Z&dataSource=ALL&outageType=NETWORK&outageCause=BLOCKING&tags=HAS_MATCHING_ANSWER&tags=PUBLIC_KEY_ALGORITHM&query=portugal&asn=174&location=US&geoId=3190509&origin=amazon-us-east-1&tld=com&ca=string&log=string&bot=gptbot&format=JSON"
+url: "{{base_url}}/radar/annotations/outages"
 method: GET
 headers:
   Accept: application/json
@@ -22,63 +22,83 @@ headers:
 queryParams:
   - key: limit
     value: "5"
+    disabled: true
     description: Limits the number of objects returned in the response.
   - key: offset
-    value: "3789"
+    value: "2923"
+    disabled: true
     description: Skips the specified number of objects before fetching the results.
   - key: dateRange
     value: 7d
+    disabled: true
     description: "Filters results by a relative date range ending at the current time. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`), e.g. `7d`. Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `3dcontrol` covers days -10 to -7, `7dcontrol` covers days -14 to -7, `28dcontrol` covers days -56 to -28, and `10dcontrol` covers days -24 to -14). Mutually exclusive with `dateStart`/`dateEnd`."
   - key: dateStart
     value: 2023-09-01T11:41:33.782Z
+    disabled: true
     description: Start of the date range (inclusive). Alternative to `dateRange`; provide together with `dateEnd`.
   - key: dateEnd
     value: 2023-09-01T11:41:33.782Z
+    disabled: true
     description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`.
   - key: dataSource
     value: ALL
+    disabled: true
     description: Filters results by data source.
   - key: outageType
     value: NETWORK
+    disabled: true
     description: Filters results by outage type.
   - key: outageCause
-    value: BLOCKING
+    value: POWER_OUTAGE
+    disabled: true
     description: Filters results by outage cause.
   - key: tags
-    value: HAS_MATCHING_ANSWER
+    value: DKIM
+    disabled: true
     description: Filters results by annotation tag. Matches annotations carrying at least one of the given tags.
   - key: tags
-    value: PUBLIC_KEY_ALGORITHM
+    value: ADM2
+    disabled: true
     description: Filters results by annotation tag. Matches annotations carrying at least one of the given tags.
   - key: query
     value: portugal
+    disabled: true
     description: Filters results by a free-text match on the annotation description, id, or linked entities (location, ASN, origin).
   - key: asn
     value: "174"
+    disabled: true
     description: Filters results by Autonomous System. Specify a single Autonomous System Number (ASN) as integer.
   - key: location
     value: US
+    disabled: true
     description: Filters results by location. Specify an alpha-2 location code.
   - key: geoId
     value: "3190509"
+    disabled: true
     description: Filters results by geolocation. Refer to [GeoNames](https://download.geonames.org/export/dump/readme.txt).
   - key: origin
     value: amazon-us-east-1
+    disabled: true
     description: Filters results by origin.
   - key: tld
     value: com
+    disabled: true
     description: Filters results by top-level domain.
   - key: ca
     value: string
+    disabled: true
     description: Filters results by certificate authority.
   - key: log
     value: string
+    disabled: true
     description: Filters results by certificate log.
   - key: bot
     value: gptbot
+    disabled: true
     description: Filters results by bot.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

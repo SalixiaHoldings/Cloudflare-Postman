@@ -1,12 +1,14 @@
 $kind: http-example
 id: ef00e563-09f9-5564-b782-3e93af730932
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cfd_tunnel/{{tunnel_id}}/connections?client_id=1bedc50d-42b3-473c-b108-ff3d10c0d925"
+  url: "{{base_url}}/accounts/{{account_id}}/cfd_tunnel/{{tunnel_id}}/connections"
   method: DELETE
   headers:
     Accept: application/json
   queryParams:
-    client_id: 1bedc50d-42b3-473c-b108-ff3d10c0d925
+    - key: client_id
+      value: 1bedc50d-42b3-473c-b108-ff3d10c0d925
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

@@ -2,16 +2,18 @@ $kind: http-example
 id: 43c65e8c-894d-5b1d-be09-b0eb670266de
 name: Bad request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dls/regional_services/prefix_bindings?cursor=string&per_page=25"
+  url: "{{base_url}}/accounts/{{account_id}}/dls/regional_services/prefix_bindings"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: cursor
       value: string
+      disabled: true
       description: Opaque token for cursor-based pagination. Omit for the first page. Pass the value from a previous response to fetch the next page.
     - key: per_page
       value: "25"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

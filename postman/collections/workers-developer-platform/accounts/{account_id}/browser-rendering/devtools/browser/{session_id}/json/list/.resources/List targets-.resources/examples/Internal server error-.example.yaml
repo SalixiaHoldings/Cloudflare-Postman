@@ -2,7 +2,7 @@ $kind: http-example
 id: 5fb7d48c-fe4f-52f0-ad87-f550c1b3b538
 name: Internal server error.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json/list?liveViewUrlExpiresInMs=300000"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json/list"
   method: GET
   headers:
     Accept: application/json
@@ -11,6 +11,7 @@ request:
   queryParams:
     - key: liveViewUrlExpiresInMs
       value: "300000"
+      disabled: true
       description: How long the live view URLs remain valid, in milliseconds (max 60 minutes)
 response:
   statusCode: 500

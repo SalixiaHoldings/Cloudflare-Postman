@@ -13,13 +13,15 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions/latest?deploy=true"
+url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions/latest"
 method: PATCH
 headers:
   Content-Type: application/json
   Accept: application/json
 queryParams:
-  deploy: "true"
+  - key: deploy
+    value: "true"
+    disabled: true
 body:
   type: json
   content: |-

@@ -1,13 +1,14 @@
 $kind: http-example
 id: 0f797aae-824f-59a8-b5f4-014840a953bc
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/hold?include_subdomains=true"
+  url: "{{base_url}}/zones/{{zone_id}}/hold"
   method: POST
   headers:
     Accept: application/json
   queryParams:
     - key: include_subdomains
       value: "true"
+      disabled: true
       description: |-
         If provided, the zone hold will extend to block any subdomain of the given zone, as well
         as SSL4SaaS Custom Hostnames. For example, a zone hold on a zone with the hostname

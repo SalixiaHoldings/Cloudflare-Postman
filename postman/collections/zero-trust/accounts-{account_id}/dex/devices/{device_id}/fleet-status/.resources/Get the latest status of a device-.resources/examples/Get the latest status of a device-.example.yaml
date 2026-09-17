@@ -2,7 +2,7 @@ $kind: http-example
 id: 895b361d-7f47-5f86-a4c6-cc15a4b307a4
 name: Get the latest status of a device.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/live?since_minutes=10&time_now=2023-10-11T00:00:00Z&colo=SJC"
+  url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/live?since_minutes=10"
   method: GET
   headers:
     Accept: application/json
@@ -12,9 +12,11 @@ request:
       description: (Required) Number of minutes before current time.
     - key: time_now
       value: 2023-10-11T00:00:00Z
+      disabled: true
       description: Current time in ISO format.
     - key: colo
       value: SJC
+      disabled: true
       description: List of data centers to filter results.
 response:
   statusCode: 200

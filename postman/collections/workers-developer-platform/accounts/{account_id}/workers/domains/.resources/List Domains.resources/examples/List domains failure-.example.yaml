@@ -2,16 +2,26 @@ $kind: http-example
 id: 5a119c37-fb2a-599a-93c2-2b299fb21c27
 name: List domains failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/domains?zone_id={{zone_id}}&zone_name=example.com&service=my-worker&hostname=app.example.com&environment=production"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/domains"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    zone_id: "{{zone_id}}"
-    zone_name: example.com
-    service: my-worker
-    hostname: app.example.com
-    environment: production
+    - key: zone_id
+      value: "{{zone_id}}"
+      disabled: true
+    - key: zone_name
+      value: example.com
+      disabled: true
+    - key: service
+      value: my-worker
+      disabled: true
+    - key: hostname
+      value: app.example.com
+      disabled: true
+    - key: environment
+      value: production
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

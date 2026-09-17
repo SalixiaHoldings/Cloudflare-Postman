@@ -1,20 +1,34 @@
 $kind: http-example
 id: eef2ff18-f27b-59e5-8bb2-5c0d3a4c2a6c
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/filters?paused=false&expression=php&description=browsers&ref=FIL-100&page=1&per_page=25&id=372e67954025e0ba6aaa6d586b9e0b61"
+  url: "{{base_url}}/zones/{{zone_id}}/filters"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    paused: "false"
-    expression: php
-    description: browsers
-    ref: FIL-100
-    page: "1"
-    per_page: "25"
-    id: 372e67954025e0ba6aaa6d586b9e0b61
+    - key: paused
+      value: "false"
+      disabled: true
+    - key: expression
+      value: php
+      disabled: true
+    - key: description
+      value: browsers
+      disabled: true
+    - key: ref
+      value: FIL-100
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "25"
+      disabled: true
+    - key: id
+      value: 372e67954025e0ba6aaa6d586b9e0b61
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

@@ -1,16 +1,26 @@
 $kind: http-example
 id: 4e05a9f9-2010-5fbf-896d-5775e7325def
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/matches/download?id=string&offset=6305&limit=6305&include_domain_id=true&include_dismissed=true"
+  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/matches/download"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    id: string
-    offset: "6305"
-    limit: "6305"
-    include_domain_id: "true"
-    include_dismissed: "true"
+    - key: id
+      value: string
+      disabled: true
+    - key: offset
+      value: "6305"
+      disabled: true
+    - key: limit
+      value: "6305"
+      disabled: true
+    - key: include_domain_id
+      value: "true"
+      disabled: true
+    - key: include_dismissed
+      value: "true"
+      disabled: true
 response:
   statusCode: 500
   statusText: Internal Server Error

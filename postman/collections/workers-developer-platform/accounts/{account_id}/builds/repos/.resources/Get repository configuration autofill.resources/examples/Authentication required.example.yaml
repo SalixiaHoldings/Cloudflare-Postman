@@ -1,7 +1,7 @@
 $kind: http-example
 id: c8a5ae80-1565-5d06-abd1-e7ad9060abd7
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/builds/repos/{{provider_type}}/{{provider_account_id}}/{{repo_id}}/config_autofill?branch=main&root_directory=/"
+  url: "{{base_url}}/accounts/{{account_id}}/builds/repos/{{provider_type}}/{{provider_account_id}}/{{repo_id}}/config_autofill?branch=main"
   method: GET
   headers:
     Accept: application/json
@@ -11,6 +11,7 @@ request:
       description: "(Required) "
     - key: root_directory
       value: /
+      disabled: true
 response:
   statusCode: 401
   statusText: Unauthorized

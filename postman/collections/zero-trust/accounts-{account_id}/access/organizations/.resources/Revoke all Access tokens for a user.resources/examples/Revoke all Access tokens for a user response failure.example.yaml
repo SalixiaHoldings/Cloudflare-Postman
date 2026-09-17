@@ -1,7 +1,7 @@
 $kind: http-example
 id: 51774fc7-0d43-55a1-95e4-3c481f35d031
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/organizations/revoke_user?devices=true"
+  url: "{{base_url}}/accounts/{{account_id}}/access/organizations/revoke_user"
   method: POST
   headers:
     Content-Type: application/json
@@ -9,6 +9,7 @@ request:
   queryParams:
     - key: devices
       value: "true"
+      disabled: true
       description: When set to `true`, all devices associated with the user will be revoked.
   body:
     type: json

@@ -1,14 +1,17 @@
 $kind: http-example
 id: e0b97b0b-ecf9-58bc-bbfa-685dc002f048
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/iam/resource_groups?description=ID of the resource group to be fetched.&value=<Error: Too many levels of nesting to fake this schema>&name=NameOfTheResourceGroup"
+  url: "{{base_url}}/accounts/{{account_id}}/iam/resource_groups"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    description: ID of the resource group to be fetched.
-    value: "<Error: Too many levels of nesting to fake this schema>"
-    name: NameOfTheResourceGroup
+    - key: id
+      value: 023e105f4ecef8ad9ca31a8372d0c353
+      disabled: true
+    - key: name
+      value: NameOfTheResourceGroup
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

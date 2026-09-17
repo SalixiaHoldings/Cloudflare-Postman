@@ -2,45 +2,59 @@ $kind: http-example
 id: bcca2afc-970d-5b21-9f46-5e1976d33949
 name: List of submissions.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/email-security/submissions?start=2022-06-25T14:30:00Z&end=2022-07-25T14:30:00Z&type=USER&submission_id=string&original_disposition=NONE&requested_disposition=<string>&outcome_disposition=<string>&status=string&query=string&escalated_from_user=true&order=requested_at&direction=asc&page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/submissions"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: start
       value: 2022-06-25T14:30:00Z
+      disabled: true
       description: The beginning of the search date range. Defaults to `now - 30 days`.
     - key: end
       value: 2022-07-25T14:30:00Z
+      disabled: true
       description: The end of the search date range. Defaults to `now`.
     - key: type
-      value: USER
+      value: TEAM
+      disabled: true
     - key: submission_id
       value: string
+      disabled: true
     - key: original_disposition
-      value: NONE
+      value: SPAM
+      disabled: true
     - key: requested_disposition
       value: <string>
+      disabled: true
     - key: outcome_disposition
       value: <string>
+      disabled: true
     - key: status
       value: string
+      disabled: true
     - key: query
       value: string
+      disabled: true
     - key: escalated_from_user
       value: "true"
+      disabled: true
       description: When true, return only submissions that were escalated by an end user (vs. by the security team). When false, return only submissions that were not escalated by an end user. When omitted, no filter is applied.
     - key: order
       value: requested_at
+      disabled: true
       description: Field to sort by.
     - key: direction
       value: asc
+      disabled: true
       description: The sorting direction.
     - key: page
       value: "1"
+      disabled: true
       description: Current page within paginated list of results.
     - key: per_page
       value: "20"
+      disabled: true
       description: The number of results per page. Maximum value is 1000.
 response:
   statusCode: 200

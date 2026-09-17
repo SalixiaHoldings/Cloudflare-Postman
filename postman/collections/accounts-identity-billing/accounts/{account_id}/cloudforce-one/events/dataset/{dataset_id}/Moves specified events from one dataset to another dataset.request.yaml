@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/move?keepRawData=true"
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/move"
 method: POST
 headers:
   Content-Type: application/json
@@ -21,6 +21,7 @@ headers:
 queryParams:
   - key: keepRawData
     value: "true"
+    disabled: true
     description: If true, copies raw data to the destination dataset. Default is false (raw data is stripped/not copied). Raw data is always deleted from the source.
 body:
   type: json

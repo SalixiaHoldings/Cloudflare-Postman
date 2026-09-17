@@ -13,19 +13,22 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/ai/finetunes/public?limit=20&offset=0&orderBy=string"
+url: "{{base_url}}/accounts/{{account_id}}/ai/finetunes/public"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: limit
     value: "20"
+    disabled: true
     description: Pagination Limit.
   - key: offset
     value: "0"
+    disabled: true
     description: Pagination Offset.
   - key: orderBy
     value: string
+    disabled: true
     description: Order By Column Name.
 auth:
   type: bearer

@@ -5,7 +5,7 @@ name: |
   - "delete by list" returns an array of `{ key }` entries for successfully deleted objects;
   - "delete by prefix" returns the prefix-delete job descriptor.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects?prefix="
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects"
   method: DELETE
   headers:
     - key: cf-r2-jurisdiction
@@ -18,7 +18,9 @@ request:
     - key: Accept
       value: application/json
   queryParams:
-    prefix: ""
+    - key: prefix
+      value: ""
+      disabled: true
   body:
     type: json
     content: |-

@@ -2,7 +2,7 @@ $kind: http-example
 id: f6e281f1-b0bd-5ba8-b957-8da22d98c4c9
 name: Get tags for single resource response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/tags?resource_id=023e105f4ecef8ad9ca31a8372d0c353&resource_type=worker&worker_id=3f72a691-44b3-4c11-8642-c18a88ddaa5e"
+  url: "{{base_url}}/accounts/{{account_id}}/tags?resource_id=023e105f4ecef8ad9ca31a8372d0c353&resource_type=worker"
   method: GET
   headers:
     Accept: application/json
@@ -17,6 +17,7 @@ request:
       description: (Required) The type of the resource.
     - key: worker_id
       value: 3f72a691-44b3-4c11-8642-c18a88ddaa5e
+      disabled: true
       description: Worker identifier. Required for worker_version resources.
 response:
   statusCode: 500

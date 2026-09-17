@@ -2,14 +2,20 @@ $kind: http-example
 id: 5b52a8db-83bd-5697-b283-d1471ee7ef3b
 name: Tokens.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/tokens?state=active&page=1&per_page=30"
+  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/tokens"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    state: active
-    page: "1"
-    per_page: "30"
+    - key: state
+      value: active
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "30"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

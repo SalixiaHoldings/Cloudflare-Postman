@@ -14,7 +14,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/scrape?cacheTTL=5"
+url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/scrape"
 method: POST
 headers:
   Content-Type: application/json
@@ -24,6 +24,7 @@ headers:
 queryParams:
   - key: cacheTTL
     value: "5"
+    disabled: true
     description: Cache TTL default is 5s. Set to 0 to disable.
 body:
   type: json

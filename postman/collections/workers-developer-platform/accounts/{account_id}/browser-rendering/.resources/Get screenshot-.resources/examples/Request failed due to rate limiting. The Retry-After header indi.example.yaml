@@ -2,7 +2,7 @@ $kind: http-example
 id: b6bebbb6-f40e-5dd8-ae4e-8334970fa529
 name: Request failed due to rate limiting. The Retry-After header indicates when the client should retry the request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/screenshot?cacheTTL=5"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/screenshot"
   method: POST
   headers:
     Content-Type: application/json
@@ -12,6 +12,7 @@ request:
   queryParams:
     - key: cacheTTL
       value: "5"
+      disabled: true
       description: Cache TTL default is 5s. Set to 0 to disable.
   body:
     type: json

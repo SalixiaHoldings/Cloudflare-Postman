@@ -2,14 +2,20 @@ $kind: http-example
 id: cfb7d8d6-44e6-5596-8676-8805b515673c
 name: List Hostname Associations response failure.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/origin_tls_client_auth/hostnames?page=1&per_page=50&status=active"
+  url: "{{base_url}}/zones/{{zone_id}}/origin_tls_client_auth/hostnames"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "50"
-    status: active
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "50"
+      disabled: true
+    - key: status
+      value: active
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

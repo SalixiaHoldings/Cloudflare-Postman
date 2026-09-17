@@ -13,22 +13,27 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/workers/scripts-search?name=my-worker&id=bdf3567828824b74aadd550004cf4913&order_by=created_on&page=1&per_page=10"
+url: "{{base_url}}/accounts/{{account_id}}/workers/scripts-search"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: name
     value: my-worker
+    disabled: true
   - key: id
     value: bdf3567828824b74aadd550004cf4913
+    disabled: true
   - key: order_by
     value: created_on
+    disabled: true
   - key: page
     value: "1"
+    disabled: true
     description: Current page.
   - key: per_page
     value: "10"
+    disabled: true
     description: Items per page.
 auth:
   type: bearer

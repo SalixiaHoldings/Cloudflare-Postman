@@ -2,16 +2,18 @@ $kind: http-example
 id: e6fa36b4-348f-55b6-976a-979a11729f96
 name: Delete scripts in namespace response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts?tags=production:yes,staging:no&limit=1000"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts"
   method: DELETE
   headers:
     Accept: application/json
   queryParams:
     - key: tags
       value: production:yes,staging:no
+      disabled: true
       description: "Filter scripts by tags before deletion. Format: comma-separated list of tag:allowed pairs where allowed is 'yes' or 'no'."
     - key: limit
       value: "1000"
+      disabled: true
       description: Limit the number of scripts to delete.
 response:
   statusCode: 400

@@ -1,18 +1,32 @@
 $kind: http-example
 id: ac4cf1c6-4939-52bb-b13d-820b9f8ee64d
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers/{{identity_provider_id}}/scim/users?cf_resource_id=bd97ef8d-7986-43e3-9ee0-c25dda33e4b0&idp_resource_id=john_smith_01&username=John Smith&email=john.smith@example.com&name=John Smith&page=1&per_page=100"
+  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers/{{identity_provider_id}}/scim/users"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    cf_resource_id: bd97ef8d-7986-43e3-9ee0-c25dda33e4b0
-    idp_resource_id: john_smith_01
-    username: John Smith
-    email: john.smith@example.com
-    name: John Smith
-    page: "1"
-    per_page: "100"
+    - key: cf_resource_id
+      value: bd97ef8d-7986-43e3-9ee0-c25dda33e4b0
+      disabled: true
+    - key: idp_resource_id
+      value: john_smith_01
+      disabled: true
+    - key: username
+      value: John Smith
+      disabled: true
+    - key: email
+      value: john.smith@example.com
+      disabled: true
+    - key: name
+      value: John Smith
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "100"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

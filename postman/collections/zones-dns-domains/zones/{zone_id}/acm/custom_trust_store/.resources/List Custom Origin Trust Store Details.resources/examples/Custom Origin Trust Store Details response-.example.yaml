@@ -2,15 +2,23 @@ $kind: http-example
 id: eacdf6ce-4c8d-5674-a19a-a143f198766d
 name: Custom Origin Trust Store Details response.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/acm/custom_trust_store?page=1&per_page=20&limit=10&offset=10"
+  url: "{{base_url}}/zones/{{zone_id}}/acm/custom_trust_store"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
-    limit: "10"
-    offset: "10"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: limit
+      value: "10"
+      disabled: true
+    - key: offset
+      value: "10"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

@@ -2,7 +2,7 @@ $kind: http-example
 id: e231a8f3-89e7-52e7-a6d0-1ed7fcec5176
 name: List all profiles failure response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles?all=true"
+  url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles"
   method: GET
   headers:
     Accept: application/json
@@ -11,6 +11,7 @@ request:
   queryParams:
     - key: all
       value: "true"
+      disabled: true
       description: Return all profiles, including those that current account does not have access to.
 response:
   statusCode: 400

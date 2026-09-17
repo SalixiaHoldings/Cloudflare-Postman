@@ -1,15 +1,23 @@
 $kind: http-example
 id: f2fb3a0e-d664-55ba-8cc2-34b104272011
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/history?per_page=25&before=2022-05-20T20:29:58.679897Z&page=1&since=2022-05-19T20:29:58.679897Z"
+  url: "{{base_url}}/accounts/{{account_id}}/alerting/v3/history"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    per_page: "25"
-    before: 2022-05-20T20:29:58.679897Z
-    page: "1"
-    since: 2022-05-19T20:29:58.679897Z
+    - key: per_page
+      value: "25"
+      disabled: true
+    - key: before
+      value: 2022-05-20T20:29:58.679897Z
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: since
+      value: 2022-05-19T20:29:58.679897Z
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

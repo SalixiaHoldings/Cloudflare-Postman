@@ -13,20 +13,34 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/zones/{{zone_id}}/filters?paused=false&expression=php&description=browsers&ref=FIL-100&page=1&per_page=25&id=372e67954025e0ba6aaa6d586b9e0b61"
+url: "{{base_url}}/zones/{{zone_id}}/filters"
 method: GET
 headers:
   Accept: application/json
   X-Auth-Email: "{{api_email}}"
   X-Auth-Key: "{{api_key}}"
 queryParams:
-  paused: "false"
-  expression: php
-  description: browsers
-  ref: FIL-100
-  page: "1"
-  per_page: "25"
-  id: 372e67954025e0ba6aaa6d586b9e0b61
+  - key: paused
+    value: "false"
+    disabled: true
+  - key: expression
+    value: php
+    disabled: true
+  - key: description
+    value: browsers
+    disabled: true
+  - key: ref
+    value: FIL-100
+    disabled: true
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "25"
+    disabled: true
+  - key: id
+    value: 372e67954025e0ba6aaa6d586b9e0b61
+    disabled: true
 auth:
   type: bearer
   credentials:

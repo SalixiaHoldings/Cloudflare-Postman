@@ -13,13 +13,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/devices/registrations/{{registration_id}}?include=string"
+url: "{{base_url}}/accounts/{{account_id}}/devices/registrations/{{registration_id}}"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: include
     value: string
+    disabled: true
     description: |
       Comma-separated list of additional information that should be included in the registration response. Supported values are: "policy".
 auth:

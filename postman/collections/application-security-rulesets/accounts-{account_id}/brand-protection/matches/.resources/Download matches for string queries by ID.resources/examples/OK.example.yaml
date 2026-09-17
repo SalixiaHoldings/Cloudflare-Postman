@@ -1,16 +1,26 @@
 $kind: http-example
 id: 3e484fc8-bee0-572c-9d97-6d255a448a91
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/matches/download?id=string&offset=6305&limit=6305&include_domain_id=true&include_dismissed=true"
+  url: "{{base_url}}/accounts/{{account_id}}/brand-protection/matches/download"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    id: string
-    offset: "6305"
-    limit: "6305"
-    include_domain_id: "true"
-    include_dismissed: "true"
+    - key: id
+      value: string
+      disabled: true
+    - key: offset
+      value: "6305"
+      disabled: true
+    - key: limit
+      value: "6305"
+      disabled: true
+    - key: include_domain_id
+      value: "true"
+      disabled: true
+    - key: include_dismissed
+      value: "true"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

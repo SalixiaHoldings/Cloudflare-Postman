@@ -2,17 +2,25 @@ $kind: http-example
 id: ae4b73eb-c601-53d0-8b26-e49d335bcc49
 name: Internal Server Error.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps/{{onramp_id}}?status=true&vpcs=true&post_apply_resources=true&planned_resources=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps/{{onramp_id}}"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    status: "true"
-    vpcs: "true"
-    post_apply_resources: "true"
-    planned_resources: "true"
+    - key: status
+      value: "true"
+      disabled: true
+    - key: vpcs
+      value: "true"
+      disabled: true
+    - key: post_apply_resources
+      value: "true"
+      disabled: true
+    - key: planned_resources
+      value: "true"
+      disabled: true
 response:
   statusCode: 500
   statusText: Internal Server Error

@@ -2,14 +2,20 @@ $kind: http-example
 id: 18adfb3e-28d8-52ed-89a4-26b1f9012d0b
 name: List of rules.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured?limit=50&offset=0&search=string"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    limit: "50"
-    offset: "0"
-    search: string
+    - key: limit
+      value: "50"
+      disabled: true
+    - key: offset
+      value: "0"
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

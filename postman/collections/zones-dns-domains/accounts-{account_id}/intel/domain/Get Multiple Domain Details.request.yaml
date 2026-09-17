@@ -22,19 +22,22 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/intel/domain/bulk?domain=string&domain=string&include_ranking=false&skip_ranking=true"
+url: "{{base_url}}/accounts/{{account_id}}/intel/domain/bulk"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: domain
     value: string
+    disabled: true
     description: Accepts multiple values like `?domain=cloudflare.com&domain=example.com`.
   - key: domain
     value: string
+    disabled: true
     description: Accepts multiple values like `?domain=cloudflare.com&domain=example.com`.
   - key: include_ranking
     value: "false"
+    disabled: true
     description: |
       Whether to include domain ranking data in the response. Defaults to
       `false` — ranking lookups are expensive at bulk scale and most
@@ -42,6 +45,7 @@ queryParams:
       replaces the deprecated `skip_ranking` (see below).
   - key: skip_ranking
     value: "true"
+    disabled: true
     description: |
       **Deprecated.** Previously controlled whether the ranking lookup
       was skipped (defaulted to `false`, meaning ranking ran). The

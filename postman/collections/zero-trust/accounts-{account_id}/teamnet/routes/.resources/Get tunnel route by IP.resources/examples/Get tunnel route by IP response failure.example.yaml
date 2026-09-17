@@ -1,15 +1,17 @@
 $kind: http-example
 id: a365844b-48fb-5306-b31a-7f3764d18c1e
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/teamnet/routes/ip/{{ip}}?virtual_network_id=f70ff985-a4ef-4643-bbbc-4a0ed4fc8415&default_virtual_network_fallback=true"
+  url: "{{base_url}}/accounts/{{account_id}}/teamnet/routes/ip/{{ip}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: virtual_network_id
       value: f70ff985-a4ef-4643-bbbc-4a0ed4fc8415
+      disabled: true
     - key: default_virtual_network_fallback
       value: "true"
+      disabled: true
       description: When the virtual_network_id parameter is not provided the request filter will default search routes that are in the default virtual network for the account. If this parameter is set to false, the search will include routes that do not have a virtual network.
 response:
   statusCode: 400

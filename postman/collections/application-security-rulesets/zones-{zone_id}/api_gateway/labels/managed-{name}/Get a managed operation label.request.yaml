@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/zones/{{zone_id}}/api_gateway/labels/managed/{{name}}?with_mapped_resource_counts=true"
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/labels/managed/{{name}}"
 method: GET
 headers:
   Accept: application/json
@@ -22,6 +22,7 @@ headers:
 queryParams:
   - key: with_mapped_resource_counts
     value: "true"
+    disabled: true
     description: Include `mapped_resources` for each label
 auth:
   type: bearer

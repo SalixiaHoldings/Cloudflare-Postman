@@ -15,7 +15,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs?jobType=prefixDelete&status=COMPLETED&maxKeys=719&continuationToken=string"
+url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs"
 method: GET
 headers:
   cf-r2-jurisdiction: default
@@ -23,15 +23,19 @@ headers:
 queryParams:
   - key: jobType
     value: prefixDelete
+    disabled: true
     description: Restricts results to jobs of the specified type.
   - key: status
-    value: COMPLETED
+    value: FAILED
+    disabled: true
     description: Restricts results to jobs with the specified status. `jobType` is required when this parameter is provided.
   - key: maxKeys
-    value: "719"
+    value: "599"
+    disabled: true
     description: Maximum number of jobs to return.
   - key: continuationToken
     value: string
+    disabled: true
     description: Pagination token received as `nextContinuationToken` in the previous response.
 auth:
   type: bearer

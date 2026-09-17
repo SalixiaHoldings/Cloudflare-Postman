@@ -1,7 +1,7 @@
 $kind: http-example
 id: c3646fe6-c116-5c25-8cc7-c9fb7f02fa76
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/ipsec_tunnels/psk?validate_only=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/ipsec_tunnels/psk"
   method: POST
   headers:
     Content-Type: application/json
@@ -11,6 +11,7 @@ request:
   queryParams:
     - key: validate_only
       value: "true"
+      disabled: true
       description: If `true`, only run validation without persisting changes.
   body:
     type: json

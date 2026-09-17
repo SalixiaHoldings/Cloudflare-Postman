@@ -2,16 +2,18 @@ $kind: http-example
 id: cb52b4d8-6f65-57cf-8348-4918914577e4
 name: Unauthorized.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/containers/applications?name=string&image=string"
+  url: "{{base_url}}/accounts/{{account_id}}/containers/applications"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: name
       value: string
+      disabled: true
       description: Filter applications by name.
     - key: image
       value: string
+      disabled: true
       description: Filter applications by image.
 response:
   statusCode: 401

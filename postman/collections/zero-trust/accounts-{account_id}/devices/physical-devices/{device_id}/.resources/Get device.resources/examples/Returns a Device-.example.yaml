@@ -2,13 +2,14 @@ $kind: http-example
 id: f4089342-9270-54c9-b10e-1eceb34b379c
 name: Returns a Device.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/devices/physical-devices/{{device_id}}?include=string"
+  url: "{{base_url}}/accounts/{{account_id}}/devices/physical-devices/{{device_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: include
       value: string
+      disabled: true
       description: |
         Comma-separated list of additional information that should be included in the device response. Supported values are: "last_seen_registration.policy".
 response:

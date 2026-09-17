@@ -2,7 +2,7 @@ $kind: http-example
 id: 14ffd8a1-cf19-5544-ae93-467e3d88230f
 name: Bad request.
 request:
-  url: "{{base_url}}/radar/datasets?limit=5&offset=3789&datasetType=RANKING_BUCKET&date=2024-09-19&format=JSON"
+  url: "{{base_url}}/radar/datasets"
   method: GET
   headers:
     Accept: application/json
@@ -11,18 +11,23 @@ request:
   queryParams:
     - key: limit
       value: "5"
+      disabled: true
       description: Limits the number of objects returned in the response.
     - key: offset
-      value: "3789"
+      value: "2923"
+      disabled: true
       description: Skips the specified number of objects before fetching the results.
     - key: datasetType
       value: RANKING_BUCKET
+      disabled: true
       description: Filters results by dataset type.
     - key: date
       value: 2024-09-19
+      disabled: true
       description: Filters results by the specified date.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 400

@@ -1,7 +1,7 @@
 $kind: http-example
 id: 60986f74-8478-5c0c-b460-650cddcc7cef
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/logs/received?start=string&end=string&fields=ClientIP,RayID,EdgeStartTimestamp&sample=0.1&count=4907&timestamps=unixnano"
+  url: "{{base_url}}/zones/{{zone_id}}/logs/received?end=string"
   method: GET
   headers:
     Accept: application/json
@@ -10,17 +10,22 @@ request:
   queryParams:
     - key: start
       value: string
+      disabled: true
     - key: end
       value: string
       description: "(Required) "
     - key: fields
       value: ClientIP,RayID,EdgeStartTimestamp
+      disabled: true
     - key: sample
       value: "0.1"
+      disabled: true
     - key: count
-      value: "4907"
+      value: "7105"
+      disabled: true
     - key: timestamps
       value: unixnano
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

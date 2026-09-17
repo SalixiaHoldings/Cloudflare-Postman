@@ -2,7 +2,7 @@ $kind: http-example
 id: 1e9018ed-9d37-5356-9f15-5c74ff7cc533
 name: Get all logs and status from the instance.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}?simple=false&order=asc"
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}"
   method: GET
   headers:
     Accept: application/json
@@ -11,9 +11,11 @@ request:
   queryParams:
     - key: simple
       value: "false"
+      disabled: true
       description: When true, omits step details and returns only metadata with step_count.
     - key: order
       value: asc
+      disabled: true
       description: 'Step ordering: "asc" (default, oldest first) or "desc" (newest first).'
 response:
   statusCode: 200

@@ -2,40 +2,50 @@ $kind: http-example
 id: 58aae182-1afb-5351-bd25-88c627a30ba3
 name: "OK: Successful HTTP request"
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/content?direction=desc&dlp_profile_id=8c0c0e25-bbd0-8390-eae7-333b0eaa1638&integration_id=8c0c0e25-bbd0-8390-eae7-333b0eaa1638&max_affliction_date=1984-09-29T01:09:30.463Z&min_affliction_date=1984-09-29T01:09:30.463Z&order=dlp_profile_count&page=8161&per_page=8161&search=string&vendor=GOOGLE_WORKSPACE"
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/content"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: direction
-      value: desc
+      value: asc
+      disabled: true
       description: Direction to order results.
     - key: dlp_profile_id
-      value: 8c0c0e25-bbd0-8390-eae7-333b0eaa1638
+      value: 4fb84af0-1366-6f4c-4ccd-23e81a789cb9
+      disabled: true
       description: Filter by an DLP profile ID
     - key: integration_id
-      value: 8c0c0e25-bbd0-8390-eae7-333b0eaa1638
+      value: 4fb84af0-1366-6f4c-4ccd-23e81a789cb9
+      disabled: true
       description: Filter by an integration ID
     - key: max_affliction_date
-      value: 1984-09-29T01:09:30.463Z
+      value: 1947-03-20T01:57:00.324Z
+      disabled: true
       description: Filter to view findings that occurred on or before the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
     - key: min_affliction_date
-      value: 1984-09-29T01:09:30.463Z
+      value: 1947-03-20T01:57:00.324Z
+      disabled: true
       description: Filter to view findings that occurred on or after the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
     - key: order
-      value: dlp_profile_count
+      value: integration_name
+      disabled: true
       description: Which field to use when ordering content assets.
     - key: page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: A page number within the paginated result set.
     - key: per_page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: Number of results to return per page.
     - key: search
       value: string
+      disabled: true
       description: A search term.
     - key: vendor
       value: GOOGLE_WORKSPACE
+      disabled: true
       description: Filter by vendor
 response:
   statusCode: 200

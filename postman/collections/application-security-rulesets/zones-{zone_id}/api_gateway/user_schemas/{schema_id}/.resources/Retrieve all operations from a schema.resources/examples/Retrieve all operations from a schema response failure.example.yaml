@@ -1,7 +1,7 @@
 $kind: http-example
 id: 9859ad55-6e41-5620-9a15-6547d82d00dd
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/{{schema_id}}/operations?feature=thresholds&host=api.cloudflare.com&method=GET&endpoint=/api/v1&page=1&per_page=20&operation_status=new"
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/{{schema_id}}/operations"
   method: GET
   headers:
     Accept: application/json
@@ -10,21 +10,28 @@ request:
   queryParams:
     - key: feature
       value: thresholds
+      disabled: true
       description: Add feature(s) to the results. The feature name that is given here corresponds to the resulting feature object. Have a look at the top-level object description for more details on the specific meaning.
     - key: host
       value: api.cloudflare.com
+      disabled: true
     - key: method
       value: GET
+      disabled: true
     - key: endpoint
       value: /api/v1
+      disabled: true
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: per_page
       value: "20"
+      disabled: true
       description: Maximum number of results per page.
     - key: operation_status
       value: new
+      disabled: true
       description: Filter results by whether operations exist in API Shield Endpoint Management or not. `new` will just return operations from the schema that do not exist in API Shield Endpoint Management. `existing` will just return operations from the schema that already exist in API Shield Endpoint Management.
 response:
   statusCode: 400

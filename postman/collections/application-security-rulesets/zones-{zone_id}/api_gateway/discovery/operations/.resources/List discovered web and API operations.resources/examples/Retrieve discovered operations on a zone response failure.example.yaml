@@ -1,7 +1,7 @@
 $kind: http-example
 id: 00f8d651-4650-53be-acb3-40768351ed47
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/discovery/operations?page=1&per_page=20&host=api.cloudflare.com&method=GET&endpoint=/api/v1&direction=desc&order=method&diff=false&origin=ML&state=saved"
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/discovery/operations"
   method: GET
   headers:
     Accept: application/json
@@ -10,30 +10,40 @@ request:
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: per_page
       value: "20"
+      disabled: true
       description: Maximum number of results per page.
     - key: host
       value: api.cloudflare.com
+      disabled: true
     - key: method
       value: GET
+      disabled: true
     - key: endpoint
       value: /api/v1
+      disabled: true
     - key: direction
       value: desc
+      disabled: true
     - key: order
       value: method
+      disabled: true
     - key: diff
-      value: "false"
+      value: "true"
+      disabled: true
     - key: origin
       value: ML
+      disabled: true
       description: |
         Filter results to only include discovery results sourced from a particular discovery engine
           * `ML` - Discovered operations that were sourced using ML API Discovery
           * `SessionIdentifier` - Discovered operations that were sourced using Session Identifier API Discovery
     - key: state
       value: saved
+      disabled: true
       description: |
         Filter results to only include discovery results in a particular state. States are as follows
           * `review` - Discovered operations that are not saved into API Shield Endpoint Management

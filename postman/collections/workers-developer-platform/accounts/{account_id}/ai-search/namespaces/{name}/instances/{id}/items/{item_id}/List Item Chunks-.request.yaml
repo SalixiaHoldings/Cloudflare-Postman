@@ -14,13 +14,17 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items/{{item_id}}/chunks?limit=20&offset=0"
+url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items/{{item_id}}/chunks"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  limit: "20"
-  offset: "0"
+  - key: limit
+    value: "20"
+    disabled: true
+  - key: offset
+    value: "0"
+    disabled: true
 auth:
   type: bearer
   credentials:

@@ -2,13 +2,14 @@ $kind: http-example
 id: 089bd735-a935-50fc-83cf-251c65b8a356
 name: Internal server error.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/ai-audit/robots?subdomain=string"
+  url: "{{base_url}}/zones/{{zone_id}}/ai-audit/robots"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: subdomain
       value: string
+      disabled: true
       description: Optional subdomain to fetch robots.txt for. If omitted, fetches robots.txt for the zone apex domain.
 response:
   statusCode: 500

@@ -2,7 +2,7 @@ $kind: http-example
 id: 9d10823a-cb6f-5c3c-8382-5ebcb2011205
 name: Successfully returned domain search results.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/domain-search?q=coffee shop&extensions=com,net,org&limit=20"
+  url: "{{base_url}}/accounts/{{account_id}}/registrar-sandbox/domain-search?q=coffee shop"
   method: GET
   headers:
     Accept: application/json
@@ -15,12 +15,14 @@ request:
         - Domain names: "example.com" returns example.com and variations across extensions
     - key: extensions
       value: com,net,org
+      disabled: true
       description: |
         Limits results to specific domain extensions from the supported set. If not specified,
         returns results across all supported extensions. Extensions not in the supported
         set are silently ignored.
     - key: limit
       value: "20"
+      disabled: true
       description: |
         Maximum number of domain suggestions to return. Defaults to 20 if not specified.
 response:

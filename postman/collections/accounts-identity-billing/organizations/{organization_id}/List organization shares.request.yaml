@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_email":[],"api_key":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/organizations/{{organization_id}}/shares?status=<string>&kind=<string>&target_type=<string>&resource_types=<string>&resource_types=<string>&order=created&direction=asc&page=2&per_page=20"
+url: "{{base_url}}/organizations/{{organization_id}}/shares"
 method: GET
 headers:
   Accept: application/json
@@ -22,33 +22,42 @@ headers:
 queryParams:
   - key: status
     value: <string>
+    disabled: true
     description: Filter shares by status.
   - key: kind
     value: <string>
+    disabled: true
     description: Filter shares by kind.
   - key: target_type
     value: <string>
+    disabled: true
     description: Filter shares by target_type.
   - key: resource_types
     value: <string>
+    disabled: true
     description: Filter share resources by resource_types.
   - key: resource_types
     value: <string>
+    disabled: true
     description: Filter share resources by resource_types.
   - key: order
     value: created
+    disabled: true
     description: Order shares by values in the given field.
   - key: direction
     value: asc
+    disabled: true
     description: Direction to sort objects.
   - key: page
     value: "2"
+    disabled: true
     description: |-
       Page number. Defaults to `1` when `per_page` is supplied without
       `page`. May be omitted entirely along with `per_page` to receive a
       non-paginated response.
   - key: per_page
     value: "20"
+    disabled: true
     description: |-
       Number of objects to return per page. Defaults to `20` when `page`
       is supplied without `per_page`. May be omitted entirely along with

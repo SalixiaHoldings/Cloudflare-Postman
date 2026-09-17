@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/step?name=string&type=step&attempt=6430122057924608"
+url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/step?name=string&type=waitForEvent"
 method: GET
 headers:
   Accept: application/json
@@ -24,10 +24,11 @@ queryParams:
     value: string
     description: (Required) Exact step name from the instance logs response, including the generated counter suffix.
   - key: type
-    value: step
+    value: waitForEvent
     description: (Required) Step type to disambiguate step.do and waitForEvent entries that share the same name.
   - key: attempt
-    value: "6430122057924608"
+    value: "4830036332904448"
+    disabled: true
     description: Specific attempt number to retrieve output or error for.
 auth:
   type: bearer

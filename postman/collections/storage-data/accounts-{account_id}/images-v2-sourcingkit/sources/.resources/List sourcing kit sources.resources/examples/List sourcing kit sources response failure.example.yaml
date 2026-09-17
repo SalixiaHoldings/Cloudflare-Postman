@@ -1,14 +1,20 @@
 $kind: http-example
 id: ed78cf32-5956-5207-b678-8f6c3c9beb0e
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/sources?offset=0&limit=25&name=string"
+  url: "{{base_url}}/accounts/{{account_id}}/images/v2/sourcingkit/sources"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    offset: "0"
-    limit: "25"
-    name: string
+    - key: offset
+      value: "0"
+      disabled: true
+    - key: limit
+      value: "25"
+      disabled: true
+    - key: name
+      value: string
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

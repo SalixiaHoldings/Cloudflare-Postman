@@ -2,25 +2,31 @@ $kind: http-example
 id: 21aae966-a635-5b24-abb9-4073b47f2d44
 name: Client error response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators?page=2535.467583220452&pageSize=2535.467583220452&name=string&indicatorType=string&relatedEvent=string&relatedEvent=string"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
-      value: "2535.467583220452"
+      value: "3075.6446719169617"
+      disabled: true
     - key: pageSize
-      value: "2535.467583220452"
+      value: "3075.6446719169617"
+      disabled: true
     - key: name
       value: string
+      disabled: true
       description: Filter by indicator value (substring match)
     - key: indicatorType
       value: string
+      disabled: true
     - key: relatedEvent
       value: string
+      disabled: true
       description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
     - key: relatedEvent
       value: string
+      disabled: true
       description: Filter indicators by related event UUID(s). Multiple UUIDs can be provided by repeating the parameter.
 response:
   statusCode: 400

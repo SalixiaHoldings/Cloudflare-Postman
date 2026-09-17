@@ -2,57 +2,71 @@ $kind: http-example
 id: ee925c1e-bf71-535b-be94-39bacc75ba35
 name: "Not Found: Finding not found"
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{finding_id}}/instances?archived=true&cursor=string&direction=desc&max_affliction_date=1984-09-29T01:09:30.463Z&min_affliction_date=1984-09-29T01:09:30.463Z&order=affliction_date&page=8161&per_page=8161&search=string&remediation_statuses=pending,completed,none&finding_instance_ids=c416bc38-75db-425f-ae25-c37b5df5c37f&finding_instance_ids=b555bc38-75db-425f-ae25-c37b5df5c37f&asset_ids=6aefacf8-52ec-e192-6ee9-750841a92141&asset_ids=ad5b0736-e486-7fa4-6aa6-53eef77350f2"
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings/{{finding_id}}/instances"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: archived
       value: "true"
+      disabled: true
       description: Archived
     - key: cursor
       value: string
+      disabled: true
       description: A cursor for pagination. Obtained from the `result_info.cursor` field of a previous response.
     - key: direction
-      value: desc
+      value: asc
+      disabled: true
       description: Direction to order results.
     - key: max_affliction_date
-      value: 1984-09-29T01:09:30.463Z
+      value: 1947-03-20T01:57:00.324Z
+      disabled: true
       description: Filter to view findings that occurred on or before the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
     - key: min_affliction_date
-      value: 1984-09-29T01:09:30.463Z
+      value: 1947-03-20T01:57:00.324Z
+      disabled: true
       description: Filter to view findings that occurred on or after the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
     - key: order
-      value: affliction_date
+      value: remediation.status
+      disabled: true
       description: |-
         Which field to use when ordering the Finding's instances.
         When ordering by 'remediation.status', only the most recent non-stale remediation job is considered. Stale jobs (created before the instance's affliction_date) are treated as having no status for ordering purposes.
     - key: page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: A page number within the paginated result set.
     - key: per_page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: Number of results to return per page.
     - key: search
       value: string
+      disabled: true
       description: A search term.
     - key: remediation_statuses
       value: pending,completed,none
+      disabled: true
       description: |-
         Filter finding instances by most recent remediation job status. Supports multiple comma-separated values.
         Use 'none' to filter instances with no remediation jobs or instances where the most recent job is stale.
         Note: Stale jobs (created before the instance's affliction_date) are ignored for filtering purposes, but are still included in the 'remediations' array with stale=true.
     - key: finding_instance_ids
       value: c416bc38-75db-425f-ae25-c37b5df5c37f
+      disabled: true
       description: Filter finding instances by an array of finding instance IDs. Supports multiple comma-separated values.
     - key: finding_instance_ids
       value: b555bc38-75db-425f-ae25-c37b5df5c37f
+      disabled: true
       description: Filter finding instances by an array of finding instance IDs. Supports multiple comma-separated values.
     - key: asset_ids
-      value: 6aefacf8-52ec-e192-6ee9-750841a92141
+      value: a2c6c1a4-1d3c-be20-4815-daf622ceb6a7
+      disabled: true
       description: Filter finding instances by an array of asset IDs. Supports multiple comma-separated values.
     - key: asset_ids
-      value: ad5b0736-e486-7fa4-6aa6-53eef77350f2
+      value: f04bbeda-f7ac-9de9-4a2b-2b75f321bcdc
+      disabled: true
       description: Filter finding instances by an array of asset IDs. Supports multiple comma-separated values.
 response:
   statusCode: 404

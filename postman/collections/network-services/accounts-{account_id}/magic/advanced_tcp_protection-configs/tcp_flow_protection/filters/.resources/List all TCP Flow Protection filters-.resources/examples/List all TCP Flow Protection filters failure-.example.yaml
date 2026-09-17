@@ -2,25 +2,30 @@ $kind: http-example
 id: 1d66f0eb-52cf-5c9b-82f3-79031ac8c941
 name: List all TCP Flow Protection filters failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/tcp_flow_protection/filters?mode=string&page=1033&per_page=1033&order=string&direction=string"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/tcp_flow_protection/filters"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: mode
       value: string
+      disabled: true
       description: "The mode of the filters to get. Optional. Valid values: 'enabled', 'disabled', 'monitoring'."
     - key: page
-      value: "1033"
+      value: "7134"
+      disabled: true
       description: The page number for pagination. Defaults to 1.
     - key: per_page
-      value: "1033"
+      value: "7134"
+      disabled: true
       description: The number of items per page. Must be between 10 and 1000. Defaults to 25.
     - key: order
       value: string
+      disabled: true
       description: The field to order by. Defaults to 'prefix'.
     - key: direction
       value: string
+      disabled: true
       description: The direction of ordering (ASC or DESC). Defaults to 'ASC'.
 response:
   statusCode: 400

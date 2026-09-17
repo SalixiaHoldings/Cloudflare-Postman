@@ -2,7 +2,7 @@ $kind: http-example
 id: 5fc3ac9c-c201-5911-aef1-1ba8dce8044c
 name: List of eligible devices.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dex/commands/devices?page=1&per_page=10&search=string"
+  url: "{{base_url}}/accounts/{{account_id}}/dex/commands/devices?page=1&per_page=10"
   method: GET
   headers:
     Accept: application/json
@@ -15,6 +15,7 @@ request:
       description: (Required) Number of results per page.
     - key: search
       value: string
+      disabled: true
       description: Filter devices by name or email.
 response:
   statusCode: 200

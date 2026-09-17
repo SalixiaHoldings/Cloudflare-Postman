@@ -2,15 +2,23 @@ $kind: http-example
 id: ee93acb4-9f3d-5e5a-93e7-f5db791d9845
 name: Returns suppressed emails.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/email/routing/suppression?page=1&per_page=100&order=created_at&direction=desc"
+  url: "{{base_url}}/zones/{{zone_id}}/email/routing/suppression"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "100"
-    order: created_at
-    direction: desc
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "100"
+      disabled: true
+    - key: order
+      value: created_at
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

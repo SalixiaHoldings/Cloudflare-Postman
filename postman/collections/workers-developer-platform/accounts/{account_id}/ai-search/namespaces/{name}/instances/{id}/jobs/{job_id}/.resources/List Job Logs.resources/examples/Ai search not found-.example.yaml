@@ -2,13 +2,17 @@ $kind: http-example
 id: 30b29949-0f64-5f08-bff2-e11f617a4617
 name: Ai search not found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/jobs/{{job_id}}/logs?page=1&per_page=20"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/jobs/{{job_id}}/logs"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
 response:
   statusCode: 404
   statusText: Not Found

@@ -2,7 +2,7 @@ $kind: http-example
 id: 03ca24b4-c7b8-5e75-9527-8f6ac1ffc544
 name: Bad Request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}?simple=false&order=asc"
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}"
   method: GET
   headers:
     Accept: application/json
@@ -11,9 +11,11 @@ request:
   queryParams:
     - key: simple
       value: "false"
+      disabled: true
       description: When true, omits step details and returns only metadata with step_count.
     - key: order
       value: asc
+      disabled: true
       description: 'Step ordering: "asc" (default, oldest first) or "desc" (newest first).'
 response:
   statusCode: 400

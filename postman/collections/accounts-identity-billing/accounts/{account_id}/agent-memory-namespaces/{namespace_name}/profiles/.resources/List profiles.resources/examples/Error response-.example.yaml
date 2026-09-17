@@ -2,13 +2,17 @@ $kind: http-example
 id: a6b6020f-7655-5117-a1fe-0b0e0b27cb0e
 name: Error response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles?per_page=20&cursor=eyJ2IjoxLCJuIjoibXktcHJvZmlsZSJ9"
+  url: "{{base_url}}/accounts/{{account_id}}/agent-memory/namespaces/{{namespace_name}}/profiles"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    per_page: "20"
-    cursor: eyJ2IjoxLCJuIjoibXktcHJvZmlsZSJ9
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: cursor
+      value: eyJ2IjoxLCJuIjoibXktcHJvZmlsZSJ9
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

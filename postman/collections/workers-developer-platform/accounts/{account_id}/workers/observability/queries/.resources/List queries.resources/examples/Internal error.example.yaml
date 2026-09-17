@@ -1,15 +1,23 @@
 $kind: http-example
 id: 90d0acd1-5bd6-5bb2-b533-837654145ba1
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/queries?page=1&perPage=20&order=desc&orderBy=updated"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/queries"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    perPage: "20"
-    order: desc
-    orderBy: updated
+    - key: page
+      value: "1"
+      disabled: true
+    - key: perPage
+      value: "20"
+      disabled: true
+    - key: order
+      value: desc
+      disabled: true
+    - key: orderBy
+      value: updated
+      disabled: true
 response:
   statusCode: 500
   statusText: Internal Server Error

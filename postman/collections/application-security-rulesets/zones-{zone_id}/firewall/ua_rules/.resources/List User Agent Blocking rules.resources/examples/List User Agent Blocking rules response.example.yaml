@@ -1,18 +1,28 @@
 $kind: http-example
 id: 7c76c894-474b-5ebf-8f8b-f5ab01d3d6ee
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/firewall/ua_rules?page=1&description=abusive&per_page=20&user_agent=Safari&paused=false"
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/ua_rules"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    page: "1"
-    description: abusive
-    per_page: "20"
-    user_agent: Safari
-    paused: "false"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: description
+      value: abusive
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: user_agent
+      value: Safari
+      disabled: true
+    - key: paused
+      value: "false"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

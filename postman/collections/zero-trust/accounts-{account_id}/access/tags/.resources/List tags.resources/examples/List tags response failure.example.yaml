@@ -1,13 +1,17 @@
 $kind: http-example
 id: ff87d906-1438-53eb-9d06-2dd7f2931c06
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/tags?page=1&per_page=50"
+  url: "{{base_url}}/accounts/{{account_id}}/access/tags"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "50"
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "50"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

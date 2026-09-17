@@ -5,7 +5,7 @@ name: |
   10034), or the Data Catalog check was requested and R2 Data Catalog is enabled for
   the bucket (error code 10081). Remove the conflicting configuration before retrying.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects?prefix="
+  url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects"
   method: DELETE
   headers:
     - key: cf-r2-jurisdiction
@@ -18,7 +18,9 @@ request:
     - key: Accept
       value: application/json
   queryParams:
-    prefix: ""
+    - key: prefix
+      value: ""
+      disabled: true
   body:
     type: json
     content: |-

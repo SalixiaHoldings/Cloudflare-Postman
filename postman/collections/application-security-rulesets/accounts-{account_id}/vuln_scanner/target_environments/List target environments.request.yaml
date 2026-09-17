@@ -13,16 +13,18 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/vuln_scanner/target_environments?page=1&per_page=20"
+url: "{{base_url}}/accounts/{{account_id}}/vuln_scanner/target_environments"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: page
     value: "1"
+    disabled: true
     description: Page number of paginated results.
   - key: per_page
     value: "20"
+    disabled: true
     description: Number of results per page.
 auth:
   type: bearer

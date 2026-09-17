@@ -1,22 +1,26 @@
 $kind: http-example
 id: f492aad8-3ce1-5786-8ac4-811851d70f9e
 request:
-  url: "{{base_url}}/accounts/{{accountId}}/v2/images?per_page=1000&continuation_token=string&creator=string&sort_order=desc"
+  url: "{{base_url}}/accounts/{{accountId}}/v2/images"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: per_page
       value: "1000"
+      disabled: true
       description: Number of items per page
     - key: continuation_token
       value: string
+      disabled: true
       description: Continuation token for a next page. List images V2 returns continuation_token
     - key: creator
       value: string
+      disabled: true
       description: Internal user ID set within the creator field. Setting to empty string will return images where creator field is not set
     - key: sort_order
       value: desc
+      disabled: true
       description: Sorting order by upload time
 response:
   statusCode: 400

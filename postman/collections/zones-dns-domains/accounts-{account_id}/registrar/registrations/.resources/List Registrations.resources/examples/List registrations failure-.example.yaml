@@ -2,26 +2,30 @@ $kind: http-example
 id: 03f072b4-53c2-521f-bcf4-046726ec6be4
 name: List registrations failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations?cursor=string&per_page=20&direction=asc&sort_by=registry_created_at"
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: cursor
       value: string
+      disabled: true
       description: |
         Opaque token from a previous response's `result_info.cursor`.
         Pass this value to fetch the next page of results. Omit (or
         pass an empty string) for the first page.
     - key: per_page
       value: "20"
+      disabled: true
       description: Number of items to return per page.
     - key: direction
       value: asc
+      disabled: true
       description: |
         Sort direction for results. Defaults to ascending order.
     - key: sort_by
       value: registry_created_at
+      disabled: true
       description: Column to sort results by. Defaults to registration date (`registry_created_at`) when omitted.
 response:
   statusCode: 400

@@ -13,13 +13,15 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/vectorize/v2/indexes/{{index_name}}/upsert?unparsable-behavior=error"
+url: "{{base_url}}/accounts/{{account_id}}/vectorize/v2/indexes/{{index_name}}/upsert"
 method: POST
 headers:
   Content-Type: application/x-ndjson
   Accept: application/json
 queryParams:
-  unparsable-behavior: error
+  - key: unparsable-behavior
+    value: discard
+    disabled: true
 body:
   type: file
   content: {}

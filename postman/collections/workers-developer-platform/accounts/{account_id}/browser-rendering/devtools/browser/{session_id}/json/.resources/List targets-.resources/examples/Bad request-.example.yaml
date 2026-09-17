@@ -2,7 +2,7 @@ $kind: http-example
 id: be6c9555-4114-5379-90a2-a009446d88fc
 name: Bad request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json?liveViewUrlExpiresInMs=300000"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/devtools/browser/{{session_id}}/json"
   method: GET
   headers:
     Accept: application/json
@@ -11,6 +11,7 @@ request:
   queryParams:
     - key: liveViewUrlExpiresInMs
       value: "300000"
+      disabled: true
       description: How long the live view URLs remain valid, in milliseconds (max 60 minutes)
 response:
   statusCode: 400

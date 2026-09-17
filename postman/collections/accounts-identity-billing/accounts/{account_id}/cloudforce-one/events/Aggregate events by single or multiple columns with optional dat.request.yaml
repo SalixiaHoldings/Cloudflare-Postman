@@ -14,7 +14,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/aggregate?aggregateBy=string&datasetId=string&datasetId=string&startDate=string&endDate=string&groupByDate=false&limit=100"
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/aggregate?aggregateBy=string"
 method: GET
 headers:
   Accept: application/json
@@ -24,21 +24,27 @@ queryParams:
     description: (Required) Column(s) to aggregate by - single column or comma-separated list (e.g., 'attacker', 'targetIndustry', 'attacker,targetIndustry')
   - key: datasetId
     value: string
+    disabled: true
     description: "Dataset UUIDs to filter by, or one standalone scope value: 'all'/'*' for all accessible non-analytics event datasets (analytics datasets are silently excluded), 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, uses the default dataset."
   - key: datasetId
     value: string
+    disabled: true
     description: "Dataset UUIDs to filter by, or one standalone scope value: 'all'/'*' for all accessible non-analytics event datasets (analytics datasets are silently excluded), 'analytics' for isAnalytics=true datasets, or 'operational' for isAnalytics=false datasets. If not provided, uses the default dataset."
   - key: startDate
     value: string
+    disabled: true
     description: Start date for filtering (ISO 8601 format, e.g., '2024-01-01')
   - key: endDate
     value: string
+    disabled: true
     description: End date for filtering (ISO 8601 format, e.g., '2024-12-31')
   - key: groupByDate
     value: "false"
+    disabled: true
     description: Whether to group results by date (daily aggregation)
   - key: limit
     value: "100"
+    disabled: true
     description: Maximum number of results to return
 auth:
   type: bearer

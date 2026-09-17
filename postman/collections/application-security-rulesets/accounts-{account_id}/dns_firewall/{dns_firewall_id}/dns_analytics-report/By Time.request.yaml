@@ -15,19 +15,35 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/dns_firewall/{{dns_firewall_id}}/dns_analytics/report/bytime?metrics=queryCount,uncachedCount&dimensions=queryType&since=2023-11-11T12:00:00Z&until=2023-11-11T13:00:00Z&limit=100&sort=+responseCode,-queryName&filters=responseCode==NOERROR,queryType==A&time_delta=hour"
+url: "{{base_url}}/accounts/{{account_id}}/dns_firewall/{{dns_firewall_id}}/dns_analytics/report/bytime"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  metrics: queryCount,uncachedCount
-  dimensions: queryType
-  since: 2023-11-11T12:00:00Z
-  until: 2023-11-11T13:00:00Z
-  limit: "100"
-  sort: +responseCode,-queryName
-  filters: responseCode==NOERROR,queryType==A
-  time_delta: hour
+  - key: metrics
+    value: queryCount,uncachedCount
+    disabled: true
+  - key: dimensions
+    value: queryType
+    disabled: true
+  - key: since
+    value: 2023-11-11T12:00:00Z
+    disabled: true
+  - key: until
+    value: 2023-11-11T13:00:00Z
+    disabled: true
+  - key: limit
+    value: "100"
+    disabled: true
+  - key: sort
+    value: +responseCode,-queryName
+    disabled: true
+  - key: filters
+    value: responseCode==NOERROR,queryType==A
+    disabled: true
+  - key: time_delta
+    value: hour
+    disabled: true
 auth:
   type: bearer
   credentials:

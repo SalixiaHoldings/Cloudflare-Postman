@@ -2,16 +2,18 @@ $kind: http-example
 id: 677b75ff-9972-5af2-8781-7fc0b7fc05c6
 name: Not found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags?limit=string&cursor=string"
+  url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: limit
       value: string
+      disabled: true
       description: Max items to return (1–200).
     - key: cursor
       value: string
+      disabled: true
       description: Pagination cursor from a previous response.
 response:
   statusCode: 404

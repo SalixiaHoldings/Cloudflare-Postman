@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps?order_by=string&desc=true&status=true&vpcs=true"
+url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/onramps"
 method: GET
 headers:
   Accept: application/json
@@ -22,13 +22,17 @@ headers:
 queryParams:
   - key: order_by
     value: string
+    disabled: true
     description: One of ["updated_at", "id", "cloud_type", "name"].
   - key: desc
     value: "true"
+    disabled: true
   - key: status
     value: "true"
+    disabled: true
   - key: vpcs
     value: "true"
+    disabled: true
 auth:
   type: bearer
   credentials:

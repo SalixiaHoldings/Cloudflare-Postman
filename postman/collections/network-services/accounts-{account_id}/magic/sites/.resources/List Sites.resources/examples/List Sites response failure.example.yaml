@@ -1,14 +1,16 @@
 $kind: http-example
 id: 3f006abb-dfe6-534d-8bb1-92308b650046
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/sites?connectorid=023e105f4ecef8ad9ca31a8372d0c353"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/sites"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    connectorid: 023e105f4ecef8ad9ca31a8372d0c353
+    - key: connectorid
+      value: 023e105f4ecef8ad9ca31a8372d0c353
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

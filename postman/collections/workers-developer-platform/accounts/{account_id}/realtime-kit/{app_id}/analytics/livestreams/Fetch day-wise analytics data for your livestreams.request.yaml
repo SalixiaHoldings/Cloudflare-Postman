@@ -13,19 +13,22 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/analytics/livestreams/daywise?start_time=3783&end_time=3783&filters=string"
+url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/analytics/livestreams/daywise"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: start_time
-    value: "3783"
+    value: "4321"
+    disabled: true
     description: Specify the start time as a Unix timestamp in seconds to access the livestream analytics.
   - key: end_time
-    value: "3783"
+    value: "4321"
+    disabled: true
     description: Specify the end time as a Unix timestamp in seconds to access the livestream analytics.
   - key: filters
     value: string
+    disabled: true
     description: Optional filters for livestream analytics.
 auth:
   type: bearer

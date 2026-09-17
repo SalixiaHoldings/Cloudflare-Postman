@@ -2,28 +2,34 @@ $kind: http-example
 id: 4cc41729-5d32-5115-9691-0041a9e9c4c7
 name: List of impersonation registry entries.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/impersonation_registry?page=1&per_page=20&search=string&order=name&direction=asc&provenance=SNOOPY-CASB_OFFICE_365"
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/settings/impersonation_registry"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Current page within paginated list of results.
     - key: per_page
       value: "20"
+      disabled: true
       description: The number of results per page. Maximum value is 1000.
     - key: search
       value: string
+      disabled: true
       description: Search term for filtering records. Behavior may change.
     - key: order
       value: name
+      disabled: true
       description: Field to sort by.
     - key: direction
       value: asc
+      disabled: true
       description: The sorting direction.
     - key: provenance
       value: SNOOPY-CASB_OFFICE_365
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

@@ -1,14 +1,20 @@
 $kind: http-example
 id: b2504fc8-5d65-551a-9724-b7d614d6984e
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/portals?page=1&per_page=20&search=string"
+  url: "{{base_url}}/accounts/{{account_id}}/access/ai-controls/mcp/portals"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    page: "1"
-    per_page: "20"
-    search: string
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

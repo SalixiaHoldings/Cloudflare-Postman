@@ -13,18 +13,20 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/tokens/permission_groups?name=Account%20Settings%20Write&scope=com.cloudflare.api.account.zone"
+url: "{{base_url}}/accounts/{{account_id}}/tokens/permission_groups"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: name
     value: Account%20Settings%20Write
+    disabled: true
     description: |-
       Filter by the name of the permission group.
       The value must be URL-encoded.
   - key: scope
     value: com.cloudflare.api.account.zone
+    disabled: true
     description: |-
       Filter by the scope of the permission group.
       The value must be URL-encoded.

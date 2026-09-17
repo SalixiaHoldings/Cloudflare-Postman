@@ -2,14 +2,16 @@ $kind: http-example
 id: 04596cb4-c055-5f78-8577-3269a065102c
 name: Conflict.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/{{sync_id}}?delete_destination=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/{{sync_id}}"
   method: DELETE
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    delete_destination: "true"
+    - key: delete_destination
+      value: "true"
+      disabled: true
 response:
   statusCode: 409
   statusText: Conflict

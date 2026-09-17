@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/entities/asns/{{asn}}/rel?asn2=8856&format=JSON"
+url: "{{base_url}}/radar/entities/asns/{{asn}}/rel"
 method: GET
 headers:
   Accept: application/json
@@ -21,10 +21,12 @@ headers:
   X-Auth-Key: "{{api_key}}"
 queryParams:
   - key: asn2
-    value: "8856"
+    value: "4248"
+    disabled: true
     description: Retrieves the AS relationship of ASN2 with respect to the given ASN.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

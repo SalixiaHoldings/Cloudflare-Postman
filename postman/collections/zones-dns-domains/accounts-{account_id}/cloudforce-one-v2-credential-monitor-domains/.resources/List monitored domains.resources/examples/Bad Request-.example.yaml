@@ -2,16 +2,18 @@ $kind: http-example
 id: e251c64c-737a-5bd6-a78e-03151cde898e
 name: Bad Request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/credential-monitor/domains?page=1&per_page=100"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/credential-monitor/domains"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number
     - key: per_page
       value: "100"
+      disabled: true
       description: Items per page
 response:
   statusCode: 400

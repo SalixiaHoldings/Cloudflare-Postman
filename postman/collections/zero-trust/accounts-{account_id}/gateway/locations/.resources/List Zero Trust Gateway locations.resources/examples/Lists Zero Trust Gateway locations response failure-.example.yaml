@@ -2,7 +2,7 @@ $kind: http-example
 id: 21dff221-89e1-55dd-8fff-75e5d34c8dd7
 name: Lists Zero Trust Gateway locations response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/gateway/locations?search=string&order_by=created_at&direction=asc"
+  url: "{{base_url}}/accounts/{{account_id}}/gateway/locations"
   method: GET
   headers:
     Accept: application/json
@@ -11,11 +11,13 @@ request:
   queryParams:
     - key: search
       value: string
+      disabled: true
       description: |-
         Case-insensitive substring match on the location name. When combined
         with `filter`, both must match (logical AND).
     - key: order_by
-      value: created_at
+      value: name
+      disabled: true
       description: |-
         Field to sort the returned locations by. When omitted, the order of
         results is unspecified. Supported values:
@@ -23,7 +25,8 @@ request:
           * `created_at` — sort by creation time; defaults to descending unless `direction` is set.
           * `updated_at` — sort by last-modified time; defaults to descending unless `direction` is set.
     - key: direction
-      value: asc
+      value: desc
+      disabled: true
       description: |-
         Sort direction. Only takes effect when `order_by` is also provided; it
         is ignored otherwise. When `direction` is omitted the effective

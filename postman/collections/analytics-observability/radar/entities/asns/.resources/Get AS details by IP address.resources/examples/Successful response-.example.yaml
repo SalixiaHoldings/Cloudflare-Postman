@@ -2,7 +2,7 @@ $kind: http-example
 id: d1f3d6ce-aa3b-5828-a9a9-a1299e439d0d
 name: Successful response.
 request:
-  url: "{{base_url}}/radar/entities/asns/ip?ip=8.8.8.8&format=JSON"
+  url: "{{base_url}}/radar/entities/asns/ip?ip=8.8.8.8"
   method: GET
   headers:
     Accept: application/json
@@ -13,7 +13,8 @@ request:
       value: 8.8.8.8
       description: (Required) IP address.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 200

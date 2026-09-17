@@ -2,16 +2,26 @@ $kind: http-example
 id: b56348bb-9060-5abb-b37d-0bc7fe7d3978
 name: List Client Certificates Response Failure.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/client_certificates?status=all&page=1&per_page=20&limit=10&offset=10"
+  url: "{{base_url}}/zones/{{zone_id}}/client_certificates"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    status: all
-    page: "1"
-    per_page: "20"
-    limit: "10"
-    offset: "10"
+    - key: status
+      value: all
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: limit
+      value: "10"
+      disabled: true
+    - key: offset
+      value: "10"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

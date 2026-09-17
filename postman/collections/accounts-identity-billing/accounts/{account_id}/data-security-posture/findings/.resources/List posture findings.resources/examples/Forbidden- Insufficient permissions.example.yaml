@@ -2,58 +2,74 @@ $kind: http-example
 id: eb7bfd77-9cf2-59b5-9f5f-3925c02cc298
 name: "Forbidden: Insufficient permissions"
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings?cursor=string&direction=desc&ignored=true&integration_id=8c0c0e25-bbd0-8390-eae7-333b0eaa1638&max_affliction_date=1984-09-29T01:09:30.463Z&min_affliction_date=1984-09-29T01:09:30.463Z&observation=Issue&order=latest_affliction_date&page=8161&per_page=8161&product=Saas&search=string&severity=Medium&type=Content&vendor=GOOGLE_WORKSPACE&finding_type_ids=d5fd33a8-f1a7-913c-1bf4-e247cc47a111"
+  url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: cursor
       value: string
+      disabled: true
       description: A cursor for pagination. Obtained from the `result_info.cursor` field of a previous response.
     - key: direction
-      value: desc
+      value: asc
+      disabled: true
       description: Direction to order results.
     - key: ignored
       value: "true"
+      disabled: true
       description: Filter for only the ignored findings. Set to false to only see "active" items
     - key: integration_id
-      value: 8c0c0e25-bbd0-8390-eae7-333b0eaa1638
+      value: 4fb84af0-1366-6f4c-4ccd-23e81a789cb9
+      disabled: true
       description: Filter by an integration ID
     - key: max_affliction_date
-      value: 1984-09-29T01:09:30.463Z
+      value: 1947-03-20T01:57:00.324Z
+      disabled: true
       description: Filter to view findings that occurred on or before the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
     - key: min_affliction_date
-      value: 1984-09-29T01:09:30.463Z
+      value: 1947-03-20T01:57:00.324Z
+      disabled: true
       description: Filter to view findings that occurred on or after the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
     - key: observation
-      value: Issue
+      value: Activity
+      disabled: true
       description: Filter by observation type of the finding
     - key: order
-      value: latest_affliction_date
+      value: integration.name
+      disabled: true
       description: Which field to use when ordering the findings.
     - key: page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: A page number within the paginated result set.
     - key: per_page
-      value: "8161"
+      value: "1209"
+      disabled: true
       description: Number of results to return per page.
     - key: product
       value: Saas
+      disabled: true
       description: Filter by product category of the finding
     - key: search
       value: string
+      disabled: true
       description: A search term.
     - key: severity
-      value: Medium
+      value: Low
+      disabled: true
       description: Filter by severity
     - key: type
-      value: Content
+      value: Posture
+      disabled: true
       description: Filter by type of the finding
     - key: vendor
       value: GOOGLE_WORKSPACE
+      disabled: true
       description: Filter by vendor
     - key: finding_type_ids
-      value: d5fd33a8-f1a7-913c-1bf4-e247cc47a111
+      value: 6cb88155-e5a3-a49c-04ff-612da2f5c904
+      disabled: true
       description: A comma separated list of UUIDs identifying the finding type(s).
 response:
   statusCode: 403

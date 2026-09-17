@@ -2,7 +2,7 @@ $kind: http-example
 id: 02f3117b-482a-513b-81e7-633367e11850
 name: List DEX Rules failure response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dex/rules?page=1&per_page=10&sort_order=ASC&sort_by=name&name=string"
+  url: "{{base_url}}/accounts/{{account_id}}/dex/rules?page=1&per_page=10"
   method: GET
   headers:
     Accept: application/json
@@ -15,12 +15,15 @@ request:
       description: (Required) Number of results per page.
     - key: sort_order
       value: ASC
+      disabled: true
       description: Sort direction for sort_by property.
     - key: sort_by
       value: name
+      disabled: true
       description: Which property to sort results by.
     - key: name
       value: string
+      disabled: true
       description: Filter results by rule name.
 response:
   statusCode: 400

@@ -2,7 +2,7 @@ $kind: http-example
 id: bf820953-8ed7-5d08-8c46-5e993abad827
 name: List tag key summary response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/tags/summary?cursor=eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ"
+  url: "{{base_url}}/accounts/{{account_id}}/tags/summary"
   method: GET
   headers:
     Accept: application/json
@@ -11,6 +11,7 @@ request:
   queryParams:
     - key: cursor
       value: eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ
+      disabled: true
       description: Cursor for pagination.
 response:
   statusCode: 400

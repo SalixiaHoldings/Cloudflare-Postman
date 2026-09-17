@@ -2,7 +2,7 @@ $kind: http-example
 id: d5ab0228-be9b-5acd-9ae8-c14ae4863372
 name: Successful response.
 request:
-  url: "{{base_url}}/radar/robots_txt/top/user_agents/directive?limit=5&name=main_series&name=main_series&userAgentCategory=AI&date=1930-12-13&date=1954-10-21&domainCategory=string&domainCategory=string&directive=ALLOW&format=JSON"
+  url: "{{base_url}}/radar/robots_txt/top/user_agents/directive"
   method: GET
   headers:
     Accept: application/json
@@ -11,33 +11,43 @@ request:
   queryParams:
     - key: limit
       value: "5"
+      disabled: true
       description: Limits the number of objects returned in the response.
     - key: name
       value: main_series
+      disabled: true
       description: Array of names used to label the series in the response.
     - key: name
       value: main_series
+      disabled: true
       description: Array of names used to label the series in the response.
     - key: userAgentCategory
       value: AI
+      disabled: true
       description: Filters results by user agent category.
     - key: date
-      value: 1930-12-13
+      value: 1993-08-29
+      disabled: true
       description: Filters results by the specified array of dates.
     - key: date
-      value: 1954-10-21
+      value: 1988-07-19
+      disabled: true
       description: Filters results by the specified array of dates.
     - key: domainCategory
       value: string
+      disabled: true
       description: Filters results by domain category.
     - key: domainCategory
       value: string
+      disabled: true
       description: Filters results by domain category.
     - key: directive
       value: ALLOW
+      disabled: true
       description: Filters results by robots.txt directive.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 200

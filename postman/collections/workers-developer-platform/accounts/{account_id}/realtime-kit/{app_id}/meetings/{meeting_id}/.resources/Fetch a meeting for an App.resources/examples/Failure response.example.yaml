@@ -1,12 +1,14 @@
 $kind: http-example
 id: 4d1567f0-d7b6-5d27-b09e-1de6c04629da
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}?name=string"
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    name: string
+    - key: name
+      value: string
+      disabled: true
 response:
   statusCode: 500
   statusText: Internal Server Error

@@ -13,16 +13,26 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos?limit=50&cursor=string&search=string&sort=created_at&direction=desc"
+url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos"
 method: GET
 headers:
   Accept: application/json
 queryParams:
-  limit: "50"
-  cursor: string
-  search: string
-  sort: created_at
-  direction: desc
+  - key: limit
+    value: "50"
+    disabled: true
+  - key: cursor
+    value: string
+    disabled: true
+  - key: search
+    value: string
+    disabled: true
+  - key: sort
+    value: created_at
+    disabled: true
+  - key: direction
+    value: desc
+    disabled: true
 auth:
   type: bearer
   credentials:

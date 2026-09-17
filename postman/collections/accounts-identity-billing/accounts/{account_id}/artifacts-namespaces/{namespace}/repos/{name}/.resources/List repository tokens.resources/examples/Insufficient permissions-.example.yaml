@@ -2,14 +2,20 @@ $kind: http-example
 id: d560ce13-b21b-56d8-ab94-44784cd70dc0
 name: Insufficient permissions.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/tokens?state=active&page=1&per_page=30"
+  url: "{{base_url}}/accounts/{{account_id}}/artifacts/namespaces/{{namespace}}/repos/{{name}}/tokens"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    state: active
-    page: "1"
-    per_page: "30"
+    - key: state
+      value: active
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "30"
+      disabled: true
 response:
   statusCode: 403
   statusText: Forbidden

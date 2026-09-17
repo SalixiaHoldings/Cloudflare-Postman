@@ -2,7 +2,7 @@ $kind: http-example
 id: 81cf89ac-fd4d-5dd9-b02a-836445f20896
 name: A failure response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/rulesets/phases/{{ruleset_phase}}/entrypoint?dry_run=false"
+  url: "{{base_url}}/accounts/{{account_id}}/rulesets/phases/{{ruleset_phase}}/entrypoint"
   method: PUT
   headers:
     Content-Type: application/json
@@ -10,6 +10,7 @@ request:
   queryParams:
     - key: dry_run
       value: "false"
+      disabled: true
       description: "Validates the request without persisting changes when set to `true`. Responses that normally return 200 return `result: null`; endpoints that normally return 204 continue to return 204."
   body:
     type: json

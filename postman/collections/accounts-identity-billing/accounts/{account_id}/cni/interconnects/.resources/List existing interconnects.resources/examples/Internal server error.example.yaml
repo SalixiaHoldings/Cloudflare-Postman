@@ -1,7 +1,7 @@
 $kind: http-example
 id: fa5aa584-4a72-50fc-9325-e4216793b49c
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cni/interconnects?site=string&type=string&cursor=9230&limit=4653"
+  url: "{{base_url}}/accounts/{{account_id}}/cni/interconnects"
   method: GET
   headers:
     Accept: application/json
@@ -10,14 +10,18 @@ request:
   queryParams:
     - key: site
       value: string
+      disabled: true
       description: If specified, only show interconnects located at the given site
     - key: type
       value: string
+      disabled: true
       description: If specified, only show interconnects of the given type
     - key: cursor
-      value: "9230"
+      value: "4690"
+      disabled: true
     - key: limit
-      value: "4653"
+      value: "5193"
+      disabled: true
 response:
   statusCode: 500
   statusText: Internal Server Error

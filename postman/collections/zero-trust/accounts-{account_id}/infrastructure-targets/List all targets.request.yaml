@@ -14,7 +14,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/infrastructure/targets?hostname=string&hostname_contains=string&virtual_network_id=d38bffc7-7676-ad0e-7035-50918665fff7&ip_v4=string&ip_v6=string&created_before=1994-02-27T15:53:58.322Z&created_after=1994-02-27T15:53:58.322Z&modified_before=1994-02-27T15:53:58.322Z&modified_after=1994-02-27T15:53:58.322Z&ips=string&ips=string&target_ids=7ca71246-9b95-a251-8d7c-7fd9b863a6ce&target_ids=33eea5e8-e6bd-8083-35b7-e020922de973&ip_like=string&ipv4_start=string&ipv4_end=string&ipv6_start=string&ipv6_end=string&tag=string&tag=string&page=1&per_page=1000&order=created_at&direction=asc"
+url: "{{base_url}}/accounts/{{account_id}}/infrastructure/targets"
 method: GET
 headers:
   Accept: application/json
@@ -23,101 +23,125 @@ headers:
 queryParams:
   - key: hostname
     value: string
+    disabled: true
     description: Hostname of a target
   - key: hostname_contains
     value: string
+    disabled: true
     description: Partial match to the hostname of a target
   - key: virtual_network_id
-    value: d38bffc7-7676-ad0e-7035-50918665fff7
+    value: f4709510-89e8-3308-9f09-1c3185c4c980
+    disabled: true
     description: Private virtual network identifier of the target
   - key: ip_v4
     value: string
+    disabled: true
     description: IPv4 address of the target
   - key: ip_v6
     value: string
+    disabled: true
     description: IPv6 address of the target
   - key: created_before
-    value: 1994-02-27T15:53:58.322Z
+    value: 1991-02-22T17:32:24.346Z
+    disabled: true
     description: Date and time at which the target was created before (inclusive)
   - key: created_after
-    value: 1994-02-27T15:53:58.322Z
+    value: 1991-02-22T17:32:24.346Z
+    disabled: true
     description: Date and time at which the target was created after (inclusive)
   - key: modified_before
-    value: 1994-02-27T15:53:58.322Z
+    value: 1991-02-22T17:32:24.346Z
+    disabled: true
     description: Date and time at which the target was modified before (inclusive)
   - key: modified_after
-    value: 1994-02-27T15:53:58.322Z
+    value: 1991-02-22T17:32:24.346Z
+    disabled: true
     description: Date and time at which the target was modified after (inclusive)
   - key: ips
     value: string
+    disabled: true
     description: |-
       Filters for targets that have any of the following IP addresses. Specify
       `ips` multiple times in query parameter to build list of candidates.
   - key: ips
     value: string
+    disabled: true
     description: |-
       Filters for targets that have any of the following IP addresses. Specify
       `ips` multiple times in query parameter to build list of candidates.
   - key: target_ids
-    value: 7ca71246-9b95-a251-8d7c-7fd9b863a6ce
+    value: 2b8d7107-93ff-8d38-e62f-6214df5c1d47
+    disabled: true
     description: |-
       Filters for targets that have any of the following UUIDs. Specify
       `target_ids` multiple times in query parameter to build list of
       candidates.
   - key: target_ids
-    value: 33eea5e8-e6bd-8083-35b7-e020922de973
+    value: cd75d569-4978-454a-1390-f471c6f8d74a
+    disabled: true
     description: |-
       Filters for targets that have any of the following UUIDs. Specify
       `target_ids` multiple times in query parameter to build list of
       candidates.
   - key: ip_like
     value: string
+    disabled: true
     description: |-
       Filters for targets whose IP addresses look like the specified string.
       Supports `*` as a wildcard character
   - key: ipv4_start
     value: string
+    disabled: true
     description: |-
       Defines an IPv4 filter range's starting value (inclusive). Requires
       `ipv4_end` to be specified as well.
   - key: ipv4_end
     value: string
+    disabled: true
     description: |-
       Defines an IPv4 filter range's ending value (inclusive). Requires
       `ipv4_start` to be specified as well.
   - key: ipv6_start
     value: string
+    disabled: true
     description: |-
       Defines an IPv6 filter range's starting value (inclusive). Requires
       `ipv6_end` to be specified as well.
   - key: ipv6_end
     value: string
+    disabled: true
     description: |-
       Defines an IPv6 filter range's ending value (inclusive). Requires
       `ipv6_start` to be specified as well.
   - key: tag
     value: string
+    disabled: true
     description: |-
       Filter by tag key:value pairs. Multiple `tag` params are AND'd.
       Format: `tag=key:value` (e.g., `tag=environment:production`).
       Key and value must both be non-empty; `tag=:value` and `tag=key:` return 400.
   - key: tag
     value: string
+    disabled: true
     description: |-
       Filter by tag key:value pairs. Multiple `tag` params are AND'd.
       Format: `tag=key:value` (e.g., `tag=environment:production`).
       Key and value must both be non-empty; `tag=:value` and `tag=key:` return 400.
   - key: page
     value: "1"
+    disabled: true
     description: Current page in the response
   - key: per_page
     value: "1000"
+    disabled: true
     description: Max amount of entries returned per page
   - key: order
     value: created_at
+    disabled: true
     description: The field to sort by.
   - key: direction
-    value: asc
+    value: desc
+    disabled: true
     description: The sorting direction.
 auth:
   type: bearer

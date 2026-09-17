@@ -2,7 +2,7 @@ $kind: http-example
 id: d0415f51-11c8-5d2d-98a1-3841982968f0
 name: Approval or underlying rule not found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured/approvals/{{id}}/resubmit?module=eml"
+  url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/structured/approvals/{{id}}/resubmit"
   method: POST
   headers:
     Content-Type: application/json
@@ -10,6 +10,7 @@ request:
   queryParams:
     - key: module
       value: eml
+      disabled: true
       description: Structured rule module.
   body:
     type: json

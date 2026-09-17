@@ -13,27 +13,35 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: '{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/relationships?datasets=string&datasets=string&search={"field":"string","op":"lt","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&search={"field":"string","op":"not","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}&expand=string&expand=string&cursor=string&pageSize=25'
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/relationships"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: datasets
     value: string
+    disabled: true
   - key: datasets
     value: string
+    disabled: true
   - key: search
-    value: '{"field":"string","op":"lt","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+    value: '{"field":"string","op":"startsWith","value":"string"}'
+    disabled: true
   - key: search
-    value: '{"field":"string","op":"not","value":{"value":"<Error: Too many levels of nesting to fake this schema>"}}'
+    value: '{"field":"string","op":"not","value":"string"}'
+    disabled: true
   - key: expand
     value: string
+    disabled: true
   - key: expand
     value: string
+    disabled: true
   - key: cursor
     value: string
+    disabled: true
   - key: pageSize
     value: "25"
+    disabled: true
 auth:
   type: bearer
   credentials:

@@ -14,13 +14,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{}]
   Selected requirement: {}
   Upstream permits an unauthenticated request; collection Bearer inheritance is disabled.
-url: "{{base_url}}/ips?networks=string"
+url: "{{base_url}}/ips"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: networks
     value: string
+    disabled: true
     description: Specified as `jdcloud` to list IPs used by JD Cloud data centers.
 auth:
   type: noauth

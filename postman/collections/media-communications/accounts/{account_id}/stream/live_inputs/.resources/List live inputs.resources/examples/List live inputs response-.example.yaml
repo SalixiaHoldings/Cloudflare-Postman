@@ -2,14 +2,16 @@ $kind: http-example
 id: b858888d-acca-5616-9918-2e67533dcb1c
 name: List live inputs response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs?include_counts=true"
+  url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    include_counts: "true"
+    - key: include_counts
+      value: "true"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

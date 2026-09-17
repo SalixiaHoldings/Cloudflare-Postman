@@ -7,7 +7,7 @@ name: |
   error envelope (error code 100402) with per-class detail in
   `errors[].meta.details`.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts/{{script_name}}?bindings_inherit=strict"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts/{{script_name}}"
   method: PUT
   headers:
     Content-Type: multipart/form-data
@@ -15,6 +15,7 @@ request:
   queryParams:
     - key: bindings_inherit
       value: strict
+      disabled: true
       description: When set to "strict", the upload will fail if any `inherit` type bindings cannot be resolved against the previous version of the script. Without this, unresolvable inherit bindings are silently dropped.
   body:
     type: formdata

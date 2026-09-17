@@ -1,19 +1,23 @@
 $kind: http-example
 id: 750d01d5-1e02-5052-adc9-f13de0b88072
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/tokens?page=1&per_page=20&direction=desc&include_expired=false"
+  url: "{{base_url}}/accounts/{{account_id}}/tokens"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
     - key: per_page
       value: "20"
+      disabled: true
     - key: direction
       value: desc
+      disabled: true
     - key: include_expired
       value: "false"
+      disabled: true
       description: When true, includes recently-expired tokens in the response.
 response:
   statusCode: 200

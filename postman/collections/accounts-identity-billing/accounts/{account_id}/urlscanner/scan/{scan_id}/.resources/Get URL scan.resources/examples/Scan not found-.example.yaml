@@ -2,13 +2,14 @@ $kind: http-example
 id: aacaba35-39f5-5af2-b179-74bc97635fe2
 name: Scan not found.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}?full=false"
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: full
       value: "false"
+      disabled: true
       description: Whether to return full report (scan summary and network log).
 response:
   statusCode: 404

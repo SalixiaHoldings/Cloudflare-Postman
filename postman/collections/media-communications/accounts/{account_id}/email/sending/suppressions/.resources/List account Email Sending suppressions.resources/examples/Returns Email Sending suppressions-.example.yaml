@@ -2,16 +2,26 @@ $kind: http-example
 id: fa48ede8-a2c9-5b56-a133-db6861dcc854
 name: Returns Email Sending suppressions.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions?per_page=100&cursor=eyJ0IjozLCJwIjoxMjMsImMiOiJjM2RjNWYwYjM0YTE0ZmY4ZTFiM2VjMDQ4OTVlMWIyMiJ9&email=user@example.com&search=billing@&reason=hard_bounce"
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/suppressions"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    per_page: "100"
-    cursor: eyJ0IjozLCJwIjoxMjMsImMiOiJjM2RjNWYwYjM0YTE0ZmY4ZTFiM2VjMDQ4OTVlMWIyMiJ9
-    email: user@example.com
-    search: billing@
-    reason: hard_bounce
+    - key: per_page
+      value: "100"
+      disabled: true
+    - key: cursor
+      value: eyJ0IjozLCJwIjoxMjMsImMiOiJjM2RjNWYwYjM0YTE0ZmY4ZTFiM2VjMDQ4OTVlMWIyMiJ9
+      disabled: true
+    - key: email
+      value: user@example.com
+      disabled: true
+    - key: search
+      value: billing@
+      disabled: true
+    - key: reason
+      value: hard_bounce
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

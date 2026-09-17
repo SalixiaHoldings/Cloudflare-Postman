@@ -1,22 +1,26 @@
 $kind: http-example
 id: cc789cfe-7c6c-51c5-a963-0a0c7fb69cc1
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/apps?page_no=1&per_page=20&search=string&sort_order=DESC"
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/apps"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page_no
       value: "1"
+      disabled: true
       description: The page number from which you want your page search results to be displayed.
     - key: per_page
       value: "20"
+      disabled: true
       description: Number of results per page.
     - key: search
       value: string
+      disabled: true
       description: Search string that matches apps by name.
     - key: sort_order
       value: DESC
+      disabled: true
       description: Sort order for apps by creation time.
 response:
   statusCode: 200

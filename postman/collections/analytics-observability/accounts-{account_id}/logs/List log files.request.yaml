@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/logs/list?start=2022-06-06T16:00:00Z&end=2022-06-06T16:00:00Z&bucket=cloudflare-logs&prefix=http_requests/example.com/{DATE}&limit=1000"
+url: "{{base_url}}/accounts/{{account_id}}/logs/list?start=2022-06-06T16:00:00Z&end=2022-06-06T16:00:00Z&bucket=cloudflare-logs"
 method: GET
 headers:
   - key: R2-Access-Key-Id
@@ -36,9 +36,11 @@ queryParams:
     description: (Required) R2 bucket name.
   - key: prefix
     value: http_requests/example.com/{DATE}
+    disabled: true
     description: R2 bucket prefix logs are stored under.
   - key: limit
     value: "1000"
+    disabled: true
     description: Maximum number of results to return.
 auth:
   type: bearer

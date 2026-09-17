@@ -2,16 +2,18 @@ $kind: http-example
 id: e3f2a76b-26f5-5523-9390-6b486406defe
 name: List versions success.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions?page=1&per_page=10"
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Current page.
     - key: per_page
       value: "10"
+      disabled: true
       description: Items per-page.
 response:
   statusCode: 200

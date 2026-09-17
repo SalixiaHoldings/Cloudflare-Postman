@@ -1,14 +1,20 @@
 $kind: http-example
 id: bb2313f0-925c-57cb-bda0-c1f8d880d9a1
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers?scim_enabled=string&page=1&per_page=200"
+  url: "{{base_url}}/accounts/{{account_id}}/access/identity_providers"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    scim_enabled: string
-    page: "1"
-    per_page: "200"
+    - key: scim_enabled
+      value: string
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "200"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

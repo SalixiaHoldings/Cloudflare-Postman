@@ -2,22 +2,26 @@ $kind: http-example
 id: 84d9d702-2b3a-5ef6-9950-b30b3ba9a51c
 name: List all allowlist prefixes failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/allowlist?page=1033&per_page=1033&order=string&direction=string"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/advanced_tcp_protection/configs/allowlist"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
-      value: "1033"
+      value: "7134"
+      disabled: true
       description: The page number for pagination. Defaults to 1.
     - key: per_page
-      value: "1033"
+      value: "7134"
+      disabled: true
       description: The number of items per page. Must be between 10 and 1000. Defaults to 25.
     - key: order
       value: string
+      disabled: true
       description: The field to order by. Defaults to 'prefix'.
     - key: direction
       value: string
+      disabled: true
       description: The direction of ordering (ASC or DESC). Defaults to 'ASC'.
 response:
   statusCode: 400

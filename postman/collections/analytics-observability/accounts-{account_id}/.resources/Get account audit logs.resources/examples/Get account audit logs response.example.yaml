@@ -1,23 +1,47 @@
 $kind: http-example
 id: 1c5d5f75-c523-513d-a137-8fb4e0224949
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/audit_logs?id=f174be97-19b1-40d6-954d-70cd5fbd52db&export=true&action.type=add&actor.ip=17.168.228.63&actor.email=alice@example.com&since=2019-04-30&before=2019-04-30&zone.name=example.com&direction=desc&per_page=25&page=50&hide_user_logs=false"
+  url: "{{base_url}}/accounts/{{account_id}}/audit_logs"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    id: f174be97-19b1-40d6-954d-70cd5fbd52db
-    export: "true"
-    action.type: add
-    actor.ip: 17.168.228.63
-    actor.email: alice@example.com
-    since: 2019-04-30
-    before: 2019-04-30
-    zone.name: example.com
-    direction: desc
-    per_page: "25"
-    page: "50"
-    hide_user_logs: "false"
+    - key: id
+      value: f174be97-19b1-40d6-954d-70cd5fbd52db
+      disabled: true
+    - key: export
+      value: "true"
+      disabled: true
+    - key: action.type
+      value: add
+      disabled: true
+    - key: actor.ip
+      value: 17.168.228.63
+      disabled: true
+    - key: actor.email
+      value: alice@example.com
+      disabled: true
+    - key: since
+      value: 2019-04-30
+      disabled: true
+    - key: before
+      value: 2019-04-30
+      disabled: true
+    - key: zone.name
+      value: example.com
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: per_page
+      value: "25"
+      disabled: true
+    - key: page
+      value: "50"
+      disabled: true
+    - key: hide_user_logs
+      value: "false"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

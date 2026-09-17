@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/robots_txt/top/domain_categories?limit=5&name=main_series&name=main_series&userAgentCategory=AI&date=1930-12-13&date=1954-10-21&format=JSON"
+url: "{{base_url}}/radar/robots_txt/top/domain_categories"
 method: GET
 headers:
   Accept: application/json
@@ -22,24 +22,31 @@ headers:
 queryParams:
   - key: limit
     value: "5"
+    disabled: true
     description: Limits the number of objects returned in the response.
   - key: name
     value: main_series
+    disabled: true
     description: Array of names used to label the series in the response.
   - key: name
     value: main_series
+    disabled: true
     description: Array of names used to label the series in the response.
   - key: userAgentCategory
     value: AI
+    disabled: true
     description: Filters results by user agent category.
   - key: date
-    value: 1930-12-13
+    value: 1993-08-29
+    disabled: true
     description: Filters results by the specified array of dates.
   - key: date
-    value: 1954-10-21
+    value: 1988-07-19
+    disabled: true
     description: Filters results by the specified array of dates.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

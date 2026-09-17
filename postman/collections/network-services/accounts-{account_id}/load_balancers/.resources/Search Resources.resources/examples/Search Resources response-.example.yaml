@@ -2,17 +2,25 @@ $kind: http-example
 id: 85f91b59-c540-5d6d-89df-3c734d16f521
 name: Search Resources response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/load_balancers/search?query=primary&references=*&page=8789.615549182985&per_page=25"
+  url: "{{base_url}}/accounts/{{account_id}}/load_balancers/search"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    query: primary
-    references: "*"
-    page: "8789.615549182985"
-    per_page: "25"
+    - key: query
+      value: primary
+      disabled: true
+    - key: references
+      value: "*"
+      disabled: true
+    - key: page
+      value: "1147.9643547418527"
+      disabled: true
+    - key: per_page
+      value: "25"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

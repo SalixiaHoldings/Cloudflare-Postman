@@ -2,7 +2,7 @@ $kind: http-example
 id: 0950e37b-4575-505d-9264-47c55c9a81fb
 name: Successful response.
 request:
-  url: "{{base_url}}/radar/bgp/rpki/aspa/snapshot?customerAsn=13335&providerAsn=174&date=2024-09-19T00:00:00Z&includeAsnInfo=true&format=JSON"
+  url: "{{base_url}}/radar/bgp/rpki/aspa/snapshot"
   method: GET
   headers:
     Accept: application/json
@@ -11,18 +11,23 @@ request:
   queryParams:
     - key: customerAsn
       value: "13335"
+      disabled: true
       description: Filter by customer ASN (the ASN publishing the ASPA object).
     - key: providerAsn
       value: "174"
+      disabled: true
       description: Filter by provider ASN (an authorized upstream provider in ASPA objects).
     - key: date
       value: 2024-09-19T00:00:00Z
+      disabled: true
       description: Filters results by the specified datetime (ISO 8601).
     - key: includeAsnInfo
       value: "true"
+      disabled: true
       description: Include ASN metadata (name, country) in response.
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 200

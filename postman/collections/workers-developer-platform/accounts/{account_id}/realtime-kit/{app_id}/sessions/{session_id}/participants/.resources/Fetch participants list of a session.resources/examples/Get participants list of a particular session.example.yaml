@@ -1,29 +1,36 @@
 $kind: http-example
 id: fd6af6b1-2545-5989-be41-5b5331c74526
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}/participants?search=string&page_no=1043.4947488829494&per_page=25&sort_order=DESC&sort_by=duration&include_peer_events=false&view=raw"
+  url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/sessions/{{session_id}}/participants"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: search
       value: string
+      disabled: true
       description: The search query string. You can search using participant ID, custom participant ID, or display name.
     - key: page_no
-      value: "1043.4947488829494"
+      value: "4342.341406736523"
+      disabled: true
       description: The page number from which you want your page search results to be displayed.
     - key: per_page
       value: "25"
+      disabled: true
       description: Number of results per page.
     - key: sort_order
-      value: DESC
+      value: ASC
+      disabled: true
     - key: sort_by
       value: duration
+      disabled: true
     - key: include_peer_events
       value: "false"
+      disabled: true
       description: if true, response includes all the peer events of participants.
     - key: view
       value: raw
+      disabled: true
       description: In breakout room sessions, the view parameter can be set to `raw` for session specific duration for participants or `consolidated` to accumulate breakout room durations.
 response:
   statusCode: 200

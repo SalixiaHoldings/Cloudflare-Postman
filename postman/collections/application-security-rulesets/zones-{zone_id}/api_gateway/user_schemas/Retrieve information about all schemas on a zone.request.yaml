@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas?page=1&per_page=20&omit_source=false&validation_enabled=false"
+url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas"
 method: GET
 headers:
   Accept: application/json
@@ -22,15 +22,19 @@ headers:
 queryParams:
   - key: page
     value: "1"
+    disabled: true
     description: Page number of paginated results.
   - key: per_page
     value: "20"
+    disabled: true
     description: Maximum number of results per page.
   - key: omit_source
     value: "false"
+    disabled: true
     description: Omit the source-files of schemas and only retrieve their meta-data.
   - key: validation_enabled
     value: "false"
+    disabled: true
 auth:
   type: bearer
   credentials:

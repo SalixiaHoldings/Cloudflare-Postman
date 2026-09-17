@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/tlds?limit=5&offset=3789&tldManager=string&tldType=COUNTRY_CODE&tld=com,pt&format=JSON"
+url: "{{base_url}}/radar/tlds"
 method: GET
 headers:
   Accept: application/json
@@ -22,21 +22,27 @@ headers:
 queryParams:
   - key: limit
     value: "5"
+    disabled: true
     description: Limits the number of objects returned in the response.
   - key: offset
-    value: "3789"
+    value: "2923"
+    disabled: true
     description: Skips the specified number of objects before fetching the results.
   - key: tldManager
     value: string
+    disabled: true
     description: Filters results by TLD manager.
   - key: tldType
-    value: COUNTRY_CODE
+    value: GENERIC
+    disabled: true
     description: Filters results by TLD type.
   - key: tld
     value: com,pt
+    disabled: true
     description: Filters results by top-level domain. Specify a comma-separated list of TLDs.
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

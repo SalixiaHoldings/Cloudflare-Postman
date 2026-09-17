@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/radar/bgp/routes/paths/{{asn}}?ipVersion=IPv4&collector=route-views3&format=JSON"
+url: "{{base_url}}/radar/bgp/routes/paths/{{asn}}"
 method: GET
 headers:
   Accept: application/json
@@ -22,12 +22,15 @@ headers:
 queryParams:
   - key: ipVersion
     value: IPv4
+    disabled: true
     description: Address family of the observed paths. Defaults to IPv4.
   - key: collector
     value: route-views3
+    disabled: true
     description: Scope to a single RouteViews collector (e.g. "route-views3"). Omit to merge across all active collectors (identical path segments are deduplicated, observation counts summed, and every contributing collector listed).
   - key: format
-    value: JSON
+    value: CSV
+    disabled: true
     description: Format in which results will be returned.
 auth:
   type: bearer

@@ -13,37 +13,46 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/search?namespace=string&path=string&recursive=true&search=malicious&is_public=true&limit=50&offset=0&query=obfuscated proxy worker&mode=hybrid&language=yara"
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/rules/search?query=obfuscated proxy worker"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: namespace
     value: string
+    disabled: true
     description: Selects namespaces. Repeat the parameter to select multiple namespaces (for example, namespace=foo&namespace=bar).
   - key: path
     value: string
+    disabled: true
     description: Selects paths with exact-match semantics. Omit the parameter to return rules from all paths. Pass an empty string (path=) to return only rules with an empty or uncategorized path. Pass a value (for example, path=yara) to match that exact path. Repeat the parameter (for example, path=yara&path=expr) to OR-match multiple paths with SQL `IN (...)` semantics. The `recursive` flag affects only customer-account namespace selection.
   - key: recursive
     value: "true"
+    disabled: true
     description: For customer accounts, true enables descendant matching for namespaces. Paths always use exact matching.
   - key: search
     value: malicious
+    disabled: true
   - key: is_public
     value: "true"
+    disabled: true
     description: Limits rules to the specified public visibility.
   - key: limit
     value: "50"
+    disabled: true
   - key: offset
     value: "0"
+    disabled: true
   - key: query
     value: obfuscated proxy worker
     description: (Required) Natural-language or keyword search query.
   - key: mode
     value: hybrid
+    disabled: true
     description: Retrieval strategy used for the query.
   - key: language
     value: yara
+    disabled: true
     description: Limits results to the specified rule language.
 auth:
   type: bearer

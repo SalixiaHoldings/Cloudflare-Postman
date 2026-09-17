@@ -2,7 +2,7 @@ $kind: http-example
 id: c124dcfe-9c27-5511-84ce-cc7f1df7d7bb
 name: Returns the requested formats information.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/snapshot?cacheTTL=5"
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/snapshot"
   method: POST
   headers:
     Content-Type: application/json
@@ -12,6 +12,7 @@ request:
   queryParams:
     - key: cacheTTL
       value: "5"
+      disabled: true
       description: Cache TTL default is 5s. Set to 0 to disable.
   body:
     type: json

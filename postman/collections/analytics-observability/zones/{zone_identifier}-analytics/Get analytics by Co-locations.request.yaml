@@ -13,16 +13,22 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/zones/{{zone_identifier}}/analytics/colos?until=<string>&since=string&continuous=true"
+url: "{{base_url}}/zones/{{zone_identifier}}/analytics/colos"
 method: GET
 headers:
   Accept: application/json
   X-Auth-Email: "{{api_email}}"
   X-Auth-Key: "{{api_key}}"
 queryParams:
-  until: <string>
-  since: string
-  continuous: "true"
+  - key: until
+    value: <string>
+    disabled: true
+  - key: since
+    value: string
+    disabled: true
+  - key: continuous
+    value: "true"
+    disabled: true
 auth:
   type: bearer
   credentials:

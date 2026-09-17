@@ -1,37 +1,46 @@
 $kind: http-example
 id: dfc4d9c3-4be2-5f97-a7f4-251c0cce08b4
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports?page=6305&per_page=6305&sort=cdate,desc&domain=example.com&created_before=2009-11-10T23:00:00Z&created_after=2009-11-10T23:00:00Z&status=in_review&type=REG_WHO&mitigation_status=active"
+  url: "{{base_url}}/accounts/{{account_id}}/abuse-reports"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "6305"
+      disabled: true
       description: Where in pagination to start listing abuse reports
     - key: per_page
       value: "6305"
+      disabled: true
       description: How many abuse reports per page to list
     - key: sort
       value: cdate,desc
+      disabled: true
       description: A property to sort by, followed by the order (id, cdate, domain, type, status)
     - key: domain
       value: example.com
+      disabled: true
       description: Filter by domain name related to the abuse report
     - key: created_before
       value: 2009-11-10T23:00:00Z
+      disabled: true
       description: Returns reports created before the specified date
     - key: created_after
       value: 2009-11-10T23:00:00Z
+      disabled: true
       description: Returns reports created after the specified date
     - key: status
       value: in_review
+      disabled: true
       description: Filter by the status of the report.
     - key: type
       value: REG_WHO
+      disabled: true
       description: Filter by the type of the report.
     - key: mitigation_status
       value: active
+      disabled: true
       description: Filter reports that have any mitigations in the given status.
 response:
   statusCode: 200

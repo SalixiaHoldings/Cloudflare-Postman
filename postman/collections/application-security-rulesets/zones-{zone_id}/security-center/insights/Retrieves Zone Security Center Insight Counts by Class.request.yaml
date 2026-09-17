@@ -13,55 +13,77 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: '{{base_url}}/zones/{{zone_id}}/security-center/insights/class?dismissed=false&issue_class=a_record_dangling&issue_class=always_use_https_not_enabled&issue_type=compliance_violation&issue_type=email_security&product=access&product=dns&source=cloudflare&severity=low&severity=moderate&subject={"value":"<Error: Too many levels of nesting to fake this schema>"}&subject={"value":"<Error: Too many levels of nesting to fake this schema>"}&issue_class~neq=a_record_dangling&issue_class~neq=always_use_https_not_enabled&issue_type~neq=compliance_violation&issue_type~neq=email_security&product~neq=access&product~neq=dns&severity~neq=low&severity~neq=moderate&subject~neq={"value":"<Error: Too many levels of nesting to fake this schema>"}&subject~neq={"value":"<Error: Too many levels of nesting to fake this schema>"}'
+url: "{{base_url}}/zones/{{zone_id}}/security-center/insights/class"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: dismissed
     value: "false"
+    disabled: true
   - key: issue_class
     value: a_record_dangling
+    disabled: true
   - key: issue_class
     value: always_use_https_not_enabled
+    disabled: true
   - key: issue_type
     value: compliance_violation
+    disabled: true
   - key: issue_type
     value: email_security
+    disabled: true
   - key: product
     value: access
+    disabled: true
   - key: product
     value: dns
+    disabled: true
   - key: source
     value: cloudflare
+    disabled: true
   - key: severity
     value: low
+    disabled: true
   - key: severity
     value: moderate
+    disabled: true
   - key: subject
-    value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+    value: example.com
+    disabled: true
   - key: subject
-    value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+    value: example.com
+    disabled: true
   - key: issue_class~neq
     value: a_record_dangling
+    disabled: true
   - key: issue_class~neq
     value: always_use_https_not_enabled
+    disabled: true
   - key: issue_type~neq
     value: compliance_violation
+    disabled: true
   - key: issue_type~neq
     value: email_security
+    disabled: true
   - key: product~neq
     value: access
+    disabled: true
   - key: product~neq
     value: dns
+    disabled: true
   - key: severity~neq
     value: low
+    disabled: true
   - key: severity~neq
     value: moderate
+    disabled: true
   - key: subject~neq
-    value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+    value: example.com
+    disabled: true
   - key: subject~neq
-    value: '{"value":"<Error: Too many levels of nesting to fake this schema>"}'
+    value: example.com
+    disabled: true
 auth:
   type: bearer
   credentials:

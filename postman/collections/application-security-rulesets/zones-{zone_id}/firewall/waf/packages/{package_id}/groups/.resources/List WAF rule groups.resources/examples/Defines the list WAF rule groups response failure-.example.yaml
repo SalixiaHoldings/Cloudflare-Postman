@@ -2,21 +2,37 @@ $kind: http-example
 id: 259ccea6-12fe-5417-93c6-57504ae51a12
 name: Defines the list WAF rule groups response failure.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages/{{package_id}}/groups?mode=on&page=1&per_page=50&order=mode&direction=desc&match=all&name=Project Honey Pot&rules_count=10"
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages/{{package_id}}/groups"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    mode: on
-    page: "1"
-    per_page: "50"
-    order: mode
-    direction: desc
-    match: all
-    name: Project Honey Pot
-    rules_count: "10"
+    - key: mode
+      value: on
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "50"
+      disabled: true
+    - key: order
+      value: mode
+      disabled: true
+    - key: direction
+      value: desc
+      disabled: true
+    - key: match
+      value: all
+      disabled: true
+    - key: name
+      value: Project Honey Pot
+      disabled: true
+    - key: rules_count
+      value: "10"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

@@ -13,17 +13,33 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds?page=1&per_page=20&limit=70&sort=-created_at&category=string&source_type=curated&enabled=true&status=string"
+url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/feeds"
 method: GET
 queryParams:
-  page: "1"
-  per_page: "20"
-  limit: "70"
-  sort: -created_at
-  category: string
-  source_type: curated
-  enabled: "true"
-  status: string
+  - key: page
+    value: "1"
+    disabled: true
+  - key: per_page
+    value: "20"
+    disabled: true
+  - key: limit
+    value: "99"
+    disabled: true
+  - key: sort
+    value: -created_at
+    disabled: true
+  - key: category
+    value: string
+    disabled: true
+  - key: source_type
+    value: custom
+    disabled: true
+  - key: enabled
+    value: "true"
+    disabled: true
+  - key: status
+    value: string
+    disabled: true
 auth:
   type: bearer
   credentials:

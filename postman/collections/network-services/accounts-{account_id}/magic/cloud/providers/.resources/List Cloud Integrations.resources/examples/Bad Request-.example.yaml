@@ -2,7 +2,7 @@ $kind: http-example
 id: a5298df8-c8d5-5064-8682-f3bdd75af610
 name: Bad Request.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers?status=true&order_by=string&desc=true&cloudflare=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/providers"
   method: GET
   headers:
     Accept: application/json
@@ -11,13 +11,17 @@ request:
   queryParams:
     - key: status
       value: "true"
+      disabled: true
     - key: order_by
       value: string
+      disabled: true
       description: One of ["updated_at", "id", "cloud_type", "name"].
     - key: desc
       value: "true"
+      disabled: true
     - key: cloudflare
       value: "true"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

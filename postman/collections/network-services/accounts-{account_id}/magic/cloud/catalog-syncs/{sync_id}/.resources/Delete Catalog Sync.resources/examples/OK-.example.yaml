@@ -2,14 +2,16 @@ $kind: http-example
 id: 23926993-2e9a-52b1-ab80-b473fe7353d8
 name: OK.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/{{sync_id}}?delete_destination=true"
+  url: "{{base_url}}/accounts/{{account_id}}/magic/cloud/catalog-syncs/{{sync_id}}"
   method: DELETE
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    delete_destination: "true"
+    - key: delete_destination
+      value: "true"
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

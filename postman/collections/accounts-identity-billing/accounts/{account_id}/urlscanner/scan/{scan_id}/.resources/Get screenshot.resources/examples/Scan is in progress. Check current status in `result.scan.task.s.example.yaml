@@ -2,13 +2,14 @@ $kind: http-example
 id: a2212003-b4a4-50ba-a586-b48a6274b883
 name: "Scan is in progress. Check current status in `result.scan.task.status`. Possible statuses: `Queued`,`InProgress`,`InPostProcessing`,`Finished`."
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}/screenshot?resolution=desktop"
+  url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}/screenshot"
   method: GET
   headers:
     Accept: image/png
   queryParams:
     - key: resolution
       value: desktop
+      disabled: true
       description: Target device type.
 response:
   statusCode: 202

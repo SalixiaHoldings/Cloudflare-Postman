@@ -13,22 +13,26 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/zones/{{zone_id}}/settings/zaraz/history?offset=0&limit=10&sortField=updated_at&sortOrder=DESC"
+url: "{{base_url}}/zones/{{zone_id}}/settings/zaraz/history"
 method: GET
 headers:
   Accept: application/json
 queryParams:
   - key: offset
     value: "0"
+    disabled: true
     description: Ordinal number to start listing the results with. Default value is 0.
   - key: limit
     value: "10"
+    disabled: true
     description: Maximum amount of results to list. Default value is 10.
   - key: sortField
     value: updated_at
+    disabled: true
     description: The field to sort by. Default is updated_at.
   - key: sortOrder
     value: DESC
+    disabled: true
     description: Sorting order. Default is DESC.
 auth:
   type: bearer

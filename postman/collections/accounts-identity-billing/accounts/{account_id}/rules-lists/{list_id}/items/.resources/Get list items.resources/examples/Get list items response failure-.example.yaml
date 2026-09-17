@@ -2,16 +2,22 @@ $kind: http-example
 id: c69358e6-518b-5f8e-a81f-0e4241f34044
 name: Get list items response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/rules/lists/{{list_id}}/items?cursor=zzz&per_page=246&search=1.1.1."
+  url: "{{base_url}}/accounts/{{account_id}}/rules/lists/{{list_id}}/items"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    cursor: zzz
-    per_page: "246"
-    search: 1.1.1.
+    - key: cursor
+      value: zzz
+      disabled: true
+    - key: per_page
+      value: "433"
+      disabled: true
+    - key: search
+      value: 1.1.1.
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

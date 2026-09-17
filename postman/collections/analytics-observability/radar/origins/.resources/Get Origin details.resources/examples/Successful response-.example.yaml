@@ -2,7 +2,7 @@ $kind: http-example
 id: 0fd0e18f-a9ff-56a1-8133-075c533a3e3f
 name: Successful response.
 request:
-  url: "{{base_url}}/radar/origins/{{slug}}?format=JSON"
+  url: "{{base_url}}/radar/origins/{{slug}}"
   method: GET
   headers:
     Accept: application/json
@@ -10,7 +10,8 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: format
-      value: JSON
+      value: CSV
+      disabled: true
       description: Format in which results will be returned.
 response:
   statusCode: 200

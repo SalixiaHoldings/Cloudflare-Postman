@@ -1,18 +1,20 @@
 $kind: http-example
 id: 67e2835b-8120-5f86-95dc-503ab9807bdf
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/tokens/permission_groups?name=Account%20Settings%20Write&scope=com.cloudflare.api.account.zone"
+  url: "{{base_url}}/accounts/{{account_id}}/tokens/permission_groups"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: name
       value: Account%20Settings%20Write
+      disabled: true
       description: |-
         Filter by the name of the permission group.
         The value must be URL-encoded.
     - key: scope
       value: com.cloudflare.api.account.zone
+      disabled: true
       description: |-
         Filter by the scope of the permission group.
         The value must be URL-encoded.

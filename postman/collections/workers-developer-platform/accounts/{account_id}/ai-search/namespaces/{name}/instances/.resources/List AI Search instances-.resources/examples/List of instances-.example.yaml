@@ -2,28 +2,34 @@ $kind: http-example
 id: 03d9e1d3-23fe-5e85-bc75-a5dca2394705
 name: List of instances.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances?page=1&per_page=20&search=string&namespace=9v2v&order_by=created_at&order_by_direction=desc"
+  url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number (1-indexed).
     - key: per_page
       value: "20"
+      disabled: true
       description: Number of results per page.
     - key: search
       value: string
+      disabled: true
       description: Filter instances whose id contains this string (case-insensitive).
     - key: namespace
-      value: 9v2v
+      value: i
+      disabled: true
       description: Filter by namespace.
     - key: order_by
       value: created_at
+      disabled: true
       description: Field to order results by.
     - key: order_by_direction
       value: desc
+      disabled: true
       description: Order direction.
 response:
   statusCode: 200

@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_email":[],"api_key":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/tags/values/{{tag_key}}?type=zone&cursor=eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ"
+url: "{{base_url}}/accounts/{{account_id}}/tags/values/{{tag_key}}"
 method: GET
 headers:
   Accept: application/json
@@ -22,9 +22,11 @@ headers:
 queryParams:
   - key: type
     value: zone
+    disabled: true
     description: Filter by resource type.
   - key: cursor
     value: eyJhY2NvdW50X2lkIjoxMjM0NTY3ODkwfQ
+    disabled: true
     description: Cursor for pagination.
 auth:
   type: noauth

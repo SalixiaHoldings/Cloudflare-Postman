@@ -2,13 +2,14 @@ $kind: http-example
 id: 04492f85-f76d-593b-bcbe-8185d223eef2
 name: Email message details.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}?submission=true"
+  url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: submission
       value: "true"
+      disabled: true
       description: |-
         When true, search the submissions datastore only. When false or omitted, search the
         regular datastore only.

@@ -1,16 +1,18 @@
 $kind: http-example
 id: 91e3cdd0-848f-51f4-b0a9-0916e41c05ef
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/smart_shield/healthchecks?page=1&per_page=25"
+  url: "{{base_url}}/zones/{{zone_id}}/smart_shield/healthchecks"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: per_page
       value: "25"
+      disabled: true
       description: Maximum number of results per page. Must be a multiple of 5.
 response:
   statusCode: 200

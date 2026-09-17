@@ -2,13 +2,14 @@ $kind: http-example
 id: 6cad12c0-732c-5d59-b7c6-e4adb539eb49
 name: Returns a Registration.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/devices/registrations/{{registration_id}}?include=string"
+  url: "{{base_url}}/accounts/{{account_id}}/devices/registrations/{{registration_id}}"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: include
       value: string
+      disabled: true
       description: |
         Comma-separated list of additional information that should be included in the registration response. Supported values are: "policy".
 response:

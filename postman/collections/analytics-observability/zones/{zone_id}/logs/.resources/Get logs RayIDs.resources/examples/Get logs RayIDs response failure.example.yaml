@@ -1,15 +1,19 @@
 $kind: http-example
 id: c8c6694f-1e8c-5d78-ad7f-d0f335acc3c7
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/logs/rayids/{{ray_id}}?fields=ClientIP,RayID,EdgeStartTimestamp&timestamps=unixnano"
+  url: "{{base_url}}/zones/{{zone_id}}/logs/rayids/{{ray_id}}"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    fields: ClientIP,RayID,EdgeStartTimestamp
-    timestamps: unixnano
+    - key: fields
+      value: ClientIP,RayID,EdgeStartTimestamp
+      disabled: true
+    - key: timestamps
+      value: unixnano
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

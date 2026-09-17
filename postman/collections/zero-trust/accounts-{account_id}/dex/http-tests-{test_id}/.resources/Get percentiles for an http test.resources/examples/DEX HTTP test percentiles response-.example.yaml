@@ -2,16 +2,18 @@ $kind: http-example
 id: 073ec2cb-2e5a-5cc6-93fe-0cb32ad697bc
 name: DEX HTTP test percentiles response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dex/http-tests/{{test_id}}/percentiles?deviceId=cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7&deviceId=cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7&from=2023-09-20T17:00:00Z&to=2023-09-20T17:00:00Z&colo=SJC"
+  url: "{{base_url}}/accounts/{{account_id}}/dex/http-tests/{{test_id}}/percentiles?from=2023-09-20T17:00:00Z&to=2023-09-20T17:00:00Z"
   method: GET
   headers:
     Accept: application/json
   queryParams:
     - key: deviceId
       value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
       description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
     - key: deviceId
       value: cb49c27f-7f97-49c5-b6f3-f7c01ead0fd7
+      disabled: true
       description: Optionally filter result stats to a specific device(s). Cannot be used in combination with colo param.
     - key: from
       value: 2023-09-20T17:00:00Z
@@ -21,6 +23,7 @@ request:
       description: (Required) End time for the query in ISO (RFC3339 - ISO 8601) format.
     - key: colo
       value: SJC
+      disabled: true
       description: Optionally filter result stats to a Cloudflare colo. Cannot be used in combination with deviceId param.
 response:
   statusCode: 200

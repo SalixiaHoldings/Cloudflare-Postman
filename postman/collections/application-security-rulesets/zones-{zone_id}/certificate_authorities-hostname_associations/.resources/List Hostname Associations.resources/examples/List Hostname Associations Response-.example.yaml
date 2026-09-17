@@ -2,12 +2,14 @@ $kind: http-example
 id: cc6c0019-16c9-53d7-9a9e-45380d83862b
 name: List Hostname Associations Response.
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/certificate_authorities/hostname_associations?mtls_certificate_id=b2134436-2555-4acf-be5b-26c48136575e"
+  url: "{{base_url}}/zones/{{zone_id}}/certificate_authorities/hostname_associations"
   method: GET
   headers:
     Accept: application/json
   queryParams:
-    mtls_certificate_id: b2134436-2555-4acf-be5b-26c48136575e
+    - key: mtls_certificate_id
+      value: b2134436-2555-4acf-be5b-26c48136575e
+      disabled: true
 response:
   statusCode: 200
   statusText: OK

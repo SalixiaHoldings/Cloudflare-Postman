@@ -1,7 +1,7 @@
 $kind: http-example
 id: e5973c88-9f86-586f-9cd1-9f42cc020d98
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/cni/cnis?slot=string&tunnel_id=string&cursor=9230&limit=4653"
+  url: "{{base_url}}/accounts/{{account_id}}/cni/cnis"
   method: GET
   headers:
     Accept: application/json
@@ -10,14 +10,18 @@ request:
   queryParams:
     - key: slot
       value: string
+      disabled: true
       description: If specified, only show CNIs associated with the specified slot
     - key: tunnel_id
       value: string
+      disabled: true
       description: If specified, only show cnis associated with the specified tunnel id
     - key: cursor
-      value: "9230"
+      value: "4690"
+      disabled: true
     - key: limit
-      value: "4653"
+      value: "5193"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

@@ -2,14 +2,16 @@ $kind: http-example
 id: 76243d3c-72e7-5eb9-b321-5712563f5ac5
 name: List live inputs response failure.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs?include_counts=true"
+  url: "{{base_url}}/accounts/{{account_id}}/stream/live_inputs"
   method: GET
   headers:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
-    include_counts: "true"
+    - key: include_counts
+      value: "true"
+      disabled: true
 response:
   statusCode: 400
   statusText: Bad Request

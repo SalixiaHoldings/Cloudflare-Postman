@@ -2,7 +2,7 @@ $kind: http-example
 id: 8cf00558-3a23-5b78-995c-2db93b58cc4f
 name: DEX traceroute test network path response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}/network-path?deviceId=string&from=string&to=string&interval=minute"
+  url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}/network-path?deviceId=string&from=string&to=string&interval=hour"
   method: GET
   headers:
     Accept: application/json
@@ -17,7 +17,7 @@ request:
       value: string
       description: (Required) End time for aggregate metrics in ISO ms.
     - key: interval
-      value: minute
+      value: hour
       description: (Required) Time interval for aggregate time slots.
 response:
   statusCode: 200

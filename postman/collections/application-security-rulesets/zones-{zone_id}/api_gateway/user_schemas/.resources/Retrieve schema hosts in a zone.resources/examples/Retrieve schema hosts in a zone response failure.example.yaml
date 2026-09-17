@@ -1,7 +1,7 @@
 $kind: http-example
 id: 912d0442-0d23-5147-ace1-7f109aed3a40
 request:
-  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/hosts?page=1&per_page=20"
+  url: "{{base_url}}/zones/{{zone_id}}/api_gateway/user_schemas/hosts"
   method: GET
   headers:
     Accept: application/json
@@ -10,9 +10,11 @@ request:
   queryParams:
     - key: page
       value: "1"
+      disabled: true
       description: Page number of paginated results.
     - key: per_page
       value: "20"
+      disabled: true
       description: Maximum number of results per page.
 response:
   statusCode: 400

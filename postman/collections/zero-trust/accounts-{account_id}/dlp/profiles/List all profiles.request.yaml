@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[],"api_token":[]}]
   Selected requirement: {"api_email":[],"api_key":[],"api_token":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles?all=true"
+url: "{{base_url}}/accounts/{{account_id}}/dlp/profiles"
 method: GET
 headers:
   Accept: application/json
@@ -22,6 +22,7 @@ headers:
 queryParams:
   - key: all
     value: "true"
+    disabled: true
     description: Return all profiles, including those that current account does not have access to.
 auth:
   type: bearer

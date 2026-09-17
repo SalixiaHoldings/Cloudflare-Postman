@@ -13,12 +13,14 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/cfd_tunnel/{{tunnel_id}}/connections?client_id=1bedc50d-42b3-473c-b108-ff3d10c0d925"
+url: "{{base_url}}/accounts/{{account_id}}/cfd_tunnel/{{tunnel_id}}/connections"
 method: DELETE
 headers:
   Accept: application/json
 queryParams:
-  client_id: 1bedc50d-42b3-473c-b108-ff3d10c0d925
+  - key: client_id
+    value: 1bedc50d-42b3-473c-b108-ff3d10c0d925
+    disabled: true
 auth:
   type: bearer
   credentials:
