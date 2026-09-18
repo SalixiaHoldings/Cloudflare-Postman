@@ -85,6 +85,21 @@ const exceptionFile = path.join(ROOT, 'config', 'upstream-validation-exceptions.
 const exceptionConfig = JSON.parse(await readFile(exceptionFile, 'utf8'));
 exceptionConfig.upstreamCommit = latestCommit;
 await writeJson(exceptionFile, exceptionConfig);
+
+const queryPolicyFile = path.join(ROOT, 'config', 'query-projection.json');
+const queryPolicy = JSON.parse(await readFile(queryPolicyFile, 'utf8'));
+if (
+  queryPolicy.upstreamCommit !== currentLock.commit ||
+  queryPolicy.schemaSha256 !== currentLock.schema.sha256
+) {
+  throw new Error('Current query policy revision metadata does not match schema-lock.json.');
+}
+// Advance only the revision binding. Omission contracts and secondary-warning
+// fingerprints remain unchanged so real query-behavior drift still fails closed.
+queryPolicy.upstreamCommit = latestCommit;
+queryPolicy.schemaSha256 = newLock.schema.sha256;
+await writeJson(queryPolicyFile, queryPolicy);
+
 const cacheSchema = path.join(CACHE_DIR, 'cloudflare', latestCommit, 'openapi.json');
 await mkdir(path.dirname(cacheSchema), { recursive: true });
 await writeFile(cacheSchema, newSchemaBytes);

@@ -61,11 +61,16 @@ test('only the scheduled upstream updater may request pull-request write access 
 test('upstream updater and hosted gate include both generated distributions', async () => {
   const drift = await readFile(path.join(workflowDirectory, 'upstream-drift.yml'), 'utf8');
   const validation = await readFile(path.join(workflowDirectory, 'validate.yml'), 'utf8');
-  assert.match(drift, /git add[^\n]*dist postman/u);
+  assert.match(drift, /git add[^\n]*config\/query-projection\.json[^\n]*dist postman/u);
   assert.match(validation, /git diff --exit-code -- dist postman/u);
   const generator = await readFile(path.join(ROOT,'src/generate.mjs'),'utf8');
   assert.match(generator,/await generateNative\(temporary\)/u);
   const updater = await readFile(path.join(ROOT,'scripts/upstream-update.mjs'),'utf8');
+  assert.match(updater,/query-projection\.json/u);
+  assert.match(updater,/queryPolicy\.upstreamCommit = latestCommit/u);
+  assert.match(updater,/queryPolicy\.schemaSha256 = newLock\.schema\.sha256/u);
+  assert.doesNotMatch(updater,/queryPolicy\.(?:omissions|partitions)\s*=/u,
+    'updater must not auto-accept query behavior fingerprints');
   assert.match(updater,/await generateAll\(/u);
   assert.match(updater,/await validateAll\(/u);
 });
