@@ -1,5 +1,5 @@
 $kind: http-example
-id: 0d85a5b0-9af9-571c-9a71-e607f17bc4d4
+id: 1316a53a-e1c3-5e79-9f27-7dc3e76cdf2d
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workers/observability/zones/{{zone_id}}/observability/tracing/settings"
   method: PATCH
@@ -16,9 +16,9 @@ request:
         ],
         "enabled": true,
         "forward_context": true,
-        "persist": false,
-        "propagation_policy": "authenticated",
-        "sampling_ratio": 0.2914466087240726
+        "persist": true,
+        "propagation_policy": "unauthenticated",
+        "sampling_ratio": 0.3243506159633398
       }
 response:
   statusCode: 400

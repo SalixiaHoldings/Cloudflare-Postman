@@ -1,0 +1,47 @@
+$kind: http-example
+id: dc2ee839-870a-59fd-8918-c7bd04ee95b1
+name: Attach domain response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/domains"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "hostname": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "service": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "zone_id": "{{zone_id}}",
+        "zone_name": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

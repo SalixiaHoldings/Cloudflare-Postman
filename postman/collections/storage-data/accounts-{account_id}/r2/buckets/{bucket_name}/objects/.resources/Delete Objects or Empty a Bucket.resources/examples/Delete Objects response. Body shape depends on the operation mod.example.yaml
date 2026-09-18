@@ -1,5 +1,5 @@
 $kind: http-example
-id: 2108ae39-98bc-50cd-a2e7-914d8cfb0880
+id: dc4373fc-82ea-55df-b8bc-14f276e14938
 name: |
   Delete Objects response. Body shape depends on the operation mode:
   - "delete by list" returns an array of `{ key }` entries for successfully deleted objects;
@@ -10,6 +10,7 @@ request:
   headers:
     - key: cf-r2-jurisdiction
       value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
     - key: cf-r2-data-catalog-check
       value: string
       description: Set this header to reject the operation when R2 Data Catalog is enabled for the bucket.

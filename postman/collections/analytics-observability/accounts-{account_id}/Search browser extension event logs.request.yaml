@@ -1,0 +1,51 @@
+$kind: http-request
+id: de827e46-2ba8-5e99-bb0c-3fa7b1ccc59f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: accounts-browser-extension-config-extension-events-search
+  POST /accounts/{account_id}/browser-extension/config/logs/extension-events/search
+
+  Searches browser extension event logs for an account. The request accepts
+  only supported fields and filters; raw SQL is not accepted.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config/logs/extension-events/search"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "from": "1974-11-11T07:05:51.253Z",
+      "to": "1947-06-14T09:41:01.139Z",
+      "fields": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "filters": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ],
+      "includeTotal": false,
+      "limit": 50,
+      "page": 1
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Search browser extension event logs.resources/examples
+order: 8000

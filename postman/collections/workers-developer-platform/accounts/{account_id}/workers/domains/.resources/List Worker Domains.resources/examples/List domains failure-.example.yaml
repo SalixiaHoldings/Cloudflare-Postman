@@ -1,0 +1,44 @@
+$kind: http-example
+id: ebf75771-1edf-554b-a8a2-5f58cde6553b
+name: List domains failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/domains"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: zone_id
+      value: "{{zone_id}}"
+      disabled: true
+    - key: zone_name
+      value: example.com
+      disabled: true
+    - key: service
+      value: my-worker
+      disabled: true
+    - key: hostname
+      value: app.example.com
+      disabled: true
+    - key: environment
+      value: production
+      disabled: true
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

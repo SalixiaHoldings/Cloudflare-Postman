@@ -1,13 +1,17 @@
 $kind: http-example
-id: 189e2148-129f-52b3-857d-2af3d2415793
+id: 80239232-acee-5351-81db-2d0c0cab5c23
 name: Create Configuration response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/event_notifications/r2/{{bucket_name}}/configuration/queues/{{queue_id}}"
   method: PUT
   headers:
-    cf-r2-jurisdiction: default
-    Content-Type: application/json
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
   body:
     type: json
     content: |-

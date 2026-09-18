@@ -1,13 +1,17 @@
 $kind: http-example
-id: 6d5b949e-dbbd-59cb-8f3c-726eac6812c8
+id: 4056d723-b15b-576e-aea4-716deae5d32d
 name: The enqueued storage-class migration job.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/storage-class-migration-jobs"
   method: POST
   headers:
-    cf-r2-jurisdiction: default
-    Content-Type: application/json
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
   body:
     type: json
     content: |-

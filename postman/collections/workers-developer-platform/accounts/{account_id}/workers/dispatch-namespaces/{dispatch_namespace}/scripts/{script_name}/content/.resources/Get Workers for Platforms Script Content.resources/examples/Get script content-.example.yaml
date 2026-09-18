@@ -1,0 +1,22 @@
+$kind: http-example
+id: 31d72e07-b807-5fc2-a033-e0c102f1100b
+name: Get script content.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/dispatch/namespaces/{{dispatch_namespace}}/scripts/{{script_name}}/content"
+  method: GET
+  headers:
+    Accept: string
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: string
+  body:
+    type: text
+    content: |
+      export default {
+        async fetch(request, env, ctx) {
+          return new Response("Hello, world!");
+        }
+      };
+order: 1000

@@ -1,5 +1,5 @@
 $kind: http-request
-id: 155c5f49-040d-51bd-a882-9826bc1dd96a
+id: 89ec8f74-0a9c-567f-995a-17280663ad4e
 name: List AI Search instances.
 description: |-
   GENERATED FILE — DO NOT EDIT.
@@ -8,6 +8,8 @@ description: |-
   GET /accounts/{account_id}/ai-search/instances
 
   List all AI Search instances in the account.
+
+  Deprecated: use /accounts/{account_id}/ai-search/namespaces/{name}/instances (and descendant paths) instead.
 
   Authentication support: bearer-alternative
   Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
@@ -32,7 +34,7 @@ queryParams:
     disabled: true
     description: Filter instances whose id contains this string (case-insensitive).
   - key: namespace
-    value: i
+    value: q
     disabled: true
     description: Filter by namespace.
   - key: order_by

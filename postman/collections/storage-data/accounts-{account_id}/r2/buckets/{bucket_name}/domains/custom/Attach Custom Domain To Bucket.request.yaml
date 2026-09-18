@@ -1,5 +1,5 @@
 $kind: http-request
-id: a78f05c4-a8c1-5fd5-81c7-c4ce661544fa
+id: 982aacd7-fafb-5511-893a-6cebeff85625
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -16,9 +16,13 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/domains/custom"
 method: POST
 headers:
-  cf-r2-jurisdiction: default
-  Content-Type: application/json
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
 body:
   type: json
   content: |-

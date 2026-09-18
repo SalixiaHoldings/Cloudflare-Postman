@@ -1,13 +1,17 @@
 $kind: http-example
-id: 33edec2d-0dd7-544e-aa75-82cfdf9f3e10
+id: c4eac40a-0840-5758-9e30-ba5b549af986
 name: Error Response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/lifecycle"
   method: PUT
   headers:
-    cf-r2-jurisdiction: default
-    Content-Type: application/json
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
   body:
     type: json
     content: |-

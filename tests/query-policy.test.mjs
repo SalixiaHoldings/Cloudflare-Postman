@@ -67,14 +67,26 @@ test('query validation rejects unmapped, wrong-state, missing-required and nesti
     assert.throws(()=>assertQueryContract({url:{query}},s,op));
   }
 });
-test('five revision-bound omission identities, schema fingerprints and warning drift fail closed', () => {
-  assert.deepEqual(policy.omissions.map(o => `${o.operation} ${o.parameter}`).sort(), [
-    ...['lists','locations','proxy_endpoints','rules'].map(name => `GET /accounts/{account_id}/gateway/${name} filter`),
-    'GET /accounts/{account_id}/cloudforce-one/events search'
-  ].sort());
-  assert.equal(new Set(policy.omissions.map(o=>o.operation+o.parameter)).size,5);
+test('optional scalar omissions are fingerprinted and still require explicit policy approval', () => {
+  const s=fixture(),op=listOperations(s).find(o=>o.method==='POST');
+  const result=assertQueryContract({url:{query:[]}},s,op);
+  assert.equal(result.omissions.length,1);
+  assert.equal(result.omissions[0].parameter,'optional');
+  assert.match(result.omissions[0].parameterSha256,/^[0-9a-f]{64}$/u);
+  assert.throws(()=>assertOmissions(result.omissions,[]));
+});
+test('revision-bound omission set and warning drift fail closed', () => {
+  assert.deepEqual(policy.omissions, [{ operation: 'GET /accounts/{account_id}/cloudforce-one/events', parameter: 'search', parameterSha256: '97be6fa16b6124b7a7217c1fead4c42aaa9e0657d6337cd3ccd7a152d6b73ffb' }]);
+  assert.equal(new Set(policy.omissions.map(o=>o.operation+o.parameter)).size,1);
   assertOmissions(policy.omissions,policy.omissions);
-  for (const actual of [policy.omissions.slice(1),[...policy.omissions,{operation:'GET /new',parameter:'filter',parameterSha256:'changed'}],policy.omissions.map((o,i)=>i?o:{...o,parameterSha256:'changed'})]) assert.throws(()=>assertOmissions(actual,policy.omissions));
+  for (const actual of [
+    [],
+    [...policy.omissions, {operation:'GET /new',parameter:'filter',parameterSha256:'changed'}],
+    [...policy.omissions, ...policy.omissions],
+    policy.omissions.map(o=>({...o,operation:'GET /different'})),
+    policy.omissions.map(o=>({...o,parameter:'different'})),
+    policy.omissions.map(o=>({...o,parameterSha256:'changed'}))
+  ]) assert.throws(()=>assertOmissions(actual,policy.omissions));
   const lock={commit:policy.upstreamCommit,schema:{sha256:policy.schemaSha256}}; assertQueryRevision(policy,lock,'6.3.3');
   assert.throws(()=>assertQueryRevision(policy,{...lock,commit:'changed'},'6.3.3'));assert.throws(()=>assertQueryRevision(policy,lock,'different'));
   const a=warningRecord(['Error while resolving allOf schema: conflict\n    at /synthetic/one:1']);
@@ -115,11 +127,11 @@ test('pinned distribution preserves query contracts, exact omissions, Organizati
   const {fetchPinnedSchema}=await import('../src/upstream.mjs');const {destination}=await fetchPinnedSchema();const schema=JSON.parse(await readFile(destination));
   const operations=new Map(listOperations(schema).map(o=>[o.key,o]));const manifest=JSON.parse(await readFile('dist/v2.1/manifest.json'));const omissions=[];let enabled=0,disabled=0;const items=new Map();
   for(const partition of manifest.partitions){const c=JSON.parse(await readFile('dist/v2.1/'+partition.file));for(const i of walk(c.item)){const key=i.request.method+' /'+i.request.url.path.join('/').replaceAll('{{','{').replaceAll('}}','}');const result=assertQueryContract(i.request,schema,operations.get(key));omissions.push(...result.omissions);enabled+=result.enabled;disabled+=result.disabled;items.set(key,i);}}
-  assertOmissions(omissions,policy.omissions);assert.equal(items.size,3522);assert.equal(enabled,141);assert.equal(disabled,8070);
+  assertOmissions(omissions,policy.omissions);assert.equal(items.size,3540);assert.equal(enabled,141);assert.equal(disabled,8094);
   for(const [key,url,count]of [['GET /organizations','{{base_url}}/organizations',11],['GET /organizations/{organization_id}/accounts','{{base_url}}/organizations/{{organization_id}}/accounts',14]]){const r=items.get(key).request;assert.equal(r.url.raw,url);assert.equal(r.url.query.length,count);assert.ok(r.url.query.every(q=>q.disabled===true));}
   for(const p of ['/accounts/{account_id}/iam/resource_groups','/accounts/{account_id}/iam/user_groups','/user/spectrum_analytics/zones/report','/zones/{zone_id}/spectrum/analytics/events/bytime','/zones/{zone_id}/spectrum/analytics/events/summary']){const q=items.get('GET '+p).request.url.query;for(const name of p.includes('/iam/')?['id']:['since','until'])assert.ok(q.some(v=>v.key===name&&v.disabled===true));assert.ok(!q.some(v=>['description','title','value'].includes(v.key)));}
   assert.equal(manifest.partitions.reduce((n,p)=>n+p.converterWarningCount,0),47);
-  assert.equal(manifest.partitions.reduce((n,p)=>n+p.queryProjection.secondaryWarnings.count,0),539);
+  assert.equal(manifest.partitions.reduce((n,p)=>n+p.queryProjection.secondaryWarnings.count,0),530);
 });
 
 test('secondary runtime cannot mutate primary converter generation state', async () => {

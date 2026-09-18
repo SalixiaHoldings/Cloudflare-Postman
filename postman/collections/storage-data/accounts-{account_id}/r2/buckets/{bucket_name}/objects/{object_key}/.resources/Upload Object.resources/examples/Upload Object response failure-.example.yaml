@@ -1,5 +1,5 @@
 $kind: http-example
-id: de107526-515b-58a1-8072-cc1965ba0008
+id: d47c348f-7b90-5bfd-a33a-b7dd44b1af2a
 name: Upload Object response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects/{{object_key}}"
@@ -7,6 +7,7 @@ request:
   headers:
     - key: cf-r2-jurisdiction
       value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
     - key: Content-Length
       value: "1081"
     - key: cf-r2-storage-class

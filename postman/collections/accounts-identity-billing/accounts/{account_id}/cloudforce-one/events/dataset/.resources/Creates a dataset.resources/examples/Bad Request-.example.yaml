@@ -1,5 +1,5 @@
 $kind: http-example
-id: 7539cb8f-a6e8-5262-956e-13046412161d
+id: 1ef175ea-5805-5796-a64e-3a2d10c036dc
 name: Bad Request.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/create"
@@ -12,7 +12,7 @@ request:
     content: |-
       {
         "name": "string",
-        "isPublic": true
+        "isPublic": false
       }
 response:
   statusCode: 400
@@ -24,7 +24,7 @@ response:
     content: |-
       {
         "result": {},
-        "success": true,
+        "success": false,
         "errors": [
           {
             "message": {

@@ -1,5 +1,5 @@
 $kind: http-example
-id: 7fdfb1ac-919f-5482-9311-7244a0c6242d
+id: 6608cf03-b218-5a7a-9a9d-8b519e2c3b3d
 name: Bad Request.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/tags/{{tag_uuid}}/relationships"
@@ -14,10 +14,10 @@ request:
       value: string
       disabled: true
     - key: search
-      value: '{"field":"string","op":"startsWith","value":"string"}'
+      value: '{"field":"string","op":"exists","value":"string"}'
       disabled: true
     - key: search
-      value: '{"field":"string","op":"not","value":"string"}'
+      value: '{"field":"string","op":"like","value":"string"}'
       disabled: true
     - key: expand
       value: string
@@ -41,7 +41,7 @@ response:
     content: |-
       {
         "result": {},
-        "success": true,
+        "success": false,
         "errors": [
           {
             "message": {

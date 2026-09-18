@@ -1,5 +1,5 @@
 $kind: http-example
-id: dcf8b268-e813-59d1-a528-4f186e0d2706
+id: 037bffcc-0bca-54d4-9f3a-fadfded57798
 name: Not found.
 request:
   url: "{{base_url}}/radar/dns/top/locations"
@@ -30,19 +30,19 @@ request:
       disabled: true
       description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
     - key: dateStart
-      value: 1943-04-17T22:40:41.639Z
+      value: 1946-01-18T08:24:35.875Z
       disabled: true
       description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateStart
-      value: 1932-06-29T20:40:48.455Z
+      value: 1969-02-03T19:53:29.907Z
       disabled: true
       description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1971-03-11T04:16:19.464Z
+      value: 1938-11-20T10:50:51.531Z
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1974-05-26T22:34:40.196Z
+      value: 1982-02-01T05:58:15.896Z
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: asn
@@ -78,11 +78,11 @@ request:
       disabled: true
       description: Filters results by domain name. When set, no other DNS filter may be used — only date filtering (`dateRange`, or `dateStart`/`dateEnd`) is allowed — and the date range cannot exceed 31 days.
     - key: cacheHit
-      value: "false"
+      value: "true"
       disabled: true
       description: Filters results based on cache status.
     - key: cacheHit
-      value: "false"
+      value: "true"
       disabled: true
       description: Filters results based on cache status.
     - key: nodata
@@ -90,47 +90,47 @@ request:
       disabled: true
       description: Specifies whether the response includes empty DNS responses (NODATA).
     - key: protocol
-      value: UDP
+      value: TCP
       disabled: true
       description: Filters results by DNS transport protocol.
     - key: protocol
-      value: TLS
+      value: TCP
       disabled: true
       description: Filters results by DNS transport protocol.
     - key: queryType
-      value: AXFR
+      value: DOA
       disabled: true
       description: Filters results by DNS query type.
     - key: queryType
-      value: L32
+      value: GPOS
       disabled: true
       description: Filters results by DNS query type.
     - key: responseCode
-      value: BADALG
+      value: YXDOMAIN
       disabled: true
       description: Filters results by DNS response code.
     - key: responseCode
-      value: BADTIME
+      value: BADSIG
       disabled: true
       description: Filters results by DNS response code.
     - key: responseTtl
-      value: GT_1W
+      value: LTE_1M
       disabled: true
       description: Filters results by DNS response TTL.
     - key: responseTtl
-      value: GT_15M_LTE_1H
+      value: GT_1D_LTE_1W
       disabled: true
       description: Filters results by DNS response TTL.
-    - key: dnssec
-      value: OTHER
-      disabled: true
-      description: Filters results based on DNSSEC (DNS Security Extensions) support.
     - key: dnssec
       value: INVALID
       disabled: true
       description: Filters results based on DNSSEC (DNS Security Extensions) support.
+    - key: dnssec
+      value: INSECURE
+      disabled: true
+      description: Filters results based on DNSSEC (DNS Security Extensions) support.
     - key: dnssecAware
-      value: SUPPORTED
+      value: NOT_SUPPORTED
       disabled: true
       description: Filters results based on DNSSEC (DNS Security Extensions) client awareness.
     - key: dnssecAware
@@ -142,7 +142,7 @@ request:
       disabled: true
       description: Filters results based on DNSSEC-validated answers by end-to-end security status.
     - key: dnssecE2e
-      value: "true"
+      value: "false"
       disabled: true
       description: Filters results based on DNSSEC-validated answers by end-to-end security status.
     - key: ipVersion
@@ -154,11 +154,11 @@ request:
       disabled: true
       description: Filters results by IP version (Ipv4 vs. IPv6).
     - key: matchingAnswer
-      value: "true"
+      value: "false"
       disabled: true
       description: Filters results based on whether the queries have a matching answer.
     - key: matchingAnswer
-      value: "false"
+      value: "true"
       disabled: true
       description: Filters results based on whether the queries have a matching answer.
     - key: tld
@@ -170,7 +170,7 @@ request:
       disabled: true
       description: Filters results by top-level domain. Incompatible with the `ipVersion`, `protocol`, `dnssecE2e`, `dnssecAware`, `responseTtl`, and `cacheHit` filters/dimensions; this restriction does not apply to country-code TLDs (2-letter, e.g. `uk`).
     - key: format
-      value: CSV
+      value: JSON
       disabled: true
       description: Format in which results will be returned.
 response:

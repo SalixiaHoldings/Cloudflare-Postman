@@ -1,0 +1,39 @@
+$kind: http-example
+id: 04675a98-4533-555f-aa77-814d41e81a07
+name: Upload Assets response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/assets/upload?base64=true"
+  method: POST
+  headers:
+    Content-Type: multipart/form-data
+    Accept: application/json
+  queryParams:
+    - key: base64
+      value: "true"
+      description: "(Required) "
+  body:
+    type: formdata
+    content:
+      - type: text
+        key: key_0
+        value: string
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

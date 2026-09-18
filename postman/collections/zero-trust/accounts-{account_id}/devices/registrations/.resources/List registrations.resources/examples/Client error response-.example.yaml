@@ -1,5 +1,5 @@
 $kind: http-example
-id: d955a94d-4c15-53cf-802c-e4b02cad1694
+id: 66c13b90-eec8-5a3b-96d2-5be1d2ed2016
 name: Client error response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/registrations"
@@ -27,6 +27,10 @@ request:
       value: all
       disabled: true
       description: Filter by registration status. Defaults to 'active'.
+    - key: registration_type
+      value: warp
+      disabled: true
+      description: Filter by registration client type.
     - key: per_page
       value: "6728"
       disabled: true
@@ -36,7 +40,7 @@ request:
       disabled: true
       description: Filter by registration details.
     - key: sort_by
-      value: last_seen_at
+      value: user.name
       disabled: true
       description: The registration field to order results by.
     - key: sort_order

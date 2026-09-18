@@ -1,0 +1,28 @@
+$kind: http-example
+id: b84b2380-b17a-5844-8460-574afb98fcb2
+name: Delete Subdomain response failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/subdomain"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

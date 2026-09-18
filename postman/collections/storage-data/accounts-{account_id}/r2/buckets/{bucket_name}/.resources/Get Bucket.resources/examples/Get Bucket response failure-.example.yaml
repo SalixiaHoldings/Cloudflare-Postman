@@ -1,12 +1,15 @@
 $kind: http-example
-id: 145855ab-24d8-58d2-b004-97838c6bc6bf
+id: 49605b6d-3a39-5465-9455-fdddbf13bf8c
 name: Get Bucket response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 400
   statusText: Bad Request

@@ -1,5 +1,5 @@
 $kind: http-request
-id: e23f94db-5e1b-594f-9b05-21ab52a7db9e
+id: 4761580d-a8e1-5c86-97d3-33195e04f5af
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -16,9 +16,13 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/storage-class-migration-jobs"
 method: POST
 headers:
-  cf-r2-jurisdiction: default
-  Content-Type: application/json
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
 body:
   type: json
   content: |-

@@ -1,12 +1,15 @@
 $kind: http-example
-id: d673333b-36aa-50ed-b53b-fcdd954bdea3
+id: 248f075b-ab1a-5388-b177-6fa8111daa78
 name: Get Bucket Job response failure. The bucket or job may not exist, or the caller may not be authorized to access it.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs/{{job_id}}"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 400
   statusText: Bad Request

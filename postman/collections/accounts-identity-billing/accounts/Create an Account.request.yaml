@@ -1,0 +1,40 @@
+$kind: http-request
+id: 5a6ee08c-25e8-53f3-ace0-3bb9fac2e8ac
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: account-creation
+  POST /accounts
+
+  Create an Account. To create the Account within an Organization, provide `unit.id` and omit `standalone`. To create a standalone Free Account, provide `standalone: true` and omit `unit`. Providing both fields is invalid. If you omit both fields, Cloudflare can determine the destination only when the User is an administrator of exactly one Organization. Cloudflare creates the Account in that Organization; otherwise, the request returns an error.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts"
+method: POST
+headers:
+  - key: Idempotency-Key
+    value: string
+    description: Optional key that identifies an Account-creation request. Free Account creation can require exactly one valid key, so API clients should send a key with every Account-creation request. Reuse the same key when retrying the same request.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+  - key: X-Auth-Email
+    value: "{{api_email}}"
+  - key: X-Auth-Key
+    value: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "type": "string"
+    }
+auth:
+  type: noauth
+examples: ./.resources/Create an Account.resources/examples
+order: 2000

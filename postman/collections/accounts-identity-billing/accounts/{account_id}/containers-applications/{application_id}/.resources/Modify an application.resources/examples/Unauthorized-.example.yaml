@@ -1,5 +1,5 @@
 $kind: http-example
-id: f7d877ed-d106-5047-aef1-8b218683abc4
+id: 1acecc2f-955c-5532-b308-8f08df49b2ae
 name: Unauthorized.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}"
@@ -24,7 +24,7 @@ request:
             "value": "<Error: Too many levels of nesting to fake this schema>"
           }
         },
-        "max_instances": 3126,
+        "max_instances": 8442,
         "observability": {
           "description": "Top-level application observability settings. Scheduler-backed applications\nhot-reload these settings across existing instances. An existing Durable\nObject-managed application accepts only `logs.enabled` and publishes these settings\nto runtime metadata without creating deployments or rollouts.\n",
           "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -40,7 +40,7 @@ response:
     type: json
     content: |-
       {
-        "success": false,
+        "success": true,
         "errors": [
           {
             "code": 7003,

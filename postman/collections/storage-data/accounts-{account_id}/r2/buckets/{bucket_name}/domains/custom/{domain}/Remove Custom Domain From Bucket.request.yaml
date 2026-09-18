@@ -1,5 +1,5 @@
 $kind: http-request
-id: 933e8655-1c87-5f53-8c6c-9bfbf4157ba0
+id: 6018d903-ce60-542a-b471-2a5382040ddb
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -16,8 +16,11 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/domains/custom/{{domain}}"
 method: DELETE
 headers:
-  cf-r2-jurisdiction: default
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: Accept
+    value: application/json
 auth:
   type: bearer
   credentials:

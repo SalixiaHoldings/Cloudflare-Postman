@@ -1,12 +1,15 @@
 $kind: http-example
-id: 170cd47c-7070-5ce7-9715-7b12694e637e
+id: e98bfd7f-e59d-5404-877d-d6c5015420bc
 name: Get Bucket response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 200
   statusText: OK

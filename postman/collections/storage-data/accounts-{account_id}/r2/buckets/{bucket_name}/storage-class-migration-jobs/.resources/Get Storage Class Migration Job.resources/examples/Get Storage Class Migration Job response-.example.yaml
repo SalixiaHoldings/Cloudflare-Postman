@@ -1,12 +1,15 @@
 $kind: http-example
-id: 9f3c14a5-301b-5bad-9b64-ff7f65c41d45
+id: 66fe5a6c-cf75-50ca-a332-cc81d193fbda
 name: Get Storage Class Migration Job response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/storage-class-migration-jobs/{{job_id}}"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 200
   statusText: OK

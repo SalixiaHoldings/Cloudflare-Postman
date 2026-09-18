@@ -1,5 +1,5 @@
 $kind: http-example
-id: 5ec3edae-cdbe-5d4d-ba22-3dadca76dec0
+id: a08ddac5-728a-5d41-b14c-1cfdc1936226
 name: Successful response.
 request:
   url: "{{base_url}}/radar/annotations"
@@ -14,7 +14,7 @@ request:
       disabled: true
       description: Limits the number of objects returned in the response.
     - key: offset
-      value: "2923"
+      value: "0"
       disabled: true
       description: Skips the specified number of objects before fetching the results.
     - key: dateRange
@@ -38,19 +38,19 @@ request:
       disabled: true
       description: Filters results by event type. EVENT is a legacy alias for GENERAL.
     - key: outageType
-      value: NETWORK
+      value: NATIONWIDE
       disabled: true
       description: Filters results by outage type.
     - key: outageCause
-      value: POWER_OUTAGE
+      value: MISCONFIGURATION
       disabled: true
       description: Filters results by outage cause.
     - key: tags
-      value: DKIM
+      value: TARGET_LOCATION
       disabled: true
       description: Filters results by annotation tag. Matches annotations carrying at least one of the given tags.
     - key: tags
-      value: ADM2
+      value: TLS_VERSION
       disabled: true
       description: Filters results by annotation tag. Matches annotations carrying at least one of the given tags.
     - key: query
@@ -90,7 +90,7 @@ request:
       disabled: true
       description: Filters results by bot.
     - key: format
-      value: CSV
+      value: JSON
       disabled: true
       description: Format in which results will be returned.
 response:

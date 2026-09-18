@@ -1,17 +1,13 @@
 $kind: http-example
-id: e1da55be-526a-54e1-b712-486d0c54c691
+id: 78160e70-73c3-5fb8-b844-9cfc2e16f47e
 name: Deletes Zero Trust certificate response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/certificates/{{certificate_id}}"
   method: DELETE
   headers:
-    Content-Type: application/json
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
-  body:
-    type: json
-    content: ""
 response:
   statusCode: 400
   statusText: Bad Request

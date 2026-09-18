@@ -1,5 +1,5 @@
 $kind: http-example
-id: 5bf14d56-31e0-565c-b3c3-82a17e558e6c
+id: 3f99933b-b0a8-559c-bc15-157e0dee4e26
 name: Returns the AI Search items.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/ai-search/namespaces/{{name}}/instances/{{id}}/items"
@@ -21,7 +21,7 @@ request:
       disabled: true
       description: Sort order for items. "status" (default) sorts by status priority then last_seen_at. "modified_at" sorts by file modification time (most recent first), falling back to created_at.
     - key: status
-      value: completed
+      value: skipped
       disabled: true
     - key: source
       value: string
@@ -134,9 +134,9 @@ response:
           }
         ],
         "result_info": {
-          "count": 4229,
-          "page": 8984,
-          "total_count": 3405,
+          "count": 7586,
+          "page": 2915,
+          "total_count": 2470,
           "per_page": 20
         }
       }

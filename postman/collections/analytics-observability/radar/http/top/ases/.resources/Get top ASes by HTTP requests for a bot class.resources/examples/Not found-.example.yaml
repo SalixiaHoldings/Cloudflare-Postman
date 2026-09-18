@@ -1,5 +1,5 @@
 $kind: http-example
-id: 6179cb44-ac78-517b-a4bd-93cbaa29d8a3
+id: d31c35fb-4a12-56a3-a6b8-3a664588eb05
 name: Not found.
 request:
   url: "{{base_url}}/radar/http/top/ases/bot_class/{{bot_class}}"
@@ -30,19 +30,19 @@ request:
       disabled: true
       description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
     - key: dateStart
-      value: 1943-04-17T22:40:41.639Z
+      value: 1946-01-18T08:24:35.875Z
       disabled: true
       description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateStart
-      value: 1932-06-29T20:40:48.455Z
+      value: 1969-02-03T19:53:29.907Z
       disabled: true
       description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1971-03-11T04:16:19.464Z
+      value: 1938-11-20T10:50:51.531Z
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1974-05-26T22:34:40.196Z
+      value: 1982-02-01T05:58:15.896Z
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: asn
@@ -78,11 +78,11 @@ request:
       disabled: true
       description: Filters results by Geolocation. Specify a comma-separated list of GeoNames IDs. Prefix with `-` to exclude geoIds from results. For example, `-2267056,360689` excludes results from the 2267056 (Lisbon), but includes results from 5128638 (New York).
     - key: deviceType
-      value: OTHER
+      value: DESKTOP
       disabled: true
       description: Filters results by device type.
     - key: deviceType
-      value: OTHER
+      value: DESKTOP
       disabled: true
       description: Filters results by device type.
     - key: httpProtocol
@@ -110,11 +110,11 @@ request:
       disabled: true
       description: Filters results by IP version (Ipv4 vs. IPv6).
     - key: os
-      value: IOS
+      value: CHROMEOS
       disabled: true
       description: Filters results by operating system.
     - key: os
-      value: ANDROID
+      value: CHROMEOS
       disabled: true
       description: Filters results by operating system.
     - key: tlsVersion
@@ -126,15 +126,15 @@ request:
       disabled: true
       description: Filters results by TLS version.
     - key: browserFamily
-      value: FIREFOX
-      disabled: true
-      description: Filters results by browser family.
-    - key: browserFamily
       value: SAFARI
       disabled: true
       description: Filters results by browser family.
+    - key: browserFamily
+      value: EDGE
+      disabled: true
+      description: Filters results by browser family.
     - key: format
-      value: CSV
+      value: JSON
       disabled: true
       description: Format in which results will be returned.
 response:

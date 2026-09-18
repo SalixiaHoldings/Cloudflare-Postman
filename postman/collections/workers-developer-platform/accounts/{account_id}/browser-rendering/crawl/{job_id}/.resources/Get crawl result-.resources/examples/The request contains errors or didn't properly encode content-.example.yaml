@@ -1,5 +1,5 @@
 $kind: http-example
-id: a68cf98f-a315-5f6a-9787-78c07667fa3f
+id: 0e7eff1a-ee02-5d1d-a8d4-b51f03def2ec
 name: The request contains errors or didn't properly encode content.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/crawl/{{job_id}}"
@@ -14,7 +14,7 @@ request:
       disabled: true
       description: Cache TTL default is 5s. Set to 0 to disable.
     - key: status
-      value: disallowed
+      value: cancelled
       disabled: true
       description: Filter by URL status.
     - key: cursor
@@ -34,7 +34,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "errors": [
           {
             "message": {

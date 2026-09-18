@@ -1,5 +1,5 @@
 $kind: http-request
-id: f7b37db4-3fdb-520d-bc3f-8e4534d9e478
+id: 6f8b1d04-9058-5bad-a496-7a61abe84faa
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -16,8 +16,11 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/lifecycle"
 method: GET
 headers:
-  cf-r2-jurisdiction: default
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: Accept
+    value: application/json
 auth:
   type: bearer
   credentials:

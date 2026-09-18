@@ -1,0 +1,71 @@
+$kind: http-example
+id: 0c87183f-03d5-5793-9f8f-a7ac349c4adc
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "2610"
+      disabled: true
+    - key: perPage
+      value: "82"
+      disabled: true
+    - key: order
+      value: asc
+      disabled: true
+    - key: orderBy
+      value: service
+      disabled: true
+    - key: search
+      value: string
+      disabled: true
+    - key: service
+      value: string
+      disabled: true
+    - key: status
+      value: active
+      disabled: true
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

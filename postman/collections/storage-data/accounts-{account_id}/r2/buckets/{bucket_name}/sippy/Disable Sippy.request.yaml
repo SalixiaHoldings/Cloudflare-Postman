@@ -1,5 +1,5 @@
 $kind: http-request
-id: 2e09f485-4d72-549a-97c8-396c98206058
+id: 86be1b86-f0df-5182-8b1b-7e9fc2200460
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -16,8 +16,11 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/sippy"
 method: DELETE
 headers:
-  cf-r2-jurisdiction: default
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: Accept
+    value: application/json
 auth:
   type: bearer
   credentials:

@@ -1,12 +1,15 @@
 $kind: http-example
-id: 4d0b72c1-0284-5f3c-855b-a9390b02bbc3
+id: 7a45803e-e5ff-5800-a34b-527a668101a0
 name: Get Sippy Configuration response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/sippy"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 400
   statusText: Bad Request

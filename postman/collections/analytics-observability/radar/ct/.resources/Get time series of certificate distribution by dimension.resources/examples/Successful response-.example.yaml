@@ -1,5 +1,5 @@
 $kind: http-example
-id: e413ccff-c4d1-5f60-a969-ac001c1f42aa
+id: 35314d78-3757-54bd-8c8d-64e6acecb3b3
 name: Successful response.
 request:
   url: "{{base_url}}/radar/ct/timeseries_groups/{{dimension}}"
@@ -30,19 +30,19 @@ request:
       disabled: true
       description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
     - key: dateStart
-      value: 1943-04-17T22:40:41.639Z
+      value: 1946-01-18T08:24:35.875Z
       disabled: true
       description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateStart
-      value: 1932-06-29T20:40:48.455Z
+      value: 1969-02-03T19:53:29.907Z
       disabled: true
       description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1971-03-11T04:16:19.464Z
+      value: 1938-11-20T10:50:51.531Z
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1974-05-26T22:34:40.196Z
+      value: 1982-02-01T05:58:15.896Z
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: limitPerGroup
@@ -70,7 +70,7 @@ request:
       disabled: true
       description: Filters results by certificate duration.
     - key: duration
-      value: LTE_3D
+      value: GT_3D_LTE_7D
       disabled: true
       description: Filters results by certificate duration.
     - key: entryType
@@ -94,11 +94,11 @@ request:
       disabled: true
       description: Filters results based on whether the certificates are bound to specific IP addresses.
     - key: hasIps
-      value: "false"
+      value: "true"
       disabled: true
       description: Filters results based on whether the certificates are bound to specific IP addresses.
     - key: hasWildcards
-      value: "true"
+      value: "false"
       disabled: true
       description: Filters results based on whether the certificates contain wildcard domains.
     - key: hasWildcards
@@ -114,7 +114,7 @@ request:
       disabled: true
       description: Filters results by certificate log. Incompatible with the `tld` filter/dimension.
     - key: logApi
-      value: RFC6962
+      value: STATIC
       disabled: true
       description: Filters results by certificate log API (RFC6962 vs. static). Incompatible with the `tld` filter/dimension.
     - key: logApi
@@ -134,15 +134,15 @@ request:
       disabled: true
       description: Filters results by public key algorithm.
     - key: publicKeyAlgorithm
-      value: DSA
+      value: RSA
       disabled: true
       description: Filters results by public key algorithm.
     - key: signatureAlgorithm
-      value: PSS_SHA_384
+      value: RSA_SHA_384
       disabled: true
       description: Filters results by signature algorithm.
     - key: signatureAlgorithm
-      value: PSS_SHA_512
+      value: RSA_MD5
       disabled: true
       description: Filters results by signature algorithm.
     - key: validationLevel
@@ -174,7 +174,7 @@ request:
       disabled: true
       description: Specifies whether to filter out duplicate certificates and pre-certificates. Set to true for unique entries only.
     - key: format
-      value: CSV
+      value: JSON
       disabled: true
       description: Format in which results will be returned.
 response:

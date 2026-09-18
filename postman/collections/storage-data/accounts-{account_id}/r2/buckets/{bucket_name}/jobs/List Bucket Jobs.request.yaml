@@ -1,5 +1,5 @@
 $kind: http-request
-id: 7e266b3a-3e45-53ae-bcd7-5921b224c2ec
+id: 978e7ee2-5fd8-5110-9ca3-3575b5f5dd2a
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -18,8 +18,11 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs"
 method: GET
 headers:
-  cf-r2-jurisdiction: default
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: Accept
+    value: application/json
 queryParams:
   - key: jobType
     value: prefixDelete

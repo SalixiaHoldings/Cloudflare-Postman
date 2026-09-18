@@ -1,12 +1,15 @@
 $kind: http-example
-id: 6f5ed858-5bb8-5c9e-a5c7-26a5cce1ba2d
+id: 8ba2722a-24dd-5a29-8803-35119f23c6c8
 name: List Bucket Jobs response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
   queryParams:
     - key: jobType
       value: prefixDelete

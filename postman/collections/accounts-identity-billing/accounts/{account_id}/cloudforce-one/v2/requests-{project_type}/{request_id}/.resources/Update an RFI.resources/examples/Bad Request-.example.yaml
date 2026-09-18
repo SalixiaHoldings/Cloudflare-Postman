@@ -1,5 +1,5 @@
 $kind: http-example
-id: e03cf0de-1de8-5d5d-a5a4-12b0425851b5
+id: 9dd010dd-eed2-5160-8dd6-a8490ab76ee6
 name: Bad Request.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}"
@@ -13,12 +13,12 @@ request:
       {
         "description": "string",
         "eventId": "string",
-        "priority": "unknown",
+        "priority": "critical",
         "request_type": "string",
         "subtypeId": "string",
         "summary": "string",
         "title": "string",
-        "tlp": "purple"
+        "tlp": "green"
       }
 response:
   statusCode: 400
@@ -30,7 +30,7 @@ response:
     content: |-
       {
         "result": {},
-        "success": true,
+        "success": false,
         "errors": [
           {
             "message": {

@@ -1,17 +1,13 @@
 $kind: http-example
-id: 41be4e53-722f-53d5-9f1c-f715d6d38d41
+id: 2649d971-c1c8-5de9-aa13-ab2265181661
 name: Returns a deleted proxy endpoint response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/proxy_endpoints/{{proxy_endpoint_id}}"
   method: DELETE
   headers:
-    Content-Type: application/json
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
-  body:
-    type: json
-    content: ""
 response:
   statusCode: 400
   statusText: Bad Request

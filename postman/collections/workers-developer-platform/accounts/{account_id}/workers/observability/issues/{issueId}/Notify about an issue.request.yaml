@@ -1,0 +1,32 @@
+$kind: http-request
+id: 7e05bc6f-864d-587d-ad3f-c1760e156dfa
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: issues.notificationRuns.create
+  POST /accounts/{account_id}/workers/observability/issues/{issueId}/notification-runs
+
+  Send the issue to one ANS policy, or every matching Real-Time Issue policy when no policy ID is provided.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues/{{issueId}}/notification-runs"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "policyId": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Notify about an issue.resources/examples
+order: 3000

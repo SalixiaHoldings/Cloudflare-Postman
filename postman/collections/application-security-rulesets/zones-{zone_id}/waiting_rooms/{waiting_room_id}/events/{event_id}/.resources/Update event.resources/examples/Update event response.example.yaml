@@ -1,5 +1,5 @@
 $kind: http-example
-id: c24aca6d-1854-5ee2-b68a-309156f8ea50
+id: df9f2d4a-b60a-59eb-9105-1372d15c8b6f
 request:
   url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/{{waiting_room_id}}/events/{{event_id}}"
   method: PUT
@@ -15,15 +15,15 @@ request:
         "event_end_time": "2021-09-28T17:00:00Z",
         "custom_page_html": "{{#waitTimeKnown}} {{waitTime}} mins {{/waitTimeKnown}} {{^waitTimeKnown}} Event is prequeueing / Queue all enabled {{/waitTimeKnown}}",
         "description": "Production event - DO NOT MODIFY",
-        "disable_session_renewal": false,
-        "new_users_per_minute": 1838527105,
+        "disable_session_renewal": true,
+        "new_users_per_minute": 1117195695,
         "prequeue_start_time": "2021-09-28T15:00:00Z",
         "queueing_method": "random",
-        "session_duration": 4,
+        "session_duration": 22,
         "shuffle_at_event_start": false,
         "suspended": false,
-        "total_active_users": 652613431,
-        "turnstile_action": "infinite_queue",
+        "total_active_users": 1143794635,
+        "turnstile_action": "log",
         "turnstile_mode": "off"
       }
 response:

@@ -67,7 +67,7 @@ The two raw migration IDs must differ. If Postman begins generating a stable ID,
 
 ## Query semantics
 
-The [query policy](query-policy.md) uses an isolated full secondary conversion and projects only official query rows into the primary collection. Required query Params remain enabled; emitted optional Params are disabled by default. The exact five known optional-array omissions are revision-bound and documented there.
+The [query policy](query-policy.md) uses an isolated full secondary conversion and projects only official query rows into the primary collection. Required query Params remain enabled; emitted optional Params are disabled by default. The single known Cloudforce One optional-array omission is revision-bound and documented there.
 
 v2/v3 validation compares query keys, values, enabled/disabled state, order/repetition, descriptions where represented, and the full raw URL.
 

@@ -1,13 +1,17 @@
 $kind: http-example
-id: 75054428-353a-5231-acb0-7088cffcc64e
+id: 60bcaaee-6ba2-5d53-8009-f7acdfa2edc7
 name: Set Sippy Configuration response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/sippy"
   method: PUT
   headers:
-    cf-r2-jurisdiction: default
-    Content-Type: application/json
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
   body:
     type: json
     content: |-

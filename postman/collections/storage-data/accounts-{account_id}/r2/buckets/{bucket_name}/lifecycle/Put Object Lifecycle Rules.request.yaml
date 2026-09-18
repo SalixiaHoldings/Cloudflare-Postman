@@ -1,5 +1,5 @@
 $kind: http-request
-id: 17492252-bd1f-559b-bfcd-15837cc27de7
+id: 59df5aa5-c3e6-5160-8f41-7c74d1562efa
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -16,9 +16,13 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/lifecycle"
 method: PUT
 headers:
-  cf-r2-jurisdiction: default
-  Content-Type: application/json
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
 body:
   type: json
   content: |-

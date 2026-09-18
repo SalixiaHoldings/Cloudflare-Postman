@@ -1,0 +1,22 @@
+$kind: http-example
+id: 06a98ae9-8268-59e4-b8ee-858cc8f0f084
+name: Worker successfully downloaded. Returns script content as a multipart form, with no metadata part and no JSON encoding applied.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}"
+  method: GET
+  headers:
+    Accept: application/javascript
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/javascript
+  body:
+    type: text
+    content: |
+      export default {
+        async fetch(request, env, ctx) {
+          return new Response("Hello, world!");
+        }
+      };
+order: 1000

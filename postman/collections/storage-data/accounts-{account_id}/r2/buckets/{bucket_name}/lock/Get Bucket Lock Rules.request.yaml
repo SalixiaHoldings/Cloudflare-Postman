@@ -1,5 +1,5 @@
 $kind: http-request
-id: 88000cb2-0879-5f7f-a7bf-7beafac8437f
+id: 8a9ee7bf-1c79-582b-a986-a143be99293e
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -16,11 +16,14 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/lock"
 method: GET
 headers:
-  cf-r2-jurisdiction: default
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: Accept
+    value: application/json
 auth:
   type: bearer
   credentials:
     token: "{{api_token}}"
 examples: ./.resources/Get Bucket Lock Rules.resources/examples
-order: 1000
+order: 2000

@@ -1,5 +1,5 @@
 $kind: http-request
-id: b290cd81-41e4-5a24-81fc-1a224c8f2d1b
+id: 571a4e25-e9ae-5421-9db2-e18ea965a79c
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -16,9 +16,13 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/cors"
 method: PUT
 headers:
-  cf-r2-jurisdiction: default
-  Content-Type: application/json
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
 body:
   type: json
   content: |-

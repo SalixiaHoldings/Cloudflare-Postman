@@ -1,5 +1,5 @@
 $kind: http-example
-id: 9314e09c-6937-5251-bd62-adcba845e000
+id: 64bf3ab5-a517-5dc5-9837-081aa3bb8b57
 request:
   url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/presets/{{preset_id}}"
   method: PATCH
@@ -11,7 +11,7 @@ request:
     content: |-
       {
         "config": {
-          "max_screenshare_count": 1835.9578610397875,
+          "max_screenshare_count": 4690.22408593446,
           "max_video_streams": {
             "desktop": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -31,18 +31,18 @@ request:
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           },
-          "view_type": "LIVESTREAM"
+          "view_type": "GROUP_CALL"
         },
         "name": "string",
         "permissions": {
           "accept_stage_requests": true,
-          "accept_waiting_requests": false,
+          "accept_waiting_requests": true,
           "can_accept_production_requests": false,
-          "can_change_participant_permissions": false,
-          "can_edit_display_name": true,
-          "can_livestream": true,
-          "can_record": false,
-          "can_spotlight": false,
+          "can_change_participant_permissions": true,
+          "can_edit_display_name": false,
+          "can_livestream": false,
+          "can_record": true,
+          "can_spotlight": true,
           "chat": {
             "private": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -64,7 +64,7 @@ request:
           },
           "disable_participant_audio": true,
           "disable_participant_screensharing": true,
-          "disable_participant_video": false,
+          "disable_participant_video": true,
           "hidden_participant": false,
           "is_recorder": false,
           "kick_participant": false,
@@ -105,12 +105,12 @@ request:
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           },
-          "recorder_type": "LIVESTREAMER",
-          "show_participant_list": false,
-          "stage_access": "ALLOWED",
-          "stage_enabled": true,
+          "recorder_type": "NONE",
+          "show_participant_list": true,
+          "stage_access": "NOT_ALLOWED",
+          "stage_enabled": false,
           "transcription_enabled": false,
-          "waiting_room_type": "ON_PRIVILEGED_USER_ENTRY"
+          "waiting_room_type": "SKIP"
         },
         "ui": {
           "design_tokens": {

@@ -1,5 +1,5 @@
 $kind: http-example
-id: 6de2c5af-b84a-55ae-a6bc-8b5cf944f741
+id: 6a9a5b6b-1a95-563a-97a9-013382bd1ffe
 name: Bad Request.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/copy"
@@ -9,7 +9,7 @@ request:
     Accept: application/json
   queryParams:
     - key: keepRawData
-      value: "false"
+      value: "true"
       disabled: true
       description: If true, copies raw data to the destination dataset. Default is false (raw data is stripped/not copied).
   body:
@@ -32,7 +32,7 @@ response:
     content: |-
       {
         "result": {},
-        "success": true,
+        "success": false,
         "errors": [
           {
             "message": {

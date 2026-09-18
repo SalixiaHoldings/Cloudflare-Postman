@@ -1,5 +1,5 @@
 $kind: http-example
-id: 438169da-a7e6-5c9f-b3d2-1c65a8decca7
+id: acfbc087-db94-5e07-9bd0-cbc8fa5f0ae3
 name: Returns the JSON based on a user prompt or JSON schema.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/json"
@@ -29,7 +29,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "result": {
           "key_0": {}
         },
@@ -37,6 +37,12 @@ response:
           "finalUrl": "string",
           "headers": {
             "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "key_1": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "key_2": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           },
@@ -48,7 +54,7 @@ response:
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           ],
-          "status": 1966.5916357189417,
+          "status": 5296.750515699387,
           "title": "string"
         },
         "errors": [

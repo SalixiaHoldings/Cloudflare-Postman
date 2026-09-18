@@ -1,5 +1,5 @@
 $kind: http-example
-id: 799dac8d-d407-522b-8143-7236fe846f76
+id: 777a1587-0c8d-51b0-8e36-070c23bf0780
 name: Internal server error.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/crawl/{{job_id}}"
@@ -14,7 +14,7 @@ request:
       disabled: true
       description: Cache TTL default is 5s. Set to 0 to disable.
     - key: status
-      value: disallowed
+      value: cancelled
       disabled: true
       description: Filter by URL status.
     - key: cursor
@@ -34,7 +34,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "errors": [
           {
             "message": {

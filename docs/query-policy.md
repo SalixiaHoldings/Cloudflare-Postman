@@ -24,23 +24,17 @@ The reduced-input optimization is not used: stripping bodies/responses changed 2
 
 Validation resolves local parameter/schema references, path inheritance, and operation-level overrides. It maps converter-owned object-property rows back to their declared parameter without generating serialized values. Ambiguous/unmapped identities, wrong requiredness/state, missing required parameters, unexpected omissions, or nesting-error placeholders fail closed.
 
-The current distribution has **133 required and 5,495 optional query contracts**, producing **141 enabled and 8,070 disabled query rows** across **3,522 operations**. Row counts differ from contracts because of repeated array rows and object expansion. The five previously corrupted IAM/Spectrum parameters retain their proper identities.
+The current distribution has **133 required and 5,511 optional query contracts**, producing **141 enabled and 8,094 disabled query rows** across **3,540 operations**. Row counts differ from contracts because of repeated array rows and object expansion. The five previously corrupted IAM/Spectrum parameters retain their proper identities.
 
-### Five known optional-array omissions
+### One known revision-bound query omission
 
-The official converter omits these exact optional contracts:
+At revision `a0eceeef8288f2fea2c3115a232ddf23e43d8540`, the official secondary conversion omits only optional `search` on `GET /accounts/{account_id}/cloudforce-one/events`. This array has `default: []`. Its current parameter SHA-256 is `97be6fa16b6124b7a7217c1fead4c42aaa9e0657d6337cd3ccd7a152d6b73ffb`, freshly measured from the pinned schema. The [superseding PR decision](https://github.com/SalixiaHoldings/Cloudflare-Postman/pull/7#issuecomment-5731810896) approves this exact limitation.
 
-- `GET /accounts/{account_id}/gateway/lists`: `filter`.
-- `GET /accounts/{account_id}/gateway/locations`: `filter`.
-- `GET /accounts/{account_id}/gateway/proxy_endpoints`: `filter`.
-- `GET /accounts/{account_id}/gateway/rules`: `filter`.
-- `GET /accounts/{account_id}/cloudforce-one/events`: `search`.
-
-These are approved discoverability limitations, not missing operations. No local serializer, fabricated placeholder, or endpoint rewrite fills them. If any starts appearing, its contract changes, or another omission appears, validation fails for explicit review.
+The four previous Gateway filter omissions are now emitted, and both new device registration-type filters are emitted as disabled optional Params. `config/query-projection.json` carries exactly one omission. Required omissions are always rejected. Any optional omission is fingerprinted by exact operation, parameter identity, and SHA-256; `assertOmissions()` rejects additions, removals, duplicates, and changed fingerprints. No local serializer, fabricated row, upstream patch, or alternative converter strategy is used.
 
 ### Warning fingerprints
 
-The primary conversion retains **47 warnings**. The secondary pass separately records **539 diagnostics: 537 allOf-resolution warnings and two unknown-format warnings**. Diagnostic messages and incompatible values are retained, grouped with occurrence counts, sorted, and hashed. Only stack frames are excluded because they contain installation paths and runtime line numbers. Unknown diagnostic categories, changed messages/counts, or fingerprint drift fail; secondary warnings never replace or inflate the primary warning baseline.
+The primary conversion retains **47 warnings**. The secondary pass separately records **530 diagnostics: 528 allOf-resolution warnings and two unknown-format warnings**. Diagnostic messages and incompatible values are retained, grouped with occurrence counts, sorted, and hashed. Only stack frames are excluded because they contain installation paths and runtime line numbers. Unknown diagnostic categories, changed messages/counts, or fingerprint drift fail; secondary warnings never replace or inflate the primary warning baseline.
 
 ### Native Git semantics
 

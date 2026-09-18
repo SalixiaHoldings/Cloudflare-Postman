@@ -1,0 +1,48 @@
+$kind: http-example
+id: 5f1ead8b-2e24-528d-a36c-d792954f17a6
+name: Browser Extension service availability could not be verified.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "config": {
+          "team_name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "min_extension_version": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+response:
+  statusCode: 503
+  statusText: Service Unavailable
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 7000

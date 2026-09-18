@@ -1,5 +1,5 @@
 $kind: http-example
-id: e88582ed-3d1e-5cad-9415-7626560a9870
+id: 22456651-78d4-56f1-8586-cd816fd14390
 name: Message updated. Returns the updated message (under `message`) with its embedded attachments[], filtered to the dashboard's visible origins.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/messages/{{message_id}}"
@@ -17,8 +17,8 @@ request:
     content: |-
       {
         "content": "string",
-        "publish": true,
-        "tlp": "clear",
+        "publish": false,
+        "tlp": "red",
         "attachment_asset_ids": [
           "string",
           "string"
@@ -34,14 +34,14 @@ response:
     content: |-
       {
         "message": {
-          "id": 9692,
+          "id": 33,
           "content": "string",
           "created": "string",
           "updated": "string",
           "published": "string",
-          "tlp": "green",
-          "is_cloudflare_team": false,
-          "is_published": true,
+          "tlp": "red",
+          "is_cloudflare_team": true,
+          "is_published": false,
           "attachments": [
             {
               "value": "<Error: Too many levels of nesting to fake this schema>"

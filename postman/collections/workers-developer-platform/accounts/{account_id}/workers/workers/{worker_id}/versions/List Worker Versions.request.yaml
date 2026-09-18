@@ -1,0 +1,34 @@
+$kind: http-request
+id: 82e397f5-f125-5469-9803-1c94b6d01730
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: listWorkerVersions
+  GET /accounts/{account_id}/workers/workers/{worker_id}/versions
+
+  List all versions for a Worker.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+    description: Current page.
+  - key: per_page
+    value: "10"
+    disabled: true
+    description: Items per-page.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Worker Versions.resources/examples
+order: 1000

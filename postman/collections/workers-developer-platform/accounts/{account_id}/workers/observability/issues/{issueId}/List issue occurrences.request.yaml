@@ -1,0 +1,33 @@
+$kind: http-request
+id: a20175cc-0b8b-55f4-9022-eb3c917c7dd4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: issues.occurrences.list
+  GET /accounts/{account_id}/workers/observability/issues/{issueId}/occurrences
+
+  List the retained error occurrences grouped into an issue, newest first.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues/{{issueId}}/occurrences"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: cursor
+    value: string
+    disabled: true
+    description: Opaque cursor returned in result_info.cursors.after.
+  - key: per_page
+    value: "82"
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List issue occurrences.resources/examples
+order: 4000

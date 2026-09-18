@@ -1,5 +1,5 @@
 $kind: http-request
-id: 9d77dccf-6622-52f8-aa3c-57cbfe575b3a
+id: 0563a6ff-bff9-56fd-be5a-e3121d702165
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -16,9 +16,13 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/lock"
 method: PUT
 headers:
-  cf-r2-jurisdiction: default
-  Content-Type: application/json
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
 body:
   type: json
   content: |-
@@ -37,4 +41,4 @@ auth:
   credentials:
     token: "{{api_token}}"
 examples: ./.resources/Put Bucket Lock Rules.resources/examples
-order: 2000
+order: 3000

@@ -1,12 +1,15 @@
 $kind: http-example
-id: 9207f2b0-5185-50fa-a304-dccd60b9f539
+id: 43e83dbe-7a57-58c1-af43-0d34716f02fb
 name: Read Configuration failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/event_notifications/r2/{{bucket_name}}/configuration"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 400
   statusText: Bad Request

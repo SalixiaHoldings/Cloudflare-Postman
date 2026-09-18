@@ -1,0 +1,94 @@
+$kind: http-example
+id: 51979fcc-b434-533e-9142-72e61ecd281c
+name: |
+  Patch version failure. When the patch uses the declarative
+  `exports` field and one or more entries fail reconciliation,
+  the response is the exports reconciliation error envelope
+  (error code 100402) with per-class detail in
+  `errors[].meta.details`.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/versions/latest"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: deploy
+      value: "true"
+      disabled: true
+  body:
+    type: json
+    content: |-
+      {
+        "annotations": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "assets": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "bindings": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "cache_options": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "compatibility_date": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "compatibility_flags": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "containers": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "exports": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "exports_reconciliation": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "limits": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "main_module": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "migrations": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "modules": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "package_dependencies": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "placement": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "usage_model": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 2000

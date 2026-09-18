@@ -1,5 +1,5 @@
 $kind: http-example
-id: fe92c820-ccc6-568a-9671-fa23d919557c
+id: 3a3ae715-9b5c-59d7-a4de-3054750ceafb
 name: Returns a list of proxy endpoints response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/proxy_endpoints"
@@ -9,6 +9,38 @@ request:
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
+    - key: filter
+      value: name:zC&TC&ghz[
+      disabled: true
+      description: |-
+        Filter the returned proxy endpoints by one or more `field:value` pairs.
+        Repeat the parameter to apply multiple filters; they are combined with
+        logical AND (an endpoint must satisfy every filter to be returned).
+
+        Supported fields and their matching behaviour:
+          * `name` — case-insensitive substring match on the endpoint name.
+          * `id` — substring match on the endpoint ID (UUID), with or without dashes.
+          * `kind` — exact match on the endpoint kind. The value must be `ip` or `identity`; any other value returns `400`.
+
+        Each entry must match one of the per-field patterns below: the field
+        must be one of `name`, `id`, or `kind`; `name`/`id` accept any value,
+        while `kind` only accepts `ip` or `identity`.
+    - key: filter
+      value: name:)lzr;-
+      disabled: true
+      description: |-
+        Filter the returned proxy endpoints by one or more `field:value` pairs.
+        Repeat the parameter to apply multiple filters; they are combined with
+        logical AND (an endpoint must satisfy every filter to be returned).
+
+        Supported fields and their matching behaviour:
+          * `name` — case-insensitive substring match on the endpoint name.
+          * `id` — substring match on the endpoint ID (UUID), with or without dashes.
+          * `kind` — exact match on the endpoint kind. The value must be `ip` or `identity`; any other value returns `400`.
+
+        Each entry must match one of the per-field patterns below: the field
+        must be one of `name`, `id`, or `kind`; `name`/`id` accept any value,
+        while `kind` only accepts `ip` or `identity`.
     - key: search
       value: string
       disabled: true
@@ -16,7 +48,7 @@ request:
         Case-insensitive substring match on the endpoint name. When combined
         with `filter`, both must match (logical AND).
     - key: order_by
-      value: name
+      value: created_at
       disabled: true
       description: |-
         Field to sort the returned endpoints by. When omitted, the order of

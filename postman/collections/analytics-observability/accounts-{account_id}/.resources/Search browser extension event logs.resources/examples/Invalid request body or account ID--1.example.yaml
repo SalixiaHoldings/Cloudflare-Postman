@@ -1,0 +1,58 @@
+$kind: http-example
+id: ab25e81e-42fd-5cef-b159-06f68f920220
+name: Invalid request body or account ID.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config/logs/extension-events/search"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "from": "1974-11-11T07:05:51.253Z",
+        "to": "1947-06-14T09:41:01.139Z",
+        "fields": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "filters": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "includeTotal": false,
+        "limit": 50,
+        "page": 1
+      }
+response:
+  statusCode: 413
+  statusText: Request Entity Too Large
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 5000

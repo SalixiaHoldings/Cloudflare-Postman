@@ -1,5 +1,5 @@
 $kind: http-example
-id: 52695779-deaa-5795-bc3c-a36842a6153b
+id: ac5aba40-2b7e-553f-906d-760218ac4211
 name: The query exceeded a resource or request-rate limit.
 request:
   url: "{{base_url}}/analytics/sql?query=SELECT edgeResponseStatus FROM events.httpRequests WHERE accountTag = '0123456789abcdef0123456789abcdef' AND datetime > '2026-01-01' LIMIT 10"
@@ -15,7 +15,7 @@ response:
   statusText: Too Many Requests
   headers:
     - key: Retry-After
-      value: "8226"
+      value: "3592"
       description: |
         Seconds to wait before retrying. Present when the account request rate limit is exceeded; omitted for query resource limits.
     - key: Content-Type

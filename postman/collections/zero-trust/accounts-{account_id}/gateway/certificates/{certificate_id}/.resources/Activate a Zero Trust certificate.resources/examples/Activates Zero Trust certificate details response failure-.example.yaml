@@ -1,17 +1,13 @@
 $kind: http-example
-id: 617a804a-0e9e-5443-8601-3fab7e7f7cad
+id: 64f9ef89-1cb9-5c9d-8d1e-b9a7424a5a9d
 name: Activates Zero Trust certificate details response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/certificates/{{certificate_id}}/activate"
   method: POST
   headers:
-    Content-Type: application/json
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
-  body:
-    type: json
-    content: ""
 response:
   statusCode: 400
   statusText: Bad Request

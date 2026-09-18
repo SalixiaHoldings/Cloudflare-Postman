@@ -1,12 +1,15 @@
 $kind: http-example
-id: 5041d1ac-ed58-5f2a-a669-3b4f05a1ac32
+id: f2f3fe70-eb8e-5400-b6bc-794243974434
 name: Delete Bucket response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}"
   method: DELETE
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 200
   statusText: OK

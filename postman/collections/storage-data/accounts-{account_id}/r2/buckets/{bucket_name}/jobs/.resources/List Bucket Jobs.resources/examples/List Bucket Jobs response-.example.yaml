@@ -1,12 +1,15 @@
 $kind: http-example
-id: 250d86eb-f88f-5cc3-b0f3-4fa5e5b83e65
+id: 4e3f977f-83e0-5622-ac30-a0e86473ade2
 name: List Bucket Jobs response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
   queryParams:
     - key: jobType
       value: prefixDelete

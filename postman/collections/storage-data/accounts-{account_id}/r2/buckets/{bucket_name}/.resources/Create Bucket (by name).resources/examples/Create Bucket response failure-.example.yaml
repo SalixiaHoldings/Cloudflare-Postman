@@ -1,13 +1,17 @@
 $kind: http-example
-id: c4b95c3a-10d3-50bf-bee8-14ebcc2678d1
+id: ad5437b0-f9b5-5a67-ae70-fddd8db04043
 name: Create Bucket response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}"
   method: PUT
   headers:
-    cf-r2-jurisdiction: default
-    cf-r2-storage-class: Standard
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: cf-r2-storage-class
+      value: Standard
+    - key: Accept
+      value: application/json
 response:
   statusCode: 400
   statusText: Bad Request

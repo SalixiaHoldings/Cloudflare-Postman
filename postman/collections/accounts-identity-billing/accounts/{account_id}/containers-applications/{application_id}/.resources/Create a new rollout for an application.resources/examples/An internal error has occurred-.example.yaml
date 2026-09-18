@@ -1,5 +1,5 @@
 $kind: http-example
-id: 41af4ea4-6a41-547c-ac93-761385e1d667
+id: 6d9a9167-af1f-59fc-b2d0-df8930ffd62a
 name: An internal error has occurred.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/rollouts"
@@ -37,8 +37,8 @@ request:
         "strategy": "rolling",
         "description": "string",
         "kind": "full_auto",
-        "percentage": 1,
-        "step_percentage": 20,
+        "percentage": 64,
+        "step_percentage": 5,
         "steps": [
           {
             "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -57,7 +57,7 @@ response:
     type: json
     content: |-
       {
-        "success": false,
+        "success": true,
         "errors": [
           {
             "code": 7003,

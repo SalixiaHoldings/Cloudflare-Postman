@@ -1,8 +1,8 @@
 $kind: http-example
-id: 08febb1f-39f4-55ab-8cf6-919c407cf61c
+id: c549a268-e1fe-53bd-8eaf-858a189e265b
 name: DEX HTTP test details response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dex/http-tests/{{test_id}}?from=string&to=string&interval=hour"
+  url: "{{base_url}}/accounts/{{account_id}}/dex/http-tests/{{test_id}}?from=string&to=string&interval=minute"
   method: GET
   headers:
     Accept: application/json
@@ -22,7 +22,7 @@ request:
       value: string
       description: (Required) End time for aggregate metrics in ISO ms.
     - key: interval
-      value: hour
+      value: minute
       description: (Required) Time interval for aggregate time slots.
     - key: colo
       value: SJC

@@ -1,13 +1,17 @@
 $kind: http-example
-id: b6a5ff32-adfb-517d-8386-e18f961c2543
+id: 15870166-b17c-5bc9-9dd4-27716989fdbd
 name: Create Bucket response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets"
   method: POST
   headers:
-    cf-r2-jurisdiction: default
-    Content-Type: application/json
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
   body:
     type: json
     content: |-

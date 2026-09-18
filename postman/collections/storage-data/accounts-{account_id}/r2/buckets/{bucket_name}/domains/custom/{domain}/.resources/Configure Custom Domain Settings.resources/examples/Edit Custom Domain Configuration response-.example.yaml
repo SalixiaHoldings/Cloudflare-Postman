@@ -1,13 +1,17 @@
 $kind: http-example
-id: 944a91f9-b7a3-5a21-ab44-b984b468c6b1
+id: c4435028-c575-531f-af0a-822f3323a9b3
 name: Edit Custom Domain Configuration response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/domains/custom/{{domain}}"
   method: PUT
   headers:
-    cf-r2-jurisdiction: default
-    Content-Type: application/json
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
   body:
     type: json
     content: |-

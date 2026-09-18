@@ -1,5 +1,5 @@
 $kind: http-example
-id: b80bfdfc-2d85-524d-902a-d2744c1c0d44
+id: 934b8f4d-3cf8-5e83-aaf2-39c109e7e762
 request:
   url: "{{base_url}}/zones/{{zone_identifier}}/custom_pages/assets"
   method: GET
@@ -23,17 +23,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000
