@@ -49,7 +49,7 @@ The primary conversion remains authoritative for collection structure, bodies, h
 
 `config/partitions.json` defines independent match rules. Every non-residual rule is evaluated before ownership is assigned: one match owns the operation, zero matches use the explicit residual, and multiple matches require an exact declaration in `config/partition-overlaps.json`. Array ordering is not a conflict resolver.
 
-At the pinned revision, 54 declarations cover 2,496 overlapping operations. New or changed overlap sets, invalid owners, stale declarations, or newly ambiguous operations fail validation.
+At the pinned revision, 54 declarations cover 2,512 overlapping operations. New or changed overlap sets, invalid owners, stale declarations, or newly ambiguous operations fail validation.
 
 Postman's `Tags` folder strategy duplicates multi-tag operations, so the project uses `Paths`. Product navigation is provided by the top-level modular partitions. Stable SHA-derived IDs, seeded examples, a fixed conversion clock, sorted JSON keys, fixed metadata, and commit-specific provenance remove nondeterministic output.
 
