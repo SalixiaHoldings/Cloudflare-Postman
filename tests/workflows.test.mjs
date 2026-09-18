@@ -58,12 +58,21 @@ test('only the scheduled upstream updater may request pull-request write access 
   }
 });
 
-test('upstream updater and hosted gate include both generated distributions', async () => {
+test('upstream updater protects open review branches and uses the complete hosted gate', async () => {
   const drift = await readFile(path.join(workflowDirectory, 'upstream-drift.yml'), 'utf8');
   const validation = await readFile(path.join(workflowDirectory, 'validate.yml'), 'utf8');
+  const workflow = parse(drift);
+  const refresh = workflow.on.workflow_dispatch.inputs.refresh_open_pr;
+  assert.equal(refresh.type, 'boolean');
+  assert.equal(refresh.default, false);
+  assert.match(drift, /name: Protect open schema-update review[\s\S]*?gh pr list --repo "\$GITHUB_REPOSITORY" --head "\$UPDATE_BRANCH" --state open/u);
+  assert.match(drift, /Open schema-update PR #\$pr_number is awaiting human review; leaving its branch unchanged\./u);
+  assert.match(drift, /REFRESH_OPEN_PR: \$\{\{ github\.event_name == 'workflow_dispatch' && inputs\.refresh_open_pr == true \}\}/u);
+  assert.match(drift, /if: steps\.pending\.outputs\.skip != 'true'[\s\S]*?name: Prepare deterministic upstream update/u);
   assert.match(drift, /git add[^\n]*config\/query-projection\.json[^\n]*dist postman/u);
   assert.match(drift, /name: Run complete validation gate[\s\S]*?run: npm run check/u);
-  assert.match(drift, /steps\.update\.outcome == 'failure' \|\| steps\.gate\.outcome == 'failure'/u);
+  assert.match(drift, /name: Record complete repository gate[\s\S]*?Complete repository gate[\s\S]*?npm run check/u);
+  assert.match(drift, /steps\.pending\.outputs\.skip != 'true' && \(steps\.update\.outcome == 'failure' \|\| steps\.gate\.outcome == 'failure'\)/u);
   assert.match(validation, /git diff --exit-code -- dist postman/u);
   const generator = await readFile(path.join(ROOT,'src/generate.mjs'),'utf8');
   assert.match(generator,/await generateNative\(temporary\)/u);
