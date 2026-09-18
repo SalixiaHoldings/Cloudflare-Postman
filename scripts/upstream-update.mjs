@@ -1,11 +1,9 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { CACHE_DIR, ROOT } from '../src/constants.mjs';
-import { generateAll } from '../src/generate.mjs';
 import { sha256, writeJson } from '../src/io.mjs';
 import { listOperations } from '../src/openapi.mjs';
 import { fetchLatestUpstreamCommit, readSchemaLock } from '../src/upstream.mjs';
-import { validateAll } from '../src/validate.mjs';
 
 const apply = process.argv.includes('--apply');
 const check = process.argv.includes('--check');
@@ -103,6 +101,13 @@ await writeJson(queryPolicyFile, queryPolicy);
 const cacheSchema = path.join(CACHE_DIR, 'cloudflare', latestCommit, 'openapi.json');
 await mkdir(path.dirname(cacheSchema), { recursive: true });
 await writeFile(cacheSchema, newSchemaBytes);
+
+// Load generation/validation only after revision-bound files are updated.
+// Both modules read query-projection.json at module initialization.
+const [{ generateAll }, { validateAll }] = await Promise.all([
+  import('../src/generate.mjs'),
+  import('../src/validate.mjs')
+]);
 
 let generationResult = 'passed';
 let validationResult = 'not run';
