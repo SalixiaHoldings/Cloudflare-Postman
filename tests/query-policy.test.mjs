@@ -75,12 +75,14 @@ test('optional scalar omissions are fingerprinted and still require explicit pol
   assert.match(result.omissions[0].parameterSha256,/^[0-9a-f]{64}$/u);
   assert.throws(()=>assertOmissions(result.omissions,[]));
 });
-test('five revision-bound omission identities, schema fingerprints and warning drift fail closed', () => {
+test('revision-bound omission identities, schema fingerprints and warning drift fail closed', () => {
   assert.deepEqual(policy.omissions.map(o => `${o.operation} ${o.parameter}`).sort(), [
     ...['lists','locations','proxy_endpoints','rules'].map(name => `GET /accounts/{account_id}/gateway/${name} filter`),
-    'GET /accounts/{account_id}/cloudforce-one/events search'
+    'GET /accounts/{account_id}/cloudforce-one/events search',
+    'GET /accounts/{account_id}/devices/physical-devices has_registration_type',
+    'GET /accounts/{account_id}/devices/registrations registration_type'
   ].sort());
-  assert.equal(new Set(policy.omissions.map(o=>o.operation+o.parameter)).size,5);
+  assert.equal(new Set(policy.omissions.map(o=>o.operation+o.parameter)).size,7);
   assertOmissions(policy.omissions,policy.omissions);
   for (const actual of [policy.omissions.slice(1),[...policy.omissions,{operation:'GET /new',parameter:'filter',parameterSha256:'changed'}],policy.omissions.map((o,i)=>i?o:{...o,parameterSha256:'changed'})]) assert.throws(()=>assertOmissions(actual,policy.omissions));
   const lock={commit:policy.upstreamCommit,schema:{sha256:policy.schemaSha256}}; assertQueryRevision(policy,lock,'6.3.3');
