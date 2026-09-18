@@ -1,5 +1,5 @@
 $kind: http-example
-id: b187b75a-9018-5e6e-a977-0e2d6b280ff3
+id: f358c4c3-e575-5e30-b450-c487af9f6545
 name: Invalid request body, an attempt to update or modify attachments on an already-published message, or one or more attachment_asset_ids are invalid (not on this request, deleted, or already attached).
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/requests/{{project_type}}/{{request_id}}/messages/{{message_id}}"
@@ -17,8 +17,8 @@ request:
     content: |-
       {
         "content": "string",
-        "publish": true,
-        "tlp": "clear",
+        "publish": false,
+        "tlp": "red",
         "attachment_asset_ids": [
           "string",
           "string"

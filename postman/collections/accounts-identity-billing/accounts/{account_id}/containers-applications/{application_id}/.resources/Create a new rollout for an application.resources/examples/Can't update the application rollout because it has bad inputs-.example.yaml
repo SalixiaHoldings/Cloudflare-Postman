@@ -1,5 +1,5 @@
 $kind: http-example
-id: 2b14a87d-c747-50bd-a626-ac2343b0380c
+id: 9bcfcdf1-07ee-5349-b467-674a5d9fe41e
 name: Can't update the application rollout because it has bad inputs.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/rollouts"
@@ -37,8 +37,8 @@ request:
         "strategy": "rolling",
         "description": "string",
         "kind": "full_auto",
-        "percentage": 1,
-        "step_percentage": 20,
+        "percentage": 64,
+        "step_percentage": 5,
         "steps": [
           {
             "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -57,7 +57,7 @@ response:
     type: json
     content: |-
       {
-        "success": false,
+        "success": true,
         "errors": [
           {
             "code": 7003,

@@ -1,5 +1,5 @@
 $kind: http-example
-id: 5b4ab170-6e06-56b2-b070-a932652a3ea4
+id: 769ad0cc-2a7a-5d56-baea-f1ea602932c9
 name: Response body when an Application is not found.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/instances"
@@ -8,7 +8,7 @@ request:
     Accept: application/json
   queryParams:
     - key: per_page
-      value: "771"
+      value: "812"
       disabled: true
       description: Maximum number of instances to return per page. Defaults to all.
     - key: page_token
@@ -16,7 +16,7 @@ request:
       disabled: true
       description: Opaque token from a previous response to retrieve the next page.
     - key: state
-      value: not-active
+      value: active
       disabled: true
       description: |
         Filters instances by lifecycle state. `active` includes provisioning, running, and stopping instances; `not-active` includes stopped and failed instances. When omitted, all instances are returned.
@@ -34,7 +34,7 @@ response:
     type: json
     content: |-
       {
-        "success": false,
+        "success": true,
         "errors": [
           {
             "code": 7003,

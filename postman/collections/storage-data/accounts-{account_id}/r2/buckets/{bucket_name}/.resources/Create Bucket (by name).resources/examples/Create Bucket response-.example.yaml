@@ -1,13 +1,17 @@
 $kind: http-example
-id: 68be0320-075c-5849-b175-5a96ade29899
+id: bf4b105f-3178-5a74-9992-aa987e91b13e
 name: Create Bucket response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}"
   method: PUT
   headers:
-    cf-r2-jurisdiction: default
-    cf-r2-storage-class: Standard
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: cf-r2-storage-class
+      value: Standard
+    - key: Accept
+      value: application/json
 response:
   statusCode: 200
   statusText: OK

@@ -1,5 +1,5 @@
 $kind: http-example
-id: 46712db0-b58c-5871-8786-001cc524e24f
+id: 148d36b1-d884-5ed5-843a-4def5ec59ed4
 name: Response body when an Application is not found.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/rollouts"
@@ -37,8 +37,8 @@ request:
         "strategy": "rolling",
         "description": "string",
         "kind": "full_auto",
-        "percentage": 1,
-        "step_percentage": 20,
+        "percentage": 64,
+        "step_percentage": 5,
         "steps": [
           {
             "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -57,7 +57,7 @@ response:
     type: json
     content: |-
       {
-        "success": false,
+        "success": true,
         "errors": [
           {
             "code": 7003,

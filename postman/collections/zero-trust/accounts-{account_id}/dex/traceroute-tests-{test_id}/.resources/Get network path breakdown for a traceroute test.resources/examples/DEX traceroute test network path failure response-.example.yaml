@@ -1,8 +1,8 @@
 $kind: http-example
-id: 1f4a45b4-87ad-5310-9806-579715391b65
+id: 921da164-0ae5-5fa4-82ca-9dd3ed379686
 name: DEX traceroute test network path failure response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}/network-path?deviceId=string&from=string&to=string&interval=hour"
+  url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}/network-path?deviceId=string&from=string&to=string&interval=minute"
   method: GET
   headers:
     Accept: application/json
@@ -17,7 +17,7 @@ request:
       value: string
       description: (Required) End time for aggregate metrics in ISO ms.
     - key: interval
-      value: hour
+      value: minute
       description: (Required) Time interval for aggregate time slots.
 response:
   statusCode: 400

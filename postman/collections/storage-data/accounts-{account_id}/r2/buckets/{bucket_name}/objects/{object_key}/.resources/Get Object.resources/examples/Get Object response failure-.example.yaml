@@ -1,14 +1,19 @@
 $kind: http-example
-id: c87c2327-fb28-533a-9f3b-fda0dc221bef
+id: 35acfe28-4d2d-5838-9bc1-4b268344f986
 name: Get Object response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects/{{object_key}}"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    If-None-Match: string
-    If-Modified-Since: string
-    Accept: application/octet-stream
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: If-None-Match
+      value: string
+    - key: If-Modified-Since
+      value: string
+    - key: Accept
+      value: application/octet-stream
 response:
   statusCode: 400
   statusText: Bad Request

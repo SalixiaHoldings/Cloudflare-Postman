@@ -1,17 +1,13 @@
 $kind: http-example
-id: 11fe431d-c5e4-50e9-b405-76ca26334a37
+id: 9988683e-9176-5ebc-94f1-ccc28ce96c48
 name: Delete Zero Trust list response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/lists/{{list_id}}"
   method: DELETE
   headers:
-    Content-Type: application/json
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
-  body:
-    type: json
-    content: ""
 response:
   statusCode: 400
   statusText: Bad Request

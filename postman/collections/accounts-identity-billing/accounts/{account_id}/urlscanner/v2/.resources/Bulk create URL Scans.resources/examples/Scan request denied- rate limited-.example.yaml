@@ -1,5 +1,5 @@
 $kind: http-example
-id: c5f224d4-afea-5503-bb21-f88c63ca329f
+id: 0ed528ef-8b25-52ae-b1d6-7ee655101ac4
 name: "Scan request denied: rate limited."
 request:
   url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/bulk"
@@ -13,7 +13,7 @@ request:
       [
         {
           "url": "https://www.example.com",
-          "agentReadiness": true,
+          "agentReadiness": false,
           "customHeaders": {
             "key_0": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -31,12 +31,6 @@ request:
           "agentReadiness": true,
           "customHeaders": {
             "key_0": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "key_1": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "key_2": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           },

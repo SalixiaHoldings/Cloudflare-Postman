@@ -1,5 +1,5 @@
 $kind: http-example
-id: 790e5d00-f832-5d35-a2fb-978317de10e6
+id: 84199103-aad9-55ce-b12e-925ce5a9206c
 request:
   url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}"
   method: PATCH
@@ -19,8 +19,8 @@ request:
           }
         },
         "live_stream_on_start": false,
-        "persist_chat": true,
-        "record_on_start": false,
+        "persist_chat": false,
+        "record_on_start": true,
         "recording_config": {
           "audio_config": {
             "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -44,11 +44,11 @@ request:
             "value": "<Error: Too many levels of nesting to fake this schema>"
           }
         },
-        "session_keep_alive_time_in_secs": 218.7414276273921,
+        "session_keep_alive_time_in_secs": 471.7777213593945,
         "status": "INACTIVE",
         "summarize_on_end": false,
         "title": "string",
-        "transcribe_on_end": true
+        "transcribe_on_end": false
       }
 response:
   statusCode: 500
@@ -61,7 +61,7 @@ response:
       {
         "success": false,
         "error": {
-          "code": 7665.609449613839,
+          "code": 3903.541264589876,
           "message": "string"
         }
       }

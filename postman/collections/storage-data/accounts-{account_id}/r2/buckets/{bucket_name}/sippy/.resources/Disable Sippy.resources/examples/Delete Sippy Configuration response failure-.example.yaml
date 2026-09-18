@@ -1,12 +1,15 @@
 $kind: http-example
-id: 5d4b0167-f1b2-5d22-9a80-50fc6cb98e15
+id: 6445d161-f7e0-53e8-a4c0-669edc394eb8
 name: Delete Sippy Configuration response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/sippy"
   method: DELETE
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 400
   statusText: Bad Request

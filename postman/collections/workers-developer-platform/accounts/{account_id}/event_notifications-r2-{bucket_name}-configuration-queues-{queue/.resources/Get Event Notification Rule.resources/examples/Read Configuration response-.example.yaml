@@ -1,12 +1,15 @@
 $kind: http-example
-id: 5f95a519-117e-5174-8dff-2af11154e92e
+id: a75f3dfa-2728-5835-bfe3-c7ca860502c5
 name: Read Configuration response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/event_notifications/r2/{{bucket_name}}/configuration/queues/{{queue_id}}"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 200
   statusText: OK

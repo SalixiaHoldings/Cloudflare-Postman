@@ -1,5 +1,5 @@
 $kind: http-request
-id: ca152258-03e9-5af8-933b-35a4388b2e07
+id: 12c3898f-8f67-5b9e-8dca-1567b6b905ad
 name: Create an AI Search instance.
 description: |-
   GENERATED FILE — DO NOT EDIT.
@@ -8,6 +8,8 @@ description: |-
   POST /accounts/{account_id}/ai-search/instances
 
   Create a new AI Search instance with the given configuration.
+
+  Deprecated: use /accounts/{account_id}/ai-search/namespaces/{name}/instances (and descendant paths) instead.
 
   Authentication support: bearer-alternative
   Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
@@ -31,7 +33,7 @@ body:
       "cache_ttl": 600,
       "chunk": true,
       "chunk_overlap": 10,
-      "chunk_size": 3418,
+      "chunk_size": 9533,
       "custom_metadata": [
         {
           "field_name": {
@@ -145,8 +147,8 @@ body:
         }
       },
       "sync_interval": 900,
-      "token_id": "4bebc366-c9db-d4f4-abbc-c2ff3c4eada3",
-      "type": null
+      "token_id": "3964bebc-676c-db3d-f42a-bc3c2ff3c4ea",
+      "type": "web-crawler"
     }
 auth:
   type: bearer

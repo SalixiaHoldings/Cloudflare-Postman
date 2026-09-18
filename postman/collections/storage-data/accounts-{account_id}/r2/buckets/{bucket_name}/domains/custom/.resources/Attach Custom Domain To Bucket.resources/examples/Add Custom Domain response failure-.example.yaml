@@ -1,13 +1,17 @@
 $kind: http-example
-id: e3959b6b-e145-57b2-8510-cd55fb9413e5
+id: 183f56b0-512c-5227-8822-b0977671af60
 name: Add Custom Domain response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/domains/custom"
   method: POST
   headers:
-    cf-r2-jurisdiction: default
-    Content-Type: application/json
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
   body:
     type: json
     content: |-

@@ -1,5 +1,5 @@
 $kind: http-example
-id: d60cf3f0-e650-5cc1-bce1-f9be80a4cc60
+id: 61db2355-e0ef-5ee7-bc99-594f70d68572
 name: Client error response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/physical-devices"
@@ -43,6 +43,10 @@ request:
       value: only
       disabled: true
       description: Include or exclude devices with active registrations. The default is "only" - return only devices with active registrations.
+    - key: has_registration_type
+      value: warp
+      disabled: true
+      description: Filter by the type of active registration associated with the device.
     - key: id
       value: string
       disabled: true

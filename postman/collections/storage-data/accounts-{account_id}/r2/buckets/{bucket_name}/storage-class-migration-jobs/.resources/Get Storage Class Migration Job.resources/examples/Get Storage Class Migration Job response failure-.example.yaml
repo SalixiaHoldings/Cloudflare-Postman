@@ -1,12 +1,15 @@
 $kind: http-example
-id: 063c736e-1183-576d-9593-975c4908bfc5
+id: 54da0fc8-b18f-54e2-9ff9-4ce4153fb731
 name: Get Storage Class Migration Job response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/storage-class-migration-jobs/{{job_id}}"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 400
   statusText: Bad Request

@@ -1,5 +1,5 @@
 $kind: http-example
-id: 573369f4-b2c4-55fe-83f5-a395889985eb
+id: 29e0a1c3-609f-5285-b78f-0dba3b23d9d4
 name: Returns the result of a crawl job.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/crawl/{{job_id}}"
@@ -14,7 +14,7 @@ request:
       disabled: true
       description: Cache TTL default is 5s. Set to 0 to disable.
     - key: status
-      value: disallowed
+      value: cancelled
       disabled: true
       description: Filter by URL status.
     - key: cursor
@@ -34,14 +34,14 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "result": {
           "id": "string",
           "status": "string",
-          "browserSecondsUsed": 4599.659261293709,
-          "total": 447.52585235983133,
-          "finished": 2554.0371239185333,
-          "skipped": 5135.546771343797,
+          "browserSecondsUsed": 1011.6716125048697,
+          "total": 2352.1276633255184,
+          "finished": 8229.02241256088,
+          "skipped": 5964.730235282332,
           "records": [
             {
               "value": "<Error: Too many levels of nesting to fake this schema>"

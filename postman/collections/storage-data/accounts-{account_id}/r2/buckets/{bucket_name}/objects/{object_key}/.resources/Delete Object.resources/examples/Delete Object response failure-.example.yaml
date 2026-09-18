@@ -1,12 +1,15 @@
 $kind: http-example
-id: 9ebbcd7a-39e5-5905-93a3-e539c4b22133
+id: 9abe4696-1480-5c36-93cd-8445c5657124
 name: Delete Object response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects/{{object_key}}"
   method: DELETE
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 400
   statusText: Bad Request

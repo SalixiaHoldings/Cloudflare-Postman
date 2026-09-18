@@ -1,5 +1,5 @@
 $kind: http-example
-id: dd5433f5-7222-5c68-b71f-c81db538923f
+id: 33c755f9-3362-586e-84a3-20581ed64e23
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workers/observability/zones/{{zone_id}}/observability/tracing/settings"
   method: PATCH
@@ -16,9 +16,9 @@ request:
         ],
         "enabled": true,
         "forward_context": true,
-        "persist": false,
-        "propagation_policy": "authenticated",
-        "sampling_ratio": 0.2914466087240726
+        "persist": true,
+        "propagation_policy": "unauthenticated",
+        "sampling_ratio": 0.3243506159633398
       }
 response:
   statusCode: 200
@@ -56,8 +56,8 @@ response:
         ],
         "result": {
           "enabled": false,
-          "persist": false,
-          "sampling_ratio": 0.07985272700898349,
+          "persist": true,
+          "sampling_ratio": 0.7394426863174886,
           "destinations": [
             {
               "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -66,7 +66,7 @@ response:
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           ],
-          "propagation_policy": "unauthenticated",
+          "propagation_policy": "authenticated",
           "forward_context": false
         }
       }

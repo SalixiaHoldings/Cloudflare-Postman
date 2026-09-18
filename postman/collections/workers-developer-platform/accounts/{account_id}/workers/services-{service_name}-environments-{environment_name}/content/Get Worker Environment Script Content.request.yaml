@@ -1,0 +1,25 @@
+$kind: http-request
+id: 97c3ef90-d394-536b-9e56-f8b209628bb6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: worker-environment-get-script-content
+  GET /accounts/{account_id}/workers/services/{service_name}/environments/{environment_name}/content
+
+  Get Worker script content for an environment.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/services/{{service_name}}/environments/{{environment_name}}/content"
+method: GET
+headers:
+  Accept: string
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Get Worker Environment Script Content.resources/examples
+order: 1000

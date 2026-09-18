@@ -1,0 +1,41 @@
+$kind: http-request
+id: 62418267-d363-50f3-94ca-b791101f191a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: billable-usage-v2-get-account-billable-metrics
+  GET /accounts/{account_id}/billable/usage/billable-metrics
+
+  Lists billable metrics available to the account through contracts and
+  subscriptions that overlap the requested period. Results are
+  deduplicated and ordered. If no qualifying contract exists, the
+  result is an empty array.
+
+  When `from` and `to` are omitted, the period defaults to the start of
+  the current month through today. The maximum date range is 31 days.
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/billable/usage/billable-metrics"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: from
+    value: 2025-05-01
+    disabled: true
+    description: Start date for the usage query (ISO 8601). Required if `to` is set. When omitted along with `to`, defaults to the start of the current month. Filters by charge period (when consumption happened), not billing period. The maximum date range is 31 days.
+  - key: to
+    value: 2025-05-31
+    disabled: true
+    description: End date for the usage query (ISO 8601). Required if `from` is set. When omitted along with `from`, defaults to today. Filters by charge period (when consumption happened), not billing period. The maximum date range is 31 days.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Account Billable Metrics (Version 2, Alpha, Restricted).resources/examples
+order: 3000

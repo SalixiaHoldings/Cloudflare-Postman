@@ -1,12 +1,15 @@
 $kind: http-example
-id: e9ad2ef3-aa31-530b-a8b2-28173584c552
+id: 7d6eb4ae-95c8-5395-91c3-ec17e152d5cd
 name: Error Response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/cors"
   method: DELETE
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 400
   statusText: Bad Request

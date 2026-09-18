@@ -1,0 +1,28 @@
+$kind: http-example
+id: f65948d4-95b0-58eb-bdbf-0b8a277a5bd5
+name: Delete Route response failure.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/workers/routes/{{route_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

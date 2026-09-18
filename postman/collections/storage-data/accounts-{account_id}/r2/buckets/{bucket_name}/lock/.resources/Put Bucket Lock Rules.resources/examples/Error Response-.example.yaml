@@ -1,13 +1,17 @@
 $kind: http-example
-id: ec4bef29-beba-5418-ae1f-2ff2c8fe0ad3
+id: f2a7364f-1ed8-53f7-867a-13d2044d8a4d
 name: Error Response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/lock"
   method: PUT
   headers:
-    cf-r2-jurisdiction: default
-    Content-Type: application/json
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
   body:
     type: json
     content: |-

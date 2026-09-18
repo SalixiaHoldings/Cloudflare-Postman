@@ -1,5 +1,5 @@
 $kind: http-example
-id: b38fd1fe-1dce-5813-a139-7da23d0bbffd
+id: 5267a212-6bf6-5648-b555-627b58df298e
 name: Bad request.
 request:
   url: "{{base_url}}/radar/leaked_credential_checks/timeseries_groups/bot_class"
@@ -46,11 +46,11 @@ request:
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: compromised
-      value: CLEAN
+      value: COMPROMISED
       disabled: true
       description: Filters results by compromised credential status (clean vs. compromised).
     - key: compromised
-      value: CLEAN
+      value: COMPROMISED
       disabled: true
       description: Filters results by compromised credential status (clean vs. compromised).
     - key: format

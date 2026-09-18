@@ -1,0 +1,31 @@
+$kind: http-example
+id: dd5ef46d-7384-5eef-b882-ad551622b6bd
+name: Fetch script settings.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/services/{{service_name}}/environments/{{environment_name}}/settings"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

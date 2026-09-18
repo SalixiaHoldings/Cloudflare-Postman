@@ -1,5 +1,5 @@
 $kind: http-example
-id: 482dd012-6746-5985-8d37-2cd43d6f9b14
+id: 3b7d1fc6-f6cc-5f59-9a69-053feefaa18c
 name: List Zero Trust lists response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/lists"
@@ -12,6 +12,44 @@ request:
     - key: type
       value: SERIAL
       disabled: true
+    - key: filter
+      value: "name:"
+      disabled: true
+      description: |-
+        Filter the returned lists by one or more `field:value` pairs.
+        Repeat the parameter to apply multiple filters; they are combined with
+        logical AND (a list must satisfy every filter to be returned).
+
+        Supported fields and their matching behaviour:
+          * `name` — case-insensitive substring match on the list name.
+          * `id` — substring match on the list ID (UUID), with or without dashes.
+          * `type` — exact match on the list type. Supersedes the legacy `type` query
+            parameter when both are supplied. Must be one of the valid type values.
+          * `item_count` — exact integer match on the number of items in the list.
+
+        Each entry must match one of the per-field patterns below: the field must be
+        one of `name`, `id`, `type`, or `item_count`; `name`/`id` accept any value,
+        `type` is restricted to the valid list type values, and `item_count` must be
+        a non-negative integer.
+    - key: filter
+      value: name:L
+      disabled: true
+      description: |-
+        Filter the returned lists by one or more `field:value` pairs.
+        Repeat the parameter to apply multiple filters; they are combined with
+        logical AND (a list must satisfy every filter to be returned).
+
+        Supported fields and their matching behaviour:
+          * `name` — case-insensitive substring match on the list name.
+          * `id` — substring match on the list ID (UUID), with or without dashes.
+          * `type` — exact match on the list type. Supersedes the legacy `type` query
+            parameter when both are supplied. Must be one of the valid type values.
+          * `item_count` — exact integer match on the number of items in the list.
+
+        Each entry must match one of the per-field patterns below: the field must be
+        one of `name`, `id`, `type`, or `item_count`; `name`/`id` accept any value,
+        `type` is restricted to the valid list type values, and `item_count` must be
+        a non-negative integer.
     - key: search
       value: string
       disabled: true
@@ -19,7 +57,7 @@ request:
         Case-insensitive substring match on the list name or description. When
         combined with `filter`, both must match (logical AND).
     - key: order_by
-      value: name
+      value: item_count
       disabled: true
       description: |-
         Field to sort the returned lists by. When omitted, results are ordered by

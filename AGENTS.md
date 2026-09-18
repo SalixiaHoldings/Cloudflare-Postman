@@ -35,7 +35,7 @@ This repository is the public, open-source Salixia-maintained Postman distributi
 - Never commit `.postman/` workspace bindings. Regenerate and validate both formats together.
 - Only the guarded collection-auth UUID normalization documented in `docs/native-git.md` is approved for v3 migration. Additional migration instability requires review.
 - Query defaults use the isolated full-secondary/query-only projection documented in `docs/query-policy.md`. Do not replace it with endpoint-specific query rewriting, a local array/object serializer, or the rejected reduced-input optimization.
-- Required query Params remain enabled; emitted optional Params remain disabled by default. The five known optional-array omissions are revision-bound limitations.
+- Required query Params remain enabled; emitted optional Params remain disabled by default. The single known Cloudforce One optional-array omission is a revision-bound limitation.
 - Generic environment selectors include `account_id`, `zone_id`, `tenant_id`, and `organization_id`. Their committed values must remain empty. `base_url` is the only intentionally populated shared environment value.
 - Keep collections practical to navigate; do not collapse complete coverage into one monolithic collection when modular output preserves exact accounting.
 

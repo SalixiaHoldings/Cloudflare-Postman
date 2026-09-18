@@ -1,12 +1,15 @@
 $kind: http-example
-id: 727ce872-0498-58f6-b4bb-136f8ddad3d4
+id: ddcc4fae-3051-57a0-a9bc-d8f701a673b3
 name: List Buckets response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
   queryParams:
     - key: name_contains
       value: my-bucket

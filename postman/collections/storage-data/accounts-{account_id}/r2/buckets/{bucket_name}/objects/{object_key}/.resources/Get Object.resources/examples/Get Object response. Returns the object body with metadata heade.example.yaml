@@ -1,14 +1,19 @@
 $kind: http-example
-id: 3c535761-1b08-507c-907f-c7ba4fd39e36
+id: 27c47f1d-9b52-5db4-a5ca-4e89c7c4c3f0
 name: Get Object response. Returns the object body with metadata headers.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects/{{object_key}}"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    If-None-Match: string
-    If-Modified-Since: string
-    Accept: application/octet-stream
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: If-None-Match
+      value: string
+    - key: If-Modified-Since
+      value: string
+    - key: Accept
+      value: application/octet-stream
 response:
   statusCode: 200
   statusText: OK

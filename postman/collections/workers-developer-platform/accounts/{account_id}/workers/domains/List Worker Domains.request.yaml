@@ -1,0 +1,41 @@
+$kind: http-request
+id: 268033ca-7ad8-5018-a144-6479f1ff43d9
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers.domains.list
+  GET /accounts/{account_id}/workers/domains
+
+  Lists all Worker domains for an account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/domains"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: zone_id
+    value: "{{zone_id}}"
+    disabled: true
+  - key: zone_name
+    value: example.com
+    disabled: true
+  - key: service
+    value: my-worker
+    disabled: true
+  - key: hostname
+    value: app.example.com
+    disabled: true
+  - key: environment
+    value: production
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Worker Domains.resources/examples
+order: 1000

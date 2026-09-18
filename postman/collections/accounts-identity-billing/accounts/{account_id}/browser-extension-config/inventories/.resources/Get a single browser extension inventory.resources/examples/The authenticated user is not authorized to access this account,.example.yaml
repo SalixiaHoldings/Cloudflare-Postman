@@ -1,0 +1,34 @@
+$kind: http-example
+id: f23aacf5-1e93-5303-9efa-37ec0d572cc0
+name: The authenticated user is not authorized to access this account, the Browser Extension service is not enabled for this account, or service availability could not be verified for this account.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-extension/config/inventories/{{registration_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {},
+        "success": false,
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 3000

@@ -1,17 +1,13 @@
 $kind: http-example
-id: 0716cb32-b892-5f77-9540-ff74e327e171
+id: 6e2a34cb-fef5-5b1d-91bf-208d582b63fe
 name: Returns a deleted proxy endpoint response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/proxy_endpoints/{{proxy_endpoint_id}}"
   method: DELETE
   headers:
-    Content-Type: application/json
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
-  body:
-    type: json
-    content: ""
 response:
   statusCode: 200
   statusText: OK

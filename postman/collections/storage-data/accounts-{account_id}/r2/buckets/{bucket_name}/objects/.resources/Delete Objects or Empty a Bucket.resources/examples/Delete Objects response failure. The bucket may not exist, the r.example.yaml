@@ -1,5 +1,5 @@
 $kind: http-example
-id: e7006451-39b0-5d31-9358-184826b1e1f6
+id: b0eb2bf4-f7ae-5b73-a042-c0f1fb2d9fca
 name: Delete Objects response failure. The bucket may not exist, the request may be invalid, or the caller may not be authorized.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects"
@@ -7,6 +7,7 @@ request:
   headers:
     - key: cf-r2-jurisdiction
       value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
     - key: cf-r2-data-catalog-check
       value: string
       description: Set this header to reject the operation when R2 Data Catalog is enabled for the bucket.

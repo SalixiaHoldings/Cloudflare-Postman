@@ -1,5 +1,5 @@
 $kind: http-example
-id: b7de8943-5d6e-5018-a6be-368eb3666759
+id: e96434b3-5276-52c7-9110-0bf8902324f5
 name: List of Internet traffic anomalies.
 request:
   url: "{{base_url}}/radar/traffic_anomalies"
@@ -14,7 +14,7 @@ request:
       disabled: true
       description: Limits the number of objects returned in the response.
     - key: offset
-      value: "2923"
+      value: "0"
       disabled: true
       description: Skips the specified number of objects before fetching the results.
     - key: dateRange
@@ -30,14 +30,14 @@ request:
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`.
     - key: status
-      value: VERIFIED
+      value: UNVERIFIED
       disabled: true
     - key: type
-      value: LOCATION
+      value: AS
       disabled: true
       description: Filters results by entity type (LOCATION, AS, or ORIGIN).
     - key: type
-      value: LOCATION
+      value: ORIGIN
       disabled: true
       description: Filters results by entity type (LOCATION, AS, or ORIGIN).
     - key: dataSource
@@ -57,7 +57,7 @@ request:
       disabled: true
       description: Filters results by origin.
     - key: format
-      value: CSV
+      value: JSON
       disabled: true
       description: Format in which results will be returned.
 response:

@@ -1,5 +1,5 @@
 $kind: http-example
-id: 4dbeb8f0-bce7-5fac-822d-b9b7fd4ff37f
+id: bae865e2-bdd2-50f3-9b85-c2c82787a35c
 name: Connect project source response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/pages/projects/{{project_name}}/source"
@@ -13,7 +13,7 @@ request:
       {
         "type": "github",
         "config": {
-          "deployments_enabled": false,
+          "deployments_enabled": true,
           "owner": "my-org",
           "owner_id": "12345678",
           "path_excludes": [
@@ -32,7 +32,7 @@ request:
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           ],
-          "pr_comments_enabled": false,
+          "pr_comments_enabled": true,
           "preview_branch_excludes": [
             {
               "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -49,9 +49,9 @@ request:
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           ],
-          "preview_deployment_setting": "none",
+          "preview_deployment_setting": "all",
           "production_branch": "main",
-          "production_deployments_enabled": false,
+          "production_deployments_enabled": true,
           "repo_id": "12345678",
           "repo_name": "my-repo"
         }

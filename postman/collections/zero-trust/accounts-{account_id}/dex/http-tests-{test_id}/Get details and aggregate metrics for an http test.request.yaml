@@ -1,5 +1,5 @@
 $kind: http-request
-id: 970964dd-0cb2-5615-b239-265380c0c164
+id: 783d1404-4583-5a58-a785-caae1dee2b27
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/dex/http-tests/{{test_id}}?from=string&to=string&interval=hour"
+url: "{{base_url}}/accounts/{{account_id}}/dex/http-tests/{{test_id}}?from=string&to=string&interval=minute"
 method: GET
 headers:
   Accept: application/json
@@ -33,7 +33,7 @@ queryParams:
     value: string
     description: (Required) End time for aggregate metrics in ISO ms.
   - key: interval
-    value: hour
+    value: minute
     description: (Required) Time interval for aggregate time slots.
   - key: colo
     value: SJC

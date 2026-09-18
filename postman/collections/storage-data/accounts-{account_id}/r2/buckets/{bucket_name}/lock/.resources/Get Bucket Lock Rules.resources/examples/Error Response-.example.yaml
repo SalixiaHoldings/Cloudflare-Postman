@@ -1,12 +1,15 @@
 $kind: http-example
-id: 1c8688b5-9512-5633-9aab-f406a79af41f
+id: c0127368-bb91-5b88-a9f8-3d5b054bc36f
 name: Error Response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/lock"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 400
   statusText: Bad Request

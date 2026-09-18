@@ -1,5 +1,5 @@
 $kind: http-request
-id: 72e95964-4a8a-572e-8848-782e4e20147f
+id: bf6553fb-cd01-5386-9199-4a40c379b446
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/over-time?from=2023-10-11 00:00:00+00&to=2023-10-11 00:00:00+00&interval=hour"
+url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/over-time?from=2023-10-11 00:00:00+00&to=2023-10-11 00:00:00+00&interval=minute"
 method: GET
 headers:
   Accept: application/json
@@ -25,7 +25,7 @@ queryParams:
     value: 2023-10-11 00:00:00+00
     description: (Required) End of the time range to query. Timestamp can be provided in ISO 8601 datetime format or milliseconds since epoch.
   - key: interval
-    value: hour
+    value: minute
     description: (Required) Time interval for aggregate time slots.
   - key: colo
     value: SJC

@@ -1,0 +1,66 @@
+$kind: http-example
+id: 0e53638d-0f4e-5c64-816f-4260fb4b7f4e
+name: Email Sending setup is still in progress. Retry later; no email was sent.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/send"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "attachments": [
+          {
+            "content": "JVBERi0xLjQK...",
+            "disposition": "attachment",
+            "filename": "report.pdf",
+            "type": "application/pdf"
+          }
+        ],
+        "from": "sender@example.com",
+        "html": "<h1>Hello</h1><p>Please find your report attached.</p>",
+        "subject": "Monthly Report",
+        "text": "Hello\n\nPlease find your report attached.",
+        "to": [
+          "recipient@example.com"
+        ]
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "messages": [
+          "string",
+          "string"
+        ],
+        "errors": [
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": null
+      }
+order: 4000

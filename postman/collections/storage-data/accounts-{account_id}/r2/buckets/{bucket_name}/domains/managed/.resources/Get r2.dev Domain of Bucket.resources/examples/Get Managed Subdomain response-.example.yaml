@@ -1,12 +1,15 @@
 $kind: http-example
-id: 9fd25bb4-ba6c-55dc-98c4-761264ea5175
+id: 0237dbf7-83a0-5fce-967d-cd3361e9a068
 name: Get Managed Subdomain response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/domains/managed"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 200
   statusText: OK

@@ -1,12 +1,15 @@
 $kind: http-example
-id: 9f758568-100d-50ff-a767-de224307e716
+id: 6246fbd2-aed4-57ef-b517-a83100cd4c97
 name: Delete Sippy Configuration response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/sippy"
   method: DELETE
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 200
   statusText: OK

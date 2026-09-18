@@ -1,13 +1,17 @@
 $kind: http-example
-id: eca4e2a6-d83f-57a6-988f-6264ef60d1d8
+id: e77bc765-fc79-5ce4-b0ac-bc311b5cf12d
 name: Get Sippy Configuration response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/sippy"
   method: PUT
   headers:
-    cf-r2-jurisdiction: default
-    Content-Type: application/json
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
   body:
     type: json
     content: |-

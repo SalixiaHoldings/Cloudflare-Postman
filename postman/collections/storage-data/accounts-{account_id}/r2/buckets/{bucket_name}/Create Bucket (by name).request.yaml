@@ -1,5 +1,5 @@
 $kind: http-request
-id: a6514905-1747-5af1-8e2a-61d4e4a0bc15
+id: 05166a33-6f66-5583-85e4-47bdfc9f6322
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -16,9 +16,13 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}"
 method: PUT
 headers:
-  cf-r2-jurisdiction: default
-  cf-r2-storage-class: Standard
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: cf-r2-storage-class
+    value: Standard
+  - key: Accept
+    value: application/json
 auth:
   type: bearer
   credentials:

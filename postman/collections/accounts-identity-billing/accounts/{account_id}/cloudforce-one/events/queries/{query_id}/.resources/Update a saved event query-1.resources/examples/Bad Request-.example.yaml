@@ -1,5 +1,5 @@
 $kind: http-example
-id: 37807f73-be1b-5c79-9172-9a90c6f8a892
+id: 4d1d928a-b8fb-59cf-bab1-b9e38be5edb0
 name: Bad Request.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/queries/{{query_id}}"
@@ -11,7 +11,7 @@ request:
     type: json
     content: |-
       {
-        "alert_enabled": false,
+        "alert_enabled": true,
         "alert_rollup_enabled": true,
         "name": "string",
         "query_json": "string",
@@ -28,7 +28,7 @@ response:
     content: |-
       {
         "result": {},
-        "success": true,
+        "success": false,
         "errors": [
           {
             "message": {

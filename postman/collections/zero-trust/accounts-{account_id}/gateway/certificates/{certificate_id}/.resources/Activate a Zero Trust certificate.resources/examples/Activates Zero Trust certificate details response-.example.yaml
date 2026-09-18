@@ -1,17 +1,13 @@
 $kind: http-example
-id: 5b165a71-3d87-5460-af7d-e8771b6dfefb
+id: 0e0053df-017b-5dec-82ce-87194147626d
 name: Activates Zero Trust certificate details response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/certificates/{{certificate_id}}/activate"
   method: POST
   headers:
-    Content-Type: application/json
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
-  body:
-    type: json
-    content: ""
 response:
   statusCode: 202
   statusText: Accepted

@@ -1,5 +1,5 @@
 $kind: http-request
-id: 86af6177-fb35-578e-8dd5-36df5d8f02ce
+id: cf3f2f94-302c-5944-9d57-ee3b1a463213
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -16,8 +16,11 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets"
 method: GET
 headers:
-  cf-r2-jurisdiction: default
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: Accept
+    value: application/json
 queryParams:
   - key: name_contains
     value: my-bucket

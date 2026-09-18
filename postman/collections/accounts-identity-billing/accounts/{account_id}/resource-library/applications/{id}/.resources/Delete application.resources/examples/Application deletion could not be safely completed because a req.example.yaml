@@ -1,0 +1,28 @@
+$kind: http-example
+id: 244de26e-7d6b-536b-b67b-44cb2f3dbb0b
+name: Application deletion could not be safely completed because a required validation was unavailable.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/resource-library/applications/{{id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 502
+  statusText: Bad Gateway
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 3000

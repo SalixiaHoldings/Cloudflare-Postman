@@ -1,5 +1,5 @@
 $kind: http-example
-id: e3e69265-ddab-577f-8b41-8dea69eb9f8e
+id: c6f4f206-ed61-548e-800d-06b791a54d66
 name: Returns edges, optional hydrated entities, counts, and pagination.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators/{{indicator_id}}/relationships"
@@ -11,7 +11,7 @@ request:
       value: '{"field":"string","op":"contains","value":"string"}'
       disabled: true
     - key: search
-      value: '{"field":"string","op":"like","value":"string"}'
+      value: '{"field":"string","op":"startsWith","value":"string"}'
       disabled: true
     - key: expand
       value: string
@@ -45,7 +45,7 @@ response:
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           ],
-          "hasMore": true,
+          "hasMore": false,
           "hydrationErrors": {},
           "relationships": [
             {

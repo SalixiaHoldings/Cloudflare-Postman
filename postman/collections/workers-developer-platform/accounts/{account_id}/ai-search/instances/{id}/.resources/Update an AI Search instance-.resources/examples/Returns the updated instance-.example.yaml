@@ -1,5 +1,5 @@
 $kind: http-example
-id: 3469d277-86dd-5080-98c7-a4d28d18ac03
+id: c3dfc7e6-89f9-51a8-8451-f99068ab12d6
 name: Returns the updated instance.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/ai-search/instances/{{id}}"
@@ -18,7 +18,7 @@ request:
         "cache_ttl": 600,
         "chunk": true,
         "chunk_overlap": 10,
-        "chunk_size": 9291,
+        "chunk_size": 5727,
         "custom_metadata": [
           {
             "field_name": {
@@ -49,7 +49,7 @@ request:
         },
         "max_num_results": 10,
         "metadata": {
-          "created_from_aisearch_wizard": true,
+          "created_from_aisearch_wizard": false,
           "worker_domain": "string"
         },
         "paused": false,
@@ -108,7 +108,7 @@ request:
               "field": "timestamp"
             }
           ],
-          "keyword_match_mode": "or"
+          "keyword_match_mode": "and"
         },
         "rewrite_model": "string",
         "rewrite_query": false,
@@ -137,7 +137,7 @@ request:
         "system_prompt_ai_search": "string",
         "system_prompt_index_summarization": "string",
         "system_prompt_rewrite_query": "string",
-        "token_id": "27f31038-426b-0b6e-7e2e-5e633740375b"
+        "token_id": "62d27f31-8344-6bb0-6e27-2e25e6337403"
       }
 response:
   statusCode: 200
@@ -148,11 +148,11 @@ response:
     type: json
     content: |-
       {
-        "success": false,
+        "success": true,
         "result": {
           "id": "my-ai-search",
-          "created_at": "1935-04-12T15:02:46.203Z",
-          "modified_at": "1999-04-07T23:16:39.146Z",
+          "created_at": "1979-07-20T00:47:15.973Z",
+          "modified_at": "1968-09-18T15:06:19.422Z",
           "ai_gateway_id": "string",
           "ai_search_model": "string",
           "cache": true,
@@ -161,7 +161,7 @@ response:
             "value": "<Error: Too many levels of nesting to fake this schema>"
           },
           "chunk_overlap": 10,
-          "chunk_size": 600,
+          "chunk_size": 8129,
           "created_by": "string",
           "custom_metadata": [
             {
@@ -188,7 +188,7 @@ response:
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           },
-          "last_activity": "1941-11-28T14:37:19.077Z",
+          "last_activity": "1940-08-12T03:45:32.813Z",
           "max_num_results": 10,
           "metadata": {
             "created_from_aisearch_wizard": {
@@ -263,8 +263,8 @@ response:
           "sync_interval": {
             "value": "<Error: Too many levels of nesting to fake this schema>"
           },
-          "token_id": "0a42cb0c-f901-2afc-e0f0-430534dc0bc1",
-          "type": "web-crawler"
+          "token_id": "f180a42c-c84f-0192-fc7e-f01430534dc0",
+          "type": null
         }
       }
 order: 1000

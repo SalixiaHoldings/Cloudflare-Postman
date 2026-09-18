@@ -1,5 +1,5 @@
 $kind: http-example
-id: 916a5723-1613-56e7-aab0-b21261bd7db6
+id: b21191f5-2f6e-5ae6-88c9-3d8adf419b4d
 name: Bad Request.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/create/bulk"
@@ -114,7 +114,7 @@ request:
           }
         ],
         "datasetId": "durableObjectName",
-        "includeCreatedEvents": true
+        "includeCreatedEvents": false
       }
 response:
   statusCode: 400
@@ -126,7 +126,7 @@ response:
     content: |-
       {
         "result": {},
-        "success": true,
+        "success": false,
         "errors": [
           {
             "message": {

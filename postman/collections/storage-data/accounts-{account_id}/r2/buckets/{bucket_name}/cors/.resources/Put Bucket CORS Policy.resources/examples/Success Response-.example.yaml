@@ -1,13 +1,17 @@
 $kind: http-example
-id: d5ecdbab-2ee9-5f6e-b413-43446da41669
+id: 2655120f-f78b-56a6-bf12-1370a8d91873
 name: Success Response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/cors"
   method: PUT
   headers:
-    cf-r2-jurisdiction: default
-    Content-Type: application/json
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
   body:
     type: json
     content: |-

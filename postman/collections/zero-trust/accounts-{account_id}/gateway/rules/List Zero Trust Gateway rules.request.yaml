@@ -1,5 +1,5 @@
 $kind: http-request
-id: ae6efb2d-4125-5dc9-b269-10f55e140543
+id: 14e38798-47b2-56fc-9584-6feb94bdc24d
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -20,12 +20,38 @@ headers:
   X-Auth-Email: "{{api_email}}"
   X-Auth-Key: "{{api_key}}"
 queryParams:
+  - key: filter
+    value: "name:"
+    disabled: true
+    description: |-
+      Filter the returned rules by one or more `field:value` pairs. Repeat the
+      parameter to combine filters with logical AND.
+
+      Supported fields are `name`, `id`, `action`, `enabled`, `source_account`,
+      `is_shared`, `filters`, and `expression` (max 1024 bytes). The `source_account`
+      value is matched as a normalized UUID substring. The `filters` value must
+      be one of the rule filter names and matches a member of the rule's `filters`
+      array. The `expression` filter performs a case-insensitive literal
+      substring match across traffic, identity, and device posture expressions.
+  - key: filter
+    value: name:L
+    disabled: true
+    description: |-
+      Filter the returned rules by one or more `field:value` pairs. Repeat the
+      parameter to combine filters with logical AND.
+
+      Supported fields are `name`, `id`, `action`, `enabled`, `source_account`,
+      `is_shared`, `filters`, and `expression` (max 1024 bytes). The `source_account`
+      value is matched as a normalized UUID substring. The `filters` value must
+      be one of the rule filter names and matches a member of the rule's `filters`
+      array. The `expression` filter performs a case-insensitive literal
+      substring match across traffic, identity, and device posture expressions.
   - key: search
     value: string
     disabled: true
     description: Case-insensitive substring search across rule name and description.
   - key: order_by
-    value: precedence
+    value: created_at
     disabled: true
     description: |-
       Field to sort the returned rules by. Supported values are `name`,

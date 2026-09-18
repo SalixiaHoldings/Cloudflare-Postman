@@ -1,5 +1,5 @@
 $kind: http-example
-id: 821c49e5-9030-5d97-8136-9a9450347d73
+id: ff592460-df8f-5c05-9206-5d31bba836af
 name: List Zero Trust Gateway rules response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/rules"
@@ -9,12 +9,38 @@ request:
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
   queryParams:
+    - key: filter
+      value: "name:"
+      disabled: true
+      description: |-
+        Filter the returned rules by one or more `field:value` pairs. Repeat the
+        parameter to combine filters with logical AND.
+
+        Supported fields are `name`, `id`, `action`, `enabled`, `source_account`,
+        `is_shared`, `filters`, and `expression` (max 1024 bytes). The `source_account`
+        value is matched as a normalized UUID substring. The `filters` value must
+        be one of the rule filter names and matches a member of the rule's `filters`
+        array. The `expression` filter performs a case-insensitive literal
+        substring match across traffic, identity, and device posture expressions.
+    - key: filter
+      value: name:L
+      disabled: true
+      description: |-
+        Filter the returned rules by one or more `field:value` pairs. Repeat the
+        parameter to combine filters with logical AND.
+
+        Supported fields are `name`, `id`, `action`, `enabled`, `source_account`,
+        `is_shared`, `filters`, and `expression` (max 1024 bytes). The `source_account`
+        value is matched as a normalized UUID substring. The `filters` value must
+        be one of the rule filter names and matches a member of the rule's `filters`
+        array. The `expression` filter performs a case-insensitive literal
+        substring match across traffic, identity, and device posture expressions.
     - key: search
       value: string
       disabled: true
       description: Case-insensitive substring search across rule name and description.
     - key: order_by
-      value: precedence
+      value: created_at
       disabled: true
       description: |-
         Field to sort the returned rules by. Supported values are `name`,

@@ -1,17 +1,13 @@
 $kind: http-example
-id: 6fec12c4-6157-541c-a031-8ca9cab4676d
+id: 76e36473-9012-5420-84fe-14de010361d0
 name: Delete a Zero Trust Gateway rule response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/rules/{{rule_id}}"
   method: DELETE
   headers:
-    Content-Type: application/json
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
-  body:
-    type: json
-    content: ""
 response:
   statusCode: 400
   statusText: Bad Request

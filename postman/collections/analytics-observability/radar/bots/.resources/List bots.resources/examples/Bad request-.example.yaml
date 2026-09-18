@@ -1,5 +1,5 @@
 $kind: http-example
-id: 4f695b77-835b-54a1-a46e-760b5f5e82d4
+id: 6aadd261-2eef-538e-aa8e-4e5c841ff71a
 name: Bad request.
 request:
   url: "{{base_url}}/radar/bots"
@@ -14,11 +14,11 @@ request:
       disabled: true
       description: Limits the number of objects returned in the response.
     - key: offset
-      value: "2923"
+      value: "0"
       disabled: true
       description: Skips the specified number of objects before fetching the results.
     - key: botCategory
-      value: PAGE_PREVIEW
+      value: AI_SEARCH
       disabled: true
       description: Filters results by bot category.
     - key: botOperator
@@ -26,7 +26,7 @@ request:
       disabled: true
       description: Filters results by bot operator.
     - key: kind
-      value: BOT
+      value: AGENT
       disabled: true
       description: "Filters results by bot kind. Deprecated: the Verified Bot / Signed Agent distinction is being removed."
     - key: botVerificationStatus
@@ -34,7 +34,7 @@ request:
       disabled: true
       description: Filters results by bot verification status.
     - key: format
-      value: CSV
+      value: JSON
       disabled: true
       description: Format in which results will be returned.
 response:

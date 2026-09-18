@@ -1,0 +1,29 @@
+$kind: http-request
+id: 3a886715-abc6-57ba-8010-cfc088994469
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: issues.summary
+  GET /accounts/{account_id}/workers/observability/issues/summary
+
+  Retrieve aggregate issue counts for the account.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues/summary"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: service
+    value: string
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Summarize detected issues.resources/examples
+order: 3000

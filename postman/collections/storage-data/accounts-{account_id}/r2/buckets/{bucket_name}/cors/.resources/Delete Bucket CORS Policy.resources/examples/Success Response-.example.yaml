@@ -1,12 +1,15 @@
 $kind: http-example
-id: dd9a5703-a3d5-5b38-9bb4-339bf62912a0
+id: d990d3b3-e7c1-5368-8bef-34871851a978
 name: Success Response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/cors"
   method: DELETE
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 200
   statusText: OK

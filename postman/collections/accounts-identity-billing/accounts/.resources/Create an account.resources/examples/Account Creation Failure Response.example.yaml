@@ -1,22 +1,26 @@
 $kind: http-example
-id: 28b454e6-3d36-5fa9-9711-bf9da456b96f
+id: f5589394-0cac-51d7-af39-75b38511f79f
 request:
   url: "{{base_url}}/accounts"
   method: POST
   headers:
-    Content-Type: application/json
-    Accept: application/json
-    X-Auth-Email: "{{api_email}}"
-    X-Auth-Key: "{{api_key}}"
+    - key: Idempotency-Key
+      value: string
+      description: Optional key that identifies an Account-creation request. Free Account creation can require exactly one valid key, so API clients should send a key with every Account-creation request. Reuse the same key when retrying the same request.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+    - key: X-Auth-Email
+      value: "{{api_email}}"
+    - key: X-Auth-Key
+      value: "{{api_key}}"
   body:
     type: json
     content: |-
       {
         "name": "string",
-        "type": "string",
-        "unit": {
-          "id": "f267e341f3dd4697bd3b9f71dd96247f"
-        }
+        "type": "string"
       }
 response:
   statusCode: 400

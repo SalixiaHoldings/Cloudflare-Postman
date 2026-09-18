@@ -1,5 +1,5 @@
 $kind: http-example
-id: ede746e2-620e-5176-9179-b6d5e056e31f
+id: b67ec741-466c-5d75-b725-7baab6a5ba8e
 name: Bad Request.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/{{event_id}}"
@@ -23,8 +23,8 @@ request:
         "insight": "new insight",
         "raw": {
           "data": {
-            "key_0": false,
-            "key_1": 3459
+            "key_0": 3459,
+            "key_1": true
           },
           "source": "example.com",
           "tlp": "amber"
@@ -43,7 +43,7 @@ response:
     content: |-
       {
         "result": {},
-        "success": true,
+        "success": false,
         "errors": [
           {
             "message": {

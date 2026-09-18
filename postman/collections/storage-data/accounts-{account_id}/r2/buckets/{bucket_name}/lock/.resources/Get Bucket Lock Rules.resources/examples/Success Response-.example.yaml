@@ -1,12 +1,15 @@
 $kind: http-example
-id: 85e561f1-17f3-5b97-94d6-37f730264f57
+id: 8194f6cc-1ba4-5cee-aa71-375ac5a38cb8
 name: Success Response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/lock"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 200
   statusText: OK

@@ -1,5 +1,5 @@
 $kind: http-example
-id: 88f75638-1447-536f-8134-c7540ade160f
+id: 2bf771b9-db7c-5662-bc15-c0d901296d94
 name: Too many active prefix-delete or bucket-emptying jobs. Wait for an existing job to finish, then retry.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/objects"
@@ -7,6 +7,7 @@ request:
   headers:
     - key: cf-r2-jurisdiction
       value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
     - key: cf-r2-data-catalog-check
       value: string
       description: Set this header to reject the operation when R2 Data Catalog is enabled for the bucket.
@@ -40,7 +41,9 @@ response:
             "message": "Too many concurrent prefix delete jobs for this bucket. Please wait for existing jobs to complete."
           }
         ],
-        "messages": [],
+        "messages": [
+          "Request failed."
+        ],
         "result": null,
         "success": false
       }

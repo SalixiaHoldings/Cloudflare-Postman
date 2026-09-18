@@ -1,0 +1,28 @@
+$kind: http-example
+id: ea71ced5-5890-51c0-9da2-6614dbdef452
+name: Get script content failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/services/{{service_name}}/environments/{{environment_name}}/content"
+  method: GET
+  headers:
+    Accept: string
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

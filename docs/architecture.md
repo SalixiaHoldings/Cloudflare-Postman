@@ -87,7 +87,7 @@ The generated inventory contains:
 11. v3 migration/lint, semantic equivalence, environment/Globals checks, and two-run file/byte comparison.
 12. Public-safety checks for populated credentials/identifiers, local filesystem paths, and unexplained release-scan candidates.
 
-The current pin validates **3,522/3,522 operations**, 2,496 declared overlaps, three upstream OpenAPI exceptions, and 47 primary converter warnings.
+The current pin validates **3,540/3,540 operations**, 2,512 declared overlaps, three upstream OpenAPI exceptions, and 47 primary converter warnings.
 
 ## Authentication contract
 
@@ -95,9 +95,9 @@ The pinned Cloudflare OpenAPI `security` declaration determines each request's a
 
 `src/auth.mjs` builds a deterministic contract for every operation. Selection prefers a standalone `api_token` Bearer alternative, then anonymous access, then the supported alternative requiring the fewest credential schemes. Current categories are:
 
-- 568 bearer-only
-- 1,576 bearer-alternative
-- 253 legacy-only
+- 571 bearer-only
+- 1,592 bearer-alternative
+- 252 legacy-only
 - 1,114 multi-scheme-or-other
 - 7 anonymous
 - 4 manual-unresolved
@@ -120,9 +120,9 @@ The pinned account-list operation is legacy-only; token verification and zone li
 
 `openapi-to-postmanv2@6.3.3` remains the pinned v2 converter. The primary pass reports 47 recoverable example-generation warnings at this schema revision. Missing operations, duplicates, invalid collections, or checksum drift are never accepted as warnings.
 
-The isolated secondary query pass uses supported converter options that correctly preserve required/optional query state but exposes 539 deeper schema diagnostics. Those diagnostics are stored separately, normalized, fingerprinted, and revision-bound; they do not replace the 47-warning primary baseline.
+The isolated secondary query pass uses supported converter options that correctly preserve required/optional query state but exposes 530 deeper schema diagnostics. Those diagnostics are stored separately, normalized, fingerprinted, and revision-bound; they do not replace the 47-warning primary baseline.
 
-The official converter omits five exact optional array query contracts. They are documented and fingerprinted in [query-policy.md](query-policy.md); no local serializer fabricates them.
+The official converter omits one exact optional array query contract: Cloudforce One events `search`. It is documented and fingerprinted in [query-policy.md](query-policy.md); no local serializer fabricates it. See the [revision review](schema-revision-a0eceeef.md) for warning, auth, partition, and query changes.
 
 The converter build dependency is pinned and processes only checksum-verified upstream JSON. `js-yaml@4.3.2` is forced through the dependency override to address its patched advisory. The remaining Faker-derived npm audit finding is accepted for this pinned build-only path; the pipeline does not call `helpers.fake` and does not accept arbitrary untrusted schema input.
 

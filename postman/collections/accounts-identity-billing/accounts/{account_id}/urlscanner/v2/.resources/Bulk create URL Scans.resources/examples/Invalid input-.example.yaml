@@ -1,5 +1,5 @@
 $kind: http-example
-id: d511b498-0b36-582d-a55b-3a0aad192a59
+id: e7743909-6099-591e-94ce-7ee21c108535
 name: Invalid input.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/bulk"
@@ -13,7 +13,7 @@ request:
       [
         {
           "url": "https://www.example.com",
-          "agentReadiness": true,
+          "agentReadiness": false,
           "customHeaders": {
             "key_0": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -31,12 +31,6 @@ request:
           "agentReadiness": true,
           "customHeaders": {
             "key_0": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "key_1": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "key_2": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           },

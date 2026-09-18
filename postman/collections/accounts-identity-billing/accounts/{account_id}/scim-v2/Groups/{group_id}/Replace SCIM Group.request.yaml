@@ -1,0 +1,45 @@
+$kind: http-request
+id: 47a8057f-1e9c-55dc-b37e-45207f35209b
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: scim-groups-put
+  PUT /accounts/{account_id}/scim/v2/Groups/{group_id}
+
+  Replaces the mutable attributes of a SCIM Group (RFC 7644 Section 3.5.1), including its complete member set. Omitting `externalId` clears it, and omitting `members` replaces the member set with an empty list. For system groups (prefixed `cloudflare-v1-`), only the member set is replaced.
+
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/scim/v2/Groups/{{group_id}}"
+method: PUT
+headers:
+  Content-Type: application/scim+json
+  Accept: application/scim+json
+body:
+  type: json
+  content: |-
+    {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:Group"
+      ],
+      "displayName": "My IdP Group",
+      "externalId": "idp-group-456",
+      "members": [
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Replace SCIM Group.resources/examples
+order: 4000

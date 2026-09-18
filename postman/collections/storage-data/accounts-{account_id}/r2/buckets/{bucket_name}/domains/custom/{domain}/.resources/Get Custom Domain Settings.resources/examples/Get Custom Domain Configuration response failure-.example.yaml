@@ -1,12 +1,15 @@
 $kind: http-example
-id: 58836d1a-c0b5-59cc-9799-ba2e8959a6d2
+id: c85e0465-e75b-5413-a69d-0c1e3b60c328
 name: Get Custom Domain Configuration response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/domains/custom/{{domain}}"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 400
   statusText: Bad Request

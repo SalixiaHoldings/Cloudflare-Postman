@@ -1,5 +1,5 @@
 $kind: http-request
-id: 2389cb57-61ca-59f6-ba6c-4f125a4a6cf5
+id: 3f3958b3-b226-5936-bf32-28211ddd7f87
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -20,6 +20,40 @@ headers:
   X-Auth-Email: "{{api_email}}"
   X-Auth-Key: "{{api_key}}"
 queryParams:
+  - key: filter
+    value: name:%SJwjj>2
+    disabled: true
+    description: |-
+      Filter the returned locations by one or more `field:value` pairs.
+      Repeat the parameter to apply multiple filters; they are combined with
+      logical AND (a location must satisfy every filter to be returned).
+
+      Supported fields and their matching behaviour:
+        * `name` — case-insensitive substring match on the location name.
+        * `id` — substring match on the location ID (UUID), with or without dashes.
+        * `is_default` — whether it is the default for the account.
+
+      Each entry must match one of the per-field patterns below:
+        * the field must be one of `name`, `id`, or `is_default`;
+        * `name`/`id` accept any value;
+        * `is_default` only accepts `true` or `false`; any other value returns `400`
+  - key: filter
+    value: name:^^!7E4|\K
+    disabled: true
+    description: |-
+      Filter the returned locations by one or more `field:value` pairs.
+      Repeat the parameter to apply multiple filters; they are combined with
+      logical AND (a location must satisfy every filter to be returned).
+
+      Supported fields and their matching behaviour:
+        * `name` — case-insensitive substring match on the location name.
+        * `id` — substring match on the location ID (UUID), with or without dashes.
+        * `is_default` — whether it is the default for the account.
+
+      Each entry must match one of the per-field patterns below:
+        * the field must be one of `name`, `id`, or `is_default`;
+        * `name`/`id` accept any value;
+        * `is_default` only accepts `true` or `false`; any other value returns `400`
   - key: search
     value: string
     disabled: true
@@ -27,7 +61,7 @@ queryParams:
       Case-insensitive substring match on the location name. When combined
       with `filter`, both must match (logical AND).
   - key: order_by
-    value: name
+    value: created_at
     disabled: true
     description: |-
       Field to sort the returned locations by. When omitted, the order of

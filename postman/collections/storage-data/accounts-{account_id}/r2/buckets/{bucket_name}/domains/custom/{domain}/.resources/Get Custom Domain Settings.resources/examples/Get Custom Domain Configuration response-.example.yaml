@@ -1,12 +1,15 @@
 $kind: http-example
-id: 958a81d5-cf98-578d-8a64-ef93e74bdd53
+id: 1a9c0e15-3e2a-531b-9c68-be704119c078
 name: Get Custom Domain Configuration response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/domains/custom/{{domain}}"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 200
   statusText: OK

@@ -1,5 +1,5 @@
 $kind: http-example
-id: df3dc952-8a59-5354-9c53-d2908f4752be
+id: 1ff628e6-78bf-5eb8-9266-467e4439e818
 name: Successful response.
 request:
   url: "{{base_url}}/radar/bgp/hijacks/events"
@@ -38,14 +38,14 @@ request:
       disabled: true
       description: The country code of the potential hijacker or victim AS of a BGP hijack event.
     - key: prefix
-      value: 1.1.1.0/24
+      value: string
       disabled: true
     - key: minConfidence
-      value: "9810"
+      value: "3245"
       disabled: true
       description: Filters events by minimum confidence score (1-4 low, 5-7 mid, 8+ high).
     - key: maxConfidence
-      value: "5663"
+      value: "3881"
       disabled: true
       description: Filters events by maximum confidence score (1-4 low, 5-7 mid, 8+ high).
     - key: dateRange
@@ -69,7 +69,7 @@ request:
       disabled: true
       description: Sort order.
     - key: format
-      value: CSV
+      value: JSON
       disabled: true
       description: Format in which results will be returned.
 response:
@@ -98,13 +98,13 @@ response:
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           ],
-          "total_monitors": 5374
+          "total_monitors": 4275
         },
         "result_info": {
-          "count": 6525,
-          "total_count": 2349,
-          "page": 3546,
-          "per_page": 1822
+          "count": 1890,
+          "total_count": 1620,
+          "page": 6053,
+          "per_page": 9530
         },
         "success": true
       }

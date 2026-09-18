@@ -1,12 +1,15 @@
 $kind: http-example
-id: 71c8b5ed-9757-5108-89b0-ab367505b552
+id: de3fa8fd-582e-5e5e-980f-a9bbe2dd21a7
 name: No Configuration Found response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/event_notifications/r2/{{bucket_name}}/configuration/queues/{{queue_id}}"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 404
   statusText: Not Found
@@ -22,7 +25,9 @@ response:
             "message": "workers.api.error.no_configs_found_for_bucket"
           }
         ],
-        "messages": [],
+        "messages": [
+          "Request failed."
+        ],
         "result": null,
         "success": false
       }

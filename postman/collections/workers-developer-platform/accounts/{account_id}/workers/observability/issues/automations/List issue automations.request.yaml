@@ -1,0 +1,29 @@
+$kind: http-request
+id: 32550cfb-98e1-5a90-b398-8ca506c4fe6a
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: issues.automations.list
+  GET /accounts/{account_id}/workers/observability/issues/automations
+
+  List account and service issue automations.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues/automations"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: service
+    value: string
+    disabled: true
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List issue automations.resources/examples
+order: 1000

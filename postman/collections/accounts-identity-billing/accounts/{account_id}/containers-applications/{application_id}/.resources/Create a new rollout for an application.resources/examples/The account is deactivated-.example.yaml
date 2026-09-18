@@ -1,5 +1,5 @@
 $kind: http-example
-id: d07aaaf7-7468-5421-b88e-a14552417e64
+id: c9ffbbb3-ebc0-536d-8895-e281fc31f00b
 name: The account is deactivated.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/rollouts"
@@ -37,8 +37,8 @@ request:
         "strategy": "rolling",
         "description": "string",
         "kind": "full_auto",
-        "percentage": 1,
-        "step_percentage": 20,
+        "percentage": 64,
+        "step_percentage": 5,
         "steps": [
           {
             "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -57,7 +57,7 @@ response:
     type: json
     content: |-
       {
-        "success": false,
+        "success": true,
         "errors": [
           {
             "code": 7003,

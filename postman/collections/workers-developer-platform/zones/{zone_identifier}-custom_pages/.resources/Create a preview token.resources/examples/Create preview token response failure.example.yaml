@@ -1,5 +1,5 @@
 $kind: http-example
-id: 0447f404-6e29-5ffc-b73e-f63a232bd5d1
+id: 76ffc549-7c0e-50e2-ae8c-f6557c501f83
 request:
   url: "{{base_url}}/zones/{{zone_identifier}}/custom_pages/preview_tokens"
   method: POST
@@ -25,17 +25,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000

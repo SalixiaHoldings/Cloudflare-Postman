@@ -1,13 +1,17 @@
 $kind: http-example
-id: ac8b9d58-5ae3-5eb2-8164-2d55f6da7772
+id: 59d85fa9-49f4-5d35-af30-5a14c0599ff9
 name: Update Managed Subdomain response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/domains/managed"
   method: PUT
   headers:
-    cf-r2-jurisdiction: default
-    Content-Type: application/json
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
   body:
     type: json
     content: |-

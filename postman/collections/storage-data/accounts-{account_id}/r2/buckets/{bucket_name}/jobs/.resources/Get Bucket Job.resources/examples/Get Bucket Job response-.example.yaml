@@ -1,12 +1,15 @@
 $kind: http-example
-id: 45673d69-0b4c-5f9f-85b5-e3e3d89ab5f4
+id: ff73fc4d-dd5c-56b9-a313-c5954a5e4eb3
 name: Get Bucket Job response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs/{{job_id}}"
   method: GET
   headers:
-    cf-r2-jurisdiction: default
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Accept
+      value: application/json
 response:
   statusCode: 200
   statusText: OK

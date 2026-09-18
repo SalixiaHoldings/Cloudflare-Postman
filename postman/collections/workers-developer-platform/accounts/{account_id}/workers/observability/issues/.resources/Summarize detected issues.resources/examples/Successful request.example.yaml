@@ -1,0 +1,53 @@
+$kind: http-example
+id: 350509cc-3f41-51a4-a08d-8e835655615c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues/summary"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: service
+      value: string
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": {
+          "lastIssue": 5293.932496570051,
+          "activeIssues": 2543.8907998614013,
+          "activeOccurrences": 4690.770609304309,
+          "resolvedIssues": 800.5215832963586
+        }
+      }
+order: 1000

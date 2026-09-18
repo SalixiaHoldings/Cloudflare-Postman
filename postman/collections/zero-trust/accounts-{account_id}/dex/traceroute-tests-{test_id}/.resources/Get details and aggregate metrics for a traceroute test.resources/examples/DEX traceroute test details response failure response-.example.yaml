@@ -1,8 +1,8 @@
 $kind: http-example
-id: cd279112-cc92-5326-8bab-c097d3e3a564
+id: 3ecda035-e925-5fd1-b82f-8d0889141342
 name: DEX traceroute test details response failure response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}?from=string&to=string&interval=hour"
+  url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}?from=string&to=string&interval=minute"
   method: GET
   headers:
     Accept: application/json
@@ -22,7 +22,7 @@ request:
       value: string
       description: (Required) End time for aggregate metrics in ISO ms.
     - key: interval
-      value: hour
+      value: minute
       description: (Required) Time interval for aggregate time slots.
     - key: colo
       value: string

@@ -1,5 +1,5 @@
 $kind: http-request
-id: 00979074-3adb-534c-9b8d-3636444c9366
+id: 73ceba7e-5ddd-5a64-9d8b-ac2a45fe6f04
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
   Selected requirement: {"api_token":[]}
   Use the narrowly scoped api_token; legacy alternatives are not enabled.
-url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}/network-path?deviceId=string&from=string&to=string&interval=hour"
+url: "{{base_url}}/accounts/{{account_id}}/dex/traceroute-tests/{{test_id}}/network-path?deviceId=string&from=string&to=string&interval=minute"
 method: GET
 headers:
   Accept: application/json
@@ -28,7 +28,7 @@ queryParams:
     value: string
     description: (Required) End time for aggregate metrics in ISO ms.
   - key: interval
-    value: hour
+    value: minute
     description: (Required) Time interval for aggregate time slots.
 auth:
   type: bearer

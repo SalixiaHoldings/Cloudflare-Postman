@@ -1,5 +1,5 @@
 $kind: http-example
-id: dd6a47dd-3fa4-514e-92be-3f8e47ed348e
+id: 4e914f33-1680-520c-b7f6-1c762ba77df5
 name: Invalid subscription options.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/subscribe"
@@ -10,7 +10,7 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: cursor
-      value: "2212"
+      value: "6836"
       disabled: true
       description: Last event ID already received.
     - key: filter
@@ -18,7 +18,7 @@ request:
       disabled: true
       description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
     - key: filter
-      value: rollback_started
+      value: rollback_attempt_started
       disabled: true
       description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
 response:

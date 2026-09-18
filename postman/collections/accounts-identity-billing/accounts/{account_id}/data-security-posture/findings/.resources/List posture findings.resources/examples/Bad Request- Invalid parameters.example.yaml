@@ -1,5 +1,5 @@
 $kind: http-example
-id: b5812818-adae-5219-bbd8-3ef334f29715
+id: 656055cd-f2bf-5711-b7b0-e872201e0fc4
 name: "Bad Request: Invalid parameters"
 request:
   url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings"
@@ -20,23 +20,23 @@ request:
       disabled: true
       description: Filter for only the ignored findings. Set to false to only see "active" items
     - key: integration_id
-      value: 4fb84af0-1366-6f4c-4ccd-23e81a789cb9
+      value: 75d00a83-0576-874d-748c-344da9148c88
       disabled: true
       description: Filter by an integration ID
     - key: max_affliction_date
-      value: 1947-03-20T01:57:00.324Z
+      value: 1990-11-12T00:31:17.888Z
       disabled: true
       description: Filter to view findings that occurred on or before the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
     - key: min_affliction_date
-      value: 1947-03-20T01:57:00.324Z
+      value: 1990-11-12T00:31:17.888Z
       disabled: true
       description: Filter to view findings that occurred on or after the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
     - key: observation
-      value: Activity
+      value: Insight
       disabled: true
       description: Filter by observation type of the finding
     - key: order
-      value: integration.name
+      value: severity
       disabled: true
       description: Which field to use when ordering the findings.
     - key: page
@@ -56,7 +56,7 @@ request:
       disabled: true
       description: A search term.
     - key: severity
-      value: Low
+      value: High
       disabled: true
       description: Filter by severity
     - key: type
@@ -68,7 +68,7 @@ request:
       disabled: true
       description: Filter by vendor
     - key: finding_type_ids
-      value: 6cb88155-e5a3-a49c-04ff-612da2f5c904
+      value: 1781b8f3-7670-e414-e139-f222067a04c3
       disabled: true
       description: A comma separated list of UUIDs identifying the finding type(s).
 response:

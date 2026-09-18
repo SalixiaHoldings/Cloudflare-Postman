@@ -1,5 +1,5 @@
 $kind: http-request
-id: df913a91-8e14-57a2-89db-10d3a720af0b
+id: d1e3523c-9fe8-51a4-941a-c6843c49adea
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -16,8 +16,11 @@ description: |-
 url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/cors"
 method: DELETE
 headers:
-  cf-r2-jurisdiction: default
-  Accept: application/json
+  - key: cf-r2-jurisdiction
+    value: default
+    description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+  - key: Accept
+    value: application/json
 auth:
   type: bearer
   credentials:

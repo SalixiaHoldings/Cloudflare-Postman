@@ -1,5 +1,5 @@
 $kind: http-example
-id: ad16a568-f295-59fb-bb79-f1fe7dbb2fb4
+id: 2b9564d8-8619-5aaa-83a3-f10aaa687858
 name: Bad request.
 request:
   url: "{{base_url}}/radar/bgp/hijacks/events"
@@ -38,14 +38,14 @@ request:
       disabled: true
       description: The country code of the potential hijacker or victim AS of a BGP hijack event.
     - key: prefix
-      value: 1.1.1.0/24
+      value: string
       disabled: true
     - key: minConfidence
-      value: "9810"
+      value: "3245"
       disabled: true
       description: Filters events by minimum confidence score (1-4 low, 5-7 mid, 8+ high).
     - key: maxConfidence
-      value: "5663"
+      value: "3881"
       disabled: true
       description: Filters events by maximum confidence score (1-4 low, 5-7 mid, 8+ high).
     - key: dateRange
@@ -69,7 +69,7 @@ request:
       disabled: true
       description: Sort order.
     - key: format
-      value: CSV
+      value: JSON
       disabled: true
       description: Format in which results will be returned.
 response:

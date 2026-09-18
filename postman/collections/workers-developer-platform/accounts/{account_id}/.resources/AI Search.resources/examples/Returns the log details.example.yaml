@@ -1,5 +1,5 @@
 $kind: http-example
-id: 4716a696-4a5c-5961-9bbf-de5ab37e5bb1
+id: bfd8a2f2-11c3-55c8-8f68-292c7d264d32
 request:
   url: "{{base_url}}/accounts/{{account_id}}/autorag/rags/{{id}}/ai-search"
   method: POST
@@ -23,7 +23,7 @@ request:
           }
         },
         "max_num_results": 10,
-        "model": "grok/grok-4",
+        "model": "anthropic/claude-3-5-haiku",
         "ranking_options": {},
         "reranking": {
           "enabled": false,
@@ -44,7 +44,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "result": {
           "search_query": "string",
           "response": "string",

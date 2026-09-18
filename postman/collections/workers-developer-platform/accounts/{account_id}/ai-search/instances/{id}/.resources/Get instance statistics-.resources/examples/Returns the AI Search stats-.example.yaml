@@ -1,5 +1,5 @@
 $kind: http-example
-id: b2b7132f-ed57-5b76-839c-60ae2ee38cf5
+id: b4affa24-75c1-532f-bc74-bc5e34caac83
 name: Returns the AI Search stats.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/ai-search/instances/{{id}}/stats"
@@ -15,9 +15,9 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "result": {
-          "completed": 3744,
+          "completed": 7268,
           "degraded": false,
           "engine": {
             "r2": {
@@ -27,23 +27,19 @@ response:
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           },
-          "error": 881,
+          "error": 3383,
           "file_embed_errors": {
-            "key_0": 5530.160730704665,
-            "key_1": 2857,
-            "key_2": 6910.257905256003
+            "key_0": false
           },
           "index_source_errors": {
-            "key_0": false,
-            "key_1": "string",
-            "key_2": 6160,
-            "key_3": "string"
+            "key_0": 6649.0445751696825,
+            "key_1": 5169
           },
-          "last_activity": "1973-12-21T09:57:13.494Z",
-          "outdated": 3206,
-          "queued": 8068,
-          "running": 5530,
-          "skipped": 6599
+          "last_activity": "1942-05-07T03:36:12.055Z",
+          "outdated": 4305,
+          "queued": 598,
+          "running": 1006,
+          "skipped": 5828
         }
       }
 order: 1000

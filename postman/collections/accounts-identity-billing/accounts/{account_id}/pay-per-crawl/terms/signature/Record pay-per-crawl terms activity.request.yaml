@@ -1,5 +1,5 @@
 $kind: http-request
-id: bfe65ef6-3d05-5234-a1bb-1d490bf63e5a
+id: afcc145f-72aa-5cff-9b2d-67454eb12bbc
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -13,7 +13,7 @@ description: |-
   Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
   Selected requirement: {"api_email":[],"api_key":[]}
   Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/accounts/{{account_id}}/pay-per-crawl/terms/signature?event_type=agreed&vid=string"
+url: "{{base_url}}/accounts/{{account_id}}/pay-per-crawl/terms/signature?event_type=displayed&vid=string"
 method: POST
 headers:
   Accept: application/json
@@ -21,7 +21,7 @@ headers:
   X-Auth-Key: "{{api_key}}"
 queryParams:
   - key: event_type
-    value: agreed
+    value: displayed
     description: (Required) The terms activity to record.
   - key: vid
     value: string

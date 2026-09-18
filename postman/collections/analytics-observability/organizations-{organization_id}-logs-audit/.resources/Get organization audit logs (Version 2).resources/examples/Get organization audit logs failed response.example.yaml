@@ -1,5 +1,5 @@
 $kind: http-example
-id: 16bb7fd5-4ce7-5020-859b-1df62699333d
+id: 66d9dd10-c239-5f93-84b7-f8276ff5efc6
 request:
   url: "{{base_url}}/organizations/{{organization_id}}/logs/audit?since=2024-10-30&before=2024-10-31"
   method: GET
@@ -7,7 +7,7 @@ request:
     Accept: application/json
   queryParams:
     - key: action_result
-      value: failure
+      value: success
       disabled: true
     - key: action_result
       value: success
@@ -115,10 +115,10 @@ request:
       value: organizations
       disabled: true
     - key: action_result.not
-      value: success
+      value: failure
       disabled: true
     - key: action_result.not
-      value: success
+      value: failure
       disabled: true
     - key: action_type.not
       value: create

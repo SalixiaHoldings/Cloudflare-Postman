@@ -1,8 +1,8 @@
 $kind: http-example
-id: 69e5bfc7-c896-550a-95fd-f5280b6e0808
+id: 130f00fd-5f20-57e8-a80a-0c65018007cb
 name: Device status over time failure response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/over-time?from=2023-10-11 00:00:00+00&to=2023-10-11 00:00:00+00&interval=hour"
+  url: "{{base_url}}/accounts/{{account_id}}/dex/devices/{{device_id}}/fleet-status/over-time?from=2023-10-11 00:00:00+00&to=2023-10-11 00:00:00+00&interval=minute"
   method: GET
   headers:
     Accept: application/json
@@ -14,7 +14,7 @@ request:
       value: 2023-10-11 00:00:00+00
       description: (Required) End of the time range to query. Timestamp can be provided in ISO 8601 datetime format or milliseconds since epoch.
     - key: interval
-      value: hour
+      value: minute
       description: (Required) Time interval for aggregate time slots.
     - key: colo
       value: SJC

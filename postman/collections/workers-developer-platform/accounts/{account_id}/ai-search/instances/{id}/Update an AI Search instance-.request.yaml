@@ -1,5 +1,5 @@
 $kind: http-request
-id: 9733bf0d-f733-5300-be0e-560a50677434
+id: 0fd3067e-5d11-5aec-9602-5b138fdd621f
 name: Update an AI Search instance.
 description: |-
   GENERATED FILE — DO NOT EDIT.
@@ -8,6 +8,8 @@ description: |-
   PUT /accounts/{account_id}/ai-search/instances/{id}
 
   Update the configuration of an AI Search instance.
+
+  Deprecated: use /accounts/{account_id}/ai-search/namespaces/{name}/instances (and descendant paths) instead.
 
   Authentication support: bearer-alternative
   Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
@@ -30,7 +32,7 @@ body:
       "cache_ttl": 600,
       "chunk": true,
       "chunk_overlap": 10,
-      "chunk_size": 9291,
+      "chunk_size": 5727,
       "custom_metadata": [
         {
           "field_name": {
@@ -61,7 +63,7 @@ body:
       },
       "max_num_results": 10,
       "metadata": {
-        "created_from_aisearch_wizard": true,
+        "created_from_aisearch_wizard": false,
         "worker_domain": "string"
       },
       "paused": false,
@@ -120,7 +122,7 @@ body:
             "field": "timestamp"
           }
         ],
-        "keyword_match_mode": "or"
+        "keyword_match_mode": "and"
       },
       "rewrite_model": "string",
       "rewrite_query": false,
@@ -149,7 +151,7 @@ body:
       "system_prompt_ai_search": "string",
       "system_prompt_index_summarization": "string",
       "system_prompt_rewrite_query": "string",
-      "token_id": "27f31038-426b-0b6e-7e2e-5e633740375b"
+      "token_id": "62d27f31-8344-6bb0-6e27-2e25e6337403"
     }
 auth:
   type: bearer

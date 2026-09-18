@@ -1,0 +1,46 @@
+$kind: http-example
+id: 340cb931-3e3d-5338-96ec-1ccc788a980e
+name: Search Workers failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/scripts-search"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: name
+      value: my-worker
+      disabled: true
+    - key: id
+      value: bdf3567828824b74aadd550004cf4913
+      disabled: true
+    - key: order_by
+      value: created_on
+      disabled: true
+    - key: page
+      value: "1"
+      disabled: true
+      description: Current page.
+    - key: per_page
+      value: "10"
+      disabled: true
+      description: Items per page.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

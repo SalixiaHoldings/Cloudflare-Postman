@@ -1,13 +1,17 @@
 $kind: http-example
-id: 3766710c-b17e-53dc-9e14-761fc89f9983
+id: 266dacde-c73f-572b-84b0-6c4df46388e3
 name: Delete Configuration failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/event_notifications/r2/{{bucket_name}}/configuration/queues/{{queue_id}}"
   method: DELETE
   headers:
-    cf-r2-jurisdiction: default
-    Content-Type: application/json
-    Accept: application/json
+    - key: cf-r2-jurisdiction
+      value: default
+      description: Jurisdiction where objects in this bucket are guaranteed to be stored.
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
   body:
     type: json
     content: |-

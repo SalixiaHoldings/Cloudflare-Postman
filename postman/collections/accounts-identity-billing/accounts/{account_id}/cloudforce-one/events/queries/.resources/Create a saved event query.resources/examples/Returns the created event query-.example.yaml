@@ -1,5 +1,5 @@
 $kind: http-example
-id: b0f96354-9662-5ad7-9af8-2365b4c29531
+id: ad6b8af2-56ed-5b85-8dad-7462f895e990
 name: Returns the created event query.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/queries/create"
@@ -15,7 +15,7 @@ request:
         "query_json": "string",
         "alert_enabled": true,
         "alert_rollup_enabled": false,
-        "rule_enabled": true,
+        "rule_enabled": false,
         "rule_scope": "string"
       }
 response:
@@ -27,17 +27,17 @@ response:
     type: json
     content: |-
       {
-        "id": 8609,
+        "id": 1564,
         "account_id": "{{account_id}}",
         "name": "string",
         "user_email": "string",
         "query_json": "string",
         "alert_enabled": true,
         "alert_rollup_enabled": false,
-        "rule_enabled": false,
+        "rule_enabled": true,
         "created_at": "string",
         "updated_at": "string",
-        "custom_threat_feed_id": 2212,
+        "custom_threat_feed_id": 9004,
         "rule_list_id": "string",
         "rule_scope": "string"
       }
