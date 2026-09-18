@@ -142,7 +142,7 @@ The generated environment intentionally shares/tracks only the public `base_url`
 
 ### Daily upstream drift
 
-`.github/workflows/upstream-drift.yml` resolves Cloudflare's current `main` revision, updates the provenance lock, regenerates both formats, validates them, and creates/updates a review PR. It never auto-merges.
+`.github/workflows/upstream-drift.yml` resolves Cloudflare's current `main` revision, updates the provenance lock, advances only the query policy's revision binding (`upstreamCommit` and schema SHA), regenerates both formats, validates them, and creates/updates a review PR. It never auto-merges. Query omission contracts and secondary-warning fingerprints are not auto-refreshed; real query-behavior drift still fails closed for explicit review.
 
 The repository must enable **Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests** so the updater's `GITHUB_TOKEN` can open its review PR. GitHub exposes PR creation and approval as one repository switch; this project uses only the creation capability. Repository defaults remain restricted, the workflow has top-level `permissions: {}`, and only the scheduled/manual `update` job receives `contents: write` plus `pull-requests: write`. Regression tests fail if another workflow gains PR-write access or if an Actions workflow attempts to submit an approving review.
 
