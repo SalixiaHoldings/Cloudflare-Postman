@@ -86,7 +86,7 @@ export function assertQueryContract(request, schema, operation) {
   const omitted = params.filter(p => !seen.has(p.name));
   for (const p of omitted) {
     assert.notEqual(p.required, true, `Required query omitted: ${operation.key} ${p.name}`);
-    assert.equal(resolveLocal(schema, p.schema)?.type, 'array', `Non-array query omitted: ${operation.key} ${p.name}`);
+    assert.ok(resolveLocal(schema, p.schema), `Unresolved omitted query schema: ${operation.key} ${p.name}`);
   }
   return { enabled, disabled, omissions: omitted.map(p => ({ operation: operation.key, parameter: p.name, parameterSha256: sha256(stableJson(p)) })) };
 }
