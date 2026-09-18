@@ -1,5 +1,5 @@
 $kind: http-example
-id: 92845ed8-ccfe-527d-9a1e-6f6c64aa2e0f
+id: bfeec784-e783-5e9c-af42-f8394044811f
 name: WebSocket subscription established.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/subscribe"
@@ -14,11 +14,11 @@ request:
       disabled: true
       description: Last event ID already received.
     - key: filter
-      value: rollback_attempt_errored
+      value: step_started
       disabled: true
       description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
     - key: filter
-      value: rollback_attempt_started
+      value: wait_completed
       disabled: true
       description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
 response:

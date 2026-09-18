@@ -1,5 +1,5 @@
 $kind: http-example
-id: be99717b-bcf4-502c-b3ab-b3ad89a8e44f
+id: 493acb62-9b06-5088-b09e-86958f3fe445
 name: "Forbidden: Insufficient permissions"
 request:
   url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/findings"
@@ -24,19 +24,19 @@ request:
       disabled: true
       description: Filter by an integration ID
     - key: max_affliction_date
-      value: 1990-11-12T00:31:17.888Z
+      value: 1985-01-16T12:39:42.175Z
       disabled: true
       description: Filter to view findings that occurred on or before the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
     - key: min_affliction_date
-      value: 1990-11-12T00:31:17.888Z
+      value: 1985-01-16T12:39:42.175Z
       disabled: true
       description: Filter to view findings that occurred on or after the affliction date. Can be a date-time in ISO 8601 format or an epoch timestamp.
     - key: observation
-      value: Insight
+      value: Issue
       disabled: true
       description: Filter by observation type of the finding
     - key: order
-      value: severity
+      value: instance_count
       disabled: true
       description: Which field to use when ordering the findings.
     - key: page
@@ -48,7 +48,7 @@ request:
       disabled: true
       description: Number of results to return per page.
     - key: product
-      value: Saas
+      value: Cloud
       disabled: true
       description: Filter by product category of the finding
     - key: search
@@ -56,7 +56,7 @@ request:
       disabled: true
       description: A search term.
     - key: severity
-      value: High
+      value: Critical
       disabled: true
       description: Filter by severity
     - key: type
@@ -68,7 +68,7 @@ request:
       disabled: true
       description: Filter by vendor
     - key: finding_type_ids
-      value: 1781b8f3-7670-e414-e139-f222067a04c3
+      value: 3e3ed1ad-a884-8501-3fe5-0d219a87f31a
       disabled: true
       description: A comma separated list of UUIDs identifying the finding type(s).
 response:

@@ -1,11 +1,28 @@
 $kind: http-example
-id: de2f1fce-35f2-521b-9827-c204549e9206
+id: 150b292e-dd25-5531-9abb-a1974ad0b4a8
 name: List Deployments response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/deployments"
   method: GET
   headers:
     Accept: application/json
+  queryParams:
+    - key: since
+      value: 1926-01-29T15:48:41.644Z
+      disabled: true
+      description: Start of the deployment creation time range, inclusive.
+    - key: until
+      value: 1926-01-29T15:48:41.644Z
+      disabled: true
+      description: End of the deployment creation time range, inclusive.
+    - key: page
+      value: "1"
+      disabled: true
+      description: Current page.
+    - key: per_page
+      value: "10"
+      disabled: true
+      description: Items per page.
 response:
   statusCode: 200
   statusText: OK
@@ -15,19 +32,10 @@ response:
     type: json
     content: |-
       {
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
         "result": {
           "deployments": {
             "value": "<Error: Too many levels of nesting to fake this schema>"
           }
-        },
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
         }
       }
 order: 1000

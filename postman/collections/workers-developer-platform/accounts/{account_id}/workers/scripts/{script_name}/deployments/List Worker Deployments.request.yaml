@@ -1,5 +1,5 @@
 $kind: http-request
-id: 1f923c7c-3c85-5efe-abab-884e27d2659c
+id: 6005960e-39fb-5c69-bb28-af227463aa1f
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -17,6 +17,23 @@ url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/deplo
 method: GET
 headers:
   Accept: application/json
+queryParams:
+  - key: since
+    value: 1926-01-29T15:48:41.644Z
+    disabled: true
+    description: Start of the deployment creation time range, inclusive.
+  - key: until
+    value: 1926-01-29T15:48:41.644Z
+    disabled: true
+    description: End of the deployment creation time range, inclusive.
+  - key: page
+    value: "1"
+    disabled: true
+    description: Current page.
+  - key: per_page
+    value: "10"
+    disabled: true
+    description: Items per page.
 auth:
   type: bearer
   credentials:

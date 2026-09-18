@@ -1,5 +1,5 @@
 $kind: http-example
-id: 8b7f97b9-b383-5d35-ac64-5ec9803fa95a
+id: f98fa160-21b3-553c-bc23-0382c8f9805c
 name: An internal error has occurred.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}"
@@ -14,6 +14,9 @@ request:
         "configuration": {
           "authorized_keys": {
             "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "wrangler_ssh": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
           }
         },
         "constraints": {
@@ -24,7 +27,7 @@ request:
             "value": "<Error: Too many levels of nesting to fake this schema>"
           }
         },
-        "max_instances": 8442,
+        "max_instances": 5514,
         "observability": {
           "description": "Top-level application observability settings. Scheduler-backed applications\nhot-reload these settings across existing instances. An existing Durable\nObject-managed application accepts only `logs.enabled` and publishes these settings\nto runtime metadata without creating deployments or rollouts.\n",
           "value": "<Error: Too many levels of nesting to fake this schema>"

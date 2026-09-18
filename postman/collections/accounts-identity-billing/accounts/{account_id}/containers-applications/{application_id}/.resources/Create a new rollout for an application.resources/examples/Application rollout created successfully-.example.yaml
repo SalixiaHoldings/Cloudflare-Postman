@@ -1,5 +1,5 @@
 $kind: http-example
-id: 0e653883-3682-547b-9b9f-1421a3beb99c
+id: 678001c7-ba0a-5f62-beb3-46384fc01cc8
 name: Application rollout created successfully.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/rollouts"
@@ -34,11 +34,11 @@ request:
             "value": "<Error: Too many levels of nesting to fake this schema>"
           }
         },
-        "strategy": "rolling",
+        "strategy": "new_instances",
         "description": "string",
         "kind": "full_auto",
-        "percentage": 64,
-        "step_percentage": 5,
+        "percentage": 7,
+        "step_percentage": 10,
         "steps": [
           {
             "value": "<Error: Too many levels of nesting to fake this schema>"
