@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: "23 10 * * *"
   workflow_dispatch:
+    inputs:
+      refresh_open_pr:
+        description: "Replace an existing schema-update PR from current main"
+        required: false
+        default: false
+        type: boolean
 
 # Keep repository defaults restricted. Only the updater job receives the two
 # write scopes it needs to maintain its branch and review PR.
@@ -27,24 +33,42 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+      - name: Protect open schema-update review
+        id: pending
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UPDATE_BRANCH: automation/cloudflare-schema-update
+          REFRESH_OPEN_PR: ${{ github.event_name == 'workflow_dispatch' && inputs.refresh_open_pr == true }}
+        shell: bash
+        run: |
+          pr_number=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$UPDATE_BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [[ -n "$pr_number" && "$REFRESH_OPEN_PR" != "true" ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "pr_number=$pr_number" >> "$GITHUB_OUTPUT"
+            echo "Open schema-update PR #$pr_number is awaiting human review; leaving its branch unchanged."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            if [[ -n "$pr_number" ]]; then
+              echo "Explicit manual refresh authorized for open schema-update PR #$pr_number."
+            fi
+          fi
       - name: Use Node.js 24
+        if: steps.pending.outputs.skip != 'true'
         uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
         with:
           node-version-file: .node-version
           cache: npm
       - name: Install pinned dependencies
+        if: steps.pending.outputs.skip != 'true'
         run: npm ci
       - name: Prepare deterministic upstream update
         id: update
+        if: steps.pending.outputs.skip != 'true'
         continue-on-error: true
         run: npm run upstream:update
-      - name: Run complete validation gate
-        id: gate
-        if: steps.update.outcome == 'success'
-        continue-on-error: true
-        run: npm run check
       - name: Detect reviewable changes
         id: changes
+        if: steps.pending.outputs.skip != 'true'
         shell: bash
         run: |
           if git diff --quiet; then
@@ -52,6 +76,26 @@ jobs:
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+      - name: Run complete validation gate
+        id: gate
+        if: steps.pending.outputs.skip != 'true' && steps.update.outcome == 'success' && steps.changes.outputs.changed == 'true'
+        continue-on-error: true
+        run: npm run check
+      - name: Record complete repository gate
+        if: steps.pending.outputs.skip != 'true' && steps.changes.outputs.changed == 'true'
+        env:
+          UPDATE_OUTCOME: ${{ steps.update.outcome }}
+          GATE_OUTCOME: ${{ steps.gate.outcome }}
+        shell: bash
+        run: |
+          if [[ "$UPDATE_OUTCOME" != "success" ]]; then
+            result="not run (updater failed)"
+          elif [[ "$GATE_OUTCOME" == "success" ]]; then
+            result="passed"
+          else
+            result="failed"
+          fi
+          printf '\n## Complete repository gate\n\n- `npm run check`: %s\n' "$result" >> upstream-change-summary.md
       - name: Commit and push update branch
         if: steps.changes.outputs.changed == 'true'
         env:
@@ -85,7 +129,7 @@ jobs:
               --body-file upstream-change-summary.md
           fi
       - name: Surface generation or validation failure
-        if: steps.update.outcome == 'failure' || steps.gate.outcome == 'failure'
+        if: steps.pending.outputs.skip != 'true' && (steps.update.outcome == 'failure' || steps.gate.outcome == 'failure')
         run: |
           echo "The update PR was prepared, but generation, validation, or the complete repository check requires review."
           exit 1
