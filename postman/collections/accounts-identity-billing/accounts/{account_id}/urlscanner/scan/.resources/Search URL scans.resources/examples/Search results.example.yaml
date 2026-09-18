@@ -1,5 +1,5 @@
 $kind: http-example
-id: 852a984a-6f1f-5214-a236-2798ad750cd4
+id: a29aa83d-fc69-5fa8-8f26-414bf403d079
 request:
   url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan"
   method: GET
@@ -7,7 +7,7 @@ request:
     Accept: application/json
   queryParams:
     - key: scan_id
-      value: db24973d-6871-edcb-029f-470228dd82a9
+      value: d37cc646-1f47-4d61-8d5d-5d9ecb827cf7
       disabled: true
       description: Scan UUID.
     - key: limit
@@ -19,11 +19,11 @@ request:
       disabled: true
       description: Pagination cursor to get the next set of results.
     - key: date_start
-      value: 1968-12-15T04:23:04.928Z
+      value: 1948-10-20T15:54:25.985Z
       disabled: true
       description: Filter scans requested after date (inclusive).
     - key: date_end
-      value: 1972-11-18T03:48:06.399Z
+      value: 1922-05-09T13:07:21.201Z
       disabled: true
       description: Filter scans requested before date (inclusive).
     - key: url
@@ -67,11 +67,11 @@ request:
       disabled: true
       description: Filter scans by  main page IP address (IPv4 or IPv6).
     - key: account_scans
-      value: "false"
+      value: "true"
       disabled: true
       description: Return only scans created by account.
     - key: is_malicious
-      value: "false"
+      value: "true"
       disabled: true
       description: Filter scans by malicious verdict.
 response:
@@ -107,7 +107,7 @@ response:
             }
           }
         ],
-        "success": true,
+        "success": false,
         "result": {
           "tasks": [
             {

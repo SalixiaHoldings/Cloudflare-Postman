@@ -1,11 +1,28 @@
 $kind: http-example
-id: 1804156f-a791-50f3-bb5e-4e3b0474fc69
+id: 7d92ebb6-58d0-5bc1-b228-bf6636950a6e
 name: List Deployments response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workers/scripts/{{script_name}}/deployments"
   method: GET
   headers:
     Accept: application/json
+  queryParams:
+    - key: since
+      value: 1926-01-29T15:48:41.644Z
+      disabled: true
+      description: Start of the deployment creation time range, inclusive.
+    - key: until
+      value: 1926-01-29T15:48:41.644Z
+      disabled: true
+      description: End of the deployment creation time range, inclusive.
+    - key: page
+      value: "1"
+      disabled: true
+      description: Current page.
+    - key: per_page
+      value: "10"
+      disabled: true
+      description: Items per page.
 response:
   statusCode: 400
   statusText: Bad Request

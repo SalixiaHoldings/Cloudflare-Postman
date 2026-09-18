@@ -38,6 +38,11 @@ jobs:
         id: update
         continue-on-error: true
         run: npm run upstream:update
+      - name: Run complete validation gate
+        id: gate
+        if: steps.update.outcome == 'success'
+        continue-on-error: true
+        run: npm run check
       - name: Detect reviewable changes
         id: changes
         shell: bash
@@ -80,7 +85,7 @@ jobs:
               --body-file upstream-change-summary.md
           fi
       - name: Surface generation or validation failure
-        if: steps.update.outcome == 'failure'
+        if: steps.update.outcome == 'failure' || steps.gate.outcome == 'failure'
         run: |
-          echo "The update PR was prepared, but generation or validation requires review."
+          echo "The update PR was prepared, but generation, validation, or the complete repository check requires review."
           exit 1

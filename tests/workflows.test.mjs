@@ -62,6 +62,8 @@ test('upstream updater and hosted gate include both generated distributions', as
   const drift = await readFile(path.join(workflowDirectory, 'upstream-drift.yml'), 'utf8');
   const validation = await readFile(path.join(workflowDirectory, 'validate.yml'), 'utf8');
   assert.match(drift, /git add[^\n]*config\/query-projection\.json[^\n]*dist postman/u);
+  assert.match(drift, /name: Run complete validation gate[\s\S]*?run: npm run check/u);
+  assert.match(drift, /steps\.update\.outcome == 'failure' \|\| steps\.gate\.outcome == 'failure'/u);
   assert.match(validation, /git diff --exit-code -- dist postman/u);
   const generator = await readFile(path.join(ROOT,'src/generate.mjs'),'utf8');
   assert.match(generator,/await generateNative\(temporary\)/u);

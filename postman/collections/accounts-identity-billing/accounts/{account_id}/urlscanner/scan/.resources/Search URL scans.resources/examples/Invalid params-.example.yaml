@@ -1,5 +1,5 @@
 $kind: http-example
-id: 1134b23d-e1b9-5313-9355-ea96fc6058c0
+id: a96ade80-0b0c-58e8-af19-dec84808efdd
 name: Invalid params.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan"
@@ -8,7 +8,7 @@ request:
     Accept: application/json
   queryParams:
     - key: scan_id
-      value: db24973d-6871-edcb-029f-470228dd82a9
+      value: d37cc646-1f47-4d61-8d5d-5d9ecb827cf7
       disabled: true
       description: Scan UUID.
     - key: limit
@@ -20,11 +20,11 @@ request:
       disabled: true
       description: Pagination cursor to get the next set of results.
     - key: date_start
-      value: 1968-12-15T04:23:04.928Z
+      value: 1948-10-20T15:54:25.985Z
       disabled: true
       description: Filter scans requested after date (inclusive).
     - key: date_end
-      value: 1972-11-18T03:48:06.399Z
+      value: 1922-05-09T13:07:21.201Z
       disabled: true
       description: Filter scans requested before date (inclusive).
     - key: url
@@ -68,11 +68,11 @@ request:
       disabled: true
       description: Filter scans by  main page IP address (IPv4 or IPv6).
     - key: account_scans
-      value: "false"
+      value: "true"
       disabled: true
       description: Return only scans created by account.
     - key: is_malicious
-      value: "false"
+      value: "true"
       disabled: true
       description: Filter scans by malicious verdict.
 response:
@@ -108,6 +108,6 @@ response:
             }
           }
         ],
-        "success": false
+        "success": true
       }
 order: 2000
