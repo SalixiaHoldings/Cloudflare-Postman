@@ -26,21 +26,11 @@ Validation resolves local parameter/schema references, path inheritance, and ope
 
 The current distribution has **133 required and 5,495 optional query contracts**, producing **141 enabled and 8,070 disabled query rows** across **3,522 operations**. Row counts differ from contracts because of repeated array rows and object expansion. The five previously corrupted IAM/Spectrum parameters retain their proper identities.
 
-### Seven known query omissions
+### No known query omissions at this pin
 
-The official converter omits these exact optional contracts at the pinned revision:
+At the current pinned revision, the official secondary conversion represents every declared query contract. The five omissions from the previous schema pin are now emitted, and the two newly introduced device registration-type filters are emitted as disabled optional Params.
 
-- `GET /accounts/{account_id}/gateway/lists`: `filter` (array).
-- `GET /accounts/{account_id}/gateway/locations`: `filter` (array).
-- `GET /accounts/{account_id}/gateway/proxy_endpoints`: `filter` (array).
-- `GET /accounts/{account_id}/gateway/rules`: `filter` (array).
-- `GET /accounts/{account_id}/cloudforce-one/events`: `search` (array).
-- `GET /accounts/{account_id}/devices/physical-devices`: `has_registration_type` (optional enum string).
-- `GET /accounts/{account_id}/devices/registrations`: `registration_type` (optional enum string).
-
-Omissions are accepted only by exact operation/parameter identity and SHA-256 fingerprint in `config/query-projection.json`. The validator does not assume omissions are arrays: required omissions are always rejected, and any optional omission outside the exact approved set fails for explicit review.
-
-These are approved discoverability limitations, not missing operations. No local serializer, fabricated placeholder, or endpoint rewrite fills them. If any starts appearing, its contract changes, or another omission appears, validation fails for explicit review.
+`config/query-projection.json` therefore carries an empty omission set. Required omissions are always rejected, and any future optional omission is fingerprinted by exact operation, parameter identity, and SHA-256 before `assertOmissions()` rejects it for explicit review. No local serializer or fabricated placeholder is used.
 
 ### Warning fingerprints
 
