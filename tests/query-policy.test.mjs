@@ -67,6 +67,14 @@ test('query validation rejects unmapped, wrong-state, missing-required and nesti
     assert.throws(()=>assertQueryContract({url:{query}},s,op));
   }
 });
+test('optional scalar omissions are fingerprinted and still require explicit policy approval', () => {
+  const s=fixture(),op=listOperations(s).find(o=>o.method==='POST');
+  const result=assertQueryContract({url:{query:[]}},s,op);
+  assert.equal(result.omissions.length,1);
+  assert.equal(result.omissions[0].parameter,'optional');
+  assert.match(result.omissions[0].parameterSha256,/^[0-9a-f]{64}$/u);
+  assert.throws(()=>assertOmissions(result.omissions,[]));
+});
 test('five revision-bound omission identities, schema fingerprints and warning drift fail closed', () => {
   assert.deepEqual(policy.omissions.map(o => `${o.operation} ${o.parameter}`).sort(), [
     ...['lists','locations','proxy_endpoints','rules'].map(name => `GET /accounts/{account_id}/gateway/${name} filter`),
