@@ -71,6 +71,13 @@ test('upstream updater and hosted gate include both generated distributions', as
   assert.match(updater,/queryPolicy\.schemaSha256 = newLock\.schema\.sha256/u);
   assert.doesNotMatch(updater,/queryPolicy\.(?:omissions|partitions)\s*=/u,
     'updater must not auto-accept query behavior fingerprints');
+  assert.doesNotMatch(updater,/^import .*\.\/src\/(?:generate|validate)\.mjs/mu,
+    'updater must not cache revision-bound generator/validator modules before rewriting policy metadata');
+  const revisionWrite = updater.indexOf('await writeJson(queryPolicyFile, queryPolicy);');
+  const generatorImport = updater.indexOf("import('../src/generate.mjs')");
+  const validatorImport = updater.indexOf("import('../src/validate.mjs')");
+  assert.ok(revisionWrite >= 0 && generatorImport > revisionWrite && validatorImport > revisionWrite,
+    'generator/validator must load after query policy revision metadata is written');
   assert.match(updater,/await generateAll\(/u);
   assert.match(updater,/await validateAll\(/u);
 });
