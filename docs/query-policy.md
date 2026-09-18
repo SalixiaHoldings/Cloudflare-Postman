@@ -26,15 +26,19 @@ Validation resolves local parameter/schema references, path inheritance, and ope
 
 The current distribution has **133 required and 5,495 optional query contracts**, producing **141 enabled and 8,070 disabled query rows** across **3,522 operations**. Row counts differ from contracts because of repeated array rows and object expansion. The five previously corrupted IAM/Spectrum parameters retain their proper identities.
 
-### Five known optional-array omissions
+### Seven known query omissions
 
-The official converter omits these exact optional contracts:
+The official converter omits these exact optional contracts at the pinned revision:
 
-- `GET /accounts/{account_id}/gateway/lists`: `filter`.
-- `GET /accounts/{account_id}/gateway/locations`: `filter`.
-- `GET /accounts/{account_id}/gateway/proxy_endpoints`: `filter`.
-- `GET /accounts/{account_id}/gateway/rules`: `filter`.
-- `GET /accounts/{account_id}/cloudforce-one/events`: `search`.
+- `GET /accounts/{account_id}/gateway/lists`: `filter` (array).
+- `GET /accounts/{account_id}/gateway/locations`: `filter` (array).
+- `GET /accounts/{account_id}/gateway/proxy_endpoints`: `filter` (array).
+- `GET /accounts/{account_id}/gateway/rules`: `filter` (array).
+- `GET /accounts/{account_id}/cloudforce-one/events`: `search` (array).
+- `GET /accounts/{account_id}/devices/physical-devices`: `has_registration_type` (optional enum string).
+- `GET /accounts/{account_id}/devices/registrations`: `registration_type` (optional enum string).
+
+Omissions are accepted only by exact operation/parameter identity and SHA-256 fingerprint in `config/query-projection.json`. The validator does not assume omissions are arrays: required omissions are always rejected, and any optional omission outside the exact approved set fails for explicit review.
 
 These are approved discoverability limitations, not missing operations. No local serializer, fabricated placeholder, or endpoint rewrite fills them. If any starts appearing, its contract changes, or another omission appears, validation fails for explicit review.
 
