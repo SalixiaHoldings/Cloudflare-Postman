@@ -107,11 +107,10 @@ Run and report:
 
 Regenerate and commit both `dist/v2.1/` and `postman/`. Do not merge.
 
-## New implementation blocker: overlapping required `oneOf`
+## Reviewed compatibility policy: overlapping `oneOf`
 
-The subscription authority decision above is resolved and remains in force. A
-separate source-contract ambiguity was found while applying strict request-body
-semantics to the full distribution at pin
+The subscription authority decision above remains in force. Overlapping
+composition was independently demonstrated at pin
 `49731bd0592b0c8c2c781b8d15d9f27c7293b210` (schema SHA-256
 `3a7ba0e10e3b84f36e9ba6d6135a99d69177c2c3501711bcb367cb8b462bc627`).
 
@@ -126,19 +125,70 @@ accepts each of these bodies in **all four** branches:
 - `{ "auto_update_model": true, "bm_cookie_enabled": true, "suppress_session_score": false }`
 
 None contains a read-only field or a converter sentinel. Each fails the complete
-schema because `oneOf` requires exactly one matching alternative. This is not
-fixed by read-only pruning. Selecting the first branch or interpreting `oneOf` as
-`anyOf` would change the pinned contract; manufacturing invalid values for other
-branches would produce a misleading request template. Neither is authorized.
+schema because `oneOf` requires exactly one matching alternative. The reviewed
+generic compatibility rule classifies this exclusive-union multiple-match failure
+as an `ambiguous-oneOf` source condition, provided the request independently
+validates against at least one applicable branch, every emitted property is
+writable in an applicable branch, no emitted property resolves to read-only,
+and no sentinel or independent schema error remains. Zero matching branches and
+all other independent schema failures remain errors.
 
-`tests/request-body-ambiguity.test.mjs` reproduces the conflict directly from the
-checksum-verified source using the existing pinned Ajv dependency, independently
-of the candidate normalizer:
+Strict validation is the default. This compatibility classification does not
+rewrite the pinned schema, select an arbitrary branch to make validation pass,
+or manufacture or mutate request values to force exclusivity. A request whose
+only failure is a proven overlapping `oneOf` must remain unchanged. This rule
+applies generically; it does not grant an endpoint allowlist, SDK-derived shape,
+or any other schema override. Read-only checks examine all structurally
+applicable alternatives so a permissive branch cannot hide a read-only property.
+
+`tests/request-body-ambiguity.test.mjs` independently proves the strict failure
+from checksum-verified source with the pinned Ajv dependency, then verifies
+compatibility acceptance without request or source mutation:
 
 ```sh
 node --test tests/request-body-ambiguity.test.mjs
 ```
 
-Implementation must stop at this ambiguity until a request-semantics policy is
-explicitly reviewed. The diagnostic is revision-bound and does not grant an
-exception, modify the source, or weaken any generation or validation gate.
+The diagnostic remains revision-bound: a schema pin change must trigger explicit
+reevaluation. Implementation proceeds under this policy without waiting for an
+upstream correction; any new unresolved semantic conflict still stops the work.
+
+## Current stop condition: required value without a value schema
+
+The overlapping-`oneOf` policy is implemented in the local candidate and the
+Bot Management compatibility regressions pass. The service-token failure was a
+separate implementation bug: name-based credential sanitization replaced the
+numeric `client_secret_version` with a quoted Postman variable. The candidate now
+preserves non-string request values during that substitution. This changes
+neither the upstream schema nor response-example sanitization.
+
+The resumed distribution probe found a different unresolved contract at the
+same pin: both `PATCH /zones/{zone_id}/firewall/rules` and
+`PUT /zones/{zone_id}/firewall/rules` declare a required JSON body with exactly:
+
+```json
+{ "required": ["id"] }
+```
+
+The exact source schema pointers are:
+
+- `#/paths/~1zones~1{zone_id}~1firewall~1rules/patch/requestBody/content/application~1json/schema`
+- `#/paths/~1zones~1{zone_id}~1firewall~1rules/put/requestBody/content/application~1json/schema`
+
+In each case the required name is at `/required/0`. There is no `properties/id`,
+type, reference, example, default, or media-type example. The existing converter
+emits `{}`. Independent Ajv validation rejects that body with `keyword: required`,
+`schemaPath: #/required`, and `missingProperty: id`. There is no `oneOf` in either
+request schema; the reviewed overlap rule cannot apply.
+
+This source is underspecified rather than contradictory: both a fictional string
+and a boolean for `id` satisfy its stated constraints. Neither supplies evidence
+of the intended request value. The candidate fails closed at the required `id`
+instead of inventing an untyped value, borrowing a response/path schema, or
+switching to a scalar body to bypass an object-only `required` keyword.
+
+`tests/request-body-required-value.test.mjs` reproduces these facts independently
+from checksum-verified source. The source paths and missing value semantics need
+review before implementation can continue. Other probe failures remain
+unclassified; this diagnostic does not authorize their suppression. Generated
+artifacts remain unchanged, and full regeneration/validation is incomplete.
