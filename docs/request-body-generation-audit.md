@@ -12,9 +12,9 @@ The generated Postman body currently contains root-level fields such as `app`, `
 
 `<Error: Too many levels of nesting to fake this schema>`
 
-Cloudflare's official TypeScript SDK is generated from the OpenAPI specification and exposes only `frequency` and `rate_plan` as body parameters for account subscription creation. That is consistent with the public API documentation. The extra generated Postman fields are therefore not a usable request template.
+Cloudflare's official TypeScript SDK and rendered API documentation expose only `frequency` and `rate_plan` as body parameters for account subscription creation. The pinned `cloudflare/api-schemas` source disagrees: some additional properties are not marked `readOnly`. Treat that as an upstream contract discrepancy, not permission to silently replace the pinned schema with SDK/docs-derived allowlists.
 
-At source revision `6ea57057edefe47d0fa548aa6998fedc4e2aa8ba`, GitHub code search finds **573 generated `.request.yaml` files** containing the exact nesting-error placeholder. This is a distribution-wide request-body quality problem.
+Codex's checked-out full-distribution scan measured **512 generated `.request.yaml` files** whose live request bodies contain the exact nesting-error placeholder: 507 JSON bodies and 5 form-data bodies. Use the checked-out parsed measurement rather than the earlier GitHub-search estimate.
 
 ## Current generation boundary
 
@@ -53,10 +53,30 @@ At minimum:
 - Add a synthetic OpenAPI fixture with a shared request/response component containing writable and `readOnly` properties, nested refs, arrays, and composition.
 - Prove generated request JSON excludes read-only properties while retaining writable properties.
 - Prove generated request bodies contain no converter error sentinel.
-- Add a pinned-distribution regression for `POST /accounts/{account_id}/subscriptions`: root request keys must be only the writable request fields represented by the pinned schema; currently that means `frequency` and `rate_plan`.
+- Add a pinned-distribution regression for `POST /accounts/{account_id}/subscriptions` that follows the pinned OpenAPI contract: confirmed `readOnly` fields must not appear in the live request body; no converter-error sentinel may appear; writable fields must not be removed solely because the SDK/docs expose a narrower public surface.
 - Add a full-distribution validation gate that scans **request bodies**, not response examples, for converter error sentinels.
 - Where practical, semantically validate generated JSON request bodies against the applicable OpenAPI request schema after applying request/read-only semantics.
 - Confirm Native Git v3 carries the corrected body semantics exactly.
+
+
+## Authoritative resolution for the subscription discrepancy
+
+Do not wait for an upstream schema correction and do not add a subscription-specific two-field allowlist.
+
+For this project, the pinned `cloudflare/api-schemas` revision remains the authority for request-schema semantics. Cloudflare's rendered docs and generated SDK are corroborating evidence of an upstream mismatch, but they are not a second automatic schema source.
+
+For `POST /accounts/{account_id}/subscriptions` specifically:
+
+- recursively remove properties that resolve to `readOnly: true`;
+- if an optional object becomes empty after read-only pruning, omit that object;
+- never emit the converter nesting-error sentinel;
+- if an optional writable property/subtree cannot be represented without a converter-error sentinel, omit that unsafe optional property/subtree rather than emitting bogus data;
+- if a required writable value cannot be represented safely, fail generation for explicit review;
+- `deprecated: true` alone does not make a property non-writable;
+- do not remove `app` or `component_values` merely because the SDK/docs omit them when the pinned schema still declares them writable;
+- do not create endpoint-specific compatibility overrides in this PR.
+
+The narrower SDK/docs contract should be documented as an upstream discrepancy for later reconciliation. The body-correctness fix can and should proceed independently.
 
 ## Scope discipline
 
