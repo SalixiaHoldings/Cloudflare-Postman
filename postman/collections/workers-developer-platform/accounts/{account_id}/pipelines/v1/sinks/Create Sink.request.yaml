@@ -25,18 +25,15 @@ body:
       "name": "my_sink",
       "type": "r2",
       "config": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
+        "account_id": "{{account_id}}",
+        "bucket": "string",
+        "credentials": {
+          "access_key_id": "string",
+          "secret_access_key": "{{secret_access_key}}"
+        }
       },
       "format": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
-      "schema": {
-        "fields": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "inferred": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "type": "json"
       }
     }
 auth:

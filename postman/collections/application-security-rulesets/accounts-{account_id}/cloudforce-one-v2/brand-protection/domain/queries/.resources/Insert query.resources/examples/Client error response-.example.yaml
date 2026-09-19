@@ -9,7 +9,16 @@ request:
     Accept: application/json
   body:
     type: json
-    content: "null"
+    content: |-
+      {
+        "search_lookback": true,
+        "tag": "string",
+        "string_matches": [
+          {
+            "pattern": "string"
+          }
+        ]
+      }
 response:
   statusCode: 400
   statusText: Bad Request

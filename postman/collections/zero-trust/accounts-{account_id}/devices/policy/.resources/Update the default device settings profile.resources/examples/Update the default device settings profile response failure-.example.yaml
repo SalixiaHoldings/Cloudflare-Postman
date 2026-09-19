@@ -19,55 +19,32 @@ request:
         "auto_connect": 0,
         "captive_portal": 180,
         "disable_auto_fallback": true,
-        "exclude": [
-          {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
-        ],
         "exclude_office_ips": true,
         "global_acceleration": {
-          "enabled": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "wireguard_endpoints": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "masque_endpoints": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "api_endpoints": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
+          "enabled": true,
+          "wireguard_endpoints": [
+            "198.51.100.1:2408"
+          ],
+          "masque_endpoints": [
+            "198.51.100.1:443"
+          ],
+          "api_endpoints": [
+            "198.51.100.1:443"
+          ]
         },
-        "include": [
-          {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
-        ],
         "lan_allow_minutes": 30,
         "lan_allow_subnet_size": 24,
         "register_interface_ip_with_dns": true,
         "sccm_vpn_boundary_support": false,
-        "service_mode_v2": {
-          "mode": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "port": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
-        },
         "support_url": "https://1.1.1.1/help",
         "switch_locked": true,
         "tunnel_protocol": "wireguard",
         "uninstall_protection": false,
         "virtual_networks": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
+          "allowed": [
+            "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+          ],
+          "default": "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
         }
       }
 response:

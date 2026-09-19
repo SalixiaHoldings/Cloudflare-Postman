@@ -9,7 +9,20 @@ request:
     Accept: application/json
   body:
     type: json
-    content: "null"
+    content: |-
+      {
+        "comments": "Trust all messages send from test@example.com",
+        "is_acceptable_sender": false,
+        "is_exempt_recipient": false,
+        "is_recipient": false,
+        "is_regex": false,
+        "is_sender": true,
+        "is_spoof": false,
+        "is_trusted_sender": true,
+        "pattern": "test@example.com",
+        "pattern_type": "EMAIL",
+        "verify_sender": true
+      }
 response:
   statusCode: 200
   statusText: OK

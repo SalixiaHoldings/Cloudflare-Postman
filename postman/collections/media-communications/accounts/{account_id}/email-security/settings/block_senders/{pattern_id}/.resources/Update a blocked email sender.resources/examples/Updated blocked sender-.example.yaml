@@ -9,7 +9,13 @@ request:
     Accept: application/json
   body:
     type: json
-    content: "null"
+    content: |-
+      {
+        "comments": "Block sender with email test@example.com",
+        "is_regex": false,
+        "pattern": "test@example.com",
+        "pattern_type": "EMAIL"
+      }
 response:
   statusCode: 200
   statusText: OK

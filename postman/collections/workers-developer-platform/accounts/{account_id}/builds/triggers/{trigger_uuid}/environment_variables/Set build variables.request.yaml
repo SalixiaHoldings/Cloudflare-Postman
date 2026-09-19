@@ -22,9 +22,12 @@ body:
   type: json
   content: |-
     {
-      "API_KEY": "{{api_key}}",
+      "API_KEY": {
+        "is_secret": true,
+        "value": "secret-key"
+      },
       "NODE_ENV": {
-        "is_secret": "{{is_secret}}",
+        "is_secret": false,
         "value": "production"
       }
     }

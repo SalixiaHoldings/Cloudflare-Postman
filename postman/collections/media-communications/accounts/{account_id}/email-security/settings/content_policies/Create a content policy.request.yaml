@@ -20,7 +20,16 @@ headers:
   Accept: application/json
 body:
   type: json
-  content: "null"
+  content: |-
+    {
+      "enabled": true,
+      "name": "Block phishing keywords",
+      "notes": "Blocks common phishing subject lines",
+      "pattern": "urgent.*verify.*account",
+      "targets": [
+        "SUBJECT"
+      ]
+    }
 auth:
   type: bearer
   credentials:

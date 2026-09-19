@@ -10,7 +10,10 @@ request:
     X-Auth-Key: "{{api_key}}"
   body:
     type: json
-    content: "{}"
+    content: |-
+      {
+        "preview_enabled": true
+      }
 response:
   statusCode: 200
   statusText: OK

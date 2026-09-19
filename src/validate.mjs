@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import queryPolicy from '../config/query-projection.json' with { type: 'json' };
 import { assertQueryRevision, assertQueryContract, assertOmissions, IDENTIFIER_VARIABLES } from './query-policy.mjs';
 import { makeRawUrl } from './postman.mjs';
+import { createBodyContract, assertNoBodySentinel, summarizeBodyResults } from './request-body.mjs';
 import { validateNative } from './native-git.mjs';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -110,6 +111,7 @@ export async function validateAll() {
   assertQueryRevision(queryPolicy, lock, (await readJson(path.join(ROOT, 'package.json'))).devDependencies['openapi-to-postmanv2']);
   const openapiExceptions = await validateOpenApiWithExceptions(schemaPath, lock.commit);
   const schema = await readJson(schemaPath);
+  const bodies = createBodyContract(schema);
   const upstreamOperations = listOperations(schema);
   const upstreamByKey = new Map(upstreamOperations.map((operation) => [operation.key, operation]));
   const config = await loadPartitionConfig();
@@ -121,6 +123,7 @@ export async function validateAll() {
   addFormats(ajv);
   const validateCollection = ajv.compile(postmanSchema);
   const represented = new Map();
+  const bodyResults = [];
   assertAuthenticationMetadata(manifest.authentication, { policyVersion: 1, categories: authenticationCounts(upstreamOperations) }, 'manifest');
   assertAuthenticationMetadata(manifest.classification, { policy: config.classification, overlapCount, overlapDeclarations }, 'partition classification');
 
@@ -143,11 +146,14 @@ export async function validateAll() {
     }
     assertAuthenticationMetadata(partition.authentication, authenticationCounts(assignments.get(partition.id)), partition.id);
     const omissions = [];
+    const partitionBodies = [];
     let enabled = 0, disabled = 0;
     for (const item of requests) {
       const key = normalizedRequestKey(item.request);
       const upstream = upstreamByKey.get(key);
       if (!upstream) throw new Error(`Unexpected request: ${key}`);
+      const bodyResult = bodies.validate(item.request, upstream);
+      partitionBodies.push(bodyResult); bodyResults.push(bodyResult);
       assertRequestAuthentication(item, upstream.authSupport, key);
       const query = assertQueryContract(item.request, schema, upstream);
       omissions.push(...query.omissions); enabled += query.enabled; disabled += query.disabled;
@@ -165,6 +171,7 @@ export async function validateAll() {
     assertOmissions(omissions, queryPolicy.omissions.filter(o => keys.has(o.operation)));
     assert.deepEqual(partition.queryProjection, { enabled, disabled, omissions,
       secondaryWarnings: queryPolicy.partitions[partition.id] }, 'Query provenance drift.');
+    assert.deepEqual(partition.requestBodies, summarizeBodyResults(partitionBodies), 'Request-body validation report drift.');
   }
 
   const upstreamKeys = new Set(upstreamOperations.map((operation) => operation.key));
@@ -200,6 +207,7 @@ export async function validateAll() {
     throw new Error(`Bootstrap workflow is not valid Collection v2.1: ${ajv.errorsText(validateCollection.errors)}`);
   }
   assertCollectionContract(workflow, manifest.workflow.file);
+  for (const item of collectRequests(workflow.item)) assertNoBodySentinel(item.request.body, item.name);
   if (stableJson(workflow) !== stableJson(createBootstrapCollection({ commit: lock.commit, schemaSha256: lock.schema.sha256, operations: upstreamOperations }))) {
     throw new Error('Bootstrap workflow does not reflect current pagination/authentication policy.');
   }
@@ -241,6 +249,7 @@ export async function validateAll() {
     partitions: manifest.partitions,
     residual: manifest.partitions.find((partition) => partition.residual)?.operationCount ?? 0,
     openapiExceptions,
+    requestBodies: summarizeBodyResults(bodyResults),
     authentication: authenticationCounts(upstreamOperations),
     overlapCount,
     overlapDeclarations
