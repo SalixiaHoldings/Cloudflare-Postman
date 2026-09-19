@@ -279,3 +279,26 @@ represented `app` and `component_values` remain writable; no endpoint allowlist
 drives generation. Account service-token creation retains numeric
 `client_secret_version: 1` and validates normally, without either compatibility
 classification.
+
+## Completed validation checklist
+
+- `npm ci`: passed with the pinned Node 24/toolchain. npm reports three existing
+  high-severity dependency advisories; this change does not alter dependencies.
+- `npm test`: passed, 60 tests, including the pinned diagnostics and synthetic
+  request/body-equivalence tests.
+- `npm run generate`: passed; both generated trees regenerated together.
+- `npm run generate:check`: passed, byte-for-byte reproducible.
+- `npm run validate`: passed all schema, accounting, authentication, query,
+  request-body, Native Git, hash, and public-template checks.
+- `npm run check`: passed the complete local gate.
+- `git diff --check`: passed.
+- Release scan with checksum-verified Gitleaks 8.30.1: passed, 3,727 findings
+  fully attributed (3,543 auth fingerprints, 158 upstream examples, 26 synthetic
+  token IDs), **zero unresolved**. Email occurrences were likewise attributed
+  to 375 upstream and 12 synthetic samples.
+
+Cold-cache hosted execution exposed concurrent pinned-schema downloads sharing
+one staging filename. Each checksum-verified download now gets a unique atomic
+staging path; a 16-way synthetic download regression also verifies that digest
+and size mismatches cannot replace the cache. This does not change downloaded
+bytes, schema authority, generated output, or test concurrency requirements.
