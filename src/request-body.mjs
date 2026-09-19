@@ -5,10 +5,9 @@ import Ajv from 'ajv-draft-04';
 const OMIT = Symbol('omit');
 const own = (value, key) => Object.hasOwn(value, key);
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+const EMPTY = Object.freeze({});
 const variable = value => typeof value === 'string' && /^\{\{[^{}]+\}\}$/u.test(value);
-const scalarKeywords = ['type', 'nullable', 'enum', 'minimum', 'maximum', 'exclusiveMinimum',
-  'exclusiveMaximum', 'multipleOf', 'minLength', 'maxLength', 'pattern', 'minItems', 'maxItems',
-  'uniqueItems', 'minProperties', 'maxProperties'];
+const annotations = new Set(['title', 'description', 'readOnly', 'writeOnly', 'deprecated', 'xml', 'externalDocs']);
 export const INCOMPLETE_BODY_WARNING = 'WARNING — source-incomplete: the pinned OpenAPI does not contain sufficient request-body semantics to safely generate the required value. This body template is incomplete; the converter representation has been preserved.';
 
 export function summarizeBodyResults(results) {
@@ -31,12 +30,12 @@ class UnsafeValue extends Error {}
 // This reader never edits the upstream graph. Reference Object siblings follow OAS 3.0.
 export function createBodyContract(document) {
   assert.match(document.openapi, /^3\.0\./u, 'Request-body semantics require an OpenAPI version review.');
-  const ajv = new Ajv({ strict: false, validateFormats: false, allErrors: false });
-  const scalarValidators = new WeakMap();
+  const ajv = new Ajv({ strict: false, validateFormats: false, allErrors: true, verbose: true, inlineRefs: false });
   const variantCache = new WeakMap();
-  const schemaIds = new WeakMap();
-  let nextSchemaId = 0;
-  let matchCache = new Map();
+  const views = new WeakMap();
+  const validators = new WeakMap();
+  const groups = new Map(), ids = new WeakMap();
+  let idsCount = 0;
   const sourcePaths = new WeakMap();
   const pointerToken = key => String(key).replaceAll('~', '~0').replaceAll('/', '~1');
   function indexPaths(value, pointer = '#') {
@@ -47,10 +46,10 @@ export function createBodyContract(document) {
   indexPaths(document);
   let evaluations = 0;
   function budget() { assert.ok(++evaluations <= 100000, 'Request schema evaluation exceeded its safety bound.'); }
-  function reset() { evaluations = 0; matchCache = new Map(); }
+  function reset() { evaluations = 0; }
 
   function resolve(schema, seen = new Set()) {
-    if (!schema?.$ref) return schema;
+    if (!schema?.$ref) return schema ?? EMPTY;
     assert.ok(schema.$ref.startsWith('#/'), `Non-local request schema reference: ${schema.$ref}`);
     assert.ok(!seen.has(schema.$ref), `Cyclic request schema alias: ${schema.$ref}`);
     const next = schema.$ref.slice(2).split('/').reduce((value, key) =>
@@ -89,7 +88,11 @@ export function createBodyContract(document) {
   }
 
   function readOnly(schemas) {
-    return schemas.some(schema => variants(schema).every(nodes => nodes.some(node => node.readOnly === true)));
+    return schemas.some(source => {
+      const schema = resolve(source);
+      return schema.readOnly === true || readOnly(schema.allOf ?? []) ||
+        ['oneOf', 'anyOf'].some(key => schema[key]?.length && schema[key].every(child => readOnly([child])));
+    });
   }
 
   function childSchemas(nodes, key) {
@@ -102,123 +105,143 @@ export function createBodyContract(document) {
     return schemas;
   }
 
-  function scalarMatches(node, value) {
-    // Local Postman values are unresolved templates, not populated upstream samples.
-    if (variable(value) && (!node.type || node.type === 'string')) return true;
-    let validate = scalarValidators.get(node);
-    if (!validate) {
-      const schema = Object.fromEntries(scalarKeywords.filter(key => own(node, key)).map(key => [key, node[key]]));
-      // OAS permits nullable without type; it only takes effect alongside an explicit type.
-      if (!schema.type) delete schema.nullable;
-      validate = ajv.compile(schema);
-      scalarValidators.set(node, validate);
-    }
-    return validate(value);
-  }
-
-  function matchesNodes(nodes, value, depth, policy = {}) {
-    if (depth > 64 || value === undefined || hasBodySentinel(value)) return false;
-    // OAS 3.0 readOnly applies to property definitions, not an array item's
-    // root annotation. Properties inside array objects are still checked.
-    if (policy.property && policy.writable !== false && nodes.some(node => node.readOnly === true)) return false;
-    if (!nodes.every(node => scalarMatches(node, value))) return false;
-    if (object(value)) {
-      for (const key of new Set(nodes.flatMap(node => node.required ?? []))) {
-        const children = childSchemas(nodes, key);
-        if (!children) return false;
-        if ((policy.structural || !readOnly(children)) && !own(value, key) && !policy.incomplete?.get(value)?.has(key)) return false;
+  // Derived request schemas retain every assertion. Only request-side required
+  // annotations and OAS Reference Objects are adapted; not remains structural.
+  // Local definitions preserve recursive references without editing the source.
+  function view(source) {
+    source = resolve(source);
+    if (views.has(source)) return views.get(source);
+    const definitions = {}, seen = new WeakMap();
+    function adapt(input, request = true, inherited = []) {
+      const schema = resolve(input);
+      const plans = request ? variants(schema) : [[]];
+      const readonly = [...new Set([...inherited, ...plans.flat().flatMap(node => Object.keys(node.properties ?? {}))
+        .filter(key => plans.every(nodes => readOnly(childSchemas(nodes, key) ?? [])))])].sort();
+      const context = `${request}:${JSON.stringify(readonly)}`;
+      let contexts = seen.get(schema);
+      if (!contexts) { contexts = new Map(); seen.set(schema, contexts); }
+      if (contexts.has(context)) return { $ref: contexts.get(context) };
+      const id = `s${Object.keys(definitions).length}`, ref = `#/definitions/${id}`;
+      const output = {}; definitions[id] = output; contexts.set(context, ref);
+      for (const [key, value] of Object.entries(schema)) {
+        if (key === 'properties') output[key] = Object.fromEntries(Object.entries(value).map(([name, child]) => [name, adapt(child, request)]));
+        else if (['items', 'additionalProperties', 'not'].includes(key) && object(value)) output[key] = adapt(value, request && key !== 'not');
+        else if (['allOf', 'oneOf', 'anyOf'].includes(key)) output[key] = value.map(child => adapt(child, request, readonly));
+        else if (key === 'required' && request) {
+          const required = value.filter(name => !readonly.includes(name));
+          if (required.length) output[key] = required;
+        } else if (key !== 'nullable' || schema.type) output[key] = value;
       }
-      for (const [key, child] of Object.entries(value)) {
-        const schemas = childSchemas(nodes, key);
-        if (!schemas || (policy.writable !== false && readOnly(schemas)) || !matches(schemas, child, depth + 1, { ...policy, property: true })) return false;
-      }
+      return { $ref: ref };
     }
-    if (Array.isArray(value)) {
-      const items = nodes.flatMap(node => node.items ? [node.items] : []);
-      if (!value.every(child => matches(items, child, depth + 1, { ...policy, property: false }))) return false;
-    }
-    // Negate structural assertions, never a request-side read-only rejection or
-    // missing-value exemption. Strict oneOf semantics also apply inside not.
-    return nodes.every(node => !node.not || !matches([node.not], value, depth + 1,
-      { compatibility: false, writable: false, structural: true }));
-  }
-
-  function matches(schemas, value, depth = 0, policy = {}) {
-    const key = schemas.map(schema => {
-      if (!schemaIds.has(schema)) schemaIds.set(schema, ++nextSchemaId);
-      return schemaIds.get(schema);
-    }).join(',') + `:${policy.compatibility !== false}:${policy.writable !== false}:${Boolean(policy.incomplete)}:${Boolean(policy.property)}:${Boolean(policy.structural)}`;
-    let cache = matchCache.get(key);
-    if (!cache) { cache = new Map(); matchCache.set(key, cache); }
-    if (cache.has(value)) return cache.get(value);
-    const result = matchesUncached(schemas, value, depth, policy);
-    cache.set(value, result);
+    const root = adapt(source), result = { ...root, definitions };
+    views.set(source, result);
     return result;
   }
 
-  function matchesUncached(schemas, value, depth = 0, policy = {}) {
-    budget();
-    if (!combinations(schemas).some(nodes => matchesNodes(nodes, value, depth, policy))) return false;
-    // Independently validate alternatives strictly before classifying an overlap.
-    // The source is never rewritten, and zero matching alternatives still fail.
-    function unions(schema) {
-      schema = resolve(schema);
-      for (const keyword of ['oneOf', 'anyOf']) {
-        if (!schema[keyword]) continue;
-        const applicable = schema[keyword].filter(child => matches([child], value, depth + 1,
-          { compatibility: false, writable: false, property: policy.property, structural: policy.structural }));
-        if (!applicable.length) return false;
-        if (keyword === 'oneOf' && applicable.length > 1 && policy.compatibility === false) return false;
-        // Read-only annotations cannot be hidden by choosing a more permissive
-        // overlapping branch. All structurally applicable branches are checked.
-        if (policy.writable !== false && !applicable.every(child => matches([child], value, depth + 1,
-          { compatibility: false, writable: true, property: policy.property, structural: policy.structural }))) return false;
-      }
-      return (schema.allOf ?? []).every(unions);
-    }
-    return schemas.every(unions);
+  function validator(schema) {
+    if (!validators.has(schema)) validators.set(schema, ajv.compile(schema));
+    return validators.get(schema);
   }
 
-  function repair(nodes) {
-    const candidates = [];
-    for (const node of nodes) {
-      for (const key of ['example', 'default']) if (own(node, key)) candidates.push(node[key]);
-      candidates.push(...(node.enum ?? []));
+  function structural(schemas, value, compatibility = true) {
+    if (value === undefined) return false;
+    if (schemas.length > 1) {
+      const key = schemas.map(schema => { if (!ids.has(schema)) ids.set(schema, idsCount++); return ids.get(schema); }).join(',');
+      if (!groups.has(key)) groups.set(key, { allOf: schemas });
+      schemas = [groups.get(key)];
     }
-    const types = nodes.map(node => node.type).filter(Boolean);
-    if (types.includes('object') || nodes.some(node => node.properties)) {
+    return schemas.every(source => {
+      const schema = view(source), validate = validator(schema);
+      if (validate(value)) return true;
+      if (!compatibility) return false;
+      const overlaps = validate.errors.filter(error => error.keyword === 'oneOf' && error.params.passingSchemas?.length > 1);
+      if (!overlaps.length) return false;
+      // Only Ajv-proven multiple-match sites in this failed validation can be
+      // relaxed. Revalidate the complete view; any remaining error rejects it.
+      const targets = new Set(overlaps.map(error => error.parentSchema));
+      function copy(node) {
+        if (Array.isArray(node)) return node.map(copy);
+        if (!object(node)) return node;
+        return Object.fromEntries(Object.entries(node).map(([key, child]) =>
+          [key === 'oneOf' && targets.has(node) ? 'anyOf' : key, copy(child)]));
+      }
+      return ajv.compile(copy(schema))(value);
+    });
+  }
+
+  // Annotation traversal only: Ajv decides which union branches apply. Negated
+  // schemas do not impose writeability requirements on the positive request.
+  function writable(schemas, value, property = false, depth = 0) {
+    if (depth > 64) return false;
+    return schemas.every(source => {
+      const schema = resolve(source);
+      if (property && schema.readOnly === true) return false;
+      if (!writable(schema.allOf ?? [], value, property, depth + 1)) return false;
+      for (const key of ['oneOf', 'anyOf']) {
+        const applicable = (schema[key] ?? []).filter(child => structural([child], value));
+        if (!writable(applicable, value, property, depth + 1)) return false;
+      }
+      if (object(value)) for (const [key, child] of Object.entries(value)) {
+        const children = own(schema.properties ?? {}, key) ? [schema.properties[key]] :
+          object(schema.additionalProperties) ? [schema.additionalProperties] : [];
+        if (!writable(children, child, true, depth + 1)) return false;
+      }
+      return !Array.isArray(value) || !schema.items || value.every(child => writable([schema.items], child, false, depth + 1));
+    });
+  }
+
+  function matches(schemas, value, depth = 0, policy = {}) {
+    budget();
+    if (hasBodySentinel(value)) return false;
+    const compatible = policy.compatibility !== false;
+    const logical = structural(schemas, value, compatible) ? value : witness(schemas, value);
+    return structural(schemas, logical, compatible) && writable(schemas, logical, policy.property, depth);
+  }
+
+  // Postman variables remain unresolved in the emitted body. A source-backed
+  // witness proves template construction, never the unknown runtime contents.
+  function witness(schemas, input) {
+    const replacements = new Map();
+    function collect(children, value) {
+      const nodes = combinations(children).flat();
+      if (variable(value) && !replacements.has(value)) {
+        const candidate = examples(nodes).find(example => typeof example === 'string' && !variable(example) &&
+          !hasBodySentinel(example) && structural(children, example, false));
+        if (candidate !== undefined) replacements.set(value, candidate);
+      } else if (object(value)) for (const [key, child] of Object.entries(value)) {
+        collect(nodes.flatMap(node => own(node.properties ?? {}, key) ? [node.properties[key]] :
+          object(node.additionalProperties) ? [node.additionalProperties] : []), child);
+      } else if (Array.isArray(value)) value.forEach(child => collect(nodes.flatMap(node => node.items ? [node.items] : []), child));
+    }
+    function substitute(value) {
+      if (variable(value)) return replacements.get(value) ?? value;
+      if (Array.isArray(value)) return value.map(substitute);
+      return object(value) ? Object.fromEntries(Object.entries(value).map(([key, child]) => [key, substitute(child)])) : value;
+    }
+    collect(schemas, input);
+    return substitute(input);
+  }
+
+  function repair(nodes, input) {
+    const candidates = examples(nodes);
+    // Emptying an existing converter array prunes values; it invents none.
+    if (Array.isArray(input)) candidates.push([]);
+    if (nodes.some(node => node.type === 'object' || node.properties)) {
       const example = {};
       for (const key of new Set(nodes.flatMap(node => Object.keys(node.properties ?? {})))) {
         const children = childSchemas(nodes, key);
         if (!children || readOnly(children)) continue;
-        const child = combinations(children).flatMap(branch => branch.flatMap(node =>
-          [...(own(node, 'example') ? [node.example] : []), ...(own(node, 'default') ? [node.default] : []), ...(node.enum ?? [])]))
-          .find(value => matches(children, value));
+        const child = combinations(children).flatMap(examples).find(value => matches(children, value));
         if (child !== undefined) Object.defineProperty(example, key, { value: child, enumerable: true });
       }
-      candidates.push(example, {});
+      if (Object.keys(example).length) candidates.push(example);
+      if (object(input)) candidates.push({});
     }
-    if (types.includes('array')) {
-      const length = Math.max(0, ...nodes.map(node => node.minItems ?? 0));
-      if (length <= 100) {
-        candidates.push(Array.from({ length }, () => undefined));
-      }
-    }
-    if (types.includes('string')) {
-      const length = Math.max(0, ...nodes.map(node => node.minLength ?? 0));
-      const maximum = Math.min(10000, ...nodes.map(node => node.maxLength ?? 10000));
-      if (length <= maximum) candidates.push('string'.padEnd(length, 'x').slice(0, maximum), '');
-    }
-    if (types.includes('integer') || types.includes('number')) {
-      candidates.push(...nodes.filter(node => own(node, 'minimum')).map(node =>
-        node.minimum + (node.exclusiveMinimum ? (node.multipleOf ?? 1) : 0)), 0);
-    }
-    if (types.includes('boolean')) candidates.push(false);
-    if (nodes.some(node => node.nullable === true)) candidates.push(null);
     return candidates;
   }
 
-  function normalizeNodes(nodes, input, depth, location, requiredValue, property) {
+  function normalizeNodes(nodes, input, depth, location, requiredValue) {
     if (depth > 64) throw new UnsafeValue(`${location}: request value exceeds bounded recursion`);
     let output = input;
     if (object(input)) {
@@ -258,7 +281,6 @@ export function createBodyContract(document) {
       const items = nodes.flatMap(node => node.items ? [node.items] : []);
       output = input.map((value, index) => normalize(items, value, true, depth + 1, `${location}/${index}`));
     }
-    if (!matchesNodes(nodes, output, depth, { property })) throw new UnsafeValue(`${location}: value violates request schema`);
     return output;
   }
 
@@ -271,18 +293,15 @@ export function createBodyContract(document) {
     const choices = combinations(schemas);
     let failure;
     // Preserve converter values when safe. Optional unsafe values are omitted; required
-    // values may use schema examples/defaults/enums or simple constraint-checked templates.
+    // values may use only schema examples/defaults/enums and existing converter values.
     for (const fallback of [false, true]) {
       if (fallback && !required) break;
       for (const nodes of choices) {
         if (nodes.some(node => node.readOnly && node.writeOnly)) throw new Error(`${location}: both readOnly and writeOnly`);
-        for (const candidate of fallback ? repair(nodes) : [input]) {
+        for (const candidate of fallback ? repair(nodes, input) : [input]) {
           try {
             if (candidate === undefined) continue;
-            // Never evade an object-only required declaration by switching to a scalar.
-            if (fallback && object(input) && !object(candidate) && nodes.some(node => node.required?.length) &&
-              !examples(nodes).some(example => isDeepStrictEqual(example, candidate))) continue;
-            const output = normalizeNodes(nodes, candidate, depth, location, required, property);
+            const output = normalizeNodes(nodes, candidate, depth, location, required);
             if (!matches(schemas, output, depth, { property })) continue;
             if (!required && object(output) && !Object.keys(output).length && object(input) && Object.keys(input).length) return OMIT;
             if (!required && Array.isArray(output) && output.some((child, index) => object(child) &&
@@ -300,7 +319,7 @@ export function createBodyContract(document) {
   }
 
   function examples(nodes) {
-    return nodes.flatMap(node => ['example', 'default'].filter(key => own(node, key)).map(key => node[key]));
+    return nodes.flatMap(node => [...['example', 'default'].filter(key => own(node, key)).map(key => node[key]), ...(node.enum ?? [])]);
   }
 
   function mediaExamples(selected) {
@@ -311,42 +330,20 @@ export function createBodyContract(document) {
   }
 
   function sourceIncomplete(schemas, value, selected, schemaPath) {
-    if (hasBodySentinel(value)) return undefined;
-    if (mediaExamples(selected).some(example => matches(schemas, example))) return undefined;
-    const absent = new WeakMap();
-    const issues = [];
-    function inspect(children, current, location, fallbackPath, active = new Set()) {
-      const choices = combinations(children);
-      // Do not use incomplete-source handling to rescue a zero-match union.
-      if (choices.length !== 1) return;
-      const nodes = choices[0];
-      if (nodes.some(node => active.has(node))) return;
-      if (examples(nodes).some(example => matches(children, example))) return;
-      const next = new Set([...active, ...nodes]);
-      if (object(current)) {
-        for (const node of nodes) for (const [index, key] of (node.required ?? []).entries()) {
-          const property = childSchemas(nodes, key);
-          if (!property || readOnly(property) || own(current, key)) continue;
-          const unspecified = combinations(property).every(branch => branch.every(part =>
-            ![...scalarKeywords, 'format', 'properties', 'required', 'items', 'additionalProperties', 'not', 'oneOf', 'anyOf', 'example', 'default'].some(keyword => own(part, keyword))));
-          if (!unspecified) continue;
-          const names = absent.get(current) ?? new Set(); names.add(key); absent.set(current, names);
-          issues.push({ instancePath: `${location}/${pointerToken(key)}`,
-            schemaPath: `${sourcePaths.get(node) ?? fallbackPath}/required/${index}`,
-            reason: 'Required property has no value schema, example, or default.' });
-        }
-        for (const [key, child] of Object.entries(current)) {
-          const property = childSchemas(nodes, key);
-          if (property) inspect(property, child, `${location}/${pointerToken(key)}`, `${fallbackPath}/properties/${pointerToken(key)}`, next);
-        }
-      } else if (Array.isArray(current)) {
-        const items = nodes.flatMap(node => node.items ? [node.items] : []);
-        current.forEach((child, index) => inspect(items, child, `${location}/${index}`, `${fallbackPath}/items`, next));
-      }
-    }
-    inspect(schemas, value, '', schemaPath);
-    if (!issues.length || !matches(schemas, value, 0, { incomplete: absent })) return undefined;
-    return issues;
+    // Quarantine only a plain missing-value declaration. Composition, negation,
+    // enum, cardinality, or unfamiliar assertions require review, not exemptions.
+    if (schemas.length !== 1 || !object(value) || hasBodySentinel(value) || !writable(schemas, value)) return;
+    const schema = resolve(schemas[0]);
+    if (Object.keys(schema).some(key => !annotations.has(key) && !['type', 'required', 'properties'].includes(key)) ||
+      (schema.type && schema.type !== 'object') || mediaExamples(selected).length) return;
+    const missing = (schema.required ?? []).filter(key => !own(value, key) && !readOnly([schema.properties?.[key] ?? EMPTY]));
+    if (!missing.length || missing.some(key => Object.keys(resolve(schema.properties?.[key])).some(keyword => !annotations.has(keyword)))) return;
+    const remainder = { ...schema, required: (schema.required ?? []).filter(key => !missing.includes(key)) };
+    if (!remainder.required.length) delete remainder.required;
+    if (!matches([remainder], value)) return;
+    return missing.map(key => ({ instancePath: `/${pointerToken(key)}`,
+      schemaPath: `${sourcePaths.get(schema) ?? schemaPath}/required/${schema.required.indexOf(key)}`,
+      reason: 'Required property has no value schema, example, or default.' }));
   }
 
   function finish(request, operation, classification, validateOnly, issues = []) {
@@ -360,7 +357,7 @@ export function createBodyContract(document) {
 
   function media(request, operation) {
     const declaration = document.paths?.[operation.path]?.[operation.methodLower] ?? operation.operation;
-    const body = resolve(declaration.requestBody);
+    const body = declaration.requestBody && resolve(declaration.requestBody);
     if (!body) {
       assert.ok(!request.body, `${operation.key}: generated body without requestBody declaration`);
       return undefined;
@@ -382,6 +379,20 @@ export function createBodyContract(document) {
     return { ...content[0][1], name: content[0][0], required: body.required === true };
   }
 
+  // An unselected file establishes a string representation, never its contents.
+  // Reject content-dependent assertions rather than certify a placeholder.
+  function fileShape(schemas, path = []) {
+    for (const source of schemas) {
+      const schema = resolve(source);
+      const allowed = new Set([...annotations, 'example', 'default', 'type', 'format', 'nullable', 'not', 'allOf', 'oneOf', 'anyOf']);
+      assert.ok(!own(schema, 'enum') && (path.length || Object.keys(schema).every(key => allowed.has(key) || key.startsWith('x-'))),
+        'Unknown file contents cannot be represented safely under content constraints');
+      for (const key of ['allOf', 'oneOf', 'anyOf']) fileShape(schema[key] ?? [], path);
+      if (schema.not) fileShape([schema.not], path);
+      if (path.length) fileShape(childSchemas([schema], path[0]) ?? [], path.slice(1));
+    }
+  }
+
   function apply(request, operation, validateOnly = false) {
     reset();
     const selected = media(request, operation);
@@ -401,22 +412,26 @@ export function createBodyContract(document) {
       const schemaPath = sourcePaths.get(selected.schema) ??
         `#/paths/${pointerToken(operation.path)}/${operation.methodLower}/requestBody/content/${pointerToken(selected.name)}/schema`;
       let value;
-      // Preserve the existing empty, schema-less template exception. Every
-      // nonempty JSON body must parse, even without a structural schema.
-      if (selected.schema || (body.raw !== '' && body.raw !== undefined)) {
+      const empty = body.raw === '' || body.raw === undefined;
+      if (empty && !validateOnly) {
+        const example = mediaExamples(selected).find(candidate => matches(schemas, candidate));
+        if (example !== undefined) { value = example; body.raw = JSON.stringify(example, null, 2); }
+      }
+      if (value === undefined && (selected.schema || !empty)) {
         try { value = JSON.parse(body.raw); }
         catch {
-          if (selected.schema && !validateOnly && matches(schemas, body.raw)) {
+          if (selected.schema && !validateOnly && body.raw && matches(schemas, body.raw)) {
             body.raw = JSON.stringify(body.raw); value = JSON.parse(body.raw);
           } else throw new Error(`${label}: live JSON body is not parseable`);
         }
       }
       if (!selected.schema) {
         assertNoBodySentinel(body, label);
-        if (selected.required && !body.raw && !own(selected, 'example') && !selected.examples) {
+        if (selected.required && !body.raw && !own(selected, 'example') && !own(selected, 'examples')) {
           return finish(request, operation, 'source-incomplete', validateOnly,
             [{ instancePath: '', schemaPath, reason: 'Required body has no request schema or example.' }]);
         }
+        assert.ok(!selected.required || body.raw, `${label}: empty required JSON body with authoritative examples`);
         return finish(request, operation, 'not-applicable', validateOnly);
       }
       const incomplete = sourceIncomplete(schemas, value, selected, schemaPath);
@@ -434,34 +449,37 @@ export function createBodyContract(document) {
         value = result;
       }
       if (!matches(schemas, value, 0, { compatibility: false })) classification = 'ambiguous-oneOf';
-    } else if (['formdata', 'urlencoded'].includes(body.mode)) {
-      const choices = combinations(schemas);
-      assert.equal(choices.length, 1, `${label}: composed form body requires encoding review`);
-      const nodes = choices[0];
-      const required = new Set(nodes.flatMap(node => node.required ?? []));
-      const rows = [];
-      for (const row of body[body.mode] ?? []) {
-        const children = childSchemas(nodes, row.key);
-        if (!children || readOnly(children)) {
-          assert.ok(!validateOnly, `${label}/${row.key}: non-writable form field`);
-          continue;
+    } else {
+      const form = Boolean(formMode), rows = form ? body[body.mode] ?? [] : [];
+      let value = body.raw;
+      if (form) {
+        value = {};
+        const nodes = schemas.flatMap(schema => variants(schema).flat());
+        for (const row of rows.filter(row => !row.disabled)) {
+          assert.ok(!own(value, row.key), `${label}: duplicate enabled form field requires encoding review`);
+          const children = nodes.flatMap(node => own(node.properties ?? {}, row.key) ? [node.properties[row.key]] :
+            object(node.additionalProperties) ? [node.additionalProperties] : []);
+          let child = row.type === 'file' ? '' : row.value;
+          if (row.type === 'file') fileShape(schemas, [row.key]);
+          else if (children.some(schema => variants(schema).flat().some(node =>
+            ['object', 'array', 'number', 'integer', 'boolean'].includes(node.type) || node.properties))) {
+            try { child = JSON.parse(child); } catch { child = undefined; }
+          }
+          Object.defineProperty(value, row.key, { value: child, enumerable: true });
         }
-        if (row.type === 'file') { assertNoBodySentinel(row, label); rows.push(row); continue; }
-        const structured = combinations(children).some(branch => branch.some(node =>
-          ['object', 'array', 'number', 'integer', 'boolean'].includes(node.type) || node.properties));
-        let value = row.value;
-        if (structured) { try { value = JSON.parse(value); } catch { value = undefined; } }
-        if (validateOnly) {
-          assert.ok(matches(children, value, 0, { property: true }), `${label}/${row.key}: invalid form value`);
-          rows.push(row);
-          continue;
+      } else if (body.mode === 'file') { fileShape(schemas); value = ''; }
+      let output = value;
+      if (validateOnly || body.mode === 'file') assert.ok(matches(schemas, value), `${label}: live body violates writable request schema`);
+      else output = normalize(schemas, value, true, 0, label);
+      if (!validateOnly && form) {
+        body[body.mode] = rows.filter(row => row.disabled ? !hasBodySentinel(row) &&
+          writable(schemas, { [row.key]: row.value }) : own(output, row.key)).map(row => row.disabled || row.type === 'file' ||
+          isDeepStrictEqual(value[row.key], output[row.key]) ? row : { ...row, value: typeof output[row.key] === 'string' ? output[row.key] : JSON.stringify(output[row.key]) });
+        for (const [key, child] of Object.entries(output)) if (!rows.some(row => !row.disabled && row.key === key)) {
+          body[body.mode].push({ key, ...(body.mode === 'formdata' ? { type: 'text' } : {}), value: typeof child === 'string' ? child : JSON.stringify(child) });
         }
-        const output = normalize(children, value, required.has(row.key), 0, `${label}/${row.key}`, true);
-        if (output !== OMIT) rows.push({ ...row, value: isDeepStrictEqual(output, value) ? row.value :
-          typeof output === 'string' ? output : JSON.stringify(output) });
-      }
-      for (const key of required) assert.ok(readOnly(childSchemas(nodes, key) ?? []) || rows.some(row => row.key === key && !row.disabled), `${label}/${key}: missing required form field`);
-      if (!validateOnly) body[body.mode] = rows;
+      } else if (!validateOnly && body.mode === 'raw') body.raw = output;
+      if (!matches(schemas, output, 0, { compatibility: false })) classification = 'ambiguous-oneOf';
     }
     assertNoBodySentinel(body, label);
     return finish(request, operation, classification, validateOnly);

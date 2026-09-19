@@ -64,8 +64,9 @@ test('source-incomplete cannot hide not failures or exempt missing values inside
   assert.equal(validate({ missing: 'fictional' }), true);
   const incomplete = operationFor('application/json', { schema });
   const request = jsonRequest({});
-  assert.equal(contract.normalize(request, incomplete).classification, 'source-incomplete');
-  assert.equal(contract.validate(request, incomplete).classification, 'source-incomplete');
+  // Even satisfiable negation is outside the deliberately narrow quarantine.
+  assert.throws(() => contract.normalize(request, incomplete), /cannot be represented safely/u);
+  assert.throws(() => contract.validate(request, incomplete), /violates writable request schema/u);
   assert.equal(request.body.raw, '{}');
 });
 

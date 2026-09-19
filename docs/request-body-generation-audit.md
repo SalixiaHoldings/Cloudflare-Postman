@@ -208,42 +208,63 @@ verify the policy without endpoint names and reject unrelated violations.
 
 ## Implementation boundaries
 
-The reader resolves local references without mutating the source, applies
-request/read-only semantics recursively, and checks structural OpenAPI 3.0
-constraints, including composition, required properties, cardinality, enums,
-patterns, numeric bounds, and additional properties. OAS `format` annotations
-are not assertions; unresolved Postman string variables remain templates, whose
-runtime values are not available for enum/pattern/length validation.
+The request-schema adapter resolves local Reference Objects into a separate
+Ajv Draft 4 validation view. It preserves every structural assertion and the
+pinned source graph. Ajv owns type, enum, required, negation, composition,
+cardinality, scalar/array constraints, and additional properties together, rather
+than receiving a selected list of scalar keywords. See the
+[Ajv schema reference](https://ajv.js.org/json-schema.html) and
+[OpenAPI 3.0 Schema Object semantics](https://spec.openapis.org/oas/v3.0.3.html#schema-object).
+OpenAPI formats remain annotations; format validation is disabled.
 
-Following [OpenAPI 3.0 Schema Object semantics](https://spec.openapis.org/oas/v3.0.3.html#schema-object),
-`readOnly` applies at property definitions (including referenced/composed ones).
-Properties inside array objects are pruned recursively. An annotation on a
-primitive array-item schema does not mark the containing writable array as
-read-only; synthetic coverage guards that distinction.
+Only positive request schemas remove requirements for read-only properties,
+including shared `allOf` declarations. Negated schemas retain structural required
+semantics and strict composition. Direct read-only leakage checks are separate
+from Ajv and examine all applicable union alternatives, including nested
+compatible overlaps. `writeOnly` and deprecated writable fields stay writable.
+Array-item annotations do not make the containing array property read-only.
 
-Safe converter values are retained. Optional unsafe subtrees are omitted.
-Required values may use pinned examples/defaults/enums or deterministic values
-from explicit types and constraints; every result must validate. An object is
-never replaced with a scalar to evade a required-property declaration. Evaluation
-is bounded and exhaustion fails closed. Non-JSON modes retain their representation;
-form fields receive the same writable/sentinel checks. The request-only typed
-identifier correction preserves numeric and structured values such as
-`client_secret_version`; response sanitization is unchanged.
+Strict Ajv validation runs first. Compatibility is available only when Ajv reports
+a multiple-match `oneOf` failure (`passingSchemas` contains at least two indices).
+A temporary copy relaxes only those reported sites and must pass whole-schema
+Ajv validation, followed by the separate writable/sentinel checks. There is no
+global `oneOf` to `anyOf` rewrite, source mutation, custom structural negation,
+or recursive structural branch matcher. The remaining bounded composition plans
+provide normalization candidates and annotation information, not validity.
 
-Negated schemas are evaluated structurally before inversion: `not` receives no
-request-side read-only rejection, read-only required-property exemption,
-source-incomplete exemption, or overlapping-`oneOf` compatibility. This mode
-propagates through composition and has a separate validation-cache key. Positive
-request schemas retain their existing writable/read-only enforcement.
+Quarantine is intentionally limited to required schema-less JSON bodies with no
+examples, and plain missing required-property declarations with no usable value
+schema. The latter rejects composition, negation, enclosing enums/examples/defaults,
+cardinality, and unfamiliar assertions; Ajv validates the remainder after only
+the proven missing requirements are removed. Neither condition certifies a body
+as schema-valid. No new source-incomplete category covers generation failures.
 
-Media selection also enforces body mode: JSON uses raw, multipart uses form-data,
-and URL-encoded media uses URL-encoded mode. Other media retain raw/file support,
-including the pin's nine file bodies across octet-stream, NDJSON, and plain text.
-Nonempty JSON must parse even when the media entry has no schema; the warned
-empty required-body `source-incomplete` exception remains unchanged. These three
-independent-review corrections are covered in
-`tests/request-body-boundaries.test.mjs`, including the pinned upload and
-schema-less JSON reproducers, strict-negation interactions, and cache isolation.
+Normalization retains safe converter values and prunes unsafe optional output.
+It may use source examples/defaults/enums, combine authoritative property values,
+or prune existing containers. It cannot invent scalar defaults from a type or
+numeric/string constraint. Every candidate must pass Ajv and writable checks.
+
+JSON/form media enforce raw/form-data/URL-encoded modes respectively. Every
+nonempty JSON body parses; an empty required body with a usable media example can
+be populated from that example during normalization and cannot bypass validation.
+Enabled form rows become a logical object, including typed JSON decoding where
+the source declares structured or numeric/boolean values. Ajv validates that
+entire object, including root assertions. Duplicate enabled keys fail closed
+pending encoding review. Non-JSON raw values also pass structural validation.
+
+Unselected files establish only a string representation. Content-dependent
+constraints fail closed; a file row cannot bypass `not: {}` or another structural
+impossibility. Root assertions on the logical form object remain active. This
+does not assert that unknown file contents satisfy a schema.
+
+Unresolved Postman variables retain their emitted bytes. If their literal text
+fails structural validation, only a source example/default/enum string can serve
+as a logical validation witness. Repeated variable names use the same witness,
+and the complete logical body must pass Ajv. Missing or contradictory evidence
+fails closed. This replaces the previous blanket string-variable assertion bypass;
+it does not validate runtime variable values. The two constrained variable cases
+in the current distribution are custom-domain `zone_id` and registry
+`secret_name`. No endpoint-specific rule implements this behavior.
 
 Native Git equivalence now checks live body modes and content as well as the
 existing identity/auth/query contracts. JSON/text bytes must match exactly.
@@ -295,7 +316,7 @@ drives generation. Account service-token creation retains numeric
 `client_secret_version: 1` and validates normally, without either compatibility
 classification.
 
-## Completed validation checklist
+## Validation at the pre-refactor head
 
 - `npm ci`: passed with the pinned Node 24/toolchain. npm reports three existing
   high-severity dependency advisories; this change does not alter dependencies.
@@ -317,3 +338,49 @@ one staging filename. Each checksum-verified download now gets a unique atomic
 staging path; a 16-way synthetic download regression also verifies that digest
 and size mismatches cannot replace the cache. This does not change downloaded
 bytes, schema authority, generated output, or test concurrency requirements.
+
+## Ajv refactor review status
+
+The refactor starts from `92839fb03aef326772a0b91dd9150b6cbf7cec1d`.
+All six final-review regressions fail on that original implementation and pass
+with the adapter: root form assertions, impossible file fields, empty JSON with
+media examples, enclosing enum candidates, contradictory missing requirements,
+and constrained raw text. The previous negation, media-mode, and schema-less JSON
+regressions remain. Two older expectations are deliberately tightened: negated
+schemas are never quarantined, and a bare type no longer authorizes a fabricated
+required value.
+
+The structural matcher block (`scalarMatches` through `matchesUncached`) shrinks
+from 77 lines to the 26-line Ajv wrapper. Custom structural recursion, selected
+scalar-keyword validation, per-value policy caches, and type-derived primitive
+construction are removed. The full module changes from 481 to 499 lines because
+it now includes the derived-schema adapter, complete form decoding, conservative
+file handling, and source-backed variable witnesses. Structural assertion
+semantics belong to Ajv despite the small increase in total adapter/normalizer
+size.
+
+The preserved distribution independently validates at **1,207 valid**, **31
+ambiguous-oneOf**, **16 source-incomplete**, and **2,286 without bodies**. It still
+contains **3,540** exact-once operations, **1,254** live request bodies, and **zero**
+live-body sentinels. Both generated trees and all response payloads remain
+byte-identical to the refactor baseline.
+
+**Regeneration is blocked by the stricter construction policy.** A full primary
+converter probe initially found 92 failures after removing invented values;
+pruning existing array contents resolves 36, leaving 56 required construction
+failures. For example, `PUT /accounts/{account_id}/hyperdrive/configs/{hyperdrive_id}`
+requires `origin.password`, whose schema has type/string length constraints but
+no example, default, or enum. The primary converter supplies a nesting sentinel
+for `origin`. The previous generator invented a string and subsequently emitted
+`{{password}}`. The committed request is structurally valid, but the new allowed
+construction sources cannot reproduce it. A revision-bound regression now
+requires that case to fail rather than invent a value or classify source-incomplete.
+
+A separately defined construction policy is needed before generation can pass.
+The current change does not reintroduce type-derived values, use secondary-query
+bodies, use SDK/docs-derived bodies, add an operation allowlist, change the pin,
+or feed generated artifacts back into generation. Failed generation stops in a
+temporary directory before replacing either committed distribution. Validation
+and Native Git equivalence of the preserved files are distinct from successful
+regeneration; deterministic generation has **not** been established for this
+refactor.

@@ -153,10 +153,14 @@ test('source-incomplete is generic, and never exempts ordinary violations or ava
   }
   for (const schema of [
     { required: ['fictional'], example: { fictional: 'source-example' } },
-    { required: ['fictional'], default: { fictional: 'source-default' } },
+    { required: ['fictional'], default: { fictional: 'source-default' } }
+  ]) assert.notEqual(run(schema, {}).result.classification, 'source-incomplete');
+  // A type supplies validation semantics but no authoritative construction
+  // candidate. Do not fabricate a string just to avoid quarantine.
+  for (const schema of [
     { required: ['fictional'], additionalProperties: { type: 'string' } },
     { required: ['fictional'], properties: { fictional: { type: 'string' } } }
-  ]) assert.notEqual(run(schema, {}).result.classification, 'source-incomplete');
+  ]) assert.throws(() => run(schema, {}), /cannot be represented safely/u);
   const media = run({ required: ['fictional'] }, {}, { example: { fictional: 'fictional-source-example' } });
   assert.equal(media.result.classification, 'valid');
   assert.deepEqual(JSON.parse(media.request.body.raw), { fictional: 'fictional-source-example' });
