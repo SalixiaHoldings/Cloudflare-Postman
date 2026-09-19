@@ -1,5 +1,5 @@
 $kind: http-example
-id: 3176e7ab-8037-5888-89b4-27e7826c9455
+id: 9ab7d4cd-e9cf-5903-8294-f3153490e321
 name: Scan bulk request accepted successfully.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/bulk"
@@ -17,6 +17,9 @@ request:
           "customHeaders": {
             "key_0": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "key_1": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           },
           "customagent": "string",
@@ -28,9 +31,12 @@ request:
         },
         {
           "url": "https://www.example.com",
-          "agentReadiness": true,
+          "agentReadiness": false,
           "customHeaders": {
             "key_0": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "key_1": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           },
@@ -52,7 +58,7 @@ response:
     content: |-
       [
         {
-          "uuid": "ab65599f-df0e-38df-e9d2-e0a540f4a1e6",
+          "uuid": "f0ed38df-9d2f-0a54-f4a1-63a77dcc7a22",
           "result": "string",
           "api": "string",
           "visibility": "public",
@@ -64,7 +70,7 @@ response:
           }
         },
         {
-          "uuid": "3ae2af4c-7195-59ca-6a4a-442f09e5da19",
+          "uuid": "195659ca-a4aa-42f0-e5da-963cd9ca7ecf",
           "result": "string",
           "api": "string",
           "visibility": "public",
