@@ -142,11 +142,13 @@ The generated environment intentionally shares/tracks only the public `base_url`
 
 ### Daily upstream drift
 
-`.github/workflows/upstream-drift.yml` resolves Cloudflare's current `main` revision, updates the provenance lock, advances only the query policy's revision binding (`upstreamCommit` and schema SHA), regenerates both formats, validates them, and creates/updates a review PR. It never auto-merges. Query omission contracts and secondary-warning fingerprints are not auto-refreshed; real query-behavior drift still fails closed for explicit review.
+`.github/workflows/upstream-drift.yml` resolves Cloudflare's current `main` revision, updates the provenance lock, advances only the query policy's revision binding (`upstreamCommit` and schema SHA), regenerates both formats, and runs the complete `npm run check` repository gate before reporting a successful update. The generated review summary records generation, validation, and the complete repository-gate result. Query omission contracts and secondary-warning fingerprints are not auto-refreshed; real query-behavior drift still fails closed for explicit review.
+
+An already-open `automation/cloudflare-schema-update` PR is a human-review boundary. Scheduled runs and normal manual runs leave that branch untouched instead of rebuilding and force-updating reviewed commits. A manual dispatch may explicitly set `refresh_open_pr=true` to replace the open automation branch from current `main`; that option is intentionally opt-in because it can discard review commits on the automation branch. The updater never auto-merges.
 
 The repository must enable **Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests** so the updater's `GITHUB_TOKEN` can open its review PR. GitHub exposes PR creation and approval as one repository switch; this project uses only the creation capability. Repository defaults remain restricted, the workflow has top-level `permissions: {}`, and only the scheduled/manual `update` job receives `contents: write` plus `pull-requests: write`. Regression tests fail if another workflow gains PR-write access or if an Actions workflow attempts to submit an approving review.
 
-Do **not** enable write tokens for pull-request workflows. The public `pull_request` validation path remains read-only. PRs created by `GITHUB_TOKEN` may require a maintainer to approve their PR-triggered workflow run; the updater itself already performs generation and validation before opening the PR, and human review remains the merge boundary.
+Do **not** enable write tokens for pull-request workflows. The public `pull_request` validation path remains read-only. PRs created by `GITHUB_TOKEN` may require a maintainer to approve their PR-triggered workflow run; the updater's complete offline gate runs before the review PR is considered successful, and human review remains the merge boundary.
 
 ### Protected read-only smoke test
 
