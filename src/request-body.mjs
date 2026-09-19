@@ -126,7 +126,7 @@ export function createBodyContract(document) {
       for (const key of new Set(nodes.flatMap(node => node.required ?? []))) {
         const children = childSchemas(nodes, key);
         if (!children) return false;
-        if (children && !readOnly(children) && !own(value, key) && !policy.incomplete?.get(value)?.has(key)) return false;
+        if ((policy.structural || !readOnly(children)) && !own(value, key) && !policy.incomplete?.get(value)?.has(key)) return false;
       }
       for (const [key, child] of Object.entries(value)) {
         const schemas = childSchemas(nodes, key);
@@ -137,14 +137,17 @@ export function createBodyContract(document) {
       const items = nodes.flatMap(node => node.items ? [node.items] : []);
       if (!value.every(child => matches(items, child, depth + 1, { ...policy, property: false }))) return false;
     }
-    return nodes.every(node => !node.not || !matches([node.not], value, depth + 1, { ...policy, compatibility: false }));
+    // Negate structural assertions, never a request-side read-only rejection or
+    // missing-value exemption. Strict oneOf semantics also apply inside not.
+    return nodes.every(node => !node.not || !matches([node.not], value, depth + 1,
+      { compatibility: false, writable: false, structural: true }));
   }
 
   function matches(schemas, value, depth = 0, policy = {}) {
     const key = schemas.map(schema => {
       if (!schemaIds.has(schema)) schemaIds.set(schema, ++nextSchemaId);
       return schemaIds.get(schema);
-    }).join(',') + `:${policy.compatibility !== false}:${policy.writable !== false}:${Boolean(policy.incomplete)}:${Boolean(policy.property)}`;
+    }).join(',') + `:${policy.compatibility !== false}:${policy.writable !== false}:${Boolean(policy.incomplete)}:${Boolean(policy.property)}:${Boolean(policy.structural)}`;
     let cache = matchCache.get(key);
     if (!cache) { cache = new Map(); matchCache.set(key, cache); }
     if (cache.has(value)) return cache.get(value);
@@ -163,13 +166,13 @@ export function createBodyContract(document) {
       for (const keyword of ['oneOf', 'anyOf']) {
         if (!schema[keyword]) continue;
         const applicable = schema[keyword].filter(child => matches([child], value, depth + 1,
-          { compatibility: false, writable: false, property: policy.property }));
+          { compatibility: false, writable: false, property: policy.property, structural: policy.structural }));
         if (!applicable.length) return false;
         if (keyword === 'oneOf' && applicable.length > 1 && policy.compatibility === false) return false;
         // Read-only annotations cannot be hidden by choosing a more permissive
         // overlapping branch. All structurally applicable branches are checked.
         if (policy.writable !== false && !applicable.every(child => matches([child], value, depth + 1,
-          { compatibility: false, writable: true, property: policy.property }))) return false;
+          { compatibility: false, writable: true, property: policy.property, structural: policy.structural }))) return false;
       }
       return (schema.allOf ?? []).every(unions);
     }
@@ -386,12 +389,28 @@ export function createBodyContract(document) {
     const body = request.body;
     const schemas = selected.schema ? [selected.schema] : [];
     const label = operation.key;
-    if (/(?:\/|\+)json$/iu.test(selected.name)) assert.equal(body.mode, 'raw', `${label}: JSON body mode mismatch`);
+    const json = /(?:\/|\+)json$/iu.test(selected.name);
+    const formMode = { 'multipart/form-data': 'formdata', 'application/x-www-form-urlencoded': 'urlencoded' }[selected.name.toLowerCase()];
+    // Other media may legitimately use raw or file (including text/plain and
+    // NDJSON). A Content-Type header must not bypass JSON/form mode checks.
+    const modes = json ? ['raw'] : formMode ? [formMode] : ['raw', 'file'];
+    assert.ok(modes.includes(body.mode), `${label}: ${selected.name} body mode mismatch (expected ${modes.join(' or ')})`);
     if (validateOnly) assertNoBodySentinel(body, label);
     let classification = 'valid';
-    if (body.mode === 'raw' && /(?:\/|\+)json$/iu.test(selected.name)) {
+    if (json) {
       const schemaPath = sourcePaths.get(selected.schema) ??
         `#/paths/${pointerToken(operation.path)}/${operation.methodLower}/requestBody/content/${pointerToken(selected.name)}/schema`;
+      let value;
+      // Preserve the existing empty, schema-less template exception. Every
+      // nonempty JSON body must parse, even without a structural schema.
+      if (selected.schema || (body.raw !== '' && body.raw !== undefined)) {
+        try { value = JSON.parse(body.raw); }
+        catch {
+          if (selected.schema && !validateOnly && matches(schemas, body.raw)) {
+            body.raw = JSON.stringify(body.raw); value = JSON.parse(body.raw);
+          } else throw new Error(`${label}: live JSON body is not parseable`);
+        }
+      }
       if (!selected.schema) {
         assertNoBodySentinel(body, label);
         if (selected.required && !body.raw && !own(selected, 'example') && !selected.examples) {
@@ -399,13 +418,6 @@ export function createBodyContract(document) {
             [{ instancePath: '', schemaPath, reason: 'Required body has no request schema or example.' }]);
         }
         return finish(request, operation, 'not-applicable', validateOnly);
-      }
-      let value;
-      try { value = JSON.parse(body.raw); }
-      catch {
-        if (!validateOnly && matches(schemas, body.raw)) {
-          body.raw = JSON.stringify(body.raw); value = JSON.parse(body.raw);
-        } else throw new Error(`${label}: live JSON body is not parseable`);
       }
       const incomplete = sourceIncomplete(schemas, value, selected, schemaPath);
       if (incomplete) return finish(request, operation, 'source-incomplete', validateOnly, incomplete);

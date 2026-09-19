@@ -230,6 +230,21 @@ form fields receive the same writable/sentinel checks. The request-only typed
 identifier correction preserves numeric and structured values such as
 `client_secret_version`; response sanitization is unchanged.
 
+Negated schemas are evaluated structurally before inversion: `not` receives no
+request-side read-only rejection, read-only required-property exemption,
+source-incomplete exemption, or overlapping-`oneOf` compatibility. This mode
+propagates through composition and has a separate validation-cache key. Positive
+request schemas retain their existing writable/read-only enforcement.
+
+Media selection also enforces body mode: JSON uses raw, multipart uses form-data,
+and URL-encoded media uses URL-encoded mode. Other media retain raw/file support,
+including the pin's nine file bodies across octet-stream, NDJSON, and plain text.
+Nonempty JSON must parse even when the media entry has no schema; the warned
+empty required-body `source-incomplete` exception remains unchanged. These three
+independent-review corrections are covered in
+`tests/request-body-boundaries.test.mjs`, including the pinned upload and
+schema-less JSON reproducers, strict-negation interactions, and cache isolation.
+
 Native Git equivalence now checks live body modes and content as well as the
 existing identity/auth/query contracts. JSON/text bytes must match exactly.
 Form comparisons account only for the official migration's semantic defaults
@@ -284,7 +299,7 @@ classification.
 
 - `npm ci`: passed with the pinned Node 24/toolchain. npm reports three existing
   high-severity dependency advisories; this change does not alter dependencies.
-- `npm test`: passed, 60 tests, including the pinned diagnostics and synthetic
+- `npm test`: passed, 69 tests, including the pinned diagnostics and synthetic
   request/body-equivalence tests.
 - `npm run generate`: passed; both generated trees regenerated together.
 - `npm run generate:check`: passed, byte-for-byte reproducible.
