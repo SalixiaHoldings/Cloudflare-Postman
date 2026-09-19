@@ -1,5 +1,5 @@
 $kind: http-example
-id: f1b94398-4389-54b7-9ba2-2b419f2e6f25
+id: a8e31b24-b4af-57b3-b444-3f1037acc82a
 name: Bad request.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags"
@@ -11,10 +11,22 @@ request:
     type: json
     content: |-
       {
-        "key": "yhYZpF",
+        "key": "t3nf",
         "default_variation": "string",
         "variations": {
           "key_0": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "key_1": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "key_2": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "key_3": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "key_4": {
             "value": "<Error: Too many levels of nesting to fake this schema>"
           }
         },
@@ -48,9 +60,9 @@ request:
             }
           }
         ],
-        "enabled": false,
+        "enabled": true,
         "description": "string",
-        "type": "json"
+        "type": "boolean"
       }
 response:
   statusCode: 400
@@ -61,7 +73,7 @@ response:
     type: json
     content: |-
       {
-        "success": false,
+        "success": true,
         "result": null,
         "errors": [
           {

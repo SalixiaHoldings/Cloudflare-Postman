@@ -1,5 +1,5 @@
 $kind: http-example
-id: 7444a805-79a5-553f-a751-8d5d62aa4a39
+id: e5f0ae34-15f7-5ace-9ec9-1e589535fdd0
 name: "Forbidden: Insufficient permissions"
 request:
   url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks"
@@ -24,7 +24,8 @@ request:
             "value": "value"
           }
         ],
-        "signing_secret": "{{signing_secret}}"
+        "signing_secret": "{{signing_secret}}",
+        "status": "enabled"
       }
 response:
   statusCode: 403

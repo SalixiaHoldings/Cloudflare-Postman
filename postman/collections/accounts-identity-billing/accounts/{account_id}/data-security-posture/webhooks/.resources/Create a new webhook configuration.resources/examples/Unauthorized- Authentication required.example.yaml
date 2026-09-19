@@ -1,5 +1,5 @@
 $kind: http-example
-id: 7c0fe502-c72e-523f-a160-1224920404f8
+id: 675d098c-726a-5c33-8128-d5f09a0b7762
 name: "Unauthorized: Authentication required"
 request:
   url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks"
@@ -24,7 +24,8 @@ request:
             "value": "value"
           }
         ],
-        "signing_secret": "{{signing_secret}}"
+        "signing_secret": "{{signing_secret}}",
+        "status": "enabled"
       }
 response:
   statusCode: 401
