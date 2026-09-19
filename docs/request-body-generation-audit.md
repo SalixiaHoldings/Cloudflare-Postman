@@ -106,3 +106,39 @@ Run and report:
 - release safety scan if the checksum-verified Gitleaks binary is available
 
 Regenerate and commit both `dist/v2.1/` and `postman/`. Do not merge.
+
+## New implementation blocker: overlapping required `oneOf`
+
+The subscription authority decision above is resolved and remains in force. A
+separate source-contract ambiguity was found while applying strict request-body
+semantics to the full distribution at pin
+`49731bd0592b0c8c2c781b8d15d9f27c7293b210` (schema SHA-256
+`3a7ba0e10e3b84f36e9ba6d6135a99d69177c2c3501711bcb367cb8b462bc627`).
+
+`PUT /zones/{zone_id}/bot_management` requires an `application/json` body whose
+root schema contains four `oneOf` alternatives. They describe different product
+configurations, but do not require distinguishing properties or close additional
+properties. After resolving their references, independent Ajv Draft 4 validation
+accepts each of these bodies in **all four** branches:
+
+- `{}`
+- `{ "fight_mode": true }`
+- `{ "auto_update_model": true, "bm_cookie_enabled": true, "suppress_session_score": false }`
+
+None contains a read-only field or a converter sentinel. Each fails the complete
+schema because `oneOf` requires exactly one matching alternative. This is not
+fixed by read-only pruning. Selecting the first branch or interpreting `oneOf` as
+`anyOf` would change the pinned contract; manufacturing invalid values for other
+branches would produce a misleading request template. Neither is authorized.
+
+`tests/request-body-ambiguity.test.mjs` reproduces the conflict directly from the
+checksum-verified source using the existing pinned Ajv dependency, independently
+of the candidate normalizer:
+
+```sh
+node --test tests/request-body-ambiguity.test.mjs
+```
+
+Implementation must stop at this ambiguity until a request-semantics policy is
+explicitly reviewed. The diagnostic is revision-bound and does not grant an
+exception, modify the source, or weaken any generation or validation gate.
