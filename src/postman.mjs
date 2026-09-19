@@ -7,6 +7,7 @@ import { createRequire } from 'node:module';
 import { format } from 'node:util';
 import { DEFAULT_BASE_URL } from './constants.mjs';
 import { applyAuthentication, AUTH_VARIABLES } from './auth.mjs';
+import { createBodyContract, summarizeBodyResults } from './request-body.mjs';
 
 const require = createRequire(import.meta.url);
 const converter = require('openapi-to-postmanv2');
@@ -123,31 +124,32 @@ function coreIdentifierVariable(key) {
   return undefined;
 }
 
-function replaceCoreIdentifiers(value) {
-  if (Array.isArray(value)) return value.map(replaceCoreIdentifiers);
+function replaceCoreIdentifiers(value, preserveTypes = false) {
+  if (Array.isArray(value)) return value.map(child => replaceCoreIdentifiers(child, preserveTypes));
   if (!value || typeof value !== 'object') return value;
   return Object.fromEntries(
     Object.entries(value).map(([key, child]) => [
       key,
-      coreIdentifierVariable(key) ?? replaceCoreIdentifiers(child)
+      (!preserveTypes || typeof child === 'string' ? coreIdentifierVariable(key) : undefined) ??
+        replaceCoreIdentifiers(child, preserveTypes)
     ])
   );
 }
 
-function sanitizeJsonString(value) {
+function sanitizeJsonString(value, preserveTypes = false) {
   try {
-    return JSON.stringify(replaceCoreIdentifiers(JSON.parse(value)), null, 2);
+    return JSON.stringify(replaceCoreIdentifiers(JSON.parse(value), preserveTypes), null, 2);
   } catch {
     return value;
   }
 }
 
-function sanitizeRequestIdentifiers(request) {
+function sanitizeRequestIdentifiers(request, preserveBody = false) {
   for (const query of request.url?.query ?? []) {
     query.value = IDENTIFIER_VARIABLES[query.key] ?? query.value;
   }
-  if (typeof request.body?.raw === 'string') {
-    request.body.raw = sanitizeJsonString(request.body.raw);
+  if (!preserveBody && typeof request.body?.raw === 'string') {
+    request.body.raw = sanitizeJsonString(request.body.raw, true);
   }
 }
 
@@ -171,9 +173,10 @@ function normalizeUuidIds(value, seed, breadcrumb = []) {
   }
 }
 
-function normalizeCollection(collection, { partition, operations, commit, schemaSha256 }, secondary) {
+function normalizeCollection(collection, { partition, operations, commit, schemaSha256 }, secondary, bodies) {
   const expected = new Map(operations.map((operation) => [operation.key, operation]));
   const represented = new Set();
+  const bodyResults = [];
 
   function visit(items, ancestry = []) {
     for (const item of items ?? []) {
@@ -204,7 +207,9 @@ function normalizeCollection(collection, { partition, operations, commit, schema
       const projected = secondary.get(key);
       assert.ok(projected, `Missing secondary query: ${key}`);
       projectQueryRows(item.request, projected);
-      sanitizeRequestIdentifiers(item.request);
+      const bodyResult = bodies.normalize(item.request, operation);
+      sanitizeRequestIdentifiers(item.request, bodyResult.classification === 'source-incomplete');
+      bodyResults.push(bodies.validate(item.request, operation));
       if (typeof item.request.url === 'string') {
         item.request.url = { raw: makeRawUrl(apiPath), host: ['{{base_url}}'], path: [] };
       } else {
@@ -250,7 +255,7 @@ function normalizeCollection(collection, { partition, operations, commit, schema
     { key: 'zone_id', value: '', type: 'string' }
   ];
   normalizeUuidIds(collection, `${partition.id}:${commit}`);
-  return { collection, represented: [...represented] };
+  return { collection, represented: [...represented], requestBodies: summarizeBodyResults(bodyResults) };
 }
 
 export function projectQueryRows(primary, secondary) {
@@ -308,7 +313,8 @@ export async function generateCollection(schema, context) {
   }
   const keys = new Set(context.operations.map(o => o.key));
   assertOmissions(omissions, (context.queryPolicy?.omissions ?? []).filter(o => keys.has(o.operation)));
-  const normalized = normalizeCollection(converted.collection, context, indexed);
+  const normalized = normalizeCollection(converted.collection, { ...context, operations: contractOperations }, indexed,
+    createBodyContract(secondaryInput));
   return { ...normalized, warnings: converted.warnings,
     queryProjection: { enabled, disabled, omissions, secondaryWarnings: diagnostics } };
 }

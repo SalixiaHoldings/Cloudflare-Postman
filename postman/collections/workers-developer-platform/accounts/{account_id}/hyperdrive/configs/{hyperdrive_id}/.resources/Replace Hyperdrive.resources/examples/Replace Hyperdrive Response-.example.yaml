@@ -11,24 +11,14 @@ request:
     type: json
     content: |-
       {
-        "id": "023e105f4ecef8ad9ca31a8372d0c353",
         "name": "example-hyperdrive",
         "origin": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "caching": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "mtls": {
-          "ca_certificate_id": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "mtls_certificate_id": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "sslmode": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
+          "scheme": "postgres",
+          "database": "postgres",
+          "user": "postgres",
+          "password": "{{password}}",
+          "host": "database.example.com",
+          "port": 5432
         },
         "origin_connection_limit": 60
       }

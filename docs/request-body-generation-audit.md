@@ -18,7 +18,7 @@ Codex's checked-out full-distribution scan measured **512 generated `.request.ya
 
 ## Current generation boundary
 
-The primary `openapi-to-postmanv2@6.3.3` conversion owns request bodies. `src/postman.mjs` currently normalizes auth, query rows, URLs, identifiers, IDs, descriptions, and response snapshots, but it does not independently validate or normalize generated request-body semantics against each operation's `requestBody` schema.
+The primary `openapi-to-postmanv2@6.3.3` conversion supplies candidate request bodies. The generic `src/request-body.mjs` correctness layer normalizes and validates them against each operation's pinned request/media schema before identifier sanitization and validates them again afterward. `src/validate.mjs` independently reruns request validation over the complete checked-in distribution. Response bodies remain outside this correction boundary.
 
 The primary converter uses:
 
@@ -40,7 +40,7 @@ For generated request bodies:
 3. Preserve writable fields, including `writeOnly` fields.
 4. Never emit `<Error: Too many levels of nesting to fake this schema>` or similar converter-error sentinel text in a live request body.
 5. Never silently invent a field that is not writable according to the request schema.
-6. If an optional field cannot be represented safely, prefer omission over an invalid placeholder. If a required body/value cannot be represented safely, fail generation for explicit review rather than emitting a misleading request.
+6. If an optional field cannot be represented safely, prefer omission over an invalid placeholder. If a required body/value cannot be represented safely, fail generation unless the mechanically proven, explicitly reported `source-incomplete` policy below applies.
 7. Preserve request media types and non-JSON body modes such as form-data unless a reviewed generic fix is necessary for them.
 8. Do not modify response examples merely to make request validation pass.
 9. Do not patch Cloudflare's upstream schema and do not add endpoint-specific serialization.
@@ -153,16 +153,15 @@ The diagnostic remains revision-bound: a schema pin change must trigger explicit
 reevaluation. Implementation proceeds under this policy without waiting for an
 upstream correction; any new unresolved semantic conflict still stops the work.
 
-## Current stop condition: required value without a value schema
+## Reviewed compatibility policy: source-incomplete required values
 
-The overlapping-`oneOf` policy is implemented in the local candidate and the
-Bot Management compatibility regressions pass. The service-token failure was a
+The overlapping-`oneOf` policy is implemented generically. The service-token failure was a
 separate implementation bug: name-based credential sanitization replaced the
 numeric `client_secret_version` with a quoted Postman variable. The candidate now
 preserves non-string request values during that substitution. This changes
 neither the upstream schema nor response-example sanitization.
 
-The resumed distribution probe found a different unresolved contract at the
+The distribution probe independently confirmed an incomplete source contract at the
 same pin: both `PATCH /zones/{zone_id}/firewall/rules` and
 `PUT /zones/{zone_id}/firewall/rules` declare a required JSON body with exactly:
 
@@ -183,12 +182,100 @@ request schema; the reviewed overlap rule cannot apply.
 
 This source is underspecified rather than contradictory: both a fictional string
 and a boolean for `id` satisfy its stated constraints. Neither supplies evidence
-of the intended request value. The candidate fails closed at the required `id`
-instead of inventing an untyped value, borrowing a response/path schema, or
-switching to a scalar body to bypass an object-only `required` keyword.
+of the intended request value. These requests are classified as `source-incomplete`: their original converter
+body is preserved byte-for-byte, with no fabricated `id` or inferred body shape.
 
-`tests/request-body-required-value.test.mjs` reproduces these facts independently
-from checksum-verified source. The source paths and missing value semantics need
-review before implementation can continue. Other probe failures remain
-unclassified; this diagnostic does not authorize their suppression. Generated
-artifacts remain unchanged, and full regeneration/validation is incomplete.
+The generic rule is deliberately separate from successful schema validation:
+
+- Prove that a missing required value has no usable value schema, example,
+  default, or other construction semantics in the pinned request contract.
+- Preserve the primary converter body rather than infer from responses, sibling
+  operations, docs, SDKs, or history. Do not change the pinned schema.
+- Require that the preserved body has no other schema failures, read-only
+  leakage, or converter sentinels. Zero-match unions cannot be excused.
+- Add a generated request-description warning that the pinned OpenAPI cannot
+  safely supply the required value and the body template is incomplete.
+- Report the operation, missing value path, exact schema pointer, and reason in
+  the generation manifest and validation output. Count it separately from valid
+  templates. Validation independently reproves the classification and warning.
+- Do not apply the classification when authoritative request examples/defaults
+  or sufficient schema semantics can supply the value.
+
+`tests/request-body-required-value.test.mjs` is revision-bound and independently
+proves the missing semantics with Ajv, then verifies preservation, classification,
+exact source paths, warning, and absence of a fabricated `id`. Synthetic tests
+verify the policy without endpoint names and reject unrelated violations.
+
+## Implementation boundaries
+
+The reader resolves local references without mutating the source, applies
+request/read-only semantics recursively, and checks structural OpenAPI 3.0
+constraints, including composition, required properties, cardinality, enums,
+patterns, numeric bounds, and additional properties. OAS `format` annotations
+are not assertions; unresolved Postman string variables remain templates, whose
+runtime values are not available for enum/pattern/length validation.
+
+Following [OpenAPI 3.0 Schema Object semantics](https://spec.openapis.org/oas/v3.0.3.html#schema-object),
+`readOnly` applies at property definitions (including referenced/composed ones).
+Properties inside array objects are pruned recursively. An annotation on a
+primitive array-item schema does not mark the containing writable array as
+read-only; synthetic coverage guards that distinction.
+
+Safe converter values are retained. Optional unsafe subtrees are omitted.
+Required values may use pinned examples/defaults/enums or deterministic values
+from explicit types and constraints; every result must validate. An object is
+never replaced with a scalar to evade a required-property declaration. Evaluation
+is bounded and exhaustion fails closed. Non-JSON modes retain their representation;
+form fields receive the same writable/sentinel checks. The request-only typed
+identifier correction preserves numeric and structured values such as
+`client_secret_version`; response sanitization is unchanged.
+
+Native Git equivalence now checks live body modes and content as well as the
+existing identity/auth/query contracts. JSON/text bytes must match exactly.
+Form comparisons account only for the official migration's semantic defaults
+(empty descriptions, false disabled flags, and empty unselected file paths).
+This comparison does not rewrite any generated YAML or broaden the approved
+migration normalization.
+
+## Distribution results at the reviewed pin
+
+Measured against the pre-implementation tree at
+`f0c67b40bb4abb8367165c9adfc07f8cfc6a3648`, using parsed live request bodies:
+
+| Measurement | Before | After |
+| --- | ---: | ---: |
+| Reference operations, exactly once | 3,540 | 3,540 |
+| Reference requests with bodies | 1,254 | 1,254 |
+| Native Git request files, including bootstrap | 3,543 | 3,543 |
+| Live v2.1 bodies containing the nesting sentinel | 512 | 0 |
+| Native Git request files with live-body sentinels | 512 | 0 |
+| Affected JSON / form-data request files | 507 / 5 | 0 / 0 |
+
+The final report separately counts **1,207 valid body templates**, **31
+ambiguous-oneOf requests**, **16 source-incomplete requests**, and **2,286
+requests without bodies**. The incomplete set consists of the two firewall
+required-property cases plus fourteen operations declaring a required JSON body
+without a schema or example. Their converter bodies are preserved, not certified
+as valid. Each carries the generated warning. The
+[manifest](../dist/v2.1/manifest.json) records every condition by operation and
+the exact missing-value schema paths; validation independently reproduces it.
+
+The generated diff changes 576 live bodies: all 512 sentinel-bearing bodies plus
+64 corrections involving read-only fields, incorrect converter value types,
+required fields, enums, or property-count constraints. The 592 changed Native
+Git request files are those 576 bodies plus 16 warning-only changes. The 1,412
+changed example files contain corresponding saved **request** snapshots.
+Structural comparison of every reference collection confirms **zero response
+payload changes and zero unrelated field changes** after excluding corrected
+live/saved request bodies and the exact incomplete-source warning. URLs, query
+rows, auth, identity, names, partition ownership, and response payloads retain
+their baseline semantics. All body modes are unchanged: 1,212 raw, 32 form-data,
+9 file, and 1 URL-encoded.
+
+Subscription creation now contains `frequency: "monthly"`; the optional
+`rate_plan` and other unsafe optional subtrees were omitted because their
+converter values were sentinels. A separate pinned regression proves safely
+represented `app` and `component_values` remain writable; no endpoint allowlist
+drives generation. Account service-token creation retains numeric
+`client_secret_version: 1` and validates normally, without either compatibility
+classification.

@@ -9,7 +9,14 @@ request:
     Accept: application/json
   body:
     type: json
-    content: "null"
+    content: |-
+      {
+        "comments": "Trusted partner domain",
+        "is_recent": true,
+        "is_regex": false,
+        "is_similarity": false,
+        "pattern": "example.com"
+      }
 response:
   statusCode: 400
   statusText: Bad Request

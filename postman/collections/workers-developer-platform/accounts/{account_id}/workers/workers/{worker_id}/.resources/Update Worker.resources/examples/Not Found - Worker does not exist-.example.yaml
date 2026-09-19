@@ -11,24 +11,15 @@ request:
     type: json
     content: |-
       {
-        "logpush": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "name": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "observability": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "subdomain": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "tags": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "tail_consumers": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "logpush": false,
+        "name": "my-worker",
+        "observability": {},
+        "subdomain": {},
+        "tags": [
+          "my-team",
+          "my-public-api"
+        ],
+        "tail_consumers": []
       }
 response:
   statusCode: 404

@@ -42,7 +42,7 @@ async function generateV2({ outputRoot = V2_DIR, schemaPath, schemaLock } = {}) 
   for (const partition of config.partitions) {
     const partitionOperations = assignments.get(partition.id);
     const partitionSchema = subsetSchema(schema, partition, partitionOperations);
-    const { collection, represented, warnings, queryProjection } = await generateCollection(partitionSchema, {
+    const { collection, represented, warnings, queryProjection, requestBodies } = await generateCollection(partitionSchema, {
       partition,
       queryPolicy,
       secondaryResult: secondaryResults.get(partition.id),
@@ -61,6 +61,7 @@ async function generateV2({ outputRoot = V2_DIR, schemaPath, schemaLock } = {}) 
       residual: partition.residual === true,
       converterWarningCount: warnings.length,
       queryProjection,
+      requestBodies,
       authentication: authenticationCounts(partitionOperations),
       sha256: sha256(serialized)
     });

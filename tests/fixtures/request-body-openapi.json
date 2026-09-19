@@ -1,0 +1,63 @@
+{
+  "openapi": "3.0.3",
+  "info": { "title": "Fictional request-body fixture", "version": "1.0.0" },
+  "servers": [{ "url": "https://api.cloudflare.com/client/v4" }],
+  "paths": {
+    "/fictional": {
+      "post": {
+        "operationId": "fictional-create",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Shared" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "Fictional shared response",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Shared" } } }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ServerId": { "type": "string", "readOnly": true, "example": "fictional-server-id" },
+      "Child": {
+        "type": "object",
+        "required": ["server_id", "input_value"],
+        "properties": {
+          "server_id": { "$ref": "#/components/schemas/ServerId" },
+          "input_value": { "type": "string", "writeOnly": true, "example": "fictional-input" },
+          "legacy": { "type": "string", "deprecated": true, "example": "fictional-legacy" }
+        }
+      },
+      "Shared": {
+        "allOf": [
+          {
+            "type": "object",
+            "required": ["server_id", "name", "children"],
+            "properties": {
+              "server_id": { "$ref": "#/components/schemas/ServerId" },
+              "name": { "type": "string", "example": "fictional-name" },
+              "child": { "$ref": "#/components/schemas/Child" },
+              "children": { "type": "array", "items": { "$ref": "#/components/schemas/Child" } },
+              "response_only": { "type": "object", "properties": { "id": { "$ref": "#/components/schemas/ServerId" } } }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "choice": {
+                "oneOf": [
+                  { "allOf": [{ "$ref": "#/components/schemas/Child" }, { "type": "object", "required": ["kind"], "properties": { "kind": { "type": "string", "enum": ["first"] } } }] },
+                  { "type": "object", "required": ["kind"], "properties": { "kind": { "type": "string", "enum": ["second"] }, "server_id": { "$ref": "#/components/schemas/ServerId" } } }
+                ]
+              },
+              "alternative": { "anyOf": [{ "$ref": "#/components/schemas/Child" }, { "type": "string" }] }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -9,7 +9,16 @@ request:
     Accept: application/json
   body:
     type: json
-    content: "null"
+    content: |-
+      {
+        "enabled": true,
+        "name": "Block phishing keywords",
+        "notes": "Blocks common phishing subject lines",
+        "pattern": "urgent.*verify.*account",
+        "targets": [
+          "SUBJECT"
+        ]
+      }
 response:
   statusCode: 200
   statusText: OK

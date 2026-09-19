@@ -22,7 +22,10 @@ headers:
   X-Auth-Key: "{{api_key}}"
 body:
   type: json
-  content: "{}"
+  content: |-
+    {
+      "preview_enabled": true
+    }
 auth:
   type: noauth
 examples: ./.resources/Update a sending subdomain.resources/examples

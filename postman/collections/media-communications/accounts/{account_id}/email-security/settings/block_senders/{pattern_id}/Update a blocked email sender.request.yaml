@@ -20,7 +20,13 @@ headers:
   Accept: application/json
 body:
   type: json
-  content: "null"
+  content: |-
+    {
+      "comments": "Block sender with email test@example.com",
+      "is_regex": false,
+      "pattern": "test@example.com",
+      "pattern_type": "EMAIL"
+    }
 auth:
   type: bearer
   credentials:

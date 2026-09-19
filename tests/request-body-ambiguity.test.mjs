@@ -3,14 +3,17 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import Ajv from 'ajv-draft-04';
 import { fetchPinnedSchema } from '../src/upstream.mjs';
+import { createBodyContract } from '../src/request-body.mjs';
 
-// A diagnostic for the audit's stop-and-review boundary, not a schema override.
-test('pinned Bot Management oneOf accepts ordinary writable examples in all four branches', async () => {
+// A revision-bound proof of the generic compatibility condition, not an override.
+test('pinned Bot Management overlap is classified without changing the source or request', async () => {
   const { destination, lock } = await fetchPinnedSchema();
   assert.equal(lock.commit, '49731bd0592b0c8c2c781b8d15d9f27c7293b210',
     'Review and retire or update the request-body ambiguity diagnostic when advancing the pin.');
   const document = JSON.parse(await readFile(destination, 'utf8'));
   const body = document.paths['/zones/{zone_id}/bot_management'].put.requestBody;
+  const contract = createBodyContract(document);
+  const before = JSON.stringify(body);
   assert.equal(body.required, true);
   function dereference(value) {
     if (!value || typeof value !== 'object') return value;
@@ -32,5 +35,10 @@ test('pinned Bot Management oneOf accepts ordinary writable examples in all four
     assert.deepEqual(branches.map(branch => branch(value)), [true, true, true, true]);
     assert.equal(validate(value), false);
     assert.deepEqual(validate.errors.map(error => error.keyword), ['oneOf']);
+    assert.equal(contract.classifyValue(body.content['application/json'].schema, value), 'ambiguous-oneOf');
+    assert.deepEqual(contract.normalizeValue(body.content['application/json'].schema, value), value);
   }
+  assert.equal(JSON.stringify(body), before);
+  assert.equal(contract.classifyValue(body.content['application/json'].schema, { enable_js: 'invalid' }), 'invalid');
+  assert.equal(contract.classifyValue(body.content['application/json'].schema, { stale_zone_configuration: {} }), 'invalid');
 });
