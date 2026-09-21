@@ -18,6 +18,17 @@ Complete request validation is required after selecting children. If a locally
 valid choice fails the enclosing request, bounded retries can try the next
 candidate. No emitted value is certified to have business meaning.
 
+Before any conversion, generation parses a separate request-body authority from
+exactly the same pinned bytes and recursively freezes it. Each partition supplies
+a view of this graph to `createBodyContract()` for normalization and validation.
+A deterministic before/after hash checks that the complete authority remains
+unchanged. Converter-added defaults or cardinality are never source facts.
+
+The primary converter working graph and full secondary query pass retain their
+existing behavior. Neither receives the authority graph. Shared converter
+mutation/order dependence is a separate generator concern; see the
+[follow-up boundary](request-template-construction-diff.md#deferred-global-converter-isolation).
+
 The existing structural format policy is unchanged. String-variable witnesses
 add their own Ajv/ajv-formats checks for the supported string constraints; this
 does not extend format enforcement to unrelated preserved converter values.
@@ -47,6 +58,11 @@ Strict validity below means validity under that request-validation contract.
   `additionalProperties`, read-only annotations and composition. Safe existing
   converter properties and authoritative examples retain precedence. Do not
   fill optional properties merely because a fallback is available.
+  Object intent declared through properties, required keys or object cardinality
+  survives composition even without an explicit object type. Child scalar/array
+  annotations cannot replace that structure. A complete authoritative media or
+  schema example may still supply another representation if the whole request
+  validates; Ajv's structural interpretation is unchanged.
 - **Arrays:** preserve safe converter arrays; otherwise try their minimum
   required prefix and a minimally constructed array. Recursively construct the
   required items, with at most 256 new items. Complete Ajv validation enforces
@@ -65,6 +81,12 @@ Strict validity below means validity under that request-validation contract.
   temporary view. Other contradictions remain errors. At most 256 construction
   attempts and 256 alternative combinations are allowed; existing depth and
   evaluation bounds remain in place.
+  During union repair, surviving declared property paths constrain branch choice.
+  Repair may complete that shape, but cannot discard it to manufacture a different
+  alternative. Affinity survives ancestor retries: an unconstructible required
+  subtree fails, while an optional subtree is omitted. An optional union containing
+  only converter sentinels is omitted rather than assigned a synthetic branch.
+  Already valid input, including proven overlapping unions, remains unchanged.
 - **Multipart file arrays:** repeated enabled file rows represent array elements.
   Construction emits the minimum required rows, with at least one row for a
   represented required file property, each with empty `src`. No file content or
@@ -180,9 +202,10 @@ now assert the specifically authorized finite policy and its rejection bounds.
 | 55 | `POST /organizations/{organization_id}/members` | strict-valid |
 | 56 | `PUT /user/tokens/{token_id}` | strict-valid |
 
-## Final local verification
+## Verification history
 
-On Node 24, `npm ci`, the 81 focused request-body/Native Git tests, all 113
+At the original finite-policy head `f6508369519b02dc79bc03e29e994bd3944af1ae`,
+on Node 24, `npm ci`, the 81 focused request-body/Native Git tests, all 113
 repository tests, `npm run generate`, `npm run generate:check`,
 `npm run validate`, the complete `npm run check`, and `git diff --check` pass.
 The final complete check reruns the tests, deterministic regeneration and
@@ -197,7 +220,20 @@ synthetic token IDs. Email occurrences are also attributed: 381 upstream and 12
 synthetic occurrences. The official Darwin x64 archive SHA-256 is
 `dfe101a4db2255fc85120ac7f3d25e4342c3c20cf749f2c20a18081af1952709`.
 
-The [diff audit](request-template-construction-diff.md) records final counts,
-all 135 individual body changes, identical file sets, and independent zero-change
-response-payload checks in both formats. Hosted Validate is reported on PR #12
-for the published commit; the PR remains draft.
+The historical audit at that commit records 135 individual body changes, identical
+file sets, and zero response-payload changes in both formats. Hosted Validate
+passed for that commit; PR #12 remains draft.
+
+The subsequent three construction corrections use a pristine request-body
+source while preserving the existing non-body converter behavior. The
+[correction diff audit](request-template-construction-diff.md) records all changes
+relative to `f6508369519b02dc79bc03e29e994bd3944af1ae`, including the complete
+response/query/header immutability comparison. The schema pin, finite primitive
+policy and compatibility categories remain unchanged.
+
+For the corrections, 93 focused tests and 125 full tests pass, together with
+installation, generation, deterministic regeneration, validation, the complete
+check and checksum-verified Gitleaks. Both formats retain zero response, query,
+header and unrelated generated-field changes relative to that baseline. All 30
+live-body changes and 71 corresponding saved request bodies are documented in
+the correction audit.

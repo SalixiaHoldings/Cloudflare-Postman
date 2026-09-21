@@ -173,7 +173,8 @@ test('source-incomplete is generic, and never exempts ordinary violations or ava
       readonly: { type: 'string', readOnly: true }, typed: { type: 'string' }
     } }, value));
   }
-  assert.equal(run({ oneOf: [{ type: 'number' }, { type: 'boolean' }], required: ['missing'] }, {}).result.classification, 'valid');
+  // Scalar child alternatives cannot erase the enclosing required object intent.
+  assert.throws(() => run({ oneOf: [{ type: 'number' }, { type: 'boolean' }], required: ['missing'] }, {}), /cannot be represented/u);
   const { request, operation } = run({ type: 'object' }, {});
   request.description += INCOMPLETE_BODY_WARNING;
   assert.throws(() => contract.validate(request, operation), /stale source-incomplete/u);

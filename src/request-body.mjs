@@ -252,9 +252,28 @@ export function createBodyContract(document, revision = {}) {
     return substitute(input);
   }
 
+  const objectIntent = nodes => nodes.some(node => node.type === 'object' ||
+    (!node.type && ['properties', 'required', 'minProperties', 'maxProperties'].some(key => own(node, key))));
+
+  // Only surviving, declared property paths distinguish union alternatives.
+  // Converter error wrappers and external selector/name guesses are not evidence.
+  function footprint(input) {
+    if (!object(input)) return [];
+    return Object.entries(input).flatMap(([key, child]) => {
+      const nested = footprint(child);
+      if (hasBodySentinel(child) && !nested.length) return [];
+      return [[key], ...nested.map(path => [key, ...path])];
+    });
+  }
+
+  function declares(nodes, [key, ...path]) {
+    const children = nodes.flatMap(node => own(node.properties ?? {}, key) ? [node.properties[key]] : []);
+    return children.length > 0 && (!path.length || combinations(children).some(plan => declares(plan, path)));
+  }
+
   function repair(nodes, input, trail) {
     const candidates = [];
-    if (nodes.some(node => node.type === 'object' || node.properties)) candidates.push({});
+    if (objectIntent(nodes)) candidates.push({});
     if (nodes.some(node => node.type === 'array')) {
       const minimum = Math.max(0, ...nodes.map(node => node.minItems ?? 0));
       if (minimum <= CONSTRUCTION_LIMIT) {
@@ -314,11 +333,11 @@ export function createBodyContract(document, revision = {}) {
 
   let construction;
   function construct(schemas, input, required, depth = 0, location = '$') {
-    const indices = new Map();
+    const indices = new Map(), affinities = new Map();
     let failure;
     try {
       for (let attempt = 0; attempt < CONSTRUCTION_LIMIT; attempt++) {
-        construction = { indices, points: [] };
+        construction = { indices, affinities, points: [] };
         try { return normalize(schemas, input, required, depth, location); }
         catch (error) {
           if (!(error instanceof UnsafeValue)) throw error;
@@ -340,7 +359,17 @@ export function createBodyContract(document, revision = {}) {
     if (!required && Array.isArray(input) && hasBodySentinel(input)) return OMIT;
     // A proven overlapping-oneOf condition alone must never change the request.
     if (input !== undefined && matches(schemas, input, depth, { property })) return input;
-    const choices = combinations(schemas);
+    let choices = combinations(schemas);
+    if (choices.some(nodes => nodes.some(node => node.oneOf || node.anyOf))) {
+      const paths = footprint(input);
+      if (!required && object(input) && !paths.length) return OMIT;
+      const evidence = paths.filter(path => choices.some(nodes => declares(nodes, path)) &&
+        !choices.every(nodes => declares(nodes, path)));
+      if (evidence.length) construction?.affinities.set(location, evidence);
+      // Ancestor reconstruction must not erase affinity and retry another kind.
+      const affinity = construction?.affinities.get(location) ?? evidence;
+      choices = choices.filter(nodes => affinity.every(path => declares(nodes, path)));
+    }
     let failure, accepted = 0;
     // Preserve converter values when safe. Optional unsafe values are omitted; required
     // values use source candidates before bounded synthetic template construction.
@@ -352,6 +381,11 @@ export function createBodyContract(document, revision = {}) {
         for (const candidate of candidates) {
           try {
             if (candidate === undefined) continue;
+            if (objectIntent(nodes) && !object(candidate)) {
+              const completeExample = phase === 'example' && schemas.some(source =>
+                own(resolve(source), 'example') && resolve(source).example === candidate);
+              if (!completeExample || !matches(schemas, candidate, depth, { property })) continue;
+            }
             const output = normalizeNodes(nodes, candidate, depth, location, required, trail);
             if (!matches(schemas, output, depth, { property })) continue;
             if (!required && object(output) && !Object.keys(output).length && object(input) && Object.keys(input).length) return OMIT;

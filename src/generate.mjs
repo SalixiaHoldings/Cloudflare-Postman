@@ -13,6 +13,7 @@ import { classifyOperations, loadPartitionConfig } from './partition.mjs';
 import { generateCollection } from './postman.mjs';
 import { fetchPinnedSchema } from './upstream.mjs';
 import { authenticationCounts } from './auth.mjs';
+import { createRequestBodySource } from './request-body-source.mjs';
 
 async function cleanGeneratedDirectories(outputRoot) {
   for (const directory of ['reference', 'workflows', 'environments']) {
@@ -25,10 +26,12 @@ async function cleanGeneratedDirectories(outputRoot) {
   }
 }
 
-async function generateV2({ outputRoot = V2_DIR, schemaPath, schemaLock } = {}) {
+export async function generateV2({ outputRoot = V2_DIR, schemaPath, schemaLock } = {}) {
   const pinned = schemaPath && schemaLock ? { destination: schemaPath, lock: schemaLock } : await fetchPinnedSchema();
   assertQueryRevision(queryPolicy, pinned.lock, (await readJson(path.join(ROOT, 'package.json'))).devDependencies['openapi-to-postmanv2']);
-  const schema = JSON.parse(await readFile(pinned.destination, 'utf8'));
+  const schemaBytes = await readFile(pinned.destination, 'utf8');
+  const requestBodySource = createRequestBodySource(schemaBytes);
+  const schema = JSON.parse(schemaBytes);
   const operations = listOperations(schema);
   const config = await loadPartitionConfig();
   const { assignments, ownership, classification, overlapCount, overlapDeclarations } = classifyOperations(operations, config);
@@ -44,6 +47,7 @@ async function generateV2({ outputRoot = V2_DIR, schemaPath, schemaLock } = {}) 
     const partitionSchema = subsetSchema(schema, partition, partitionOperations);
     const { collection, represented, warnings, queryProjection, requestBodies } = await generateCollection(partitionSchema, {
       partition,
+      requestBodySchema: subsetSchema(requestBodySource.document, partition, partitionOperations),
       queryPolicy,
       secondaryResult: secondaryResults.get(partition.id),
       operations: partitionOperations,
@@ -120,6 +124,8 @@ async function generateV2({ outputRoot = V2_DIR, schemaPath, schemaLock } = {}) 
       sha256: sha256(environmentSerialized)
     }
   });
+
+  requestBodySource.assertUnchanged();
 
   return {
     operations: operations.length,

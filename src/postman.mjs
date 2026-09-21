@@ -314,8 +314,11 @@ export async function generateCollection(schema, context) {
   }
   const keys = new Set(context.operations.map(o => o.key));
   assertOmissions(omissions, (context.queryPolicy?.omissions ?? []).filter(o => keys.has(o.operation)));
+  // Full generation supplies a pristine source created before any partition ran.
+  // Standalone collection callers retain their pre-conversion snapshot fallback.
   const normalized = normalizeCollection(converted.collection, { ...context, operations: contractOperations }, indexed,
-    createBodyContract(secondaryInput, { commit: context.commit, schemaSha256: context.schemaSha256 }));
+    createBodyContract(context.requestBodySchema ?? secondaryInput,
+      { commit: context.commit, schemaSha256: context.schemaSha256 }));
   return { ...normalized, warnings: converted.warnings,
     queryProjection: { enabled, disabled, omissions, secondaryWarnings: diagnostics } };
 }

@@ -13,14 +13,6 @@ request:
     content: |-
       {
         "overwrite": true,
-        "source": {
-          "vendor": "s3",
-          "bucket": "{{source__bucket}}",
-          "secret": {
-            "accessKeyId": "{{source__secret__accessKeyId}}",
-            "secretAccessKey": "{{source__secret__secretAccessKey}}"
-          }
-        },
         "target": {
           "vendor": "r2",
           "bucket": "{{target__bucket}}",
