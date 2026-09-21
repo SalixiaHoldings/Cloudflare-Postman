@@ -19,12 +19,7 @@ request:
         "device_posture": "any(device_posture.checks.passed[*] in {\"1308749e-fcfb-4ebc-b051-fe022b632644\"})",
         "enabled": true,
         "expiration": {
-          "expires_at": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "duration": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
+          "expires_at": "2014-01-01T05:20:00.12345Z"
         },
         "filters": [
           "http"
@@ -32,115 +27,11 @@ request:
         "identity": "any(identity.groups.name[*] in {\"finance\"})",
         "precedence": 9129,
         "rule_settings": {
-          "add_headers": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "allow_child_bypass": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "audit_ssh": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "biso_admin_controls": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
           "block_page": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "block_page_enabled": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "block_reason": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "bypass_parent_rule": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "check_session": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "delete_headers": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "dns_resolvers": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "egress": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "forensic_copy": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "ignore_cname_category_matches": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "insecure_disable_dnssec_validation": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "ip_categories": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "ip_indicator_feeds": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "l4override": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "notification_settings": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "override_host": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "override_ips": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "payload_log": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "quarantine": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
+            "target_uri": "{{rule_settings__block_page__target_uri}}"
           },
           "redirect": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "resolve_dns_internally": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "resolve_dns_through_cloudflare": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "set_headers": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "untrusted_cert": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
-        },
-        "schedule": {
-          "fri": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "mon": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "sat": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "sun": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "thu": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "time_zone": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "tue": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "wed": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
+            "target_uri": "{{rule_settings__redirect__target_uri}}"
           }
         },
         "traffic": "http.request.uri matches \".*a/partial/uri.*\" and http.request.host in $01302951-49f9-47c9-a400-0297e60b6a10"

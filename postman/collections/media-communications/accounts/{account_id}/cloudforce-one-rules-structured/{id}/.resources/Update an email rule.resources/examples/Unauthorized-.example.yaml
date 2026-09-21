@@ -12,64 +12,21 @@ request:
     content: |-
       {
         "condition": {
-          "type": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "operator": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "conditions": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
+          "type": "group",
+          "operator": "and",
+          "conditions": [
+            {
+              "type": "scalar",
+              "field": "{{condition__conditions__0__field}}",
+              "operator": "==",
+              "value": "{{condition__conditions__0__value}}"
+            }
+          ]
         },
         "description": "string",
         "enabled": true,
-        "meta": [
-          {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
-        ],
         "name": "string",
-        "status": "blocking",
-        "strings": [
-          {
-            "type": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "identifier": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "value": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "match_type": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "modifiers": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            }
-          },
-          {
-            "type": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "identifier": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "value": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "match_type": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "modifiers": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            }
-          }
-        ]
+        "status": "blocking"
       }
 response:
   statusCode: 401

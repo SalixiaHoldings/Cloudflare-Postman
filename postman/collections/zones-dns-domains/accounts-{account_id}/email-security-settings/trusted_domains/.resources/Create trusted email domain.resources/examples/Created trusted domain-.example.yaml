@@ -9,7 +9,13 @@ request:
     Accept: application/json
   body:
     type: json
-    content: "null"
+    content: |-
+      {
+        "pattern": "example.com",
+        "is_regex": false,
+        "is_recent": true,
+        "is_similarity": false
+      }
 response:
   statusCode: 201
   statusText: Created

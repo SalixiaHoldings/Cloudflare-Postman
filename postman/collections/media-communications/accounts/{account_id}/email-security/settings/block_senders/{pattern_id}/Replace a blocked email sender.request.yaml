@@ -20,7 +20,12 @@ headers:
   Accept: application/json
 body:
   type: json
-  content: "null"
+  content: |-
+    {
+      "pattern": "test@example.com",
+      "is_regex": false,
+      "pattern_type": "EMAIL"
+    }
 auth:
   type: bearer
   credentials:

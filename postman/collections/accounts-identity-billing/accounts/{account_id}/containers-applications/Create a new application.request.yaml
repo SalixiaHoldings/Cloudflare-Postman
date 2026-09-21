@@ -33,32 +33,12 @@ body:
   type: json
   content: |-
     {
-      "name": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
-      "scheduling_policy": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
-      "instances": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
-      "max_instances": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
+      "name": "{{name}}",
+      "scheduling_policy": "default",
+      "instances": 0,
+      "max_instances": 0,
       "configuration": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
-      "constraints": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
-      "durable_objects": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
-      "observability": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
-      "rollout_active_grace_period": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
+        "image": "{{configuration__image}}"
       }
     }
 auth:

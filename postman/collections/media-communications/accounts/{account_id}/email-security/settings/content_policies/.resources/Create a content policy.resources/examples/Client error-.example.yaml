@@ -9,7 +9,15 @@ request:
     Accept: application/json
   body:
     type: json
-    content: "null"
+    content: |-
+      {
+        "name": "Block phishing keywords",
+        "pattern": "urgent.*verify.*account",
+        "targets": [
+          "SUBJECT"
+        ],
+        "enabled": true
+      }
 response:
   statusCode: 400
   statusText: Bad Request

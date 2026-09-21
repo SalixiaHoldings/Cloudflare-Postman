@@ -22,7 +22,14 @@ headers:
   X-Auth-Key: "{{api_key}}"
 body:
   type: json
-  content: "null"
+  content: |-
+    {
+      "name": "{{name}}",
+      "pattern": {
+        "regex": "{{pattern__regex}}"
+      },
+      "enabled": false
+    }
 auth:
   type: bearer
   credentials:

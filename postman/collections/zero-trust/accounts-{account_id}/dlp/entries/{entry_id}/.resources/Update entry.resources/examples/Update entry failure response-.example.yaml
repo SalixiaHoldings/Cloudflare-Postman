@@ -13,7 +13,12 @@ request:
     type: json
     content: |-
       {
-        "enabled": true
+        "enabled": true,
+        "name": "{{name}}",
+        "pattern": {
+          "regex": "{{pattern__regex}}"
+        },
+        "type": "custom"
       }
 response:
   statusCode: 400

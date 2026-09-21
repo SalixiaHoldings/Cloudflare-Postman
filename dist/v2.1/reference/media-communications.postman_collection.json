@@ -1985,7 +1985,7 @@
                           "language": "json"
                         }
                       },
-                      "raw": "{\n  \"version\": 2,\n  \"flows\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"etag\": \"string\"\n}"
+                      "raw": "{\n  \"version\": 2,\n  \"flows\": [\n    {\n      \"enabled\": false,\n      \"type\": \"provider\",\n      \"provider\": \"fastly\",\n      \"version\": 0\n    },\n    {\n      \"enabled\": false,\n      \"type\": \"provider\",\n      \"provider\": \"fastly\",\n      \"version\": 0\n    }\n  ],\n  \"etag\": \"string\"\n}"
                     },
                     "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: put_FlowsUpdate\nPUT /accounts/{accountId}/zones/{zoneId}/v1/images/flows\n\nReplace the entire transformation flows configuration for a zone.\n\nAuthentication support: bearer-only\nAuth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                     "header": [
@@ -2049,7 +2049,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"version\": 2,\n  \"flows\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"etag\": \"string\"\n}"
+                          "raw": "{\n  \"version\": 2,\n  \"flows\": [\n    {\n      \"enabled\": false,\n      \"type\": \"provider\",\n      \"provider\": \"fastly\",\n      \"version\": 0\n    },\n    {\n      \"enabled\": false,\n      \"type\": \"provider\",\n      \"provider\": \"fastly\",\n      \"version\": 0\n    }\n  ],\n  \"etag\": \"string\"\n}"
                         },
                         "header": [
                           {
@@ -2113,7 +2113,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"version\": 2,\n  \"flows\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"etag\": \"string\"\n}"
+                          "raw": "{\n  \"version\": 2,\n  \"flows\": [\n    {\n      \"enabled\": false,\n      \"type\": \"provider\",\n      \"provider\": \"fastly\",\n      \"version\": 0\n    },\n    {\n      \"enabled\": false,\n      \"type\": \"provider\",\n      \"provider\": \"fastly\",\n      \"version\": 0\n    }\n  ],\n  \"etag\": \"string\"\n}"
                         },
                         "header": [
                           {
@@ -4190,7 +4190,7 @@
                           "language": "json"
                         }
                       },
-                      "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                      "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                     },
                     "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: cloudforce-one-create-email-rule\nPOST /accounts/{account_id}/cloudforce-one/rules/structured\n\nCreate a structured email rule.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                     "header": [
@@ -4252,7 +4252,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                         },
                         "header": [
                           {
@@ -4314,7 +4314,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                         },
                         "header": [
                           {
@@ -4376,7 +4376,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                         },
                         "header": [
                           {
@@ -4438,7 +4438,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                         },
                         "header": [
                           {
@@ -4500,7 +4500,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                         },
                         "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: cloudforce-one-update-pending-email-rule-approval\nPUT /accounts/{account_id}/cloudforce-one/rules/structured/approvals/{id}\n\nValidate, compile, and replace the proposed structured email rule on a pending approval. Only the original requester may update it.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                         "header": [
@@ -4571,7 +4571,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                             },
                             "header": [
                               {
@@ -4642,7 +4642,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                             },
                             "header": [
                               {
@@ -4713,7 +4713,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                             },
                             "header": [
                               {
@@ -4784,7 +4784,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                             },
                             "header": [
                               {
@@ -4855,7 +4855,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                             },
                             "header": [
                               {
@@ -4922,7 +4922,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                         },
                         "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: cloudforce-one-resubmit-email-rule-approval\nPOST /accounts/{account_id}/cloudforce-one/rules/structured/approvals/{id}/resubmit\n\nValidates and compiles a complete structured email rule, then creates an immutable pending revision of its rejected approval.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                         "header": [
@@ -4994,7 +4994,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                             },
                             "header": [
                               {
@@ -5066,7 +5066,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                             },
                             "header": [
                               {
@@ -5138,7 +5138,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                             },
                             "header": [
                               {
@@ -5210,7 +5210,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                             },
                             "header": [
                               {
@@ -5282,7 +5282,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                              "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"status\": \"silent\"\n}"
                             },
                             "header": [
                               {
@@ -5499,7 +5499,7 @@
                           "language": "json"
                         }
                       },
-                      "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"existing_rule_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                      "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"existing_rule_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n  \"status\": \"silent\"\n}"
                     },
                     "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: cloudforce-one-validate-email-rule\nPOST /accounts/{account_id}/cloudforce-one/rules/structured/validate\n\nValidates structured email rule syntax and metadata.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                     "header": [
@@ -5562,7 +5562,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"existing_rule_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"existing_rule_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n  \"status\": \"silent\"\n}"
                         },
                         "header": [
                           {
@@ -5625,7 +5625,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"existing_rule_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"status\": \"silent\"\n}"
+                          "raw": "{\n  \"name\": \"string\",\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"existing_rule_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n  \"status\": \"silent\"\n}"
                         },
                         "header": [
                           {
@@ -6230,7 +6230,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"name\": \"string\",\n  \"status\": \"blocking\",\n  \"strings\": [\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}"
+                          "raw": "{\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"name\": \"string\",\n  \"status\": \"blocking\"\n}"
                         },
                         "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: cloudforce-one-update-email-rule\nPUT /accounts/{account_id}/cloudforce-one/rules/structured/{id}\n\nUpdates an existing structured email rule.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                         "header": [
@@ -6293,7 +6293,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"name\": \"string\",\n  \"status\": \"blocking\",\n  \"strings\": [\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}"
+                              "raw": "{\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"name\": \"string\",\n  \"status\": \"blocking\"\n}"
                             },
                             "header": [
                               {
@@ -6356,7 +6356,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"name\": \"string\",\n  \"status\": \"blocking\",\n  \"strings\": [\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}"
+                              "raw": "{\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"name\": \"string\",\n  \"status\": \"blocking\"\n}"
                             },
                             "header": [
                               {
@@ -6419,7 +6419,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"name\": \"string\",\n  \"status\": \"blocking\",\n  \"strings\": [\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}"
+                              "raw": "{\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"name\": \"string\",\n  \"status\": \"blocking\"\n}"
                             },
                             "header": [
                               {
@@ -6482,7 +6482,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"name\": \"string\",\n  \"status\": \"blocking\",\n  \"strings\": [\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}"
+                              "raw": "{\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"name\": \"string\",\n  \"status\": \"blocking\"\n}"
                             },
                             "header": [
                               {
@@ -6545,7 +6545,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"name\": \"string\",\n  \"status\": \"blocking\",\n  \"strings\": [\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}"
+                              "raw": "{\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"name\": \"string\",\n  \"status\": \"blocking\"\n}"
                             },
                             "header": [
                               {
@@ -6608,7 +6608,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"condition\": {\n    \"type\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"operator\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conditions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"meta\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"name\": \"string\",\n  \"status\": \"blocking\",\n  \"strings\": [\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identifier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"match_type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"modifiers\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}"
+                              "raw": "{\n  \"condition\": {\n    \"type\": \"group\",\n    \"operator\": \"and\",\n    \"conditions\": [\n      {\n        \"type\": \"scalar\",\n        \"field\": \"{{condition__conditions__0__field}}\",\n        \"operator\": \"==\",\n        \"value\": \"{{condition__conditions__0__value}}\"\n      }\n    ]\n  },\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"name\": \"string\",\n  \"status\": \"blocking\"\n}"
                             },
                             "header": [
                               {
@@ -7544,7 +7544,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"domain\": \"docker.io\",\n  \"auth\": {\n    \"public_credential\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"private_credential\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"kind\": {\n    \"description\": \"Registry provider. This must match `domain`: `DockerHub` for `docker.io`,\\n`ECR` for AWS ECR, or `GAR` for Google Artifact Registry.\\n\",\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"is_public\": false\n}"
+                          "raw": "{\n  \"domain\": \"docker.io\",\n  \"auth\": {\n    \"public_credential\": \"example-user\",\n    \"private_credential\": {\n      \"store_id\": \"14758f1afd44c09b7992073ccf00b43d\",\n      \"secret_name\": \"{{secret_name}}\"\n    }\n  },\n  \"kind\": \"ECR\",\n  \"is_public\": false\n}"
                         },
                         "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: createImageRegistry\nPOST /accounts/{account_id}/containers/registries\n\nRegisters credentials for a supported private external image registry so\nContainers can pull images from it. This endpoint does not create a registry\nor upload an image. Public Docker Hub images and images in the Cloudflare\nmanaged registry do not require this configuration.\n\nRefer to [Image management](https://developers.cloudflare.com/containers/platform-details/image-management/)\nfor supported registries and instructions for storing registry credentials.\n\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                         "header": [
@@ -7605,7 +7605,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"domain\": \"docker.io\",\n  \"auth\": {\n    \"public_credential\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"private_credential\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"kind\": {\n    \"description\": \"Registry provider. This must match `domain`: `DockerHub` for `docker.io`,\\n`ECR` for AWS ECR, or `GAR` for Google Artifact Registry.\\n\",\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"is_public\": false\n}"
+                              "raw": "{\n  \"domain\": \"docker.io\",\n  \"auth\": {\n    \"public_credential\": \"example-user\",\n    \"private_credential\": {\n      \"store_id\": \"14758f1afd44c09b7992073ccf00b43d\",\n      \"secret_name\": \"{{secret_name}}\"\n    }\n  },\n  \"kind\": \"ECR\",\n  \"is_public\": false\n}"
                             },
                             "header": [
                               {
@@ -7666,7 +7666,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"domain\": \"docker.io\",\n  \"auth\": {\n    \"public_credential\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"private_credential\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"kind\": {\n    \"description\": \"Registry provider. This must match `domain`: `DockerHub` for `docker.io`,\\n`ECR` for AWS ECR, or `GAR` for Google Artifact Registry.\\n\",\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"is_public\": false\n}"
+                              "raw": "{\n  \"domain\": \"docker.io\",\n  \"auth\": {\n    \"public_credential\": \"example-user\",\n    \"private_credential\": {\n      \"store_id\": \"14758f1afd44c09b7992073ccf00b43d\",\n      \"secret_name\": \"{{secret_name}}\"\n    }\n  },\n  \"kind\": \"ECR\",\n  \"is_public\": false\n}"
                             },
                             "header": [
                               {
@@ -7727,7 +7727,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"domain\": \"docker.io\",\n  \"auth\": {\n    \"public_credential\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"private_credential\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"kind\": {\n    \"description\": \"Registry provider. This must match `domain`: `DockerHub` for `docker.io`,\\n`ECR` for AWS ECR, or `GAR` for Google Artifact Registry.\\n\",\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"is_public\": false\n}"
+                              "raw": "{\n  \"domain\": \"docker.io\",\n  \"auth\": {\n    \"public_credential\": \"example-user\",\n    \"private_credential\": {\n      \"store_id\": \"14758f1afd44c09b7992073ccf00b43d\",\n      \"secret_name\": \"{{secret_name}}\"\n    }\n  },\n  \"kind\": \"ECR\",\n  \"is_public\": false\n}"
                             },
                             "header": [
                               {
@@ -7788,7 +7788,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"domain\": \"docker.io\",\n  \"auth\": {\n    \"public_credential\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"private_credential\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"kind\": {\n    \"description\": \"Registry provider. This must match `domain`: `DockerHub` for `docker.io`,\\n`ECR` for AWS ECR, or `GAR` for Google Artifact Registry.\\n\",\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"is_public\": false\n}"
+                              "raw": "{\n  \"domain\": \"docker.io\",\n  \"auth\": {\n    \"public_credential\": \"example-user\",\n    \"private_credential\": {\n      \"store_id\": \"14758f1afd44c09b7992073ccf00b43d\",\n      \"secret_name\": \"{{secret_name}}\"\n    }\n  },\n  \"kind\": \"ECR\",\n  \"is_public\": false\n}"
                             },
                             "header": [
                               {
@@ -7849,7 +7849,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"domain\": \"docker.io\",\n  \"auth\": {\n    \"public_credential\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"private_credential\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"kind\": {\n    \"description\": \"Registry provider. This must match `domain`: `DockerHub` for `docker.io`,\\n`ECR` for AWS ECR, or `GAR` for Google Artifact Registry.\\n\",\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"is_public\": false\n}"
+                              "raw": "{\n  \"domain\": \"docker.io\",\n  \"auth\": {\n    \"public_credential\": \"example-user\",\n    \"private_credential\": {\n      \"store_id\": \"14758f1afd44c09b7992073ccf00b43d\",\n      \"secret_name\": \"{{secret_name}}\"\n    }\n  },\n  \"kind\": \"ECR\",\n  \"is_public\": false\n}"
                             },
                             "header": [
                               {
@@ -9835,7 +9835,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"action\": \"MOVE\",\n  \"search_params\": {\n    \"action_log\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"alert_id\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"delivery_status\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"detections_only\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"domain\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"end\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"exact_subject\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"final_disposition\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"message_action\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"message_id\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"metric\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"query\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"recipient\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"sender\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"smtp_helo_ip\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"start\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"subject\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"submissions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"comment\": \"string\",\n  \"destination\": \"RecoverableItemsDeletions\",\n  \"expected_disposition\": \"SPOOF\"\n}"
+                              "raw": "{\n  \"action\": \"MOVE\",\n  \"search_params\": {},\n  \"comment\": \"string\",\n  \"destination\": \"RecoverableItemsDeletions\",\n  \"expected_disposition\": \"SPOOF\"\n}"
                             },
                             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_create_bulk_job\nPOST /accounts/{account_id}/email-security/investigate/bulk\n\nCreates a new bulk action job to move or release messages that match the provided search parameters.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                             "header": [
@@ -9897,7 +9897,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"action\": \"MOVE\",\n  \"search_params\": {\n    \"action_log\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"alert_id\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"delivery_status\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"detections_only\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"domain\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"end\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"exact_subject\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"final_disposition\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"message_action\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"message_id\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"metric\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"query\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"recipient\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"sender\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"smtp_helo_ip\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"start\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"subject\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"submissions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"comment\": \"string\",\n  \"destination\": \"RecoverableItemsDeletions\",\n  \"expected_disposition\": \"SPOOF\"\n}"
+                                  "raw": "{\n  \"action\": \"MOVE\",\n  \"search_params\": {},\n  \"comment\": \"string\",\n  \"destination\": \"RecoverableItemsDeletions\",\n  \"expected_disposition\": \"SPOOF\"\n}"
                                 },
                                 "header": [
                                   {
@@ -9959,7 +9959,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"action\": \"MOVE\",\n  \"search_params\": {\n    \"action_log\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"alert_id\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"delivery_status\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"detections_only\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"domain\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"end\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"exact_subject\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"final_disposition\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"message_action\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"message_id\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"metric\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"query\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"recipient\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"sender\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"smtp_helo_ip\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"start\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"subject\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"submissions\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"comment\": \"string\",\n  \"destination\": \"RecoverableItemsDeletions\",\n  \"expected_disposition\": \"SPOOF\"\n}"
+                                  "raw": "{\n  \"action\": \"MOVE\",\n  \"search_params\": {},\n  \"comment\": \"string\",\n  \"destination\": \"RecoverableItemsDeletions\",\n  \"expected_disposition\": \"SPOOF\"\n}"
                                 },
                                 "header": [
                                   {
@@ -10671,7 +10671,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"destination\": \"RecoverableItemsPurges\",\n  \"expected_disposition\": \"MALICIOUS-BEC\",\n  \"ids\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"postfix_ids\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                          "raw": "{\n  \"destination\": \"RecoverableItemsPurges\",\n  \"expected_disposition\": \"MALICIOUS-BEC\"\n}"
                         },
                         "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_post_bulk_move\nPOST /accounts/{account_id}/email-security/investigate/move\n\nMoves multiple messages to a specified mailbox folder (Inbox, JunkEmail, DeletedItems, RecoverableItemsDeletions, or RecoverableItemsPurges). Requires active integration.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                         "header": [
@@ -10733,7 +10733,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"destination\": \"RecoverableItemsPurges\",\n  \"expected_disposition\": \"MALICIOUS-BEC\",\n  \"ids\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"postfix_ids\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                              "raw": "{\n  \"destination\": \"RecoverableItemsPurges\",\n  \"expected_disposition\": \"MALICIOUS-BEC\"\n}"
                             },
                             "header": [
                               {
@@ -10795,7 +10795,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"destination\": \"RecoverableItemsPurges\",\n  \"expected_disposition\": \"MALICIOUS-BEC\",\n  \"ids\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"postfix_ids\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                              "raw": "{\n  \"destination\": \"RecoverableItemsPurges\",\n  \"expected_disposition\": \"MALICIOUS-BEC\"\n}"
                             },
                             "header": [
                               {
@@ -12909,7 +12909,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "null"
+                              "raw": "{\n  \"is_exempt_recipient\": false,\n  \"is_trusted_sender\": true,\n  \"is_acceptable_sender\": false,\n  \"pattern\": \"test@example.com\",\n  \"is_regex\": false,\n  \"verify_sender\": true,\n  \"pattern_type\": \"EMAIL\"\n}"
                             },
                             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_create_allow_policy\nPOST /accounts/{account_id}/email-security/settings/allow_policies\n\nCreates a new allow policy that exempts matching emails from security detections. Use with caution as this bypasses email security scanning. Policies can match on sender patterns and apply to specific detections or all detections.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                             "header": [
@@ -12971,7 +12971,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "null"
+                                  "raw": "{\n  \"is_exempt_recipient\": false,\n  \"is_trusted_sender\": true,\n  \"is_acceptable_sender\": false,\n  \"pattern\": \"test@example.com\",\n  \"is_regex\": false,\n  \"verify_sender\": true,\n  \"pattern_type\": \"EMAIL\"\n}"
                                 },
                                 "header": [
                                   {
@@ -13033,7 +13033,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "null"
+                                  "raw": "{\n  \"is_exempt_recipient\": false,\n  \"is_trusted_sender\": true,\n  \"is_acceptable_sender\": false,\n  \"pattern\": \"test@example.com\",\n  \"is_regex\": false,\n  \"verify_sender\": true,\n  \"pattern_type\": \"EMAIL\"\n}"
                                 },
                                 "header": [
                                   {
@@ -13091,7 +13091,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"deletes\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"patches\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                              "raw": "{\n  \"deletes\": [\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    },\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    }\n  ],\n  \"patches\": [\n    {\n      \"comments\": \"Trust all messages send from test@example.com\"\n    },\n    {\n      \"comments\": \"Trust all messages send from test@example.com\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"is_exempt_recipient\": false,\n      \"is_trusted_sender\": true,\n      \"is_acceptable_sender\": false,\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"verify_sender\": true,\n      \"pattern_type\": \"EMAIL\"\n    },\n    {\n      \"is_exempt_recipient\": false,\n      \"is_trusted_sender\": true,\n      \"is_acceptable_sender\": false,\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"verify_sender\": true,\n      \"pattern_type\": \"EMAIL\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"is_exempt_recipient\": false,\n      \"is_trusted_sender\": true,\n      \"is_acceptable_sender\": false,\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"verify_sender\": true,\n      \"pattern_type\": \"EMAIL\"\n    },\n    {\n      \"is_exempt_recipient\": false,\n      \"is_trusted_sender\": true,\n      \"is_acceptable_sender\": false,\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"verify_sender\": true,\n      \"pattern_type\": \"EMAIL\"\n    }\n  ]\n}"
                             },
                             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_batch_allow_policies\nPOST /accounts/{account_id}/email-security/settings/allow_policies/batch\n\nExecutes multiple operations atomically. All four operation arrays\n(deletes, patches, puts, posts) are required and executed in order.\nSend empty arrays for unused operations.\n\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                             "header": [
@@ -13154,7 +13154,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"patches\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    },\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    }\n  ],\n  \"patches\": [\n    {\n      \"comments\": \"Trust all messages send from test@example.com\"\n    },\n    {\n      \"comments\": \"Trust all messages send from test@example.com\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"is_exempt_recipient\": false,\n      \"is_trusted_sender\": true,\n      \"is_acceptable_sender\": false,\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"verify_sender\": true,\n      \"pattern_type\": \"EMAIL\"\n    },\n    {\n      \"is_exempt_recipient\": false,\n      \"is_trusted_sender\": true,\n      \"is_acceptable_sender\": false,\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"verify_sender\": true,\n      \"pattern_type\": \"EMAIL\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"is_exempt_recipient\": false,\n      \"is_trusted_sender\": true,\n      \"is_acceptable_sender\": false,\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"verify_sender\": true,\n      \"pattern_type\": \"EMAIL\"\n    },\n    {\n      \"is_exempt_recipient\": false,\n      \"is_trusted_sender\": true,\n      \"is_acceptable_sender\": false,\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"verify_sender\": true,\n      \"pattern_type\": \"EMAIL\"\n    }\n  ]\n}"
                                 },
                                 "header": [
                                   {
@@ -13217,7 +13217,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"patches\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    },\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    }\n  ],\n  \"patches\": [\n    {\n      \"comments\": \"Trust all messages send from test@example.com\"\n    },\n    {\n      \"comments\": \"Trust all messages send from test@example.com\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"is_exempt_recipient\": false,\n      \"is_trusted_sender\": true,\n      \"is_acceptable_sender\": false,\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"verify_sender\": true,\n      \"pattern_type\": \"EMAIL\"\n    },\n    {\n      \"is_exempt_recipient\": false,\n      \"is_trusted_sender\": true,\n      \"is_acceptable_sender\": false,\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"verify_sender\": true,\n      \"pattern_type\": \"EMAIL\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"is_exempt_recipient\": false,\n      \"is_trusted_sender\": true,\n      \"is_acceptable_sender\": false,\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"verify_sender\": true,\n      \"pattern_type\": \"EMAIL\"\n    },\n    {\n      \"is_exempt_recipient\": false,\n      \"is_trusted_sender\": true,\n      \"is_acceptable_sender\": false,\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"verify_sender\": true,\n      \"pattern_type\": \"EMAIL\"\n    }\n  ]\n}"
                                 },
                                 "header": [
                                   {
@@ -13572,7 +13572,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "null"
+                                  "raw": "{\n  \"comments\": \"Trust all messages send from test@example.com\"\n}"
                                 },
                                 "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_update_allow_policy\nPATCH /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}\n\nUpdates an existing allow policy. Only provided fields will be modified. Changes take effect for new emails matching the pattern.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                                 "header": [
@@ -13635,7 +13635,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "null"
+                                      "raw": "{\n  \"comments\": \"Trust all messages send from test@example.com\"\n}"
                                     },
                                     "header": [
                                       {
@@ -13698,7 +13698,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "null"
+                                      "raw": "{\n  \"comments\": \"Trust all messages send from test@example.com\"\n}"
                                     },
                                     "header": [
                                       {
@@ -13757,7 +13757,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "null"
+                                  "raw": "{\n  \"is_exempt_recipient\": false,\n  \"is_trusted_sender\": true,\n  \"is_acceptable_sender\": false,\n  \"pattern\": \"test@example.com\",\n  \"is_regex\": false,\n  \"verify_sender\": true,\n  \"pattern_type\": \"EMAIL\"\n}"
                                 },
                                 "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_replace_allow_policy\nPUT /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}\n\nReplaces an existing allow policy in full. Unlike PATCH, every field is taken from the request body, so optional fields that are omitted are reset rather than left untouched. Use this when managing policies declaratively.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                                 "header": [
@@ -13820,7 +13820,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "null"
+                                      "raw": "{\n  \"is_exempt_recipient\": false,\n  \"is_trusted_sender\": true,\n  \"is_acceptable_sender\": false,\n  \"pattern\": \"test@example.com\",\n  \"is_regex\": false,\n  \"verify_sender\": true,\n  \"pattern_type\": \"EMAIL\"\n}"
                                     },
                                     "header": [
                                       {
@@ -13883,7 +13883,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "null"
+                                      "raw": "{\n  \"is_exempt_recipient\": false,\n  \"is_trusted_sender\": true,\n  \"is_acceptable_sender\": false,\n  \"pattern\": \"test@example.com\",\n  \"is_regex\": false,\n  \"verify_sender\": true,\n  \"pattern_type\": \"EMAIL\"\n}"
                                     },
                                     "header": [
                                       {
@@ -14224,7 +14224,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "null"
+                              "raw": "{\n  \"pattern\": \"test@example.com\",\n  \"is_regex\": false,\n  \"pattern_type\": \"EMAIL\"\n}"
                             },
                             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_create_blocked_sender\nPOST /accounts/{account_id}/email-security/settings/block_senders\n\nCreates a new blocked sender pattern. Emails matching this pattern will be blocked from delivery. Patterns can be email addresses, domains, or IP addresses, and support regular expressions.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                             "header": [
@@ -14286,7 +14286,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "null"
+                                  "raw": "{\n  \"pattern\": \"test@example.com\",\n  \"is_regex\": false,\n  \"pattern_type\": \"EMAIL\"\n}"
                                 },
                                 "header": [
                                   {
@@ -14348,7 +14348,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "null"
+                                  "raw": "{\n  \"pattern\": \"test@example.com\",\n  \"is_regex\": false,\n  \"pattern_type\": \"EMAIL\"\n}"
                                 },
                                 "header": [
                                   {
@@ -14406,7 +14406,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"deletes\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"patches\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                              "raw": "{\n  \"deletes\": [\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    },\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    }\n  ],\n  \"patches\": [\n    {\n      \"comments\": \"Block sender with email test@example.com\"\n    },\n    {\n      \"comments\": \"Block sender with email test@example.com\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"pattern_type\": \"EMAIL\"\n    },\n    {\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"pattern_type\": \"EMAIL\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"pattern_type\": \"EMAIL\"\n    },\n    {\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"pattern_type\": \"EMAIL\"\n    }\n  ]\n}"
                             },
                             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_batch_blocked_senders\nPOST /accounts/{account_id}/email-security/settings/block_senders/batch\n\nExecutes multiple operations atomically. All four operation arrays\n(deletes, patches, puts, posts) are required and executed in order.\nSend empty arrays for unused operations.\n\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                             "header": [
@@ -14469,7 +14469,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"patches\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    },\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    }\n  ],\n  \"patches\": [\n    {\n      \"comments\": \"Block sender with email test@example.com\"\n    },\n    {\n      \"comments\": \"Block sender with email test@example.com\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"pattern_type\": \"EMAIL\"\n    },\n    {\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"pattern_type\": \"EMAIL\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"pattern_type\": \"EMAIL\"\n    },\n    {\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"pattern_type\": \"EMAIL\"\n    }\n  ]\n}"
                                 },
                                 "header": [
                                   {
@@ -14532,7 +14532,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"patches\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    },\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    }\n  ],\n  \"patches\": [\n    {\n      \"comments\": \"Block sender with email test@example.com\"\n    },\n    {\n      \"comments\": \"Block sender with email test@example.com\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"pattern_type\": \"EMAIL\"\n    },\n    {\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"pattern_type\": \"EMAIL\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"pattern_type\": \"EMAIL\"\n    },\n    {\n      \"pattern\": \"test@example.com\",\n      \"is_regex\": false,\n      \"pattern_type\": \"EMAIL\"\n    }\n  ]\n}"
                                 },
                                 "header": [
                                   {
@@ -14887,7 +14887,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "null"
+                                  "raw": "{\n  \"comments\": \"Block sender with email test@example.com\"\n}"
                                 },
                                 "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_update_blocked_sender\nPATCH /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}\n\nUpdates an existing blocked sender pattern. Only provided fields will be modified. The pattern will continue blocking emails until deleted.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                                 "header": [
@@ -14950,7 +14950,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "null"
+                                      "raw": "{\n  \"comments\": \"Block sender with email test@example.com\"\n}"
                                     },
                                     "header": [
                                       {
@@ -15013,7 +15013,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "null"
+                                      "raw": "{\n  \"comments\": \"Block sender with email test@example.com\"\n}"
                                     },
                                     "header": [
                                       {
@@ -15072,7 +15072,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "null"
+                                  "raw": "{\n  \"pattern\": \"test@example.com\",\n  \"is_regex\": false,\n  \"pattern_type\": \"EMAIL\"\n}"
                                 },
                                 "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_replace_blocked_sender\nPUT /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}\n\nReplaces an existing blocked sender pattern in full. Unlike PATCH, every field is taken from the request body, so optional fields that are omitted are reset rather than left untouched. Use this when managing blocked senders declaratively.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                                 "header": [
@@ -15135,7 +15135,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "null"
+                                      "raw": "{\n  \"pattern\": \"test@example.com\",\n  \"is_regex\": false,\n  \"pattern_type\": \"EMAIL\"\n}"
                                     },
                                     "header": [
                                       {
@@ -15198,7 +15198,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "null"
+                                      "raw": "{\n  \"pattern\": \"test@example.com\",\n  \"is_regex\": false,\n  \"pattern_type\": \"EMAIL\"\n}"
                                     },
                                     "header": [
                                       {
@@ -15539,7 +15539,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "null"
+                              "raw": "{\n  \"name\": \"Block phishing keywords\",\n  \"pattern\": \"urgent.*verify.*account\",\n  \"targets\": [\n    \"SUBJECT\"\n  ],\n  \"enabled\": true\n}"
                             },
                             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_create_content_policy\nPOST /accounts/{account_id}/email-security/settings/content_policies\n\nCreates a new content policy. Emails whose subject or body matches the pattern will be subject to the configured action.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                             "header": [
@@ -15601,7 +15601,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "null"
+                                  "raw": "{\n  \"name\": \"Block phishing keywords\",\n  \"pattern\": \"urgent.*verify.*account\",\n  \"targets\": [\n    \"SUBJECT\"\n  ],\n  \"enabled\": true\n}"
                                 },
                                 "header": [
                                   {
@@ -15663,7 +15663,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "null"
+                                  "raw": "{\n  \"name\": \"Block phishing keywords\",\n  \"pattern\": \"urgent.*verify.*account\",\n  \"targets\": [\n    \"SUBJECT\"\n  ],\n  \"enabled\": true\n}"
                                 },
                                 "header": [
                                   {
@@ -15721,7 +15721,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"deletes\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"patches\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                              "raw": "{\n  \"deletes\": [\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    },\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    }\n  ],\n  \"patches\": [\n    {\n      \"enabled\": true\n    },\n    {\n      \"enabled\": true\n    }\n  ],\n  \"puts\": [\n    {\n      \"name\": \"Block phishing keywords\",\n      \"pattern\": \"urgent.*verify.*account\",\n      \"targets\": [\n        \"SUBJECT\"\n      ],\n      \"enabled\": true\n    },\n    {\n      \"name\": \"Block phishing keywords\",\n      \"pattern\": \"urgent.*verify.*account\",\n      \"targets\": [\n        \"SUBJECT\"\n      ],\n      \"enabled\": true\n    }\n  ],\n  \"posts\": [\n    {\n      \"name\": \"Block phishing keywords\",\n      \"pattern\": \"urgent.*verify.*account\",\n      \"targets\": [\n        \"SUBJECT\"\n      ],\n      \"enabled\": true\n    },\n    {\n      \"name\": \"Block phishing keywords\",\n      \"pattern\": \"urgent.*verify.*account\",\n      \"targets\": [\n        \"SUBJECT\"\n      ],\n      \"enabled\": true\n    }\n  ]\n}"
                             },
                             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_batch_content_policies\nPOST /accounts/{account_id}/email-security/settings/content_policies/batch\n\nExecutes multiple operations atomically. All four operation arrays\n(deletes, patches, puts, posts) are required and executed in order.\nSend empty arrays for unused operations.\n\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                             "header": [
@@ -15784,7 +15784,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"patches\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    },\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    }\n  ],\n  \"patches\": [\n    {\n      \"enabled\": true\n    },\n    {\n      \"enabled\": true\n    }\n  ],\n  \"puts\": [\n    {\n      \"name\": \"Block phishing keywords\",\n      \"pattern\": \"urgent.*verify.*account\",\n      \"targets\": [\n        \"SUBJECT\"\n      ],\n      \"enabled\": true\n    },\n    {\n      \"name\": \"Block phishing keywords\",\n      \"pattern\": \"urgent.*verify.*account\",\n      \"targets\": [\n        \"SUBJECT\"\n      ],\n      \"enabled\": true\n    }\n  ],\n  \"posts\": [\n    {\n      \"name\": \"Block phishing keywords\",\n      \"pattern\": \"urgent.*verify.*account\",\n      \"targets\": [\n        \"SUBJECT\"\n      ],\n      \"enabled\": true\n    },\n    {\n      \"name\": \"Block phishing keywords\",\n      \"pattern\": \"urgent.*verify.*account\",\n      \"targets\": [\n        \"SUBJECT\"\n      ],\n      \"enabled\": true\n    }\n  ]\n}"
                                 },
                                 "header": [
                                   {
@@ -15847,7 +15847,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"patches\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    },\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    }\n  ],\n  \"patches\": [\n    {\n      \"enabled\": true\n    },\n    {\n      \"enabled\": true\n    }\n  ],\n  \"puts\": [\n    {\n      \"name\": \"Block phishing keywords\",\n      \"pattern\": \"urgent.*verify.*account\",\n      \"targets\": [\n        \"SUBJECT\"\n      ],\n      \"enabled\": true\n    },\n    {\n      \"name\": \"Block phishing keywords\",\n      \"pattern\": \"urgent.*verify.*account\",\n      \"targets\": [\n        \"SUBJECT\"\n      ],\n      \"enabled\": true\n    }\n  ],\n  \"posts\": [\n    {\n      \"name\": \"Block phishing keywords\",\n      \"pattern\": \"urgent.*verify.*account\",\n      \"targets\": [\n        \"SUBJECT\"\n      ],\n      \"enabled\": true\n    },\n    {\n      \"name\": \"Block phishing keywords\",\n      \"pattern\": \"urgent.*verify.*account\",\n      \"targets\": [\n        \"SUBJECT\"\n      ],\n      \"enabled\": true\n    }\n  ]\n}"
                                 },
                                 "header": [
                                   {
@@ -16202,7 +16202,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "null"
+                                  "raw": "{\n  \"enabled\": true\n}"
                                 },
                                 "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_update_content_policy\nPATCH /accounts/{account_id}/email-security/settings/content_policies/{policy_id}\n\nUpdates an existing content policy. Only provided fields will be modified.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                                 "header": [
@@ -16265,7 +16265,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "null"
+                                      "raw": "{\n  \"enabled\": true\n}"
                                     },
                                     "header": [
                                       {
@@ -16328,7 +16328,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "null"
+                                      "raw": "{\n  \"enabled\": true\n}"
                                     },
                                     "header": [
                                       {
@@ -16648,7 +16648,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"email\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"is_email_regex\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"comments\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"directory_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"directory_node_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"external_directory_node_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"provenance\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}"
+                              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"is_email_regex\": false\n}"
                             },
                             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_create_impersonation_registry\nPOST /accounts/{account_id}/email-security/settings/impersonation_registry\n\nCreates a new entry in the impersonation registry to protect against impersonation. Emails attempting to impersonate this identity will be flagged. Supports regex patterns for flexible email matching.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                             "header": [
@@ -16710,7 +16710,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"name\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"email\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"is_email_regex\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"comments\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"directory_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"directory_node_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"external_directory_node_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"provenance\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}"
+                                  "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"is_email_regex\": false\n}"
                                 },
                                 "header": [
                                   {
@@ -16772,7 +16772,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"name\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"email\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"is_email_regex\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"comments\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"directory_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"directory_node_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"external_directory_node_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"provenance\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}"
+                                  "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"is_email_regex\": false\n}"
                                 },
                                 "header": [
                                   {
@@ -17126,7 +17126,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"comments\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"directory_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"directory_node_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"email\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"external_directory_node_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"is_email_regex\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"name\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"provenance\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}"
+                                  "raw": "{\n  \"comments\": \"{{comments}}\"\n}"
                                 },
                                 "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_update_impersonation_registry\nPATCH /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}\n\nUpdates an existing impersonation registry entry. Only provided fields will be modified. Directory-synced entries can't be updated.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                                 "header": [
@@ -17189,7 +17189,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "{\n  \"comments\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"directory_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"directory_node_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"email\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"external_directory_node_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"is_email_regex\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"name\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"provenance\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}"
+                                      "raw": "{\n  \"comments\": \"{{comments}}\"\n}"
                                     },
                                     "header": [
                                       {
@@ -17252,7 +17252,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "{\n  \"comments\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"directory_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"directory_node_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"email\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"external_directory_node_id\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"is_email_regex\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"name\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"provenance\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n}"
+                                      "raw": "{\n  \"comments\": \"{{comments}}\"\n}"
                                     },
                                     "header": [
                                       {
@@ -17685,7 +17685,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"deletes\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"patches\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                              "raw": "{\n  \"deletes\": [\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    },\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    }\n  ],\n  \"patches\": [],\n  \"puts\": [],\n  \"posts\": [\n    {\n      \"pattern\": \"https://example\\\\.com/.*\"\n    },\n    {\n      \"pattern\": \"https://example\\\\.com/.*\"\n    }\n  ]\n}"
                             },
                             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email_security_batch_url_ignore_patterns\nPOST /accounts/{account_id}/email-security/settings/url_ignore_patterns/batch\n\nSends a batch of URL ignore patterns API calls to execute together.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                             "header": [
@@ -17748,7 +17748,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"patches\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    },\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    }\n  ],\n  \"patches\": [],\n  \"puts\": [],\n  \"posts\": [\n    {\n      \"pattern\": \"https://example\\\\.com/.*\"\n    },\n    {\n      \"pattern\": \"https://example\\\\.com/.*\"\n    }\n  ]\n}"
                                 },
                                 "header": [
                                   {
@@ -17811,7 +17811,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"patches\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"puts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"posts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                                  "raw": "{\n  \"deletes\": [\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    },\n    {\n      \"id\": \"f174e90a-fafe-4643-bbbc-4a0ed4fc8415\"\n    }\n  ],\n  \"patches\": [],\n  \"puts\": [],\n  \"posts\": [\n    {\n      \"pattern\": \"https://example\\\\.com/.*\"\n    },\n    {\n      \"pattern\": \"https://example\\\\.com/.*\"\n    }\n  ]\n}"
                                 },
                                 "header": [
                                   {
@@ -19464,7 +19464,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"owner_worker_tag\": \"a7e6fb77503c41d8a7f3113c6918f10c\",\n  \"catch_all_rules\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"rules\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                              "raw": "{\n  \"catch_all_rules\": [\n    {\n      \"rule\": {\n        \"actions\": [\n          {\n            \"type\": \"worker\",\n            \"value\": [\n              \"my-worker\"\n            ]\n          }\n        ],\n        \"matchers\": [\n          {\n            \"type\": \"all\"\n          }\n        ]\n      },\n      \"target\": \"*@example.com\"\n    }\n  ],\n  \"owner_worker_tag\": \"a7e6fb77503c41d8a7f3113c6918f10c\",\n  \"rules\": [\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"support@example.com\"\n        }\n      ]\n    },\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"info@example.com\"\n        }\n      ]\n    },\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"billing@example.com\"\n        }\n      ]\n    }\n  ]\n}"
                             },
                             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: email-routing-routing-rules-plan-account-routing-rules\nPOST /accounts/{account_id}/email/routing/rules/plan\n\nComputes the Email Routing rule changes that would be needed to reconcile a Wrangler-managed desired ruleset. This endpoint is read-only and does not create, update, or delete rules.\n\nAuthentication support: legacy-only\nAuth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_email\":[],\"api_key\":[]}\nUpstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.",
                             "header": [
@@ -19528,7 +19528,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"owner_worker_tag\": \"a7e6fb77503c41d8a7f3113c6918f10c\",\n  \"catch_all_rules\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"rules\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                                  "raw": "{\n  \"catch_all_rules\": [\n    {\n      \"rule\": {\n        \"actions\": [\n          {\n            \"type\": \"worker\",\n            \"value\": [\n              \"my-worker\"\n            ]\n          }\n        ],\n        \"matchers\": [\n          {\n            \"type\": \"all\"\n          }\n        ]\n      },\n      \"target\": \"*@example.com\"\n    }\n  ],\n  \"owner_worker_tag\": \"a7e6fb77503c41d8a7f3113c6918f10c\",\n  \"rules\": [\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"support@example.com\"\n        }\n      ]\n    },\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"info@example.com\"\n        }\n      ]\n    },\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"billing@example.com\"\n        }\n      ]\n    }\n  ]\n}"
                                 },
                                 "header": [
                                   {
@@ -19592,7 +19592,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"owner_worker_tag\": \"a7e6fb77503c41d8a7f3113c6918f10c\",\n  \"catch_all_rules\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"rules\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                                  "raw": "{\n  \"catch_all_rules\": [\n    {\n      \"rule\": {\n        \"actions\": [\n          {\n            \"type\": \"worker\",\n            \"value\": [\n              \"my-worker\"\n            ]\n          }\n        ],\n        \"matchers\": [\n          {\n            \"type\": \"all\"\n          }\n        ]\n      },\n      \"target\": \"*@example.com\"\n    }\n  ],\n  \"owner_worker_tag\": \"a7e6fb77503c41d8a7f3113c6918f10c\",\n  \"rules\": [\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"support@example.com\"\n        }\n      ]\n    },\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"info@example.com\"\n        }\n      ]\n    },\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"billing@example.com\"\n        }\n      ]\n    }\n  ]\n}"
                                 },
                                 "header": [
                                   {
@@ -19656,7 +19656,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"owner_worker_tag\": \"a7e6fb77503c41d8a7f3113c6918f10c\",\n  \"catch_all_rules\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"rules\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                                  "raw": "{\n  \"catch_all_rules\": [\n    {\n      \"rule\": {\n        \"actions\": [\n          {\n            \"type\": \"worker\",\n            \"value\": [\n              \"my-worker\"\n            ]\n          }\n        ],\n        \"matchers\": [\n          {\n            \"type\": \"all\"\n          }\n        ]\n      },\n      \"target\": \"*@example.com\"\n    }\n  ],\n  \"owner_worker_tag\": \"a7e6fb77503c41d8a7f3113c6918f10c\",\n  \"rules\": [\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"support@example.com\"\n        }\n      ]\n    },\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"info@example.com\"\n        }\n      ]\n    },\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"billing@example.com\"\n        }\n      ]\n    }\n  ]\n}"
                                 },
                                 "header": [
                                   {
@@ -19720,7 +19720,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"owner_worker_tag\": \"a7e6fb77503c41d8a7f3113c6918f10c\",\n  \"catch_all_rules\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"rules\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}"
+                                  "raw": "{\n  \"catch_all_rules\": [\n    {\n      \"rule\": {\n        \"actions\": [\n          {\n            \"type\": \"worker\",\n            \"value\": [\n              \"my-worker\"\n            ]\n          }\n        ],\n        \"matchers\": [\n          {\n            \"type\": \"all\"\n          }\n        ]\n      },\n      \"target\": \"*@example.com\"\n    }\n  ],\n  \"owner_worker_tag\": \"a7e6fb77503c41d8a7f3113c6918f10c\",\n  \"rules\": [\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"support@example.com\"\n        }\n      ]\n    },\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"info@example.com\"\n        }\n      ]\n    },\n    {\n      \"actions\": [\n        {\n          \"type\": \"worker\",\n          \"value\": [\n            \"my-worker\"\n          ]\n        }\n      ],\n      \"matchers\": [\n        {\n          \"field\": \"to\",\n          \"type\": \"literal\",\n          \"value\": \"billing@example.com\"\n        }\n      ]\n    }\n  ]\n}"
                                 },
                                 "header": [
                                   {
@@ -25513,7 +25513,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"id\": \"Q\",\n  \"options\": {\n    \"fit\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"metadata\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"width\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"height\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"neverRequireSignedURLs\": true\n}"
+                              "raw": "{\n  \"id\": \"Q\",\n  \"options\": {\n    \"fit\": \"scale-down\",\n    \"metadata\": \"none\",\n    \"width\": 1366,\n    \"height\": 768\n  },\n  \"neverRequireSignedURLs\": true\n}"
                             },
                             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: cloudflare-images-variants-create-a-variant\nPOST /accounts/{account_id}/images/v1/variants\n\nCreate a CF Images variant that allows you to resize images for different use cases.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                             "header": [
@@ -25575,7 +25575,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"id\": \"Q\",\n  \"options\": {\n    \"fit\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"metadata\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"width\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"height\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"neverRequireSignedURLs\": true\n}"
+                                  "raw": "{\n  \"id\": \"Q\",\n  \"options\": {\n    \"fit\": \"scale-down\",\n    \"metadata\": \"none\",\n    \"width\": 1366,\n    \"height\": 768\n  },\n  \"neverRequireSignedURLs\": true\n}"
                                 },
                                 "header": [
                                   {
@@ -25637,7 +25637,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"id\": \"Q\",\n  \"options\": {\n    \"fit\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"metadata\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"width\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"height\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"neverRequireSignedURLs\": true\n}"
+                                  "raw": "{\n  \"id\": \"Q\",\n  \"options\": {\n    \"fit\": \"scale-down\",\n    \"metadata\": \"none\",\n    \"width\": 1366,\n    \"height\": 768\n  },\n  \"neverRequireSignedURLs\": true\n}"
                                 },
                                 "header": [
                                   {
@@ -25991,7 +25991,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"options\": {\n    \"fit\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"metadata\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"width\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"height\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"neverRequireSignedURLs\": true\n}"
+                                  "raw": "{\n  \"options\": {\n    \"fit\": \"scale-down\",\n    \"metadata\": \"none\",\n    \"width\": 1366,\n    \"height\": 768\n  },\n  \"neverRequireSignedURLs\": true\n}"
                                 },
                                 "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: cloudflare-images-variants-update-a-variant\nPATCH /accounts/{account_id}/images/v1/variants/{variant_id}\n\nUpdate a CF Images variant. This will purge the cache for all images associated with the variant.\n\nAuthentication support: bearer-alternative\nAuth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_token\":[]},{\"api_email\":[],\"api_key\":[]}]\nSelected requirement: {\"api_token\":[]}\nUse the narrowly scoped api_token; legacy alternatives are not enabled.",
                                 "header": [
@@ -26054,7 +26054,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "{\n  \"options\": {\n    \"fit\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"metadata\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"width\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"height\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"neverRequireSignedURLs\": true\n}"
+                                      "raw": "{\n  \"options\": {\n    \"fit\": \"scale-down\",\n    \"metadata\": \"none\",\n    \"width\": 1366,\n    \"height\": 768\n  },\n  \"neverRequireSignedURLs\": true\n}"
                                     },
                                     "header": [
                                       {
@@ -26117,7 +26117,7 @@
                                           "language": "json"
                                         }
                                       },
-                                      "raw": "{\n  \"options\": {\n    \"fit\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"metadata\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"width\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"height\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"neverRequireSignedURLs\": true\n}"
+                                      "raw": "{\n  \"options\": {\n    \"fit\": \"scale-down\",\n    \"metadata\": \"none\",\n    \"width\": 1366,\n    \"height\": 768\n  },\n  \"neverRequireSignedURLs\": true\n}"
                                     },
                                     "header": [
                                       {
@@ -28347,7 +28347,7 @@
                           "language": "json"
                         }
                       },
-                      "raw": "{\n  \"clippedFromVideoUID\": \"023e105f4ecef8ad9ca31a8372d0c353\",\n  \"startTimeSeconds\": 1339,\n  \"endTimeSeconds\": 5760,\n  \"allowedOrigins\": [\n    \"example.com\"\n  ],\n  \"creator\": \"creator-id_abcde12345\",\n  \"input\": \"https://example.com/myvideo.mp4\",\n  \"meta\": {\n    \"name\": \"video12345.mp4\"\n  },\n  \"name\": \"myvideo.mp4\",\n  \"requireSignedURLs\": true,\n  \"scheduledDeletion\": \"2014-01-02T02:20:00Z\",\n  \"thumbnailTimestampPct\": 0.529241,\n  \"url\": \"https://example.com/myvideo.mp4\",\n  \"watermark\": {\n    \"uid\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  }\n}"
+                      "raw": "{\n  \"clippedFromVideoUID\": \"023e105f4ecef8ad9ca31a8372d0c353\",\n  \"startTimeSeconds\": 1339,\n  \"endTimeSeconds\": 5760,\n  \"allowedOrigins\": [\n    \"example.com\"\n  ],\n  \"creator\": \"creator-id_abcde12345\",\n  \"input\": \"https://example.com/myvideo.mp4\",\n  \"meta\": {\n    \"name\": \"video12345.mp4\"\n  },\n  \"name\": \"myvideo.mp4\",\n  \"requireSignedURLs\": true,\n  \"scheduledDeletion\": \"2014-01-02T02:20:00Z\",\n  \"thumbnailTimestampPct\": 0.529241,\n  \"url\": \"https://example.com/myvideo.mp4\"\n}"
                     },
                     "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: stream-video-clipping-clip-videos-given-a-start-and-end-time\nPOST /accounts/{account_id}/stream/clip\n\nClips a video based on the specified start and end times provided in seconds.\n\nAuthentication support: multi-scheme-or-other\nAuth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_email\":[],\"api_key\":[],\"api_token\":[]}]\nSelected requirement: {\"api_email\":[],\"api_key\":[],\"api_token\":[]}\nUpstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.",
                     "header": [
@@ -28416,7 +28416,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"clippedFromVideoUID\": \"023e105f4ecef8ad9ca31a8372d0c353\",\n  \"startTimeSeconds\": 1339,\n  \"endTimeSeconds\": 5760,\n  \"allowedOrigins\": [\n    \"example.com\"\n  ],\n  \"creator\": \"creator-id_abcde12345\",\n  \"input\": \"https://example.com/myvideo.mp4\",\n  \"meta\": {\n    \"name\": \"video12345.mp4\"\n  },\n  \"name\": \"myvideo.mp4\",\n  \"requireSignedURLs\": true,\n  \"scheduledDeletion\": \"2014-01-02T02:20:00Z\",\n  \"thumbnailTimestampPct\": 0.529241,\n  \"url\": \"https://example.com/myvideo.mp4\",\n  \"watermark\": {\n    \"uid\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  }\n}"
+                          "raw": "{\n  \"clippedFromVideoUID\": \"023e105f4ecef8ad9ca31a8372d0c353\",\n  \"startTimeSeconds\": 1339,\n  \"endTimeSeconds\": 5760,\n  \"allowedOrigins\": [\n    \"example.com\"\n  ],\n  \"creator\": \"creator-id_abcde12345\",\n  \"input\": \"https://example.com/myvideo.mp4\",\n  \"meta\": {\n    \"name\": \"video12345.mp4\"\n  },\n  \"name\": \"myvideo.mp4\",\n  \"requireSignedURLs\": true,\n  \"scheduledDeletion\": \"2014-01-02T02:20:00Z\",\n  \"thumbnailTimestampPct\": 0.529241,\n  \"url\": \"https://example.com/myvideo.mp4\"\n}"
                         },
                         "header": [
                           {
@@ -28485,7 +28485,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"clippedFromVideoUID\": \"023e105f4ecef8ad9ca31a8372d0c353\",\n  \"startTimeSeconds\": 1339,\n  \"endTimeSeconds\": 5760,\n  \"allowedOrigins\": [\n    \"example.com\"\n  ],\n  \"creator\": \"creator-id_abcde12345\",\n  \"input\": \"https://example.com/myvideo.mp4\",\n  \"meta\": {\n    \"name\": \"video12345.mp4\"\n  },\n  \"name\": \"myvideo.mp4\",\n  \"requireSignedURLs\": true,\n  \"scheduledDeletion\": \"2014-01-02T02:20:00Z\",\n  \"thumbnailTimestampPct\": 0.529241,\n  \"url\": \"https://example.com/myvideo.mp4\",\n  \"watermark\": {\n    \"uid\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  }\n}"
+                          "raw": "{\n  \"clippedFromVideoUID\": \"023e105f4ecef8ad9ca31a8372d0c353\",\n  \"startTimeSeconds\": 1339,\n  \"endTimeSeconds\": 5760,\n  \"allowedOrigins\": [\n    \"example.com\"\n  ],\n  \"creator\": \"creator-id_abcde12345\",\n  \"input\": \"https://example.com/myvideo.mp4\",\n  \"meta\": {\n    \"name\": \"video12345.mp4\"\n  },\n  \"name\": \"myvideo.mp4\",\n  \"requireSignedURLs\": true,\n  \"scheduledDeletion\": \"2014-01-02T02:20:00Z\",\n  \"thumbnailTimestampPct\": 0.529241,\n  \"url\": \"https://example.com/myvideo.mp4\"\n}"
                         },
                         "header": [
                           {
@@ -28771,7 +28771,7 @@
                           "language": "json"
                         }
                       },
-                      "raw": "{\n  \"maxDurationSeconds\": 6096,\n  \"allowedOrigins\": [\n    \"example.com\"\n  ],\n  \"creator\": \"creator-id_abcde12345\",\n  \"expiry\": \"2021-01-02T02:20:00Z\",\n  \"meta\": {\n    \"name\": \"video12345.mp4\"\n  },\n  \"requireSignedURLs\": true,\n  \"scheduledDeletion\": \"2014-01-02T02:20:00Z\",\n  \"thumbnailTimestampPct\": 0.529241,\n  \"watermark\": {\n    \"uid\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  }\n}"
+                      "raw": "{\n  \"maxDurationSeconds\": 6096,\n  \"allowedOrigins\": [\n    \"example.com\"\n  ],\n  \"creator\": \"creator-id_abcde12345\",\n  \"expiry\": \"2021-01-02T02:20:00Z\",\n  \"meta\": {\n    \"name\": \"video12345.mp4\"\n  },\n  \"requireSignedURLs\": true,\n  \"scheduledDeletion\": \"2014-01-02T02:20:00Z\",\n  \"thumbnailTimestampPct\": 0.529241\n}"
                     },
                     "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: stream-videos-upload-videos-via-direct-upload-ur-ls\nPOST /accounts/{account_id}/stream/direct_upload\n\nCreates a direct upload endpoint that allows an end-user to upload a video without an API key.\n\nAuthentication support: multi-scheme-or-other\nAuth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_email\":[],\"api_key\":[],\"api_token\":[]}]\nSelected requirement: {\"api_email\":[],\"api_key\":[],\"api_token\":[]}\nUpstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.",
                     "header": [
@@ -28846,7 +28846,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"maxDurationSeconds\": 6096,\n  \"allowedOrigins\": [\n    \"example.com\"\n  ],\n  \"creator\": \"creator-id_abcde12345\",\n  \"expiry\": \"2021-01-02T02:20:00Z\",\n  \"meta\": {\n    \"name\": \"video12345.mp4\"\n  },\n  \"requireSignedURLs\": true,\n  \"scheduledDeletion\": \"2014-01-02T02:20:00Z\",\n  \"thumbnailTimestampPct\": 0.529241,\n  \"watermark\": {\n    \"uid\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  }\n}"
+                          "raw": "{\n  \"maxDurationSeconds\": 6096,\n  \"allowedOrigins\": [\n    \"example.com\"\n  ],\n  \"creator\": \"creator-id_abcde12345\",\n  \"expiry\": \"2021-01-02T02:20:00Z\",\n  \"meta\": {\n    \"name\": \"video12345.mp4\"\n  },\n  \"requireSignedURLs\": true,\n  \"scheduledDeletion\": \"2014-01-02T02:20:00Z\",\n  \"thumbnailTimestampPct\": 0.529241\n}"
                         },
                         "header": [
                           {
@@ -28921,7 +28921,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"maxDurationSeconds\": 6096,\n  \"allowedOrigins\": [\n    \"example.com\"\n  ],\n  \"creator\": \"creator-id_abcde12345\",\n  \"expiry\": \"2021-01-02T02:20:00Z\",\n  \"meta\": {\n    \"name\": \"video12345.mp4\"\n  },\n  \"requireSignedURLs\": true,\n  \"scheduledDeletion\": \"2014-01-02T02:20:00Z\",\n  \"thumbnailTimestampPct\": 0.529241,\n  \"watermark\": {\n    \"uid\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  }\n}"
+                          "raw": "{\n  \"maxDurationSeconds\": 6096,\n  \"allowedOrigins\": [\n    \"example.com\"\n  ],\n  \"creator\": \"creator-id_abcde12345\",\n  \"expiry\": \"2021-01-02T02:20:00Z\",\n  \"meta\": {\n    \"name\": \"video12345.mp4\"\n  },\n  \"requireSignedURLs\": true,\n  \"scheduledDeletion\": \"2014-01-02T02:20:00Z\",\n  \"thumbnailTimestampPct\": 0.529241\n}"
                         },
                         "header": [
                           {
@@ -33064,7 +33064,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"notificationUrl\": false\n}"
+                          "raw": "{\n  \"notificationUrl\": \"https://example.com\"\n}"
                         },
                         "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: stream-webhook-create-webhooks\nPUT /accounts/{account_id}/stream/webhook\n\nCreate a webhook for notifications about on-demand video uploads.\n\nAuthentication support: multi-scheme-or-other\nAuth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_email\":[],\"api_key\":[],\"api_token\":[]}]\nSelected requirement: {\"api_email\":[],\"api_key\":[],\"api_token\":[]}\nUpstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.",
                         "header": [
@@ -33133,7 +33133,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"notificationUrl\": false\n}"
+                              "raw": "{\n  \"notificationUrl\": \"https://example.com\"\n}"
                             },
                             "header": [
                               {
@@ -33202,7 +33202,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"notificationUrl\": false\n}"
+                              "raw": "{\n  \"notificationUrl\": \"https://example.com\"\n}"
                             },
                             "header": [
                               {

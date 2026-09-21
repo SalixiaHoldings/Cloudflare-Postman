@@ -11,7 +11,14 @@ request:
     X-Auth-Key: "{{api_key}}"
   body:
     type: json
-    content: "null"
+    content: |-
+      {
+        "name": "{{name}}",
+        "pattern": {
+          "regex": "{{pattern__regex}}"
+        },
+        "enabled": false
+      }
 response:
   statusCode: 200
   statusText: OK

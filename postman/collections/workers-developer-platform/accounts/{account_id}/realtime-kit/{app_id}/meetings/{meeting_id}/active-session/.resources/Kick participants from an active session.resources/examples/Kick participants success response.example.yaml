@@ -8,7 +8,12 @@ request:
     Accept: application/json
   body:
     type: json
-    content: "{}"
+    content: |-
+      {
+        "participant_ids": [
+          "{{participant_ids__0}}"
+        ]
+      }
 response:
   statusCode: 200
   statusText: OK

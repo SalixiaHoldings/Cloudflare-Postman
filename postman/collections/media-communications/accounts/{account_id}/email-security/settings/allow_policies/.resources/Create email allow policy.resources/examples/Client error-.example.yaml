@@ -9,7 +9,16 @@ request:
     Accept: application/json
   body:
     type: json
-    content: "null"
+    content: |-
+      {
+        "is_exempt_recipient": false,
+        "is_trusted_sender": true,
+        "is_acceptable_sender": false,
+        "pattern": "test@example.com",
+        "is_regex": false,
+        "verify_sender": true,
+        "pattern_type": "EMAIL"
+      }
 response:
   statusCode: 400
   statusText: Bad Request

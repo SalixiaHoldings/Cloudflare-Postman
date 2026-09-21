@@ -20,7 +20,15 @@ headers:
   Accept: application/json
 body:
   type: json
-  content: "null"
+  content: |-
+    {
+      "tag": "{{tag}}",
+      "string_matches": [
+        {
+          "pattern": "{{string_matches__0__pattern}}"
+        }
+      ]
+    }
 auth:
   type: bearer
   credentials:

@@ -20,7 +20,13 @@ headers:
   Accept: application/json
 body:
   type: json
-  content: "null"
+  content: |-
+    {
+      "pattern": "example.com",
+      "is_regex": false,
+      "is_recent": true,
+      "is_similarity": false
+    }
 auth:
   type: bearer
   credentials:

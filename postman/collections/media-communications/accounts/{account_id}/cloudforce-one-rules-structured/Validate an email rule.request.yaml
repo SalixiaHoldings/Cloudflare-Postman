@@ -24,27 +24,20 @@ body:
     {
       "name": "string",
       "condition": {
-        "type": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "operator": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "conditions": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "type": "group",
+        "operator": "and",
+        "conditions": [
+          {
+            "type": "scalar",
+            "field": "{{condition__conditions__0__field}}",
+            "operator": "==",
+            "value": "{{condition__conditions__0__value}}"
+          }
+        ]
       },
       "description": "string",
       "enabled": true,
       "existing_rule_id": "550e8400-e29b-41d4-a716-446655440000",
-      "meta": [
-        {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
-      ],
       "status": "silent"
     }
 auth:

@@ -24,21 +24,78 @@ body:
   type: json
   content: |-
     {
-      "owner_worker_tag": "a7e6fb77503c41d8a7f3113c6918f10c",
       "catch_all_rules": [
         {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
+          "rule": {
+            "actions": [
+              {
+                "type": "worker",
+                "value": [
+                  "my-worker"
+                ]
+              }
+            ],
+            "matchers": [
+              {
+                "type": "all"
+              }
+            ]
+          },
+          "target": "*@example.com"
         }
       ],
+      "owner_worker_tag": "a7e6fb77503c41d8a7f3113c6918f10c",
       "rules": [
         {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
+          "actions": [
+            {
+              "type": "worker",
+              "value": [
+                "my-worker"
+              ]
+            }
+          ],
+          "matchers": [
+            {
+              "field": "to",
+              "type": "literal",
+              "value": "support@example.com"
+            }
+          ]
         },
         {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
+          "actions": [
+            {
+              "type": "worker",
+              "value": [
+                "my-worker"
+              ]
+            }
+          ],
+          "matchers": [
+            {
+              "field": "to",
+              "type": "literal",
+              "value": "info@example.com"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "type": "worker",
+              "value": [
+                "my-worker"
+              ]
+            }
+          ],
+          "matchers": [
+            {
+              "field": "to",
+              "type": "literal",
+              "value": "billing@example.com"
+            }
+          ]
         }
       ]
     }

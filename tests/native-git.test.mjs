@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import {mkdtemp,mkdir,writeFile,readFile,rm,symlink} from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
-import {normalizeAuthId,inspectAuthId,assertUnstableAuthIds,assertSemanticEquivalence,environmentYaml,globalsYaml,assertEmptyGlobals,assertNativeEntityDirectories,treeManifest} from '../src/native-git.mjs';
+import {assertBodyEquivalence,filesUnder,normalizeAuthId,inspectAuthId,assertUnstableAuthIds,assertSemanticEquivalence,environmentYaml,globalsYaml,assertEmptyGlobals,assertNativeEntityDirectories,treeManifest} from '../src/native-git.mjs';
 import {deterministicUuid} from '../src/identity.mjs';
 import YAML from 'yaml';
 import {createTemplateEnvironment} from '../src/chaining.mjs';
@@ -104,4 +104,26 @@ test('generated globals are not ignored, while workspace bindings remain ignored
   for (const file of ['.postman/', '.postman/resources.yaml']) {
     assert.equal(spawnSync('git', ['check-ignore', '--no-index', file], { cwd: ROOT }).status, 0);
   }
+});
+
+
+test('pinned CLI migration preserves repeated unselected multipart file rows', async t => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'native-file-array-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const body = { mode: 'formdata', formdata: [{ key: 'files', type: 'file', src: '' }, { key: 'files', type: 'file', src: '' }] };
+  const collection = { info: { name: 'Fictional upload', _postman_id: collectionId,
+    schema: 'https://schema.getpostman.com/json/collection/v2.1.0/collection.json' },
+    item: [{ id: random, name: 'Fictional request', request: { method: 'POST', url: 'https://example.invalid/upload', body } }] };
+  const input = path.join(root, 'collection.json'), output = path.join(root, 'native');
+  await writeFile(input, JSON.stringify(collection));
+  const cli = path.join(ROOT, 'node_modules/.bin/postman');
+  for (const args of [['collection', 'migrate', input, '-o', output], ['collection', 'lint', output]]) {
+    const result = spawnSync(cli, args, { cwd: root, encoding: 'utf8' });
+    assert.equal(result.status, 0, result.stderr + result.stdout);
+  }
+  const requests = (await filesUnder(output)).filter(file => file.endsWith('.request.yaml'));
+  assert.equal(requests.length, 1);
+  const native = YAML.parse(await readFile(path.join(output, requests[0]), 'utf8'));
+  assertBodyEquivalence(body, native.body, 'fictional multipart file array');
+  assert.equal(native.body.content.length, 2);
 });

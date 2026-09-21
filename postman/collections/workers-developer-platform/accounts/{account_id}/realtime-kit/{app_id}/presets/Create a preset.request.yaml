@@ -26,23 +26,18 @@ body:
       "config": {
         "view_type": "LIVESTREAM",
         "max_video_streams": {
-          "mobile": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "desktop": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
+          "mobile": 0,
+          "desktop": 0
         },
         "max_screenshare_count": 4674.491994082928,
         "media": {
           "video": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
+            "quality": "hd",
+            "frame_rate": 0
           },
           "screenshare": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "audio": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
+            "quality": "hd",
+            "frame_rate": 0
           }
         }
       },
@@ -61,58 +56,43 @@ body:
         "can_livestream": true,
         "waiting_room_type": "SKIP",
         "plugins": {
-          "can_close": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "can_start": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "can_edit_config": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "config": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
+          "can_close": false,
+          "can_start": false,
+          "can_edit_config": false,
+          "config": {}
         },
         "connected_meetings": {
-          "can_alter_connected_meetings": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "can_switch_connected_meetings": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "can_switch_to_parent_meeting": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
+          "can_alter_connected_meetings": false,
+          "can_switch_connected_meetings": false,
+          "can_switch_to_parent_meeting": false
         },
         "polls": {
-          "can_create": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "can_vote": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "can_view": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          }
+          "can_create": false,
+          "can_vote": false,
+          "can_view": false
         },
         "media": {
           "video": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
+            "can_produce": "ALLOWED"
           },
           "audio": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
+            "can_produce": "ALLOWED"
           },
           "screenshare": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
+            "can_produce": "ALLOWED"
           }
         },
         "chat": {
           "public": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
+            "can_send": false,
+            "text": false,
+            "files": false
           },
           "private": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
+            "can_send": false,
+            "can_receive": false,
+            "text": false,
+            "files": false
           }
         },
         "hidden_participant": false,
@@ -126,29 +106,31 @@ body:
       },
       "ui": {
         "design_tokens": {
-          "border_radius": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "border_width": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "spacing_base": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "theme": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
+          "border_radius": "sharp",
+          "border_width": "none",
+          "spacing_base": 1,
+          "theme": "darkest",
           "colors": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "font_family": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "google_font": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
-          "logo": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
+            "brand": {
+              "300": "{{ui__design_tokens__colors__brand__300}}",
+              "400": "{{ui__design_tokens__colors__brand__400}}",
+              "500": "{{ui__design_tokens__colors__brand__500}}",
+              "600": "{{ui__design_tokens__colors__brand__600}}",
+              "700": "{{ui__design_tokens__colors__brand__700}}"
+            },
+            "background": {
+              "600": "{{ui__design_tokens__colors__background__600}}",
+              "700": "{{ui__design_tokens__colors__background__700}}",
+              "800": "{{ui__design_tokens__colors__background__800}}",
+              "900": "{{ui__design_tokens__colors__background__900}}",
+              "1000": "{{ui__design_tokens__colors__background__1000}}"
+            },
+            "danger": "{{ui__design_tokens__colors__danger}}",
+            "text": "{{ui__design_tokens__colors__text}}",
+            "text_on_brand": "{{ui__design_tokens__colors__text_on_brand}}",
+            "success": "{{ui__design_tokens__colors__success}}",
+            "video_bg": "{{ui__design_tokens__colors__video_bg}}",
+            "warning": "{{ui__design_tokens__colors__warning}}"
           }
         }
       }

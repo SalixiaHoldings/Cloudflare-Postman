@@ -13,17 +13,13 @@ request:
       {
         "domain": "docker.io",
         "auth": {
-          "public_credential": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
-          },
+          "public_credential": "example-user",
           "private_credential": {
-            "value": "<Error: Too many levels of nesting to fake this schema>"
+            "store_id": "14758f1afd44c09b7992073ccf00b43d",
+            "secret_name": "{{secret_name}}"
           }
         },
-        "kind": {
-          "description": "Registry provider. This must match `domain`: `DockerHub` for `docker.io`,\n`ECR` for AWS ECR, or `GAR` for Google Artifact Registry.\n",
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
+        "kind": "ECR",
         "is_public": false
       }
 response:

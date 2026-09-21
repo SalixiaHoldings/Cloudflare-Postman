@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 export function sha256(value) {
@@ -64,8 +64,13 @@ export async function fetchVerified({ url, sha, destination, expectedBytes }) {
     throw new Error(`Size mismatch for ${url}: expected ${expectedBytes}, received ${body.length}`);
   }
   await mkdir(path.dirname(destination), { recursive: true });
-  const temporary = `${destination}.tmp`;
-  await writeFile(temporary, body);
-  await rename(temporary, destination);
+  // Parallel cold-cache readers must not rename or overwrite each other's
+  // staging file. Only checksum-verified bytes reach the shared destination.
+  const staging = await mkdtemp(`${destination}.download-`);
+  try {
+    const temporary = path.join(staging, 'verified');
+    await writeFile(temporary, body);
+    await rename(temporary, destination);
+  } finally { await rm(staging, { recursive: true, force: true }); }
   return body;
 }

@@ -14,3 +14,7 @@ console.log(`Residual operations: ${result.residual}`);
 console.log(`Intentional partition overlaps: ${result.overlapCount} operations in ${result.overlapDeclarations} declarations`);
 console.log(`Authentication categories: ${JSON.stringify(result.authentication)}`);
 console.log('Postman Collection v2.1 schema validation passed.');
+console.log(`Request-body classifications: ${JSON.stringify(result.requestBodies.counts)}`);
+for (const condition of result.requestBodies.conditions) {
+  console.log(`${condition.classification}: ${condition.operation}${condition.issues ? ` ${JSON.stringify(condition.issues)}` : ''}`);
+}
