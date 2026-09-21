@@ -31,6 +31,7 @@ export function assertNoBodySentinel(body, label) {
 }
 
 class UnsafeValue extends Error {}
+class RetryOptionalValue extends UnsafeValue {}
 
 // This reader never edits the upstream graph. Reference Object siblings follow OAS 3.0.
 export function createBodyContract(document, revision = {}) {
@@ -359,46 +360,62 @@ export function createBodyContract(document, revision = {}) {
     if (!required && Array.isArray(input) && hasBodySentinel(input)) return OMIT;
     // A proven overlapping-oneOf condition alone must never change the request.
     if (input !== undefined && matches(schemas, input, depth, { property })) return input;
-    let choices = combinations(schemas);
+    let choices = combinations(schemas), optionalUnion = false, singleAlternative = false;
     if (choices.some(nodes => nodes.some(node => node.oneOf || node.anyOf))) {
       const paths = footprint(input);
-      if (!required && object(input) && !paths.length) return OMIT;
       const evidence = paths.filter(path => choices.some(nodes => declares(nodes, path)) &&
         !choices.every(nodes => declares(nodes, path)));
       if (evidence.length) construction?.affinities.set(location, evidence);
       // Ancestor reconstruction must not erase affinity and retry another kind.
       const affinity = construction?.affinities.get(location) ?? evidence;
       choices = choices.filter(nodes => affinity.every(path => declares(nodes, path)));
+      optionalUnion = !required && !paths.length && !affinity.length;
+      singleAlternative = choices.length === 1;
     }
     let failure, accepted = 0;
-    // Preserve converter values when safe. Optional unsafe values are omitted; required
-    // values use source candidates before bounded synthetic template construction.
-    for (const phase of (required ? ['example', 'default', 'enum', 'input', 'construct'] : ['input'])) {
-      for (const nodes of choices) {
+    const sources = schemas.map(source => resolve(source));
+    const constructionPhases = ['example', 'default', 'enum', 'input', 'construct'];
+    // An unaffined optional union may use its own annotations, never examples
+    // harvested from competing branches. Only a sole alternative may be built.
+    const phases = optionalUnion ? ['exact-example', 'exact-default', 'exact-enum',
+      ...(singleAlternative ? constructionPhases : [])] : required ? constructionPhases : ['input'];
+    for (const phase of phases) {
+      const exact = phase.startsWith('exact-'), annotation = exact ? phase.slice(6) : phase;
+      for (const nodes of (exact ? [sources] : choices)) {
         if (nodes.some(node => node.readOnly && node.writeOnly)) throw new Error(`${location}: both readOnly and writeOnly`);
         const candidates = phase === 'input' ? [input] : phase === 'construct' ? repair(nodes, input, trail) :
-          phase === 'enum' ? nodes.flatMap(node => node.enum ?? []) : nodes.filter(node => own(node, phase)).map(node => node[phase]);
+          annotation === 'enum' ? nodes.flatMap(node => node.enum ?? []) : nodes.filter(node => own(node, annotation)).map(node => node[annotation]);
         for (const candidate of candidates) {
+          const pointStart = construction?.points.length ?? 0;
           try {
             if (candidate === undefined) continue;
+            if (exact && !matches(schemas, candidate, depth, { property })) continue;
             if (objectIntent(nodes) && !object(candidate)) {
-              const completeExample = phase === 'example' && schemas.some(source =>
+              const completeExample = exact || phase === 'example' && schemas.some(source =>
                 own(resolve(source), 'example') && resolve(source).example === candidate);
               if (!completeExample || !matches(schemas, candidate, depth, { property })) continue;
             }
-            const output = normalizeNodes(nodes, candidate, depth, location, required, trail);
-            if (!matches(schemas, output, depth, { property })) continue;
-            if (!required && object(output) && !Object.keys(output).length && object(input) && Object.keys(input).length) return OMIT;
-            if (!required && Array.isArray(output) && output.some((child, index) => object(child) &&
+            const output = exact ? candidate : normalizeNodes(nodes, candidate, depth, location, required || optionalUnion, trail);
+            if (!matches(schemas, output, depth, { property })) {
+              if (construction?.points.slice(pointStart).some(point => point.optional)) throw new RetryOptionalValue(`${location}: optional candidate fails enclosing request`);
+              continue;
+            }
+            if (!exact && !required && object(output) && !Object.keys(output).length && object(input) && Object.keys(input).length) return OMIT;
+            if (!exact && !required && Array.isArray(output) && output.some((child, index) => object(child) &&
               !Object.keys(child).length && object(input?.[index]) && Object.keys(input[index]).length)) return OMIT;
-            if (construction && required && phase !== 'input') {
+            if (construction && (optionalUnion || required && phase !== 'input')) {
               const index = accepted++;
               if (index < (construction.indices.get(location) ?? 0)) continue;
-              construction.points.push({ key: location, index });
+              construction.points.push({ key: location, index, optional: optionalUnion });
             }
             return output;
           } catch (error) {
             if (!(error instanceof UnsafeValue)) throw error;
+            // Retry before ancestor reconstruction can discard a locally valid
+            // optional choice and unrelated surviving fields. Exhaustion omits it.
+            if (error instanceof RetryOptionalValue || construction?.points.slice(pointStart).some(point => point.optional)) {
+              throw new RetryOptionalValue(error.message);
+            }
             failure = error;
           }
         }

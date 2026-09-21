@@ -40886,7 +40886,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"name\": \"managed-network-1\",\n  \"type\": \"tls\"\n}"
+                          "raw": "{\n  \"config\": {\n    \"sha256\": \"b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c\",\n    \"tls_sockaddr\": \"foo.bar:1234\"\n  },\n  \"name\": \"managed-network-1\",\n  \"type\": \"tls\"\n}"
                         },
                         "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: device-managed-networks-update-device-managed-network\nPUT /accounts/{account_id}/devices/networks/{network_id}\n\nUpdates a configured device managed network.\n\nAuthentication support: multi-scheme-or-other\nAuth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_email\":[],\"api_key\":[],\"api_token\":[]}]\nSelected requirement: {\"api_email\":[],\"api_key\":[],\"api_token\":[]}\nUpstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.",
                         "header": [
@@ -40956,7 +40956,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"managed-network-1\",\n  \"type\": \"tls\"\n}"
+                              "raw": "{\n  \"config\": {\n    \"sha256\": \"b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c\",\n    \"tls_sockaddr\": \"foo.bar:1234\"\n  },\n  \"name\": \"managed-network-1\",\n  \"type\": \"tls\"\n}"
                             },
                             "header": [
                               {
@@ -41026,7 +41026,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"managed-network-1\",\n  \"type\": \"tls\"\n}"
+                              "raw": "{\n  \"config\": {\n    \"sha256\": \"b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c\",\n    \"tls_sockaddr\": \"foo.bar:1234\"\n  },\n  \"name\": \"managed-network-1\",\n  \"type\": \"tls\"\n}"
                             },
                             "header": [
                               {
@@ -45714,7 +45714,7 @@
                           "language": "json"
                         }
                       },
-                      "raw": "{\n  \"name\": \"Admin Serial Numbers\",\n  \"type\": \"file\",\n  \"description\": \"The rule for admin serial numbers\",\n  \"expiration\": \"1h\",\n  \"schedule\": \"1h\"\n}"
+                      "raw": "{\n  \"name\": \"Admin Serial Numbers\",\n  \"type\": \"file\",\n  \"description\": \"The rule for admin serial numbers\",\n  \"expiration\": \"1h\",\n  \"input\": {\n    \"operating_system\": \"linux\",\n    \"path\": \"/bin/cat\",\n    \"thumbprint\": \"0aabab210bdb998e9cf45da2c9ce352977ab531c681b74cf1e487be1bbe9fe6e\"\n  },\n  \"schedule\": \"1h\"\n}"
                     },
                     "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: device-posture-rules-create-device-posture-rule\nPOST /accounts/{account_id}/devices/posture\n\nCreates a new device posture rule.\n\nAuthentication support: multi-scheme-or-other\nAuth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_email\":[],\"api_key\":[],\"api_token\":[]}]\nSelected requirement: {\"api_email\":[],\"api_key\":[],\"api_token\":[]}\nUpstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.",
                     "header": [
@@ -45783,7 +45783,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"name\": \"Admin Serial Numbers\",\n  \"type\": \"file\",\n  \"description\": \"The rule for admin serial numbers\",\n  \"expiration\": \"1h\",\n  \"schedule\": \"1h\"\n}"
+                          "raw": "{\n  \"name\": \"Admin Serial Numbers\",\n  \"type\": \"file\",\n  \"description\": \"The rule for admin serial numbers\",\n  \"expiration\": \"1h\",\n  \"input\": {\n    \"operating_system\": \"linux\",\n    \"path\": \"/bin/cat\",\n    \"thumbprint\": \"0aabab210bdb998e9cf45da2c9ce352977ab531c681b74cf1e487be1bbe9fe6e\"\n  },\n  \"schedule\": \"1h\"\n}"
                         },
                         "header": [
                           {
@@ -45852,7 +45852,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"name\": \"Admin Serial Numbers\",\n  \"type\": \"file\",\n  \"description\": \"The rule for admin serial numbers\",\n  \"expiration\": \"1h\",\n  \"schedule\": \"1h\"\n}"
+                          "raw": "{\n  \"name\": \"Admin Serial Numbers\",\n  \"type\": \"file\",\n  \"description\": \"The rule for admin serial numbers\",\n  \"expiration\": \"1h\",\n  \"input\": {\n    \"operating_system\": \"linux\",\n    \"path\": \"/bin/cat\",\n    \"thumbprint\": \"0aabab210bdb998e9cf45da2c9ce352977ab531c681b74cf1e487be1bbe9fe6e\"\n  },\n  \"schedule\": \"1h\"\n}"
                         },
                         "header": [
                           {
@@ -46638,7 +46638,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"interval\": \"10m\",\n  \"name\": \"My Workspace One Integration\",\n  \"type\": \"workspace_one\"\n}"
+                              "raw": "{\n  \"config\": {\n    \"api_url\": \"https://as123.awmdm.com/API\",\n    \"auth_url\": \"https://na.uemauth.workspaceone.com/connect/token\",\n    \"client_id\": \"example client id\",\n    \"client_secret\": \"{{client_secret}}\"\n  },\n  \"interval\": \"10m\",\n  \"name\": \"My Workspace One Integration\",\n  \"type\": \"workspace_one\"\n}"
                             },
                             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: device-posture-integrations-update-device-posture-integration\nPATCH /accounts/{account_id}/devices/posture/integration/{integration_id}\n\nUpdates a configured device posture integration.\n\nAuthentication support: multi-scheme-or-other\nAuth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_email\":[],\"api_key\":[],\"api_token\":[]}]\nSelected requirement: {\"api_email\":[],\"api_key\":[],\"api_token\":[]}\nUpstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.",
                             "header": [
@@ -46709,7 +46709,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"interval\": \"10m\",\n  \"name\": \"My Workspace One Integration\",\n  \"type\": \"workspace_one\"\n}"
+                                  "raw": "{\n  \"config\": {\n    \"api_url\": \"https://as123.awmdm.com/API\",\n    \"auth_url\": \"https://na.uemauth.workspaceone.com/connect/token\",\n    \"client_id\": \"example client id\",\n    \"client_secret\": \"{{client_secret}}\"\n  },\n  \"interval\": \"10m\",\n  \"name\": \"My Workspace One Integration\",\n  \"type\": \"workspace_one\"\n}"
                                 },
                                 "header": [
                                   {
@@ -46780,7 +46780,7 @@
                                       "language": "json"
                                     }
                                   },
-                                  "raw": "{\n  \"interval\": \"10m\",\n  \"name\": \"My Workspace One Integration\",\n  \"type\": \"workspace_one\"\n}"
+                                  "raw": "{\n  \"config\": {\n    \"api_url\": \"https://as123.awmdm.com/API\",\n    \"auth_url\": \"https://na.uemauth.workspaceone.com/connect/token\",\n    \"client_id\": \"example client id\",\n    \"client_secret\": \"{{client_secret}}\"\n  },\n  \"interval\": \"10m\",\n  \"name\": \"My Workspace One Integration\",\n  \"type\": \"workspace_one\"\n}"
                                 },
                                 "header": [
                                   {
@@ -47191,7 +47191,7 @@
                               "language": "json"
                             }
                           },
-                          "raw": "{\n  \"name\": \"Admin Serial Numbers\",\n  \"type\": \"file\",\n  \"description\": \"The rule for admin serial numbers\",\n  \"expiration\": \"1h\",\n  \"schedule\": \"1h\"\n}"
+                          "raw": "{\n  \"name\": \"Admin Serial Numbers\",\n  \"type\": \"file\",\n  \"description\": \"The rule for admin serial numbers\",\n  \"expiration\": \"1h\",\n  \"input\": {\n    \"operating_system\": \"linux\",\n    \"path\": \"/bin/cat\",\n    \"thumbprint\": \"0aabab210bdb998e9cf45da2c9ce352977ab531c681b74cf1e487be1bbe9fe6e\"\n  },\n  \"schedule\": \"1h\"\n}"
                         },
                         "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: device-posture-rules-update-device-posture-rule\nPUT /accounts/{account_id}/devices/posture/{rule_id}\n\nUpdates a device posture rule.\n\nAuthentication support: multi-scheme-or-other\nAuth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_email\":[],\"api_key\":[],\"api_token\":[]}]\nSelected requirement: {\"api_email\":[],\"api_key\":[],\"api_token\":[]}\nUpstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.",
                         "header": [
@@ -47261,7 +47261,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"Admin Serial Numbers\",\n  \"type\": \"file\",\n  \"description\": \"The rule for admin serial numbers\",\n  \"expiration\": \"1h\",\n  \"schedule\": \"1h\"\n}"
+                              "raw": "{\n  \"name\": \"Admin Serial Numbers\",\n  \"type\": \"file\",\n  \"description\": \"The rule for admin serial numbers\",\n  \"expiration\": \"1h\",\n  \"input\": {\n    \"operating_system\": \"linux\",\n    \"path\": \"/bin/cat\",\n    \"thumbprint\": \"0aabab210bdb998e9cf45da2c9ce352977ab531c681b74cf1e487be1bbe9fe6e\"\n  },\n  \"schedule\": \"1h\"\n}"
                             },
                             "header": [
                               {
@@ -47331,7 +47331,7 @@
                                   "language": "json"
                                 }
                               },
-                              "raw": "{\n  \"name\": \"Admin Serial Numbers\",\n  \"type\": \"file\",\n  \"description\": \"The rule for admin serial numbers\",\n  \"expiration\": \"1h\",\n  \"schedule\": \"1h\"\n}"
+                              "raw": "{\n  \"name\": \"Admin Serial Numbers\",\n  \"type\": \"file\",\n  \"description\": \"The rule for admin serial numbers\",\n  \"expiration\": \"1h\",\n  \"input\": {\n    \"operating_system\": \"linux\",\n    \"path\": \"/bin/cat\",\n    \"thumbprint\": \"0aabab210bdb998e9cf45da2c9ce352977ab531c681b74cf1e487be1bbe9fe6e\"\n  },\n  \"schedule\": \"1h\"\n}"
                             },
                             "header": [
                               {
@@ -75184,7 +75184,7 @@
                       "language": "json"
                     }
                   },
-                  "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {}\n}"
+                  "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {},\n  \"notes\": \"\"\n}"
                 },
                 "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: ip-access-rules-for-an-account-create-an-ip-access-rule\nPOST /accounts/{account_id}/firewall/access_rules/rules\n\nCreates a new IP Access rule for an account. The rule will apply to all zones in the account.\n\nNote: To create an IP Access rule that applies to a single zone, refer to the [IP Access rules for a zone](#ip-access-rules-for-a-zone) endpoints.\n\nAuthentication support: multi-scheme-or-other\nAuth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_email\":[],\"api_key\":[],\"api_token\":[]}]\nSelected requirement: {\"api_email\":[],\"api_key\":[],\"api_token\":[]}\nUpstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.",
                 "header": [
@@ -75254,7 +75254,7 @@
                           "language": "json"
                         }
                       },
-                      "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {}\n}"
+                      "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {},\n  \"notes\": \"\"\n}"
                     },
                     "header": [
                       {
@@ -75324,7 +75324,7 @@
                           "language": "json"
                         }
                       },
-                      "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {}\n}"
+                      "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {},\n  \"notes\": \"\"\n}"
                     },
                     "header": [
                       {
@@ -101859,7 +101859,7 @@
                   "language": "json"
                 }
               },
-              "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {}\n}"
+              "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {},\n  \"notes\": \"\"\n}"
             },
             "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: ip-access-rules-for-a-user-create-an-ip-access-rule\nPOST /user/firewall/access_rules/rules\n\nCreates a new IP Access rule for all zones owned by the current user.\n\nNote: To create an IP Access rule that applies to a specific zone, refer to the [IP Access rules for a zone](#ip-access-rules-for-a-zone) endpoints.\n\nAuthentication support: multi-scheme-or-other\nAuth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_email\":[],\"api_key\":[],\"api_token\":[]}]\nSelected requirement: {\"api_email\":[],\"api_key\":[],\"api_token\":[]}\nUpstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.",
             "header": [
@@ -101928,7 +101928,7 @@
                       "language": "json"
                     }
                   },
-                  "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {}\n}"
+                  "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {},\n  \"notes\": \"\"\n}"
                 },
                 "header": [
                   {
@@ -101997,7 +101997,7 @@
                       "language": "json"
                     }
                   },
-                  "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {}\n}"
+                  "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {},\n  \"notes\": \"\"\n}"
                 },
                 "header": [
                   {
@@ -110424,7 +110424,7 @@
                       "language": "json"
                     }
                   },
-                  "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {}\n}"
+                  "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {},\n  \"notes\": \"\"\n}"
                 },
                 "description": "GENERATED FILE — DO NOT EDIT.\n\nUpstream operation: ip-access-rules-for-a-zone-create-an-ip-access-rule\nPOST /zones/{zone_id}/firewall/access_rules/rules\n\nCreates a new IP Access rule for a zone.\n\nNote: To create an IP Access rule that applies to multiple zones, refer to [IP Access rules for a user](#ip-access-rules-for-a-user) or [IP Access rules for an account](#ip-access-rules-for-an-account) as appropriate.\n\nAuthentication support: multi-scheme-or-other\nAuth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f\nUpstream security (operation; OR alternatives, AND within each object): [{\"api_email\":[],\"api_key\":[],\"api_token\":[]}]\nSelected requirement: {\"api_email\":[],\"api_key\":[],\"api_token\":[]}\nUpstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.",
                 "header": [
@@ -110494,7 +110494,7 @@
                           "language": "json"
                         }
                       },
-                      "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {}\n}"
+                      "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {},\n  \"notes\": \"\"\n}"
                     },
                     "header": [
                       {
@@ -110564,7 +110564,7 @@
                           "language": "json"
                         }
                       },
-                      "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {}\n}"
+                      "raw": "{\n  \"mode\": \"challenge\",\n  \"configuration\": {},\n  \"notes\": \"\"\n}"
                     },
                     "header": [
                       {

@@ -84,9 +84,18 @@ Strict validity below means validity under that request-validation contract.
   During union repair, surviving declared property paths constrain branch choice.
   Repair may complete that shape, but cannot discard it to manufacture a different
   alternative. Affinity survives ancestor retries: an unconstructible required
-  subtree fails, while an optional subtree is omitted. An optional union containing
-  only converter sentinels is omitted rather than assigned a synthetic branch.
-  Already valid input, including proven overlapping unions, remains unchanged.
+  subtree fails, while an optional subtree may be omitted. With no usable primary
+  footprint, an optional union first tries the exact schema/component's own
+  example, default and enum after local reference resolution. Candidates must
+  already satisfy that subtree and writable semantics, and then pass the complete
+  containing request. Examples found only inside competing alternatives cannot
+  establish authority. If no exact candidate works, a union with exactly one
+  structural alternative may use the existing bounded construction policy,
+  including branch-local source candidates. An unaffined multi-alternative union
+  is otherwise omitted. Bounded retries try later candidates or omission when a
+  locally valid optional choice fails its enclosing request; unrelated surviving
+  values are retained. Normal credential sanitization still applies. Already valid
+  input, including proven overlapping unions, remains unchanged.
 - **Multipart file arrays:** repeated enabled file rows represent array elements.
   Construction emits the minimum required rows, with at least one row for a
   represented required file property, each with empty `src`. No file content or
@@ -226,14 +235,20 @@ passed for that commit; PR #12 remains draft.
 
 The subsequent three construction corrections use a pristine request-body
 source while preserving the existing non-body converter behavior. The
-[correction diff audit](request-template-construction-diff.md) records all changes
+[historical correction audit](https://github.com/SalixiaHoldings/Cloudflare-Postman/blob/1e5a960ab832ba11a87f0ed27308c68591981a8d/docs/request-template-construction-diff.md) records all changes
 relative to `f6508369519b02dc79bc03e29e994bd3944af1ae`, including the complete
 response/query/header immutability comparison. The schema pin, finite primitive
 policy and compatibility categories remain unchanged.
 
-For the corrections, 93 focused tests and 125 full tests pass, together with
+For those authority corrections, 93 focused tests and 125 full tests passed, together with
 installation, generation, deterministic regeneration, validation, the complete
 check and checksum-verified Gitleaks. Both formats retain zero response, query,
 header and unrelated generated-field changes relative to that baseline. All 30
 live-body changes and 71 corresponding saved request bodies are documented in
 the correction audit.
+
+The subsequent optional-union precedence correction tries exact-schema authority
+and safe sole-alternative construction before omission. The
+[current diff audit](request-template-construction-diff.md) compares that change
+against `1e5a960ab832ba11a87f0ed27308c68591981a8d` and records every changed body,
+source justification and complete non-body comparison.

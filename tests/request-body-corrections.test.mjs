@@ -143,7 +143,81 @@ test('already valid overlapping union input retains the existing ambiguity polic
   assert.equal(contract.classifyValue(schema, input), 'ambiguous-oneOf');
 });
 
-test('complete pinned generation preserves body authority and corrects all five reviewed operations', async t => {
+test('optional unions use only exact-schema authority without a primary footprint', () => {
+  assert.deepEqual(contract.normalizeValue(wrapped({ example: {}, oneOf: [
+    { type: 'object', maxProperties: 0 }, { type: 'string' }
+  ] }), { config: sentinel }), { config: {} });
+  for (const keyword of ['oneOf', 'anyOf']) {
+    const example = { token: 'fictional-exact' };
+    for (const annotation of [{ example }, { default: example }, { enum: [example] }]) {
+      const schema = { ...union({ type: 'string' }, keyword), ...annotation };
+      const referenced = createBodyContract({ openapi: '3.0.3', components: { schemas: { Config: schema } } });
+      assert.deepEqual(referenced.normalizeValue(wrapped({ $ref: '#/components/schemas/Config' }), { config: sentinel }), { config: example });
+      const valid = { config: { token: 'fictional-primary' } };
+      if (!annotation.enum) assert.deepEqual(contract.normalizeValue(wrapped(schema), valid), valid);
+    }
+    const branchOnly = union({ type: 'string' }, keyword);
+    branchOnly[keyword][1].example = example;
+    branchOnly[keyword][1].default = example;
+    assert.deepEqual(contract.normalizeValue(wrapped(branchOnly), { config: sentinel }), {});
+    branchOnly.example = example;
+    assert.deepEqual(contract.normalizeValue(wrapped(branchOnly), footprint), {
+      config: { credentials: { label: 'fictional-label', secret: '{{config__credentials__secret}}' } }
+    }, 'exact annotation must not override surviving branch affinity');
+  }
+});
+
+test('optional authoritative candidates must be writable and pass the complete containing request', () => {
+  const config = { ...union(), example: { token: 'fictional-rejected' }, default: { token: 'fictional-accepted' } };
+  const schema = { ...wrapped(config), properties: { ...wrapped(config).properties, label: { type: 'string' } },
+    not: { required: ['config'], properties: { config: { properties: { token: { enum: ['fictional-rejected'] } }, required: ['token'] } } } };
+  const input = { label: 'fictional-survivor', config: sentinel };
+  assert.deepEqual(contract.normalizeValue(schema, input), { label: 'fictional-survivor', config: config.default });
+  delete config.default;
+  assert.deepEqual(contract.normalizeValue(schema, input), { label: 'fictional-survivor' });
+  config.example = { token: 'fictional-readonly' };
+  config.oneOf[1].properties.token.readOnly = true;
+  assert.deepEqual(contract.normalizeValue(schema, input), { label: 'fictional-survivor' });
+});
+
+test('single-alternative optional unions construct safely and omit only when construction fails', () => {
+  for (const keyword of ['oneOf', 'anyOf']) {
+    const config = { [keyword]: [{ type: 'object', required: ['type', 'id'], properties: {
+      type: { type: 'string', enum: ['fictional-kind'] }, id: { type: 'string' }
+    } }] };
+    assert.deepEqual(contract.normalizeValue(wrapped(config), { config: sentinel }), {
+      config: { type: 'fictional-kind', id: '{{config__id}}' }
+    });
+    config[keyword][0].properties.id.format = 'fictional-unsupported';
+    assert.deepEqual(contract.normalizeValue(wrapped(config), { config: sentinel }), {});
+    assert.throws(() => contract.normalizeValue(wrapped(config, true), { config: sentinel }), /cannot be represented/u);
+    config[keyword][0].example = { type: 'fictional-kind', id: 'fictional-source' };
+    assert.deepEqual(contract.normalizeValue(wrapped(config), { config: sentinel }), { config: config[keyword][0].example });
+  }
+});
+
+test('single-alternative optional construction also validates the enclosing request', () => {
+  const config = { oneOf: [{ type: 'object', required: ['kind'], properties: { kind: { enum: ['fictional-only'] } } }] };
+  const schema = { ...wrapped(config), not: { required: ['config'] } };
+  assert.deepEqual(contract.normalizeValue(schema, { config: sentinel }), {});
+});
+
+test('exact optional union examples still pass through credential sanitization', async () => {
+  const config = { example: { client_secret: 'fictional-example-secret' }, oneOf: [
+    { type: 'object', required: ['client_secret'], properties: { client_secret: { type: 'string' } } },
+    { type: 'object', required: ['alternative'], properties: { alternative: { type: 'boolean' } } }
+  ] };
+  const working = fixture(), authority = structuredClone(working);
+  // Deliberately unsafe working input exercises the production privacy pass
+  // after the pristine request authority restores its exact component example.
+  working.components.schemas.Values = wrapped({ example: sentinel, type: 'object' });
+  authority.components.schemas.Values = wrapped(config);
+  const operations = listOperations(working), partition = { id: 'fictional', title: 'Fictional', description: '' };
+  const result = await generateCollection(working, { partition, operations, commit: 'a'.repeat(40), schemaSha256: 'b'.repeat(64), requestBodySchema: authority });
+  for (const item of walk(result.collection.item)) assert.deepEqual(JSON.parse(item.request.body.raw), { config: { client_secret: '{{client_secret}}' } });
+});
+
+test('complete pinned generation preserves authority and all twelve reviewed operation corrections', async t => {
   const { destination, lock } = await fetchPinnedSchema();
   assert.equal(lock.commit, '49731bd0592b0c8c2c781b8d15d9f27c7293b210');
   const original = JSON.parse(await readFile(destination));
@@ -154,7 +228,14 @@ test('complete pinned generation preserves body authority and corrects all five 
     'POST /accounts/{account_id}/load_balancers',
     'PUT /accounts/{account_id}/load_balancers/{load_balancer_id}',
     'PATCH /zones/{zone_id}/settings',
-    'POST /accounts/{account_id}/pipelines/v1/sinks'
+    'POST /accounts/{account_id}/pipelines/v1/sinks',
+    'PUT /accounts/{account_id}/devices/networks/{network_id}',
+    'POST /accounts/{account_id}/devices/posture',
+    'PUT /accounts/{account_id}/devices/posture/{rule_id}',
+    'PATCH /accounts/{account_id}/devices/posture/integration/{integration_id}',
+    'POST /accounts/{account_id}/event_subscriptions/subscriptions',
+    'PATCH /accounts/{account_id}/event_subscriptions/subscriptions/{subscription_id}',
+    'PATCH /accounts/{account_id}/vuln_scanner/target_environments/{target_environment_id}'
   ]);
   const temporary = await mkdtemp(path.join(os.tmpdir(), 'cloudflare-body-authority-'));
   try {
@@ -169,7 +250,7 @@ test('complete pinned generation preserves body authority and corrects all five 
         if (wanted.has(key)) inputs.set(key, request);
       }
     }
-    assert.equal(inputs.size, 5);
+    assert.equal(inputs.size, wanted.size);
     for (const [key, request] of inputs) await t.test(key, () => {
       assert.equal(hasBodySentinel(request.body), false);
       const value = JSON.parse(request.body.raw);
@@ -178,8 +259,23 @@ test('complete pinned generation preserves body authority and corrects all five 
       else if (key.endsWith('/settings')) {
         assert.ok(value.length > 0);
         for (const setting of value) assert.ok(setting && typeof setting === 'object' && setting.id && Object.hasOwn(setting, 'value'));
-      } else assert.equal(Object.hasOwn(value, 'config'), false, 'unanchored optional config must not switch sink kind');
-      assert.equal(pristine.validate(request, operations.find(o => o.key === key)).classification, 'valid');
+      } else if (key.includes('/pipelines/')) {
+        assert.equal(value.type, 'r2');
+        assert.equal(Object.hasOwn(value, 'config'), false, 'unanchored optional config must not switch sink kind');
+      } else if (key.includes('/devices/networks/')) {
+        assert.equal(value.type, 'tls');
+        assert.deepEqual(value.config, original.components.schemas['teams-devices_schemas-config_request'].example);
+      } else if (key.includes('/posture/integration/')) {
+        assert.equal(value.type, 'workspace_one');
+        assert.deepEqual(value.config, { ...original.components.schemas['teams-devices_config_request'].example, client_secret: '{{client_secret}}' });
+      } else if (key.includes('/devices/posture')) {
+        assert.equal(value.type, 'file');
+        assert.deepEqual(value.input, original.components.schemas['teams-devices_input'].example);
+      } else if (key.includes('/event_subscriptions/')) {
+        assert.deepEqual(value.destination, { type: 'queues.queue', queue_id: '{{destination__queue_id}}' });
+      } else assert.deepEqual(value.target, { type: 'zone', zone_tag: original.components.schemas['vuln_scanner_zone-target'].properties.zone_tag.example });
+      assert.equal(pristine.validate(request, operations.find(o => o.key === key)).classification,
+        key.includes('/devices/posture') ? 'ambiguous-oneOf' : 'valid');
     });
   } finally { await rm(temporary, { recursive: true, force: true }); }
 });

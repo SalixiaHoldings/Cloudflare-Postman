@@ -1,101 +1,284 @@
-# Generated request-body correction audit
+# Optional-union construction precedence audit
 
-Comparison baseline: PR #12 head `f6508369519b02dc79bc03e29e994bd3944af1ae`. The schema pin, toolchain pins, Ajv architecture, finite primitive policy and compatibility categories are unchanged. Generated artifacts are comparison evidence only, never construction inputs.
+Comparison baseline: PR #12 head `1e5a960ab832ba11a87f0ed27308c68591981a8d`.
+The upstream pin, toolchain, Ajv architecture, compatibility classifications,
+pristine request-body authority and converter behavior are unchanged. The
+[preceding authority correction audit](https://github.com/SalixiaHoldings/Cloudflare-Postman/blob/1e5a960ab832ba11a87f0ed27308c68591981a8d/docs/request-template-construction-diff.md)
+is preserved at that baseline.
 
-## Corrections and attribution
+## Narrow correction
 
-Generation parses a separate request-body authority directly from the same pinned bytes before any converter runs. The complete graph is recursively frozen, and its deterministic hash is checked after all partitions finish. Each partition derives its body contract from this source. The primary converter working graph, shallow partition views and full secondary query-conversion behavior retain their existing semantics.
+Optional union normalization no longer omits sentinel-only converter input before
+checking the exact resolved schema's own example, default and enum. These exact
+candidates must already satisfy the subtree and writable semantics. Bounded
+retries validate the containing request before acceptance, try later candidates
+when needed, and omit an optional value when none works. Examples harvested only
+from competing union branches cannot select a kind without primary affinity.
 
-Construction also preserves composed object intent when child annotations are scalar or array values, without changing Ajv structural semantics. Complete authoritative examples remain usable if the full contract validates. Optional union repair preserves surviving declared property paths across retries; compatible branches may be completed, unsafe optional subtrees are omitted, and required unconstructible branches fail closed. Already valid overlapping unions remain unchanged.
+If no exact candidate works and there is only one structural alternative, the
+existing bounded construction policy may complete it. Existing valid input wins;
+surviving branch affinity remains binding; required unconstructible values still
+fail closed. Privacy sanitization remains in the normal production path.
 
-All five reviewed operations are corrected: the email-routing plan retains its complete source example; account load-balancer create/update retain the three-pool example; zone settings retain identifiable id/value objects; and the Pipeline sink omits unsafe optional config instead of putting Data Catalog config beneath type r2.
+There are **13 changed live bodies**: the seven reviewed restorations and six
+additional restorations from the same exact-schema rule. Ten use exact-schema
+annotations (six examples and four defaults); three use sole-alternative
+construction. No operation-specific production rules were added.
 
-The complete diff contains **30 changed live bodies**, including **25 beyond the five reviewed operations**. A counterfactual comparison applies the baseline constructor to the identical primary inputs, preserving the existing working-graph conversion order while supplying pristine request contracts:
+Fresh primary conversion of every full partition, in production order, confirms
+that all 13 affected values were sentinel-only wrappers. Running the baseline
+constructor on those same inputs with pristine authority reproduces all 13 old
+bodies exactly. Each final body is independently validated against the pristine
+pinned request contract. Every difference is an insertion listed below; all other
+body values remain identical. The Worker asset config object survives because its
+`run_worker_first` union now retains the exact default `false`; its other absent
+optional children are not synthesized.
 
-- **3** entire final bodies are reproduced by request-authority isolation alone.
-- **26** bodies incorporate optional-union omission: the reviewed Pipeline sink plus **25 additional operations**. All 27 omitted subtrees contain only converter sentinels, with no surviving value that identifies a branch.
-- **1** body is the reviewed zone-settings object-intent correction.
-
-Every changed operation and path is listed below. No response, SDK, rendered-documentation, sibling-endpoint or generated-artifact value supplies construction data. There are no endpoint-specific allowlists.
-
-## Complete distribution
+## Distribution and isolation
 
 | Measurement | Baseline | Corrected |
 | --- | ---: | ---: |
 | Exactly-once reference operations | 3,540 | 3,540 |
-| Live bodies | 1,254 | 1,254 |
-| Native request files including bootstrap | 3,543 | 3,543 |
-| valid | 1,202 | 1,206 |
-| ambiguous-oneOf | 34 | 30 |
+| Live request bodies | 1,254 | 1,254 |
+| valid | 1,206 | 1,203 |
+| ambiguous-oneOf | 30 | 33 |
 | source-incomplete | 16 | 16 |
 | source-conflict | 2 | 2 |
 | Without bodies | 2,286 | 2,286 |
 | Live-body sentinels, either format | 0 | 0 |
 
-Modes remain **1,212 raw / 32 form-data / 9 file / 1 URL-encoded**. All 3,543 Native bodies independently match v2. File sets, partitioning, environments, operation accounting and all eight multipart binary-array bodies remain unchanged.
+The three restored device-posture bodies return to the existing reviewed
+ambiguous-oneOf classification. The three firewall requests retain their previous
+ambiguous-oneOf classification. The other seven changed bodies are strict-valid.
+Incomplete/conflict membership and all compatibility rules are unchanged.
+The exhaustive original 56-case test remains **52 valid / 2 ambiguous-oneOf /
+2 source-conflict**.
 
-**71 saved request snapshots** change correspondingly. The diff contains 9 v2 files, 30 Native request files, 71 Native example files and 0 other Native files.
+Modes remain **1,212 raw / 32 form-data / 9 file / 1 URL-encoded**. All eight
+binary-array request bodies are unchanged. There are **33 corresponding saved
+request-body changes**. File sets remain identical: five v2 files (four collections
+and the manifest), 13 Native request files and 33 Native example files change;
+no other Native files change. All **3,543 Native request bodies** independently
+match v2, and all **8,409 Native examples** remain present.
 
-The four requests moving from ambiguous-oneOf to valid are device-posture create/update, device-posture integration patch, and token-validation rule patch. The source-incomplete and source-conflict memberships are unchanged. The 56-case regression retains 52 strict-valid / 2 ambiguous-oneOf / 2 source-conflict.
+Complete comparisons against the baseline, in both formats, confirm:
 
-## Non-body immutability
+| Non-body field group | Changes |
+| --- | ---: |
+| Response payloads | 0 |
+| Response records, excluding saved request bodies | 0 |
+| Query keys, values and enabled state | 0 |
+| Request headers | 0 |
+| URLs | 0 |
+| Auth | 0 |
+| Environments | 0 |
+| Partitioning and operation accounting | 0 |
+| Other unrelated generated fields | 0 |
 
-Independent complete comparisons against the baseline find:
-
-- **0 response-payload changes and 0 response-record changes**, excluding saved request bodies.
-- **0 query changes**, including keys, values and enabled state.
-- **0 unrelated request-header changes; 0 URL changes; 0 authentication changes.**
-- **0 unrelated generated-field changes**, including collection/folder metadata, request/example metadata, saved request fields other than body, environments and partitioning.
-
-The v2 comparison removes only live/saved body fields and the permitted collection/Native file hashes and request-body manifest diagnostics before comparing complete JSON trees. The Native comparison checks every changed YAML tree after removing only live/saved body fields. Response fields are compared in full in both formats. Neither check copies baseline artifacts into generated output.
-
-## Deferred global converter isolation
-
-The converter mutates nested objects received through shallow partition views. Those path/component references are shared across the converter working graph, making later conversion results dependent on previous partitions. This remains a separate generator defect.
-
-A rejected local experiment that cloned every converter input changed 311 response payloads, query values on 360 operations and two request headers. Those output changes are excluded from PR #12. A dedicated follow-up must isolate the complete converter graph, test conversion-order behavior, and independently review the resulting non-body differences. PR #12 isolates only request-body source authority; it does not replay mutations, restore old response files, or globally change `convert()` or `subsetSchema()`.
-
-## Regression and validation evidence
-
-Permanent tests cover deep immutability, deterministic before/after authority hashes, identical-input normalization after either partition order, non-body output equivalence with and without authority isolation, full pinned generation, the five reviewed operations, composed object candidates and optional/required union affinity. Existing Ajv and finite construction regressions remain, including all 56 inventoried cases.
-
-On Node 24, `npm ci`, **93 focused tests**, **125 complete tests**, `npm run generate`, standalone `generate:check`, `validate`, the full `check`, and `git diff --check` pass. Independent regeneration reproduces both complete generated trees byte-for-byte. Every collection passes official Native raw/normalized lint, semantic/body equivalence and two-migration byte comparison.
-
-Checksum-verified Gitleaks 8.30.1 passes with 3,727 fully attributed findings and zero unresolved: 3,543 auth fingerprints, 158 upstream examples and 26 synthetic token IDs. Email occurrences are 396 upstream and 12 synthetic. The verified Darwin x64 release archive SHA-256 is `dfe101a4db2255fc85120ac7f3d25e4342c3c20cf749f2c20a18081af1952709`.
-
-The full non-body comparisons, exact operation accounting, unchanged pins/compatibility files and final file-scope audit pass. Hosted Validate status is recorded on PR #12 for the signed correction commit; the PR remains draft.
+The v2 comparison checks complete trees after removing only live/saved body fields
+and manifest body diagnostics/artifact hashes. The Native comparison checks every
+changed YAML tree after removing only live/saved body fields. Neither comparison
+restores baseline output or uses generated data as construction authority.
 
 ## Individual changed bodies
 
-| # | Operation | Scope | Changed body paths | Attribution and justification |
-| ---: | --- | --- | --- | --- |
-| 1 | `PUT /accounts/{account_id}/ai-gateway/gateways/{id}` | additional | `/dlp` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 2 | `PUT /accounts/{account_id}/devices/networks/{network_id}` | additional | `/config` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 3 | `POST /accounts/{account_id}/devices/posture` | additional | `/input` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 4 | `PATCH /accounts/{account_id}/devices/posture/integration/{integration_id}` | additional | `/config` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 5 | `PUT /accounts/{account_id}/devices/posture/{rule_id}` | additional | `/input` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 6 | `PUT /accounts/{account_id}/warp_connector/{tunnel_id}/configurations` | additional | `/config` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 7 | `POST /accounts/{account_id}/autorag/rags/{id}/ai-search` | additional | `/filters` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 8 | `POST /accounts/{account_id}/event_subscriptions/subscriptions` | additional | `/destination` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 9 | `PATCH /accounts/{account_id}/event_subscriptions/subscriptions/{subscription_id}` | additional | `/destination` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 10 | `POST /accounts/{account_id}/pipelines/v1/sinks` | reviewed | `/config`, `/format` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 11 | `POST /accounts/{account_id}/pipelines/v1/streams` | additional | `/format` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 12 | `POST /accounts/{account_id}/realtime/kit/{app_id}/meetings` | additional | `/recording_config/storage_config` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 13 | `PATCH /accounts/{account_id}/realtime/kit/{app_id}/meetings/{meeting_id}` | additional | `/recording_config/storage_config` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 14 | `PUT /accounts/{account_id}/realtime/kit/{app_id}/meetings/{meeting_id}` | additional | `/recording_config/storage_config` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 15 | `PATCH /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets-bulk` | additional | `/secrets` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 16 | `PATCH /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings` | additional | `/formdata/0/value` (JSON `/placement` in `settings`) | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 17 | `PATCH /accounts/{account_id}/workers/scripts/{script_name}/secrets-bulk` | additional | `/secrets` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 18 | `PATCH /accounts/{account_id}/workers/scripts/{script_name}/settings` | additional | `/formdata/0/value` (JSON `/placement` in `settings`) | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 19 | `POST /accounts/{account_id}/workers/workers/{worker_id}/versions` | additional | `/placement` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 20 | `PATCH /accounts/{account_id}/workers/workers/{worker_id}/versions/latest` | additional | `/placement` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 21 | `POST /accounts/{account_id}/slurper/jobs` | additional | `/source` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 22 | `PATCH /accounts/{account_id}/vuln_scanner/target_environments/{target_environment_id}` | additional | `/target` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 23 | `PATCH /zones/{zone_id}/settings` | reviewed | `/0`, `/1` | Composed object intent preserves setting id/value structure; scalar/array child annotations cannot replace the object. |
-| 24 | `PATCH /zones/{zone_id}/token_validation/rules/{rule_id}` | additional | `/position` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 25 | `POST /accounts/{account_id}/load_balancers` | reviewed | `/default_pools/0`, `/default_pools/1`, `/default_pools/2` | Pristine request authority: the baseline constructor applied to the identical primary converter input under the unmutated pin reproduces this entire body. Authoritative request examples/cardinality are no longer overridden by converter mutation. |
-| 26 | `PUT /accounts/{account_id}/load_balancers/{load_balancer_id}` | reviewed | `/default_pools/0`, `/default_pools/1`, `/default_pools/2` | Pristine request authority: the baseline constructor applied to the identical primary converter input under the unmutated pin reproduces this entire body. Authoritative request examples/cardinality are no longer overridden by converter mutation. |
-| 27 | `POST /accounts/{account_id}/email/routing/rules/plan` | reviewed | `/catch_all_rules/0/rule/matchers/1`, `/rules/0/matchers/0/field`, `/rules/0/matchers/0/value`, `/rules/0/matchers/1`, `/rules/1/matchers/0/field`, `/rules/1/matchers/0/value`, `/rules/1/matchers/1`, `/rules/2/matchers/0/field`, `/rules/2/matchers/0/value`, `/rules/2/matchers/1` | Pristine request authority: the baseline constructor applied to the identical primary converter input under the unmutated pin reproduces this entire body. Authoritative request examples/cardinality are no longer overridden by converter mutation. |
-| 28 | `POST /accounts/{account_id}/autorag/rags/{id}/search` | additional | `/filters` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 29 | `POST /accounts/{account_id}/cloudforce-one/v2/collections/{collection_id}/search` | additional | `/filter` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
-| 30 | `POST /accounts/{account_id}/containers/applications` | additional | `/durable_objects` | Omit the optional union at the listed path: its primary subtree contains only converter sentinels, so the old constructed alternative had no surviving branch evidence. |
+Each listed path was absent at the baseline. The JSON value shown is the complete
+inserted subtree; all other body fields are identical. Source paths refer to the
+unchanged pinned schema `49731bd0592b0c8c2c781b8d15d9f27c7293b210`, SHA-256
+`3a7ba0e10e3b84f36e9ba6d6135a99d69177c2c3501711bcb367cb8b462bc627`.
+
+### 1. `PUT /accounts/{account_id}/devices/networks/{network_id}`
+
+- Body path: `/config`.
+- Authority: `#/components/schemas/teams-devices_schemas-config_request/example`.
+- Final classification: **valid**.
+- The surviving `tls` selector is unchanged and compatible with the exact example.
+
+```json
+{
+  "sha256": "b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c",
+  "tls_sockaddr": "foo.bar:1234"
+}
+```
+
+### 2. `POST /accounts/{account_id}/devices/posture`
+
+- Body path: `/input`.
+- Authority: `#/components/schemas/teams-devices_input/example`.
+- Final classification: **ambiguous-oneOf**.
+- The surviving `file` selector is unchanged and compatible with the exact example.
+
+```json
+{
+  "operating_system": "linux",
+  "path": "/bin/cat",
+  "thumbprint": "0aabab210bdb998e9cf45da2c9ce352977ab531c681b74cf1e487be1bbe9fe6e"
+}
+```
+
+### 3. `PUT /accounts/{account_id}/devices/posture/{rule_id}`
+
+- Body path: `/input`.
+- Authority: `#/components/schemas/teams-devices_input/example`.
+- Final classification: **ambiguous-oneOf**.
+- The surviving `file` selector is unchanged and compatible with the exact example.
+
+```json
+{
+  "operating_system": "linux",
+  "path": "/bin/cat",
+  "thumbprint": "0aabab210bdb998e9cf45da2c9ce352977ab531c681b74cf1e487be1bbe9fe6e"
+}
+```
+
+### 4. `PATCH /accounts/{account_id}/devices/posture/integration/{integration_id}`
+
+- Body path: `/config`.
+- Authority: `#/components/schemas/teams-devices_config_request/example`.
+- Final classification: **ambiguous-oneOf**.
+- The surviving `workspace_one` selector is unchanged; normal privacy handling replaces the source secret example with `{{client_secret}}`.
+
+```json
+{
+  "api_url": "https://as123.awmdm.com/API",
+  "auth_url": "https://na.uemauth.workspaceone.com/connect/token",
+  "client_id": "example client id",
+  "client_secret": "{{client_secret}}"
+}
+```
+
+### 5. `POST /accounts/{account_id}/event_subscriptions/subscriptions`
+
+- Body path: `/destination`.
+- Authority: `#/components/schemas/mq_event-destination-queue`.
+- Final classification: **valid**.
+- `mq_event-destination` has exactly one alternative. Its type enum and required string witness construct this template without selecting among competing kinds.
+
+```json
+{
+  "type": "queues.queue",
+  "queue_id": "{{destination__queue_id}}"
+}
+```
+
+### 6. `PATCH /accounts/{account_id}/event_subscriptions/subscriptions/{subscription_id}`
+
+- Body path: `/destination`.
+- Authority: `#/components/schemas/mq_event-destination-queue`.
+- Final classification: **valid**.
+- `mq_event-destination` has exactly one alternative. Its type enum and required string witness construct this template without selecting among competing kinds.
+
+```json
+{
+  "type": "queues.queue",
+  "queue_id": "{{destination__queue_id}}"
+}
+```
+
+### 7. `PATCH /accounts/{account_id}/vuln_scanner/target_environments/{target_environment_id}`
+
+- Body path: `/target`.
+- Authority: `#/components/schemas/vuln_scanner_zone-target`.
+- Final classification: **valid**.
+- `vuln_scanner_target-type` has exactly one alternative. Its fixed type enum and source-backed zone-tag example complete the target.
+
+```json
+{
+  "type": "zone",
+  "zone_tag": "d8e8fca2dc0f896fd7cb4cb0031ba249"
+}
+```
+
+### 8. `POST /accounts/{account_id}/firewall/access_rules/rules`
+
+- Body path: `/notes`.
+- Authority: `#/paths/~1accounts~1{account_id}~1firewall~1access_rules~1rules/post/requestBody/content/application~1json/schema/properties/notes/default`.
+- Final classification: **ambiguous-oneOf**.
+
+```json
+""
+```
+
+### 9. `POST /user/firewall/access_rules/rules`
+
+- Body path: `/notes`.
+- Authority: `#/paths/~1user~1firewall~1access_rules~1rules/post/requestBody/content/application~1json/schema/properties/notes/default`.
+- Final classification: **ambiguous-oneOf**.
+
+```json
+""
+```
+
+### 10. `POST /zones/{zone_id}/firewall/access_rules/rules`
+
+- Body path: `/notes`.
+- Authority: `#/paths/~1zones~1{zone_id}~1firewall~1access_rules~1rules/post/requestBody/content/application~1json/schema/properties/notes/default`.
+- Final classification: **ambiguous-oneOf**.
+
+```json
+""
+```
+
+### 11. `POST /accounts/{account_id}/workers/workers/{worker_id}/versions`
+
+- Body path: `/assets/config`.
+- Authority: `#/components/schemas/workers_Version/properties/assets/properties/config/properties/run_worker_first/default`.
+- Final classification: **valid**.
+- Exact default applies at `/assets/config/run_worker_first`; retaining that child keeps its parent config object.
+
+```json
+{
+  "run_worker_first": false
+}
+```
+
+### 12. `POST /accounts/{account_id}/containers/applications/{application_id}/rollouts`
+
+- Body path: `/target_configuration/instance_type`.
+- Authority: `#/components/schemas/cc_InstanceType/example`.
+- Final classification: **valid**.
+
+```json
+"lite"
+```
+
+### 13. `POST /accounts/{account_id}/data-security/posture/findings/export`
+
+- Body path: `/product`.
+- Authority: `#/components/schemas/posture-api_FindingExportFilterRequest/properties/product/example`.
+- Final classification: **valid**.
+
+```json
+"SaaS"
+```
+
+## Regression and validation evidence
+
+Permanent tests cover all seven reviewed operations through full pinned production
+generation, exact component/root annotations, rejected branch-local examples,
+valid-input preservation, safe and unsafe singleton unions, required fail-closed
+behavior, affinity preservation, credential sanitization, and complete-request
+retry/default/omission. The existing Pipeline regression still proves that its R2
+selector cannot acquire Data Catalog configuration. Authority and finite-policy
+regressions remain intact.
+
+Node 24 validation: **105 focused tests / 137 full tests**, `npm ci`, generation,
+standalone `generate:check`, validation, complete `check`, and `git diff --check`.
+Independent full regeneration checks both complete output trees byte-for-byte;
+each collection also passes official raw/normalized Native lint, semantic/body
+equivalence and two-migration byte comparison. Final hosted Validate evidence is
+recorded on PR #12 against the signed final commit.
+
+Checksum-verified Gitleaks 8.30.1 passes: **3,727 attributed findings / 0 unresolved**
+(3,543 auth fingerprints, 158 upstream examples, 26 synthetic token IDs; 396 upstream
+and 12 synthetic email occurrences). The official Darwin x64 archive checksum is
+`dfe101a4db2255fc85120ac7f3d25e4342c3c20cf749f2c20a18081af1952709`; the installed
+scanner also matches the archive's extracted executable exactly.
+
+## Deferred global converter isolation
+
+The converter's shared working-graph mutation/order dependence remains a separate
+follow-up. This correction changes neither `convert()` nor `subsetSchema()`, and
+the pristine request-body authority mechanism is unchanged. The earlier rejected
+global-isolation experiment and its non-body drift are documented in the
+historical audit linked above. PR #13 remains untouched; PR #12 remains draft.
