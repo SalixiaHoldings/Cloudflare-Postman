@@ -43,6 +43,7 @@ This repository is the public, open-source Salixia-maintained Postman distributi
 
 - Pull requests must run deterministic generation checks, schema/collection validation, tests, operation accounting, auth validation, query-policy validation, and v2/v3 semantic checks.
 - Scheduled upstream drift must produce a reviewable branch/PR and human-readable summary; it must never auto-merge.
+- A nonzero upstream-drift run can be an intentional review boundary after the PR is prepared. Continue review on the existing update branch; do not replace an open reviewed branch unless an explicit refresh is intended.
 - Live Cloudflare smoke tests must be read-only by default, use narrowly scoped maintainer-controlled credentials, and keep secrets unavailable to PR execution.
 
 ## Change discipline

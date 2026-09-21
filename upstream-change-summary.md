@@ -114,5 +114,5 @@ migration normalization.
 - Hosted Validate: reported by PR #14 checks for the published head; the PR description records the final run.
 
 No upstream updater rerun, schema patch, toolchain/dependency change, live
-Cloudflare operation, merge, tag, or release is part of this work. PR #14 remains
-draft/open for human review; v0.1.0 remains unchanged.
+Cloudflare operation, merge, tag, or release is part of this update commit. The
+changes are prepared for human review; v0.1.0 remains unchanged.

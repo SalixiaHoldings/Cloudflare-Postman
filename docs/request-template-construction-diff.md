@@ -1,4 +1,6 @@
-# Optional-union construction precedence audit
+# Historical optional-union construction precedence audit (PR #12)
+
+> Historical record. This audit documents the final v0.1.0 request-body correction. Current revision-specific request-body status is tracked in the [73947dd schema review](schema-revision-73947dd.md).
 
 Comparison baseline: PR #12 head `1e5a960ab832ba11a87f0ed27308c68591981a8d`.
 The upstream pin, toolchain, Ajv architecture, compatibility classifications,
@@ -281,4 +283,4 @@ The converter's shared working-graph mutation/order dependence remains a separat
 follow-up. This correction changes neither `convert()` nor `subsetSchema()`, and
 the pristine request-body authority mechanism is unchanged. The earlier rejected
 global-isolation experiment and its non-body drift are documented in the
-historical audit linked above. PR #13 remains untouched; PR #12 remains draft.
+historical audit linked above. This work was completed and merged in PR #12 as part of v0.1.0. The separate upstream-update PR #13 was later closed as superseded and was not incorporated into PR #12.

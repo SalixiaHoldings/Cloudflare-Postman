@@ -1,5 +1,7 @@
 # Schema revision a0eceeef
 
+> Historical revision review. The current reviewed schema revision is documented in [schema-revision-73947dd.md](schema-revision-73947dd.md).
+
 ## Source and review boundary
 
 This revision advances Cloudflare's authoritative schema from `1cf9b4dcf3241bef73d3300b045cb01543cc7a5f` to `a0eceeef8288f2fea2c3115a232ddf23e43d8540`, SHA-256 `edd52fdafe20ff355b335943db19c1dc4e03a2383f6351644bea209e44edd0c3`. The upstream JSON is unmodified. Converter `6.3.3`, Postman CLI `1.56.3`, partition rules, authentication selection, full-secondary/query-only projection, and guarded Native Git auth-UUID normalization remain unchanged.

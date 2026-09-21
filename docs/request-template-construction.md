@@ -1,8 +1,10 @@
 # Finite request-template construction
 
-This policy completes the construction work left blocked at PR #12 head
-`f3c6f54ecab08ce7649cd445160b4fe66ee9f99c`. It does not change the request
-validation architecture or the upstream pin. The primary converter and the
+This policy defines the finite request-template construction introduced during
+PR #12 and retained by the current generator. The original implementation began
+from PR #12 head `f3c6f54ecab08ce7649cd445160b4fe66ee9f99c`; current
+revision-specific outcomes are reviewed in the
+[73947dd schema review](schema-revision-73947dd.md). The primary converter and the
 operation's own OpenAPI request/media schemas are the only construction sources.
 SDKs, rendered docs, responses, sibling operations and existing generated files
 are not construction inputs. The operation list in the regression fixture is
@@ -130,8 +132,7 @@ pattern to commit `73947ddceec8571140469a90a1a35078e10fa054` and SHA-256
 Both complete request contracts and their referenced property schemas remain
 unchanged from v0.1.0; the revision-bound tests independently check the exact
 source shape, root-only Ajv type failure, and preserved safe object.
-A different pin or digest rejects these cases until reviewed. PR #13 remains
-independent and is not incorporated.
+A different pin or digest rejects these cases until reviewed.
 
 The two exact conflict sites are:
 
@@ -231,6 +232,9 @@ now assert the specifically authorized finite policy and its rejection bounds.
 
 ## Verification history
 
+This section preserves implementation history from PR #12. For the current pin's
+complete verification results, see the [73947dd schema review](schema-revision-73947dd.md).
+
 At the original finite-policy head `f6508369519b02dc79bc03e29e994bd3944af1ae`,
 on Node 24, `npm ci`, the 81 focused request-body/Native Git tests, all 113
 repository tests, `npm run generate`, `npm run generate:check`,
@@ -249,7 +253,7 @@ synthetic occurrences. The official Darwin x64 archive SHA-256 is
 
 The historical audit at that commit records 135 individual body changes, identical
 file sets, and zero response-payload changes in both formats. Hosted Validate
-passed for that commit; PR #12 remains draft.
+passed for that commit. PR #12 was subsequently completed and merged as part of v0.1.0.
 
 The subsequent three construction corrections use a pristine request-body
 source while preserving the existing non-body converter behavior. The
@@ -267,6 +271,6 @@ the correction audit.
 
 The subsequent optional-union precedence correction tries exact-schema authority
 and safe sole-alternative construction before omission. The
-[current diff audit](request-template-construction-diff.md) compares that change
+[historical v0.1.0 diff audit](request-template-construction-diff.md) compares that change
 against `1e5a960ab832ba11a87f0ed27308c68591981a8d` and records every changed body,
 source justification and complete non-body comparison.

@@ -1,21 +1,22 @@
-# Request-body generation audit
+# Historical request-body generation audit (PR #12)
 
-This audit retains the diagnosis and decisions at earlier PR #12 heads. The
-current [finite construction policy and all 56 outcomes](request-template-construction.md)
-supersede the historical construction blocker. The
-[distribution comparison](request-template-construction-diff.md) records the
-current measurements and individually justifies every changed body against
-`f3c6f54ecab08ce7649cd445160b4fe66ee9f99c`.
+> Historical record. This file preserves the pre-v0.1.0 diagnosis and implementation evidence from PR #12. It is not the current distribution status. For current behavior, see the [finite construction policy](request-template-construction.md) and the [current schema-revision review](schema-revision-73947dd.md).
+
+The measurements and endpoint conditions below are intentionally preserved from
+the audited `49731bd` baseline unless a section explicitly says otherwise. The
+current construction inventory contains 57 reviewed cases; the
+[historical distribution comparison](request-template-construction-diff.md)
+records the final PR #12 body-only correction against its original baseline.
 
 ## Problem statement
 
-Generated request bodies are not consistently faithful to the writable request shape declared by Cloudflare's OpenAPI schema.
+At the audited PR #12 baseline, generated request bodies were not consistently faithful to the writable request shape declared by Cloudflare's OpenAPI schema.
 
 A confirmed example is:
 
 `POST /accounts/{account_id}/subscriptions`
 
-The generated Postman body currently contains root-level fields such as `app`, `component_values`, `currency`, `current_period_end`, `current_period_start`, `id`, `price`, `state`, and `zone`, plus repeated converter placeholders:
+At that baseline, the generated Postman body contained root-level fields such as `app`, `component_values`, `currency`, `current_period_end`, `current_period_start`, `id`, `price`, `state`, and `zone`, plus repeated converter placeholders:
 
 `<Error: Too many levels of nesting to fake this schema>`
 
@@ -23,7 +24,7 @@ Cloudflare's official TypeScript SDK and rendered API documentation expose only 
 
 Codex's checked-out full-distribution scan measured **512 generated `.request.yaml` files** whose live request bodies contain the exact nesting-error placeholder: 507 JSON bodies and 5 form-data bodies. Use the checked-out parsed measurement rather than the earlier GitHub-search estimate.
 
-## Current generation boundary
+## Implemented generation boundary
 
 The primary `openapi-to-postmanv2@6.3.3` conversion supplies candidate request bodies. The generic `src/request-body.mjs` correctness layer normalizes and validates them against each operation's pinned request/media schema before identifier sanitization and validates them again afterward. `src/validate.mjs` independently reruns request validation over the complete checked-in distribution. Response bodies remain outside this correction boundary.
 
@@ -162,6 +163,8 @@ upstream correction; any new unresolved semantic conflict still stops the work.
 
 ## Reviewed compatibility policy: source-incomplete required values
 
+> Historical endpoint finding. At `49731bd`, firewall bulk PATCH/PUT lacked usable semantics for required `id` and were classified `source-incomplete`. At the current `73947dd` pin, Cloudflare declares `id` as a required string, so those two operations now construct and validate normally. The generic `source-incomplete` policy remains in force for the twelve current cases documented in the [revision review](schema-revision-73947dd.md).
+
 The overlapping-`oneOf` policy is implemented generically. The service-token failure was a
 separate implementation bug: name-based credential sanitization replaced the
 numeric `client_secret_version` with a quoted Postman variable. The candidate now
@@ -270,7 +273,7 @@ as a logical validation witness. Repeated variable names use the same witness,
 and the complete logical body must pass Ajv. Missing or contradictory evidence
 fails closed. This replaces the previous blanket string-variable assertion bypass;
 it does not validate runtime variable values. The two constrained variable cases
-in the current distribution are custom-domain `zone_id` and registry
+in that audited distribution were custom-domain `zone_id` and registry
 `secret_name`. No endpoint-specific rule implements this behavior.
 
 Native Git equivalence now checks live body modes and content as well as the
