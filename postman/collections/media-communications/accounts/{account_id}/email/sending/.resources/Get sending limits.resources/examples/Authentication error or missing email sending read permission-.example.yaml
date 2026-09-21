@@ -1,0 +1,17 @@
+$kind: http-example
+id: 87b98695-5aea-5137-8a5d-8c20a7230772
+name: Authentication error or missing email sending read permission.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/sending/limits"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

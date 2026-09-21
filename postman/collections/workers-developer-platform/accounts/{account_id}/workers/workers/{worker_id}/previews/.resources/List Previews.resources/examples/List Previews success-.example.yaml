@@ -1,0 +1,52 @@
+$kind: http-example
+id: eedf7ffe-756f-5f1a-8444-e1b3fb39e752
+name: List Previews success.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Current page.
+    - key: per_page
+      value: "10"
+      disabled: true
+      description: Items per-page.
+    - key: order_by
+      value: deployed_on
+      disabled: true
+      description: Property to sort results by.
+    - key: order
+      value: desc
+      disabled: true
+      description: Sort direction.
+    - key: slug
+      value: string
+      disabled: true
+      description: Partial-match filter on preview slug.
+    - key: name
+      value: string
+      disabled: true
+      description: Partial-match filter on preview name.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ]
+      }
+order: 1000

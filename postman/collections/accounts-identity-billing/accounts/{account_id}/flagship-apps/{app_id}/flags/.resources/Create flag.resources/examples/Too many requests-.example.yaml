@@ -1,5 +1,5 @@
 $kind: http-example
-id: a1d1e467-adaa-5b7d-ac72-6b6c4ea4584b
+id: b4292b15-b5fd-5679-978e-9ebf90d7cd39
 name: Too many requests.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags"
@@ -11,7 +11,7 @@ request:
     type: json
     content: |-
       {
-        "key": "yhYZpF",
+        "key": "t3nf",
         "default_variation": "string",
         "variations": {},
         "rules": [
@@ -32,9 +32,9 @@ request:
             }
           }
         ],
-        "enabled": false,
+        "enabled": true,
         "description": "string",
-        "type": "json"
+        "type": "boolean"
       }
 response:
   statusCode: 429
@@ -45,7 +45,7 @@ response:
     type: json
     content: |-
       {
-        "success": false,
+        "success": true,
         "result": null,
         "errors": [
           {

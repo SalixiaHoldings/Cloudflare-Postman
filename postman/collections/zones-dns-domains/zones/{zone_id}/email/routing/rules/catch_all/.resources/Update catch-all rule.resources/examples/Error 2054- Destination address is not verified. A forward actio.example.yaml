@@ -1,5 +1,5 @@
 $kind: http-example
-id: 5b5e3b87-021f-5fb5-a827-4a1d9553e5ef
+id: 37dc7112-70b0-5a51-a66b-e04643b7ed09
 name: "Error 2054: Destination address is not verified. A forward action destination address must be verified before it can be used in a rule."
 request:
   url: "{{base_url}}/zones/{{zone_id}}/email/routing/rules/catch_all"
@@ -7,8 +7,6 @@ request:
   headers:
     Content-Type: application/json
     Accept: application/json
-    X-Auth-Email: "{{api_email}}"
-    X-Auth-Key: "{{api_key}}"
   body:
     type: json
     content: |-

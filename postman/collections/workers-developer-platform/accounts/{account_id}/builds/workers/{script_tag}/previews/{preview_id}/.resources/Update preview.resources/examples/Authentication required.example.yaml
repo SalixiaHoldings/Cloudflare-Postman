@@ -1,0 +1,37 @@
+$kind: http-example
+id: 1427cef6-1223-5d40-9030-2f04d0fc9b3c
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_tag}}/previews/{{preview_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "auto_build": false,
+        "settings": {
+          "build_command": "npm run build:preview"
+        }
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12005,
+            "message": "Missing token from authorization header"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

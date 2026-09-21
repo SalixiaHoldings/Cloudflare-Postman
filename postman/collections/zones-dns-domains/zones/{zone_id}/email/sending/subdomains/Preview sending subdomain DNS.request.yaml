@@ -1,5 +1,5 @@
 $kind: http-request
-id: a5fbf869-4026-5672-bc57-99c664660b3b
+id: 891e1a6c-2dd2-5ada-8851-3126d1fbc382
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -8,18 +8,16 @@ description: |-
 
   Returns the DNS records that would be created for a sending subdomain, flags which records are missing, and reports any conflicts with existing DNS records. This is a read-only dry-run — no records are created or modified. Use before or after creating a subdomain to check DNS status. A leftmost wildcard requires wildcard Email Sending to be enabled for the account and previews base-scoped DKIM and return-path records.
 
-  Authentication support: legacy-only
-  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
-  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
-  Selected requirement: {"api_email":[],"api_key":[]}
-  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
 url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/preview"
 method: POST
 headers:
   Content-Type: application/json
   Accept: application/json
-  X-Auth-Email: "{{api_email}}"
-  X-Auth-Key: "{{api_key}}"
 body:
   type: json
   content: |-
@@ -27,6 +25,8 @@ body:
       "name": "sub.example.com"
     }
 auth:
-  type: noauth
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
 examples: ./.resources/Preview sending subdomain DNS.resources/examples
 order: 3000

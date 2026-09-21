@@ -1,0 +1,36 @@
+$kind: http-request
+id: ce5c782c-1df2-5f10-9dc5-62802ec966cb
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: issues.groups.create
+  POST /accounts/{account_id}/workers/observability/issues/groups
+
+  Group two or more issues under a new customer-defined identity.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues/groups"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "string",
+      "issueIds": [
+        "string",
+        "string"
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create an issue group.resources/examples
+order: 1000

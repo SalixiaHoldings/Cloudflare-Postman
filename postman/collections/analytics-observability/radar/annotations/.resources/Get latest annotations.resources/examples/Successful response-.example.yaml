@@ -1,5 +1,5 @@
 $kind: http-example
-id: 30b66d35-86c1-545a-a233-8164b9ea2b01
+id: 21e3bf72-f2c7-5ae2-939c-f71befda1350
 name: Successful response.
 request:
   url: "{{base_url}}/radar/annotations"
@@ -38,19 +38,19 @@ request:
       disabled: true
       description: Filters results by event type. EVENT is a legacy alias for GENERAL.
     - key: outageType
-      value: NATIONWIDE
+      value: NETWORK
       disabled: true
       description: Filters results by outage type.
     - key: outageCause
-      value: MISCONFIGURATION
+      value: GOVERNMENT_DIRECTED
       disabled: true
       description: Filters results by outage cause.
     - key: tags
-      value: TARGET_LOCATION
+      value: RESPONSE_TTL
       disabled: true
       description: Filters results by annotation tag. Matches annotations carrying at least one of the given tags.
     - key: tags
-      value: TLS_VERSION
+      value: LOCATION_LATENCY
       disabled: true
       description: Filters results by annotation tag. Matches annotations carrying at least one of the given tags.
     - key: query
@@ -90,7 +90,7 @@ request:
       disabled: true
       description: Filters results by bot.
     - key: format
-      value: JSON
+      value: CSV
       disabled: true
       description: Format in which results will be returned.
 response:

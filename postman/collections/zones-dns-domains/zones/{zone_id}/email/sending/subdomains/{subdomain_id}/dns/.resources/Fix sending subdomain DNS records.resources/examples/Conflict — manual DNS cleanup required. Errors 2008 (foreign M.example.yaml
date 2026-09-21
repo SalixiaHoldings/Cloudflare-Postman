@@ -1,13 +1,11 @@
 $kind: http-example
-id: 62083996-2b68-517e-8233-e3d751842c1e
+id: 7b0bdf24-22f2-5876-a9b4-84f4ad0db1c3
 name: Conflict — manual DNS cleanup required. Errors 2008 (foreign MX), 2026 (multiple SPF), 2027 (multiple DMARC), or a multi-DKIM error.
 request:
   url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/{{subdomain_id}}/dns"
   method: POST
   headers:
     Accept: application/json
-    X-Auth-Email: "{{api_email}}"
-    X-Auth-Key: "{{api_key}}"
 response:
   statusCode: 409
   statusText: Conflict

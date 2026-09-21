@@ -1,5 +1,5 @@
 $kind: http-example
-id: 31783cc9-2503-5a7a-9a9b-712ff353d963
+id: 68f7bbd4-8e5f-509d-82ee-0a36b8cd529f
 name: Update the default device settings profile response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/policy"
@@ -56,17 +56,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000

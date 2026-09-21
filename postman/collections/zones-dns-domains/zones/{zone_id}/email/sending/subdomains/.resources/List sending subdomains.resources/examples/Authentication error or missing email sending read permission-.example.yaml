@@ -1,0 +1,17 @@
+$kind: http-example
+id: 1e63cb45-1fa7-597b-a8ff-07453c252790
+name: Authentication error or missing email sending read permission.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

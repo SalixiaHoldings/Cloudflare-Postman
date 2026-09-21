@@ -125,8 +125,11 @@ schema is used. Ordinary failures, unsafe primary values, negation/cardinality
 conflicts and read-only leakage cannot use this classification.
 
 [The policy revision](../config/request-body-conflicts.json) binds the generic
-pattern to commit `49731bd0592b0c8c2c781b8d15d9f27c7293b210` and SHA-256
-`3a7ba0e10e3b84f36e9ba6d6135a99d69177c2c3501711bcb367cb8b462bc627`.
+pattern to commit `73947ddceec8571140469a90a1a35078e10fa054` and SHA-256
+`66259004b9ee38da435ec59992dbb73a7740d4249971bb80f3fa1f0a9ee1c344`.
+Both complete request contracts and their referenced property schemas remain
+unchanged from v0.1.0; the revision-bound tests independently check the exact
+source shape, root-only Ajv type failure, and preserved safe object.
 A different pin or digest rejects these cases until reviewed. PR #13 remains
 independent and is not incorporated.
 
@@ -142,11 +145,25 @@ The two exact conflict sites are:
 Both preserve the primary `{"notification_email":""}` object. The old fabricated
 root string is not used as evidence or as a repair.
 
-## Exhaustive 56-case result
+The [73947dd revision review](schema-revision-73947dd.md) retires four obsolete
+source-incomplete classifications: bulk firewall PATCH/PUT now declare a string
+`id`, and Email Routing enable/disable no longer declare request bodies. The
+remaining twelve incomplete contracts, both conflicts, and all 33 previously
+ambiguous contracts were re-evaluated against the new source.
+
+## Exhaustive 57-case result
+
+The `49731bd` inventory contains 56 cases. Reapplying the original construction-
+failure diagnostic to fresh primary conversion reproduces that exact baseline
+and finds 57 cases on `73947dd`: all original cases plus
+`POST /accounts/{account_id}/workers/durable_objects/namespaces/{id}/query/v2`.
+No cases are removed. The fixture advances to the reviewed pin and adds this
+strict-valid case; the existing construction policy supplies a witnessed
+`durable_object_id` variable and the declared empty queries array.
 
 Fresh primary conversion of every complete pinned partition supplies the inputs
 for the permanent exhaustive regression. Every case is normalized and then
-independently validated. Result: **52 strict-valid, 2 ambiguous-oneOf, 2
+independently validated. Result: **53 strict-valid, 2 ambiguous-oneOf, 2
 source-conflict, 0 still fail-closed**. No case is newly classified
 source-incomplete. All prior boundary regressions, including the nine adversarial
 findings and F1–F6, remain covered. Old tests forbidding all scalar construction
@@ -210,6 +227,7 @@ now assert the specifically authorized finite policy and its rejection bounds.
 | 54 | `PUT /accounts/{account_id}/tokens/{token_id}` | strict-valid |
 | 55 | `POST /organizations/{organization_id}/members` | strict-valid |
 | 56 | `PUT /user/tokens/{token_id}` | strict-valid |
+| 57 | `POST /accounts/{account_id}/workers/durable_objects/namespaces/{id}/query/v2` | strict-valid |
 
 ## Verification history
 

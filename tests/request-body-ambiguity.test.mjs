@@ -8,7 +8,7 @@ import { createBodyContract } from '../src/request-body.mjs';
 // A revision-bound proof of the generic compatibility condition, not an override.
 test('pinned Bot Management overlap is classified without changing the source or request', async () => {
   const { destination, lock } = await fetchPinnedSchema();
-  assert.equal(lock.commit, '49731bd0592b0c8c2c781b8d15d9f27c7293b210',
+  assert.equal(lock.commit, '73947ddceec8571140469a90a1a35078e10fa054',
     'Review and retire or update the request-body ambiguity diagnostic when advancing the pin.');
   const document = JSON.parse(await readFile(destination, 'utf8'));
   const body = document.paths['/zones/{zone_id}/bot_management'].put.requestBody;

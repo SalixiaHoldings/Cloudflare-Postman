@@ -1,13 +1,11 @@
 $kind: http-example
-id: 4e7bcc82-fac8-55fa-a855-d83eab23b5ea
+id: e78eefe3-ecc0-521e-925b-8aba912dabec
 name: "Error 2043: zone is admin-locked and cannot be mutated."
 request:
   url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/{{subdomain_id}}/dns"
   method: POST
   headers:
     Accept: application/json
-    X-Auth-Email: "{{api_email}}"
-    X-Auth-Key: "{{api_key}}"
 response:
   statusCode: 403
   statusText: Forbidden

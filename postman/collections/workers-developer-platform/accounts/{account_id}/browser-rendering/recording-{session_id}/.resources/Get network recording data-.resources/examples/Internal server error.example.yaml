@@ -1,0 +1,47 @@
+$kind: http-example
+id: 8b583030-b128-5373-811b-1bddb6cec0e6
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/recording/{{session_id}}/network?target=string"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: string
+      disabled: true
+      description: Set to `har` to return a HAR JSON document.
+    - key: target
+      value: string
+      description: (Required) Target ID to include in the response.
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

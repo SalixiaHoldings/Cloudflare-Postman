@@ -1,0 +1,33 @@
+$kind: http-example
+id: 8beed59b-54cb-532d-b0db-d04686f2df55
+name: Delete Preview failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews/{{preview_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: force
+      value: "true"
+      disabled: true
+      description: If true, delete the Preview even when a service binding, Durable Object, or other binding still references it. The delete also removes those bindings and Durable Objects.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

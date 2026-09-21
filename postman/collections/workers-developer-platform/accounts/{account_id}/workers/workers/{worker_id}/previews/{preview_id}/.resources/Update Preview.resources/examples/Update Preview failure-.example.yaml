@@ -1,0 +1,49 @@
+$kind: http-example
+id: a10a3b40-d231-546a-b0ca-8eb96217c5c4
+name: Update Preview failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews/{{preview_id}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: ignore_defaults
+      value: "true"
+      disabled: true
+    - key: ignore_base_config
+      value: "true"
+      disabled: true
+  body:
+    type: json
+    content: |-
+      {
+        "logpush": false,
+        "name": "feature/my-branch",
+        "observability": {},
+        "tags": [
+          "my-team",
+          "my-preview"
+        ],
+        "tail_consumers": []
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

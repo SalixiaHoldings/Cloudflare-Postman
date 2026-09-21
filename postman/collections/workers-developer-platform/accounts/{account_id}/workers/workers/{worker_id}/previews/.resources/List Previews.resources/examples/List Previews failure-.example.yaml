@@ -1,0 +1,53 @@
+$kind: http-example
+id: c38b4236-cd8c-5bf0-a0d4-ae51272b3b4d
+name: List Previews failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Current page.
+    - key: per_page
+      value: "10"
+      disabled: true
+      description: Items per-page.
+    - key: order_by
+      value: deployed_on
+      disabled: true
+      description: Property to sort results by.
+    - key: order
+      value: desc
+      disabled: true
+      description: Sort direction.
+    - key: slug
+      value: string
+      disabled: true
+      description: Partial-match filter on preview slug.
+    - key: name
+      value: string
+      disabled: true
+      description: Partial-match filter on preview name.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

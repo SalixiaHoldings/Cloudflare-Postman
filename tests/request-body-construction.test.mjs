@@ -6,6 +6,7 @@ import addFormats from 'ajv-formats';
 import { createBodyContract, CONFLICT_BODY_WARNING, hasBodySentinel } from '../src/request-body.mjs';
 import { stringCandidates } from '../src/request-construction.mjs';
 import cases from './fixtures/request-body-construction-cases.json' with { type: 'json' };
+import conflictPolicy from '../config/request-body-conflicts.json' with { type: 'json' };
 import { fetchPinnedSchema } from '../src/upstream.mjs';
 import { listOperations, subsetSchema } from '../src/openapi.mjs';
 import { classifyOperations, loadPartitionConfig } from '../src/partition.mjs';
@@ -159,9 +160,34 @@ test('binary file placeholders never bypass item, cardinality, content, or root 
   assert.throws(() => contract.normalize(form([]), op({ ...binaryArraySchema, not: {} }, 'multipart/form-data')), /cannot|violates/u);
 });
 
-const revision = { commit: cases.upstreamCommit, schemaSha256: cases.schemaSha256 };
+const revision = { commit: conflictPolicy.upstreamCommit, schemaSha256: conflictPolicy.schemaSha256 };
 const conflict = createBodyContract({ openapi: '3.0.3' }, revision);
 const shape = { type: 'string', properties: { notification_email: { type: 'string' } } };
+
+test('pinned load-balancer contracts still independently prove the exact scalar/object source conflict', async () => {
+  const { destination, lock } = await fetchPinnedSchema();
+  assert.equal(lock.commit, revision.commit);
+  assert.equal(lock.schema.sha256, revision.schemaSha256);
+  const document = JSON.parse(await readFile(destination));
+  const pinned = createBodyContract(document, revision);
+  for (const path of ['/accounts/{account_id}/load_balancers/pools', '/user/load_balancers/pools']) {
+    const operation = { key: `PATCH ${path}`, path, methodLower: 'patch', operation: document.paths[path].patch };
+    const schema = operation.operation.requestBody.content['application/json'].schema;
+    assert.deepEqual(schema, { type: 'string', properties: {
+      notification_email: { $ref: '#/components/schemas/load-balancing_patch_pools_notification_email' }
+    } });
+    const property = document.components.schemas['load-balancing_patch_pools_notification_email'];
+    const validate = ajv.compile({ ...schema, properties: { notification_email: property } });
+    const request = json({ notification_email: '' }), before = request.body.raw;
+    assert.equal(validate(JSON.parse(before)), false);
+    assert.deepEqual(validate.errors.map(({ keyword, instancePath }) => ({ keyword, instancePath })),
+      [{ keyword: 'type', instancePath: '' }]);
+    assert.equal(ajv.compile(property)(''), true);
+    assert.equal(pinned.normalize(request, operation).classification, 'source-conflict');
+    assert.equal(request.body.raw, before);
+    assert.equal(pinned.validate(request, operation).classification, 'source-conflict');
+  }
+});
 
 test('source-conflict preserves safe primary bytes, records exact source paths/revision, and requires its warning', () => {
   const request = json({ notification_email: '' }), original = request.body.raw;
@@ -170,7 +196,7 @@ test('source-conflict preserves safe primary bytes, records exact source paths/r
   assert.equal(request.body.raw, original);
   assert.ok(request.description.startsWith(CONFLICT_BODY_WARNING));
   assert.match(result.issues[0].schemaPath, /\/schema\/type$/u);
-  assert.equal(result.issues[0].upstreamCommit, cases.upstreamCommit);
+  assert.equal(result.issues[0].upstreamCommit, revision.commit);
   assert.deepEqual(conflict.validate(request, op(shape)), result);
   request.description = '';
   assert.throws(() => conflict.validate(request, op(shape)), /missing source-conflict/u);
@@ -193,13 +219,16 @@ test('source-conflict cannot retain sentinels/read-only leakage or rescue other 
   assert.equal(conflict.normalize(json({ label: sentinel }), op({ type: 'object', required: ['label'], properties: { label: { type: 'string' } } })).classification, 'valid');
 });
 
-test('all 56 inventoried failures have explicit outcomes from fresh primary conversion of the pinned partitions', async () => {
+test('all 57 inventoried failures have explicit outcomes from fresh primary conversion of the pinned partitions', async () => {
   const { destination, lock } = await fetchPinnedSchema();
+  assert.equal(lock.commit, '73947ddceec8571140469a90a1a35078e10fa054');
+  assert.equal(lock.commit, revision.commit); assert.equal(lock.schema.sha256, revision.schemaSha256);
   assert.equal(lock.commit, cases.upstreamCommit); assert.equal(lock.schema.sha256, cases.schemaSha256);
+  // Fresh conversion retains the original 56 and adds the Durable Objects query.
   const document = JSON.parse(await readFile(destination)), config = await loadPartitionConfig();
   const { assignments } = classifyOperations(listOperations(document), config);
   const wanted = new Map(cases.cases.map(c => [c.operation, c.expected])), seen = new Set(), counts = {};
-  assert.equal(wanted.size, 56);
+  assert.equal(wanted.size, 57);
   const walk = items => items.flatMap(item => item.item ? walk(item.item) : [item]);
   for (const partition of config.partitions) {
     const operations = assignments.get(partition.id), byKey = new Map(operations.map(o => [o.key, o]));
@@ -217,8 +246,8 @@ test('all 56 inventoried failures have explicit outcomes from fresh primary conv
       counts[result.classification] = (counts[result.classification] ?? 0) + 1;
     }
   }
-  assert.equal(seen.size, 56);
-  assert.deepEqual(counts, { valid: 52, 'ambiguous-oneOf': 2, 'source-conflict': 2 });
+  assert.equal(seen.size, 57);
+  assert.deepEqual(counts, { valid: 53, 'ambiguous-oneOf': 2, 'source-conflict': 2 });
 });
 
 test('bounded whole-request retries reject the first primitive choice before accepting another', () => {

@@ -1,5 +1,5 @@
 $kind: http-example
-id: 7dab8ba2-bfa7-5903-83ff-ddf3e3c81479
+id: d64effe6-cfd3-54f2-828e-0809530324ce
 name: List Zero Trust Gateway rules response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/rules"
@@ -10,7 +10,7 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: filter
-      value: "name:"
+      value: name:8
       disabled: true
       description: |-
         Filter the returned rules by one or more `field:value` pairs. Repeat the
@@ -23,7 +23,7 @@ request:
         array. The `expression` filter performs a case-insensitive literal
         substring match across traffic, identity, and device posture expressions.
     - key: filter
-      value: name:L
+      value: "name:"
       disabled: true
       description: |-
         Filter the returned rules by one or more `field:value` pairs. Repeat the

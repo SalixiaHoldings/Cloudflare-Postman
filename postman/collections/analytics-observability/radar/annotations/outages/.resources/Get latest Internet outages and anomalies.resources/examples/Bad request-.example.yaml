@@ -1,5 +1,5 @@
 $kind: http-example
-id: 5b351581-1491-5cac-957d-175ba810ab4f
+id: 6cb73aff-ac1f-52bd-93e2-513702fa945f
 name: Bad request.
 request:
   url: "{{base_url}}/radar/annotations/outages"
@@ -34,19 +34,19 @@ request:
       disabled: true
       description: Filters results by data source.
     - key: outageType
-      value: NATIONWIDE
+      value: NETWORK
       disabled: true
       description: Filters results by outage type.
     - key: outageCause
-      value: MISCONFIGURATION
+      value: GOVERNMENT_DIRECTED
       disabled: true
       description: Filters results by outage cause.
     - key: tags
-      value: TARGET_LOCATION
+      value: RESPONSE_TTL
       disabled: true
       description: Filters results by annotation tag. Matches annotations carrying at least one of the given tags.
     - key: tags
-      value: TLS_VERSION
+      value: LOCATION_LATENCY
       disabled: true
       description: Filters results by annotation tag. Matches annotations carrying at least one of the given tags.
     - key: query
@@ -86,7 +86,7 @@ request:
       disabled: true
       description: Filters results by bot.
     - key: format
-      value: JSON
+      value: CSV
       disabled: true
       description: Format in which results will be returned.
 response:

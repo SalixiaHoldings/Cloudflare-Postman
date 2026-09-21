@@ -1,0 +1,22 @@
+$kind: http-example
+id: 3d4780df-5a91-5245-897c-1a9855882203
+name: Authentication error or missing zone email routing settings read permission.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/routing/dns"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: subdomain
+      value: example.net
+      disabled: true
+      description: Deprecated. When supplied, the response shape differs from the documented default and is not modeled in generated SDKs. Do not rely on this parameter.
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

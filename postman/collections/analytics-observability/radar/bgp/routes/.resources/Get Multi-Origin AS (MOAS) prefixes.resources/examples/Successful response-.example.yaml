@@ -1,5 +1,5 @@
 $kind: http-example
-id: d9cb3c92-6042-5862-9093-6f6c6ba8fc90
+id: d514197f-36c0-5db2-9c1c-4df154a6e781
 name: Successful response.
 request:
   url: "{{base_url}}/radar/bgp/routes/moas"
@@ -10,18 +10,18 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: origin
-      value: "4749"
+      value: "6933"
       disabled: true
       description: Lookup MOASes originated by the given ASN.
     - key: prefix
       value: string
       disabled: true
     - key: invalid_only
-      value: "false"
+      value: "true"
       disabled: true
       description: Lookup only RPKI invalid MOASes.
     - key: format
-      value: JSON
+      value: CSV
       disabled: true
       description: Format in which results will be returned.
 response:

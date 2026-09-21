@@ -1,0 +1,42 @@
+$kind: http-example
+id: 4e188462-d352-5445-82ee-ebd4b2aff335
+name: List Objects response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/durable_objects/namespaces/{{id}}/objects"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: limit
+      value: "1000"
+      disabled: true
+    - key: cursor
+      value: AAAAANuhDN7SjacTnSVsDu3WW1Lvst6dxJGTjRY5BhxPXdf6L6uTcpd_NVtjhn11OUYRsVEykxoUwF-JQU4dn6QylZSKTOJuG0indrdn_MlHpMRtsxgXjs-RPdHYIVm3odE_uvEQ_dTQGFm8oikZMohns34DLBgrQpc
+      disabled: true
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result_info": {
+          "count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "cursor": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

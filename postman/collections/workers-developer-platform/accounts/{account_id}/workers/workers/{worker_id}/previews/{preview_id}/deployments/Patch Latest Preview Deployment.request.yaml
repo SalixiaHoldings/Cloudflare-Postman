@@ -1,0 +1,38 @@
+$kind: http-request
+id: 5056aae3-98a6-5130-8b3f-891cee5062a1
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers.previews.deployments.patchLatest
+  PATCH /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/latest
+
+  Only `/deployments/latest` is supported. Creates a new preview deployment by applying a JSON Merge Patch (RFC 7396) to the latest deployment. Patching a specific deployment ID is not supported. Omitted fields are inherited from the latest deployment. Preview base config is used for the first deployment.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews/{{preview_id}}/deployments/latest"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  - key: ignore_defaults
+    value: "true"
+    disabled: true
+body:
+  type: json
+  content: |-
+    {
+      "cache_options": {
+        "enabled": true
+      }
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Patch Latest Preview Deployment.resources/examples
+order: 3000

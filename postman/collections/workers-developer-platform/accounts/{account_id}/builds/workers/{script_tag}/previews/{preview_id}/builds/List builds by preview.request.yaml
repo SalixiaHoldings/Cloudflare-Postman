@@ -1,0 +1,34 @@
+$kind: http-request
+id: 88898dfb-a8d2-51bb-8fe8-6ba3f31dabce
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: listBuildsByPreview
+  GET /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}/builds
+
+  List the builds of a single Preview with pagination.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_tag}}/previews/{{preview_id}}/builds"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+    description: Page number for pagination
+  - key: per_page
+    value: "50"
+    disabled: true
+    description: Number of items per page
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List builds by preview.resources/examples
+order: 1000

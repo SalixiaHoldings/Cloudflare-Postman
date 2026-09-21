@@ -1,0 +1,31 @@
+$kind: http-example
+id: 5f9da75b-07ce-5382-bbda-5cfc408d8079
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_tag}}/migrate_to_previews"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "{}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12002,
+            "message": "Invalid request body"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

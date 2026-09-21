@@ -1,0 +1,36 @@
+$kind: http-example
+id: 4621f0fa-cdc3-5d88-b31b-e701677455c9
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_tag}}/previews/{{preview_id}}/builds"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number for pagination
+    - key: per_page
+      value: "50"
+      disabled: true
+      description: Number of items per page
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12000,
+            "message": "Not found"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

@@ -1,0 +1,50 @@
+$kind: http-request
+id: 8873852d-50d1-5511-993e-09bdee85b261
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers.previews.list
+  GET /accounts/{account_id}/workers/workers/{worker_id}/previews
+
+  List all Previews for a Worker.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+    description: Current page.
+  - key: per_page
+    value: "10"
+    disabled: true
+    description: Items per-page.
+  - key: order_by
+    value: deployed_on
+    disabled: true
+    description: Property to sort results by.
+  - key: order
+    value: desc
+    disabled: true
+    description: Sort direction.
+  - key: slug
+    value: string
+    disabled: true
+    description: Partial-match filter on preview slug.
+  - key: name
+    value: string
+    disabled: true
+    description: Partial-match filter on preview name.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/List Previews.resources/examples
+order: 1000

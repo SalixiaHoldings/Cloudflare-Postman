@@ -1,5 +1,5 @@
 $kind: http-example
-id: 13ac8d42-54ab-5e62-87ae-3c8061778846
+id: c5570e40-29bf-5470-9650-e96e6f48c4f7
 request:
   url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/packages"
   method: GET
@@ -35,17 +35,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000

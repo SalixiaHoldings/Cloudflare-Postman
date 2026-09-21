@@ -1,0 +1,34 @@
+$kind: http-example
+id: 49465056-57bf-5138-a751-54f548b0e8c2
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_tag}}/previews/{{preview_id}}/builds"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "commit_hash": "abc123def456"
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12005,
+            "message": "Missing token from authorization header"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 3000

@@ -1,11 +1,16 @@
 $kind: http-example
-id: 8fec6b4d-77e0-551f-80bd-380c76068419
+id: 08d3a3a8-e3ff-5cd7-afcd-52c925a3790c
 request:
   url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_tag}}"
   method: PATCH
   headers:
     Content-Type: application/json
     Accept: application/json
+  queryParams:
+    - key: patch_existing_previews
+      value: "false"
+      disabled: true
+      description: Apply a previews_base_config patch to every existing Preview of the Worker as well as to the base config.
   body:
     type: json
     content: |-

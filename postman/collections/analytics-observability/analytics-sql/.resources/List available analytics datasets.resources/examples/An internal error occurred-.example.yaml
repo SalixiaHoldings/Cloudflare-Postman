@@ -1,5 +1,5 @@
 $kind: http-example
-id: d2dc3daf-dbe2-5f99-beb0-98dd9009994c
+id: a5f7eda3-1f41-5d8b-ba04-9ed2d4c795c2
 name: An internal error occurred.
 request:
   url: "{{base_url}}/analytics/sql/introspection?account_tag=0123456789abcdef0123456789abcdef"
@@ -14,6 +14,10 @@ request:
       value: "false"
       disabled: true
       description: Include column metadata for each returned dataset.
+    - key: include_custom_attributes
+      value: "false"
+      disabled: true
+      description: Include custom attribute names and types for each dataset that supports them.
     - key: dataset_name
       value: events.httpRequests
       disabled: true

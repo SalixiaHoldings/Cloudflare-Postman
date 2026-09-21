@@ -1,5 +1,5 @@
 $kind: http-request
-id: dbe1287f-bfca-555b-b08e-e199501c3012
+id: f68f9e1a-5c9e-5cae-89c5-c14f0f2572a1
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -8,25 +8,25 @@ description: |-
 
   Returns the matched complaint count for a sending subdomain in a half-open time window of up to seven days.
 
-  Authentication support: legacy-only
-  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
-  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
-  Selected requirement: {"api_email":[],"api_key":[]}
-  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
-url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/{{subdomain_id}}/reputation/complaints?start_at=1941-06-14T00:34:00.074Z&end_at=1941-06-14T00:34:00.074Z"
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/{{subdomain_id}}/reputation/complaints?start_at=1998-07-21T01:51:08.791Z&end_at=1998-07-21T01:51:08.791Z"
 method: GET
 headers:
   Accept: application/json
-  X-Auth-Email: "{{api_email}}"
-  X-Auth-Key: "{{api_key}}"
 queryParams:
   - key: start_at
-    value: 1941-06-14T00:34:00.074Z
+    value: 1998-07-21T01:51:08.791Z
     description: "(Required) "
   - key: end_at
-    value: 1941-06-14T00:34:00.074Z
+    value: 1998-07-21T01:51:08.791Z
     description: "(Required) "
 auth:
-  type: noauth
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
 examples: ./.resources/Get sending subdomain complaint count.resources/examples
 order: 5000

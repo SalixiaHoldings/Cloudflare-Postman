@@ -1,8 +1,8 @@
 $kind: http-example
-id: ddae777f-7fd0-58f8-abe0-60634390fa51
+id: 10d1fcad-7732-53a4-af34-afbdddb5f121
 name: Step output requests are rate limited.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/step?name=string&type=step"
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/step?name=string&type=waitForEvent"
   method: GET
   headers:
     Accept: application/json
@@ -13,10 +13,10 @@ request:
       value: string
       description: (Required) Exact step name from the instance logs response, including the generated counter suffix.
     - key: type
-      value: step
+      value: waitForEvent
       description: (Required) Step type to disambiguate step.do and waitForEvent entries that share the same name.
     - key: attempt
-      value: "5050633830793216"
+      value: "1742039714627584"
       disabled: true
       description: Specific attempt number to retrieve output or error for.
 response:

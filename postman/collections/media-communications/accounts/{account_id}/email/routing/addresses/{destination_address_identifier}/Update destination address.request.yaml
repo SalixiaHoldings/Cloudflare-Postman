@@ -1,5 +1,5 @@
 $kind: http-request
-id: e62a4c69-92cb-5758-bcd1-ee73c6f721b4
+id: 73eede80-855f-5f0e-a6e5-56e82acae12e
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -8,18 +8,16 @@ description: |-
 
   Updates the status of a specific destination address.
 
-  Authentication support: legacy-only
-  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
-  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
-  Selected requirement: {"api_email":[],"api_key":[]}
-  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
 url: "{{base_url}}/accounts/{{account_id}}/email/routing/addresses/{{destination_address_identifier}}"
 method: PATCH
 headers:
   Content-Type: application/json
   Accept: application/json
-  X-Auth-Email: "{{api_email}}"
-  X-Auth-Key: "{{api_key}}"
 body:
   type: json
   content: |-
@@ -27,6 +25,8 @@ body:
       "status": "verified"
     }
 auth:
-  type: noauth
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
 examples: ./.resources/Update destination address.resources/examples
 order: 3000

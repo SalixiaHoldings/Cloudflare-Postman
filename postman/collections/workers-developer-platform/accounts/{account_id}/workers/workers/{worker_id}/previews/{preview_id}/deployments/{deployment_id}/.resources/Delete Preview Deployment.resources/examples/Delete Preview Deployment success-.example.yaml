@@ -1,0 +1,22 @@
+$kind: http-example
+id: cbabdb40-1dc5-59fa-b192-6f8c0b37b48f
+name: Delete Preview Deployment success.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews/{{preview_id}}/deployments/{{deployment_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

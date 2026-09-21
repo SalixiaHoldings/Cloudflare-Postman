@@ -1,0 +1,52 @@
+$kind: http-example
+id: 8774ab87-f723-5982-a4e1-74de2ffef0d2
+name: Create Preview success.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: ignore_defaults
+      value: "false"
+      disabled: true
+    - key: ignore_base_config
+      value: "true"
+      disabled: true
+  body:
+    type: json
+    content: |-
+      {
+        "logpush": false,
+        "name": "feature/my-branch",
+        "observability": {},
+        "tags": [
+          "my-team",
+          "my-preview"
+        ],
+        "tail_consumers": []
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

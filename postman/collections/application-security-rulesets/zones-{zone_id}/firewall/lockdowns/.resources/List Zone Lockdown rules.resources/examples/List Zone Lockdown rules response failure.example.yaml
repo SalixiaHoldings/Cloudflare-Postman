@@ -1,5 +1,5 @@
 $kind: http-example
-id: 369d0bd2-ddad-5028-b6f6-ca5ef15dbe61
+id: fe2ec0f6-b639-5611-8000-0645520d8379
 request:
   url: "{{base_url}}/zones/{{zone_id}}/firewall/lockdowns"
   method: GET
@@ -50,17 +50,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000

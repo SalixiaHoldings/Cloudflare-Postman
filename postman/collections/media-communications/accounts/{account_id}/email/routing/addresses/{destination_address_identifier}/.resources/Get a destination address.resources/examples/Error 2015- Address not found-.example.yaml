@@ -1,0 +1,17 @@
+$kind: http-example
+id: 12dea561-05c3-5db2-b214-95ec680ac73d
+name: "Error 2015: Address not found."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/routing/addresses/{{destination_address_identifier}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

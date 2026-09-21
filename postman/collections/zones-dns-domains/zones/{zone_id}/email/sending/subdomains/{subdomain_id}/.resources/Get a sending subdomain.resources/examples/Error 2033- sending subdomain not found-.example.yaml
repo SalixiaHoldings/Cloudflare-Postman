@@ -1,0 +1,17 @@
+$kind: http-example
+id: 368e4f12-1936-5a51-82a2-2c522f765c91
+name: "Error 2033: sending subdomain not found."
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/{{subdomain_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

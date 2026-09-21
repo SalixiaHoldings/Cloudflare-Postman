@@ -1,0 +1,39 @@
+$kind: http-request
+id: 38aa8b76-e8e4-53fc-9040-4cd291caa70d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers.previews.edit
+  PATCH /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}
+
+  Perform a partial update on a Preview, where omitted properties are left unchanged.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews/{{preview_id}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "feature/my-branch",
+      "tags": [
+        "my-team",
+        "my-preview"
+      ],
+      "observability": {},
+      "logpush": false,
+      "tail_consumers": []
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Edit Preview.resources/examples
+order: 3000

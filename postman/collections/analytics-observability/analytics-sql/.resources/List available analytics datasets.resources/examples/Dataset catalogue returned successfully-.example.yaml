@@ -1,5 +1,5 @@
 $kind: http-example
-id: e9133abb-ef9c-5fa0-b7df-ae8c73ddf377
+id: 5c0f941b-9121-5b0c-b5f6-6010fb6479f5
 name: Dataset catalogue returned successfully.
 request:
   url: "{{base_url}}/analytics/sql/introspection?account_tag=0123456789abcdef0123456789abcdef"
@@ -14,6 +14,10 @@ request:
       value: "false"
       disabled: true
       description: Include column metadata for each returned dataset.
+    - key: include_custom_attributes
+      value: "false"
+      disabled: true
+      description: Include custom attribute names and types for each dataset that supports them.
     - key: dataset_name
       value: events.httpRequests
       disabled: true

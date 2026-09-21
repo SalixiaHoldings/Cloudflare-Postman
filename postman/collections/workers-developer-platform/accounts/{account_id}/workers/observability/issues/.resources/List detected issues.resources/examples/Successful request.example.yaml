@@ -1,5 +1,5 @@
 $kind: http-example
-id: 7a9f43ec-5884-53f1-8304-56147536d5eb
+id: 1a9bcc97-abff-58a8-870a-0a186379d244
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues"
   method: GET
@@ -7,16 +7,16 @@ request:
     Accept: application/json
   queryParams:
     - key: page
-      value: "2610"
+      value: "3724"
       disabled: true
     - key: perPage
-      value: "82"
+      value: "9"
       disabled: true
     - key: order
-      value: asc
+      value: desc
       disabled: true
     - key: orderBy
-      value: service
+      value: firstObserved
       disabled: true
     - key: search
       value: string
@@ -25,7 +25,7 @@ request:
       value: string
       disabled: true
     - key: status
-      value: active
+      value: ignored
       disabled: true
 response:
   statusCode: 200
@@ -69,13 +69,7 @@ response:
             "service": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             },
-            "fingerprint": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
             "title": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "type": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             },
             "status": {
@@ -100,6 +94,15 @@ response:
               "value": "<Error: Too many levels of nesting to fake this schema>"
             },
             "activity": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "fingerprint": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "group": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "type": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           },
@@ -110,13 +113,7 @@ response:
             "service": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             },
-            "fingerprint": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
             "title": {
-              "value": "<Error: Too many levels of nesting to fake this schema>"
-            },
-            "type": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             },
             "status": {
@@ -142,15 +139,24 @@ response:
             },
             "activity": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "fingerprint": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "group": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "type": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
             }
           }
         ],
         "result_info": {
-          "page": 7397.072999738157,
-          "per_page": 2887.2389858588576,
-          "count": 3792.238011956215,
-          "total_count": 6505.559654906392,
-          "total_pages": 4853.364143054932
+          "page": 3915.482636075467,
+          "per_page": 4374.5130696333945,
+          "count": 4420.419712550938,
+          "total_count": 9258.961845189333,
+          "total_pages": 1614.6530350670218
         }
       }
 order: 1000

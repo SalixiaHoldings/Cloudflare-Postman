@@ -1,5 +1,5 @@
 $kind: http-example
-id: 4b3218c9-90d2-577d-9c6f-610ad12af335
+id: 7b4d97be-21ea-5fef-a5d2-eabd1504d660
 request:
   url: "{{base_url}}/accounts/{{account_id}}/builds/workers"
   method: POST
@@ -18,6 +18,21 @@ request:
           "repo_id": "workers-sdk",
           "repo_name": "workers-sdk"
         },
+        "previews_base_config": {
+          "build_caching_enabled": true,
+          "build_command": "npm run build",
+          "build_token_uuid": "{{build_token_uuid}}",
+          "deploy_command": "npx wrangler preview",
+          "environment_variables": {},
+          "path_excludes": [
+            "*.md"
+          ],
+          "path_includes": [
+            "*"
+          ],
+          "root_directory": "/"
+        },
+        "previews_enabled": true,
         "production_settings": {
           "build_caching_enabled": true,
           "build_command": "npm run build",

@@ -1,0 +1,49 @@
+$kind: http-example
+id: 94bde3b3-9a5e-5092-8b8f-70be42f07d09
+name: Create Preview failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  queryParams:
+    - key: ignore_defaults
+      value: "false"
+      disabled: true
+    - key: ignore_base_config
+      value: "true"
+      disabled: true
+  body:
+    type: json
+    content: |-
+      {
+        "logpush": false,
+        "name": "feature/my-branch",
+        "observability": {},
+        "tags": [
+          "my-team",
+          "my-preview"
+        ],
+        "tail_consumers": []
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

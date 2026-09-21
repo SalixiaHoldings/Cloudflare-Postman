@@ -1,5 +1,5 @@
 $kind: http-example
-id: 0f9c6d35-adb1-5bd3-b7be-a6fdba9b6114
+id: 0bc8ef06-fc15-5a51-b7a0-2f0875391c85
 name: Bad request.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags/{{flag_key}}"
@@ -11,7 +11,7 @@ request:
     type: json
     content: |-
       {
-        "key": "yhYZpF",
+        "key": "t3nf",
         "default_variation": "string",
         "variations": {},
         "rules": [
@@ -32,9 +32,9 @@ request:
             }
           }
         ],
-        "enabled": false,
+        "enabled": true,
         "description": "string",
-        "type": "json"
+        "type": "boolean"
       }
 response:
   statusCode: 400
@@ -45,7 +45,7 @@ response:
     type: json
     content: |-
       {
-        "success": false,
+        "success": true,
         "result": null,
         "errors": [
           {

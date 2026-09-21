@@ -1,8 +1,6 @@
 $kind: http-request
-id: 24e5cc8d-6bfd-5ddb-bdc6-2ec05e62ec5d
+id: 0c2754e5-a2fa-5f67-b369-6fdd01f0cdc1
 description: |-
-  WARNING — source-incomplete: the pinned OpenAPI does not contain sufficient request-body semantics to safely generate the required value. This body template is incomplete; the converter representation has been preserved.
-
   GENERATED FILE — DO NOT EDIT.
 
   Upstream operation: email-routing-settings-enable-email-routing
@@ -10,22 +8,18 @@ description: |-
 
   Enable you Email Routing zone. Add and lock the necessary MX and SPF records.
 
-  Authentication support: legacy-only
-  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
-  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
-  Selected requirement: {"api_email":[],"api_key":[]}
-  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
 url: "{{base_url}}/zones/{{zone_id}}/email/routing/enable"
 method: POST
 headers:
-  Content-Type: application/json
   Accept: application/json
-  X-Auth-Email: "{{api_email}}"
-  X-Auth-Key: "{{api_key}}"
-body:
-  type: json
-  content: ""
 auth:
-  type: noauth
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
 examples: ./.resources/Enable Email Routing.resources/examples
 order: 6000
