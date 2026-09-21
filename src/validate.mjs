@@ -111,7 +111,7 @@ export async function validateAll() {
   assertQueryRevision(queryPolicy, lock, (await readJson(path.join(ROOT, 'package.json'))).devDependencies['openapi-to-postmanv2']);
   const openapiExceptions = await validateOpenApiWithExceptions(schemaPath, lock.commit);
   const schema = await readJson(schemaPath);
-  const bodies = createBodyContract(schema);
+  const bodies = createBodyContract(schema, { commit: lock.commit, schemaSha256: lock.schema.sha256 });
   const upstreamOperations = listOperations(schema);
   const upstreamByKey = new Map(upstreamOperations.map((operation) => [operation.key, operation]));
   const config = await loadPartitionConfig();

@@ -1,5 +1,12 @@
 # Request-body generation audit
 
+This audit retains the diagnosis and decisions at earlier PR #12 heads. The
+current [finite construction policy and all 56 outcomes](request-template-construction.md)
+supersede the historical construction blocker. The
+[distribution comparison](request-template-construction-diff.md) records the
+current measurements and individually justifies every changed body against
+`f3c6f54ecab08ce7649cd445160b4fe66ee9f99c`.
+
 ## Problem statement
 
 Generated request bodies are not consistently faithful to the writable request shape declared by Cloudflare's OpenAPI schema.
@@ -339,7 +346,7 @@ staging path; a 16-way synthetic download regression also verifies that digest
 and size mismatches cannot replace the cache. This does not change downloaded
 bytes, schema authority, generated output, or test concurrency requirements.
 
-## Ajv refactor review status
+## Ajv refactor history at f3c6f54
 
 The refactor starts from `92839fb03aef326772a0b91dd9150b6cbf7cec1d`.
 All six final-review regressions fail on that original implementation and pass
@@ -365,7 +372,7 @@ contains **3,540** exact-once operations, **1,254** live request bodies, and **z
 live-body sentinels. Both generated trees and all response payloads remain
 byte-identical to the refactor baseline.
 
-**Regeneration is blocked by the stricter construction policy.** A full primary
+**At that head, regeneration was blocked by the stricter construction policy.** A full primary
 converter probe initially found 92 failures after removing invented values;
 pruning existing array contents resolves 36, leaving 56 required construction
 failures. For example, `PUT /accounts/{account_id}/hyperdrive/configs/{hyperdrive_id}`
@@ -373,14 +380,16 @@ requires `origin.password`, whose schema has type/string length constraints but
 no example, default, or enum. The primary converter supplies a nesting sentinel
 for `origin`. The previous generator invented a string and subsequently emitted
 `{{password}}`. The committed request is structurally valid, but the new allowed
-construction sources cannot reproduce it. A revision-bound regression now
-requires that case to fail rather than invent a value or classify source-incomplete.
+construction sources cannot reproduce it. The regression at that head required failure rather than inventing a value or
+classifying source-incomplete. The subsequently approved finite policy changes
+that expectation to a string variable with a non-emitted witness.
 
-A separately defined construction policy is needed before generation can pass.
-The current change does not reintroduce type-derived values, use secondary-query
-bodies, use SDK/docs-derived bodies, add an operation allowlist, change the pin,
-or feed generated artifacts back into generation. Failed generation stops in a
-temporary directory before replacing either committed distribution. Validation
-and Native Git equivalence of the preserved files are distinct from successful
-regeneration; deterministic generation has **not** been established for this
-refactor.
+The subsequent [finite construction policy](request-template-construction.md)
+resolves that generation blocker without changing the Ajv assertion architecture.
+It defines bounded string witnesses, minimal containers, typed primitive
+candidates, multipart file arrays and the separately warned source-conflict
+classification. It supersedes the historical no-synthetic-construction rule above.
+The policy report lists all 56 outcomes; the
+[generated-diff audit](request-template-construction-diff.md) compares every
+changed body with the preserved distribution at `f3c6f54`. Generation continues
+to stage both formats before replacing the published trees.

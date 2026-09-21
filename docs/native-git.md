@@ -73,7 +73,7 @@ v2/v3 validation compares query keys, values, enabled/disabled state, order/repe
 
 ## Request-body semantics
 
-The [request-body contract](request-body-generation-audit.md) recursively checks writable request schemas and rejects converter sentinels in live bodies. The manifest separately reports proven `ambiguous-oneOf` and `source-incomplete` source conditions; incomplete templates carry a visible request-description warning and are not reported as schema-valid templates.
+The [request-body contract](request-body-generation-audit.md) recursively checks writable request schemas and rejects converter sentinels in live bodies. The [finite construction policy](request-template-construction.md) defines bounded template candidates and non-emitted, coherent string witnesses; unresolved runtime values remain unverified. The manifest separately reports proven `ambiguous-oneOf`, `source-incomplete`, and revision-bound `source-conflict` conditions. Incomplete and conflicting templates carry visible request-description warnings and are not reported as schema-valid templates.
 
 Native Git validation compares body modes and content, including exact raw JSON/text bytes and form rows. It recognizes only the migration's equivalent empty/false form defaults and unselected file representation. This comparison introduces no additional YAML normalization. Response payloads are outside the request-correction boundary.
 

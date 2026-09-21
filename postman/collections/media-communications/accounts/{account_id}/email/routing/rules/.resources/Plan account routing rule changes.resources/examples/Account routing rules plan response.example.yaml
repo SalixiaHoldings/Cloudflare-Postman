@@ -12,7 +12,86 @@ request:
     type: json
     content: |-
       {
-        "owner_worker_tag": "a7e6fb77503c41d8a7f3113c6918f10c"
+        "catch_all_rules": [
+          {
+            "rule": {
+              "actions": [
+                {
+                  "type": "worker",
+                  "value": [
+                    "my-worker"
+                  ]
+                }
+              ],
+              "matchers": [
+                {
+                  "type": "all"
+                },
+                {
+                  "type": "all"
+                }
+              ]
+            },
+            "target": "*@example.com"
+          }
+        ],
+        "owner_worker_tag": "a7e6fb77503c41d8a7f3113c6918f10c",
+        "rules": [
+          {
+            "actions": [
+              {
+                "type": "worker",
+                "value": [
+                  "my-worker"
+                ]
+              }
+            ],
+            "matchers": [
+              {
+                "type": "literal"
+              },
+              {
+                "type": "literal"
+              }
+            ]
+          },
+          {
+            "actions": [
+              {
+                "type": "worker",
+                "value": [
+                  "my-worker"
+                ]
+              }
+            ],
+            "matchers": [
+              {
+                "type": "literal"
+              },
+              {
+                "type": "literal"
+              }
+            ]
+          },
+          {
+            "actions": [
+              {
+                "type": "worker",
+                "value": [
+                  "my-worker"
+                ]
+              }
+            ],
+            "matchers": [
+              {
+                "type": "literal"
+              },
+              {
+                "type": "literal"
+              }
+            ]
+          }
+        ]
       }
 response:
   statusCode: 200

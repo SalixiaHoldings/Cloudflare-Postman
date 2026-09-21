@@ -25,10 +25,9 @@ request:
         value: '{"main_module":"worker.js","cache_options":{"enabled":true}}'
         contentType: application/json
         description: (Required) JSON-encoded metadata about the uploaded parts and Worker configuration.
-      - type: text
+      - type: file
         key: files
-        value: '["string","string"]'
-        contentType: application/javascript+module, text/javascript+module, application/javascript, text/javascript, `text/x-python`, text/x-python-requirement, application/wasm, text/plain, application/octet-stream, application/source-map
+        src: ""
         description: "An array of modules (often JavaScript files) comprising a Worker script. At least one module must be present and referenced in the metadata as `main_module` or `body_part` by filename.<br/>Possible Content-Type(s) are: `application/javascript+module`, `text/javascript+module`, `application/javascript`, `text/javascript`, `text/x-python`, `text/x-python-requirement`, `application/wasm`, `text/plain`, `application/octet-stream`, `application/source-map`."
 response:
   statusCode: 400

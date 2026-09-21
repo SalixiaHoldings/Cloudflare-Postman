@@ -44,7 +44,7 @@ test('pinned firewall bulk updates are source-incomplete without fabricating an 
   }
 });
 
-test('pinned Hyperdrive sentinel cannot authorize inventing its required password', async () => {
+test('pinned Hyperdrive constructs an unresolved password variable, never an emitted secret witness', async () => {
   const { destination, lock } = await fetchPinnedSchema();
   assert.equal(lock.commit, '49731bd0592b0c8c2c781b8d15d9f27c7293b210');
   const document = JSON.parse(await readFile(destination, 'utf8'));
@@ -53,5 +53,8 @@ test('pinned Hyperdrive sentinel cannot authorize inventing its required passwor
   const request = { body: { mode: 'raw', options: { raw: { language: 'json' } }, raw: JSON.stringify({
     name: 'fictional-hyperdrive', origin: { value: '<Error: Too many levels of nesting to fake this schema>' }
   }) } };
-  assert.throws(() => createBodyContract(document).normalize(request, operation), /origin\/password: required value cannot be represented safely/u);
+  const contract = createBodyContract(document);
+  assert.equal(contract.normalize(request, operation).classification, 'valid');
+  assert.equal(JSON.parse(request.body.raw).origin.password, '{{origin__password}}');
+  assert.equal(contract.validate(request, operation).classification, 'valid');
 });

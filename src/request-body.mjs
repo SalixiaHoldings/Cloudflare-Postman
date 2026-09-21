@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import { isDeepStrictEqual } from 'node:util';
 import Ajv from 'ajv-draft-04';
+import addFormats from 'ajv-formats';
+import conflictPolicy from '../config/request-body-conflicts.json' with { type: 'json' };
+import { CONSTRUCTION_LIMIT, stringCandidates, primitiveCandidates, templateVariable } from './request-construction.mjs';
 
 const OMIT = Symbol('omit');
 const own = (value, key) => Object.hasOwn(value, key);
@@ -10,10 +13,12 @@ const variable = value => typeof value === 'string' && /^\{\{[^{}]+\}\}$/u.test(
 const annotations = new Set(['title', 'description', 'readOnly', 'writeOnly', 'deprecated', 'xml', 'externalDocs']);
 export const INCOMPLETE_BODY_WARNING = 'WARNING — source-incomplete: the pinned OpenAPI does not contain sufficient request-body semantics to safely generate the required value. This body template is incomplete; the converter representation has been preserved.';
 
+export const CONFLICT_BODY_WARNING = 'WARNING — source-conflict: the pinned request schema declares a string body together with object properties. This preserved converter template is not schema-valid; resolve the source contract before use.';
+
 export function summarizeBodyResults(results) {
-  const counts = { valid: 0, 'ambiguous-oneOf': 0, 'source-incomplete': 0, 'not-applicable': 0 };
+  const counts = { valid: 0, 'ambiguous-oneOf': 0, 'source-incomplete': 0, 'source-conflict': 0, 'not-applicable': 0 };
   for (const result of results) counts[result.classification]++;
-  return { counts, conditions: results.filter(result => ['ambiguous-oneOf', 'source-incomplete'].includes(result.classification)) };
+  return { counts, conditions: results.filter(result => ['ambiguous-oneOf', 'source-incomplete', 'source-conflict'].includes(result.classification)) };
 }
 
 export function hasBodySentinel(value) {
@@ -28,9 +33,12 @@ export function assertNoBodySentinel(body, label) {
 class UnsafeValue extends Error {}
 
 // This reader never edits the upstream graph. Reference Object siblings follow OAS 3.0.
-export function createBodyContract(document) {
+export function createBodyContract(document, revision = {}) {
   assert.match(document.openapi, /^3\.0\./u, 'Request-body semantics require an OpenAPI version review.');
   const ajv = new Ajv({ strict: false, validateFormats: false, allErrors: true, verbose: true, inlineRefs: false });
+  const witnessAjv = new Ajv({ strict: false, allErrors: true, verbose: true, inlineRefs: false, logger: false });
+  addFormats(witnessAjv);
+  const witnessValidators = new WeakMap();
   const variantCache = new WeakMap();
   const views = new WeakMap();
   const validators = new WeakMap();
@@ -195,53 +203,73 @@ export function createBodyContract(document) {
     budget();
     if (hasBodySentinel(value)) return false;
     const compatible = policy.compatibility !== false;
-    const logical = structural(schemas, value, compatible) ? value : witness(schemas, value);
+    const logical = witness(schemas, value);
     return structural(schemas, logical, compatible) && writable(schemas, logical, policy.property, depth);
   }
 
-  // Postman variables remain unresolved in the emitted body. A source-backed
-  // witness proves template construction, never the unknown runtime contents.
+  // Variables always receive non-emitted, coherent witnesses, even when their
+  // literal braces happen to satisfy a permissive string schema. Ajv validates
+  // both the individual candidates and the complete substituted request.
   function witness(schemas, input) {
-    const replacements = new Map();
+    function containsVariable(value) {
+      return variable(value) || value !== null && typeof value === 'object' && Object.values(value).some(containsVariable);
+    }
+    if (!containsVariable(input)) return input;
+    const occurrences = new Map();
+    function projected(children, key, array = false) {
+      const choices = combinations(children).map(nodes => array ? nodes.flatMap(node => node.items ? [node.items] : []) : childSchemas(nodes, key))
+        .filter(Boolean).map(allOf => allOf.length ? { allOf } : {});
+      return choices.length ? [{ anyOf: choices }] : [];
+    }
     function collect(children, value) {
-      const nodes = combinations(children).flat();
-      if (variable(value) && !replacements.has(value)) {
-        const candidate = examples(nodes).find(example => typeof example === 'string' && !variable(example) &&
-          !hasBodySentinel(example) && structural(children, example, false));
-        if (candidate !== undefined) replacements.set(value, candidate);
-      } else if (object(value)) for (const [key, child] of Object.entries(value)) {
-        collect(nodes.flatMap(node => own(node.properties ?? {}, key) ? [node.properties[key]] :
-          object(node.additionalProperties) ? [node.additionalProperties] : []), child);
-      } else if (Array.isArray(value)) value.forEach(child => collect(nodes.flatMap(node => node.items ? [node.items] : []), child));
+      if (!containsVariable(value)) return;
+      if (variable(value)) {
+        if (!occurrences.has(value)) occurrences.set(value, []);
+        occurrences.get(value).push(children);
+      } else if (object(value)) for (const [key, child] of Object.entries(value)) collect(projected(children, key), child);
+      else if (Array.isArray(value)) value.forEach(child => collect(projected(children, '', true), child));
+    }
+    collect(schemas, input);
+    if (!occurrences.size) return input;
+    const replacements = new Map();
+    for (const [name, sites] of occurrences) {
+      const plans = sites.flatMap(combinations);
+      const candidates = [...examples(plans.flat()), ...plans.flatMap(nodes => stringCandidates(nodes, true))];
+      const candidate = candidates.find(value => typeof value === 'string' && !variable(value) && !hasBodySentinel(value) &&
+        sites.every(children => children.every(source => {
+          const schema = view(source);
+          if (!witnessValidators.has(schema)) witnessValidators.set(schema, witnessAjv.compile(schema));
+          return witnessValidators.get(schema)(value);
+        })));
+      if (candidate === undefined) return undefined;
+      replacements.set(name, candidate);
     }
     function substitute(value) {
-      if (variable(value)) return replacements.get(value) ?? value;
+      if (variable(value)) return replacements.get(value);
       if (Array.isArray(value)) return value.map(substitute);
       return object(value) ? Object.fromEntries(Object.entries(value).map(([key, child]) => [key, substitute(child)])) : value;
     }
-    collect(schemas, input);
     return substitute(input);
   }
 
-  function repair(nodes, input) {
-    const candidates = examples(nodes);
-    // Emptying an existing converter array prunes values; it invents none.
-    if (Array.isArray(input)) candidates.push([]);
-    if (nodes.some(node => node.type === 'object' || node.properties)) {
-      const example = {};
-      for (const key of new Set(nodes.flatMap(node => Object.keys(node.properties ?? {})))) {
-        const children = childSchemas(nodes, key);
-        if (!children || readOnly(children)) continue;
-        const child = combinations(children).flatMap(examples).find(value => matches(children, value));
-        if (child !== undefined) Object.defineProperty(example, key, { value: child, enumerable: true });
+  function repair(nodes, input, trail) {
+    const candidates = [];
+    if (nodes.some(node => node.type === 'object' || node.properties)) candidates.push({});
+    if (nodes.some(node => node.type === 'array')) {
+      const minimum = Math.max(0, ...nodes.map(node => node.minItems ?? 0));
+      if (minimum <= CONSTRUCTION_LIMIT) {
+        if (Array.isArray(input)) candidates.push(input.slice(0, minimum));
+        candidates.push(Array(minimum).fill(undefined));
       }
-      if (Object.keys(example).length) candidates.push(example);
-      if (object(input)) candidates.push({});
     }
+    if (stringCandidates(nodes).length) candidates.push(templateVariable(trail));
+    candidates.push(...primitiveCandidates(nodes));
+    // Existing arrays may be pruned without inventing an element.
+    if (Array.isArray(input)) candidates.push([]);
     return candidates;
   }
 
-  function normalizeNodes(nodes, input, depth, location, requiredValue) {
+  function normalizeNodes(nodes, input, depth, location, requiredValue, trail) {
     if (depth > 64) throw new UnsafeValue(`${location}: request value exceeds bounded recursion`);
     let output = input;
     if (object(input)) {
@@ -254,7 +282,7 @@ export function createBodyContract(document) {
           continue;
         }
         if (readOnly(schemas)) continue;
-        const value = normalize(schemas, input[key], required.has(key), depth + 1, `${location}/${key}`, true);
+        const value = normalize(schemas, input[key], required.has(key), depth + 1, `${location}/${key}`, true, [...trail, key]);
         if (value !== OMIT) Object.defineProperty(output, key, { value, enumerable: true, configurable: true, writable: true });
       }
       if (requiredValue) {
@@ -272,40 +300,68 @@ export function createBodyContract(document) {
           const schemas = childSchemas(nodes, key);
           if (!schemas || readOnly(schemas)) continue;
           try {
-            const value = normalize(schemas, undefined, true, depth + 1, `${location}/${key}`, true);
+            const value = normalize(schemas, undefined, true, depth + 1, `${location}/${key}`, true, [...trail, key]);
             Object.defineProperty(output, key, { value, enumerable: true, configurable: true, writable: true });
           } catch (error) { if (!(error instanceof UnsafeValue)) throw error; }
         }
       }
     } else if (Array.isArray(input)) {
       const items = nodes.flatMap(node => node.items ? [node.items] : []);
-      output = input.map((value, index) => normalize(items, value, true, depth + 1, `${location}/${index}`));
+      output = input.map((value, index) => normalize(items, value, true, depth + 1, `${location}/${index}`, false, [...trail, index]));
     }
     return output;
   }
 
-  function normalize(schemas, input, required, depth = 0, location = '$', property = false) {
+  let construction;
+  function construct(schemas, input, required, depth = 0, location = '$') {
+    const indices = new Map();
+    let failure;
+    try {
+      for (let attempt = 0; attempt < CONSTRUCTION_LIMIT; attempt++) {
+        construction = { indices, points: [] };
+        try { return normalize(schemas, input, required, depth, location); }
+        catch (error) {
+          if (!(error instanceof UnsafeValue)) throw error;
+          failure = error;
+          const last = construction.points.at(-1);
+          if (!last) throw error;
+          const prefix = new Set(construction.points.map(point => point.key));
+          for (const key of indices.keys()) if (!prefix.has(key)) indices.delete(key);
+          indices.set(last.key, last.index + 1);
+        }
+      }
+      throw failure;
+    } finally { construction = undefined; }
+  }
+
+  function normalize(schemas, input, required, depth = 0, location = '$', property = false, trail = []) {
     budget();
     if (input === undefined && !required) return OMIT;
     if (!required && Array.isArray(input) && hasBodySentinel(input)) return OMIT;
     // A proven overlapping-oneOf condition alone must never change the request.
     if (input !== undefined && matches(schemas, input, depth, { property })) return input;
     const choices = combinations(schemas);
-    let failure;
+    let failure, accepted = 0;
     // Preserve converter values when safe. Optional unsafe values are omitted; required
-    // values may use only schema examples/defaults/enums and existing converter values.
-    for (const fallback of [false, true]) {
-      if (fallback && !required) break;
+    // values use source candidates before bounded synthetic template construction.
+    for (const phase of (required ? ['example', 'default', 'enum', 'input', 'construct'] : ['input'])) {
       for (const nodes of choices) {
         if (nodes.some(node => node.readOnly && node.writeOnly)) throw new Error(`${location}: both readOnly and writeOnly`);
-        for (const candidate of fallback ? repair(nodes, input) : [input]) {
+        const candidates = phase === 'input' ? [input] : phase === 'construct' ? repair(nodes, input, trail) :
+          phase === 'enum' ? nodes.flatMap(node => node.enum ?? []) : nodes.filter(node => own(node, phase)).map(node => node[phase]);
+        for (const candidate of candidates) {
           try {
             if (candidate === undefined) continue;
-            const output = normalizeNodes(nodes, candidate, depth, location, required);
+            const output = normalizeNodes(nodes, candidate, depth, location, required, trail);
             if (!matches(schemas, output, depth, { property })) continue;
             if (!required && object(output) && !Object.keys(output).length && object(input) && Object.keys(input).length) return OMIT;
             if (!required && Array.isArray(output) && output.some((child, index) => object(child) &&
               !Object.keys(child).length && object(input?.[index]) && Object.keys(input[index]).length)) return OMIT;
+            if (construction && required && phase !== 'input') {
+              const index = accepted++;
+              if (index < (construction.indices.get(location) ?? 0)) continue;
+              construction.points.push({ key: location, index });
+            }
             return output;
           } catch (error) {
             if (!(error instanceof UnsafeValue)) throw error;
@@ -319,7 +375,8 @@ export function createBodyContract(document) {
   }
 
   function examples(nodes) {
-    return nodes.flatMap(node => [...['example', 'default'].filter(key => own(node, key)).map(key => node[key]), ...(node.enum ?? [])]);
+    return [...nodes.filter(node => own(node, 'example')).map(node => node.example),
+      ...nodes.filter(node => own(node, 'default')).map(node => node.default), ...nodes.flatMap(node => node.enum ?? [])];
   }
 
   function mediaExamples(selected) {
@@ -346,12 +403,42 @@ export function createBodyContract(document) {
       reason: 'Required property has no value schema, example, or default.' }));
   }
 
+  // This is a source diagnostic, never an alternate validity schema. A plain
+  // scalar declaration with object-property intent is formally satisfiable as a
+  // scalar, but its safe primary object cannot satisfy the declared root type.
+  function sourceConflict(schemas, value, selected, schemaPath) {
+    if (schemas.length !== 1) return;
+    const schema = resolve(schemas[0]);
+    if (schema.type !== 'string' || !object(schema.properties) || !Object.keys(schema.properties).length ||
+      Object.keys(schema).some(key => !annotations.has(key) && !['type', 'properties'].includes(key))) return;
+    if (matches(schemas, value) || [...mediaExamples(selected), ...examples([schema])].some(candidate => matches(schemas, candidate))) return;
+    assert.ok(object(value) && Object.keys(value).length, 'Source-conflict requires a safe primary object');
+    assert.ok(!hasBodySentinel(value) && writable(schemas, value), 'Unsafe source-conflict converter body');
+    assert.ok(Object.keys(value).every(key => own(schema.properties, key)), 'Undeclared source-conflict property');
+    const validate = validator(view(schema));
+    assert.equal(validate(value), false);
+    assert.ok(validate.errors.every(error => error.keyword === 'type' && error.instancePath === ''),
+      'Source-conflict cannot rescue another validation error');
+    // Check only the already emitted properties; do not construct a replacement
+    // object or silently repair its children under the conflict exception.
+    assert.ok(Object.entries(value).every(([key, child]) => matches([schema.properties[key]], child)),
+      'Unsafe source-conflict property');
+    assert.equal(revision.commit, conflictPolicy.upstreamCommit, 'Source-conflict requires schema revision review');
+    assert.equal(revision.schemaSha256, conflictPolicy.schemaSha256, 'Source-conflict requires schema digest review');
+    return [{ instancePath: '', schemaPath: `${sourcePaths.get(schema) ?? schemaPath}/type`,
+      propertiesSchemaPath: `${sourcePaths.get(schema) ?? schemaPath}/properties`,
+      upstreamCommit: revision.commit, schemaSha256: revision.schemaSha256,
+      reason: 'Declared string type conflicts with the declared object-property shape of the safe primary converter body.' }];
+  }
+
   function finish(request, operation, classification, validateOnly, issues = []) {
-    const warning = request.description?.includes(INCOMPLETE_BODY_WARNING) ?? false;
-    if (classification === 'source-incomplete') {
-      if (validateOnly) assert.ok(warning, `${operation.key}: missing source-incomplete body warning`);
-      else if (!warning) request.description = `${INCOMPLETE_BODY_WARNING}\n\n${request.description ?? ''}`;
-    } else assert.ok(!warning, `${operation.key}: stale source-incomplete body warning`);
+    for (const [kind, message] of [['source-incomplete', INCOMPLETE_BODY_WARNING], ['source-conflict', CONFLICT_BODY_WARNING]]) {
+      const warning = request.description?.includes(message) ?? false;
+      if (classification === kind) {
+        if (validateOnly) assert.ok(warning, `${operation.key}: missing ${kind} body warning`);
+        else if (!warning) request.description = `${message}\n\n${request.description ?? ''}`;
+      } else assert.ok(!warning, `${operation.key}: stale ${kind} body warning`);
+    }
     return { operation: operation.key, classification, ...(issues.length ? { issues } : {}) };
   }
 
@@ -389,8 +476,20 @@ export function createBodyContract(document) {
         'Unknown file contents cannot be represented safely under content constraints');
       for (const key of ['allOf', 'oneOf', 'anyOf']) fileShape(schema[key] ?? [], path);
       if (schema.not) fileShape([schema.not], path);
-      if (path.length) fileShape(childSchemas([schema], path[0]) ?? [], path.slice(1));
+      if (path.length) fileShape(path[0] === null ? (schema.items ? [schema.items] : []) :
+        childSchemas([schema], path[0]) ?? [], path.slice(1));
     }
+  }
+
+  function binaryArray(children) {
+    const choices = combinations(children);
+    if (!choices.length || !choices.every(nodes => nodes.some(node => node.type === 'array'))) return;
+    const nodes = choices.flat(), items = nodes.flatMap(node => node.items ? [node.items] : []);
+    if (!items.length || !combinations(items).every(plan => plan.some(node => node.type === 'string' && node.format === 'binary'))) return;
+    assert.ok(!nodes.some(node => node.uniqueItems), 'Unknown file contents cannot establish uniqueItems');
+    fileShape(items);
+    assert.ok(matches(items, ''), 'File array item cannot be represented safely');
+    return { minimum: Math.max(1, ...nodes.map(node => node.minItems ?? 0)) };
   }
 
   function apply(request, operation, validateOnly = false) {
@@ -434,12 +533,18 @@ export function createBodyContract(document) {
         assert.ok(!selected.required || body.raw, `${label}: empty required JSON body with authoritative examples`);
         return finish(request, operation, 'not-applicable', validateOnly);
       }
+      const conflict = sourceConflict(schemas, value, selected, schemaPath);
+      if (conflict) {
+        assertNoBodySentinel(body, label);
+        return finish(request, operation, 'source-conflict', validateOnly, conflict);
+      }
       const incomplete = sourceIncomplete(schemas, value, selected, schemaPath);
       if (incomplete) return finish(request, operation, 'source-incomplete', validateOnly, incomplete);
       if (validateOnly) assert.ok(matches(schemas, value), `${label}: live JSON violates writable request schema`);
       else {
         let result;
-        try { result = normalize(schemas, value, true, 0, label); }
+        try { result = matches(schemas, value) ? value :
+          mediaExamples(selected).find(example => matches(schemas, example)) ?? construct(schemas, value, true, 0, label); }
         catch (error) {
           if (!(error instanceof UnsafeValue)) throw error;
           result = mediaExamples(selected).find(example => matches(schemas, example));
@@ -452,31 +557,70 @@ export function createBodyContract(document) {
     } else {
       const form = Boolean(formMode), rows = form ? body[body.mode] ?? [] : [];
       let value = body.raw;
+      const fileArrays = new Map();
       if (form) {
         value = {};
-        const nodes = schemas.flatMap(schema => variants(schema).flat());
-        for (const row of rows.filter(row => !row.disabled)) {
-          assert.ok(!own(value, row.key), `${label}: duplicate enabled form field requires encoding review`);
-          const children = nodes.flatMap(node => own(node.properties ?? {}, row.key) ? [node.properties[row.key]] :
-            object(node.additionalProperties) ? [node.additionalProperties] : []);
+        const choices = combinations(schemas), nodes = choices.flat();
+        const names = new Set([...rows.filter(row => !row.disabled).map(row => row.key),
+          ...nodes.flatMap(node => node.required ?? [])]);
+        for (const key of names) {
+          const group = rows.filter(row => !row.disabled && row.key === key);
+          const children = childSchemas(nodes, key) ?? [];
+          const binary = body.mode === 'formdata' && binaryArray(children);
+          if (binary) {
+            fileShape(schemas, [key, null]);
+            fileArrays.set(key, binary);
+            const required = choices.every(plan => plan.some(node => node.required?.includes(key)));
+            if (!group.length && (!required || validateOnly)) continue;
+            if (validateOnly || group.every(row => row.type === 'file')) {
+              assert.ok(group.every(row => row.type === 'file'), `${label}: binary array requires file form rows`);
+              value[key] = group.map(() => '');
+              if (!validateOnly && group.length && group.length < binary.minimum) {
+                assert.ok(binary.minimum <= CONSTRUCTION_LIMIT, `${label}: file array exceeds construction bound`);
+                value[key] = Array(binary.minimum).fill('');
+              }
+              if (group.length) continue;
+            }
+            assert.ok(group.length <= 1, `${label}: mixed/duplicate file-array representation`);
+            assert.ok(binary.minimum <= CONSTRUCTION_LIMIT, `${label}: file array exceeds construction bound`);
+            value[key] = Array(binary.minimum).fill('');
+            continue;
+          }
+          assert.ok(group.length <= 1, `${label}: duplicate enabled form field requires encoding review`);
+          if (!group.length) continue;
+          const row = group[0];
           let child = row.type === 'file' ? '' : row.value;
-          if (row.type === 'file') fileShape(schemas, [row.key]);
+          if (row.type === 'file') fileShape(schemas, [key]);
           else if (children.some(schema => variants(schema).flat().some(node =>
             ['object', 'array', 'number', 'integer', 'boolean'].includes(node.type) || node.properties))) {
             try { child = JSON.parse(child); } catch { child = undefined; }
           }
-          Object.defineProperty(value, row.key, { value: child, enumerable: true });
+          Object.defineProperty(value, key, { value: child, enumerable: true });
         }
       } else if (body.mode === 'file') { fileShape(schemas); value = ''; }
       let output = value;
       if (validateOnly || body.mode === 'file') assert.ok(matches(schemas, value), `${label}: live body violates writable request schema`);
-      else output = normalize(schemas, value, true, 0, label);
+      else output = construct(schemas, value, true, 0, label);
       if (!validateOnly && form) {
-        body[body.mode] = rows.filter(row => row.disabled ? !hasBodySentinel(row) &&
-          writable(schemas, { [row.key]: row.value }) : own(output, row.key)).map(row => row.disabled || row.type === 'file' ||
-          isDeepStrictEqual(value[row.key], output[row.key]) ? row : { ...row, value: typeof output[row.key] === 'string' ? output[row.key] : JSON.stringify(output[row.key]) });
-        for (const [key, child] of Object.entries(output)) if (!rows.some(row => !row.disabled && row.key === key)) {
-          body[body.mode].push({ key, ...(body.mode === 'formdata' ? { type: 'text' } : {}), value: typeof child === 'string' ? child : JSON.stringify(child) });
+        const emitted = new Set();
+        body[body.mode] = rows.flatMap(row => {
+          if (row.disabled) return !hasBodySentinel(row) && writable(schemas, { [row.key]: row.value }) ? [row] : [];
+          if (!own(output, row.key)) return [];
+          if (fileArrays.has(row.key)) {
+            if (emitted.has(row.key)) return [];
+            emitted.add(row.key);
+            const existing = rows.filter(entry => !entry.disabled && entry.key === row.key && entry.type === 'file');
+            return output[row.key].map((_, index) => existing[index] ?? { key: row.key, type: 'file', src: '',
+              ...(row.description ? { description: row.description } : {}) });
+          }
+          emitted.add(row.key);
+          return [row.type === 'file' || isDeepStrictEqual(value[row.key], output[row.key]) ? row :
+            { ...row, value: typeof output[row.key] === 'string' ? output[row.key] : JSON.stringify(output[row.key]) }];
+        });
+        for (const [key, child] of Object.entries(output)) if (!emitted.has(key)) {
+          if (fileArrays.has(key)) body[body.mode].push(...child.map(() => ({ key, type: 'file', src: '' })));
+          else body[body.mode].push({ key, ...(body.mode === 'formdata' ? { type: 'text' } : {}),
+            value: typeof child === 'string' ? child : JSON.stringify(child) });
         }
       } else if (!validateOnly && body.mode === 'raw') body.raw = output;
       if (!matches(schemas, output, 0, { compatibility: false })) classification = 'ambiguous-oneOf';
@@ -488,7 +632,7 @@ export function createBodyContract(document) {
   return {
     normalize: (request, operation) => apply(request, operation),
     validate: (request, operation) => apply(request, operation, true),
-    normalizeValue: (schema, value, required = true) => { reset(); return normalize([schema], value, required); },
+    normalizeValue: (schema, value, required = true) => { reset(); return construct([schema], value, required); },
     validateValue: (schema, value, policy = {}) => { reset(); return matches([schema], value, 0, policy); },
     classifyValue: (schema, value) => {
       reset();

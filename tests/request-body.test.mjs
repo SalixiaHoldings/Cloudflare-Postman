@@ -155,12 +155,16 @@ test('source-incomplete is generic, and never exempts ordinary violations or ava
     { required: ['fictional'], example: { fictional: 'source-example' } },
     { required: ['fictional'], default: { fictional: 'source-default' } }
   ]) assert.notEqual(run(schema, {}).result.classification, 'source-incomplete');
-  // A type supplies validation semantics but no authoritative construction
-  // candidate. Do not fabricate a string just to avoid quarantine.
+  // A declared string now permits an unresolved slot with a bounded witness;
+  // it must remain distinct from source-incomplete quarantine.
   for (const schema of [
     { required: ['fictional'], additionalProperties: { type: 'string' } },
     { required: ['fictional'], properties: { fictional: { type: 'string' } } }
-  ]) assert.throws(() => run(schema, {}), /cannot be represented safely/u);
+  ]) {
+    const { request, result } = run(schema, {});
+    assert.equal(result.classification, 'valid');
+    assert.deepEqual(JSON.parse(request.body.raw), { fictional: '{{fictional}}' });
+  }
   const media = run({ required: ['fictional'] }, {}, { example: { fictional: 'fictional-source-example' } });
   assert.equal(media.result.classification, 'valid');
   assert.deepEqual(JSON.parse(media.request.body.raw), { fictional: 'fictional-source-example' });
@@ -169,7 +173,7 @@ test('source-incomplete is generic, and never exempts ordinary violations or ava
       readonly: { type: 'string', readOnly: true }, typed: { type: 'string' }
     } }, value));
   }
-  assert.throws(() => run({ oneOf: [{ type: 'number' }, { type: 'boolean' }], required: ['missing'] }, {}));
+  assert.equal(run({ oneOf: [{ type: 'number' }, { type: 'boolean' }], required: ['missing'] }, {}).result.classification, 'valid');
   const { request, operation } = run({ type: 'object' }, {});
   request.description += INCOMPLETE_BODY_WARNING;
   assert.throws(() => contract.validate(request, operation), /stale source-incomplete/u);

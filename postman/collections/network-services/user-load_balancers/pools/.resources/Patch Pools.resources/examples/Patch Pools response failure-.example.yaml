@@ -11,7 +11,10 @@ request:
     X-Auth-Key: "{{api_key}}"
   body:
     type: json
-    content: '"string"'
+    content: |-
+      {
+        "notification_email": ""
+      }
 response:
   statusCode: 400
   statusText: Bad Request

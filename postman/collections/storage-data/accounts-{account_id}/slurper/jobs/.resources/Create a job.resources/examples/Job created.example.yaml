@@ -15,18 +15,18 @@ request:
         "overwrite": true,
         "source": {
           "vendor": "s3",
-          "bucket": "string",
+          "bucket": "{{source__bucket}}",
           "secret": {
-            "accessKeyId": "string",
-            "secretAccessKey": "string"
+            "accessKeyId": "{{source__secret__accessKeyId}}",
+            "secretAccessKey": "{{source__secret__secretAccessKey}}"
           }
         },
         "target": {
           "vendor": "r2",
-          "bucket": "string",
+          "bucket": "{{target__bucket}}",
           "secret": {
-            "accessKeyId": "string",
-            "secretAccessKey": "string"
+            "accessKeyId": "{{target__secret__accessKeyId}}",
+            "secretAccessKey": "{{target__secret__secretAccessKey}}"
           }
         }
       }

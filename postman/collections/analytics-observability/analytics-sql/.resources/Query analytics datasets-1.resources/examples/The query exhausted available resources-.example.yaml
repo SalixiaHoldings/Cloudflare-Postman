@@ -11,11 +11,15 @@ request:
     type: json
     content: |-
       {
-        "query": "string",
+        "params": {
+          "status": 404
+        },
+        "query": "SELECT edgeResponseStatus FROM events.httpRequests WHERE edgeResponseStatus = $status LIMIT 10",
         "scope": {
           "accountTag": "0123456789abcdef0123456789abcdef"
         },
         "time_range": {
+          "end": "2026-01-02T00:00:00Z",
           "start": "2026-01-01T00:00:00Z"
         }
       }

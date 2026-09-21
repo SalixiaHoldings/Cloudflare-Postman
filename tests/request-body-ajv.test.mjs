@@ -162,12 +162,13 @@ test('constrained Postman variables require authoritative consistent witnesses a
   assert.equal(contract.classifyValue({ type: 'object', properties: {
     a: property, b: { type: 'string', enum: ['different-value'] }
   } }, { a: '{{shared_fictional}}', b: '{{shared_fictional}}' }), 'invalid');
-  assert.equal(contract.classifyValue({ type: 'string', minLength: 30 }, '{{no_evidence}}'), 'invalid');
+  assert.equal(contract.classifyValue({ type: 'string', minLength: 30 }, '{{bounded_witness}}'), 'valid');
+  assert.equal(contract.classifyValue({ type: 'string', minLength: 4097 }, '{{outside_bound}}'), 'invalid');
 });
 
-test('normalization never fabricates required scalar values or unsupported source completions', () => {
-  for (const schema of [{ type: 'string' }, { type: 'number' }, { type: 'boolean' }, { type: 'array' }, { type: 'object' }]) {
-    assert.throws(() => contract.normalizeValue(schema, undefined), /cannot be represented safely/u);
+test('bounded construction admits declared values but never invents unsupported source completions', () => {
+  for (const [type, expected] of [['string', '{{body}}'], ['number', 0], ['boolean', false], ['array', []], ['object', {}]]) {
+    assert.deepEqual(contract.normalizeValue({ type }, undefined), expected);
   }
   for (const schema of [{ type: 'object', required: ['id'], minProperties: 1 },
     { required: ['id'], allOf: [{}] }, { required: ['id'], anyOf: [{}] },

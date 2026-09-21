@@ -1,0 +1,286 @@
+{
+  "upstreamCommit": "49731bd0592b0c8c2c781b8d15d9f27c7293b210",
+  "schemaSha256": "3a7ba0e10e3b84f36e9ba6d6135a99d69177c2c3501711bcb367cb8b462bc627",
+  "cases": [
+    {
+      "id": 1,
+      "operation": "POST /accounts/{account_id}/dlp/entries",
+      "expected": "valid"
+    },
+    {
+      "id": 2,
+      "operation": "PUT /accounts/{account_id}/dlp/entries/custom/{entry_id}",
+      "expected": "valid"
+    },
+    {
+      "id": 3,
+      "operation": "POST /accounts/{account_id}/hyperdrive/configs",
+      "expected": "valid"
+    },
+    {
+      "id": 4,
+      "operation": "PUT /accounts/{account_id}/hyperdrive/configs/{hyperdrive_id}",
+      "expected": "valid"
+    },
+    {
+      "id": 5,
+      "operation": "POST /accounts/{account_id}/pipelines",
+      "expected": "ambiguous-oneOf"
+    },
+    {
+      "id": 6,
+      "operation": "PUT /accounts/{account_id}/pipelines/{pipeline_name}",
+      "expected": "ambiguous-oneOf"
+    },
+    {
+      "id": 7,
+      "operation": "POST /accounts/{account_id}/realtime/kit/{app_id}/meetings/{meeting_id}/active-session/kick",
+      "expected": "valid"
+    },
+    {
+      "id": 8,
+      "operation": "POST /accounts/{account_id}/realtime/kit/{app_id}/meetings/{meeting_id}/active-session/mute",
+      "expected": "valid"
+    },
+    {
+      "id": 9,
+      "operation": "POST /accounts/{account_id}/realtime/kit/{app_id}/presets",
+      "expected": "valid"
+    },
+    {
+      "id": 10,
+      "operation": "PUT /accounts/{account_id}/realtime/kit/{app_id}/presets/{preset_id}",
+      "expected": "valid"
+    },
+    {
+      "id": 11,
+      "operation": "PUT /zones/{zone_id}/snippets/{snippet_name}",
+      "expected": "valid"
+    },
+    {
+      "id": 12,
+      "operation": "PUT /accounts/{account_id}/slurper/source/connectivity-precheck",
+      "expected": "valid"
+    },
+    {
+      "id": 13,
+      "operation": "PUT /accounts/{account_id}/slurper/target/connectivity-precheck",
+      "expected": "valid"
+    },
+    {
+      "id": 14,
+      "operation": "POST /accounts/{account_id}/abuse-reports/{report_param}",
+      "expected": "valid"
+    },
+    {
+      "id": 15,
+      "operation": "PATCH /accounts/{account_id}/brand-protection/queries",
+      "expected": "valid"
+    },
+    {
+      "id": 16,
+      "operation": "POST /accounts/{account_id}/cloudforce-one/v2/brand-protection/domain/queries",
+      "expected": "valid"
+    },
+    {
+      "id": 17,
+      "operation": "PATCH /accounts/{account_id}/cloudforce-one/v2/brand-protection/domain/queries/{query_id}",
+      "expected": "valid"
+    },
+    {
+      "id": 18,
+      "operation": "POST /accounts/{account_id}/cloudforce-one/v2/threat-signals/curated-feeds/bulk",
+      "expected": "valid"
+    },
+    {
+      "id": 19,
+      "operation": "POST /accounts/{account_id}/vuln_scanner/scans",
+      "expected": "valid"
+    },
+    {
+      "id": 20,
+      "operation": "PUT /zones/{zone_id}/api_gateway/labels/managed/{name}/resources/operation",
+      "expected": "valid"
+    },
+    {
+      "id": 21,
+      "operation": "PUT /zones/{zone_id}/api_gateway/labels/user/{name}/resources/operation",
+      "expected": "valid"
+    },
+    {
+      "id": 22,
+      "operation": "DELETE /zones/{zone_id}/api_gateway/operations/labels",
+      "expected": "valid"
+    },
+    {
+      "id": 23,
+      "operation": "POST /zones/{zone_id}/api_gateway/operations/labels",
+      "expected": "valid"
+    },
+    {
+      "id": 24,
+      "operation": "PUT /zones/{zone_id}/api_gateway/operations/labels",
+      "expected": "valid"
+    },
+    {
+      "id": 25,
+      "operation": "POST /accounts/{account_id}/dns_settings/views",
+      "expected": "valid"
+    },
+    {
+      "id": 26,
+      "operation": "POST /zones/{zone_id}/token_validation/config",
+      "expected": "valid"
+    },
+    {
+      "id": 27,
+      "operation": "PATCH /zones/{zone_id}/token_validation/config/{config_id}/credentials",
+      "expected": "valid"
+    },
+    {
+      "id": 28,
+      "operation": "PUT /zones/{zone_id}/token_validation/config/{config_id}/credentials",
+      "expected": "valid"
+    },
+    {
+      "id": 29,
+      "operation": "POST /accounts/{account_id}/load_balancers",
+      "expected": "valid"
+    },
+    {
+      "id": 30,
+      "operation": "PATCH /accounts/{account_id}/load_balancers/pools",
+      "expected": "source-conflict"
+    },
+    {
+      "id": 31,
+      "operation": "PUT /accounts/{account_id}/load_balancers/{load_balancer_id}",
+      "expected": "valid"
+    },
+    {
+      "id": 32,
+      "operation": "POST /accounts/{account_id}/magic/apps",
+      "expected": "valid"
+    },
+    {
+      "id": 33,
+      "operation": "POST /accounts/{account_id}/magic/connectors",
+      "expected": "valid"
+    },
+    {
+      "id": 34,
+      "operation": "PUT /accounts/{account_id}/magic/routes/{route_id}",
+      "expected": "valid"
+    },
+    {
+      "id": 35,
+      "operation": "POST /accounts/{account_id}/magic/sites/{site_id}/acls",
+      "expected": "valid"
+    },
+    {
+      "id": 36,
+      "operation": "POST /accounts/{account_id}/mnm/rules/bulk",
+      "expected": "valid"
+    },
+    {
+      "id": 37,
+      "operation": "PUT /accounts/{account_id}/mnm/rules/bulk",
+      "expected": "valid"
+    },
+    {
+      "id": 38,
+      "operation": "PATCH /user/load_balancers/pools",
+      "expected": "source-conflict"
+    },
+    {
+      "id": 39,
+      "operation": "POST /accounts/{account_id}/cloudforce-one/rules/structured",
+      "expected": "valid"
+    },
+    {
+      "id": 40,
+      "operation": "PUT /accounts/{account_id}/cloudforce-one/rules/structured/approvals/{id}",
+      "expected": "valid"
+    },
+    {
+      "id": 41,
+      "operation": "POST /accounts/{account_id}/cloudforce-one/rules/structured/approvals/{id}/resubmit",
+      "expected": "valid"
+    },
+    {
+      "id": 42,
+      "operation": "POST /accounts/{account_id}/cloudforce-one/rules/structured/validate",
+      "expected": "valid"
+    },
+    {
+      "id": 43,
+      "operation": "POST /accounts/{account_id}/browser-extension/config",
+      "expected": "valid"
+    },
+    {
+      "id": 44,
+      "operation": "PUT /accounts/{account_id}/browser-extension/config",
+      "expected": "valid"
+    },
+    {
+      "id": 45,
+      "operation": "POST /accounts/{account_id}/cni/cnis",
+      "expected": "valid"
+    },
+    {
+      "id": 46,
+      "operation": "PUT /accounts/{account_id}/cni/cnis/{cni}",
+      "expected": "valid"
+    },
+    {
+      "id": 47,
+      "operation": "POST /accounts/{account_id}/cni/interconnects",
+      "expected": "valid"
+    },
+    {
+      "id": 48,
+      "operation": "POST /accounts/{account_id}/containers/applications",
+      "expected": "valid"
+    },
+    {
+      "id": 49,
+      "operation": "POST /accounts/{account_id}/data-security/posture/policies",
+      "expected": "valid"
+    },
+    {
+      "id": 50,
+      "operation": "PUT /accounts/{account_id}/data-security/posture/policies/{policy_id}",
+      "expected": "valid"
+    },
+    {
+      "id": 51,
+      "operation": "PUT /accounts/{account_id}/field_extractors/{extractor}",
+      "expected": "valid"
+    },
+    {
+      "id": 52,
+      "operation": "POST /accounts/{account_id}/iam/resource_groups",
+      "expected": "valid"
+    },
+    {
+      "id": 53,
+      "operation": "POST /accounts/{account_id}/members",
+      "expected": "valid"
+    },
+    {
+      "id": 54,
+      "operation": "PUT /accounts/{account_id}/tokens/{token_id}",
+      "expected": "valid"
+    },
+    {
+      "id": 55,
+      "operation": "POST /organizations/{organization_id}/members",
+      "expected": "valid"
+    },
+    {
+      "id": 56,
+      "operation": "PUT /user/tokens/{token_id}",
+      "expected": "valid"
+    }
+  ]
+}

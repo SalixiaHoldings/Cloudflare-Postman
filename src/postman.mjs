@@ -130,7 +130,8 @@ function replaceCoreIdentifiers(value, preserveTypes = false) {
   return Object.fromEntries(
     Object.entries(value).map(([key, child]) => [
       key,
-      (!preserveTypes || typeof child === 'string' ? coreIdentifierVariable(key) : undefined) ??
+      (typeof child === 'string' && /^\{\{[^{}]+\}\}$/u.test(child) ? child :
+        !preserveTypes || typeof child === 'string' ? coreIdentifierVariable(key) : undefined) ??
         replaceCoreIdentifiers(child, preserveTypes)
     ])
   );
@@ -208,7 +209,7 @@ function normalizeCollection(collection, { partition, operations, commit, schema
       assert.ok(projected, `Missing secondary query: ${key}`);
       projectQueryRows(item.request, projected);
       const bodyResult = bodies.normalize(item.request, operation);
-      sanitizeRequestIdentifiers(item.request, bodyResult.classification === 'source-incomplete');
+      sanitizeRequestIdentifiers(item.request, ['source-incomplete', 'source-conflict'].includes(bodyResult.classification));
       bodyResults.push(bodies.validate(item.request, operation));
       if (typeof item.request.url === 'string') {
         item.request.url = { raw: makeRawUrl(apiPath), host: ['{{base_url}}'], path: [] };
@@ -314,7 +315,7 @@ export async function generateCollection(schema, context) {
   const keys = new Set(context.operations.map(o => o.key));
   assertOmissions(omissions, (context.queryPolicy?.omissions ?? []).filter(o => keys.has(o.operation)));
   const normalized = normalizeCollection(converted.collection, { ...context, operations: contractOperations }, indexed,
-    createBodyContract(secondaryInput));
+    createBodyContract(secondaryInput, { commit: context.commit, schemaSha256: context.schemaSha256 }));
   return { ...normalized, warnings: converted.warnings,
     queryProjection: { enabled, disabled, omissions, secondaryWarnings: diagnostics } };
 }
