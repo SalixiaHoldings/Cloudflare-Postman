@@ -8,7 +8,7 @@ This directory contains both **current project policy** and **historical enginee
 - [Postman Native Git and Local Mode](native-git.md) — using the generated v3 YAML in Postman Desktop and how v2/v3 equivalence is validated.
 - [Generated query parameters](query-policy.md) — current required/optional query behavior, the isolated secondary conversion, and the one approved omission.
 - [Finite request-template construction](request-template-construction.md) — current request-body authority, bounded construction, compatibility classifications, and the reviewed 57-case inventory.
-- [Cloudflare schema revision 73947dd](schema-revision-73947dd.md) — human-readable review of the currently prepared upstream revision, including operation, auth, query, body, and converter-drift changes.
+- [Cloudflare schema revision 73947dd](schema-revision-73947dd.md) — human-readable review of that upstream revision, including operation, auth, query, body, and converter-drift changes.
 - [73947dd audit evidence](schema-revision-73947dd-audit.json) — machine-readable evidence supporting that revision review.
 
 The authoritative current revision and generated counts are also recorded in `schema-lock.json` and `dist/v2.1/manifest.json`.
