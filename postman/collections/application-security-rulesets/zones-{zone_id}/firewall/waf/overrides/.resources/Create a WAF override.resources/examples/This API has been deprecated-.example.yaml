@@ -1,0 +1,32 @@
+$kind: http-example
+id: 6d72dcec-8a48-5014-92a7-d5e95a273fb9
+name: This API has been deprecated.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/firewall/waf/overrides"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "urls": [
+          "shop.example.com/*",
+          "shop.example.com/*"
+        ]
+      }
+response:
+  statusCode: 410
+  statusText: Gone
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "This API has been deprecated. Please use the Rulesets API instead."
+      }
+order: 1000

@@ -1,5 +1,5 @@
 $kind: http-example
-id: ed345b8c-6cce-506b-bf2f-364529d38fec
+id: 65775b37-d8b0-52dc-a2ea-2b432717c1f4
 name: Client error.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate/{{investigate_id}}/move"
@@ -11,8 +11,7 @@ request:
     type: json
     content: |-
       {
-        "destination": "JunkEmail",
-        "expected_disposition": "UNKNOWN"
+        "destination": "RecoverableItemsPurges"
       }
 response:
   statusCode: 400

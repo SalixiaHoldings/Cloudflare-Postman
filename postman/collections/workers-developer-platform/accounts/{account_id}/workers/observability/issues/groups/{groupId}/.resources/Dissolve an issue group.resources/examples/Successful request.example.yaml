@@ -1,0 +1,46 @@
+$kind: http-example
+id: a3190388-b656-5682-be6f-6965579dca6d
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues/groups/{{groupId}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": {
+          "deleted": true
+        }
+      }
+order: 1000

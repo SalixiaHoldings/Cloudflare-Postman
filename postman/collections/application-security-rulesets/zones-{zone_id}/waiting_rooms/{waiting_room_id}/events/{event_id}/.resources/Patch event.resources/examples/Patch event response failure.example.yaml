@@ -1,5 +1,5 @@
 $kind: http-example
-id: 8df05d75-0c86-5b53-8276-10ff22af9d58
+id: 5e87b562-c177-51fe-92b2-73ab5c8f7c37
 request:
   url: "{{base_url}}/zones/{{zone_id}}/waiting_rooms/{{waiting_room_id}}/events/{{event_id}}"
   method: PATCH
@@ -15,16 +15,16 @@ request:
         "event_end_time": "2021-09-28T17:00:00Z",
         "custom_page_html": "{{#waitTimeKnown}} {{waitTime}} mins {{/waitTimeKnown}} {{^waitTimeKnown}} Event is prequeueing / Queue all enabled {{/waitTimeKnown}}",
         "description": "Production event - DO NOT MODIFY",
-        "disable_session_renewal": true,
-        "new_users_per_minute": 1117195695,
+        "disable_session_renewal": false,
+        "new_users_per_minute": 649954745,
         "prequeue_start_time": "2021-09-28T15:00:00Z",
         "queueing_method": "random",
-        "session_duration": 22,
+        "session_duration": 17,
         "shuffle_at_event_start": false,
         "suspended": false,
-        "total_active_users": 1143794635,
-        "turnstile_action": "log",
-        "turnstile_mode": "off"
+        "total_active_users": 371469561,
+        "turnstile_action": "infinite_queue",
+        "turnstile_mode": "invisible"
       }
 response:
   statusCode: 400

@@ -1,5 +1,5 @@
 $kind: http-example
-id: d5f7828b-d9a9-5fb0-84aa-6a5a0343b507
+id: e25cf60d-be71-5eb1-99db-7b8ef0aacf99
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues/{{issueId}}"
   method: PATCH
@@ -10,7 +10,8 @@ request:
     type: json
     content: |-
       {
-        "status": "ignored"
+        "status": "ignored",
+        "title": "string"
       }
 response:
   statusCode: 403
@@ -53,4 +54,4 @@ response:
           }
         ]
       }
-order: 3000
+order: 4000

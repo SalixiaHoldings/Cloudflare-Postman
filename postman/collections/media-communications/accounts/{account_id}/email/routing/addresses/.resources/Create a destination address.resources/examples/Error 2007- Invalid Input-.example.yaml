@@ -1,0 +1,24 @@
+$kind: http-example
+id: ed3fbd06-afcb-52b2-99c0-60ab51e1ec8a
+name: "Error 2007: Invalid Input."
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/routing/addresses"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "email": "user@example.com"
+      }
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

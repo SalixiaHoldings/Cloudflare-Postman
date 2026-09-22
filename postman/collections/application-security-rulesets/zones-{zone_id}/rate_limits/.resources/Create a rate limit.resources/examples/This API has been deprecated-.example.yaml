@@ -1,0 +1,32 @@
+$kind: http-example
+id: 6f5604d4-f75b-5334-a31a-ae8937915179
+name: This API has been deprecated.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/rate_limits"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "match": {},
+        "threshold": 60,
+        "period": 900,
+        "action": {}
+      }
+response:
+  statusCode: 410
+  statusText: Gone
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "This API has been deprecated. Please use the Rulesets API instead."
+      }
+order: 1000

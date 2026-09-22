@@ -1,5 +1,5 @@
 $kind: http-request
-id: d28f853f-b6d5-54d6-bbbe-0445ac34561f
+id: 45d8fa95-d699-5620-b449-bf48e9528cd4
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -41,19 +41,19 @@ queryParams:
     disabled: true
     description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
   - key: dateStart
-    value: 1946-01-18T08:24:35.875Z
+    value: 1986-01-05T21:41:54.495Z
     disabled: true
     description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
   - key: dateStart
-    value: 1969-02-03T19:53:29.907Z
+    value: 1957-10-06T01:37:28.017Z
     disabled: true
     description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
   - key: dateEnd
-    value: 1938-11-20T10:50:51.531Z
+    value: 1972-08-25T00:47:28.319Z
     disabled: true
     description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
   - key: dateEnd
-    value: 1982-02-01T05:58:15.896Z
+    value: 1941-10-07T23:50:38.208Z
     disabled: true
     description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
   - key: location
@@ -73,7 +73,7 @@ queryParams:
     disabled: true
     description: Filters results by continent. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude continents from results. For example, `-EU,NA` excludes results from EU, but includes results from NA.
   - key: ipVersion
-    value: IPv6
+    value: IPv4
     disabled: true
     description: Filters results by IP version (Ipv4 vs. IPv6).
   - key: ipVersion
@@ -81,7 +81,7 @@ queryParams:
     disabled: true
     description: Filters results by IP version (Ipv4 vs. IPv6).
   - key: protocol
-    value: ICMP
+    value: TCP
     disabled: true
     description: Filters the results by layer 3/4 protocol.
   - key: protocol
@@ -105,7 +105,7 @@ queryParams:
     disabled: true
     description: Normalization method applied to the results. Refer to [Normalization methods](https://developers.cloudflare.com/radar/concepts/normalization/).
   - key: format
-    value: JSON
+    value: CSV
     disabled: true
     description: Format in which results will be returned.
 auth:

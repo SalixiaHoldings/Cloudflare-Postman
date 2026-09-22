@@ -1,5 +1,5 @@
 $kind: http-example
-id: 598f9401-f249-5a94-a635-12e1da037ce9
+id: d8750767-ce3b-5152-bf28-11da3a21efef
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues/{{issueId}}"
   method: PATCH
@@ -10,7 +10,8 @@ request:
     type: json
     content: |-
       {
-        "status": "ignored"
+        "status": "ignored",
+        "title": "string"
       }
 response:
   statusCode: 200
@@ -49,16 +50,21 @@ response:
         "result": {
           "id": "string",
           "service": "string",
-          "fingerprint": "string",
           "title": "string",
-          "type": "string",
-          "status": "ignored",
-          "statusUpdated": 162.9579276777804,
-          "count": 9428.936117328703,
-          "firstObserved": 9482.752021867782,
-          "lastObserved": 923.2537494972348,
-          "created": 9982.37874591723,
-          "updated": 760.4656042531133
+          "status": "resolved",
+          "statusUpdated": 6973.243737593293,
+          "count": 9850.681503303349,
+          "firstObserved": 8177.861452568322,
+          "lastObserved": 6475.662756711245,
+          "created": 6771.589540876448,
+          "updated": 9150.630494114012,
+          "fingerprint": "string",
+          "group": {
+            "issueIds": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "type": "string"
         }
       }
 order: 1000

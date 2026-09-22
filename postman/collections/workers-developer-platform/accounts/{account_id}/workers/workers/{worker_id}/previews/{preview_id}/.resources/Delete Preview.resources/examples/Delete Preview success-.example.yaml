@@ -1,0 +1,27 @@
+$kind: http-example
+id: d905d3fe-19ef-5abf-b40d-9c20aa9c5149
+name: Delete Preview success.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews/{{preview_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: force
+      value: "true"
+      disabled: true
+      description: If true, delete the Preview even when a service binding, Durable Object, or other binding still references it. The delete also removes those bindings and Durable Objects.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": []
+      }
+order: 1000

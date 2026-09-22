@@ -1,5 +1,5 @@
 $kind: http-example
-id: 8eafc973-9d5d-5d3b-94fc-a1283500f813
+id: 62c2069d-0d00-5452-86d9-7a595ed2b121
 name: Successful response.
 request:
   url: "{{base_url}}/radar/bots/crawlers/summary/{{dimension}}"
@@ -26,19 +26,19 @@ request:
       disabled: true
       description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
     - key: dateStart
-      value: 1946-01-18T08:24:35.875Z
+      value: 1986-01-05T21:41:54.495Z
       disabled: true
       description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateStart
-      value: 1969-02-03T19:53:29.907Z
+      value: 1957-10-06T01:37:28.017Z
       disabled: true
       description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1938-11-20T10:50:51.531Z
+      value: 1972-08-25T00:47:28.319Z
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1982-02-01T05:58:15.896Z
+      value: 1941-10-07T23:50:38.208Z
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: limitPerGroup
@@ -70,31 +70,31 @@ request:
       disabled: true
       description: Filters results by industry.
     - key: clientType
-      value: AI_BOT
+      value: MIXED_PURPOSE
       disabled: true
       description: Filters results by agent type.
     - key: clientType
-      value: NON_AI_BOT
+      value: HUMAN
       disabled: true
       description: Filters results by agent type.
     - key: responseStatus
-      value: "968"
+      value: "109"
       disabled: true
       description: Filters results by HTTP response status code (e.g. 200, 403, 404). Only [IANA-registered codes](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) are accepted.
     - key: responseStatus
-      value: "572"
+      value: "086"
       disabled: true
       description: Filters results by HTTP response status code (e.g. 200, 403, 404). Only [IANA-registered codes](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) are accepted.
-    - key: responseStatusCategory
-      value: SUCCESS
-      disabled: true
-      description: Filters results by HTTP response status code category.
     - key: responseStatusCategory
       value: CLIENT_ERROR
       disabled: true
       description: Filters results by HTTP response status code category.
+    - key: responseStatusCategory
+      value: SERVER_ERROR
+      disabled: true
+      description: Filters results by HTTP response status code category.
     - key: format
-      value: JSON
+      value: CSV
       disabled: true
       description: Format in which results will be returned.
 response:

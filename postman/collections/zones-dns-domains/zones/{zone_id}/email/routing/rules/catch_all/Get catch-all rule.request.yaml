@@ -1,5 +1,5 @@
 $kind: http-request
-id: 41bcf3db-6040-573e-bf26-bed9511d42bd
+id: ee92dfbf-93d6-50fc-a5a1-3428f15b0dd4
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -8,18 +8,18 @@ description: |-
 
   Get information on the default catch-all routing rule.
 
-  Authentication support: legacy-only
-  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
-  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
-  Selected requirement: {"api_email":[],"api_key":[]}
-  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
 url: "{{base_url}}/zones/{{zone_id}}/email/routing/rules/catch_all"
 method: GET
 headers:
   Accept: application/json
-  X-Auth-Email: "{{api_email}}"
-  X-Auth-Key: "{{api_key}}"
 auth:
-  type: noauth
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
 examples: ./.resources/Get catch-all rule.resources/examples
 order: 1000

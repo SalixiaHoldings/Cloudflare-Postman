@@ -1,5 +1,5 @@
 $kind: http-example
-id: 2b2d2dba-c436-50aa-8f0b-602314741dc0
+id: a6dbe46a-6f66-5bb5-9b69-a5f701679ad8
 name: The authorization service is temporarily unavailable.
 request:
   url: "{{base_url}}/analytics/sql/introspection?account_tag=0123456789abcdef0123456789abcdef"
@@ -14,6 +14,10 @@ request:
       value: "false"
       disabled: true
       description: Include column metadata for each returned dataset.
+    - key: include_custom_attributes
+      value: "false"
+      disabled: true
+      description: Include custom attribute names and types for each dataset that supports them.
     - key: dataset_name
       value: events.httpRequests
       disabled: true

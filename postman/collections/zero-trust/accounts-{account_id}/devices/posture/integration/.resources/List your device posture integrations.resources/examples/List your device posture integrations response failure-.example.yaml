@@ -1,5 +1,5 @@
 $kind: http-example
-id: a09fcc3a-9a7f-54da-baf7-0aabe050196d
+id: 97e870fd-61ff-5f73-a851-df730525c42e
 name: List your device posture integrations response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/posture/integration"
@@ -17,17 +17,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000

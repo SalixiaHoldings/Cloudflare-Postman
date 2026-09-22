@@ -1,0 +1,45 @@
+$kind: http-example
+id: 99a4d634-53fd-53f2-a983-3c7f3fadc9d4
+name: Edit Preview success.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews/{{preview_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "feature/my-branch",
+        "tags": [
+          "my-team",
+          "my-preview"
+        ],
+        "observability": {},
+        "logpush": false,
+        "tail_consumers": []
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

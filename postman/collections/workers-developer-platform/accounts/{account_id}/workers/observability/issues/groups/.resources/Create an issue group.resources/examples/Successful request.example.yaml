@@ -1,0 +1,73 @@
+$kind: http-example
+id: 1415b5a9-4b10-5289-b7c0-c4ae10b101a3
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues/groups"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "title": "string",
+        "issueIds": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": true,
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "result": {
+          "id": "string",
+          "service": "string",
+          "title": "string",
+          "status": "resolved",
+          "statusUpdated": 6973.243737593293,
+          "count": 9850.681503303349,
+          "firstObserved": 8177.861452568322,
+          "lastObserved": 6475.662756711245,
+          "created": 6771.589540876448,
+          "updated": 9150.630494114012,
+          "fingerprint": "string",
+          "group": {
+            "issueIds": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          "type": "string"
+        }
+      }
+order: 1000

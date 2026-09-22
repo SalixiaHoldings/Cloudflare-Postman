@@ -1,0 +1,17 @@
+$kind: http-example
+id: 2130ac15-297f-5ed0-a65d-d3d9d15aba19
+name: Authentication error or missing zone routing rule read permission.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/routing/rules/catch_all"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

@@ -1,0 +1,30 @@
+$kind: http-request
+id: 80490021-88a6-5b6b-a411-ddb58f54936f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers.previews.delete
+  DELETE /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}
+
+  Delete a Preview.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews/{{preview_id}}"
+method: DELETE
+headers:
+  Accept: application/json
+queryParams:
+  - key: force
+    value: "true"
+    disabled: true
+    description: If true, delete the Preview even when a service binding, Durable Object, or other binding still references it. The delete also removes those bindings and Durable Objects.
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Delete Preview.resources/examples
+order: 1000

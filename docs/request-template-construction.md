@@ -1,8 +1,10 @@
 # Finite request-template construction
 
-This policy completes the construction work left blocked at PR #12 head
-`f3c6f54ecab08ce7649cd445160b4fe66ee9f99c`. It does not change the request
-validation architecture or the upstream pin. The primary converter and the
+This policy defines the finite request-template construction introduced during
+PR #12 and retained by the current generator. The original implementation began
+from PR #12 head `f3c6f54ecab08ce7649cd445160b4fe66ee9f99c`; current
+revision-specific outcomes are reviewed in the
+[73947dd schema review](schema-revision-73947dd.md). The primary converter and the
 operation's own OpenAPI request/media schemas are the only construction sources.
 SDKs, rendered docs, responses, sibling operations and existing generated files
 are not construction inputs. The operation list in the regression fixture is
@@ -125,10 +127,12 @@ schema is used. Ordinary failures, unsafe primary values, negation/cardinality
 conflicts and read-only leakage cannot use this classification.
 
 [The policy revision](../config/request-body-conflicts.json) binds the generic
-pattern to commit `49731bd0592b0c8c2c781b8d15d9f27c7293b210` and SHA-256
-`3a7ba0e10e3b84f36e9ba6d6135a99d69177c2c3501711bcb367cb8b462bc627`.
-A different pin or digest rejects these cases until reviewed. PR #13 remains
-independent and is not incorporated.
+pattern to commit `73947ddceec8571140469a90a1a35078e10fa054` and SHA-256
+`66259004b9ee38da435ec59992dbb73a7740d4249971bb80f3fa1f0a9ee1c344`.
+Both complete request contracts and their referenced property schemas remain
+unchanged from v0.1.0; the revision-bound tests independently check the exact
+source shape, root-only Ajv type failure, and preserved safe object.
+A different pin or digest rejects these cases until reviewed.
 
 The two exact conflict sites are:
 
@@ -142,11 +146,25 @@ The two exact conflict sites are:
 Both preserve the primary `{"notification_email":""}` object. The old fabricated
 root string is not used as evidence or as a repair.
 
-## Exhaustive 56-case result
+The [73947dd revision review](schema-revision-73947dd.md) retires four obsolete
+source-incomplete classifications: bulk firewall PATCH/PUT now declare a string
+`id`, and Email Routing enable/disable no longer declare request bodies. The
+remaining twelve incomplete contracts, both conflicts, and all 33 previously
+ambiguous contracts were re-evaluated against the new source.
+
+## Exhaustive 57-case result
+
+The `49731bd` inventory contains 56 cases. Reapplying the original construction-
+failure diagnostic to fresh primary conversion reproduces that exact baseline
+and finds 57 cases on `73947dd`: all original cases plus
+`POST /accounts/{account_id}/workers/durable_objects/namespaces/{id}/query/v2`.
+No cases are removed. The fixture advances to the reviewed pin and adds this
+strict-valid case; the existing construction policy supplies a witnessed
+`durable_object_id` variable and the declared empty queries array.
 
 Fresh primary conversion of every complete pinned partition supplies the inputs
 for the permanent exhaustive regression. Every case is normalized and then
-independently validated. Result: **52 strict-valid, 2 ambiguous-oneOf, 2
+independently validated. Result: **53 strict-valid, 2 ambiguous-oneOf, 2
 source-conflict, 0 still fail-closed**. No case is newly classified
 source-incomplete. All prior boundary regressions, including the nine adversarial
 findings and F1–F6, remain covered. Old tests forbidding all scalar construction
@@ -210,8 +228,12 @@ now assert the specifically authorized finite policy and its rejection bounds.
 | 54 | `PUT /accounts/{account_id}/tokens/{token_id}` | strict-valid |
 | 55 | `POST /organizations/{organization_id}/members` | strict-valid |
 | 56 | `PUT /user/tokens/{token_id}` | strict-valid |
+| 57 | `POST /accounts/{account_id}/workers/durable_objects/namespaces/{id}/query/v2` | strict-valid |
 
 ## Verification history
+
+This section preserves implementation history from PR #12. For the current pin's
+complete verification results, see the [73947dd schema review](schema-revision-73947dd.md).
 
 At the original finite-policy head `f6508369519b02dc79bc03e29e994bd3944af1ae`,
 on Node 24, `npm ci`, the 81 focused request-body/Native Git tests, all 113
@@ -231,7 +253,7 @@ synthetic occurrences. The official Darwin x64 archive SHA-256 is
 
 The historical audit at that commit records 135 individual body changes, identical
 file sets, and zero response-payload changes in both formats. Hosted Validate
-passed for that commit; PR #12 remains draft.
+passed for that commit. PR #12 was subsequently completed and merged as part of v0.1.0.
 
 The subsequent three construction corrections use a pristine request-body
 source while preserving the existing non-body converter behavior. The
@@ -249,6 +271,6 @@ the correction audit.
 
 The subsequent optional-union precedence correction tries exact-schema authority
 and safe sole-alternative construction before omission. The
-[current diff audit](request-template-construction-diff.md) compares that change
+[historical v0.1.0 diff audit](request-template-construction-diff.md) compares that change
 against `1e5a960ab832ba11a87f0ed27308c68591981a8d` and records every changed body,
 source justification and complete non-body comparison.

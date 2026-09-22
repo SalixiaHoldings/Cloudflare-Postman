@@ -1,0 +1,36 @@
+$kind: http-example
+id: f40e5b44-2340-5712-9098-5f2aebedc2cc
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_tag}}/previews"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number for pagination
+    - key: per_page
+      value: "50"
+      disabled: true
+      description: Number of items per page
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12005,
+            "message": "Missing token from authorization header"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

@@ -1,5 +1,5 @@
 $kind: http-example
-id: d52de6cc-499a-534e-9aba-b66a42f75cdb
+id: 9101a837-7252-544e-8655-98c436754f16
 request:
   url: "{{base_url}}/zones/{{zone_id}}/firewall/rules"
   method: PUT
@@ -10,7 +10,10 @@ request:
     X-Auth-Key: "{{api_key}}"
   body:
     type: json
-    content: "{}"
+    content: |-
+      {
+        "id": "string"
+      }
 response:
   statusCode: 200
   statusText: OK

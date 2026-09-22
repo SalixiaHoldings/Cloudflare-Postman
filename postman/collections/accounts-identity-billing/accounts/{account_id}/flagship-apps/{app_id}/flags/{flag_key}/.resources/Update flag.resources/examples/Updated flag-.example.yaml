@@ -1,5 +1,5 @@
 $kind: http-example
-id: 00a8deb8-bbcf-5a1e-94fe-95be27ca3145
+id: 56a30e9c-9bb1-564e-8b7c-a724fdc8abb2
 name: Updated flag.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/flagship/apps/{{app_id}}/flags/{{flag_key}}"
@@ -11,7 +11,7 @@ request:
     type: json
     content: |-
       {
-        "key": "yhYZpF",
+        "key": "t3nf",
         "default_variation": "string",
         "variations": {},
         "rules": [
@@ -32,9 +32,9 @@ request:
             }
           }
         ],
-        "enabled": false,
+        "enabled": true,
         "description": "string",
-        "type": "json"
+        "type": "boolean"
       }
 response:
   statusCode: 200
@@ -45,7 +45,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "result": {
           "key": {
             "value": "<Error: Too many levels of nesting to fake this schema>"

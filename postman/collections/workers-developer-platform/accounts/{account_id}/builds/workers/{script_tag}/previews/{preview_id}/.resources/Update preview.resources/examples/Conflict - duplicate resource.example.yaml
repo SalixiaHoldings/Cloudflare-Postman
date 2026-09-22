@@ -1,0 +1,37 @@
+$kind: http-example
+id: 506518f9-67a4-5efa-9d20-b1828e83ada6
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_tag}}/previews/{{preview_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "auto_build": false,
+        "settings": {
+          "build_command": "npm run build:preview"
+        }
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12049,
+            "message": "Resource already exists"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 5000

@@ -1,8 +1,8 @@
 $kind: http-example
-id: 8329352e-58bc-5973-b6f9-8905cfed75f7
+id: d7aae9c6-28b7-565f-9a5c-69f9c92e1435
 name: Step completed but its stored output is corrupt or missing (server-side data-integrity failure).
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/step?name=string&type=step"
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/step?name=string&type=waitForEvent"
   method: GET
   headers:
     Accept: application/json
@@ -13,10 +13,10 @@ request:
       value: string
       description: (Required) Exact step name from the instance logs response, including the generated counter suffix.
     - key: type
-      value: step
+      value: waitForEvent
       description: (Required) Step type to disambiguate step.do and waitForEvent entries that share the same name.
     - key: attempt
-      value: "5050633830793216"
+      value: "1742039714627584"
       disabled: true
       description: Specific attempt number to retrieve output or error for.
 response:

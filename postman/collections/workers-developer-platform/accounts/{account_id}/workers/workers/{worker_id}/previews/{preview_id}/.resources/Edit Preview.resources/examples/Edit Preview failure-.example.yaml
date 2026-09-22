@@ -1,0 +1,42 @@
+$kind: http-example
+id: d376a451-795a-59b4-8463-61a9b3bf7072
+name: Edit Preview failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews/{{preview_id}}"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "feature/my-branch",
+        "tags": [
+          "my-team",
+          "my-preview"
+        ],
+        "observability": {},
+        "logpush": false,
+        "tail_consumers": []
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,5 +1,5 @@
 $kind: http-example
-id: 97704d1b-361b-524b-b832-b0b0860c4e0c
+id: 3d5254ee-6b7f-5a15-9aad-92b61da8e6e9
 name: Get your Local Domain Fallback list response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/policy/fallback_domains"
@@ -17,17 +17,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000

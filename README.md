@@ -60,6 +60,10 @@ The pinned account-list operation requires local `api_email` and `api_key`; toke
 
 Reference collections include **read and write operations**. Importing them executes nothing. Use least-privilege credentials and inspect every request before sending it. Do not run an entire reference collection as a workflow.
 
+## Documentation
+
+Start with the [documentation index](docs/README.md) for the current architecture and policies, Native Git usage, query behavior, request-body construction, schema-revision reviews, and clearly labeled historical audits.
+
 ## Updating / developing
 
 Use Node.js 24:

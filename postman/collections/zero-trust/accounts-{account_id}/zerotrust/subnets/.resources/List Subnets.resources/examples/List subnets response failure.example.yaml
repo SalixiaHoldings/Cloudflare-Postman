@@ -1,5 +1,5 @@
 $kind: http-example
-id: 5262dffd-bc64-5785-ae0c-7bf5e045c15e
+id: 4121d95f-6d62-5c9d-842d-695cb7dab49b
 request:
   url: "{{base_url}}/accounts/{{account_id}}/zerotrust/subnets"
   method: GET
@@ -24,16 +24,16 @@ request:
       disabled: true
       description: If set, only include subnets in the given address family - `v4` or `v6`
     - key: is_default_network
-      value: "false"
-      disabled: true
-    - key: is_deleted
       value: "true"
       disabled: true
+    - key: is_deleted
+      value: "false"
+      disabled: true
     - key: sort_order
-      value: asc
+      value: desc
       disabled: true
     - key: subnet_types
-      value: cloudflare_source
+      value: warp
       disabled: true
     - key: per_page
       value: <number>

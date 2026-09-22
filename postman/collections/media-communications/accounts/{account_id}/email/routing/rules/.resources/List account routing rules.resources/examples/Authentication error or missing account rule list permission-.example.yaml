@@ -1,0 +1,27 @@
+$kind: http-example
+id: 757ac80a-7504-5263-80a6-eefc0d09fa25
+name: Authentication error or missing account rule list permission.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/email/routing/rules"
+  method: GET
+  headers:
+    Accept: application/json
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+    - key: per_page
+      value: "20"
+      disabled: true
+    - key: enabled
+      value: "true"
+      disabled: true
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

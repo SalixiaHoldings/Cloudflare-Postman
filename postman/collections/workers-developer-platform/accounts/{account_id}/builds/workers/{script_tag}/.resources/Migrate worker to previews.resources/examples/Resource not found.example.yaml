@@ -1,0 +1,31 @@
+$kind: http-example
+id: 9b54332d-7041-561f-ba78-9069ea6865ba
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/builds/workers/{{script_tag}}/migrate_to_previews"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: "{}"
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 12000,
+            "message": "Not found"
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 4000

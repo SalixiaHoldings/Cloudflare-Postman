@@ -1,5 +1,5 @@
 $kind: http-example
-id: 4ab19387-fe0d-55e6-bf05-4492f75bf271
+id: 0c338d5e-91c6-59d1-b463-2cb569954391
 name: Bad request.
 request:
   url: "{{base_url}}/radar/bgp/rpki/aspa/timeseries"
@@ -26,11 +26,11 @@ request:
       disabled: true
       description: Array of names used to label the series in the response.
     - key: rir
-      value: LACNIC
+      value: RIPE_NCC
       disabled: true
       description: Filter by Regional Internet Registry (RIR). Multiple RIRs generate multiple series.
     - key: rir
-      value: RIPE_NCC
+      value: APNIC
       disabled: true
       description: Filter by Regional Internet Registry (RIR). Multiple RIRs generate multiple series.
     - key: location
@@ -42,7 +42,7 @@ request:
       disabled: true
       description: Filters results by location. Specify a comma-separated list of alpha-2 location codes.
     - key: format
-      value: JSON
+      value: CSV
       disabled: true
       description: Format in which results will be returned.
 response:

@@ -1,5 +1,5 @@
 $kind: http-example
-id: a2539231-396c-5f9c-a740-4720c3a13c39
+id: ebaacd22-cbcb-5868-8e25-7c8bcc69f4ca
 name: Get device managed network details response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/networks/{{network_id}}"
@@ -17,17 +17,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000

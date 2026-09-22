@@ -1,5 +1,5 @@
 $kind: http-example
-id: dd65e3c5-be95-552d-a8ac-8eceb6a8aa1e
+id: 44cdc801-a371-5340-92d9-4d520d5cd5dc
 name: Fetch Global WARP override state failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/resilience/disconnect"
@@ -17,17 +17,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000

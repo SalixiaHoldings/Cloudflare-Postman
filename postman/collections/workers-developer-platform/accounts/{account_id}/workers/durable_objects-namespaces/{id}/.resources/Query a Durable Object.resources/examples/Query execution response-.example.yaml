@@ -1,0 +1,37 @@
+$kind: http-example
+id: 5c5696e8-b2ba-525a-9dc2-cdb939666af4
+name: Query execution response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/durable_objects/namespaces/{{id}}/query/v2"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "durable_object_id": "{{durable_object_id}}",
+        "queries": []
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "errors": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "messages": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        },
+        "result": ""
+      }
+order: 1000

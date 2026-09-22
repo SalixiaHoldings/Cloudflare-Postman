@@ -1,0 +1,32 @@
+$kind: http-example
+id: 79c8c503-cf40-59e1-b817-a9fe6e06da1b
+name: Returns network recording events for the requested target ID, or HAR JSON when format=har.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/recording/{{session_id}}/network?target=string"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: format
+      value: string
+      disabled: true
+      description: Set to `har` to return a HAR JSON document.
+    - key: target
+      value: string
+      description: (Required) Target ID to include in the response.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "key_0": {},
+        "key_1": {},
+        "key_2": {}
+      }
+order: 1000

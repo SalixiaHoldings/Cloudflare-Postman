@@ -49,7 +49,7 @@ The primary conversion remains authoritative for collection structure, bodies, h
 
 `config/partitions.json` defines independent match rules. Every non-residual rule is evaluated before ownership is assigned: one match owns the operation, zero matches use the explicit residual, and multiple matches require an exact declaration in `config/partition-overlaps.json`. Array ordering is not a conflict resolver.
 
-At the pinned revision, 54 declarations cover 2,512 overlapping operations. New or changed overlap sets, invalid owners, stale declarations, or newly ambiguous operations fail validation.
+At the pinned revision, 54 declarations cover 2,537 overlapping operations. New or changed overlap sets, invalid owners, stale declarations, or newly ambiguous operations fail validation.
 
 Postman's `Tags` folder strategy duplicates multi-tag operations, so the project uses `Paths`. Product navigation is provided by the top-level modular partitions. Stable SHA-derived IDs, seeded examples, a fixed conversion clock, sorted JSON keys, fixed metadata, and commit-specific provenance remove nondeterministic output.
 
@@ -87,7 +87,7 @@ The generated inventory contains:
 11. v3 migration/lint, semantic equivalence, environment/Globals checks, and two-run file/byte comparison.
 12. Public-safety checks for populated credentials/identifiers, local filesystem paths, and unexplained release-scan candidates.
 
-The current pin validates **3,540/3,540 operations**, 2,512 declared overlaps, three upstream OpenAPI exceptions, and 47 primary converter warnings.
+The current pin validates **3,565/3,565 operations**, 2,537 declared overlaps, three upstream OpenAPI exceptions, and 47 primary converter warnings.
 
 ## Authentication contract
 
@@ -96,9 +96,9 @@ The pinned Cloudflare OpenAPI `security` declaration determines each request's a
 `src/auth.mjs` builds a deterministic contract for every operation. Selection prefers a standalone `api_token` Bearer alternative, then anonymous access, then the supported alternative requiring the fewest credential schemes. Current categories are:
 
 - 571 bearer-only
-- 1,592 bearer-alternative
-- 252 legacy-only
-- 1,114 multi-scheme-or-other
+- 1,651 bearer-alternative
+- 216 legacy-only
+- 1,116 multi-scheme-or-other
 - 7 anonymous
 - 4 manual-unresolved
 
@@ -120,9 +120,11 @@ The pinned account-list operation is legacy-only; token verification and zone li
 
 `openapi-to-postmanv2@6.3.3` remains the pinned v2 converter. The primary pass reports 47 recoverable example-generation warnings at this schema revision. Missing operations, duplicates, invalid collections, or checksum drift are never accepted as warnings.
 
-The isolated secondary query pass uses supported converter options that correctly preserve required/optional query state but exposes 530 deeper schema diagnostics. Those diagnostics are stored separately, normalized, fingerprinted, and revision-bound; they do not replace the 47-warning primary baseline.
+The isolated secondary query pass uses supported converter options that correctly preserve required/optional query state but exposes 452 deeper schema diagnostics (450 `allOf` diagnostics and two unknown-format warnings). Those diagnostics are stored separately, normalized, fingerprinted, and revision-bound; they do not replace the 47-warning primary baseline.
 
-The official converter omits one exact optional array query contract: Cloudforce One events `search`. It is documented and fingerprinted in [query-policy.md](query-policy.md); no local serializer fabricates it. See the [revision review](schema-revision-a0eceeef.md) for warning, auth, partition, and query changes.
+The official converter omits one exact optional array query contract: Cloudforce One events `search`. It is documented and fingerprinted in [query-policy.md](query-policy.md); no local serializer fabricates it. See the [current revision review](schema-revision-73947dd.md) for warning, auth, partition, query, and request-body changes.
+
+The primary converter has a known shared-working-graph mutation/order limitation: across upstream schema revisions, generated sample values can change even when the relevant source contract is unchanged. Output for a fixed pin remains deterministic and fully validated. Revision reviews explicitly distinguish these converter artifacts from upstream semantic changes; global converter isolation remains separate follow-up work.
 
 The converter build dependency is pinned and processes only checksum-verified upstream JSON. `js-yaml@4.3.2` is forced through the dependency override to address its patched advisory. The remaining Faker-derived npm audit finding is accepted for this pinned build-only path; the pipeline does not call `helpers.fake` and does not accept arbitrary untrusted schema input.
 
@@ -143,6 +145,8 @@ The generated environment intentionally shares/tracks only the public `base_url`
 ### Daily upstream drift
 
 `.github/workflows/upstream-drift.yml` resolves Cloudflare's current `main` revision, updates the provenance lock, advances only the query policy's revision binding (`upstreamCommit` and schema SHA), regenerates both formats, and runs the complete `npm run check` repository gate before reporting a successful update. The generated review summary records generation, validation, and the complete repository-gate result. Query omission contracts and secondary-warning fingerprints are not auto-refreshed; real query-behavior drift still fails closed for explicit review.
+
+If upstream preparation encounters an overlap, revision-bound policy, generation, validation, or complete-gate failure, the workflow still preserves the reviewable update branch and PR, records the failure in the summary, and exits nonzero. That red run is an intentional human-review signal, not permission to discard the prepared work.
 
 An already-open `automation/cloudflare-schema-update` PR is a human-review boundary. Scheduled runs and normal manual runs leave that branch untouched instead of rebuilding and force-updating reviewed commits. A manual dispatch may explicitly set `refresh_open_pr=true` to replace the open automation branch from current `main`; that option is intentionally opt-in because it can discard review commits on the automation branch. The updater never auto-merges.
 

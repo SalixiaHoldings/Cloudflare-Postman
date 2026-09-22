@@ -1,0 +1,52 @@
+$kind: http-example
+id: e667e995-d177-57a8-90ee-d6414300a65e
+name: Returns the recording data as a dictionary of events per targetId.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/browser-rendering/recording/{{session_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "result": {
+          "sessionId": "string",
+          "events": [
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          ],
+          "duration": 6648.991375695914
+        },
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "code": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 1000

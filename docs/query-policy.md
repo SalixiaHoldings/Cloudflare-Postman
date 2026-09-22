@@ -24,17 +24,19 @@ The reduced-input optimization is not used: stripping bodies/responses changed 2
 
 Validation resolves local parameter/schema references, path inheritance, and operation-level overrides. It maps converter-owned object-property rows back to their declared parameter without generating serialized values. Ambiguous/unmapped identities, wrong requiredness/state, missing required parameters, unexpected omissions, or nesting-error placeholders fail closed.
 
-The current distribution has **133 required and 5,515 optional query contracts**, producing **141 enabled and 8,098 disabled query rows** across **3,540 operations**. Row counts differ from contracts because of repeated array rows and object expansion. The five previously corrupted IAM/Spectrum parameters retain their proper identities.
+The current distribution has **135 required and 5,538 optional query contracts**, producing **143 enabled and 8,121 disabled query rows** across **3,565 operations**. Row counts differ from contracts because of repeated array rows and object expansion. The five previously corrupted IAM/Spectrum parameters retain their proper identities.
 
 ### One known revision-bound query omission
 
-At revision `49731bd0592b0c8c2c781b8d15d9f27c7293b210`, the official secondary conversion omits only optional `search` on `GET /accounts/{account_id}/cloudforce-one/events`. This array has `default: []`. Its current parameter SHA-256 is `97be6fa16b6124b7a7217c1fead4c42aaa9e0657d6337cd3ccd7a152d6b73ffb`, freshly measured from the pinned schema. The [superseding PR decision](https://github.com/SalixiaHoldings/Cloudflare-Postman/pull/7#issuecomment-5731810896) approves this exact limitation.
+At revision `73947ddceec8571140469a90a1a35078e10fa054`, the official secondary conversion omits only optional `search` on `GET /accounts/{account_id}/cloudforce-one/events`. This array has `default: []`. Its current parameter SHA-256 is `97be6fa16b6124b7a7217c1fead4c42aaa9e0657d6337cd3ccd7a152d6b73ffb`, freshly measured from the pinned schema. The [superseding PR decision](https://github.com/SalixiaHoldings/Cloudflare-Postman/pull/7#issuecomment-5731810896) approves this exact limitation.
 
 The four previous Gateway filter omissions are now emitted, and both new device registration-type filters are emitted as disabled optional Params. The Workers deployment-list operation now also emits `since`, `until`, `page`, and `per_page` as disabled optional Params. `config/query-projection.json` carries exactly one omission. Required omissions are always rejected. Any optional omission is fingerprinted by exact operation, parameter identity, and SHA-256; `assertOmissions()` rejects additions, removals, duplicates, and changed fingerprints. No local serializer, fabricated row, upstream patch, or alternative converter strategy is used.
 
 ### Warning fingerprints
 
-The primary conversion retains **47 warnings**. The secondary pass separately records **530 diagnostics: 528 allOf-resolution warnings and two unknown-format warnings**. Diagnostic messages and incompatible values are retained, grouped with occurrence counts, sorted, and hashed. Only stack frames are excluded because they contain installation paths and runtime line numbers. Unknown diagnostic categories, changed messages/counts, or fingerprint drift fail; secondary warnings never replace or inflate the primary warning baseline.
+The primary conversion retains **47 warnings**. The secondary pass separately records **452 diagnostics: 450 allOf-resolution warnings and two unknown-format warnings**. Diagnostic messages and incompatible values are retained, grouped with occurrence counts, sorted, and hashed. Only stack frames are excluded because they contain installation paths and runtime line numbers. Unknown diagnostic categories, changed messages/counts, or fingerprint drift fail; secondary warnings never replace or inflate the primary warning baseline.
+
+The [73947dd revision review](schema-revision-73947dd.md) traces every changed warning to an operation and source contract. Secondary counts changed only for Zero Trust (236 → 190), application security (64 → 41), zones (94 → 85), media (3 → 1), and Workers (7 → 9). Removed incompatible failure-response compositions and completed Email Routing pagination types explain the decreases; two new Builds list response compositions explain the increase. All diagnostic categories and the single omission fingerprint remain unchanged.
 
 ### Native Git semantics
 

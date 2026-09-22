@@ -1,8 +1,8 @@
 $kind: http-example
-id: 657ba2c6-4d43-5f36-b55b-a05000da5a3d
+id: 1dd5006b-44e5-5d51-b1cf-4f497cf572fa
 name: Get the full output from a specific instance step.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/step?name=string&type=step"
+  url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/step?name=string&type=waitForEvent"
   method: GET
   headers:
     Accept: application/json
@@ -13,10 +13,10 @@ request:
       value: string
       description: (Required) Exact step name from the instance logs response, including the generated counter suffix.
     - key: type
-      value: step
+      value: waitForEvent
       description: (Required) Step type to disambiguate step.do and waitForEvent entries that share the same name.
     - key: attempt
-      value: "5050633830793216"
+      value: "1742039714627584"
       disabled: true
       description: Specific attempt number to retrieve output or error for.
 response:
@@ -31,7 +31,7 @@ response:
         "success": true,
         "errors": [],
         "result": {
-          "status": "complete",
+          "status": "rollingBack",
           "error": {
             "name": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -62,12 +62,12 @@ response:
           }
         ],
         "result_info": {
-          "per_page": 3250.3559719771147,
-          "count": 3155.793391633779,
-          "total_count": 322.15101178735495,
+          "per_page": 8814.578789751977,
+          "count": 5136.020993813872,
+          "total_count": 1901.8937065266073,
           "cursor": "string",
-          "page": 5438.723925035447,
-          "total_pages": 4912.494409363717
+          "page": 7092.483702581376,
+          "total_pages": 1782.4432789348066
         }
       }
 order: 1000

@@ -1,5 +1,5 @@
 $kind: http-example
-id: 145b21f1-501b-570c-9392-10ea502f4b10
+id: 647954e0-1dda-5f98-afde-c22a142cd514
 name: Get the Split Tunnel include list for a device settings profile response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/policy/{{policy_id}}/include"
@@ -17,17 +17,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000

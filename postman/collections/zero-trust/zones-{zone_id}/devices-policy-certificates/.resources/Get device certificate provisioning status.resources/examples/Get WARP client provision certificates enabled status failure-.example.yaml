@@ -1,5 +1,5 @@
 $kind: http-example
-id: 382f12e9-91df-575c-9558-f9dea8ed95f2
+id: 55ba3bf8-1ca2-5ec1-a44b-2273c5192385
 name: Get WARP client provision certificates enabled status failure.
 request:
   url: "{{base_url}}/zones/{{zone_id}}/devices/policy/certificates"
@@ -17,17 +17,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000

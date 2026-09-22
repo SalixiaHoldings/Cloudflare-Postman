@@ -1,5 +1,5 @@
 $kind: http-example
-id: 39dfd88f-d100-5622-92e2-54ad83bff561
+id: f68cad34-04da-5753-8f88-aca1cb0ab2e8
 request:
   url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}"
   method: PATCH
@@ -11,18 +11,18 @@ request:
     content: |-
       {
         "live_stream_on_start": false,
-        "persist_chat": false,
-        "record_on_start": true,
+        "persist_chat": true,
+        "record_on_start": false,
         "recording_config": {
           "realtimekit_bucket_config": {
             "enabled": false
           }
         },
-        "session_keep_alive_time_in_secs": 471.7777213593945,
+        "session_keep_alive_time_in_secs": 455.85873872973025,
         "status": "INACTIVE",
         "summarize_on_end": false,
         "title": "string",
-        "transcribe_on_end": false
+        "transcribe_on_end": true
       }
 response:
   statusCode: 500
@@ -35,7 +35,7 @@ response:
       {
         "success": false,
         "error": {
-          "code": 3903.541264589876,
+          "code": 603.2350403256714,
           "message": "string"
         }
       }

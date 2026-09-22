@@ -137,20 +137,26 @@ test('schema-less empty required JSON retains the warned source-incomplete excep
   assert.ok(request.description.includes(INCOMPLETE_BODY_WARNING));
 });
 
-test('pinned upload and schema-less JSON reproducers fail while all nine file bodies remain accepted', async () => {
+test('pinned upload rejects wrong modes, retired email bodies stay absent, and nine file bodies remain accepted', async () => {
   const { destination, lock } = await fetchPinnedSchema();
-  assert.equal(lock.commit, '49731bd0592b0c8c2c781b8d15d9f27c7293b210', 'Review media/body diagnostics when advancing the pin.');
+  assert.equal(lock.commit, '73947ddceec8571140469a90a1a35078e10fa054', 'Review media/body diagnostics when advancing the pin.');
   const document = JSON.parse(await readFile(destination, 'utf8'));
   const pinned = createBodyContract(document);
   const operations = new Map(listOperations(document).map(operation => [operation.key, operation]));
   const upload = operations.get('POST /accounts/{account_id}/gateway/lists/upload');
   assert.deepEqual(upload.operation.requestBody.content['multipart/form-data'].schema.required, ['file']);
-  const enable = operations.get('POST /zones/{zone_id}/email/routing/enable');
-  assert.deepEqual(enable.operation.requestBody, { required: true, content: { 'application/json': {} } });
+  for (const action of ['enable', 'disable']) {
+    const email = operations.get(`POST /zones/{zone_id}/email/routing/${action}`);
+    assert.equal(email.operation.requestBody, undefined);
+    for (const method of ['normalize', 'validate']) {
+      assert.equal(pinned[method]({ description: '' }, email).classification, 'not-applicable');
+      assert.throws(() => pinned[method](requestFor('application/json', { mode: 'raw', raw: '{}' }), email),
+        /generated body without requestBody declaration/u);
+    }
+  }
   for (const method of ['normalize', 'validate']) {
     assert.throws(() => pinned[method](requestFor('multipart/form-data', { mode: 'raw', raw: '{"fictional_unexpected":true}' }), upload), /body mode mismatch/u);
     assert.equal(pinned[method](requestFor('multipart/form-data', { mode: 'formdata', formdata: [{ key: 'file', type: 'file', src: '' }] }), upload).classification, 'valid');
-    assert.throws(() => pinned[method](requestFor('application/json', { mode: 'raw', raw: 'not-json' }), enable), /not parseable/u);
   }
   const manifest = JSON.parse(await readFile(new URL('../dist/v2.1/manifest.json', import.meta.url)));
   const walk = items => items.flatMap(item => item.item ? walk(item.item) : [item]);

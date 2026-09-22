@@ -22,4 +22,6 @@ Do not add customer-specific automation or non-public operational logic. Do not 
 
 Cloudflare schema changes should normally arrive through the scheduled upstream-update pull request. Never silently modify Cloudflare's operation definitions in generated output. If compatibility handling is necessary, isolate it, add a focused test, document the exact upstream behavior, and link an upstream issue when one exists.
 
+The upstream-drift workflow is intentionally fail-closed. It may prepare or update the review PR and then exit nonzero when new overlaps, revision-bound policies, generation, or validation require human review. In that case, continue from the prepared update branch rather than discarding it or blindly rerunning the updater. An open schema-update PR is preserved unless a maintainer explicitly requests a refresh.
+
 All changes require human review. Automation does not merge pull requests.

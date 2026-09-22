@@ -1,5 +1,5 @@
 $kind: http-example
-id: 4e4ab591-94ec-5bf0-a2c8-3718f0bc6280
+id: ecab7134-61b7-5c9b-8470-e24b32127f87
 name: Get device settings profile by ID response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/policy/{{policy_id}}"
@@ -17,17 +17,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000

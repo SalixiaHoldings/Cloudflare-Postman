@@ -1,5 +1,5 @@
 $kind: http-example
-id: 41d84b8a-84cc-5c31-9fd4-b21d6e9bc784
+id: 9fcf3b2d-2b2f-50e9-a86b-57965d72d7bc
 name: Successful response.
 request:
   url: "{{base_url}}/radar/as112/timeseries_groups/{{dimension}}"
@@ -30,19 +30,19 @@ request:
       disabled: true
       description: "Filters results by relative date range ending at the current time, with each value producing a separate series. Use `<n>d` for days (up to `364d`) or `<n>w` for weeks (up to `52w`). Append `control` to request the equivalent previous period for comparison: the comparison window is shifted back by the current window's length rounded up to a whole number of weeks, so it keeps the same weekday alignment and does not overlap the current window (e.g. `7dcontrol` covers days -14 to -7, `10dcontrol` covers days -24 to -14). For example, pass `7d` and `7dcontrol` to compare this week with the previous week. All series must resolve to the same duration as the main series; relative ranges (including `control`) satisfy this automatically. Use this parameter or set specific start and end dates (`dateStart` and `dateEnd` parameters)."
     - key: dateStart
-      value: 1946-01-18T08:24:35.875Z
+      value: 1986-01-05T21:41:54.495Z
       disabled: true
       description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateStart
-      value: 1969-02-03T19:53:29.907Z
+      value: 1957-10-06T01:37:28.017Z
       disabled: true
       description: Start of the date range. Alternative to `dateRange`; provide together with `dateEnd`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1938-11-20T10:50:51.531Z
+      value: 1972-08-25T00:47:28.319Z
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: dateEnd
-      value: 1982-02-01T05:58:15.896Z
+      value: 1941-10-07T23:50:38.208Z
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`. When requesting comparison series, every series must resolve to the same duration as the main series. Each `dateStart`/`dateEnd` is floored to the nearest 15 minutes before evaluation, so windows whose durations match only before alignment may be rejected.
     - key: location
@@ -62,27 +62,27 @@ request:
       disabled: true
       description: Filters results by continent. Specify a comma-separated list of alpha-2 codes. Prefix with `-` to exclude continents from results. For example, `-EU,NA` excludes results from EU, but includes results from NA.
     - key: queryType
-      value: DOA
+      value: MINFO
       disabled: true
       description: Filters results by DNS query type.
     - key: queryType
-      value: GPOS
+      value: MR
       disabled: true
       description: Filters results by DNS query type.
     - key: protocol
-      value: TCP
+      value: HTTPS
       disabled: true
       description: Filters results by DNS transport protocol.
     - key: protocol
-      value: TCP
+      value: TLS
       disabled: true
       description: Filters results by DNS transport protocol.
     - key: responseCode
-      value: YXDOMAIN
+      value: NOTIMP
       disabled: true
       description: Filters results by DNS response code.
     - key: responseCode
-      value: BADSIG
+      value: BADKEY
       disabled: true
       description: Filters results by DNS response code.
     - key: limitPerGroup
@@ -90,7 +90,7 @@ request:
       disabled: true
       description: Limits the number of objects per group to the top items within the specified time range. When item count exceeds the limit, extra items appear grouped under an "other" category. Only supported on high-cardinality dimensions; otherwise the request is rejected. Minimum value is 2.
     - key: format
-      value: JSON
+      value: CSV
       disabled: true
       description: Format in which results will be returned.
 response:

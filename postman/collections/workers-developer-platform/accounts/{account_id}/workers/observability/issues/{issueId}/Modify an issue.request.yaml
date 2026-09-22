@@ -1,12 +1,12 @@
 $kind: http-request
-id: 30fd1839-1ca9-53ee-affe-33758d8023cd
+id: b6cd9545-c6bd-51c2-8b09-c413186837ac
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
   Upstream operation: issues.patch
   PATCH /accounts/{account_id}/workers/observability/issues/{issueId}
 
-  Modify an issue status.
+  Modify an issue status or group title.
 
   Authentication support: bearer-alternative
   Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
@@ -22,7 +22,8 @@ body:
   type: json
   content: |-
     {
-      "status": "ignored"
+      "status": "ignored",
+      "title": "string"
     }
 auth:
   type: bearer

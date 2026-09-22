@@ -1,5 +1,5 @@
 $kind: http-request
-id: e3745950-57ec-526b-9c2f-420ee5453a83
+id: 923b35a7-5685-5b6b-aa21-8956c74da9d8
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -8,18 +8,18 @@ description: |-
 
   Returns the desired DNS records for a sending subdomain along with a live diff against actual DNS state. Use this to detect missing, unlocked, foreign, or multi-record conflicts before deciding whether to call the fix endpoint. For wildcard sending rows, each call also rechecks the governing organizational-domain DMARC policy and reports policy drift that DNS Fix cannot repair.
 
-  Authentication support: legacy-only
-  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
-  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
-  Selected requirement: {"api_email":[],"api_key":[]}
-  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
 url: "{{base_url}}/zones/{{zone_id}}/email/sending/subdomains/{{subdomain_id}}/dns/status"
 method: GET
 headers:
   Accept: application/json
-  X-Auth-Email: "{{api_email}}"
-  X-Auth-Key: "{{api_key}}"
 auth:
-  type: noauth
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
 examples: ./.resources/Get sending subdomain DNS status.resources/examples
 order: 3000

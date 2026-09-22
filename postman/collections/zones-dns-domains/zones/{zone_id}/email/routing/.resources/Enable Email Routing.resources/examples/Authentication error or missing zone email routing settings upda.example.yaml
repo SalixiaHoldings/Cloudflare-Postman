@@ -1,0 +1,17 @@
+$kind: http-example
+id: f46747d5-b878-5c48-b3c3-7cd266eee696
+name: Authentication error or missing zone email routing settings update permission.
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/routing/enable"
+  method: POST
+  headers:
+    Accept: application/json
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

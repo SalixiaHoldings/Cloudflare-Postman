@@ -1,0 +1,28 @@
+$kind: http-example
+id: 218d6933-e7cf-5a4f-b58f-20c645b87a98
+name: Delete Preview Deployment failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews/{{preview_id}}/deployments/{{deployment_id}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

@@ -1,5 +1,5 @@
 $kind: http-request
-id: 730388aa-4015-5e8f-a6cc-f391641d3458
+id: 7f009fb3-b347-5c27-b774-870f7f3c2beb
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -8,18 +8,16 @@ description: |-
 
   Rules consist of a set of criteria for matching emails (such as an email being sent to a specific custom email address) plus a set of actions to take on the email (like forwarding it to a specific destination address). Forward actions require exactly one verified destination address.
 
-  Authentication support: legacy-only
-  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
-  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
-  Selected requirement: {"api_email":[],"api_key":[]}
-  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
 url: "{{base_url}}/zones/{{zone_id}}/email/routing/rules"
 method: POST
 headers:
   Content-Type: application/json
   Accept: application/json
-  X-Auth-Email: "{{api_email}}"
-  X-Auth-Key: "{{api_key}}"
 body:
   type: json
   content: |-
@@ -44,6 +42,8 @@ body:
       "source": "api"
     }
 auth:
-  type: noauth
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
 examples: ./.resources/Create routing rule.resources/examples
 order: 2000

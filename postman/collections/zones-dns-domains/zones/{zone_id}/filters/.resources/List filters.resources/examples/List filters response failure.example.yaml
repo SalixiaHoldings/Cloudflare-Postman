@@ -1,5 +1,5 @@
 $kind: http-example
-id: bc0d4c8c-4bf1-5a90-9b01-5c367d0e24b4
+id: 65ceba0d-09ed-50ef-9138-7fbca6b48b60
 request:
   url: "{{base_url}}/zones/{{zone_id}}/filters"
   method: GET
@@ -38,17 +38,14 @@ response:
     type: json
     content: |-
       {
-        "success": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "errors": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "messages": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        "result": {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        }
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
       }
 order: 2000

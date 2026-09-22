@@ -1,5 +1,5 @@
 $kind: http-example
-id: 773e4939-761d-5b24-86ad-a7c59e215fef
+id: d386540e-be9e-5b98-aa7a-0b85bd16ca64
 name: Bad request.
 request:
   url: "{{base_url}}/radar/traffic_anomalies"
@@ -30,14 +30,14 @@ request:
       disabled: true
       description: End of the date range (inclusive). Alternative to `dateRange`; provide together with `dateStart`.
     - key: status
-      value: UNVERIFIED
+      value: VERIFIED
       disabled: true
     - key: type
-      value: AS
+      value: LOCATION
       disabled: true
       description: Filters results by entity type (LOCATION, AS, or ORIGIN).
     - key: type
-      value: ORIGIN
+      value: AS
       disabled: true
       description: Filters results by entity type (LOCATION, AS, or ORIGIN).
     - key: dataSource
@@ -57,7 +57,7 @@ request:
       disabled: true
       description: Filters results by origin.
     - key: format
-      value: JSON
+      value: CSV
       disabled: true
       description: Format in which results will be returned.
 response:

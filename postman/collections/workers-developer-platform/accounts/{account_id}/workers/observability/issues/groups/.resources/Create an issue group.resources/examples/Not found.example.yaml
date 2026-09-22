@@ -1,0 +1,60 @@
+$kind: http-example
+id: 17842100-da8e-577e-9d09-621eebf57309
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues/groups"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "title": "string",
+        "issueIds": [
+          "string",
+          "string"
+        ]
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 5000

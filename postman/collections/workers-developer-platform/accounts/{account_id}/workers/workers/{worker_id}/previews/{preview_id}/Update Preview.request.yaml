@@ -1,0 +1,46 @@
+$kind: http-request
+id: 20172062-c683-51b5-9ca3-bc5fe147508e
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers.previews.update
+  PUT /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}
+
+  Perform a complete replacement of a Preview, where omitted properties are set to defaults.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews/{{preview_id}}"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+queryParams:
+  - key: ignore_defaults
+    value: "true"
+    disabled: true
+  - key: ignore_base_config
+    value: "true"
+    disabled: true
+body:
+  type: json
+  content: |-
+    {
+      "logpush": false,
+      "name": "feature/my-branch",
+      "observability": {},
+      "tags": [
+        "my-team",
+        "my-preview"
+      ],
+      "tail_consumers": []
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update Preview.resources/examples
+order: 4000

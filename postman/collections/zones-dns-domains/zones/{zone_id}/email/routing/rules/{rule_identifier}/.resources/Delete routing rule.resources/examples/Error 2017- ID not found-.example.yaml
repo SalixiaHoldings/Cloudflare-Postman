@@ -1,0 +1,17 @@
+$kind: http-example
+id: 567038fe-616e-5037-a5fb-3530b6eb9a8e
+name: "Error 2017: ID not found."
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/email/routing/rules/{{rule_identifier}}"
+  method: DELETE
+  headers:
+    Accept: application/json
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 2000

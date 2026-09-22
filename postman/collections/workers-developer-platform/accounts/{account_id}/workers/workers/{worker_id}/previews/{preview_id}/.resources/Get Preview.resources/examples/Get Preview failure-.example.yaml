@@ -1,0 +1,28 @@
+$kind: http-example
+id: cf0009db-1392-5b13-88ba-0d80a76abb3c
+name: Get Preview failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/workers/workers/{{worker_id}}/previews/{{preview_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

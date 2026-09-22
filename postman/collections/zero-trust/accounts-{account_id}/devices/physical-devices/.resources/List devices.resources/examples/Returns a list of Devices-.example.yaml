@@ -1,5 +1,5 @@
 $kind: http-example
-id: 66e2131c-90e4-520c-bdb3-ad3e7c880a80
+id: d401986d-5984-54c5-956c-22e0466cfd75
 name: Returns a list of Devices.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/physical-devices"
@@ -12,7 +12,7 @@ request:
       disabled: true
       description: Opaque token indicating the starting position when requesting the next set of records. A cursor value can be obtained from the result_info.cursor field in the response.
     - key: sort_by
-      value: last_seen_user.email
+      value: name
       disabled: true
       description: The device field to order results by.
     - key: sort_order
@@ -32,7 +32,7 @@ request:
       disabled: true
       description: Filter by the last_seen timestamp - returns only devices last seen before this timestamp.
     - key: per_page
-      value: "6728"
+      value: "8720"
       disabled: true
       description: The maximum number of devices to return in a single response.
     - key: search
@@ -40,7 +40,7 @@ request:
       disabled: true
       description: Search by device details.
     - key: active_registrations
-      value: only
+      value: include
       disabled: true
       description: Include or exclude devices with active registrations. The default is "only" - return only devices with active registrations.
     - key: has_registration_type
@@ -81,7 +81,7 @@ response:
             "value": "<Error: Too many levels of nesting to fake this schema>"
           }
         ],
-        "success": true,
+        "success": false,
         "errors": [],
         "messages": [],
         "result_info": {

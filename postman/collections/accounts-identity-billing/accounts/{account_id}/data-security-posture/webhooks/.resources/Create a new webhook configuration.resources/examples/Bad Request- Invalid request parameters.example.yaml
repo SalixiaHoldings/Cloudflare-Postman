@@ -1,5 +1,5 @@
 $kind: http-example
-id: 46873c8c-a180-5aa4-9c7e-9f233e495ce5
+id: fb354d36-9125-50f1-af3a-2e79095aed3a
 name: "Bad Request: Invalid request parameters"
 request:
   url: "{{base_url}}/accounts/{{account_id}}/data-security/posture/webhooks"
@@ -24,7 +24,8 @@ request:
             "value": "value"
           }
         ],
-        "signing_secret": "{{signing_secret}}"
+        "signing_secret": "{{signing_secret}}",
+        "status": "enabled"
       }
 response:
   statusCode: 400
