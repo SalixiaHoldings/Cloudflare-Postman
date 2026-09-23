@@ -1,0 +1,30 @@
+$kind: http-example
+id: 41e8fe5d-8b7d-550a-8f48-c185dd4177e6
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/pay-per-use/operators/{{operator_id}}/price"
+  method: DELETE
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": "",
+        "success": false
+      }
+order: 4000

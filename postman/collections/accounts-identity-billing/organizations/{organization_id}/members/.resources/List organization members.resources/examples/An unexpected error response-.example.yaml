@@ -1,5 +1,5 @@
 $kind: http-example
-id: 34092fe5-c85e-5c43-8f11-0624c76701ea
+id: 9fe7b370-a7fa-56f7-a2d2-b6b1744e890f
 name: An unexpected error response.
 request:
   url: "{{base_url}}/organizations/{{organization_id}}/members"
@@ -10,11 +10,11 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: status
-      value: active
+      value: pending
       disabled: true
       description: Filter the list of memberships by membership status.
     - key: status
-      value: pending
+      value: rejected
       disabled: true
       description: Filter the list of memberships by membership status.
     - key: user.email
@@ -43,7 +43,7 @@ request:
         Parameters used to filter the retrieved list must remain in subsequent
         requests with a page token.
     - key: page_size
-      value: "58"
+      value: "497"
       disabled: true
       description: The amount of items to return. Defaults to 10.
 response:

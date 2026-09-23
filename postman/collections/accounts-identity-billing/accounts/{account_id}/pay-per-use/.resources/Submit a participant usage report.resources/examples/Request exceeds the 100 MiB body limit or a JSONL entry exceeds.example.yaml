@@ -1,0 +1,35 @@
+$kind: http-example
+id: 6c1c98f2-13b8-5310-9391-45db2c18985f
+name: Request exceeds the 100 MiB body limit or a JSONL entry exceeds the 32 KiB entry limit
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pay-per-use/usage-reports"
+  method: POST
+  headers:
+    Content-Type: application/jsonl
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: text
+    content: string
+response:
+  statusCode: 413
+  statusText: Request Entity Too Large
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": "",
+        "success": false
+      }
+order: 6000

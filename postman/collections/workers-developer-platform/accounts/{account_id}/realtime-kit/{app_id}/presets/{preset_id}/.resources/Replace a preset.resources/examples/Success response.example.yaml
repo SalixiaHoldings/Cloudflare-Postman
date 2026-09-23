@@ -1,5 +1,5 @@
 $kind: http-example
-id: 0d443bce-69df-5621-90c0-5c2050828446
+id: a46df80b-9869-5405-99d4-70bffa309801
 request:
   url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/presets/{{preset_id}}"
   method: PUT
@@ -12,12 +12,12 @@ request:
       {
         "name": "string",
         "config": {
-          "view_type": "WEBINAR",
+          "view_type": "LIVESTREAM",
           "max_video_streams": {
             "mobile": 0,
             "desktop": 0
           },
-          "max_screenshare_count": 590.9372796304524,
+          "max_screenshare_count": 3587.4815238639712,
           "media": {
             "video": {
               "quality": "hd",
@@ -30,16 +30,16 @@ request:
           }
         },
         "permissions": {
-          "accept_waiting_requests": false,
+          "accept_waiting_requests": true,
           "can_accept_production_requests": true,
           "can_edit_display_name": true,
-          "can_spotlight": true,
+          "can_spotlight": false,
           "recorder_type": "NONE",
-          "disable_participant_audio": true,
+          "disable_participant_audio": false,
           "disable_participant_screensharing": true,
           "disable_participant_video": true,
           "kick_participant": false,
-          "pin_participant": true,
+          "pin_participant": false,
           "can_record": false,
           "can_livestream": true,
           "waiting_room_type": "SKIP",
@@ -85,12 +85,12 @@ request:
           },
           "hidden_participant": true,
           "show_participant_list": true,
-          "can_change_participant_permissions": false,
+          "can_change_participant_permissions": true,
           "accept_stage_requests": false,
-          "is_recorder": true,
-          "stage_access": "CAN_REQUEST",
+          "is_recorder": false,
+          "stage_access": "ALLOWED",
           "stage_enabled": false,
-          "transcription_enabled": false
+          "transcription_enabled": true
         },
         "ui": {
           "design_tokens": {

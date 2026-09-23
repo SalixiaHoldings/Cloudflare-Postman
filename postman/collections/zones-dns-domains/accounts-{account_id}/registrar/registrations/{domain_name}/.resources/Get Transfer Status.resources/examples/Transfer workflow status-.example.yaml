@@ -1,0 +1,37 @@
+$kind: http-example
+id: f1fd5d0a-a358-53b0-ace0-ac7d232228ed
+name: Transfer workflow status.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations/{{domain_name}}/transfer-in-status"
+  method: GET
+  headers:
+    Accept: application/json
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "completed": false,
+          "context": {
+            "domain_name": "example.com",
+            "foa_required": true,
+            "transfer_status": "awaiting_foa"
+          },
+          "created_at": "2025-10-27T10:00:00Z",
+          "links": {
+            "resource": "/accounts/abc/registrar/registrations/example.com",
+            "self": "/accounts/abc/registrar/registrations/example.com/transfer-in-status"
+          },
+          "state": "action_required",
+          "updated_at": "2025-10-27T12:00:00Z"
+        },
+        "success": true
+      }
+order: 1000

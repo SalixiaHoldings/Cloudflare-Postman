@@ -1,5 +1,5 @@
 $kind: http-example
-id: 4a12c78f-f461-50fd-aaf3-0d23240ff61f
+id: 036584d7-df87-5de1-90df-7915e2d75077
 name: Response body when an Application is not found.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}"
@@ -11,7 +11,7 @@ request:
     type: json
     content: |-
       {
-        "max_instances": 5514,
+        "max_instances": 5917,
         "observability": {
           "description": "Top-level application observability settings. Scheduler-backed applications\nhot-reload these settings across existing instances. An existing Durable\nObject-managed application accepts only `logs.enabled` and publishes these settings\nto runtime metadata without creating deployments or rollouts.\n"
         },
@@ -26,7 +26,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "errors": [
           {
             "code": 7003,

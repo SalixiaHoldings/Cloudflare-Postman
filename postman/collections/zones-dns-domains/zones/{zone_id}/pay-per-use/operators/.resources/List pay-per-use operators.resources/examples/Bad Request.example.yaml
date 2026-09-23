@@ -1,0 +1,39 @@
+$kind: http-example
+id: 9141e7fd-8b11-5e68-b7d9-687d06e7b92d
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/pay-per-use/operators"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number.
+    - key: per_page
+      value: "100"
+      disabled: true
+      description: Results per page.
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": "",
+        "success": false
+      }
+order: 2000

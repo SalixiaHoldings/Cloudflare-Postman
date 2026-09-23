@@ -1,0 +1,80 @@
+$kind: http-example
+id: 12e9b009-ae9e-54e4-b0be-e2d6ae3d5bde
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/websearch"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "query": "string",
+        "options": {
+          "gateway": {
+            "id": "{{options__gateway__id}}"
+          }
+        },
+        "byokAlias": "7TWWq5",
+        "limit": 1,
+        "provider": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "items": [
+          {
+            "url": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "faviconUrl": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "imageUrl": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "lastModifiedDate": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "url": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "title": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "description": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "faviconUrl": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "imageUrl": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "lastModifiedDate": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "metadata": {
+          "query": "string",
+          "requestId": "string",
+          "latencyMs": 913.1719963625073
+        }
+      }
+order: 1000

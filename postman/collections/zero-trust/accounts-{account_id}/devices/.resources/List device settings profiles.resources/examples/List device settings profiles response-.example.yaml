@@ -1,5 +1,5 @@
 $kind: http-example
-id: bd831569-6f7f-5463-97b0-40212f61ae04
+id: 11d98386-84b7-52c9-b305-e43e3b542358
 name: List device settings profiles response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/policies"
@@ -8,6 +8,11 @@ request:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: profile_type
+      value: warp
+      disabled: true
+      description: Filter profiles by client type. When omitted, only WARP profiles are returned.
 response:
   statusCode: 200
   statusText: OK

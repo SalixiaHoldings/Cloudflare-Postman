@@ -1,5 +1,5 @@
 $kind: http-example
-id: 2bcc632f-ec47-5a09-880b-ec0f068daa52
+id: daf44f3e-8de9-5a5b-a3ac-baa8afc0e4cd
 name: Returns a list of proxy endpoints response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/proxy_endpoints"
@@ -10,7 +10,7 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: filter
-      value: name:2 ^|w9V
+      value: name:SKZ
       disabled: true
       description: |-
         Filter the returned proxy endpoints by one or more `field:value` pairs.
@@ -26,7 +26,7 @@ request:
         must be one of `name`, `id`, or `kind`; `name`/`id` accept any value,
         while `kind` only accepts `ip` or `identity`.
     - key: filter
-      value: name:%$3
+      value: name:/);Q+*Mf
       disabled: true
       description: |-
         Filter the returned proxy endpoints by one or more `field:value` pairs.
@@ -48,7 +48,7 @@ request:
         Case-insensitive substring match on the endpoint name. When combined
         with `filter`, both must match (logical AND).
     - key: order_by
-      value: created_at
+      value: name
       disabled: true
       description: |-
         Field to sort the returned endpoints by. When omitted, the order of
@@ -57,7 +57,7 @@ request:
           * `created_at` — sort by creation time; defaults to descending unless `direction` is set.
           * `updated_at` — sort by last-modified time; defaults to descending unless `direction` is set.
     - key: direction
-      value: desc
+      value: asc
       disabled: true
       description: |-
         Sort direction. Only takes effect when `order_by` is also provided; it

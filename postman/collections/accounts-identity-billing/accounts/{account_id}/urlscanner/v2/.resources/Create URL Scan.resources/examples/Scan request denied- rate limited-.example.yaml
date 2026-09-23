@@ -1,5 +1,5 @@
 $kind: http-example
-id: 9c2b1dc5-8bae-5bd3-9b71-c40d7110476a
+id: cc8b4534-1680-5d73-a80d-24f86296123d
 name: "Scan request denied: rate limited."
 request:
   url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/scan"
@@ -12,10 +12,12 @@ request:
     content: |-
       {
         "url": "https://www.example.com",
-        "agentReadiness": true,
-        "country": "NR",
+        "agentReadiness": false,
+        "country": "BS",
         "customHeaders": {
-          "key_0": "string"
+          "key_0": "string",
+          "key_1": "string",
+          "key_2": "string"
         },
         "customagent": "string",
         "referer": "string",

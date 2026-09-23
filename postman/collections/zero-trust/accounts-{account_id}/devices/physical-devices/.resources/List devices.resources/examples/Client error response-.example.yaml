@@ -1,5 +1,5 @@
 $kind: http-example
-id: 5d778d88-d289-5ca4-9105-620f77d8e1ec
+id: 59955ea6-03ba-50c8-b5ec-b27a284a5da8
 name: Client error response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/physical-devices"
@@ -12,11 +12,11 @@ request:
       disabled: true
       description: Opaque token indicating the starting position when requesting the next set of records. A cursor value can be obtained from the result_info.cursor field in the response.
     - key: sort_by
-      value: name
+      value: active_registrations
       disabled: true
       description: The device field to order results by.
     - key: sort_order
-      value: desc
+      value: asc
       disabled: true
       description: Sort direction.
     - key: last_seen_user.email
@@ -32,7 +32,7 @@ request:
       disabled: true
       description: Filter by the last_seen timestamp - returns only devices last seen before this timestamp.
     - key: per_page
-      value: "8720"
+      value: "3218"
       disabled: true
       description: The maximum number of devices to return in a single response.
     - key: search
@@ -40,7 +40,7 @@ request:
       disabled: true
       description: Search by device details.
     - key: active_registrations
-      value: include
+      value: only
       disabled: true
       description: Include or exclude devices with active registrations. The default is "only" - return only devices with active registrations.
     - key: has_registration_type

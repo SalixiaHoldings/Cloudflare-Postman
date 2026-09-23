@@ -1,6 +1,6 @@
 # Historical optional-union construction precedence audit (PR #12)
 
-> Historical record. This audit documents the final v0.1.0 request-body correction. Current revision-specific request-body status is tracked in the [73947dd schema review](schema-revision-73947dd.md).
+> Historical record. This audit documents the final v0.1.0 request-body correction. Current revision-specific request-body status is tracked in the [7287cb19 schema review](schema-revision-7287cb19.md).
 
 Comparison baseline: PR #12 head `1e5a960ab832ba11a87f0ed27308c68591981a8d`.
 The upstream pin, toolchain, Ajv architecture, compatibility classifications,

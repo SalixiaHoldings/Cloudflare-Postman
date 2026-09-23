@@ -1,0 +1,34 @@
+$kind: http-request
+id: 7dae057d-9a1c-51ed-ac1a-467d5c343a5c
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: pay-per-use.listEnabledDomains
+  GET /accounts/{account_id}/pay-per-use/enabled-domains
+
+  Returns publisher domains associated with the requesting Pay Per Use operator through an accepted price agreement. License expiration is the earlier non-null boundary from the price agreement and publisher zone lifecycles. A future expiration remains active and is exposed to the operator. After expiration, the license remains listed as expired for one calendar month before it is omitted; an active agreement for the same domain takes precedence. The requesting account must be an active Pay Per Use operator.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/pay-per-use/enabled-domains"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: cursor
+    value: string
+    disabled: true
+    description: Opaque, account-bound cursor returned by the previous page. Cursors expire after one hour; restart pagination without a cursor after receiving a 400 response for an expired cursor.
+  - key: per_page
+    value: "100"
+    disabled: true
+    description: Maximum number of domains to return
+auth:
+  type: noauth
+examples: ./.resources/List enabled Pay Per Use domains.resources/examples
+order: 9000

@@ -1,5 +1,5 @@
 $kind: http-example
-id: df494c08-1053-5394-ad31-c20c37ac5683
+id: 5601087e-8ea5-5f7d-86ba-9169f2cd0dba
 name: Accepted. Events created; indicators queued for async processing.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/create/bulk"
@@ -32,7 +32,7 @@ request:
           }
         ],
         "datasetId": "durableObjectName",
-        "includeCreatedEvents": false
+        "includeCreatedEvents": true
       }
 response:
   statusCode: 202
@@ -43,11 +43,11 @@ response:
     type: json
     content: |-
       {
-        "createdEventsCount": 4588.658979628235,
-        "queuedIndicatorsCount": 8852.501430083066,
-        "createdTagsCount": 0.49288151785731316,
-        "errorCount": 9284.987039864063,
-        "createBulkEventsRequestId": "a8ef089e-d7f9-d4ff-de45-b7ba841fe40a",
+        "createdEventsCount": 0.49288151785731316,
+        "queuedIndicatorsCount": 9284.987039864063,
+        "createdTagsCount": 1574.8536819592118,
+        "errorCount": 5341.496535111219,
+        "createBulkEventsRequestId": "089e96d7-0d4f-5de4-cb7b-841fe40a8959",
         "createdEvents": [
           {
             "eventIndex": {

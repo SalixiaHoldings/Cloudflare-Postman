@@ -1,0 +1,45 @@
+$kind: http-example
+id: 8fc3f0c1-d40c-57d5-a078-1fd39709fd60
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pay-per-use/usage-stats?since=1989-10-06T19:18:56.385Z&until=1989-10-06T19:18:56.385Z"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: since
+      value: 1989-10-06T19:18:56.385Z
+      description: (Required) Requested inclusive beginning of the statistics range as an RFC3339 timestamp. Rounded down to the selected UTC interval.
+    - key: until
+      value: 1989-10-06T19:18:56.385Z
+      description: (Required) Requested exclusive end of the statistics range as an RFC3339 timestamp. Rounded down to the selected UTC interval. The requested duration from since cannot exceed 31 days.
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number.
+    - key: per_page
+      value: "100"
+      disabled: true
+      description: Results per page.
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": "",
+        "success": false
+      }
+order: 4000

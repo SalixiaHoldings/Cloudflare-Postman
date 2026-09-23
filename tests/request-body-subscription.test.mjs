@@ -6,7 +6,7 @@ import { createBodyContract, assertNoBodySentinel } from '../src/request-body.mj
 
 test('pinned account subscription body follows writable OpenAPI semantics, including deprecated fields', async () => {
   const { destination, lock } = await fetchPinnedSchema();
-  assert.equal(lock.commit, '73947ddceec8571140469a90a1a35078e10fa054', 'Reevaluate subscription authority on a pin change.');
+  assert.equal(lock.commit, '7287cb19ea4c5feb93f8dd0a4d8d12872692a802', 'Reevaluate subscription authority on a pin change.');
   const document = JSON.parse(await readFile(destination, 'utf8'));
   const declaration = document.paths['/accounts/{account_id}/subscriptions'].post;
   const schema = declaration.requestBody.content['application/json'].schema;
@@ -39,7 +39,7 @@ test('pinned account subscription body follows writable OpenAPI semantics, inclu
 
 test('pinned account service-token creation preserves its numeric secret version', async () => {
   const { destination, lock } = await fetchPinnedSchema();
-  assert.equal(lock.commit, '73947ddceec8571140469a90a1a35078e10fa054');
+  assert.equal(lock.commit, '7287cb19ea4c5feb93f8dd0a4d8d12872692a802');
   const document = JSON.parse(await readFile(destination, 'utf8'));
   const schema = document.paths['/accounts/{account_id}/access/service_tokens'].post.requestBody.content['application/json'].schema;
   assert.equal(schema.properties.client_secret_version.$ref, '#/components/schemas/access_client_secret_version');

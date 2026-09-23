@@ -1,0 +1,51 @@
+$kind: http-request
+id: d15262d2-164c-5deb-8719-6afa0f9324bf
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone.observability.tracing.rules.update
+  PUT /zones/{zone_id}/observability/tracing/rules
+
+  Replace all sampling overrides in a zone's managed Cloudflare Traces ruleset. Rules are evaluated in the supplied order.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/observability/tracing/rules"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "rules": [
+        {
+          "action": "set_trace_settings",
+          "action_parameters": {
+            "sampling_ratio": 0
+          },
+          "expression": "{{rules__0__expression}}",
+          "description": "{{rules__0__description}}",
+          "enabled": false
+        },
+        {
+          "action": "set_trace_settings",
+          "action_parameters": {
+            "sampling_ratio": 0
+          },
+          "expression": "{{rules__1__expression}}",
+          "description": "{{rules__1__description}}",
+          "enabled": false
+        }
+      ]
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Replace zone trace rules.resources/examples
+order: 3000

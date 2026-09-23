@@ -1,12 +1,12 @@
 $kind: http-request
-id: 1e8edb1a-94da-5817-aa23-771f912e89e9
+id: 88c1d7d7-c68d-50d8-b8ad-789b44998d63
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
   Upstream operation: subscriptions-create
   POST /accounts/{account_id}/event_subscriptions/subscriptions
 
-  Create a new event subscription for a queue
+  Creates an event subscription for a Queue.
 
   Authentication support: multi-scheme-or-other
   Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
@@ -28,7 +28,7 @@ body:
         "type": "queues.queue",
         "queue_id": "{{destination__queue_id}}"
       },
-      "enabled": false,
+      "enabled": true,
       "events": [
         "string"
       ],

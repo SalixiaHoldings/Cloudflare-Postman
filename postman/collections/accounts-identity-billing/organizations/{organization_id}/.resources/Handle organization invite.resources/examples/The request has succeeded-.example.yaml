@@ -1,0 +1,58 @@
+$kind: http-example
+id: 5227ed73-ea07-5ced-9b33-65cf045286a9
+name: The request has succeeded.
+request:
+  url: "{{base_url}}/organizations/{{organization_id}}/invites/{{member_code}}"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "status": "reject"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "errors": [],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {
+          "id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "status": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "user": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "meta": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "create_time": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "update_time": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 1000

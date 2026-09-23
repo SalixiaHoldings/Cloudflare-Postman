@@ -1,0 +1,81 @@
+$kind: http-request
+id: 19f3d967-7a18-5372-8e7d-297bac6ce587
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: registrar-domain-transfer-in-create
+  POST /accounts/{account_id}/registrar/registrations/{domain_name}/transfer-in
+
+  Starts a domain transfer-in workflow. This is typically a billable
+  operation — successful transfers charge the account's default payment
+  method, except for extensions with zero transfer pricing (e.g. UK
+  extensions). All successful domain transfers are non-refundable.
+
+  ### How transfers work
+  Domain transfers move a domain from another registrar to Cloudflare.
+  Transfers typically take 1-10 days due to ICANN-mandated approval windows.
+
+  ### Prerequisites
+  - The domain must already have a zone in the Cloudflare account (added
+    through the dashboard or zone API).
+  - The zone must have DNSSec disabled.
+  - For billable transfers (i.e. extensions with non-zero transfer pricing), the
+    account must have a billing profile with a valid default payment method.
+    Set this up at `https://dash.cloudflare.com/{account_id}/billing/payment-info`.
+  - The domain must be unlocked at the current registrar.
+  - An authorization/EPP code from the current registrar is required,
+    except for UK extensions — see Auth code below.
+
+  ### Auth code
+  An authorization code (also called EPP code, transfer key, or auth-info code)
+  is required for most extensions, with the exception of UK extensions. Obtain
+  this from your current registrar's control panel.
+
+  The auth code in the request body must be base64-encoded per RFC 4648 §4 (standard
+  alphabet, no line breaks).
+
+  ### Response behavior
+  Successful transfer initiation returns `202 Accepted`. Validation or
+  initiation failures return the documented `4XX` responses. Poll
+  `GET /accounts/{account_id}/registrar/registrations/{domain_name}/transfer-in-status` to track progress.
+
+  ### Premium domains
+  Premium domain transfers are not currently supported by this API. Please use
+  the [dashboard](https://dash.cloudflare.com/) for now.
+
+  ### Billing
+  The account's default payment method is charged upon successful transfer
+  completion, unless the extension has zero transfer pricing (e.g. UK
+  extensions). The transfer adds time to the domain's existing expiration
+  date (typically 1 year).
+
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations/{{domain_name}}/transfer-in"
+method: POST
+headers:
+  - key: Prefer
+    value: string
+    description: |
+      Set to `respond-async` to indicate a preference for asynchronous
+      processing (RFC 7240).
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "auth_code": "bml4b3M+Pj5hcmNoLWxpbnV4"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Initiate Transfer.resources/examples
+order: 4000

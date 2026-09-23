@@ -1,5 +1,5 @@
 $kind: http-example
-id: cc373a36-8604-56ff-866d-e7b4861ea209
+id: 839c35d6-ec37-50a9-a4dd-c3437a88eb66
 request:
   url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/acls"
   method: POST
@@ -22,10 +22,10 @@ request:
         "description": "Allows local traffic between PIN pads and cash register.",
         "forward_locally": false,
         "protocols": [
-          "tcp",
+          "icmp",
           "udp"
         ],
-        "unidirectional": true
+        "unidirectional": false
       }
 response:
   statusCode: 200

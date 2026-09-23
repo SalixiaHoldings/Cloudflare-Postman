@@ -7,9 +7,9 @@ import { createBodyContract, INCOMPLETE_BODY_WARNING } from '../src/request-body
 
 test('pinned firewall bulk updates construct the newly declared string id without incomplete quarantine', async () => {
   const { destination, lock } = await fetchPinnedSchema();
-  assert.equal(lock.commit, '73947ddceec8571140469a90a1a35078e10fa054',
+  assert.equal(lock.commit, '7287cb19ea4c5feb93f8dd0a4d8d12872692a802',
     'Reevaluate the required-value diagnostic when advancing the schema pin.');
-  assert.equal(lock.schema.sha256, '66259004b9ee38da435ec59992dbb73a7740d4249971bb80f3fa1f0a9ee1c344');
+  assert.equal(lock.schema.sha256, '5caecbd20ea45ee1a2b73c9939168977244e96e85e21b4df4ba8c48ec3c05290');
   const document = JSON.parse(await readFile(destination, 'utf8'));
   const ajv = new Ajv({ strict: false, allErrors: true });
   const contract = createBodyContract(document);
@@ -44,7 +44,7 @@ test('pinned firewall bulk updates construct the newly declared string id withou
 
 test('pinned Hyperdrive constructs an unresolved password variable, never an emitted secret witness', async () => {
   const { destination, lock } = await fetchPinnedSchema();
-  assert.equal(lock.commit, '73947ddceec8571140469a90a1a35078e10fa054');
+  assert.equal(lock.commit, '7287cb19ea4c5feb93f8dd0a4d8d12872692a802');
   const document = JSON.parse(await readFile(destination, 'utf8'));
   const path = '/accounts/{account_id}/hyperdrive/configs/{hyperdrive_id}';
   const operation = { key: `PUT ${path}`, path, methodLower: 'put', operation: document.paths[path].put };

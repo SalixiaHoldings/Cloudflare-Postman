@@ -175,22 +175,6 @@
       ]
     },
     {
-      "id": "accounts-identity-billing+analytics-observability+media-communications+zero-trust",
-      "matches": [
-        "accounts-identity-billing",
-        "analytics-observability",
-        "media-communications",
-        "zero-trust"
-      ],
-      "owner": "zero-trust",
-      "reason": "Preserve the existing Phase 1 zero-trust navigation for these enumerated operations despite cross-product path/tag matches; no precedence is granted to future operations.",
-      "operations": [
-        "GET /accounts/{account_id}/access/ai-controls/mcp/analytics/portals/{portal_id}/tool-calls/timeseries",
-        "GET /accounts/{account_id}/access/ai-controls/mcp/analytics/servers/{server_id}/tool-calls/timeseries",
-        "GET /accounts/{account_id}/access/ai-controls/mcp/analytics/tool-calls/timeseries"
-      ]
-    },
-    {
       "id": "accounts-identity-billing+analytics-observability+network-services",
       "matches": [
         "accounts-identity-billing",
@@ -250,8 +234,6 @@
         "DELETE /accounts/{account_id}/workers/observability/issues/groups/{groupId}",
         "DELETE /accounts/{account_id}/workers/observability/issues/groups/{groupId}/members/{issueId}",
         "DELETE /accounts/{account_id}/workers/observability/queries/{queryId}",
-        "DELETE /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/rules",
-        "DELETE /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/settings",
         "DELETE /accounts/{account_id}/workers/scripts/{script_name}/tails/{id}",
         "GET /accounts/{account_id}/ai-search/instances/{id}/jobs/{job_id}/logs",
         "GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/logs",
@@ -273,13 +255,10 @@
         "GET /accounts/{account_id}/workers/observability/queries/{queryId}",
         "GET /accounts/{account_id}/workers/observability/shared/query/{id}",
         "GET /accounts/{account_id}/workers/observability/usage",
-        "GET /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/rules",
-        "GET /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/settings",
         "GET /accounts/{account_id}/workers/scripts/{script_name}/tails",
         "PATCH /accounts/{account_id}/workers/observability/destinations/{slug}",
         "PATCH /accounts/{account_id}/workers/observability/issues/{issueId}",
         "PATCH /accounts/{account_id}/workers/observability/queries/{queryId}",
-        "PATCH /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/settings",
         "POST /accounts/{account_id}/workers/observability/destinations",
         "POST /accounts/{account_id}/workers/observability/issues/automations",
         "POST /accounts/{account_id}/workers/observability/issues/groups",
@@ -294,8 +273,7 @@
         "POST /accounts/{account_id}/workers/observability/telemetry/query",
         "POST /accounts/{account_id}/workers/observability/telemetry/values",
         "POST /accounts/{account_id}/workers/scripts/{script_name}/tails",
-        "PUT /accounts/{account_id}/workers/observability/issues/automations/{automationId}",
-        "PUT /accounts/{account_id}/workers/observability/zones/{zone_id}/observability/tracing/rules"
+        "PUT /accounts/{account_id}/workers/observability/issues/automations/{automationId}"
       ]
     },
     {
@@ -332,7 +310,10 @@
         "GET /accounts/{account_id}/access/logs/jit_requests/{knock_request_id}",
         "GET /accounts/{account_id}/access/logs/scim/updates",
         "GET /accounts/{account_id}/dlp/payload_log",
-        "PUT /accounts/{account_id}/dlp/payload_log"
+        "PUT /accounts/{account_id}/dlp/payload_log",
+        "GET /accounts/{account_id}/access/ai-controls/mcp/analytics/portals/{portal_id}/tool-calls/timeseries",
+        "GET /accounts/{account_id}/access/ai-controls/mcp/analytics/servers/{server_id}/tool-calls/timeseries",
+        "GET /accounts/{account_id}/access/ai-controls/mcp/analytics/tool-calls/timeseries"
       ]
     },
     {
@@ -515,7 +496,16 @@
         "PUT /accounts/{account_id}/security-center/state",
         "PUT /accounts/{account_id}/vuln_scanner/credential_sets/{credential_set_id}",
         "PUT /accounts/{account_id}/vuln_scanner/credential_sets/{credential_set_id}/credentials/{credential_id}",
-        "PUT /accounts/{account_id}/vuln_scanner/target_environments/{target_environment_id}"
+        "PUT /accounts/{account_id}/vuln_scanner/target_environments/{target_environment_id}",
+        "GET /accounts/{account_id}/cloudforce-one/v2/threat-signals/categories",
+        "GET /accounts/{account_id}/managed-defense/vulnerability-discovery/repos",
+        "GET /accounts/{account_id}/managed-defense/vulnerability-discovery/repos/{repo_id}",
+        "GET /accounts/{account_id}/managed-defense/vulnerability-discovery/repos/{repo_id}/scans/{scan_id}/report",
+        "GET /accounts/{account_id}/managed-defense/vulnerability-discovery/scans",
+        "GET /accounts/{account_id}/managed-defense/vulnerability-discovery/scans/{scan_id}",
+        "GET /accounts/{account_id}/managed-defense/vulnerability-discovery/scans/{scan_id}/report",
+        "POST /accounts/{account_id}/managed-defense/vulnerability-discovery/repos",
+        "POST /accounts/{account_id}/managed-defense/vulnerability-discovery/scans"
       ]
     },
     {
@@ -616,8 +606,6 @@
       "owner": "media-communications",
       "reason": "Preserve the existing Phase 1 media-communications navigation for these enumerated operations despite cross-product path/tag matches; no precedence is granted to future operations.",
       "operations": [
-        "DELETE /accounts/{account_id}/calls/apps/{app_id}",
-        "DELETE /accounts/{account_id}/calls/turn_keys/{key_id}",
         "DELETE /accounts/{account_id}/cloudforce-one/rules/structured/{id}",
         "DELETE /accounts/{account_id}/email-security/investigate/bulk/{job_id}",
         "DELETE /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}",
@@ -643,10 +631,6 @@
         "DELETE /accounts/{account_id}/stream/watermarks/{identifier}",
         "DELETE /accounts/{account_id}/stream/webhook",
         "DELETE /accounts/{accountId}/v1/images/{imageId}",
-        "GET /accounts/{account_id}/calls/apps",
-        "GET /accounts/{account_id}/calls/apps/{app_id}",
-        "GET /accounts/{account_id}/calls/turn_keys",
-        "GET /accounts/{account_id}/calls/turn_keys/{key_id}",
         "GET /accounts/{account_id}/cloudforce-one/rules/structured",
         "GET /accounts/{account_id}/cloudforce-one/rules/structured/{id}",
         "GET /accounts/{account_id}/cloudforce-one/rules/structured/schema",
@@ -729,8 +713,6 @@
         "PATCH /accounts/{account_id}/images/v1/variants/{variant_id}",
         "PATCH /accounts/{account_id}/stream/{identifier}/audio/{audio_identifier}",
         "PATCH /accounts/{accountId}/v1/images/{imageId}",
-        "POST /accounts/{account_id}/calls/apps",
-        "POST /accounts/{account_id}/calls/turn_keys",
         "POST /accounts/{account_id}/cloudforce-one/rules/structured",
         "POST /accounts/{account_id}/cloudforce-one/rules/structured/{id}/test",
         "POST /accounts/{account_id}/cloudforce-one/rules/structured/approvals/{id}/resubmit",
@@ -786,8 +768,6 @@
         "POST /accounts/{account_id}/stream/watermarks",
         "POST /accounts/{accountId}/v1/images",
         "POST /accounts/{accountId}/v2/images/direct_upload",
-        "PUT /accounts/{account_id}/calls/apps/{app_id}",
-        "PUT /accounts/{account_id}/calls/turn_keys/{key_id}",
         "PUT /accounts/{account_id}/cloudforce-one/rules/structured/{id}",
         "PUT /accounts/{account_id}/cloudforce-one/rules/structured/approvals/{id}",
         "PUT /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}",
@@ -1457,7 +1437,7 @@
         "workers-developer-platform"
       ],
       "owner": "workers-developer-platform",
-      "reason": "Preserve the existing Phase 1 workers-developer-platform navigation for these enumerated operations despite cross-product path/tag matches; no precedence is granted to future operations.",
+      "reason": "Preserve Workers & Developer Platform navigation for these enumerated operations despite account matches, including the reviewed Realtime/Calls taxonomy migration at 7287cb19; no precedence is granted to future operations.",
       "operations": [
         "DELETE /accounts/{account_id}/ai-search/instances/{id}",
         "DELETE /accounts/{account_id}/ai-search/namespaces/{name}",
@@ -1784,7 +1764,17 @@
         "PUT /accounts/{account_id}/workers/services/{service_name}/environments/{environment_name}/content",
         "PUT /accounts/{account_id}/workers/workers/{worker_id}",
         "PUT /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}",
-        "PUT /accounts/{account_id}/workflows/{workflow_name}"
+        "PUT /accounts/{account_id}/workflows/{workflow_name}",
+        "DELETE /accounts/{account_id}/calls/apps/{app_id}",
+        "DELETE /accounts/{account_id}/calls/turn_keys/{key_id}",
+        "GET /accounts/{account_id}/calls/apps",
+        "GET /accounts/{account_id}/calls/apps/{app_id}",
+        "GET /accounts/{account_id}/calls/turn_keys",
+        "GET /accounts/{account_id}/calls/turn_keys/{key_id}",
+        "POST /accounts/{account_id}/calls/apps",
+        "POST /accounts/{account_id}/calls/turn_keys",
+        "PUT /accounts/{account_id}/calls/apps/{app_id}",
+        "PUT /accounts/{account_id}/calls/turn_keys/{key_id}"
       ]
     },
     {
@@ -1859,7 +1849,8 @@
         "PUT /accounts/{account_id}/access/custom_pages/{custom_page_id}",
         "PUT /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/datasets/{id}",
         "PUT /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs/{id}",
-        "PUT /accounts/{account_id}/ai-gateway/gateways/{id}"
+        "PUT /accounts/{account_id}/ai-gateway/gateways/{id}",
+        "POST /accounts/{account_id}/ai/websearch"
       ]
     },
     {
@@ -2450,7 +2441,10 @@
         "PUT /zones/{zone_id}/subscription",
         "PUT /zones/{zone_id}/subscriptions",
         "PUT /zones/{zone_id}/tags",
-        "PUT /zones/{zone_id}/token_validation/config/{config_id}/credentials"
+        "PUT /zones/{zone_id}/token_validation/config/{config_id}/credentials",
+        "GET /accounts/{account_id}/pay-per-use/enabled-domains",
+        "GET /accounts/{account_id}/registrar/registrations/{domain_name}/transfer-in-status",
+        "POST /accounts/{account_id}/registrar/registrations/{domain_name}/transfer-in"
       ]
     },
     {
@@ -2760,7 +2754,13 @@
         "PUT /zones/{zone_id}/healthchecks/{healthcheck_id}",
         "PUT /zones/{zone_id}/logpush/jobs/{job_id}",
         "PUT /zones/{zone_id}/logs/explorer/datasets/{dataset_id}",
-        "PUT /zones/{zone_id}/smart_shield/healthchecks/{healthcheck_id}"
+        "PUT /zones/{zone_id}/smart_shield/healthchecks/{healthcheck_id}",
+        "DELETE /zones/{zone_id}/observability/tracing/rules",
+        "DELETE /zones/{zone_id}/observability/tracing/settings",
+        "GET /zones/{zone_id}/observability/tracing/rules",
+        "GET /zones/{zone_id}/observability/tracing/settings",
+        "PATCH /zones/{zone_id}/observability/tracing/settings",
+        "PUT /zones/{zone_id}/observability/tracing/rules"
       ]
     },
     {

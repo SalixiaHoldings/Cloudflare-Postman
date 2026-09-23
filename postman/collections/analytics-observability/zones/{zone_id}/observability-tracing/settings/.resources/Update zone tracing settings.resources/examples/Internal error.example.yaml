@@ -1,0 +1,64 @@
+$kind: http-example
+id: 1147ffef-a27d-5cd2-8b2e-8e26efa97e56
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/observability/tracing/settings"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "destinations": [
+          "string",
+          "string"
+        ],
+        "enabled": false,
+        "forward_context": false,
+        "persist": true,
+        "propagation_policy": "accept",
+        "sampling_ratio": 0.11060561798512936
+      }
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 5000

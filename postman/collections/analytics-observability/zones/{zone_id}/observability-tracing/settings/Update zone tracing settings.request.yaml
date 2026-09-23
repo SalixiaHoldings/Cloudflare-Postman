@@ -1,0 +1,40 @@
+$kind: http-request
+id: 9f97a9f9-2b00-530a-ab9f-a694c29b87c4
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone.observability.tracing.settings.update
+  PATCH /zones/{zone_id}/observability/tracing/settings
+
+  Update the zone-level Cloudflare Traces settings.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/observability/tracing/settings"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "destinations": [
+        "string",
+        "string"
+      ],
+      "enabled": false,
+      "forward_context": false,
+      "persist": true,
+      "propagation_policy": "accept",
+      "sampling_ratio": 0.11060561798512936
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Update zone tracing settings.resources/examples
+order: 3000

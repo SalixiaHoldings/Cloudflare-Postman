@@ -1,0 +1,25 @@
+$kind: http-request
+id: 2aa4d428-0093-584c-824b-5beffba3e89d
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: pay-per-crawl.deletePPUPublisherPrice
+  DELETE /zones/{zone_id}/pay-per-use/operators/{operator_id}/price
+
+  Opts a zone out by scheduling the current accepted pay-per-use operator price to expire at the start of the next UTC month. Use the withdraw action for a pending proposal.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/pay-per-use/operators/{{operator_id}}/price"
+method: DELETE
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+auth:
+  type: noauth
+examples: ./.resources/Opt out of a pay-per-use operator price.resources/examples
+order: 1000

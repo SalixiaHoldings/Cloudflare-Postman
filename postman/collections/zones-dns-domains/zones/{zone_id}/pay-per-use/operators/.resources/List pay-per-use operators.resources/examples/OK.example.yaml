@@ -1,0 +1,68 @@
+$kind: http-example
+id: c856c3a5-1218-5e4f-b77c-4bcf2c0eec70
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/pay-per-use/operators"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: page
+      value: "1"
+      disabled: true
+      description: Page number.
+    - key: per_page
+      value: "100"
+      disabled: true
+      description: Results per page.
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {
+          "operators": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "result_info": {
+          "count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "per_page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total_count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total_pages": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": true
+      }
+order: 1000

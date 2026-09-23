@@ -4,7 +4,7 @@ This policy defines the finite request-template construction introduced during
 PR #12 and retained by the current generator. The original implementation began
 from PR #12 head `f3c6f54ecab08ce7649cd445160b4fe66ee9f99c`; current
 revision-specific outcomes are reviewed in the
-[73947dd schema review](schema-revision-73947dd.md). The primary converter and the
+[7287cb19 schema review](schema-revision-7287cb19.md). The primary converter and the
 operation's own OpenAPI request/media schemas are the only construction sources.
 SDKs, rendered docs, responses, sibling operations and existing generated files
 are not construction inputs. The operation list in the regression fixture is
@@ -127,8 +127,8 @@ schema is used. Ordinary failures, unsafe primary values, negation/cardinality
 conflicts and read-only leakage cannot use this classification.
 
 [The policy revision](../config/request-body-conflicts.json) binds the generic
-pattern to commit `73947ddceec8571140469a90a1a35078e10fa054` and SHA-256
-`66259004b9ee38da435ec59992dbb73a7740d4249971bb80f3fa1f0a9ee1c344`.
+pattern to commit `7287cb19ea4c5feb93f8dd0a4d8d12872692a802` and SHA-256
+`5caecbd20ea45ee1a2b73c9939168977244e96e85e21b4df4ba8c48ec3c05290`.
 Both complete request contracts and their referenced property schemas remain
 unchanged from v0.1.0; the revision-bound tests independently check the exact
 source shape, root-only Ajv type failure, and preserved safe object.
@@ -150,21 +150,21 @@ The [73947dd revision review](schema-revision-73947dd.md) retires four obsolete
 source-incomplete classifications: bulk firewall PATCH/PUT now declare a string
 `id`, and Email Routing enable/disable no longer declare request bodies. The
 remaining twelve incomplete contracts, both conflicts, and all 33 previously
-ambiguous contracts were re-evaluated against the new source.
+ambiguous contracts were re-evaluated against that source. The [7287cb19 review](schema-revision-7287cb19.md) rechecks all of them; only the Bot Management contract changes, adding a boolean property while retaining its independently proven ambiguity.
 
-## Exhaustive 57-case result
+## Exhaustive 61-case result
 
-The `49731bd` inventory contains 56 cases. Reapplying the original construction-
-failure diagnostic to fresh primary conversion reproduces that exact baseline
-and finds 57 cases on `73947dd`: all original cases plus
-`POST /accounts/{account_id}/workers/durable_objects/namespaces/{id}/query/v2`.
-No cases are removed. The fixture advances to the reviewed pin and adds this
-strict-valid case; the existing construction policy supplies a witnessed
-`durable_object_id` variable and the declared empty queries array.
+The original `49731bd` inventory contains 56 cases; `73947dd` added the Durable
+Objects query. Reapplying the byte-identical original preconstruction diagnostic
+to fresh full primary conversions reproduces all 57 baseline cases and finds
+61 at `7287cb19`. The additions are pay-per-crawl and pay-per-use
+`zones_can_be_enabled` PATCH, AI websearch, and pay-per-crawl configuration POST.
+No prior cases retire. Existing bounded construction handles all four; no new
+construction rule is added.
 
 Fresh primary conversion of every complete pinned partition supplies the inputs
 for the permanent exhaustive regression. Every case is normalized and then
-independently validated. Result: **53 strict-valid, 2 ambiguous-oneOf, 2
+independently validated. Result: **57 strict-valid, 2 ambiguous-oneOf, 2
 source-conflict, 0 still fail-closed**. No case is newly classified
 source-incomplete. All prior boundary regressions, including the nine adversarial
 findings and F1–F6, remain covered. Old tests forbidding all scalar construction
@@ -229,11 +229,15 @@ now assert the specifically authorized finite policy and its rejection bounds.
 | 55 | `POST /organizations/{organization_id}/members` | strict-valid |
 | 56 | `PUT /user/tokens/{token_id}` | strict-valid |
 | 57 | `POST /accounts/{account_id}/workers/durable_objects/namespaces/{id}/query/v2` | strict-valid |
+| 58 | `PATCH /accounts/{account_id}/pay-per-crawl/zones_can_be_enabled` | strict-valid |
+| 59 | `PATCH /accounts/{account_id}/pay-per-use/zones_can_be_enabled` | strict-valid |
+| 60 | `POST /accounts/{account_id}/ai/websearch` | strict-valid |
+| 61 | `POST /zones/{zone_id}/pay-per-crawl/configuration` | strict-valid |
 
 ## Verification history
 
 This section preserves implementation history from PR #12. For the current pin's
-complete verification results, see the [73947dd schema review](schema-revision-73947dd.md).
+complete verification results, see the [7287cb19 schema review](schema-revision-7287cb19.md).
 
 At the original finite-policy head `f6508369519b02dc79bc03e29e994bd3944af1ae`,
 on Node 24, `npm ci`, the 81 focused request-body/Native Git tests, all 113

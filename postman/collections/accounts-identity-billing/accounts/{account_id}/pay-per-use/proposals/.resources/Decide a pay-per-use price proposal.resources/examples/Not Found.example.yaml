@@ -1,0 +1,38 @@
+$kind: http-example
+id: 33f84eb4-a4cb-542e-9b72-2215c81d68d7
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pay-per-use/proposals"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "action": "accept",
+        "price_id": 1324
+      }
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": "",
+        "success": false
+      }
+order: 4000

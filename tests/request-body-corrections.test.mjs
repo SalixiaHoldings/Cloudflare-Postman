@@ -219,7 +219,7 @@ test('exact optional union examples still pass through credential sanitization',
 
 test('complete pinned generation preserves authority and all twelve reviewed operation corrections', async t => {
   const { destination, lock } = await fetchPinnedSchema();
-  assert.equal(lock.commit, '73947ddceec8571140469a90a1a35078e10fa054');
+  assert.equal(lock.commit, '7287cb19ea4c5feb93f8dd0a4d8d12872692a802');
   const original = JSON.parse(await readFile(destination));
   const pristine = createBodyContract(original, { commit: lock.commit, schemaSha256: lock.schema.sha256 });
   const operations = listOperations(original);

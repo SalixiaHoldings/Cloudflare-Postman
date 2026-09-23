@@ -1,0 +1,39 @@
+$kind: http-example
+id: 69c84595-4c7d-53ac-8f31-a2ed672904f8
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pay-per-use/operator/configuration"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "default_price_usd_microcents": 222857500000,
+        "enabled": true,
+        "name": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": "",
+        "success": false
+      }
+order: 2000

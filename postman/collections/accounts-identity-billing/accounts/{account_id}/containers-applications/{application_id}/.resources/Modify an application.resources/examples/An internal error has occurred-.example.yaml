@@ -1,5 +1,5 @@
 $kind: http-example
-id: 80ea5d86-0ab4-54ab-8faf-0ee8a9cbdcf0
+id: 8cbff418-3653-583a-bf73-61c1c950cebc
 name: An internal error has occurred.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}"
@@ -11,7 +11,7 @@ request:
     type: json
     content: |-
       {
-        "max_instances": 5514,
+        "max_instances": 5917,
         "observability": {
           "description": "Top-level application observability settings. Scheduler-backed applications\nhot-reload these settings across existing instances. An existing Durable\nObject-managed application accepts only `logs.enabled` and publishes these settings\nto runtime metadata without creating deployments or rollouts.\n"
         },
@@ -26,7 +26,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "errors": [
           {
             "code": 7003,

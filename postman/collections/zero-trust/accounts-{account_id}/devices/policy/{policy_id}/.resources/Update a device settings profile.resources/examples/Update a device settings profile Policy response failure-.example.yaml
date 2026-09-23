@@ -1,5 +1,5 @@
 $kind: http-example
-id: 36cf73c4-c3b1-5daf-b54e-e03bfdcec4e8
+id: d1fe590b-4f6b-5a32-8d1c-6498324977c0
 name: Update a device settings profile Policy response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/policy/{{policy_id}}"
@@ -17,7 +17,12 @@ request:
         "allow_updates": true,
         "allowed_to_leave": true,
         "auto_connect": 0,
+        "browser_extension_config": {
+          "proxy_enabled": false,
+          "proxy_control": "unlocked"
+        },
         "captive_portal": 180,
+        "default": false,
         "description": "Policy for test teams.",
         "disable_auto_fallback": true,
         "enabled": true,
@@ -39,6 +44,7 @@ request:
         "match": "identity.email == \"test@cloudflare.com\"",
         "name": "Allow Developers",
         "precedence": 100,
+        "profile_type": "warp",
         "register_interface_ip_with_dns": true,
         "sccm_vpn_boundary_support": false,
         "support_url": "https://1.1.1.1/help",

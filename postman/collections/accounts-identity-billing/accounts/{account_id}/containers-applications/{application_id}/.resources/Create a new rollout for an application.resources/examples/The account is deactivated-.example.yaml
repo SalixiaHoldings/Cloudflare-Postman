@@ -1,5 +1,5 @@
 $kind: http-example
-id: 7c0704eb-2e99-538a-a9c4-6dda524ecd55
+id: 2ebea1f4-3d09-5b78-b6e8-36f31ebd8dd5
 name: The account is deactivated.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/rollouts"
@@ -14,10 +14,10 @@ request:
         "target_configuration": {
           "instance_type": "lite"
         },
-        "strategy": "new_instances",
+        "strategy": "rolling",
         "description": "string",
         "kind": "full_auto",
-        "percentage": 7,
+        "percentage": 97,
         "step_percentage": 10
       }
 response:
@@ -29,7 +29,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "errors": [
           {
             "code": 7003,

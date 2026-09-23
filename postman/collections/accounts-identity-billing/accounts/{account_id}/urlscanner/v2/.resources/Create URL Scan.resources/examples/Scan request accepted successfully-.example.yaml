@@ -1,5 +1,5 @@
 $kind: http-example
-id: a116ec6d-759b-51b1-aaca-6b752f1058f4
+id: 9b77bd3c-1762-5979-b158-6f9a16bf8c09
 name: Scan request accepted successfully.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/urlscanner/v2/scan"
@@ -12,10 +12,12 @@ request:
     content: |-
       {
         "url": "https://www.example.com",
-        "agentReadiness": true,
-        "country": "NR",
+        "agentReadiness": false,
+        "country": "BS",
         "customHeaders": {
-          "key_0": "string"
+          "key_0": "string",
+          "key_1": "string",
+          "key_2": "string"
         },
         "customagent": "string",
         "referer": "string",
@@ -34,7 +36,7 @@ response:
     content: |-
       {
         "message": "Submission successful",
-        "uuid": "f5460445-c12b-f17c-3dc0-a4f55a3f2c64",
+        "uuid": "1a20aa74-7ac2-088c-0241-946c5fcff443",
         "result": "string",
         "api": "string",
         "visibility": "public",

@@ -1,5 +1,5 @@
 $kind: http-example
-id: 1a9bcc97-abff-58a8-870a-0a186379d244
+id: d9a9ccab-7516-5578-9523-5bceeb6afc4d
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues"
   method: GET
@@ -7,16 +7,16 @@ request:
     Accept: application/json
   queryParams:
     - key: page
-      value: "3724"
+      value: "2051"
       disabled: true
     - key: perPage
-      value: "9"
+      value: "73"
       disabled: true
     - key: order
       value: desc
       disabled: true
     - key: orderBy
-      value: firstObserved
+      value: updated
       disabled: true
     - key: search
       value: string
@@ -24,8 +24,11 @@ request:
     - key: service
       value: string
       disabled: true
+    - key: type
+      value: str
+      disabled: true
     - key: status
-      value: ignored
+      value: resolved
       disabled: true
 response:
   statusCode: 200
@@ -99,7 +102,7 @@ response:
             "fingerprint": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             },
-            "group": {
+            "members": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             },
             "type": {
@@ -143,7 +146,7 @@ response:
             "fingerprint": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             },
-            "group": {
+            "members": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
             },
             "type": {
@@ -152,11 +155,11 @@ response:
           }
         ],
         "result_info": {
-          "page": 3915.482636075467,
-          "per_page": 4374.5130696333945,
-          "count": 4420.419712550938,
-          "total_count": 9258.961845189333,
-          "total_pages": 1614.6530350670218
+          "page": 1282.877796329558,
+          "per_page": 8568.353636655957,
+          "count": 6101.130968891084,
+          "total_count": 5371.571769937873,
+          "total_pages": 6920.705863740295
         }
       }
 order: 1000

@@ -1,12 +1,12 @@
 $kind: http-request
-id: db780981-9d94-5679-b7fb-0d6dfbb5b78a
+id: 5a102125-c494-59ba-a5d9-81615918d798
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
   Upstream operation: pay-per-crawl.setZonesCanBeEnabled
   PATCH /accounts/{account_id}/pay-per-crawl/zones_can_be_enabled
 
-  Allows an account admin to set the can_be_enabled setting on a list of zones.
+  Allows an account admin to set the can_be_enabled setting on a list of zones. An omitted can_be_enabled value leaves that zone unchanged.
 
   Authentication support: legacy-only
   Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
@@ -22,7 +22,14 @@ headers:
   X-Auth-Key: "{{api_key}}"
 body:
   type: json
-  content: "{}"
+  content: |-
+    {
+      "zones": [
+        {
+          "id": "{{zones__0__id}}"
+        }
+      ]
+    }
 auth:
   type: noauth
 examples: ./.resources/Set can_be_enabled setting on zones.resources/examples

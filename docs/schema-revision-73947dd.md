@@ -1,5 +1,7 @@
 # Cloudflare schema revision 73947dd
 
+> Historical revision review. The current review is [7287cb19](schema-revision-7287cb19.md).
+
 This review advances the v0.1.0 distribution from
 `49731bd0592b0c8c2c781b8d15d9f27c7293b210` to
 `73947ddceec8571140469a90a1a35078e10fa054`, using the unmodified official

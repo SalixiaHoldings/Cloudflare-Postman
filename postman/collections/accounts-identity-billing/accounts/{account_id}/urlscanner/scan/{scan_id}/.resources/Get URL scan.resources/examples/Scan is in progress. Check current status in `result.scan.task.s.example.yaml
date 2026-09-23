@@ -1,5 +1,5 @@
 $kind: http-example
-id: 09d2c200-ede0-5133-8b53-053e14fe70b1
+id: c88b7888-6cd4-5fba-97f4-5087ebe9878b
 name: "Scan is in progress. Check current status in `result.scan.task.status`. Possible statuses: `Queued`,`InProgress`,`InPostProcessing`,`Finished`."
 request:
   url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}"
@@ -8,7 +8,7 @@ request:
     Accept: application/json
   queryParams:
     - key: full
-      value: "true"
+      value: "false"
       disabled: true
       description: Whether to return full report (scan summary and network log).
 response:

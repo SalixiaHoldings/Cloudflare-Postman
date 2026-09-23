@@ -1,0 +1,77 @@
+$kind: http-example
+id: 0ff8c1b8-e8b1-5c6d-a12d-845d3c08d982
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pay-per-use/operator/configuration"
+  method: PATCH
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "default_price_usd_microcents": 222857500000,
+        "enabled": true,
+        "name": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "messages": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": {
+          "name": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "enabled": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "default_price_usd_microcents": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "non_billable": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "result_info": {
+          "count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "per_page": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total_count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "total_pages": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        },
+        "success": true
+      }
+order: 1000

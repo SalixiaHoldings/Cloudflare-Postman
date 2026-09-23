@@ -1,5 +1,5 @@
 $kind: http-example
-id: bb5ee27b-db29-582f-8eb6-47fa0dd58ce5
+id: e2eaba42-6a76-5a16-9f58-bdb00ab5296e
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workers/observability/issues"
   method: GET
@@ -7,16 +7,16 @@ request:
     Accept: application/json
   queryParams:
     - key: page
-      value: "3724"
+      value: "2051"
       disabled: true
     - key: perPage
-      value: "9"
+      value: "73"
       disabled: true
     - key: order
       value: desc
       disabled: true
     - key: orderBy
-      value: firstObserved
+      value: updated
       disabled: true
     - key: search
       value: string
@@ -24,8 +24,11 @@ request:
     - key: service
       value: string
       disabled: true
+    - key: type
+      value: str
+      disabled: true
     - key: status
-      value: ignored
+      value: resolved
       disabled: true
 response:
   statusCode: 500

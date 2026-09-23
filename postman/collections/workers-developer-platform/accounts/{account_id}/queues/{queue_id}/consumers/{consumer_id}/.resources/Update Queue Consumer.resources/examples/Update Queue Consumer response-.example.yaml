@@ -1,5 +1,5 @@
 $kind: http-example
-id: 8f312d17-198a-5ecf-8787-14ff56682ea0
+id: ffea2903-e17d-53d2-9969-5d58aff947fb
 name: Update Queue Consumer response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/queues/{{queue_id}}/consumers/{{consumer_id}}"
@@ -13,8 +13,24 @@ request:
     type: json
     content: |-
       {
-        "type": "worker",
-        "script_name": "my-consumer-worker"
+        "settings": {
+          "email": [
+            {
+              "id": "user@example.com"
+            }
+          ],
+          "pagerduty": [
+            {
+              "id": "fedcba9876543210fedcba9876543210"
+            }
+          ],
+          "webhooks": [
+            {
+              "id": "0123456789abcdef0123456789abcdef"
+            }
+          ]
+        },
+        "type": "notification"
       }
 response:
   statusCode: 200

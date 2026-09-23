@@ -1,0 +1,40 @@
+$kind: http-request
+id: 5fcddd3e-11c0-5ad9-a37b-554218f09aac
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: workers-ai-ai-gateway-web-search
+  POST /accounts/{account_id}/ai/websearch
+
+  Run a web search through a configured AI Gateway.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 4844622a422ead8f8ff95dad7881ac91bb3b64cd78aae19a345e1aaa5456fdd3
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]},{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/ai/websearch"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "query": "string",
+      "options": {
+        "gateway": {
+          "id": "{{options__gateway__id}}"
+        }
+      },
+      "byokAlias": "7TWWq5",
+      "limit": 1,
+      "provider": "string"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Search the web through AI Gateway.resources/examples
+order: 3000

@@ -1,0 +1,32 @@
+$kind: http-request
+id: c65d2794-720d-54ef-9369-4d4e7233a0e6
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: pay-per-crawl.patchPPUZoneConfiguration
+  PATCH /zones/{zone_id}/pay-per-use/configuration
+
+  Enables or disables an existing pay-per-use zone configuration. Omitting enabled leaves the zone unchanged. Enabling a disabled zone requires completed publisher Stripe onboarding; an already-enabled zone is not affected by later Stripe status changes. Disabling starts a disabled period immediately while existing accepted licenses remain active until the start of the next UTC month; re-enabling before expiry clears the schedule and restores those licenses.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/pay-per-use/configuration"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+body:
+  type: json
+  content: |-
+    {
+      "enabled": false
+    }
+auth:
+  type: noauth
+examples: ./.resources/Update pay-per-use zone configuration.resources/examples
+order: 2000

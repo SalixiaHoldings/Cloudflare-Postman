@@ -1,5 +1,5 @@
 $kind: http-example
-id: 77d3d3f0-376d-5066-94b3-9735a219aa19
+id: 583be3c4-093c-5bc0-8ec5-85b7c8c12f37
 request:
   url: "{{base_url}}/zones/{{zone_id}}/api_gateway/discovery/operations"
   method: GET
@@ -32,17 +32,17 @@ request:
       value: method
       disabled: true
     - key: diff
-      value: "true"
+      value: "false"
       disabled: true
     - key: origin
-      value: ML
+      value: SessionIdentifier
       disabled: true
       description: |
         Filter results to only include discovery results sourced from a particular discovery engine
           * `ML` - Discovered operations that were sourced using ML API Discovery
           * `SessionIdentifier` - Discovered operations that were sourced using Session Identifier API Discovery
     - key: state
-      value: saved
+      value: ignored
       disabled: true
       description: |
         Filter results to only include discovery results in a particular state. States are as follows

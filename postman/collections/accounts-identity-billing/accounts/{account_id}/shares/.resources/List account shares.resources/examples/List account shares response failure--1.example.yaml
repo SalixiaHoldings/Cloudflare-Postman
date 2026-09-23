@@ -1,5 +1,5 @@
 $kind: http-example
-id: b9e82c9d-530b-51d8-91ec-8e74116d5d43
+id: 09a4bd87-e925-53ad-aeb3-2e04eea7ec51
 name: List account shares response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/shares"
@@ -10,7 +10,7 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: status
-      value: deleted
+      value: active
       disabled: true
       description: Filter shares by status.
     - key: kind
@@ -22,7 +22,7 @@ request:
       disabled: true
       description: Filter shares by target_type.
     - key: resource_types
-      value: trust-grant
+      value: custom-ruleset
       disabled: true
       description: Filter share resources by resource_types.
     - key: resource_types

@@ -1,5 +1,5 @@
 $kind: http-request
-id: 2eb315a2-290c-5f44-9e7a-d1724412fda3
+id: e2935076-35de-576a-8eb6-638f961b0189
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -25,13 +25,16 @@ body:
   content: |-
     {
       "name": "Allow Developers",
-      "precedence": 100,
-      "match": "identity.email == \"test@cloudflare.com\"",
       "allow_mode_switch": true,
       "allow_updates": true,
       "allowed_to_leave": true,
       "auto_connect": 0,
+      "browser_extension_config": {
+        "proxy_enabled": false,
+        "proxy_control": "unlocked"
+      },
       "captive_portal": 180,
+      "default": false,
       "description": "",
       "disable_auto_fallback": true,
       "enabled": true,
@@ -50,6 +53,9 @@ body:
       },
       "lan_allow_minutes": 30,
       "lan_allow_subnet_size": 24,
+      "match": "identity.email == \"test@cloudflare.com\"",
+      "precedence": 100,
+      "profile_type": "warp",
       "register_interface_ip_with_dns": true,
       "sccm_vpn_boundary_support": false,
       "support_url": "https://1.1.1.1/help",

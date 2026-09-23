@@ -1,0 +1,75 @@
+$kind: http-example
+id: 32dc1654-a24b-5ec1-b041-139cd336ae34
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/observability/tracing/rules"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "rules": [
+          {
+            "action": "set_trace_settings",
+            "action_parameters": {
+              "sampling_ratio": 0
+            },
+            "expression": "{{rules__0__expression}}",
+            "description": "{{rules__0__description}}",
+            "enabled": false
+          },
+          {
+            "action": "set_trace_settings",
+            "action_parameters": {
+              "sampling_ratio": 0
+            },
+            "expression": "{{rules__1__expression}}",
+            "description": "{{rules__1__description}}",
+            "enabled": false
+          }
+        ]
+      }
+response:
+  statusCode: 401
+  statusText: Unauthorized
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 3000

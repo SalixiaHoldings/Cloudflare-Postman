@@ -1,5 +1,5 @@
 $kind: http-example
-id: c74d86a1-6d46-5c5b-ac03-3ae28dd30cf5
+id: cbe8aa46-7084-58f2-beda-1fcffa578758
 name: List device settings profiles response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/policies"
@@ -8,6 +8,11 @@ request:
     Accept: application/json
     X-Auth-Email: "{{api_email}}"
     X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: profile_type
+      value: warp
+      disabled: true
+      description: Filter profiles by client type. When omitted, only WARP profiles are returned.
 response:
   statusCode: 400
   statusText: Bad Request

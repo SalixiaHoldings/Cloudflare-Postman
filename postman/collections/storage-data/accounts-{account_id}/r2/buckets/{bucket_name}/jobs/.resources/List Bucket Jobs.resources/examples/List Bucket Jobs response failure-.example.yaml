@@ -1,5 +1,5 @@
 $kind: http-example
-id: f4b09d93-3e47-5c9f-b80c-24dea82126d2
+id: a138127d-90cf-5a63-8b9e-6d519da7e806
 name: List Bucket Jobs response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/r2/buckets/{{bucket_name}}/jobs"
@@ -16,11 +16,11 @@ request:
       disabled: true
       description: Restricts results to jobs of the specified type.
     - key: status
-      value: FAILED
+      value: COMPLETED
       disabled: true
       description: Restricts results to jobs with the specified status. `jobType` is required when this parameter is provided.
     - key: maxKeys
-      value: "599"
+      value: "120"
       disabled: true
       description: Maximum number of jobs to return.
     - key: continuationToken

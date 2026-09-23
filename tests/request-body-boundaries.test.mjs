@@ -139,7 +139,7 @@ test('schema-less empty required JSON retains the warned source-incomplete excep
 
 test('pinned upload rejects wrong modes, retired email bodies stay absent, and nine file bodies remain accepted', async () => {
   const { destination, lock } = await fetchPinnedSchema();
-  assert.equal(lock.commit, '73947ddceec8571140469a90a1a35078e10fa054', 'Review media/body diagnostics when advancing the pin.');
+  assert.equal(lock.commit, '7287cb19ea4c5feb93f8dd0a4d8d12872692a802', 'Review media/body diagnostics when advancing the pin.');
   const document = JSON.parse(await readFile(destination, 'utf8'));
   const pinned = createBodyContract(document);
   const operations = new Map(listOperations(document).map(operation => [operation.key, operation]));

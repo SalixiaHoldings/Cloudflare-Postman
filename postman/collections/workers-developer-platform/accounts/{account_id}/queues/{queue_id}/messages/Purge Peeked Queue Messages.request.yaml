@@ -1,12 +1,12 @@
 $kind: http-request
-id: d31615e3-8c09-5f7f-82f1-4daa3c80f31f
+id: c0bce249-dbd5-5c57-9685-55518511f956
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
   Upstream operation: queues-purge-messages
   POST /accounts/{account_id}/queues/{queue_id}/messages/purge
 
-  Delete peeked messages from a Queue by their ref. Purged messages aren't considered delivered, they are instantly deleted from this queue and do not affect metrics.
+  Delete messages from a Queue by using refs returned by the peek endpoint. Purging messages does not count as delivery and does not affect metrics.
 
   Authentication support: multi-scheme-or-other
   Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
