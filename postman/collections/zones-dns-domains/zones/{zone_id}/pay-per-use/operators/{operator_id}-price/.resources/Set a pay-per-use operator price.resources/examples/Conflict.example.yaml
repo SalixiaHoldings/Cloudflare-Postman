@@ -1,0 +1,38 @@
+$kind: http-example
+id: 99e88394-aeba-5def-97f4-892c4894026b
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/pay-per-use/operators/{{operator_id}}/price"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: json
+    content: |-
+      {
+        "action": "propose",
+        "price_usd_microcents": 100000
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": "",
+        "success": false
+      }
+order: 5000

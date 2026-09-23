@@ -1,5 +1,5 @@
 $kind: http-example
-id: b089fbed-024e-55dc-8792-765248e10409
+id: e93c35d5-5129-5434-9614-d298f0844ee7
 name: Create a device settings profile response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/policy"
@@ -14,13 +14,16 @@ request:
     content: |-
       {
         "name": "Allow Developers",
-        "precedence": 100,
-        "match": "identity.email == \"test@cloudflare.com\"",
         "allow_mode_switch": true,
         "allow_updates": true,
         "allowed_to_leave": true,
         "auto_connect": 0,
+        "browser_extension_config": {
+          "proxy_enabled": false,
+          "proxy_control": "unlocked"
+        },
         "captive_portal": 180,
+        "default": false,
         "description": "",
         "disable_auto_fallback": true,
         "enabled": true,
@@ -39,6 +42,9 @@ request:
         },
         "lan_allow_minutes": 30,
         "lan_allow_subnet_size": 24,
+        "match": "identity.email == \"test@cloudflare.com\"",
+        "precedence": 100,
+        "profile_type": "warp",
         "register_interface_ip_with_dns": true,
         "sccm_vpn_boundary_support": false,
         "support_url": "https://1.1.1.1/help",

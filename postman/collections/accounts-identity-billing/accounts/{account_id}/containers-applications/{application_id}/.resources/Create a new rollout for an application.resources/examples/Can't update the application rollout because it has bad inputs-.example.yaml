@@ -1,5 +1,5 @@
 $kind: http-example
-id: e4342af3-0564-525b-8cba-97d107ae8dde
+id: bd0f97f0-4bc0-5563-a261-2d571a5cb698
 name: Can't update the application rollout because it has bad inputs.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/rollouts"
@@ -14,10 +14,10 @@ request:
         "target_configuration": {
           "instance_type": "lite"
         },
-        "strategy": "new_instances",
+        "strategy": "rolling",
         "description": "string",
         "kind": "full_auto",
-        "percentage": 7,
+        "percentage": 97,
         "step_percentage": 10
       }
 response:
@@ -29,7 +29,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "errors": [
           {
             "code": 7003,

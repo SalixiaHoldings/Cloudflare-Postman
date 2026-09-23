@@ -1,0 +1,24 @@
+$kind: http-example
+id: 05ec291a-2d4c-5f4b-9c31-8b2968668b58
+name: Get device posture rule details response.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/devices/posture/{{rule_id}}"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

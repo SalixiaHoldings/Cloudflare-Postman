@@ -1,12 +1,12 @@
 $kind: http-request
-id: 3b3344dc-9b37-5fa8-83ef-bffa6dfb9817
+id: e10cd640-6029-53f4-a7ea-1d5c9d3420ff
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
   Upstream operation: queues-ack-preview-messages
   POST /accounts/{account_id}/queues/{queue_id}/messages/preview/ack
 
-  Delete previewed messages from a Queue. Note that messages acknowledged this way aren't considered delivered, they are instantly deleted from this queue and do not affect metrics.
+  Delete messages returned by the legacy preview endpoint. This deprecated route is retained for compatibility; use the peek and purge endpoints for new integrations. Deleting messages this way does not count as delivery and does not affect metrics.
 
   Authentication support: multi-scheme-or-other
   Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f

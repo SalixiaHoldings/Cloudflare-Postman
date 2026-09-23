@@ -1,12 +1,12 @@
 $kind: http-request
-id: e8599896-00c4-5545-9185-66a9b06593bf
+id: b3252a8c-7f75-566a-a9be-c0cc28cc3abd
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
   Upstream operation: queues-peek-messages
   POST /accounts/{account_id}/queues/{queue_id}/messages/peek
 
-  Peek messages from a Queue without leasing them. Messages remain available for subsequent peek or pull operations.
+  Peek messages from a Queue without leasing them. Each message includes a ref that can be passed to the purge endpoint, and remains available for subsequent peek or pull operations until it is purged.
 
   Authentication support: multi-scheme-or-other
   Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f

@@ -56,3 +56,24 @@ test('all matching partitions require exact explicit ownership, independent of r
 test('stable JSON output is byte-identical for differently ordered keys', () => {
   assert.equal(stableJson({ z: 1, a: { y: 2, b: 3 } }), stableJson({ a: { b: 3, y: 2 }, z: 1 }));
 });
+
+test('Calls path taxonomy remains in Workers independently of upstream product tags', async () => {
+  const config = await loadPartitionConfig();
+  for (const tags of [[], ['Calls Apps'], ['Calls TURN Keys'], ['Realtime SFU Apps'], ['Realtime TURN Keys']]) {
+    const operation = { key: 'GET /accounts/{account_id}/calls/apps', path: '/accounts/{account_id}/calls/apps', tags };
+    const result = classifyOperations([operation], { ...config, overlaps: [{
+      id: 'accounts-identity-billing+workers-developer-platform',
+      matches: ['accounts-identity-billing', 'workers-developer-platform'],
+      owner: 'workers-developer-platform', reason: 'Explicit Calls product taxonomy.', operations: [operation.key]
+    }] });
+    assert.equal(result.ownership.get(operation.key), 'workers-developer-platform');
+    assert.deepEqual(result.classification.get(operation.key).matches,
+      ['accounts-identity-billing', 'workers-developer-platform']);
+  }
+  for (const path of ['/fictional/calls/apps', '/accounts/{account_id}/calls-unrelated', '/accounts/{account_id}/other/calls']) {
+    const operation = { key: `GET ${path}`, path, tags: ['Calls'] };
+    const result = classifyOperations([operation], { ...config, overlaps: [] });
+    assert.ok(!result.classification.get(operation.key).matches.includes('workers-developer-platform'));
+    assert.ok(!result.classification.get(operation.key).matches.includes('media-communications'));
+  }
+});

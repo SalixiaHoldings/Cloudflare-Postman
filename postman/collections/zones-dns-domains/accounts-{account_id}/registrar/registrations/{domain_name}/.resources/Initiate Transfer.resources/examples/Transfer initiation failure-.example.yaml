@@ -1,0 +1,45 @@
+$kind: http-example
+id: 14027e1c-5013-5f2e-ae22-635cf73f8362
+name: Transfer initiation failure.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations/{{domain_name}}/transfer-in"
+  method: POST
+  headers:
+    - key: Prefer
+      value: string
+      description: |
+        Set to `respond-async` to indicate a preference for asynchronous
+        processing (RFC 7240).
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "auth_code": "bml4b3M+Pj5hcmNoLWxpbnV4"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "code": 10000,
+            "message": "object at root is missing required properties: auth_code",
+            "source": {
+              "pointer": "/auth_code"
+            }
+          }
+        ],
+        "messages": [],
+        "result": null,
+        "success": false
+      }
+order: 2000

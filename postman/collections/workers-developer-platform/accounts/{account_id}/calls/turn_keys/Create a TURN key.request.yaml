@@ -1,0 +1,32 @@
+$kind: http-request
+id: 8fb47656-4673-54da-aab8-f91e5708791f
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: calls-turn-key-create
+  POST /accounts/{account_id}/calls/turn_keys
+
+  Creates a new Realtime TURN key.
+
+  Authentication support: bearer-only
+  Auth declaration SHA-256: cbba9b337efd4dcbaf1248fcfab868d3a542bf11170ae3bcc3755c08bfaa1c27
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_token":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/accounts/{{account_id}}/calls/turn_keys"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "my-turn-key"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Create a TURN key.resources/examples
+order: 2000

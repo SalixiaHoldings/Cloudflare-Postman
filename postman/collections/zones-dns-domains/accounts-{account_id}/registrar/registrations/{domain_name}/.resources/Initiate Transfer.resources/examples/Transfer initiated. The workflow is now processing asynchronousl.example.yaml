@@ -1,0 +1,59 @@
+$kind: http-example
+id: 579d885f-bdf6-545a-b0b5-cab7ac196f87
+name: |
+  Transfer initiated. The workflow is now processing asynchronously.
+  Poll `GET /accounts/{account_id}/registrar/registrations/{domain_name}/transfer-in-status` to track
+  progress. Transfers typically take 1–10 days.
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/registrar/registrations/{{domain_name}}/transfer-in"
+  method: POST
+  headers:
+    - key: Prefer
+      value: string
+      description: |
+        Set to `respond-async` to indicate a preference for asynchronous
+        processing (RFC 7240).
+    - key: Content-Type
+      value: application/json
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "auth_code": "bml4b3M+Pj5hcmNoLWxpbnV4"
+      }
+response:
+  statusCode: 202
+  statusText: Accepted
+  headers:
+    - key: Location
+      value: string
+      description: URL of the transfer status resource (same as `links.self`).
+    - key: Preference-Applied
+      value: string
+      description: Set to `respond-async` when the server honored the preference.
+    - key: Content-Type
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [],
+        "messages": [],
+        "result": {
+          "completed": false,
+          "context": {
+            "domain_name": "example.com"
+          },
+          "created_at": "2025-10-27T10:00:00Z",
+          "links": {
+            "resource": "/accounts/abc/registrar/registrations/example.com",
+            "self": "/accounts/abc/registrar/registrations/example.com/transfer-in-status"
+          },
+          "state": "pending",
+          "updated_at": "2025-10-27T10:00:01Z"
+        },
+        "success": true
+      }
+order: 1000

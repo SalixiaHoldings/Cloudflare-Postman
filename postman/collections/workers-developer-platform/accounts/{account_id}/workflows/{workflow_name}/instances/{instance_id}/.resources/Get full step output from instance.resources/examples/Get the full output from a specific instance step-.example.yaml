@@ -1,5 +1,5 @@
 $kind: http-example
-id: 1dd5006b-44e5-5d51-b1cf-4f497cf572fa
+id: 0b6bc85b-7a89-5a3e-be2c-241f6ec2026f
 name: Get the full output from a specific instance step.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/step?name=string&type=waitForEvent"
@@ -16,7 +16,7 @@ request:
       value: waitForEvent
       description: (Required) Step type to disambiguate step.do and waitForEvent entries that share the same name.
     - key: attempt
-      value: "1742039714627584"
+      value: "7866970372308991"
       disabled: true
       description: Specific attempt number to retrieve output or error for.
 response:
@@ -31,7 +31,7 @@ response:
         "success": true,
         "errors": [],
         "result": {
-          "status": "rollingBack",
+          "status": "errored",
           "error": {
             "name": {
               "value": "<Error: Too many levels of nesting to fake this schema>"
@@ -62,12 +62,12 @@ response:
           }
         ],
         "result_info": {
-          "per_page": 8814.578789751977,
-          "count": 5136.020993813872,
-          "total_count": 1901.8937065266073,
+          "per_page": 6120.5612239427865,
+          "count": 1569.7130118496716,
+          "total_count": 8352.457922883332,
           "cursor": "string",
-          "page": 7092.483702581376,
-          "total_pages": 1782.4432789348066
+          "page": 1461.2754387781024,
+          "total_pages": 9108.361955732107
         }
       }
 order: 1000

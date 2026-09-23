@@ -1,5 +1,5 @@
 $kind: http-example
-id: f96c70c9-d62a-512b-bb17-0fee17d0620a
+id: b89eef95-f089-5adc-a55b-5c678fa362eb
 request:
   url: "{{base_url}}/accounts/{{account_id}}/magic/sites/{{site_id}}/acls/{{acl_id}}"
   method: PUT
@@ -13,7 +13,7 @@ request:
     content: |-
       {
         "description": "Allows local traffic between PIN pads and cash register.",
-        "forward_locally": false,
+        "forward_locally": true,
         "lan_1": {
           "lan_id": "{{lan_1__lan_id}}"
         },
@@ -22,8 +22,8 @@ request:
         },
         "name": "PIN Pad - Cash Register",
         "protocols": [
-          "icmp",
-          "udp"
+          "tcp",
+          "tcp"
         ],
         "unidirectional": true
       }

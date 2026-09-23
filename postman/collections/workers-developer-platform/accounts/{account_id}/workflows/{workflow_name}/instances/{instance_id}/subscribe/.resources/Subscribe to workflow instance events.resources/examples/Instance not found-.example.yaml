@@ -1,5 +1,5 @@
 $kind: http-example
-id: 29801503-de05-5339-884c-ea275833b2a5
+id: 70f4fa16-2caa-505c-a24b-4616b7b2ced9
 name: Instance not found.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/workflows/{{workflow_name}}/instances/{{instance_id}}/subscribe"
@@ -10,15 +10,15 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: cursor
-      value: "9042"
+      value: "5873"
       disabled: true
       description: Last event ID already received.
     - key: filter
-      value: rollback_started
+      value: rollback_step_errored
       disabled: true
       description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
     - key: filter
-      value: workflow_waiting_for_pause
+      value: wait_completed
       disabled: true
       description: Workflow event types to include. Send multiple event types by repeating the filter query parameter.
 response:

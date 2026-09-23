@@ -1,0 +1,39 @@
+$kind: http-example
+id: 2d7f0be6-e08d-5162-a736-5af5a1a1ae24
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pay-per-use/enabled-domains"
+  method: GET
+  headers:
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  queryParams:
+    - key: cursor
+      value: string
+      disabled: true
+      description: Opaque, account-bound cursor returned by the previous page. Cursors expire after one hour; restart pagination without a cursor after receiving a 400 response for an expired cursor.
+    - key: per_page
+      value: "100"
+      disabled: true
+      description: Maximum number of domains to return
+response:
+  statusCode: 500
+  statusText: Internal Server Error
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": "",
+        "success": false
+      }
+order: 5000

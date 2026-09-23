@@ -49,7 +49,9 @@ The primary conversion remains authoritative for collection structure, bodies, h
 
 `config/partitions.json` defines independent match rules. Every non-residual rule is evaluated before ownership is assigned: one match owns the operation, zero matches use the explicit residual, and multiple matches require an exact declaration in `config/partition-overlaps.json`. Array ordering is not a conflict resolver.
 
-At the pinned revision, 54 declarations cover 2,537 overlapping operations. New or changed overlap sets, invalid owners, stale declarations, or newly ambiguous operations fail validation.
+At the pinned revision, 53 declarations cover 2,550 overlapping operations. New or changed overlap sets, invalid owners, stale declarations, or newly ambiguous operations fail validation.
+
+Calls belongs to Workers & Developer Platform alongside Realtime, using the explicit account-scoped Calls path matcher. Media & Communications no longer includes Calls. The 7287cb19 taxonomy migration moves exactly ten Calls operations; three incidental MCP tool-call Media matches disappear without changing their Zero Trust ownership. Zone-scoped Observability tracing belongs to Analytics & Observability.
 
 Postman's `Tags` folder strategy duplicates multi-tag operations, so the project uses `Paths`. Product navigation is provided by the top-level modular partitions. Stable SHA-derived IDs, seeded examples, a fixed conversion clock, sorted JSON keys, fixed metadata, and commit-specific provenance remove nondeterministic output.
 
@@ -87,7 +89,7 @@ The generated inventory contains:
 11. v3 migration/lint, semantic equivalence, environment/Globals checks, and two-run file/byte comparison.
 12. Public-safety checks for populated credentials/identifiers, local filesystem paths, and unexplained release-scan candidates.
 
-The current pin validates **3,565/3,565 operations**, 2,537 declared overlaps, three upstream OpenAPI exceptions, and 47 primary converter warnings.
+The current pin validates **3,594/3,594 operations**, 2,550 declared overlaps, zero upstream OpenAPI exceptions, and 47 primary converter warnings.
 
 ## Authentication contract
 
@@ -95,9 +97,9 @@ The pinned Cloudflare OpenAPI `security` declaration determines each request's a
 
 `src/auth.mjs` builds a deterministic contract for every operation. Selection prefers a standalone `api_token` Bearer alternative, then anonymous access, then the supported alternative requiring the fewest credential schemes. Current categories are:
 
-- 571 bearer-only
-- 1,651 bearer-alternative
-- 216 legacy-only
+- 572 bearer-only
+- 1,662 bearer-alternative
+- 233 legacy-only
 - 1,116 multi-scheme-or-other
 - 7 anonymous
 - 4 manual-unresolved
@@ -122,7 +124,7 @@ The pinned account-list operation is legacy-only; token verification and zone li
 
 The isolated secondary query pass uses supported converter options that correctly preserve required/optional query state but exposes 452 deeper schema diagnostics (450 `allOf` diagnostics and two unknown-format warnings). Those diagnostics are stored separately, normalized, fingerprinted, and revision-bound; they do not replace the 47-warning primary baseline.
 
-The official converter omits one exact optional array query contract: Cloudforce One events `search`. It is documented and fingerprinted in [query-policy.md](query-policy.md); no local serializer fabricates it. See the [current revision review](schema-revision-73947dd.md) for warning, auth, partition, query, and request-body changes.
+The official converter omits one exact optional array query contract: Cloudforce One events `search`. It is documented and fingerprinted in [query-policy.md](query-policy.md); no local serializer fabricates it. See the [current revision review](schema-revision-7287cb19.md) for warning, auth, partition, query, and request-body changes.
 
 The primary converter has a known shared-working-graph mutation/order limitation: across upstream schema revisions, generated sample values can change even when the relevant source contract is unchanged. Output for a fixed pin remains deterministic and fully validated. Revision reviews explicitly distinguish these converter artifacts from upstream semantic changes; global converter isolation remains separate follow-up work.
 

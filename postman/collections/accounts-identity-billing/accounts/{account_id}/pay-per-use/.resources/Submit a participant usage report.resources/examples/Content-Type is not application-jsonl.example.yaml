@@ -1,0 +1,35 @@
+$kind: http-example
+id: 9bc69f72-f1d7-576a-aa3f-aa58e1ba977d
+name: Content-Type is not application/jsonl
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pay-per-use/usage-reports"
+  method: POST
+  headers:
+    Content-Type: application/jsonl
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: text
+    content: string
+response:
+  statusCode: 415
+  statusText: Unsupported Media Type
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        ],
+        "result": "",
+        "success": false
+      }
+order: 7000

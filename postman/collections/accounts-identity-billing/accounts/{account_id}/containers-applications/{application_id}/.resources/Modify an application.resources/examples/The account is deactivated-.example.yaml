@@ -1,5 +1,5 @@
 $kind: http-example
-id: 97146bb5-2640-5fb4-aab8-73c3a14001d4
+id: d02fb99b-d20d-56eb-8ffb-360bff995b6b
 name: The account is deactivated.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}"
@@ -11,7 +11,7 @@ request:
     type: json
     content: |-
       {
-        "max_instances": 5514,
+        "max_instances": 5917,
         "observability": {
           "description": "Top-level application observability settings. Scheduler-backed applications\nhot-reload these settings across existing instances. An existing Durable\nObject-managed application accepts only `logs.enabled` and publishes these settings\nto runtime metadata without creating deployments or rollouts.\n"
         },
@@ -26,7 +26,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "errors": [
           {
             "code": 7003,

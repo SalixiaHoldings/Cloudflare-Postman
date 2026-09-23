@@ -1,0 +1,40 @@
+$kind: http-request
+id: 9160a9e2-620d-573c-a780-31161d791944
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: pay-per-crawl.getPPUZoneUsageStats
+  GET /zones/{zone_id}/pay-per-use/usage-stats
+
+  Returns reported usage and the full gross value for one Pay Per Use zone over an explicit UTC range of at most 31 days. Usage from every snapshotted price is summed by buyer. Ranges up to and including 7 days use hourly data points; longer ranges use daily data points. Because source data is aggregated hourly, both requested bounds are rounded down to the selected UTC interval and the resolved bounds are returned in the response. The resolved range must contain at least one complete interval. Empty periods are omitted. Buyers and their data points are paginated, while totals cover every buyer in the range. Values are raw usage counts and USD microcents; total_price_usd_microcents is the full value before the publisher revenue share.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/zones/{{zone_id}}/pay-per-use/usage-stats?since=1974-07-06T21:38:35.572Z&until=1974-07-06T21:38:35.572Z"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: since
+    value: 1974-07-06T21:38:35.572Z
+    description: (Required) Requested inclusive beginning of the statistics range as an RFC3339 timestamp. Rounded down to the selected UTC interval.
+  - key: until
+    value: 1974-07-06T21:38:35.572Z
+    description: (Required) Requested exclusive end of the statistics range as an RFC3339 timestamp. Rounded down to the selected UTC interval. The requested duration from since cannot exceed 31 days.
+  - key: page
+    value: "1"
+    disabled: true
+    description: Page number.
+  - key: per_page
+    value: "100"
+    disabled: true
+    description: Results per page.
+auth:
+  type: noauth
+examples: ./.resources/Get pay-per-use usage statistics for a zone.resources/examples
+order: 4000

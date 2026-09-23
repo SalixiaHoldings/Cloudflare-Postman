@@ -1,0 +1,34 @@
+$kind: http-request
+id: a9b72945-e48a-56d2-b2a8-fce7bd4843bf
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: pay-per-crawl.listPPUProposals
+  GET /accounts/{account_id}/pay-per-use/proposals
+
+  Lists a paginated set of outstanding pay-per-use publisher price proposals for an operator. Listing remains available while the operator is disabled or its name is unverified so proposals can be rejected.
+
+  Authentication support: legacy-only
+  Auth declaration SHA-256: a9720528d5568ee0454de8ee346c99dd84fa50a430a5033cc320160dae1660d9
+  Upstream security (operation; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]}]
+  Selected requirement: {"api_email":[],"api_key":[]}
+  Upstream does not declare a standalone API-token alternative. Configure only the empty credential variables required by this request. Multi-scheme requirements are preserved literally, not treated as alternatives. This is schema metadata, not proof of live API behavior.
+url: "{{base_url}}/accounts/{{account_id}}/pay-per-use/proposals"
+method: GET
+headers:
+  Accept: application/json
+  X-Auth-Email: "{{api_email}}"
+  X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: page
+    value: "1"
+    disabled: true
+    description: Page number.
+  - key: per_page
+    value: "100"
+    disabled: true
+    description: Results per page.
+auth:
+  type: noauth
+examples: ./.resources/List pay-per-use price proposals.resources/examples
+order: 1000

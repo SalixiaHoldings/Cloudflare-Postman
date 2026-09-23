@@ -1,5 +1,5 @@
 $kind: http-example
-id: d349207e-3fb0-503e-8575-ad2f19a36364
+id: fc362c2f-6964-5b37-8ecc-911179c038e6
 name: Client error response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/devices/registrations"
@@ -24,7 +24,7 @@ request:
       disabled: true
       description: Filter by the last_seen timestamp - returns only registrations last seen before this timestamp.
     - key: status
-      value: active
+      value: revoked
       disabled: true
       description: Filter by registration status. Defaults to 'active'.
     - key: registration_type
@@ -32,7 +32,7 @@ request:
       disabled: true
       description: Filter by registration client type.
     - key: per_page
-      value: "8720"
+      value: "3218"
       disabled: true
       description: The maximum number of devices to return in a single response.
     - key: search
@@ -40,11 +40,11 @@ request:
       disabled: true
       description: Filter by registration details.
     - key: sort_by
-      value: last_seen_at
+      value: user.email
       disabled: true
       description: The registration field to order results by.
     - key: sort_order
-      value: desc
+      value: asc
       disabled: true
       description: Sort direction.
     - key: cursor

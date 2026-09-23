@@ -1,5 +1,5 @@
 $kind: http-example
-id: 5c0d06fc-d0ee-52f4-bcc0-fa88474e99ac
+id: 1ae5ac60-fba5-5223-9b49-f3b40e17c71c
 name: Returns edges, optional hydrated entities, counts, and pagination.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/dataset/{{dataset_id}}/indicators/{{indicator_id}}/relationships"
@@ -8,10 +8,10 @@ request:
     Accept: application/json
   queryParams:
     - key: search
-      value: '{"field":"string","op":"contains","value":"string"}'
+      value: '{"field":"string","op":"startsWith","value":"string"}'
       disabled: true
     - key: search
-      value: '{"field":"string","op":"startsWith","value":"string"}'
+      value: '{"field":"string","op":"gte","value":"string"}'
       disabled: true
     - key: expand
       value: string

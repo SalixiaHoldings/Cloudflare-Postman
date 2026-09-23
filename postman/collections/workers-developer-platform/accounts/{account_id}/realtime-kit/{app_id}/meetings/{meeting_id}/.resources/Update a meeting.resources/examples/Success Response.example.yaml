@@ -1,5 +1,5 @@
 $kind: http-example
-id: 92d2dcee-e4f4-542a-93c3-3e27b4fb3671
+id: 26a58a29-b3f7-51c4-a079-762f2200442b
 request:
   url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}"
   method: PATCH
@@ -10,17 +10,17 @@ request:
     type: json
     content: |-
       {
-        "live_stream_on_start": false,
-        "persist_chat": true,
-        "record_on_start": false,
+        "live_stream_on_start": true,
+        "persist_chat": false,
+        "record_on_start": true,
         "recording_config": {
           "realtimekit_bucket_config": {
             "enabled": false
           }
         },
-        "session_keep_alive_time_in_secs": 455.85873872973025,
+        "session_keep_alive_time_in_secs": 395.5708734691143,
         "status": "INACTIVE",
-        "summarize_on_end": false,
+        "summarize_on_end": true,
         "title": "string",
         "transcribe_on_end": true
       }

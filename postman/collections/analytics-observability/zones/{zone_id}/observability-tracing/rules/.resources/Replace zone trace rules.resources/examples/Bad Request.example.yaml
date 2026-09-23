@@ -1,0 +1,75 @@
+$kind: http-example
+id: 6d849471-e394-569a-b79b-92651ae54b9f
+request:
+  url: "{{base_url}}/zones/{{zone_id}}/observability/tracing/rules"
+  method: PUT
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "rules": [
+          {
+            "action": "set_trace_settings",
+            "action_parameters": {
+              "sampling_ratio": 0
+            },
+            "expression": "{{rules__0__expression}}",
+            "description": "{{rules__0__description}}",
+            "enabled": false
+          },
+          {
+            "action": "set_trace_settings",
+            "action_parameters": {
+              "sampling_ratio": 0
+            },
+            "expression": "{{rules__1__expression}}",
+            "description": "{{rules__1__description}}",
+            "enabled": false
+          }
+        ]
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "errors": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            },
+            "detail": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ],
+        "success": false,
+        "messages": [
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          },
+          {
+            "message": {
+              "value": "<Error: Too many levels of nesting to fake this schema>"
+            }
+          }
+        ]
+      }
+order: 2000

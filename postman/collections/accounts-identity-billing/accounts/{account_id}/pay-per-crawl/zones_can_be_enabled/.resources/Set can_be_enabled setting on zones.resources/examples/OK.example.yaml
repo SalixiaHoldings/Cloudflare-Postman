@@ -1,5 +1,5 @@
 $kind: http-example
-id: 09e1f755-3e38-5d69-aa65-245e96d1360b
+id: 29ec2488-e1bb-51b8-86d9-ea109a445219
 request:
   url: "{{base_url}}/accounts/{{account_id}}/pay-per-crawl/zones_can_be_enabled"
   method: PATCH
@@ -10,7 +10,14 @@ request:
     X-Auth-Key: "{{api_key}}"
   body:
     type: json
-    content: "{}"
+    content: |-
+      {
+        "zones": [
+          {
+            "id": "{{zones__0__id}}"
+          }
+        ]
+      }
 response:
   statusCode: 200
   statusText: OK

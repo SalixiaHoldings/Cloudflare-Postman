@@ -1,6 +1,6 @@
 # Schema revision a0eceeef
 
-> Historical revision review. The current reviewed schema revision is documented in [schema-revision-73947dd.md](schema-revision-73947dd.md).
+> Historical revision review. The current reviewed schema revision is documented in [schema-revision-7287cb19.md](schema-revision-7287cb19.md).
 
 ## Source and review boundary
 

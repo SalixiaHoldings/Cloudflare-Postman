@@ -1,0 +1,36 @@
+$kind: http-example
+id: c93430b4-2268-54dc-8e20-d112129f2ea1
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/pay-per-use/usage-reports"
+  method: POST
+  headers:
+    Content-Type: application/jsonl
+    Accept: application/json
+    X-Auth-Email: "{{api_email}}"
+    X-Auth-Key: "{{api_key}}"
+  body:
+    type: text
+    content: string
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": true,
+        "result": {
+          "submission_id": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "entry_count": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          },
+          "sha256": {
+            "value": "<Error: Too many levels of nesting to fake this schema>"
+          }
+        }
+      }
+order: 2000

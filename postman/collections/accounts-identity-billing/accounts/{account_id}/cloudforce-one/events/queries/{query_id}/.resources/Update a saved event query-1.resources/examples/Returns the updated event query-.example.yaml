@@ -1,5 +1,5 @@
 $kind: http-example
-id: 7ad8a7ff-d107-5e70-92fb-493bcb0cad3c
+id: 29468c4b-7a84-5146-bd0f-8106b89a285b
 name: Returns the updated event query.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/events/queries/{{query_id}}"
@@ -11,8 +11,8 @@ request:
     type: json
     content: |-
       {
-        "alert_enabled": true,
-        "alert_rollup_enabled": true,
+        "alert_enabled": false,
+        "alert_rollup_enabled": false,
         "name": "string",
         "query_json": "string",
         "rule_enabled": false,
@@ -27,17 +27,17 @@ response:
     type: json
     content: |-
       {
-        "id": 1564,
+        "id": 299,
         "account_id": "{{account_id}}",
         "name": "string",
         "user_email": "string",
         "query_json": "string",
-        "alert_enabled": true,
+        "alert_enabled": false,
         "alert_rollup_enabled": false,
         "rule_enabled": true,
         "created_at": "string",
         "updated_at": "string",
-        "custom_threat_feed_id": 9004,
+        "custom_threat_feed_id": 1494,
         "rule_list_id": "string",
         "rule_scope": "string"
       }

@@ -1,0 +1,25 @@
+$kind: http-request
+id: 378fd941-5a02-5bc1-83b6-cefff394e791
+description: |-
+  GENERATED FILE — DO NOT EDIT.
+
+  Upstream operation: zone.observability.tracing.settings.delete
+  DELETE /zones/{zone_id}/observability/tracing/settings
+
+  Reset the zone-level Cloudflare Traces settings to their defaults while preserving the sampling rules.
+
+  Authentication support: bearer-alternative
+  Auth declaration SHA-256: 9cf92591b02825f32ee536153a837717ea60c4c42e9f0171b8163d00879188ae
+  Upstream security (root; OR alternatives, AND within each object): [{"api_email":[],"api_key":[]},{"api_token":[]},{"user_service_key":[]}]
+  Selected requirement: {"api_token":[]}
+  Use the narrowly scoped api_token; legacy alternatives are not enabled.
+url: "{{base_url}}/zones/{{zone_id}}/observability/tracing/settings"
+method: DELETE
+headers:
+  Accept: application/json
+auth:
+  type: bearer
+  credentials:
+    token: "{{api_token}}"
+examples: ./.resources/Reset zone tracing settings.resources/examples
+order: 1000

@@ -1,8 +1,8 @@
 $kind: http-example
-id: 62571e9a-8a7e-566c-8ece-637c2dd2f460
+id: f800a4a4-7062-50aa-b8ae-0b0a12e2d014
 name: Client error response.
 request:
-  url: "{{base_url}}/accounts/{{account_id}}/devices/client-versions?target_environment=string&release_track=beta"
+  url: "{{base_url}}/accounts/{{account_id}}/devices/client-versions?target_environment=string&release_track=ga"
   method: GET
   headers:
     Accept: application/json
@@ -11,7 +11,7 @@ request:
       value: string
       description: (Required) The target environment for the client version (e.g., windows, macos).
     - key: release_track
-      value: beta
+      value: ga
       description: (Required) The release track (ga for General Availability, beta for Beta releases).
     - key: page
       value: "1"

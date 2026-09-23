@@ -1,5 +1,5 @@
 $kind: http-example
-id: adbd087e-133e-50a3-beea-a5b396080a9d
+id: f6554747-56b0-5a62-a650-a0f72f8a588f
 name: Threat Signals response.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/cloudforce-one/v2/threat-signals/articles"
@@ -18,13 +18,19 @@ request:
       value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
       disabled: true
     - key: article_id
-      value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
+      value: 550e8400-e29b-41d4-a716-446655440000
+      disabled: true
+    - key: article_id
+      value: 660e8400-e29b-41d4-a716-446655440000
       disabled: true
     - key: read
       value: "true"
       disabled: true
     - key: tag_id
-      value: 0e9190cd-6b18-cc6c-6719-1f06fa04e4b2
+      value: 550e8400-e29b-41d4-a716-446655440000
+      disabled: true
+    - key: tag_category_id
+      value: 660e8400-e29b-41d4-a716-446655440000
       disabled: true
     - key: tag
       value: string
@@ -54,7 +60,7 @@ request:
       value: string
       disabled: true
     - key: source_type
-      value: custom
+      value: curated
       disabled: true
     - key: tag_applied_by
       value: ai
@@ -81,9 +87,9 @@ response:
             }
           ],
           "next_cursor": "string",
-          "has_more": false,
-          "total_count": 3363.24832867831,
-          "total_count_is_exact": true
+          "has_more": true,
+          "total_count": 2702.788054011762,
+          "total_count_is_exact": false
         },
         "success": true,
         "errors": [

@@ -219,16 +219,16 @@ test('source-conflict cannot retain sentinels/read-only leakage or rescue other 
   assert.equal(conflict.normalize(json({ label: sentinel }), op({ type: 'object', required: ['label'], properties: { label: { type: 'string' } } })).classification, 'valid');
 });
 
-test('all 57 inventoried failures have explicit outcomes from fresh primary conversion of the pinned partitions', async () => {
+test('all 61 inventoried failures have explicit outcomes from fresh primary conversion of the pinned partitions', async () => {
   const { destination, lock } = await fetchPinnedSchema();
-  assert.equal(lock.commit, '73947ddceec8571140469a90a1a35078e10fa054');
+  assert.equal(lock.commit, '7287cb19ea4c5feb93f8dd0a4d8d12872692a802');
   assert.equal(lock.commit, revision.commit); assert.equal(lock.schema.sha256, revision.schemaSha256);
   assert.equal(lock.commit, cases.upstreamCommit); assert.equal(lock.schema.sha256, cases.schemaSha256);
-  // Fresh conversion retains the original 56 and adds the Durable Objects query.
+  // Recomputed on 7287cb19: retain all 57 prior cases and cover four new cases.
   const document = JSON.parse(await readFile(destination)), config = await loadPartitionConfig();
   const { assignments } = classifyOperations(listOperations(document), config);
   const wanted = new Map(cases.cases.map(c => [c.operation, c.expected])), seen = new Set(), counts = {};
-  assert.equal(wanted.size, 57);
+  assert.equal(wanted.size, 61);
   const walk = items => items.flatMap(item => item.item ? walk(item.item) : [item]);
   for (const partition of config.partitions) {
     const operations = assignments.get(partition.id), byKey = new Map(operations.map(o => [o.key, o]));
@@ -246,8 +246,8 @@ test('all 57 inventoried failures have explicit outcomes from fresh primary conv
       counts[result.classification] = (counts[result.classification] ?? 0) + 1;
     }
   }
-  assert.equal(seen.size, 57);
-  assert.deepEqual(counts, { valid: 53, 'ambiguous-oneOf': 2, 'source-conflict': 2 });
+  assert.equal(seen.size, 61);
+  assert.deepEqual(counts, { valid: 57, 'ambiguous-oneOf': 2, 'source-conflict': 2 });
 });
 
 test('bounded whole-request retries reject the first primitive choice before accepting another', () => {

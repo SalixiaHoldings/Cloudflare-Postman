@@ -1,0 +1,41 @@
+$kind: http-example
+id: aa754857-a5bf-572c-a9b7-70b7f9f1490f
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/ai/websearch"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "query": "string",
+        "options": {
+          "gateway": {
+            "id": "{{options__gateway__id}}"
+          }
+        },
+        "byokAlias": "7TWWq5",
+        "limit": 1,
+        "provider": "string"
+      }
+response:
+  statusCode: 403
+  statusText: Forbidden
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "ok": false,
+        "error": {
+          "category": "credential",
+          "code": "string",
+          "status": 6067,
+          "retryable": false,
+          "gatewayRequestId": "string"
+        }
+      }
+order: 3000

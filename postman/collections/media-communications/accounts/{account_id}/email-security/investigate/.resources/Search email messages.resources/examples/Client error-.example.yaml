@@ -1,5 +1,5 @@
 $kind: http-example
-id: 597a6bb6-a258-5bc4-a833-bc17f1b1ac2e
+id: ef6fb08b-bb01-5ee6-a491-e545520d38af
 name: Client error.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate"
@@ -24,7 +24,7 @@ request:
       disabled: true
       description: Whether to include only detections in search results.
     - key: final_disposition
-      value: SPAM
+      value: BULK
       disabled: true
       description: Dispositions to filter by.
     - key: metric
@@ -58,7 +58,7 @@ request:
       value: string
       disabled: true
     - key: delivery_status
-      value: moved
+      value: queued
       disabled: true
       description: Delivery status to filter by.
     - key: cursor

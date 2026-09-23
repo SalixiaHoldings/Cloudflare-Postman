@@ -1,0 +1,34 @@
+$kind: http-example
+id: 04b0db68-866e-5bc3-9295-83a9342a2e32
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/calls/turn_keys"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "my-turn-key"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "success": false,
+        "errors": [
+          {
+            "code": 7003,
+            "message": "No route for the URI"
+          }
+        ],
+        "messages": [],
+        "result": null
+      }
+order: 2000

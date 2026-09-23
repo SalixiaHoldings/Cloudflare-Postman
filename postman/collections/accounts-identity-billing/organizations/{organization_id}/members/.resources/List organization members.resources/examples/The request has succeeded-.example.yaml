@@ -1,5 +1,5 @@
 $kind: http-example
-id: 4e54792d-9a9a-55b7-83de-6cca3bc102d6
+id: e1a82e41-fca4-542a-9e4a-46eb7120219d
 name: The request has succeeded.
 request:
   url: "{{base_url}}/organizations/{{organization_id}}/members"
@@ -10,11 +10,11 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: status
-      value: active
+      value: pending
       disabled: true
       description: Filter the list of memberships by membership status.
     - key: status
-      value: pending
+      value: rejected
       disabled: true
       description: Filter the list of memberships by membership status.
     - key: user.email
@@ -43,7 +43,7 @@ request:
         Parameters used to filter the retrieved list must remain in subsequent
         requests with a page token.
     - key: page_size
-      value: "58"
+      value: "497"
       disabled: true
       description: The amount of items to return. Defaults to 10.
 response:

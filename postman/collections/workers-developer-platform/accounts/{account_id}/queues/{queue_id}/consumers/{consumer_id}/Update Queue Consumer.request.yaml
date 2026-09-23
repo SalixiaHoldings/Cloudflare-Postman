@@ -1,12 +1,12 @@
 $kind: http-request
-id: 14fe3aba-6280-5279-a52d-08bcf379afc9
+id: 2b338387-0f66-58c2-8de7-9a8282bbe904
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
   Upstream operation: queues-update-consumer
   PUT /accounts/{account_id}/queues/{queue_id}/consumers/{consumer_id}
 
-  Updates the consumer for a queue, or creates one if it does not exist.
+  Replaces a Queue consumer, or creates it if it does not exist.
 
   Authentication support: multi-scheme-or-other
   Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
@@ -24,8 +24,24 @@ body:
   type: json
   content: |-
     {
-      "type": "worker",
-      "script_name": "my-consumer-worker"
+      "settings": {
+        "email": [
+          {
+            "id": "user@example.com"
+          }
+        ],
+        "pagerduty": [
+          {
+            "id": "fedcba9876543210fedcba9876543210"
+          }
+        ],
+        "webhooks": [
+          {
+            "id": "0123456789abcdef0123456789abcdef"
+          }
+        ]
+      },
+      "type": "notification"
     }
 auth:
   type: bearer

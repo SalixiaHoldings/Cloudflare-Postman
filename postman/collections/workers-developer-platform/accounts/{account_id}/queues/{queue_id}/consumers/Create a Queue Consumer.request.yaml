@@ -1,12 +1,12 @@
 $kind: http-request
-id: 9a8a45b1-d4e5-5a1c-8afc-ef96a7c221b4
+id: 961a99c2-0646-5610-bef7-ef3525d96ffb
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
   Upstream operation: queues-create-consumer
   POST /accounts/{account_id}/queues/{queue_id}/consumers
 
-  Creates a new consumer for a Queue
+  Creates a consumer for a Queue.
 
   Authentication support: multi-scheme-or-other
   Auth declaration SHA-256: cb039fe92c74f6483aaad6a3be8d90dfc474320bb13b733f4b11d38e19a5507f
@@ -24,8 +24,24 @@ body:
   type: json
   content: |-
     {
-      "type": "worker",
-      "script_name": "my-consumer-worker"
+      "settings": {
+        "email": [
+          {
+            "id": "user@example.com"
+          }
+        ],
+        "pagerduty": [
+          {
+            "id": "fedcba9876543210fedcba9876543210"
+          }
+        ],
+        "webhooks": [
+          {
+            "id": "0123456789abcdef0123456789abcdef"
+          }
+        ]
+      },
+      "type": "notification"
     }
 auth:
   type: bearer

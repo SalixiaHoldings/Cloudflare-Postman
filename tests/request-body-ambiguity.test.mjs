@@ -8,7 +8,7 @@ import { createBodyContract } from '../src/request-body.mjs';
 // A revision-bound proof of the generic compatibility condition, not an override.
 test('pinned Bot Management overlap is classified without changing the source or request', async () => {
   const { destination, lock } = await fetchPinnedSchema();
-  assert.equal(lock.commit, '73947ddceec8571140469a90a1a35078e10fa054',
+  assert.equal(lock.commit, '7287cb19ea4c5feb93f8dd0a4d8d12872692a802',
     'Review and retire or update the request-body ambiguity diagnostic when advancing the pin.');
   const document = JSON.parse(await readFile(destination, 'utf8'));
   const body = document.paths['/zones/{zone_id}/bot_management'].put.requestBody;
@@ -30,7 +30,7 @@ test('pinned Bot Management overlap is classified without changing the source or
   const validate = ajv.compile(schema);
   const branches = schema.oneOf.map(branch => ajv.compile(branch));
   assert.equal(branches.length, 4);
-  for (const value of [{}, { fight_mode: true },
+  for (const value of [{}, { fight_mode: true }, { jsd_api_results_enabled: true },
     { auto_update_model: true, bm_cookie_enabled: true, suppress_session_score: false }]) {
     assert.deepEqual(branches.map(branch => branch(value)), [true, true, true, true]);
     assert.equal(validate(value), false);
@@ -40,5 +40,6 @@ test('pinned Bot Management overlap is classified without changing the source or
   }
   assert.equal(JSON.stringify(body), before);
   assert.equal(contract.classifyValue(body.content['application/json'].schema, { enable_js: 'invalid' }), 'invalid');
+  assert.equal(contract.classifyValue(body.content['application/json'].schema, { jsd_api_results_enabled: 'invalid' }), 'invalid');
   assert.equal(contract.classifyValue(body.content['application/json'].schema, { stale_zone_configuration: {} }), 'invalid');
 });

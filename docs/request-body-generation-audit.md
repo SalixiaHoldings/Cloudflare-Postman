@@ -1,6 +1,6 @@
 # Historical request-body generation audit (PR #12)
 
-> Historical record. This file preserves the pre-v0.1.0 diagnosis and implementation evidence from PR #12. It is not the current distribution status. For current behavior, see the [finite construction policy](request-template-construction.md) and the [current schema-revision review](schema-revision-73947dd.md).
+> Historical record. This file preserves the pre-v0.1.0 diagnosis and implementation evidence from PR #12. It is not the current distribution status. For current behavior, see the [finite construction policy](request-template-construction.md) and the [current schema-revision review](schema-revision-7287cb19.md).
 
 The measurements and endpoint conditions below are intentionally preserved from
 the audited `49731bd` baseline unless a section explicitly says otherwise. The
@@ -163,7 +163,7 @@ upstream correction; any new unresolved semantic conflict still stops the work.
 
 ## Reviewed compatibility policy: source-incomplete required values
 
-> Historical endpoint finding. At `49731bd`, firewall bulk PATCH/PUT lacked usable semantics for required `id` and were classified `source-incomplete`. At the current `73947dd` pin, Cloudflare declares `id` as a required string, so those two operations now construct and validate normally. The generic `source-incomplete` policy remains in force for the twelve current cases documented in the [revision review](schema-revision-73947dd.md).
+> Historical endpoint finding. At `49731bd`, firewall bulk PATCH/PUT lacked usable semantics for required `id` and were classified `source-incomplete`. At the current `7287cb19` pin, Cloudflare declares `id` as a required string, so those two operations now construct and validate normally. The generic `source-incomplete` policy remains in force for the twelve current cases documented in the [revision review](schema-revision-7287cb19.md).
 
 The overlapping-`oneOf` policy is implemented generically. The service-token failure was a
 separate implementation bug: name-based credential sanitization replaced the

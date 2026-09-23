@@ -1,5 +1,5 @@
 $kind: http-example
-id: 17cb74cd-99c4-5c3c-8ea2-1e9311a8de4e
+id: 56f445d3-2225-5bb5-84f7-c530bff4823c
 name: The search is taking longer than expected. Use the Location header to poll for results.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/email-security/investigate"
@@ -24,7 +24,7 @@ request:
       disabled: true
       description: Whether to include only detections in search results.
     - key: final_disposition
-      value: SPAM
+      value: BULK
       disabled: true
       description: Dispositions to filter by.
     - key: metric
@@ -58,7 +58,7 @@ request:
       value: string
       disabled: true
     - key: delivery_status
-      value: moved
+      value: queued
       disabled: true
       description: Delivery status to filter by.
     - key: cursor

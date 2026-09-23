@@ -1,5 +1,5 @@
 $kind: http-example
-id: 10f2338b-2df1-5040-a21f-f9d767600875
+id: 60b1de28-3cd5-5d00-9fcc-8f3380b8513f
 name: Unauthorized.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/rollouts"
@@ -14,10 +14,10 @@ request:
         "target_configuration": {
           "instance_type": "lite"
         },
-        "strategy": "new_instances",
+        "strategy": "rolling",
         "description": "string",
         "kind": "full_auto",
-        "percentage": 7,
+        "percentage": 97,
         "step_percentage": 10
       }
 response:
@@ -29,7 +29,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "errors": [
           {
             "code": 7003,

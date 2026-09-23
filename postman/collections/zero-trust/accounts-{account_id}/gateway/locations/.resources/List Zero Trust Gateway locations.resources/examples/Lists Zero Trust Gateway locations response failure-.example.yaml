@@ -1,5 +1,5 @@
 $kind: http-example
-id: dde61393-a09e-53fd-9bd0-f2d1cd60fdd3
+id: b9e17e67-4fa2-51e7-8953-1bc84d21b81f
 name: Lists Zero Trust Gateway locations response failure.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/gateway/locations"
@@ -10,7 +10,7 @@ request:
     X-Auth-Key: "{{api_key}}"
   queryParams:
     - key: filter
-      value: name:%.|^1
+      value: name:D$\~%-wZo%
       disabled: true
       description: |-
         Filter the returned locations by one or more `field:value` pairs.
@@ -27,7 +27,7 @@ request:
           * `name`/`id` accept any value;
           * `is_default` only accepts `true` or `false`; any other value returns `400`
     - key: filter
-      value: name:VV(&?
+      value: name:(;AK,
       disabled: true
       description: |-
         Filter the returned locations by one or more `field:value` pairs.
@@ -50,7 +50,7 @@ request:
         Case-insensitive substring match on the location name. When combined
         with `filter`, both must match (logical AND).
     - key: order_by
-      value: created_at
+      value: name
       disabled: true
       description: |-
         Field to sort the returned locations by. When omitted, the order of
@@ -59,7 +59,7 @@ request:
           * `created_at` — sort by creation time; defaults to descending unless `direction` is set.
           * `updated_at` — sort by last-modified time; defaults to descending unless `direction` is set.
     - key: direction
-      value: desc
+      value: asc
       disabled: true
       description: |-
         Sort direction. Only takes effect when `order_by` is also provided; it

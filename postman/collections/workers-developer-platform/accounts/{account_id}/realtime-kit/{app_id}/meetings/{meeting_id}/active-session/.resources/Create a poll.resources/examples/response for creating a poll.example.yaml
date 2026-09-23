@@ -1,5 +1,5 @@
 $kind: http-example
-id: 8de89596-59af-5f54-9b59-f9dbbd510525
+id: 180ab5e1-0b34-547d-9b1a-145c1311601e
 request:
   url: "{{base_url}}/accounts/{{account_id}}/realtime/kit/{{app_id}}/meetings/{{meeting_id}}/active-session/poll"
   method: POST
@@ -15,7 +15,7 @@ request:
           "string",
           "string"
         ],
-        "anonymous": false,
+        "anonymous": true,
         "hide_votes": false
       }
 response:
@@ -33,6 +33,6 @@ response:
             "value": "<Error: Too many levels of nesting to fake this schema>"
           }
         },
-        "success": false
+        "success": true
       }
 order: 1000

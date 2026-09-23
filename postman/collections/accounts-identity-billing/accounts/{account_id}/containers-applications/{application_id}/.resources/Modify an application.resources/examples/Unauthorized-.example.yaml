@@ -1,5 +1,5 @@
 $kind: http-example
-id: 7bcb3b45-33d0-5c2c-a666-0fad29c05ea0
+id: 8695bde9-9d0b-56c9-b92b-7a83a51cc6c5
 name: Unauthorized.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}"
@@ -11,7 +11,7 @@ request:
     type: json
     content: |-
       {
-        "max_instances": 5514,
+        "max_instances": 5917,
         "observability": {
           "description": "Top-level application observability settings. Scheduler-backed applications\nhot-reload these settings across existing instances. An existing Durable\nObject-managed application accepts only `logs.enabled` and publishes these settings\nto runtime metadata without creating deployments or rollouts.\n"
         },
@@ -26,7 +26,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "errors": [
           {
             "code": 7003,

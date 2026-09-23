@@ -1,5 +1,5 @@
 $kind: http-example
-id: 8b530ed4-b567-52c1-9a5e-3f200ba64990
+id: 8e6c4a84-c9e7-57ea-a51d-6d96516f6c1c
 request:
   url: "{{base_url}}/accounts/{{account_id}}/pay-per-crawl/zones_can_be_enabled"
   method: PATCH
@@ -10,7 +10,14 @@ request:
     X-Auth-Key: "{{api_key}}"
   body:
     type: json
-    content: "{}"
+    content: |-
+      {
+        "zones": [
+          {
+            "id": "{{zones__0__id}}"
+          }
+        ]
+      }
 response:
   statusCode: 400
   statusText: Bad Request
@@ -29,6 +36,6 @@ response:
           }
         ],
         "result": "",
-        "success": true
+        "success": false
       }
 order: 2000

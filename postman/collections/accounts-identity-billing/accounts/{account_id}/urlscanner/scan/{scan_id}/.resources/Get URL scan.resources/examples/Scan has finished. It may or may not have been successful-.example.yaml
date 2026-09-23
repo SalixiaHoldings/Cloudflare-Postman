@@ -1,5 +1,5 @@
 $kind: http-example
-id: 36905980-3daf-50b6-875b-255e80fe34b2
+id: 86109228-a690-5aa9-b087-e9c9f49bddfc
 name: Scan has finished. It may or may not have been successful.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/urlscanner/scan/{{scan_id}}"
@@ -8,7 +8,7 @@ request:
     Accept: application/json
   queryParams:
     - key: full
-      value: "true"
+      value: "false"
       disabled: true
       description: Whether to return full report (scan summary and network log).
 response:
@@ -44,7 +44,7 @@ response:
             }
           }
         ],
-        "success": true,
+        "success": false,
         "result": {
           "scan": {
             "task": {

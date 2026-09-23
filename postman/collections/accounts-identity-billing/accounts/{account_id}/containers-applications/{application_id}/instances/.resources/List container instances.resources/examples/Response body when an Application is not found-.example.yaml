@@ -1,5 +1,5 @@
 $kind: http-example
-id: 59478f23-05b5-5d1d-83f6-53ce130ae170
+id: 1a5525ab-9166-56c5-9c38-cba6cb0df975
 name: Response body when an Application is not found.
 request:
   url: "{{base_url}}/accounts/{{account_id}}/containers/applications/{{application_id}}/instances"
@@ -8,7 +8,7 @@ request:
     Accept: application/json
   queryParams:
     - key: per_page
-      value: "50"
+      value: "17"
       disabled: true
       description: Maximum number of instances to return per page. Defaults to all.
     - key: page_token
@@ -34,7 +34,7 @@ response:
     type: json
     content: |-
       {
-        "success": true,
+        "success": false,
         "errors": [
           {
             "code": 7003,

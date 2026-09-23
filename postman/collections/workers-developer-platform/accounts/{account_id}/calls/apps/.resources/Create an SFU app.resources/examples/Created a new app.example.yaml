@@ -1,0 +1,28 @@
+$kind: http-example
+id: 90f1114f-7d61-54e4-aa44-bc47e8d95781
+request:
+  url: "{{base_url}}/accounts/{{account_id}}/calls/apps"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "production-realtime-app"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "result": {
+          "value": "<Error: Too many levels of nesting to fake this schema>"
+        }
+      }
+order: 1000

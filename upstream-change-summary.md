@@ -1,118 +1,54 @@
-# Cloudflare API schema update
+# Cloudflare API schema update — reviewed 7287cb19
 
-Completes PR #14's prepared schema update after reviewing every overlap,
-revision-bound request/query policy, and generated distribution change.
+Updates the pinned Cloudflare schema from `73947ddceec8571140469a90a1a35078e10fa054` to `7287cb19ea4c5feb93f8dd0a4d8d12872692a802` (SHA-256 `5caecbd20ea45ee1a2b73c9939168977244e96e85e21b4df4ba8c48ec3c05290`). Baseline: `main` at `7f2c5f61ea9c0cdc6b9f2f9e4be7389ce8122ded`. Both generated distributions represent **3,594/3,594 operations exactly once**: 3,565 → 3,594, net +29; 35 added, six removed, 125 changed, six newly deprecated.
 
-- Previous schema: `49731bd0592b0c8c2c781b8d15d9f27c7293b210`.
-- New schema: `73947ddceec8571140469a90a1a35078e10fa054`.
-- Schema SHA-256: `66259004b9ee38da435ec59992dbb73a7740d4249971bb80f3fa1f0a9ee1c344`.
-- Operations: 3,540 → 3,565; net +25; 26 added, one removed, 261 changed,
-  zero newly deprecated. All 3,565 represented exactly once in both formats.
-- Removed: `GET /accounts/{account_id}/security-center/insights/count`;
-  absent from both regenerated distributions.
-- Partition overlap declarations: 26 keys added, one removed; 2,537 operations
-  in the same 54 families. No regex, owner, or generator architecture changes.
-  No undeclared, stale, duplicate, or unused overlap entries.
+## Reviewed taxonomy and overlaps
 
-[Human-readable review](docs/schema-revision-73947dd.md) and
-[complete operation/policy/artifact evidence](docs/schema-revision-73947dd-audit.json)
-include the exact 26 added operations, 261 changed operations, 19-operation
-Workers overlap subset, security declarations, all body changes, and warning attribution.
+Calls is deliberately grouped with Cloudflare Realtime under Workers & Developer Platform. Workers gains a narrow account-scoped Calls path matcher and explicitly includes Realtime/Calls; Media loses its generic calls matcher and Calls description. The full classifier comparison proves **exactly ten retained ownership changes**, all Calls Apps/TURN. No unrelated operation changes owner. Three MCP tool-call analytics routes lose incidental Media matches and remain Zero Trust-owned.
 
-## Final partition and authentication counts
+All 19 overlapping additions and six removed overlaps are reconciled in one pass. The now-empty MCP four-way declaration is retired. **2,550 overlapping operations in 53 declarations**, versus 2,537 in 54. No retained operation newly overlaps or ceases to overlap. The general overlap architecture is unchanged.
+
+The six new zone-scoped tracing APIs match Analytics + Zones and belong to **Analytics & Observability**. Their removed account-scoped Workers predecessors have no remaining v2 request, v3 request, or overlap entry.
 
 | Partition | Operations |
 | --- | ---: |
-| Zero Trust | 594 |
-| Workers & developer platform | 512 |
-| Storage & data | 128 |
-| Application security & rulesets | 370 |
-| Analytics & observability | 435 |
-| Zones, DNS & domains | 436 |
-| Network services | 286 |
-| Media & communications | 183 |
-| Accounts, identity & billing | 620 |
-| Other Cloudflare services | 1 |
+| accounts-identity-billing | 629 |
+| analytics-observability | 441 |
+| application-security-rulesets | 379 |
+| media-communications | 173 |
+| network-services | 286 |
+| other-cloudflare-services | 1 |
+| storage-data | 128 |
+| workers-developer-platform | 516 |
+| zero-trust | 595 |
+| zones-dns-domains | 446 |
 
-Authentication: 571 bearer-only; 1,651 bearer-alternative; 216 legacy-only;
-1,116 multi-scheme-or-other; seven anonymous; four manual-unresolved.
-Of the 26 new operations, 24 declare a standalone Bearer alternative and the two
-Browser Rendering recording operations require all three declared credentials
-(`api_email`, `api_key`, `api_token`) together. Existing upstream authentication
-changes are retained literally, including Email Routing/Sending token alternatives.
+## Source and compatibility review
 
-## Reviewed query and request-body policies
+- **Auth:** 572 bearer-only; 1,662 bearer-alternative; 233 legacy-only; 1,116 multi-scheme-or-other; seven anonymous; four manual-unresolved. No retained auth contract changes. The 35 additions comprise one bearer-only, 17 bearer-alternative, and 17 legacy-only. Six tracing operations inherit root security because they have no operation override; all other additions use their explicit security. No neighboring-API assumptions.
+- **Queries:** 139 required and 5,559 optional contracts → 147 enabled and 8,143 disabled rows. The single Cloudforce One search omission and its fingerprint remain unchanged. All secondary-warning fingerprints remain unchanged: 452 diagnostics (450 allOf, two unknown-format); 47 primary warnings. No serializer or warning exception changes.
+- **Bodies:** 1,228 valid; 33 ambiguous-oneOf; 12 source-incomplete; two source-conflict; 2,319 without applicable bodies. Modes: 1,232 raw, 33 multipart, nine file, one URL-encoded. **Zero live sentinels in v2 and v3.** All prior compatibility conditions were independently re-evaluated. The twelve incomplete contracts and both conflicts persist. Bot Management adds one boolean property but its ambiguity remains independently proven; the other 32 ambiguous contracts are unchanged.
+- **Construction:** the complete historical diagnostic reproduces all 57 baseline cases and finds 61 target cases (four additions, no removals), handled by existing policy: 57 valid, two ambiguous, two source-conflict. All twelve PR #12 corrections and source/media/writable/union boundaries pass on the target pin. No construction redesign or endpoint override.
+- **Strict OpenAPI:** Cloudflare fixed the three Spectrum analytics 4xx keys to 4XX. The obsolete exception entries are retired; **zero exceptions remain**.
+- **Added/removed audit:** every added operation has source-derived ownership/auth/query/body checks and exactly one occurrence in each format; every removed operation has zero occurrences and no stale overlap declaration.
 
-- Query: 135 required and 5,538 optional contracts; 143 enabled and 8,121 disabled
-  rows. The one Cloudforce One `search` omission and its parameter fingerprint
-  remain unchanged; zero new or removed omissions.
-- Secondary warnings: 530 → 452 (450 allOf, two unknown-format). Operation-level
-  tracing explains all changes: Zero Trust 236 → 190, application security
-  64 → 41, zones 94 → 85, media 3 → 1, Workers 7 → 9. Other fingerprints unchanged.
-  Primary warnings remain 47. Exact fail-closed checks remain enabled.
-- Bodies: 1,216 valid, 33 ambiguous-oneOf, 12 source-incomplete, two source-conflict,
-  and 2,302 without an applicable body. Total 1,263 bodies; zero live sentinels.
-- Bulk firewall PATCH/PUT now supply a required string `id` and validate normally.
-  Email Routing enable/disable no longer declare bodies. These retire four
-  incomplete classifications; the remaining twelve were re-evaluated unchanged.
-- Both load-balancer source conflicts remain independently proven and warned;
-  their revision/digest binding advances. All 33 prior overlapping-oneOf
-  conditions remain proven under the same strict-first policy.
-- Fresh primary conversion reproduces the historical 56-case baseline exactly
-  and finds 57 cases on the new pin: 53 valid, two ambiguous, two source-conflict.
-  The sole addition is the Durable Objects namespace query/v2 operation; none
-  are removed. Its existing-policy construction validates, and the fixture
-  advances with that reviewed addition. All twelve PR #12 corrections,
-  subscription/service-token authority, file/multipart and schema-less boundaries pass.
-- Body modes: 1,220 raw, 33 formdata, nine file, one urlencoded. No retained-body
-  mode changes, read-only leakage, stale saved-request bodies, or invalid warnings.
-- Strict OpenAPI validation reproduces exactly the same three Spectrum lowercase
-  `4xx` diagnostics; the source schema is unmodified and no exception is added.
+## Generated-difference attribution
 
-## Generated artifacts and converter drift
+Against current main, 199 body differences comprise 14 added bodies, two removed bodies, 14 direct request-template consequences, and 169 converter artifacts (167 with identical source authority; two Magic connector boolean samples despite unrelated source removals). There are 115 retained query changes: three structural, one source-description change, and 111 sample artifacts. The 228 changed retained response representations comprise seven upstream shape changes, five description-label changes, and 216 sample artifacts. The one header change is a Stream Upload-Length sample. All old/new reference request IDs were verified against the existing revision/breadcrumb UUID algorithm; provenance/identity churn is reported separately.
 
-Both `dist/v2.1/` and `postman/` are regenerated. Native Git has 13,461 files
-(previously 13,326), including 169 additions and 34 removals; no case-only path
-mismatches. The v2.1 distribution retains 14 files. Collection metadata and saved
-requests carry the new pin. Generic environment values and empty Globals remain valid.
+The known converter shared-working-graph/order issue remains deferred. The review distinguishes source changes from unrelated emitted sample changes, including when both occur on one operation. General overlap-policy redesign and issue #16 environment persistence remain separate work.
 
-All 132 changed bodies are classified: 11 new-operation bodies, ten following
-upstream request-contract changes, and 111 resulting converter/construction
-template changes. Of the latter, 110 have unchanged request authority; the AI
-Gateway PUT changes only a non-emitted nested default upstream. Fresh primary
-conversions reproduce the input changes;
-the existing policy preserves valid converter values and independently validates
-the final bodies. The audit explicitly records optional sample-map/cardinality
-changes as well as seeded primitive choices.
+## Validation
 
-The deferred converter mutation/order issue remains visible: among retained
-operations, 153 of 285 changed response representations, 317 of 321 changed query
-representations, and one of 37 changed headers have unchanged relevant source
-contracts. These are documented as converter artifacts, not upstream semantics
-changes. PR #14 does not redesign converter isolation or introduce another
-migration normalization.
+- Node 24.20.0 / npm 11.19.0; `npm ci` passed.
+- Focused partition/body/construction/query tests passed; `npm test`: **139/139**.
+- `npm run generate`, `npm run generate:check`, `npm run validate`, and `npm run check`: passed.
+- `git diff --check`: passed.
+- Complete independent two-run comparison: byte-identical **14 v2 files and 13,619 Native Git files**.
+- All 11 collections pass two raw migrations, raw/normalized CLI lint, guarded auth-UUID normalization, semantic equivalence, and full file/byte comparison; environment/Globals validation passed.
+- Checksum-verified **Gitleaks 8.30.1**: **3,784 findings adjudicated, zero unresolved** (3,597 auth fingerprints, 161 upstream examples, 26 deterministic synthetic token IDs). Email scan: 403 upstream and 12 synthetic occurrences, zero unexplained.
+- npm audit still reports the existing three high-severity entries in the pinned Faker/converter dependency chain; dependency pins and lockfile are unchanged.
 
-## Complete repository gate
+Detailed [revision review](docs/schema-revision-7287cb19.md) and [machine-readable audit](docs/schema-revision-7287cb19-audit.json) include complete classification, per-operation evidence, compatibility review, and artifact attribution.
 
-- Node.js 24.20.0; `npm ci`: passed with pinned dependencies unchanged.
-- Focused request-body diagnostics: passed, including the fresh construction inventory comparison.
-- Full `npm test`: 138/138 passed, including the 57-case inventory and all twelve PR #12 corrections.
-- `npm run generate`: passed, both formats.
-- `npm run generate:check`: passed, byte-for-byte reproducible.
-- `npm run validate`: passed, including 3,565/3,565 accounting, authentication,
-  body/query contracts, public safety and v2/v3 semantic equivalence.
-- `npm run check`: passed after the reviewed inventory addition (syntax, 138 tests, deterministic generation, complete validation).
-- `git diff --check` and staged whitespace/scope audit: passed.
-- Native Git: raw and normalized collection/environment/Globals lint, guarded
-  auth-UUID normalization, semantic equivalence and two-run migration bytes passed.
-- Complete two-run generation: passed, identical file sets and bytes.
-- Checksum-verified Gitleaks 8.30.1: passed, zero unresolved findings. Of 3,752
-  detections, 3,568 are auth fingerprints, 158 verified public upstream examples,
-  and 26 deterministic synthetic token IDs; 397 public upstream email occurrences
-  and 12 synthetic email occurrences are accounted for. Official archive SHA-256:
-  `dfe101a4db2255fc85120ac7f3d25e4342c3c20cf749f2c20a18081af1952709`.
-- Hosted Validate: reported by PR #14 checks for the published head; the PR description records the final run.
-
-No upstream updater rerun, schema patch, toolchain/dependency change, live
-Cloudflare operation, merge, tag, or release is part of this update commit. The
-changes are prepared for human review; v0.1.0 remains unchanged.
+**Leave PR #15 draft/open for human review.** No live Cloudflare operations, upstream refresh beyond the target, merge, tag, or release.

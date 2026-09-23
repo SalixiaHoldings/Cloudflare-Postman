@@ -1,5 +1,5 @@
 $kind: http-request
-id: b01ff16d-d0c4-5b2f-8190-a3490343a0be
+id: bd96fe0c-50ca-5170-9973-3708cc844d9f
 description: |-
   GENERATED FILE — DO NOT EDIT.
 
@@ -19,6 +19,11 @@ headers:
   Accept: application/json
   X-Auth-Email: "{{api_email}}"
   X-Auth-Key: "{{api_key}}"
+queryParams:
+  - key: profile_type
+    value: warp
+    disabled: true
+    description: Filter profiles by client type. When omitted, only WARP profiles are returned.
 auth:
   type: bearer
   credentials:
