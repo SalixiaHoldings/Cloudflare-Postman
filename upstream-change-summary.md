@@ -1,54 +1,282 @@
-# Cloudflare API schema update — reviewed 7287cb19
+# Cloudflare API schema update
 
-Updates the pinned Cloudflare schema from `73947ddceec8571140469a90a1a35078e10fa054` to `7287cb19ea4c5feb93f8dd0a4d8d12872692a802` (SHA-256 `5caecbd20ea45ee1a2b73c9939168977244e96e85e21b4df4ba8c48ec3c05290`). Baseline: `main` at `7f2c5f61ea9c0cdc6b9f2f9e4be7389ce8122ded`. Both generated distributions represent **3,594/3,594 operations exactly once**: 3,565 → 3,594, net +29; 35 added, six removed, 125 changed, six newly deprecated.
+- Previous revision: `7287cb19ea4c5feb93f8dd0a4d8d12872692a802`
+- New revision: `3cac9fbc62ed8fe3afeffb047e02e2080872a4cd`
+- Previous operations: 3594
+- New operations: 3773
+- Operation delta: +179
+- Added: 316
+- Removed: 137
+- Changed: 3071
+- Newly deprecated: 23
+- Generation: failed: Undeclared partition overlap: DELETE /accounts/{account_id}/access/identity_providers/{identity_provider_id}/scim/groups/{group_id} (accounts-identity-billing, zero-trust)
+- Validation: not run
+- Read-only live smoke test: not run; protected credentials are not exposed to this update job
 
-## Reviewed taxonomy and overlaps
+## Added operations
 
-Calls is deliberately grouped with Cloudflare Realtime under Workers & Developer Platform. Workers gains a narrow account-scoped Calls path matcher and explicitly includes Realtime/Calls; Media loses its generic calls matcher and Calls description. The full classifier comparison proves **exactly ten retained ownership changes**, all Calls Apps/TURN. No unrelated operation changes owner. Three MCP tool-call analytics routes lose incidental Media matches and remain Zero Trust-owned.
+- `DELETE /accounts/{account_id}/access/identity_providers/{identity_provider_id}/scim/groups/{group_id}`
+- `DELETE /accounts/{account_id}/access/identity_providers/{identity_provider_id}/scim/users/{user_id}`
+- `DELETE /accounts/{account_id}/access/organizations/trust_settings`
+- `DELETE /accounts/{account_id}/access/user_populations/{user_population_id}`
+- `DELETE /accounts/{account_id}/access/user_populations/{user_population_id}/users/{user_id}`
+- `DELETE /accounts/{account_id}/access/users/{user_id}/passkeys/{authenticator_id}`
+- `DELETE /accounts/{account_id}/addressing/address_maps/{address_map_id}/ips`
+- `DELETE /accounts/{account_id}/addressing/address_maps/{address_map_id}/zones`
+- `DELETE /accounts/{account_id}/addressing/address_maps/{address_map_id}/zones/{member_zone_id}`
+- `DELETE /accounts/{account_id}/ai-search/namespaces/{namespace}/instances/{id}`
+- `DELETE /accounts/{account_id}/ai-search/namespaces/{namespace}/instances/{id}/items/{item_id}`
+- `DELETE /accounts/{account_id}/billing/spend-policies/{policy_id}`
+- `DELETE /accounts/{account_id}/cfd_tunnel/{tunnel_id}/configurations`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/dataset/{dataset_id}/indicators`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/datasets/preferences`
+- `DELETE /accounts/{account_id}/cloudforce-one/v2/priority-intelligence/profile`
+- `DELETE /accounts/{account_id}/custom_pages/assets/{asset_name}`
+- `DELETE /accounts/{account_id}/cws/basic-auth-credentials/{credential_id}`
+- `DELETE /accounts/{account_id}/cws/basic-auth-credentials/{credential_id}/secrets/{secret_id}`
+- `DELETE /accounts/{account_id}/cws/deployments/{deployment_id}`
+- `DELETE /accounts/{account_id}/cws/domain-acls/{domain_acl_id}`
+- `DELETE /accounts/{account_id}/cws/policies/{policy_id}`
+- `DELETE /accounts/{account_id}/cws/policy-sets/{policy_set_id}`
+- `DELETE /accounts/{account_id}/cws/rego-metadata/{rego_metadata_id}`
+- `DELETE /accounts/{account_id}/cws/rego-modules/{rego_module_id}`
+- `DELETE /accounts/{account_id}/cws/tenant-structures/{structure_id}`
+- `DELETE /accounts/{account_id}/cws/tenant-structures/{structure_id}/nodes/{node_id}`
+- `DELETE /accounts/{account_id}/cws/workloads/{workload_id}`
+- `DELETE /accounts/{account_id}/data-security/posture/finding_types/{finding_type_id}`
+- `DELETE /accounts/{account_id}/devices/policy/exclude`
+- `DELETE /accounts/{account_id}/devices/policy/fallback_domains`
+- `DELETE /accounts/{account_id}/devices/policy/{policy_id}/exclude`
+- `DELETE /accounts/{account_id}/devices/policy/{policy_id}/fallback_domains`
+- `DELETE /accounts/{account_id}/dlp/profiles/integration/{profile_id}`
+- `DELETE /accounts/{account_id}/dlp/validators/proximity_words/{validator_id}`
+- `DELETE /accounts/{account_id}/dlp/validators/worker/{validator_id}`
+- `DELETE /accounts/{account_id}/dns_settings/nameserver_sets/{nameserver_set_id}`
+- `DELETE /accounts/{account_id}/firewall/payload_logging/key`
+- `DELETE /accounts/{account_id}/k2/streams/{stream_id}`
+- `DELETE /accounts/{account_id}/realtime/kit/{app_id}/meetings/{meeting_id}/participants/{participant_id}/token`
+- `DELETE /accounts/{account_id}/workflows/concurrency/{key_id}`
+- `DELETE /accounts/{account_id}/zerotrust/region`
+- `DELETE /subscriptions/{subscription_id}`
+- `DELETE /tenants/{tenant_id}/custom_ns/{custom_ns_id}`
+- `DELETE /zones/{zone_id}/custom_pages/assets/{asset_name}`
+- `DELETE /zones/{zone_id}/firewall/payload_logging/key`
+- `DELETE /zones/{zone_id}/monetization/rules`
+- `DELETE /zones/{zone_id}/monetization/rules/{rule_id}`
+- `DELETE /zones/{zone_id}/settings/aegis`
+- `DELETE /zones/{zone_id}/settings/ohttp-gateway`
+- `GET /accounts/{account_id}/access/identity_providers/{identity_provider_id}/scim/groups/{group_id}`
+- `GET /accounts/{account_id}/access/identity_providers/{identity_provider_id}/scim/users/{user_id}`
+- `GET /accounts/{account_id}/access/organizations/trust_settings`
+- `GET /accounts/{account_id}/access/user_populations`
+- `GET /accounts/{account_id}/access/user_populations/{user_population_id}`
+- `GET /accounts/{account_id}/access/user_populations/{user_population_id}/users`
+- `GET /accounts/{account_id}/access/user_populations/{user_population_id}/users/{user_id}`
+- `GET /accounts/{account_id}/addressing/loa_documents`
+- `GET /accounts/{account_id}/ai-gateway/billing/topup/eligibility`
+- `GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs/{id}`
+- `GET /accounts/{account_id}/ai-search/namespaces/{namespace}/instances`
+- `GET /accounts/{account_id}/ai-search/namespaces/{namespace}/instances/{id}`
+- `GET /accounts/{account_id}/ai-search/namespaces/{namespace}/instances/{id}/items`
+- `GET /accounts/{account_id}/ai-search/namespaces/{namespace}/instances/{id}/items/{item_id}`
+- `GET /accounts/{account_id}/ai-search/namespaces/{namespace}/instances/{id}/items/{item_id}/chunks`
+- `GET /accounts/{account_id}/ai-search/namespaces/{namespace}/instances/{id}/items/{item_id}/download`
+- `GET /accounts/{account_id}/ai-search/namespaces/{namespace}/instances/{id}/items/{item_id}/logs`
+- `GET /accounts/{account_id}/ai-search/namespaces/{namespace}/instances/{id}/jobs`
+- `GET /accounts/{account_id}/ai-search/namespaces/{namespace}/instances/{id}/jobs/{job_id}`
+- `GET /accounts/{account_id}/ai-search/namespaces/{namespace}/instances/{id}/jobs/{job_id}/logs`
+- `GET /accounts/{account_id}/ai-search/namespaces/{namespace}/instances/{id}/stats`
+- `GET /accounts/{account_id}/analytics/sql`
+- `GET /accounts/{account_id}/analytics/sql/introspection`
+- `GET /accounts/{account_id}/argo/count_zones_enabled`
+- `GET /accounts/{account_id}/basin-catalog`
+- ...and 241 more
 
-All 19 overlapping additions and six removed overlaps are reconciled in one pass. The now-empty MCP four-way declaration is retired. **2,550 overlapping operations in 53 declarations**, versus 2,537 in 54. No retained operation newly overlaps or ceases to overlap. The general overlap architecture is unchanged.
+## Removed operations
 
-The six new zone-scoped tracing APIs match Analytics + Zones and belong to **Analytics & Observability**. Their removed account-scoped Workers predecessors have no remaining v2 request, v3 request, or overlap entry.
+- `DELETE /accounts/{accountId}/v1/images/{imageId}`
+- `DELETE /accounts/{account_identifier}/custom_pages/assets/{asset_name}`
+- `DELETE /accounts/{account_id}/addressing/address_maps/{address_map_id}/zones/{zone_id}`
+- `DELETE /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}`
+- `DELETE /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}`
+- `DELETE /accounts/{account_id}/cloudforce-one/v2/threat-signals/curated-feeds/{curated_feed_id}`
+- `DELETE /accounts/{account_id}/email/routing/suppression/{suppression_id}`
+- `DELETE /accounts/{account_id}/email/sending/suppression/{suppression_id}`
+- `DELETE /accounts/{account_id}/magic/cloud/catalog-syncs/{sync_id}`
+- `DELETE /accounts/{account_id}/magic/cloud/onramps/{onramp_id}`
+- `DELETE /accounts/{account_id}/magic/cloud/providers/{provider_id}`
+- `DELETE /tenants/{tenant_tag}/custom_ns/{custom_ns_id}`
+- `DELETE /zones/{zone_identifier}/custom_pages/assets/{asset_name}`
+- `DELETE /zones/{zone_id}/email/routing/suppression/{suppression_id}`
+- `DELETE /zones/{zone_id}/email/sending/suppression/{suppression_id}`
+- `GET /accounts/{accountId}/v1/images`
+- `GET /accounts/{accountId}/v1/images/{imageId}`
+- `GET /accounts/{accountId}/v1/images/{imageId}/blob`
+- `GET /accounts/{accountId}/v2/images`
+- `GET /accounts/{accountId}/zones/{zoneId}/v1/images/flows`
+- `GET /accounts/{account_identifier}/custom_pages`
+- `GET /accounts/{account_identifier}/custom_pages/assets`
+- `GET /accounts/{account_identifier}/custom_pages/assets/{asset_name}`
+- `GET /accounts/{account_identifier}/custom_pages/{identifier}`
+- `GET /accounts/{account_id}/ai-search/namespaces/{name}/instances`
+- `GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}`
+- `GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items`
+- `GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}`
+- `GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/chunks`
+- `GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/download`
+- `GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/logs`
+- `GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/jobs`
+- `GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/jobs/{job_id}`
+- `GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/jobs/{job_id}/logs`
+- `GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/stats`
+- `GET /accounts/{account_id}/browser-rendering/devtools/browser`
+- `GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}`
+- `GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/page/{target_id}`
+- `GET /accounts/{account_id}/cloudforce-one/v2/threat-signals/curated-feeds`
+- `GET /accounts/{account_id}/cloudforce-one/v2/threat-signals/health`
+- `GET /accounts/{account_id}/data-security/posture/policies/logs`
+- `GET /accounts/{account_id}/email/routing/suppression`
+- `GET /accounts/{account_id}/email/routing/suppression/{suppression_id}`
+- `GET /accounts/{account_id}/email/sending/suppression`
+- `GET /accounts/{account_id}/email/sending/suppression/{suppression_id}`
+- `GET /accounts/{account_id}/magic/cloud/catalog-syncs`
+- `GET /accounts/{account_id}/magic/cloud/catalog-syncs/prebuilt-policies`
+- `GET /accounts/{account_id}/magic/cloud/catalog-syncs/{sync_id}`
+- `GET /accounts/{account_id}/magic/cloud/onramps`
+- `GET /accounts/{account_id}/magic/cloud/onramps/magic_wan_address_space`
+- `GET /accounts/{account_id}/magic/cloud/onramps/{onramp_id}`
+- `GET /accounts/{account_id}/magic/cloud/providers`
+- `GET /accounts/{account_id}/magic/cloud/providers/{provider_id}`
+- `GET /accounts/{account_id}/magic/cloud/providers/{provider_id}/initial_setup`
+- `GET /accounts/{account_id}/magic/cloud/resources`
+- `GET /accounts/{account_id}/magic/cloud/resources/export`
+- `GET /accounts/{account_id}/magic/cloud/resources/{resource_id}`
+- `GET /accounts/{account_id}/r2/buckets/{bucket_name}/storage-class-migration-jobs`
+- `GET /accounts/{account_id}/r2/buckets/{bucket_name}/storage-class-migration-jobs/{job_id}`
+- `GET /accounts/{account_id}/registrar/domains`
+- `GET /accounts/{account_id}/registrar/domains/{domain_name}`
+- `GET /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/subscribe`
+- `GET /api/v4/health`
+- `GET /tenants/{tenant_id}`
+- `GET /tenants/{tenant_id}/account_types`
+- `GET /tenants/{tenant_id}/entitlements`
+- `GET /tenants/{tenant_id}/memberships`
+- `GET /tenants/{tenant_tag}/custom_ns`
+- `GET /zones/{zone_identifier}/analytics/colos`
+- `GET /zones/{zone_identifier}/analytics/dashboard`
+- `GET /zones/{zone_identifier}/custom_pages`
+- `GET /zones/{zone_identifier}/custom_pages/assets`
+- `GET /zones/{zone_identifier}/custom_pages/assets/{asset_name}`
+- `GET /zones/{zone_identifier}/custom_pages/{identifier}`
+- `GET /zones/{zone_id}/email/routing/suppression`
+- ...and 62 more
 
-| Partition | Operations |
-| --- | ---: |
-| accounts-identity-billing | 629 |
-| analytics-observability | 441 |
-| application-security-rulesets | 379 |
-| media-communications | 173 |
-| network-services | 286 |
-| other-cloudflare-services | 1 |
-| storage-data | 128 |
-| workers-developer-platform | 516 |
-| zero-trust | 595 |
-| zones-dns-domains | 446 |
+## Changed operations
 
-## Source and compatibility review
+- `DELETE /accounts/{account_id}`
+- `DELETE /accounts/{account_id}/access/ai-controls/mcp/servers/{id}`
+- `DELETE /accounts/{account_id}/access/apps/{app_id}`
+- `DELETE /accounts/{account_id}/access/apps/{app_id}/ca`
+- `DELETE /accounts/{account_id}/access/apps/{app_id}/policies/{policy_id}`
+- `DELETE /accounts/{account_id}/access/bookmarks/{bookmark_id}`
+- `DELETE /accounts/{account_id}/access/certificates/{certificate_id}`
+- `DELETE /accounts/{account_id}/access/custom_pages/{custom_page_id}`
+- `DELETE /accounts/{account_id}/access/gateway_ca/{certificate_id}`
+- `DELETE /accounts/{account_id}/access/groups/{group_id}`
+- `DELETE /accounts/{account_id}/access/identity_providers/{identity_provider_id}`
+- `DELETE /accounts/{account_id}/access/idp_federation_grants/{grant_id}`
+- `DELETE /accounts/{account_id}/access/policies/{policy_id}`
+- `DELETE /accounts/{account_id}/access/service_tokens/{service_token_id}`
+- `DELETE /accounts/{account_id}/access/tags/{tag_name}`
+- `DELETE /accounts/{account_id}/access/users/{user_id}`
+- `DELETE /accounts/{account_id}/access/users/{user_id}/mfa_authenticators/{authenticator_id}`
+- `DELETE /accounts/{account_id}/addressing/address_maps/{address_map_id}`
+- `DELETE /accounts/{account_id}/addressing/address_maps/{address_map_id}/accounts/{member_account_id}`
+- `DELETE /accounts/{account_id}/addressing/address_maps/{address_map_id}/ips/{ip_address}`
+- `DELETE /accounts/{account_id}/addressing/prefixes/{prefix_id}`
+- `DELETE /accounts/{account_id}/addressing/prefixes/{prefix_id}/bgp/prefixes/{bgp_prefix_id}`
+- `DELETE /accounts/{account_id}/addressing/prefixes/{prefix_id}/bindings/{binding_id}`
+- `DELETE /accounts/{account_id}/addressing/prefixes/{prefix_id}/delegations/{delegation_id}`
+- `DELETE /accounts/{account_id}/ai-gateway/billing/spending-limit`
+- `DELETE /accounts/{account_id}/ai-gateway/billing/topup/config`
+- `DELETE /accounts/{account_id}/ai-gateway/custom-providers/costs/{id}`
+- `DELETE /accounts/{account_id}/ai-gateway/custom-providers/{id}`
+- `DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}`
+- `DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/datasets/{id}`
+- `DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/evaluations/{id}`
+- `DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs`
+- `DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs/{id}`
+- `DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}`
+- `DELETE /accounts/{account_id}/ai-gateway/gateways/{id}`
+- `DELETE /accounts/{account_id}/ai-search/instances/{id}`
+- `DELETE /accounts/{account_id}/ai-search/namespaces/{name}`
+- `DELETE /accounts/{account_id}/ai-search/tokens/{id}`
+- `DELETE /accounts/{account_id}/ai/finetunes/{finetune_id}`
+- `DELETE /accounts/{account_id}/alerting/v3/destinations/pagerduty`
+- `DELETE /accounts/{account_id}/alerting/v3/destinations/webhooks/{webhook_id}`
+- `DELETE /accounts/{account_id}/alerting/v3/policies/{policy_id}`
+- `DELETE /accounts/{account_id}/alerting/v3/silences/{silence_id}`
+- `DELETE /accounts/{account_id}/artifacts/namespaces/{namespace}`
+- `DELETE /accounts/{account_id}/artifacts/namespaces/{namespace}/repos/{name}`
+- `DELETE /accounts/{account_id}/artifacts/namespaces/{namespace}/tokens/{id}`
+- `DELETE /accounts/{account_id}/botnet_feed/configs/asn/{asn_id}`
+- `DELETE /accounts/{account_id}/brand-protection/brands`
+- `DELETE /accounts/{account_id}/brand-protection/brands/patterns`
+- `DELETE /accounts/{account_id}/brand-protection/logos/{logo_id}`
+- `DELETE /accounts/{account_id}/brand-protection/queries`
+- `DELETE /accounts/{account_id}/browser-extension/config`
+- `DELETE /accounts/{account_id}/browser-rendering/crawl/{job_id}`
+- `DELETE /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}`
+- `DELETE /accounts/{account_id}/builds/repos/connections/{repo_connection_uuid}`
+- `DELETE /accounts/{account_id}/builds/tokens/{build_token_uuid}`
+- `DELETE /accounts/{account_id}/builds/triggers/{trigger_uuid}`
+- `DELETE /accounts/{account_id}/builds/triggers/{trigger_uuid}/environment_variables/{environment_variable_key}`
+- `DELETE /accounts/{account_id}/builds/workers/{script_name}/deploy_hooks/{deploy_hook_uuid}`
+- `DELETE /accounts/{account_id}/cfd_tunnel/{tunnel_id}`
+- `DELETE /accounts/{account_id}/cfd_tunnel/{tunnel_id}/connections`
+- `DELETE /accounts/{account_id}/challenges/widgets/{sitekey}`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/categories/{category_id}`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/dataset/-/groups/{group_id}`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/dataset/-/groups/{group_id}/members/{member_id}`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/dataset/{dataset_id}`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/dataset/{dataset_id}/indicators/{indicator_id}`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/dataset/{dataset_id}/indicators/{indicator_id}/relationships/{rel_uuid}`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/dataset/{dataset_id}/permissions/{grant_id}`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/datasets/{dataset_id}/events`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/event-categories/by-id/{category_id}`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/event_tag/{event_id}`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/queries/{query_id}`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/relate/{event_id}`
+- `DELETE /accounts/{account_id}/cloudforce-one/events/tag-categories/{category_uuid}`
+- ...and 2996 more
 
-- **Auth:** 572 bearer-only; 1,662 bearer-alternative; 233 legacy-only; 1,116 multi-scheme-or-other; seven anonymous; four manual-unresolved. No retained auth contract changes. The 35 additions comprise one bearer-only, 17 bearer-alternative, and 17 legacy-only. Six tracing operations inherit root security because they have no operation override; all other additions use their explicit security. No neighboring-API assumptions.
-- **Queries:** 139 required and 5,559 optional contracts → 147 enabled and 8,143 disabled rows. The single Cloudforce One search omission and its fingerprint remain unchanged. All secondary-warning fingerprints remain unchanged: 452 diagnostics (450 allOf, two unknown-format); 47 primary warnings. No serializer or warning exception changes.
-- **Bodies:** 1,228 valid; 33 ambiguous-oneOf; 12 source-incomplete; two source-conflict; 2,319 without applicable bodies. Modes: 1,232 raw, 33 multipart, nine file, one URL-encoded. **Zero live sentinels in v2 and v3.** All prior compatibility conditions were independently re-evaluated. The twelve incomplete contracts and both conflicts persist. Bot Management adds one boolean property but its ambiguity remains independently proven; the other 32 ambiguous contracts are unchanged.
-- **Construction:** the complete historical diagnostic reproduces all 57 baseline cases and finds 61 target cases (four additions, no removals), handled by existing policy: 57 valid, two ambiguous, two source-conflict. All twelve PR #12 corrections and source/media/writable/union boundaries pass on the target pin. No construction redesign or endpoint override.
-- **Strict OpenAPI:** Cloudflare fixed the three Spectrum analytics 4xx keys to 4XX. The obsolete exception entries are retired; **zero exceptions remain**.
-- **Added/removed audit:** every added operation has source-derived ownership/auth/query/body checks and exactly one occurrence in each format; every removed operation has zero occurrences and no stale overlap declaration.
+## Newly deprecated operations
 
-## Generated-difference attribution
+- `GET /accounts/{account_id}/containers/applications/{application_id}/instances`
+- `GET /accounts/{account_id}/dlp/payload_log`
+- `GET /accounts/{account_id}/images/v1/variants/{variant_id}/flat`
+- `GET /accounts/{account_id}/r2-catalog`
+- `GET /accounts/{account_id}/r2-catalog/{bucket_name}`
+- `GET /accounts/{account_id}/r2-catalog/{bucket_name}/credential/status`
+- `GET /accounts/{account_id}/r2-catalog/{bucket_name}/maintenance-configs`
+- `GET /accounts/{account_id}/r2-catalog/{bucket_name}/namespaces`
+- `GET /accounts/{account_id}/r2-catalog/{bucket_name}/namespaces/{namespace}/tables`
+- `GET /accounts/{account_id}/r2-catalog/{bucket_name}/namespaces/{namespace}/tables/{table_name}`
+- `GET /accounts/{account_id}/r2-catalog/{bucket_name}/namespaces/{namespace}/tables/{table_name}/maintenance-configs`
+- `GET /accounts/{account_id}/r2-catalog/{bucket_name}/namespaces/{namespace}/tables/{table_name}/maintenance-runs`
+- `GET /zones/{zone_id}/analytics/colos`
+- `GET /zones/{zone_id}/analytics/dashboard`
+- `POST /accounts/{account_id}/email-security/investigate/{investigate_id}/reclassify`
+- `POST /accounts/{account_id}/r2-catalog/{bucket_name}/credential`
+- `POST /accounts/{account_id}/r2-catalog/{bucket_name}/delete`
+- `POST /accounts/{account_id}/r2-catalog/{bucket_name}/disable`
+- `POST /accounts/{account_id}/r2-catalog/{bucket_name}/enable`
+- `POST /accounts/{account_id}/r2-catalog/{bucket_name}/maintenance-configs`
+- `POST /accounts/{account_id}/r2-catalog/{bucket_name}/namespaces/{namespace}/tables/{table_name}/maintenance-configs`
+- `POST /accounts/{account_id}/r2-catalog/{bucket_name}/namespaces/{namespace}/tables/{table_name}/maintenance-configs/{configuration_type}/queue`
+- `PUT /accounts/{account_id}/dlp/payload_log`
 
-Against current main, 199 body differences comprise 14 added bodies, two removed bodies, 14 direct request-template consequences, and 169 converter artifacts (167 with identical source authority; two Magic connector boolean samples despite unrelated source removals). There are 115 retained query changes: three structural, one source-description change, and 111 sample artifacts. The 228 changed retained response representations comprise seven upstream shape changes, five description-label changes, and 216 sample artifacts. The one header change is a Stream Upload-Length sample. All old/new reference request IDs were verified against the existing revision/breadcrumb UUID algorithm; provenance/identity churn is reported separately.
 
-The known converter shared-working-graph/order issue remains deferred. The review distinguishes source changes from unrelated emitted sample changes, including when both occur on one operation. General overlap-policy redesign and issue #16 environment persistence remain separate work.
+## Complete repository gate
 
-## Validation
-
-- Node 24.20.0 / npm 11.19.0; `npm ci` passed.
-- Focused partition/body/construction/query tests passed; `npm test`: **139/139**.
-- `npm run generate`, `npm run generate:check`, `npm run validate`, and `npm run check`: passed.
-- `git diff --check`: passed.
-- Complete independent two-run comparison: byte-identical **14 v2 files and 13,619 Native Git files**.
-- All 11 collections pass two raw migrations, raw/normalized CLI lint, guarded auth-UUID normalization, semantic equivalence, and full file/byte comparison; environment/Globals validation passed.
-- Checksum-verified **Gitleaks 8.30.1**: **3,784 findings adjudicated, zero unresolved** (3,597 auth fingerprints, 161 upstream examples, 26 deterministic synthetic token IDs). Email scan: 403 upstream and 12 synthetic occurrences, zero unexplained.
-- npm audit still reports the existing three high-severity entries in the pinned Faker/converter dependency chain; dependency pins and lockfile are unchanged.
-
-Detailed [revision review](docs/schema-revision-7287cb19.md) and [machine-readable audit](docs/schema-revision-7287cb19-audit.json) include complete classification, per-operation evidence, compatibility review, and artifact attribution.
-
-**Leave PR #15 draft/open for human review.** No live Cloudflare operations, upstream refresh beyond the target, merge, tag, or release.
+- `npm run check`: not run (updater failed)
